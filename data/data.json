@@ -1,0 +1,1857 @@
+{
+  "other": {
+    "delhiCode": "7JWV",
+    "earthScale": 111320
+  },
+"line_color": {
+  "red": "#C60C30",          
+  "yellow": "#FFD514",       
+  "blue": "#005FA9",         
+  "green": "#00B050",       
+  "violet": "#5A189A",       
+  "pink": "#FF69B4",         
+  "magenta": "#D10056",      
+  "orange": "#FF8000",       
+  "grey": "#7F8C8D",         
+  "aqua": "#00B5E2",         
+  "rapid_metro": "#004B87",  
+  "golden": "#D4AF37",       
+  "aqua_Line": "#00B5E2"     
+},
+  "stationData": {
+    "jhil_mil": {
+      "id": "jhil_mil",
+      "name": "Jhil Mil",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM8G6+8X"
+    },
+    "welcome": {
+      "id": "welcome",
+      "name": "Welcome",
+      "lines": ["pink", "red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM7CH+P2"
+    },
+    "dlf_phase_3": {
+      "id": "dlf_phase_3",
+      "name": "DLF Phase 3",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "okhla_nsic": {
+      "id": "okhla_nsic",
+      "name": "Okhla NSIC",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVH737+QW"
+    },
+    "dwarka_mor": {
+      "id": "dwarka_mor",
+      "name": "Dwarka Mor",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ29M+P8"
+    },
+    "dilli_haat_ina": {
+      "id": "dilli_haat_ina",
+      "name": "Dilli Haat INA",
+      "lines": ["pink", "yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVH6F5+WW"
+    },
+    "noida_sector_143": {
+      "id": "noida_sector_143",
+      "name": "Noida Sector 143",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVGC3G+3G"
+    },
+    "moolchand": {
+      "id": "moolchand",
+      "name": "Moolchand",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVH67M+MM"
+    },
+    "chawri_bazar": {
+      "id": "chawri_bazar",
+      "name": "Chawri Bazar",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6XG+PG"
+    },
+    "maya_puri": {
+      "id": "maya_puri",
+      "name": "Maya Puri",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ4PH+VV"
+    },
+    "central_secretariat": {
+      "id": "central_secretariat",
+      "name": "Central Secretariat",
+      "lines": ["yellow", "violet"],
+      "layout": "underground",
+      "plusCode": "7JWVJ676+VQ"
+    },
+    "noida_sector_146": {
+      "id": "noida_sector_146",
+      "name": "Noida Sector 146",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWRCX57+76"
+    },
+    "tikri_border": {
+      "id": "tikri_border",
+      "name": "Tikri Border",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWRMXQ7+6J"
+    },
+    "jangpura": {
+      "id": "jangpura",
+      "name": "Jangpura",
+      "lines": ["violet"],
+      "layout": "underground",
+      "plusCode": "7JWVH6MQ+P3"
+    },
+    "major_mohit_sharma": {
+      "id": "major_mohit_sharma",
+      "name": "Major Mohit Sharma",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM9H5+27"
+    },
+    "majlis_park": {
+      "id": "majlis_park",
+      "name": "Majlis Park",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVP5FJ+QQ"
+    },
+    "bhikaji_cama_place": {
+      "id": "bhikaji_cama_place",
+      "name": "Bhikaji Cama Place",
+      "lines": ["pink"],
+      "layout": "underground",
+      "plusCode": "7JWVH59P+5R"
+    },
+    "mundka_industrial_area_mia": {
+      "id": "mundka_industrial_area_mia",
+      "name": "Mundka Industrial Area (MIA)",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM2M8+9V"
+    },
+    "belvedere_towers": {
+      "id": "belvedere_towers",
+      "name": "Belvedere Towers",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "adarsh_nagar": {
+      "id": "adarsh_nagar",
+      "name": "Adarsh Nagar",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVP58C+H5"
+    },
+    "noida_city_center": {
+      "id": "noida_city_center",
+      "name": "Noida City Center",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH9F4+VC"
+    },
+    "arjan_garh": {
+      "id": "arjan_garh",
+      "name": "Arjan Garh",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVF4JG+88"
+    },
+    "dwarka_sector_9": {
+      "id": "dwarka_sector_9",
+      "name": "Dwarka Sector 9",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH3F7+WR"
+    },
+    "azadpur": {
+      "id": "azadpur",
+      "name": "Azadpur",
+      "lines": ["pink", "yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVP54H+W6"
+    },
+    "qutab_minar": {
+      "id": "qutab_minar",
+      "name": "Qutab Minar",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVG57P+6H"
+    },
+    "r_k_ashram_marg": {
+      "id": "r_k_ashram_marg",
+      "name": "R K Ashram Marg",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ6Q5+M9"
+    },
+    "uttam_nagar_west": {
+      "id": "uttam_nagar_west",
+      "name": "Uttam Nagar West",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ3F8+W4"
+    },
+    "dwarka": {
+      "id": "dwarka",
+      "name": "Dwarka",
+      "lines": ["grey", "blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH2WM+H7"
+    },
+    "delta_1_greater_noida": {
+      "id": "delta_1_greater_noida",
+      "name": "Delta 1 Greater Noida",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVFGF3+QH"
+    },
+    "golf_course": {
+      "id": "golf_course",
+      "name": "Golf Course",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH88W+V9"
+    },
+    "shiv_vihar": {
+      "id": "shiv_vihar",
+      "name": "Shiv Vihar",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ29P+25"
+    },
+    "kashmere_gate": {
+      "id": "kashmere_gate",
+      "name": "Kashmere Gate",
+      "lines": ["violet", "red", "yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVM69H+27"
+    },
+    "jawaharlal_nehru_stadium": {
+      "id": "jawaharlal_nehru_stadium",
+      "name": "Jawaharlal Nehru Stadium",
+      "lines": ["violet"],
+      "layout": "underground",
+      "plusCode": "7JWVH6RM+58"
+    },
+    "patel_chowk": {
+      "id": "patel_chowk",
+      "name": "Patel Chowk",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6F7+5H"
+    },
+    "janak_puri_west": {
+      "id": "janak_puri_west",
+      "name": "Janak Puri West",
+      "lines": ["blue", "magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ3HH+M4"
+    },
+    "kalkaji_mandir": {
+      "id": "kalkaji_mandir",
+      "name": "Kalkaji Mandir",
+      "lines": ["magenta", "violet"],
+      "layout": "underground",
+      "plusCode": "7JWVG7X5+XR"
+    },
+    "dwarka_sector_21first_station": {
+      "id": "dwarka_sector_21first_station",
+      "name": "Dwarka Sector 21(First station)",
+      "lines": ["blue"],
+      "layout": "underground",
+      "plusCode": "7JWVH325+W8"
+    },
+    "subhash_nagar": {
+      "id": "subhash_nagar",
+      "name": "Subhash Nagar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ4R3+5X"
+    },
+    "tughlakabad": {
+      "id": "tughlakabad",
+      "name": "Tughlakabad",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVG73X+2P"
+    },
+    "old_faridabad": {
+      "id": "old_faridabad",
+      "name": "Old Faridabad",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3JM+8X"
+    },
+    "rohini_sector_18_19": {
+      "id": "rohini_sector_18_19",
+      "name": "Rohini Sector 18-19",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVP4QQ+8W"
+    },
+    "keshav_puram": {
+      "id": "keshav_puram",
+      "name": "Keshav Puram",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM5Q6+HJ"
+    },
+    "kohat_enclave": {
+      "id": "kohat_enclave",
+      "name": "Kohat Enclave",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4XR+63"
+    },
+    "paschim_vihar_west": {
+      "id": "paschim_vihar_west",
+      "name": "Paschim Vihar (West)",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4H2+CW"
+    },
+    "dwarka_sector_14": {
+      "id": "dwarka_sector_14",
+      "name": "Dwarka Sector 14",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ22G+V9"
+    },
+    "iit_delhi": {
+      "id": "iit_delhi",
+      "name": "IIT Delhi",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVG5VQ+WW"
+    },
+    "rajouri_garden": {
+      "id": "rajouri_garden",
+      "name": "Rajouri Garden",
+      "lines": ["pink", "blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ4W9+6Q"
+    },
+    "karkarduma_court": {
+      "id": "karkarduma_court",
+      "name": "Karkarduma Court",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVM73W+C8"
+    },
+    "rajendra_place": {
+      "id": "rajendra_place",
+      "name": "Rajendra Place",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ5RH+X7"
+    },
+    "hauz_khas": {
+      "id": "hauz_khas",
+      "name": "Hauz Khas",
+      "lines": ["magenta", "yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVG6V4+GM"
+    },
+    "noida_sector_137": {
+      "id": "noida_sector_137",
+      "name": "Noida Sector 137",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVGC55+JJ"
+    },
+    "okhla": {
+      "id": "okhla",
+      "name": "Okhla",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVG7VG+52"
+    },
+    "jhandewalan": {
+      "id": "jhandewalan",
+      "name": "Jhandewalan",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ5VX+PX"
+    },
+    "raj_bagh": {
+      "id": "raj_bagh",
+      "name": "Raj Bagh",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ6R5+8Q"
+    },
+    "inderlok_connred": {
+      "id": "inderlok_connred",
+      "name": "Inderlok Conn:Red",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM5F9+7X"
+    },
+    "noida_sector_51": {
+      "id": "noida_sector_51",
+      "name": "Noida Sector 51",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVH9PG+74"
+    },
+    "pari_chowk_greater_noida": {
+      "id": "pari_chowk_greater_noida",
+      "name": "Pari Chowk Greater Noida",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVFG75+76"
+    },
+    "noida_sector_148": {
+      "id": "noida_sector_148",
+      "name": "Noida Sector 148",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVFHG3+8Q"
+    },
+    "pitam_pura": {
+      "id": "pitam_pura",
+      "name": "Pitam Pura",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVP43J+7V"
+    },
+    "moti_nagar": {
+      "id": "moti_nagar",
+      "name": "Moti Nagar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVM45R+4X"
+    },
+    "pandit_shree_ram_sharma": {
+      "id": "pandit_shree_ram_sharma",
+      "name": "Pandit Shree Ram Sharma",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWRMXQ2+PF"
+    },
+    "nangloi_railway_station": {
+      "id": "nangloi_railway_station",
+      "name": "Nangloi Railway Station",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM3J4+R9"
+    },
+    "noida_sector_50": {
+      "id": "noida_sector_50",
+      "name": "Noida Sector 50",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVG9PR+6C"
+    },
+    "shastri_nagar": {
+      "id": "shastri_nagar",
+      "name": "Shastri Nagar",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM59J+XM"
+    },
+    "sarita_vihar": {
+      "id": "sarita_vihar",
+      "name": "Sarita Vihar",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVG7HQ+G8"
+    },
+    "mundka": {
+      "id": "mundka",
+      "name": "Mundka",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM2MJ+7G"
+    },
+    "mansarovar_park": {
+      "id": "mansarovar_park",
+      "name": "Mansarovar Park",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM8G2+59"
+    },
+    "mayur_vihar_phase_1": {
+      "id": "mayur_vihar_phase_1",
+      "name": "Mayur Vihar Phase-1",
+      "lines": ["blue", "pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ73V+GC"
+    },
+    "vishwavidyalaya": {
+      "id": "vishwavidyalaya",
+      "name": "Vishwavidyalaya",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVM6V7+WW"
+    },
+    "tis_hazari": {
+      "id": "tis_hazari",
+      "name": "Tis Hazari",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM688+RJ"
+    },
+    "noida_sector_59": {
+      "id": "noida_sector_59",
+      "name": "Noida Sector 59",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3JM+8X"
+    },
+    "igi_airport": {
+      "id": "igi_airport",
+      "name": "IGI Airport",
+      "lines": ["orange"],
+      "layout": "underground",
+      "plusCode": "7JWVH34P+QM"
+    },
+    "dwarka_sector_8": {
+      "id": "dwarka_sector_8",
+      "name": "Dwarka Sector 8",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH388+8R"
+    },
+    "noida_sector_62": {
+      "id": "noida_sector_62",
+      "name": "Noida Sector 62",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3JM+8X"
+    },
+    "jamia_millia_islamia": {
+      "id": "jamia_millia_islamia",
+      "name": "JAMIA MILLIA ISLAMIA",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVH75J+9F"
+    },
+    "janpath": {
+      "id": "janpath",
+      "name": "Janpath",
+      "lines": ["violet"],
+      "layout": "underground",
+      "plusCode": "7JWVJ659+G7"
+    },
+    "noida_sector_52": {
+      "id": "noida_sector_52",
+      "name": "Noida Sector 52",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3JM+8X"
+    },
+    "munirka": {
+      "id": "munirka",
+      "name": "Munirka",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVH53C+XC"
+    },
+    "sarai_kale_khan_hazrat_nizamuddin": {
+      "id": "sarai_kale_khan_hazrat_nizamuddin",
+      "name": "Sarai Kale Khan Hazrat Nizamuddin",
+      "lines": ["pink"],
+      "layout": "underground",
+      "plusCode": "7JWVH7Q4+FV"
+    },
+    "pratap_nagar": {
+      "id": "pratap_nagar",
+      "name": "Pratap Nagar",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM58X+JG"
+    },
+    "satguru_ram_singh_marg": {
+      "id": "satguru_ram_singh_marg",
+      "name": "Satguru Ram Singh Marg",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM564+QX"
+    },
+    "botanical_garden": {
+      "id": "botanical_garden",
+      "name": "Botanical Garden",
+      "lines": ["magenta", "blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH87M+HP"
+    },
+    "sikandarpur": {
+      "id": "sikandarpur",
+      "name": "Sikandarpur",
+      "lines": ["rapid_metro", "yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3QV+35"
+    },
+    "gnida_office": {
+      "id": "gnida_office",
+      "name": "GNIDA Office",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVFGF3+QH"
+    },
+    "nhpc_chowk": {
+      "id": "nhpc_chowk",
+      "name": "N.H.P.C. Chowk",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVF65C+3Q"
+    },
+    "saket": {
+      "id": "saket",
+      "name": "Saket",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVG6C2+6H"
+    },
+    "noida_sector_61": {
+      "id": "noida_sector_61",
+      "name": "Noida Sector 61",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3JM+8X"
+    },
+    "shakurpur": {
+      "id": "shakurpur",
+      "name": "Shakurpur",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4PX+8R"
+    },
+    "vidhan_sabha": {
+      "id": "vidhan_sabha",
+      "name": "Vidhan Sabha",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVM6QC+6H"
+    },
+    "sarojini_nagar": {
+      "id": "sarojini_nagar",
+      "name": "Sarojini Nagar",
+      "lines": ["pink"],
+      "layout": "underground",
+      "plusCode": "7JWVH5FW+M4"
+    },
+    "supreme_court_pragati_maidan": {
+      "id": "supreme_court_pragati_maidan",
+      "name": "Supreme Court (Pragati Maidan)",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ6FV+92"
+    },
+    "chhattarpur": {
+      "id": "chhattarpur",
+      "name": "Chhattarpur",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVG54F+MW"
+    },
+    "delhi_aerocity": {
+      "id": "delhi_aerocity",
+      "name": "Delhi Aerocity",
+      "lines": ["orange"],
+      "layout": "underground",
+      "plusCode": "7JWVG4XC+G9"
+    },
+    "sector_55_66": {
+      "id": "sector_55_66",
+      "name": "Sector 55-66",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "terminal_1_igi_airport": {
+      "id": "terminal_1_igi_airport",
+      "name": "Terminal 1 IGI Airport",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVH4G6+VF"
+    },
+    "brigadier_hoshiar_singh": {
+      "id": "brigadier_hoshiar_singh",
+      "name": "Brigadier Hoshiar Singh",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWRMWW9+XM"
+    },
+    "haiderpur_badli_mor": {
+      "id": "haiderpur_badli_mor",
+      "name": "Haiderpur Badli Mor",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVP4JX+2Q"
+    },
+    "noida_sector_142": {
+      "id": "noida_sector_142",
+      "name": "Noida Sector 142",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVFHG3+8Q"
+    },
+    "uttam_nagar_east": {
+      "id": "uttam_nagar_east",
+      "name": "Uttam Nagar East",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ3C4+P8"
+    },
+    "delhi_cantt": {
+      "id": "delhi_cantt",
+      "name": "Delhi Cantt",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVH4VM+GX"
+    },
+    "noida_sector_147": {
+      "id": "noida_sector_147",
+      "name": "Noida Sector 147",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWRCW58+H6"
+    },
+    "maujpur": {
+      "id": "maujpur",
+      "name": "Maujpur",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVM7RH+QR"
+    },
+    "karkar_duma": {
+      "id": "karkar_duma",
+      "name": "Karkar Duma",
+      "lines": ["blue", "pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ8X4+G9"
+    },
+    "laxmi_nagar": {
+      "id": "laxmi_nagar",
+      "name": "Laxmi Nagar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ7JG+7X"
+    },
+    "shivaji_stadium": {
+      "id": "shivaji_stadium",
+      "name": "Shivaji Stadium",
+      "lines": ["orange"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6H6+JQ"
+    },
+    "nirman_vihar": {
+      "id": "nirman_vihar",
+      "name": "Nirman Vihar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ7PP+MP"
+    },
+    "nehru_place": {
+      "id": "nehru_place",
+      "name": "Nehru Place",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVH722+HJ"
+    },
+    "dwarka_sector_10": {
+      "id": "dwarka_sector_10",
+      "name": "Dwarka Sector 10",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH3J4+7P"
+    },
+    "kirti_nagar": {
+      "id": "kirti_nagar",
+      "name": "Kirti Nagar",
+      "lines": ["green", "blue"],
+      "layout": "at-grade",
+      "plusCode": "7JWVM542+76"
+    },
+    "arthala": {
+      "id": "arthala",
+      "name": "Arthala",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM9GR+QQ"
+    },
+    "noida_sector_15": {
+      "id": "noida_sector_15",
+      "name": "Noida Sector 15",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH8P6+2H"
+    },
+    "nawada": {
+      "id": "nawada",
+      "name": "Nawada",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ2CW+33"
+    },
+    "yamuna_bank": {
+      "id": "yamuna_bank",
+      "name": "Yamuna Bank",
+      "lines": ["blue"],
+      "layout": "at-grade",
+      "plusCode": "7JWVJ7F9+85"
+    },
+    "anand_vihar": {
+      "id": "anand_vihar",
+      "name": "Anand Vihar",
+      "lines": ["blue", "pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ8W8+PR"
+    },
+    "cyber_city": {
+      "id": "cyber_city",
+      "name": "Cyber City",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "lal_quila": {
+      "id": "lal_quila",
+      "name": "Lal Quila",
+      "lines": ["violet"],
+      "layout": "underground",
+      "plusCode": "7JVVWGCH+8C"
+    },
+    "mandi_house": {
+      "id": "mandi_house",
+      "name": "Mandi House",
+      "lines": ["blue", "violet"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6GM+7M"
+    },
+    "ashok_park_main": {
+      "id": "ashok_park_main",
+      "name": "Ashok Park Main",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4CX+VV"
+    },
+    "dashrath_puri": {
+      "id": "dashrath_puri",
+      "name": "Dashrath Puri",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVJ32J+QW"
+    },
+    "okhla_bird_sanctuary": {
+      "id": "okhla_bird_sanctuary",
+      "name": "Okhla Bird Sanctuary",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVH83C+5J"
+    },
+    "noida_sector_144": {
+      "id": "noida_sector_144",
+      "name": "Noida Sector 144",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWRCW58+H6"
+    },
+    "preet_vihar": {
+      "id": "preet_vihar",
+      "name": "Preet Vihar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ7RW+M5"
+    },
+    "nangli": {
+      "id": "nangli",
+      "name": "Nangli",
+      "lines": ["grey"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ286+W5"
+    },
+    "sarai": {
+      "id": "sarai",
+      "name": "Sarai",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVM62C+MQ"
+    },
+    "samaypur_badlifirst_station": {
+      "id": "samaypur_badlifirst_station",
+      "name": "Samaypur Badli(First Station)",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVP4VQ+R8"
+    },
+    "ashram": {
+      "id": "ashram",
+      "name": "Ashram",
+      "lines": ["pink"],
+      "layout": "underground",
+      "plusCode": "7JWVH7C5+XC"
+    },
+    "jasola_vihar_shaheen_bagh": {
+      "id": "jasola_vihar_shaheen_bagh",
+      "name": "Jasola Vihar Shaheen Bagh",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVG7WW+8M"
+    },
+    "mewala_maharajpur": {
+      "id": "mewala_maharajpur",
+      "name": "Mewala Maharajpur",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVC8R2+PW"
+    },
+    "netaji_subash_place": {
+      "id": "netaji_subash_place",
+      "name": "Netaji Subash Place",
+      "lines": ["pink", "red"],
+      "layout": "underground",
+      "plusCode": "7JWVM5W2+9X"
+    },
+    "krishna_nagar": {
+      "id": "krishna_nagar",
+      "name": "Krishna Nagar",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVM75R+43"
+    },
+    "huda_city_centre": {
+      "id": "huda_city_centre",
+      "name": "Huda City Centre",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVF35F+P3"
+    },
+    "sir_vishweshwaraiah_moti_bagh": {
+      "id": "sir_vishweshwaraiah_moti_bagh",
+      "name": "Sir Vishweshwaraiah Moti Bagh",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVH5HG+C7"
+    },
+    "ramesh_nagar": {
+      "id": "ramesh_nagar",
+      "name": "Ramesh Nagar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVM43J+3M"
+    },
+    "panchsheel_park": {
+      "id": "panchsheel_park",
+      "name": "Panchsheel Park",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVG6V7+8J"
+    },
+    "model_town": {
+      "id": "model_town",
+      "name": "Model Town",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVP53V+4F"
+    },
+    "rithalalast_station": {
+      "id": "rithalalast_station",
+      "name": "Rithala(last station)",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVP4C4+7V"
+    },
+    "tikri_kalan": {
+      "id": "tikri_kalan",
+      "name": "Tikri Kalan",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWRMXPG+PV"
+    },
+    "punjabi_bagh_west": {
+      "id": "punjabi_bagh_west",
+      "name": "Punjabi Bagh West",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4CR+4R"
+    },
+    "sector_54_chowk": {
+      "id": "sector_54_chowk",
+      "name": "Sector 54 Chowk",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "aiims": {
+      "id": "aiims",
+      "name": "AIIMS",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVH695+H3"
+    },
+    "barakhamba": {
+      "id": "barakhamba",
+      "name": "Barakhamba",
+      "lines": ["blue"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6JF+2P"
+    },
+    "sector_28_faridabad": {
+      "id": "sector_28_faridabad",
+      "name": "Sector 28 Faridabad",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVG2WM+42"
+    },
+    "sadar_bazaar_cantonment": {
+      "id": "sadar_bazaar_cantonment",
+      "name": "Sadar Bazaar Cantonment",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVH4G6+VF"
+    },
+    "chandni_chowk": {
+      "id": "chandni_chowk",
+      "name": "Chandni Chowk",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVM65J+43"
+    },
+    "mayur_vihar_pocket_i": {
+      "id": "mayur_vihar_pocket_i",
+      "name": "Mayur Vihar Pocket I",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ74X+8F"
+    },
+    "dabri_mor_janakpuri_south": {
+      "id": "dabri_mor_janakpuri_south",
+      "name": "Dabri Mor - Janakpuri South",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVJ38P+83"
+    },
+    "nangloi": {
+      "id": "nangloi",
+      "name": "Nangloi",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM3J7+WV"
+    },
+    "rohini_east": {
+      "id": "rohini_east",
+      "name": "Rohini East",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVP45G+29"
+    },
+    "najafgarh": {
+      "id": "najafgarh",
+      "name": "Najafgarh",
+      "lines": ["grey"],
+      "layout": "underground",
+      "plusCode": "7JWRJX6J+WX"
+    },
+    "ghevra_metro_station": {
+      "id": "ghevra_metro_station",
+      "name": "Ghevra Metro station",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWRMXPW+3F"
+    },
+    "jasola": {
+      "id": "jasola",
+      "name": "Jasola",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVG7QM+77"
+    },
+    "shaheed_sthalfirst_station": {
+      "id": "shaheed_sthalfirst_station",
+      "name": "Shaheed Sthal(First Station)",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVMCC8+66"
+    },
+    "johri_enclave": {
+      "id": "johri_enclave",
+      "name": "Johri Enclave",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVP77P+5F"
+    },
+    "akshardham": {
+      "id": "akshardham",
+      "name": "Akshardham",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ79H+6F"
+    },
+    "noida_sector_145": {
+      "id": "noida_sector_145",
+      "name": "Noida Sector 145",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWRCW58+H6"
+    },
+    "esi_basai_darapur": {
+      "id": "esi_basai_darapur",
+      "name": "ESI BASAI DARAPUR",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVM45G+6W"
+    },
+    "indraprastha": {
+      "id": "indraprastha",
+      "name": "Indraprastha",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ6CX+6X"
+    },
+    "guru_tegh_bahadur_nagar": {
+      "id": "guru_tegh_bahadur_nagar",
+      "name": "Guru Tegh Bahadur Nagar",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVM6X4+4V"
+    },
+    "guru_dronacharya": {
+      "id": "guru_dronacharya",
+      "name": "Guru Dronacharya",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVF4J2+RW"
+    },
+    "sector_42_43": {
+      "id": "sector_42_43",
+      "name": "Sector 42-43",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "nehru_enclave": {
+      "id": "nehru_enclave",
+      "name": "Nehru Enclave",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVG7W2+CJ"
+    },
+    "mohan_estate": {
+      "id": "mohan_estate",
+      "name": "Mohan Estate",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVG79V+QH"
+    },
+    "okhla_vihar": {
+      "id": "okhla_vihar",
+      "name": "Okhla Vihar",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVH76R+GQ"
+    },
+    "shahdara": {
+      "id": "shahdara",
+      "name": "Shahdara",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM7FQ+9R"
+    },
+    "dhaula_kuan": {
+      "id": "dhaula_kuan",
+      "name": "Dhaula Kuan",
+      "lines": ["orange"],
+      "layout": "elevated",
+      "plusCode": "7JWVH5R6+PJ"
+    },
+    "jaffrabad": {
+      "id": "jaffrabad",
+      "name": "Jaffrabad",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVM7MF+3W"
+    },
+    "rohini_west": {
+      "id": "rohini_west",
+      "name": "Rohini West",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVP477+WV"
+    },
+    "palam": {
+      "id": "palam",
+      "name": "Palam",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVH3RM+Q4"
+    },
+    "shyam_park": {
+      "id": "shyam_park",
+      "name": "Shyam park",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7GWCMMXX+GG"
+    },
+    "vaishali": {
+      "id": "vaishali",
+      "name": "Vaishali",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ8XQ+XV"
+    },
+    "jahangirpuri": {
+      "id": "jahangirpuri",
+      "name": "Jahangirpuri",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVP5G7+93"
+    },
+    "badarpur_border": {
+      "id": "badarpur_border",
+      "name": "Badarpur Border",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVF8V3+86"
+    },
+    "ito": {
+      "id": "ito",
+      "name": "ITO",
+      "lines": ["violet"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6JR+6H"
+    },
+    "badkal_mor": {
+      "id": "badkal_mor",
+      "name": "Badkal Mor",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVC8F6+44"
+    },
+    "naraina_vihar": {
+      "id": "naraina_vihar",
+      "name": "Naraina Vihar",
+      "lines": ["pink"],
+      "layout": "underground",
+      "plusCode": "7JWVJ4GR+W4"
+    },
+    "rajdhani_park": {
+      "id": "rajdhani_park",
+      "name": "Rajdhani Park",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM2JV+VG"
+    },
+    "maharaja_surajmal_stadium": {
+      "id": "maharaja_surajmal_stadium",
+      "name": "Maharaja Surajmal Stadium",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM3JF+PG"
+    },
+    "punjabi_bagh": {
+      "id": "punjabi_bagh",
+      "name": "Punjabi Bagh",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4FW+5F"
+    },
+    "depot_greater_noida": {
+      "id": "depot_greater_noida",
+      "name": "Depot Greater Noida",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVFGF3+QH"
+    },
+    "trilokpuri_sanjay_lake": {
+      "id": "trilokpuri_sanjay_lake",
+      "name": "Trilokpuri Sanjay Lake",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ875+9G"
+    },
+    "dwarka_sector_11": {
+      "id": "dwarka_sector_11",
+      "name": "Dwarka Sector 11",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH2PX+JP"
+    },
+    "iffco_chowk": {
+      "id": "iffco_chowk",
+      "name": "IFFCO Chowk",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3CC+RP"
+    },
+    "rajiv_chowk": {
+      "id": "rajiv_chowk",
+      "name": "Rajiv Chowk",
+      "lines": ["yellow", "blue"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6M9+48"
+    },
+    "greater_kailash": {
+      "id": "greater_kailash",
+      "name": "Greater Kailash",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVG6RQ+Q9"
+    },
+    "moulsari_avenue": {
+      "id": "moulsari_avenue",
+      "name": "Moulsari Avenue",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "south_extension": {
+      "id": "south_extension",
+      "name": "South Extension",
+      "lines": ["pink"],
+      "layout": "underground",
+      "plusCode": "7JWVM62C+MQ"
+    },
+    "dlf_phase_2": {
+      "id": "dlf_phase_2",
+      "name": "DLF Phase 2",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "lajpat_nagar": {
+      "id": "lajpat_nagar",
+      "name": "Lajpat Nagar",
+      "lines": ["pink", "violet"],
+      "layout": "underground",
+      "plusCode": "7JWVH6CP+8J"
+    },
+    "tilak_nagar": {
+      "id": "tilak_nagar",
+      "name": "Tilak Nagar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ3PW+JH"
+    },
+    "civil_lines": {
+      "id": "civil_lines",
+      "name": "Civil Lines",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVM6GG+P2"
+    },
+    "sukhdev_vihar": {
+      "id": "sukhdev_vihar",
+      "name": "Sukhdev Vihar",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVH75F+VX"
+    },
+    "vasant_vihar": {
+      "id": "vasant_vihar",
+      "name": "Vasant Vihar",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVH566+78"
+    },
+    "shastri_park": {
+      "id": "shastri_park",
+      "name": "Shastri Park",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM69X+6X"
+    },
+    "udyog_bhawan": {
+      "id": "udyog_bhawan",
+      "name": "Udyog Bhawan",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVJ666+MQ"
+    },
+    "mandawali_west_vinod_nagar": {
+      "id": "mandawali_west_vinod_nagar",
+      "name": "Mandawali - West Vinod Nagar",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ8F3+XQ"
+    },
+    "nsez_noida": {
+      "id": "nsez_noida",
+      "name": "NSEZ Noida",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVG9PR+6C"
+    },
+    "rk_puram": {
+      "id": "rk_puram",
+      "name": "RK Puram",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVH52M+HV"
+    },
+    "delhi_gate": {
+      "id": "delhi_gate",
+      "name": "Delhi Gate",
+      "lines": ["violet"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6QR+M8"
+    },
+    "new_delhi": {
+      "id": "new_delhi",
+      "name": "New Delhi",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6VC+6H"
+    },
+    "bahdurgarh_city": {
+      "id": "bahdurgarh_city",
+      "name": "Bahdurgarh City",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWRMWRP+85"
+    },
+    "sant_surdas_sihi": {
+      "id": "sant_surdas_sihi",
+      "name": "Sant Surdas - Sihi",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWV9838+VF"
+    },
+    "shalimar_bagh": {
+      "id": "shalimar_bagh",
+      "name": "Shalimar Bagh",
+      "lines": ["pink"],
+      "layout": "underground",
+      "plusCode": "7JWVP582+X8"
+    },
+    "mohan_nagar": {
+      "id": "mohan_nagar",
+      "name": "Mohan Nagar",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ444+GC"
+    },
+    "noida_sector_16": {
+      "id": "noida_sector_16",
+      "name": "Noida Sector 16",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH8H9+72"
+    },
+    "peera_garhi": {
+      "id": "peera_garhi",
+      "name": "Peera Garhi",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM3HV+R2"
+    },
+    "hindon_river": {
+      "id": "hindon_river",
+      "name": "Hindon River",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVVCH8+H5"
+    },
+    "new_ashok_nagar": {
+      "id": "new_ashok_nagar",
+      "name": "New Ashok Nagar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH8Q2+MR"
+    },
+    "jor_bagh": {
+      "id": "jor_bagh",
+      "name": "Jor Bagh",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVH6P6+RR"
+    },
+    "janak_puri_east": {
+      "id": "janak_puri_east",
+      "name": "Janak Puri East",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ3MP+6M"
+    },
+    "chirag_delhi": {
+      "id": "chirag_delhi",
+      "name": "Chirag Delhi",
+      "lines": ["magenta"],
+      "layout": "underground",
+      "plusCode": "7JWVG6QH+76"
+    },
+    "noida_sector_81": {
+      "id": "noida_sector_81",
+      "name": "Noida Sector 81",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ9FF+2P"
+    },
+    "shaheed_nagar": {
+      "id": "shaheed_nagar",
+      "name": "Shaheed Nagar",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVG6J6+8R"
+    },
+    "kailash_colony": {
+      "id": "kailash_colony",
+      "name": "Kailash Colony",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVH64R+4R"
+    },
+    "shankar_vihar": {
+      "id": "shankar_vihar",
+      "name": "Shankar Vihar",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVH44Q+XV"
+    },
+    "noida_sector_83": {
+      "id": "noida_sector_83",
+      "name": "Noida Sector 83",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVG9FW+JV"
+    },
+    "noida_sector_34": {
+      "id": "noida_sector_34",
+      "name": "Noida Sector 34",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3JM+8X"
+    },
+    "karol_bagh": {
+      "id": "karol_bagh",
+      "name": "Karol Bagh",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ5VQ+JC"
+    },
+    "tagore_garden": {
+      "id": "tagore_garden",
+      "name": "Tagore Garden",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ4V7+G4"
+    },
+    "shivaji_park": {
+      "id": "shivaji_park",
+      "name": "Shivaji Park",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4FJ+X6"
+    },
+    "green_park": {
+      "id": "green_park",
+      "name": "Green Park",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVH654+WP"
+    },
+    "patel_nagar": {
+      "id": "patel_nagar",
+      "name": "Patel Nagar",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ5V9+XP"
+    },
+    "dilshad_garden": {
+      "id": "dilshad_garden",
+      "name": "Dilshad Garden",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM8GC+9H"
+    },
+    "vinod_nagar_east": {
+      "id": "vinod_nagar_east",
+      "name": "Vinod Nagar East",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ8C4+25"
+    },
+    "seelampur": {
+      "id": "seelampur",
+      "name": "Seelampur",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM798+XM"
+    },
+    "ghitorni": {
+      "id": "ghitorni",
+      "name": "Ghitorni",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVF4VX+GM"
+    },
+    "shadipur": {
+      "id": "shadipur",
+      "name": "Shadipur",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVM525+J7"
+    },
+    "paschim_vihar_east": {
+      "id": "paschim_vihar_east",
+      "name": "Paschim Vihar (East)",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4G6+WW"
+    },
+    "pul_bangash": {
+      "id": "pul_bangash",
+      "name": "Pul Bangash",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM684+GW"
+    },
+    "khan_market": {
+      "id": "khan_market",
+      "name": "Khan Market",
+      "lines": ["violet"],
+      "layout": "underground",
+      "plusCode": "7JWVJ63H+48"
+    },
+    "dwarka_sector_13": {
+      "id": "dwarka_sector_13",
+      "name": "Dwarka Sector 13",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH2WM+V8"
+    },
+    "new_delhi_airport_express": {
+      "id": "new_delhi_airport_express",
+      "name": "New Delhi-Airport Express",
+      "lines": ["orange"],
+      "layout": "underground",
+      "plusCode": "7JWVJ6VC+6H"
+    },
+    "udyog_nagar": {
+      "id": "udyog_nagar",
+      "name": "Udyog Nagar",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM3JJ+98"
+    },
+    "noida_sector_101": {
+      "id": "noida_sector_101",
+      "name": "Noida Sector 101",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVH94M+HW"
+    },
+    "durgabai_deshmukh_south_campus": {
+      "id": "durgabai_deshmukh_south_campus",
+      "name": "Durgabai Deshmukh South Campus",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVH5Q9+QJ"
+    },
+    "alpha_1_greater_noida": {
+      "id": "alpha_1_greater_noida",
+      "name": "Alpha 1 Greater Noida",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVFGC7+93"
+    },
+    "east_azad_nagar": {
+      "id": "east_azad_nagar",
+      "name": "East Azad Nagar",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVM77M+VX"
+    },
+    "mg_road": {
+      "id": "mg_road",
+      "name": "MG Road",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3HJ+R2"
+    },
+    "ip_extension": {
+      "id": "ip_extension",
+      "name": "IP Extension",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ8H6+H3"
+    },
+    "malviya_nagar": {
+      "id": "malviya_nagar",
+      "name": "Malviya Nagar",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVG6H4+57"
+    },
+    "govind_puri": {
+      "id": "govind_puri",
+      "name": "Govind Puri",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWVG7V7+RJ"
+    },
+    "escorts_mujesar": {
+      "id": "escorts_mujesar",
+      "name": "Escorts Mujesar",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWV98C7+3X"
+    },
+    "neelam_chowk_ajronda": {
+      "id": "neelam_chowk_ajronda",
+      "name": "Neelam Chowk Ajronda",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWV98W6+XW"
+    },
+    "sultanpur": {
+      "id": "sultanpur",
+      "name": "Sultanpur",
+      "lines": ["yellow"],
+      "layout": "elevated",
+      "plusCode": "7JWVF5X6+PJ"
+    },
+    "lok_kalyan_marg": {
+      "id": "lok_kalyan_marg",
+      "name": "Lok Kalyan Marg",
+      "lines": ["yellow"],
+      "layout": "underground",
+      "plusCode": "7JWVH6W6+W9"
+    },
+    "vinobapuri": {
+      "id": "vinobapuri",
+      "name": "Vinobapuri",
+      "lines": ["pink"],
+      "layout": "underground",
+      "plusCode": "7JWVH68X+QM"
+    },
+    "gokulpuri": {
+      "id": "gokulpuri",
+      "name": "Gokulpuri",
+      "lines": ["pink"],
+      "layout": "elevated",
+      "plusCode": "7JWVP72P+XF"
+    },
+    "kanhaiya_nagar": {
+      "id": "kanhaiya_nagar",
+      "name": "Kanhaiya Nagar",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM5M7+2R"
+    },
+    "jama_masjid": {
+      "id": "jama_masjid",
+      "name": "Jama Masjid",
+      "lines": ["violet"],
+      "layout": "underground",
+      "plusCode": "7JWVM62Q+23"
+    },
+    "raja_nahar_singh": {
+      "id": "raja_nahar_singh",
+      "name": "Raja Nahar Singh",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWV88R8+2H"
+    },
+    "noida_sector_76": {
+      "id": "noida_sector_76",
+      "name": "Noida Sector 76",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVH99M+F3"
+    },
+    "sector_53_54": {
+      "id": "sector_53_54",
+      "name": "Sector 53-54",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "madipur": {
+      "id": "madipur",
+      "name": "Madipur",
+      "lines": ["green"],
+      "layout": "elevated",
+      "plusCode": "7JWVM4G9+WV"
+    },
+    "dlf_phase_1": {
+      "id": "dlf_phase_1",
+      "name": "DLF Phase 1",
+      "lines": ["rapid_metro"],
+      "layout": "elevated",
+      "plusCode": "7JWVF3VV+CC"
+    },
+    "kalindi_kunj": {
+      "id": "kalindi_kunj",
+      "name": "Kalindi Kunj",
+      "lines": ["magenta"],
+      "layout": "elevated",
+      "plusCode": "7JWVG8W4+39"
+    },
+    "kaushambi": {
+      "id": "kaushambi",
+      "name": "Kaushambi",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVJ8WF+5P"
+    },
+    "dwarka_sector_21": {
+      "id": "dwarka_sector_21",
+      "name": "Dwarka Sector 21",
+      "lines": ["orange"],
+      "layout": "underground",
+      "plusCode": "7JWVH325+W8"
+    },
+    "inderlok": {
+      "id": "inderlok",
+      "name": "Inderlok",
+      "lines": ["red"],
+      "layout": "elevated",
+      "plusCode": "7JWVM5F9+7X"
+    },
+    "bata_chowk": {
+      "id": "bata_chowk",
+      "name": "Bata Chowk",
+      "lines": ["violet"],
+      "layout": "elevated",
+      "plusCode": "7JWV98P7+89"
+    },
+    "dwarka_sector_12": {
+      "id": "dwarka_sector_12",
+      "name": "Dwarka Sector 12",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH2RR+W6"
+    },
+    "noida_sector_18": {
+      "id": "noida_sector_18",
+      "name": "Noida Sector 18",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH8CG+8C"
+    },
+    "knowledge_park_ii": {
+      "id": "knowledge_park_ii",
+      "name": "Knowledge Park II",
+      "lines": ["aqua"],
+      "layout": "elevated",
+      "plusCode": "7JWVFG42+P2"
+    },
+    "mayur_vihar_extention": {
+      "id": "mayur_vihar_extention",
+      "name": "Mayur Vihar Extention",
+      "lines": ["blue"],
+      "layout": "elevated",
+      "plusCode": "7JWVH7VV+MR"
+    }
+  }
+}
