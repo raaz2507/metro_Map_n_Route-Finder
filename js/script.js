@@ -47,8 +47,12 @@ class metroMap{
         this.#avgLatRad = avgLat * Math.PI / 180;
         
         this.#Lat_Lon_to_X_Y_Conversion();
+        this.#calculateNeighborDistance();
+
         this.#create_svg();
-        this.#drawStationCircle();
+        this.#drawMetroLines();
+        this.#drawStationCircles();
+        this.#drawStationLabels();
         this.#set_event();
     }
 
@@ -141,14 +145,82 @@ class metroMap{
         this.#svg.element.setAttribute("viewBox", `0 0 ${svgSize.width} ${svgSize.height}`);
     }
 
-    #drawStationCircle(){
+    #drawStationCircles(){
         Object.values(this.#stationData).forEach(station => {
             const xy = station.xy;
             if (xy) {
                 // 'station' already station object hai, toh hum directly station.lines use kar sakte hain
-                const circle = this.#createCircle(xy.x, xy.y, 250 * this.zoomScale, "#FDFBD4", station.lines[0]);
+                const lineColor = data.line_color[station.lines[0]]?.color ?? "#333";
+                const circle = this.#createCircle(xy.x, xy.y, 200 * this.zoomScale, "#FDFBD4", lineColor);
                 this.#svg.element.appendChild(circle);
             }
+        });
+    }
+    
+    #drawMetroLines(){
+        const drawn = new Set();
+        Object.values(this.#stationData).forEach(station => {
+            station.neighbors.forEach(neighbor => {
+                const key = [station.id, neighbor.station].sort().join("-");
+                
+                if(drawn.has(key)) return;
+
+                drawn.add(key);
+                const nextStation = this.#stationData[neighbor.station];
+                const lineInfo = data.line_color[neighbor.line];
+
+                const line = this.#createLine( station.xy.x, station.xy.y, nextStation.xy.x, nextStation.xy.y, lineInfo.color, 100 * this.zoomScale );
+                this.#svg.element.appendChild(line);
+            });
+
+        });
+    }
+
+   #drawStationLabels(){
+        Object.values(this.#stationData).forEach(station => {
+
+            if(!station.xy) return;
+
+            const text = document.createElementNS( "http://www.w3.org/2000/svg", "text" );
+
+            text.setAttribute( "x", station.xy.x + 250 );
+
+            text.setAttribute( "y", station.xy.y + 50 );
+
+            text.setAttribute( "font-size", 450 * this.zoomScale );
+
+            text.setAttribute( "font-family", "Arial, sans-serif" );
+
+            text.setAttribute( "fill", "#222" );
+
+            text.textContent = station.name;
+
+            this.#svg.element.appendChild(text);
+        });
+    }
+
+    #getDistance(stationA, stationB) {
+        const lat1 = stationA.coordinates.latitudeCenter;
+        const lon1 = stationA.coordinates.longitudeCenter;
+
+        const lat2 = stationB.coordinates.latitudeCenter;
+        const lon2 = stationB.coordinates.longitudeCenter;
+
+        const R = 6371; // Earth radius in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+
+        const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) ** 2;
+        const c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1 - a) );
+        return Number((R * c).toFixed(2));
+    }
+
+    #calculateNeighborDistance(){
+        Object.values(this.#stationData).forEach(station => {
+            station.neighbors.forEach(neighbor => {
+                const nextStation = this.#stationData[neighbor.station];
+                neighbor.distance = this.#getDistance( station, nextStation );
+            });
         });
     }
     // =========================================================================
@@ -161,7 +233,7 @@ class metroMap{
         circle.setAttribute("cy", y);
         circle.setAttribute("r", radius);
         circle.setAttribute("fill", fillColor);
-        circle.setAttribute("stroke-width", 5*this.zoomScale);
+        circle.setAttribute("stroke-width", 50*this.zoomScale);
         circle.setAttribute("stroke", strokeColor);
         return circle;
     }

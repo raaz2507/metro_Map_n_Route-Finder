@@ -28,13 +28,64 @@
         align-items: center;
         height: 100vh;
     }
+    .zoom {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.8);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .zoom button {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .routeFinder {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
 </style>
 </head>
 
 <body>
-    <div class="mapContainer">
-
+    <div class="mapContainer"></div>
+    <div class="zoom">
+        <div class="zoomLevel">100%</div>
+        <button>+</button>
+        <button>-</button>
+        <button id="resetView">=</button>
     </div>
+    
+    <div class="routeFinder">
+        <form action="" method="post">
+            <fieldset>
+                <legend>Route Finder</legend>
+                <input type="text" id="startStation" placeholder="Enter start station">
+                <button type="button" id="swapButton">Swap</button>
+                <input type="text" id="endStation" placeholder="Enter end station">
+                <p>Priority:</p>
+                <label><input type="radio" name="routeType" value="fastest" checked> Shortest</label>
+                <label><input type="radio" name="routeType" value="leastTransfers"> Less Interchange</label>
+                <br>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Find Route">
+            </fieldset>
+        </form>
+    </div>
+
 </body>
 <script type="module" src="./js/script.js">
 
