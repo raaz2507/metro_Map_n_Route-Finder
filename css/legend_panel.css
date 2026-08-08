@@ -1,0 +1,117 @@
+/* Stunning Floating Legend Panel */
+
+.legend-panel {
+    position: absolute;
+    top:10px;
+    right: 100px;
+
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    border: 2px solid #3b82f6; /* Beautiful Blue Border matching reference */
+    border-radius: 16px;
+    width: 380px;
+    /* max-height: calc(100% - 100px); */
+    /* overflow-y: auto; */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* z-index: 100; */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.legend-panel .legend-section {
+    margin-bottom: 20px;
+}
+/* आखिरी सेक्शन के नीचे का स्पेस हटा दें */
+.legend-panel .legend-section:last-child {
+    margin-bottom: 0;
+}
+
+.legend-panel h2 {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 15px;
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+/* सेक्शन्स की सब-हेडिंग्स (जैसे Metro Lines और Station Types) का स्टाइल */
+.legend-panel .legend-section h3 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b; /* स्लेट ग्रे कलर */
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.legend-panel .legend-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.legend-panel .legend_item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+    line-height: 1.4;
+}
+/* Legend Icons Styling */
+.legend-panel .legend-line-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    text-align: center;
+    line-height: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* हल्का सा शैडो */
+}
+
+.legend-panel .legend-icon-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #334155;
+    background: #ffffff;
+    flex-shrink: 0;
+}
+.legend-panel .legend-icon-normal {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid #64748b;
+    background: #ffffff;
+    flex-shrink: 0;
+}
+.legend-panel .legend-icon-walkway {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #334155;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+.legend-panel .legend-icon-walkway::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #334155;
+    border-radius: 50%;
+}
