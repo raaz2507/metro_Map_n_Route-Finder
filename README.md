@@ -11,17 +11,17 @@ An interactive, geographical SVG-based Metro Map and Route Finder for the Delhi-
 - **Interactive SVG Metro Map:** Renders the entire metro network dynamically on an SVG canvas, supporting smooth panning, zooming, and resetting views.
 - **Geographically Accurate Projection:** Station coordinates are decoded from standard Plus Codes (e.g., `7JWVM69H+27`) to absolute latitude/longitude and mapped to 2D canvas coordinates.
 - **100% Complete & Audited Database:** Features all 271 unique stations across all major metro lines:
-  - **Red Line** (29 stations)
-  - **Yellow Line** (37 stations)
-  - **Blue Line** (56 stations, Main & Branch)
-  - **Green Line** (24 stations, Main & Branch)
-  - **Violet Line** (34 stations)
-  - **Pink Line** (46 stations, Ring Loop & Northeast Branch)
-  - **Magenta Line** (34 stations, Main & Phase 4 Extensions)
-  - **Orange Line** (7 stations, Airport Express & Yashobhoomi Extension)
-  - **Grey Line** (4 stations)
-  - **Aqua Line** (21 stations, Noida Metro)
-  - **Rapid Metro** (11 stations, Gurugram Metro)
+	- **Red Line** (29 stations)
+	- **Yellow Line** (37 stations)
+	- **Blue Line** (56 stations, Main & Branch)
+	- **Green Line** (24 stations, Main & Branch)
+	- **Violet Line** (34 stations)
+	- **Pink Line** (46 stations, Ring Loop & Northeast Branch)
+	- **Magenta Line** (34 stations, Main & Phase 4 Extensions)
+	- **Orange Line** (7 stations, Airport Express & Yashobhoomi Extension)
+	- **Grey Line** (4 stations)
+	- **Aqua Line** (21 stations, Noida Metro)
+	- **Rapid Metro** (11 stations, Gurugram Metro)
 - **Adjacency Graph (Neighbors Map):** Every station in the database contains a fully populated `neighbors` list mapping the adjacent stations and the line they share, making it ready for routing algorithms (Dijkstra/BFS).
 - **Route Finder UI:** Interface supporting start/end station selection and routing preference ("Shortest Path" or "Less Interchange").
 
@@ -50,18 +50,18 @@ The network is defined in a structured JSON schema. Below is the specification o
 
 ```json
 "station_id": {
-  "id": "station_id",                     // Unique string identifier (snake_case)
-  "name": "Station Name",                 // Display name of the station
-  "lines": ["line_color1", "line_color2"], // Lines serving this station (Interchange support)
-  "layout": "elevated" | "underground",   // Station construction layout
-  "plusCode": "10_digit_plus_code",       // Standard global Plus Code (e.g., "7JWVM69H+27")
-  "neighbors": [                          // Connected adjacent stations
-    {
-      "station": "neighbor_station_id",   // ID of the connected station
-      "line": "line_color",               // Metro line color linking the stations
-      "distance": 0                       // Weight parameter (initialized dynamically in JS)
-    }
-  ]
+	"id": "station_id",                     // Unique string identifier (snake_case)
+	"name": "Station Name",                 // Display name of the station
+	"lines": ["line_color1", "line_color2"], // Lines serving this station (Interchange support)
+	"layout": "elevated" | "underground",   // Station construction layout
+	"plusCode": "10_digit_plus_code",       // Standard global Plus Code (e.g., "7JWVM69H+27")
+	"neighbors": [                          // Connected adjacent stations
+		{
+			"station": "neighbor_station_id",   // ID of the connected station
+			"line": "line_color",               // Metro line color linking the stations
+			"distance": 0                       // Weight parameter (initialized dynamically in JS)
+		}
+	]
 }
 ```
 
