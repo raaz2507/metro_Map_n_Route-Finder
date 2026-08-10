@@ -1,60 +1,9 @@
 @import url("./base.css");
+
+@import url("./index.css");
+@import url("./aside.css");
+@import url("./navbar.css");
+
 @import url("./map_styling.css");
 @import url("./legend_panel.css");
 
-/* General Layout Settings */
-body {
-	 position: relative; 
-}
-body::before {
-		content: "";
-		position: fixed;
-		
-		/* इमेज को चारों तरफ 20px बाहर फैलाएं ताकि ब्लर के किनारे न दिखें */
-		top: -20px;
-		left: -20px;
-		right: -20px;
-		bottom: -20px;
-		
-		background-image: url('../img/background_org.png'); 
-		background-repeat: no-repeat; 
-		background-size: cover; 
-		background-position: center; 
-		background-attachment: fixed;
-		z-index: -1;
-		
-		filter: var(--bg-filter);
-		transition: filter 0.5s ease-in-out; 
-}
-header {
-		background-color: #ffffff;
-		padding: 1rem 2rem;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		z-index: 10;
-}
-main {
-		flex: 1;
-		display: flex;
-		position: relative;
-		overflow: hidden;
-}
-
-
-form.routeFinder {
-		/* position: absolute;
-		bottom: 10px;
-		left: 50%;
-		transform: translateX(-50%); */
-		padding: 10px;
-		border-radius: 5px;
-		background-color: rgba(255, 255, 255, 0.8);
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-form.routeFinder fieldset {
-		border: 1px solid #ccc;
-		padding: 10px;
-		border-radius: 5px;
-}

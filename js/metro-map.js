@@ -344,8 +344,28 @@ export class MetroMap {
 			},
 			{ passive: false },
 		);
+
+        // 5. स्टेशन सर्कल पर होवर करने पर उसके टेक्स्ट को हाईलाइट (Bold/Big) करना
+		const circlesList = this.#svg.elements.stations_circleGroup.querySelectorAll("circle");
+		circlesList.forEach(circle => {
+			circle.addEventListener("mouseenter", () => {
+				const stationId = circle.dataset.stationId;
+				const textNode = this.#svg.elements.labelGroup.querySelector(`text[data-station-id="${stationId}"]`);
+				if (textNode) {
+					textNode.classList.add("hovered-text");
+				}
+			});
+			circle.addEventListener("mouseleave", () => {
+				const stationId = circle.dataset.stationId;
+				const textNode = this.#svg.elements.labelGroup.querySelector(`text[data-station-id="${stationId}"]`);
+				if (textNode) {
+					textNode.classList.remove("hovered-text");
+				}
+			});
+		});
 	}
 
+    
 	// =========================================================================
 	// 4. Events Methods
 	// =========================================================================

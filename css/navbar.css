@@ -1,0 +1,241 @@
+/* =========================================================================
+   4. NAVIGATION (DESKTOP TOP MENU BAR)
+   ========================================================================= */
+:root {
+	/* delete after */
+	--bg-header: rgba(255, 255, 255, 0.7);
+	--text-secondary: #222327; /* Inactive icon color */
+	--btn-primary-text: #ffffff; /* Active icon inner graphic color */
+	--btn-primary-bg: rgba(46,213,116,0.6); /* Active state green circle background */
+	--text-primary: rgb(9, 60, 30);
+	--theme-glow-rgb: 46, 213, 116;
+}
+:root {
+	--width: 60px;
+	--icon-width: 30px;
+	--text-color: #222327;
+	--icon-size: 50px;
+	--nav-hight: 70px;
+}
+body > nav{
+    position: absolute;
+    /* bottom: 10%; */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; 
+}
+
+/* 1. Main Navigation Container (Transparent to prevent icon clipping) */
+.navigation {
+	font-family: "Poppins", sans-serif;
+
+	position: relative;
+	width: max-content;
+	height: var(--nav-hight);
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 10px;
+    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.15));
+}
+
+/* 2. White Background Layer using the Inline SVG Mask for Smooth Cutout Curves */
+.navigation::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--bg-header);
+	border-radius: calc(var(--nav-hight) * 0.5);
+	z-index: -1;
+
+	/* Reference to the SVG mask */
+	-webkit-mask: url(#nav-mask);
+	mask: url(#nav-mask);
+}
+/* डार्क थीम के लिए थोड़ी गहरी शैडो */
+body[data-theme="dark"] .navigation {
+    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5));
+}
+
+/* साइबरपंक थीम के लिए नियॉन ग्लो शैडो इफ़ेक्ट */
+body[data-theme="cyberpunk"] .navigation {
+    filter: drop-shadow(0px 0px 15px rgba(0, 240, 255, 0.4));
+}
+
+/* विंटेज थीम के लिए सॉफ्ट शैडो */
+body[data-theme="vintage"] .navigation {
+    filter: drop-shadow(0px 8px 20px rgba(139, 94, 60, 0.2));
+}
+
+
+/* CSS Animation for the SVG cutout path to make it transition smoothly */
+#cutout-path {
+	transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.navigation ul {
+	display: flex;
+	gap: 10px;
+	list-style: none;
+	width: 100%;
+	justify-content: space-around;
+	padding: 0;
+	margin: 0;
+}
+
+.navigation ul li {
+	position: relative;
+	width: var(--width);
+	height: var(--nav-hight);
+	z-index: 1; /* Puts icons above the white background */
+}
+
+.navigation ul li a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	text-decoration: none;
+}
+
+/* 3. Base Icon Container (Always centered, handles the Green Circle) */
+.icon {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--icon-width);
+	height: var(--icon-width);
+	border-radius: 0%;
+	background-color: transparent;
+	transition: 0.5s;
+}
+
+/* 4. Pseudo-element to render the actual SVG graphic inside the container */
+.icon::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: var(--text-secondary);
+	-webkit-mask-size: contain;
+	mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+	transition: 0.5s;
+}
+
+/* 5. Active Icon styling (Outer Green Circle) */
+.navigation ul li.active a .icon {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	border-radius: 50%;
+	background-color: var(--btn-primary-bg);
+	transform: translateY(-38px);
+
+    /* 3D Elevation Shadow + Theme Glowing Aura */
+	box-shadow: 
+		0 10px 20px rgba(0, 0, 0, 0.15),                /* 3D ऊंचाई का अहसास देने के लिए डार्क शैडो */
+		0 0 15px rgba(var(--theme-glow-rgb), 0.5),       /* मध्यम ग्लो */
+		0 0 30px rgba(var(--theme-glow-rgb), 0.2);       /* फैला हुआ हल्का ग्लो (Soft Aura) */
+}
+
+/* 6. Active Icon graphic inside the Green Circle (Shrunk and Colored White) */
+.navigation ul li.active a .icon::after {
+	width: 24px;
+	height: 24px;
+	background-color: var(--btn-primary-text); /* White graphic */
+}
+
+.navigation ul li a .text {
+	position: absolute;
+	bottom: 8px;
+
+	font-family: "Poppins", sans-serif;
+	font-size: 0.6em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: var(--text-color);
+	transition: 0.5s;
+
+	opacity: 0;
+	/* display: none; */
+	transform: translateY(15px) scale(0.6);
+	transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	font-weight: 500;
+	color: var(--text-color);
+}
+
+.navigation ul li.active a .text {
+	opacity: 1;
+	/* display: block; */
+	transform: translateY(-7px) scale(1);
+	color: var(--text-primary);
+	text-shadow:
+		0 0 05px rgba(var(--theme-glow-rgb), 0.5),
+		/* Sharp inner glow */ 0 0 15px rgba(var(--theme-glow-rgb), 0.5),
+		/* Medium diffuse glow */ 0 0 25px rgba(var(--theme-glow-rgb), 0.2);
+}
+
+
+
+/* 
+====================================================================== 
+    Inline URL-Encoded SVGs to bypass CORS issues on local files (file://) 
+====================================================================== 
+*/
+
+.map-icon::after {
+	-webkit-mask-image: url("../img/icons/map-location-dot-solid-full.svg");
+	mask-image: url("../img/icons/map-location-dot-solid-full.svg");
+}
+
+.settings-icon::after {
+	-webkit-mask-image: url("../img/icons/gears-solid-full.svg");
+	mask-image: url("../img/icons/gears-solid-full.svg");
+}
+.about-icon::after {
+	-webkit-mask-image: url("../img/icons/info.svg");
+	mask-image: url("../img/icons/info.svg");
+}
+.help-icon::after {
+	-webkit-mask-image: url("../img/icons/help.svg");
+	mask-image: url("../img/icons/help.svg");
+}
+.recent-iocn::after {
+	-webkit-mask-image: url("../img/icons/clock.svg");
+	mask-image: url("../img/icons/clock.svg");
+}
+.other-icon::after {
+	-webkit-mask-image: url("../img/icons/grip-solid-full.svg");
+	mask-image: url("../img/icons/grip-solid-full.svg");
+}
+
+/* =========================================================================
+   6. RESPONSIVE MEDIA QUERIES (DESKTOP OR MOBILE APP STYLE)
+   ========================================================================= */
+
+/* A. Desktop Layout Specifics */
+@media (min-width: 769px) {
+    body > nav {
+        position: absolute;
+        top: calc(100vh - 94px); /* मैप स्क्रीन के नीचे स्थिर रखने के लिए */
+    }
+}
+
+/* B. Mobile App-like Layout Specifics */
+@media (max-width: 768px) {
+    body > nav {
+        position: fixed;
+        bottom: 24px;
+    }
+}
