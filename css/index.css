@@ -35,7 +35,7 @@ body::before {
 /* =========================================================================
    2. HEADER STYLING
    ========================================================================= */
-header {
+header.main-header {
     background-color: var(--bg-header);
     backdrop-filter: blur(var(--backdrop-blur));
     -webkit-backdrop-filter: blur(var(--backdrop-blur));
@@ -50,7 +50,7 @@ header {
 }
 
 
-header h1 {
+header.main-header h1 {
     font-family: var(--font-title);
     font-size: 20px;
     font-weight: var(--fw-black);
@@ -59,7 +59,7 @@ header h1 {
     margin: 0;
 }
 
-header select {
+header.main-header select {
     background-color: var(--input-bg);
     border: 1px solid var(--input-border);
     color: var(--text-primary);
@@ -73,24 +73,24 @@ header select {
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
-header select:focus {
+header.main-header select:focus {
     border-color: var(--input-focus-border);
     box-shadow: 0 0 0 3px var(--input-focus-shadow);
 }
 
-header label {
+header.main-header label {
     font-size: 12px;
     font-weight: var(--fw-bold);
     color: var(--text-secondary);
     margin-right: var(--space-xs);
 }
-header .logo-title-group {
+header.main-header .logo-title-group {
     display: flex;
     align-items: center;
     gap: 10px; /* लोगो और नाम के बीच की दूरी */
 }
 
-header .site-logo {
+header.main-header .site-logo {
     width: 64px; /* इमेज की चौड़ाई (अपनी पसंद से बदल सकते हैं) */
     height: 64px; /* इमेज की ऊंचाई */
     object-fit: contain;
@@ -150,23 +150,21 @@ main {
     padding-bottom: var(--space-md);
 }
 
-.footer-links {
+.footer-nav-list {
     display: flex;
     list-style: none;
     gap: var(--space-xl);
     margin: 0;
     padding: 0;
 }
-
-.footer-links li a {
+.footer-nav-item a {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: var(--fw-semibold, 600);
     font-size: 14px;
     transition: color var(--transition-fast);
 }
-
-.footer-links li a:hover {
+.footer-nav-item a:hover {
     color: var(--text-primary);
 }
 
@@ -176,7 +174,7 @@ main {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg, 12px);
     padding: 16px 20px; /* थोड़ा कम पैडिंग ताकि कार्ड कॉम्पैक्ट रहे */
-    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.05));
+    box-shadow: var(--shadow-sm);
     display: flex;
     gap: 20px;
     align-items: center;
@@ -195,7 +193,7 @@ main {
 /* Hover Effect */
 .footer-app-info:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md, 0 6px 12px rgba(0, 0, 0, 0.08));
+    box-shadow: var(--shadow-md);
     border-color: var(--input-focus-border);
 }
 
@@ -249,7 +247,7 @@ main {
 }
 
 /* Features List Inside Card */
-.feature-list {
+.footer-feature-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -259,7 +257,7 @@ main {
     gap: 6px;
 }
 
-.feature-list li {
+.footer-feature-item {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -267,12 +265,13 @@ main {
     color: var(--text-secondary);
 }
 
-.feature-list li::before {
+.footer-feature-item::before {
     content: "✓";
     color: #10b981;
     font-weight: bold;
     font-size: 12px;
 }
+
 /* =========================================================================
    6. RESPONSIVE MEDIA QUERIES (DESKTOP OR MOBILE APP STYLE)
    ========================================================================= */
@@ -290,7 +289,7 @@ main {
         flex-direction: column;
     }
     
-    header {
+    header.main-header {
         order: 1;
     }
     main {
@@ -326,7 +325,7 @@ main {
         padding-bottom: 0;
         margin-top: 10px;
     }
-    .footer-links {
+    .footer-nav-list {
         flex-direction: column; /* लिंक्स को ऊपर से नीचे वर्टीकल करने के लिए */
         gap: 16px;
     }
@@ -349,7 +348,7 @@ main {
         flex-direction: column;
     }
     
-    header {
+    header.main-header {
         order: 1;
         padding: var(--space-sm) var(--space-lg);
     }
@@ -424,21 +423,21 @@ main {
         animation: modalPop var(--transition-spring) both;
     }
     
-    body[data-active-tab="about"] footer .footer-links,
-    body[data-active-tab="help"] footer .footer-links {
+    body[data-active-tab="about"] footer .footer-nav-list,
+    body[data-active-tab="help"] footer .footer-nav-list {
         flex-direction: column;
         gap: var(--space-sm);
         margin-top: var(--space-sm);
     }
     
     /* Settings panel overlay for Settings tab */
-    header .toolbar,
-    header > div {
+    header.main-header .toolbar,
+    header.main-header > div {
         transition: all var(--transition-smooth);
     }
     
     body[data-active-tab="setting"] .toolbar,
-    body[data-active-tab="setting"] header > div {
+    body[data-active-tab="setting"] header.main-header > div {
         display: flex !important;
         position: fixed;
         background: var(--bg-aside);
@@ -458,7 +457,7 @@ main {
         flex-direction: column;
         align-items: stretch;
     }
-    body[data-active-tab="setting"] header > div {
+    body[data-active-tab="setting"] header.main-header > div {
         top: 52%;
         justify-content: space-between;
         align-items: center;
@@ -475,11 +474,4 @@ main {
         opacity: 1;
     }
 }
-
-
-
-
-
-
-
 

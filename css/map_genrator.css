@@ -1,0 +1,18 @@
+@import url("./map_styling.css");
+@import url("./legend_panel.css");
+
+.legend-panel, .metro-btn-overlay {
+    /* Local Legend Customization */
+    --legend-bg: var(--bg-aside);
+    --legend-border: 1px solid var(--border-color);
+    --legend-radius: var(--radius-lg);
+    --legend-padding: var(--space-lg);
+    --legend-shadow: var(--shadow-lg);
+
+    /* Icon Sizes */
+    --lg-line-size: 24px;         /* Line badge (24px) */
+    --lg-walkway-size: 18px;      /* Walkway icon (18px) */
+    --lg-interchange-size: 16px;  /* Interchange circle (16px) */
+    --lg-normal-size: 14px;       /* Normal station circle (14px) */
+}
+

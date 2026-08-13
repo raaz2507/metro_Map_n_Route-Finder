@@ -1,0 +1,67 @@
+/* Header Navigation Container styling */
+.header-nav {
+    background-color: var(--bg-header);
+    backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--space-sm) var(--space-3xl);
+    z-index: var(--z-navigation);
+    order: 2; /* Header के नीचे सही क्रम में रखने के लिए */
+    transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+/* List element styling using flexible wrapping */
+.header-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* डेस्कटॉप पर लेफ्ट अलाइन */
+    flex-wrap: wrap; /* छोटी स्क्रीन पर बिना कोडिंग के अपने आप रैप होगा */
+    gap: var(--space-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Links */
+.header-nav-item a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs); /* Emoji और टेक्स्ट के बीच गैप */
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: var(--fw-semibold);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Hover State */
+.header-nav-item a:hover {
+    color: var(--text-primary);
+    background-color: rgba(var(--color-primary-rgb), var(--opacity-8));
+}
+
+/* Active State (Glow + Transparent Background) */
+.header-nav-item a.active {
+    color: var(--text-primary);
+    background-color: rgba(var(--color-primary-rgb), var(--opacity-15));
+    box-shadow: 0 0 12px rgba(var(--color-primary-rgb), var(--opacity-30));
+}
+
+/* Focus outline for accessibility */
+.header-nav-item a:focus-visible {
+    outline: 2px solid var(--input-focus-border);
+    outline-offset: 2px;
+}
+
+/* मोबाइल के लिए साधारण और साफ़ मीडिया क्वेरी */
+@media (max-width: 768px) {
+    .header-nav {
+        padding: var(--space-sm) var(--space-md); /* पैडिंग कम की */
+    }
+    
+    .header-nav-list {
+        justify-content: center; /* मोबाइल पर सेंटर अलाइनमेंट */
+    }
+}

@@ -1,9 +1,12 @@
+@layer reset, tokens, base, components, utilities;
+
 @import url("./base.css");
 
 @import url("./index.css");
 @import url("./aside.css");
-@import url("./navbar.css");
 
-@import url("./map_styling.css");
-@import url("./legend_panel.css");
+
+@import url("./navebar-main.css");
+
+@import url("map_genrator.css");
 
