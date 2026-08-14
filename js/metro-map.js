@@ -124,12 +124,12 @@ export class MetroMap {
             legendPanelElemts.legendCloseBtn.addEventListener("click", (e) => {
                 e.stopPropagation(); // क्लिक इवेंट को पैरेंट (पैनल) तक जाने से रोकें
                 legendPanelElemts.legendPanel.classList.remove("active"); // पैनल छुपाएं
-                legendPanelElemts.legendToggleBtn.style.display = "block"; // बटन वापस दिखाएं
+                legendPanelElemts.legendToggleBtn.style.display = "";     // CSS flex layout ko natural restore karein
             });
-            // 3. जब लेजेंड पैनल कंटेनर पर कहीं भी क्लिक हो (जैसे आपने कहा)
+            // 3. जब लेजेंड पैनल कंटेनर पर कहीं भी क्लिक हो
             legendPanelElemts.legendPanel.addEventListener("click", () => {
                 legendPanelElemts.legendPanel.classList.remove("active");
-                legendPanelElemts.legendToggleBtn.style.display = "block";
+                legendPanelElemts.legendToggleBtn.style.display = "";     // CSS flex layout ko natural restore karein
             });
 		}
 

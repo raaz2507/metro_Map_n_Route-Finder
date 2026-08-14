@@ -113,7 +113,7 @@ export default {
     },
     "nav-floating": {
         alarm: "अलार्म",
-        ticket: "🎟️ टिकट"
+        ticket: "टिकट"
     },
 
 	footer: {

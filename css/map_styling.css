@@ -1,161 +1,177 @@
-/* =========================================================================
-   Interactive Map Workspace Layout
-   ========================================================================= */
-.map-section {
-    position: relative;
-    /* 10px मार्जिन को दोनों तरफ से एडजस्ट करने के लिए calc का उपयोग */
-    /* width: calc(100% - 20px); */
-    width:auto;
-    height: calc(100% - 20px); 
-    overflow: hidden;
-    margin: 10px;
-    padding: 10px;
-    
-    /* प्रीमियम डिज़ाइन एलिमेंट्स */
-    border-radius: var(--radius-lg); /* rounded corners */
-    border: 1px solid var(--border-color); /* थीम के अनुसार बदलने वाला सॉफ्ट बॉर्डर */
-    background-color: var(--bg-aside); /* थीम कंपैटिबल बैकग्राउंड */
-    
-    /* मॉडर्न मैप ग्रिड पैटर्न (Subtle Dots Grid) */
-    /* background-image: radial-gradient(var(--border-color) 1.5px, transparent 1.5px); */
-    /* background-size: 24px 24px; */
-    
-    /* कार्ड एलिवेशन (Drop Shadow) */
-    box-shadow: var(--shadow-lg); 
-    
-    /* स्मूथ थीम स्विचिंग ट्रांजिशन */
-    transition: background-color var(--transition-smooth), 
-                border-color var(--transition-smooth), 
-                box-shadow var(--transition-smooth);
+@layer components {
+	/* =========================================================================
+	   Interactive Map Workspace Layout & Visuals
+	   ========================================================================= */
+	.map-section {
+		padding: var(--space-sm);
+		
+		/* प्रीमियम डिज़ाइन एलिमेंट्स */
+		border-radius: var(--radius-lg); 
+		border: 1px solid var(--border-color); 
+		background-color: var(--bg-aside); 
+		
+		/* कार्ड एलिवेशन (Drop Shadow) */
+		box-shadow: var(--shadow-lg); 
+		
+		/* स्मूथ थीम स्विचिंग ट्रांजिशन */
+		transition: background-color var(--transition-smooth), 
+					border-color var(--transition-smooth), 
+					box-shadow var(--transition-smooth);
+	}
+
+	.mapContainer {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		outline: none;
+		background: transparent;
+		border: none;
+	}
+
+	.mapContainer svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+	}
+
+	/* =========================================================================
+	   SVG Map Elements Styling & Micro-interactions
+	   ========================================================================= */
+
+	/* स्टेशन के नाम (Labels) को थीम-फ्रेंडली बनाना */
+	.mapContainer svg text {
+		fill: var(--text-primary) !important; 
+		font-family: var(--map-font) !important;
+		font-weight: var(--fw-medium) !important;
+		transform-origin: center;
+		transform-box: fill-box;
+		transition: transform var(--transition-spring), opacity var(--transition-smooth); 
+	}
+
+	/* जब सर्कल पर होवर किया जाए (JS क्लास द्वारा) या सीधे टेक्स्ट पर होवर किया जाए */
+	.mapContainer svg text.hovered-text,
+	.mapContainer svg text:hover {
+		font-weight: var(--fw-bold) !important;
+		transform: translate(60px, -60px) scale(1.25); 
+		cursor: pointer;
+	}
+
+	/* स्टेशन सर्कल्स (Station Dots) पर होवर इफेक्ट्स */
+	.mapContainer svg circle {
+		cursor: pointer;
+		transform-origin: center;
+		transform-box: fill-box; 
+		transition: transform var(--transition-spring), opacity var(--transition-smooth); 
+	}
+
+	.mapContainer svg circle:hover {
+		transform: scale(1.35); 
+		filter: drop-shadow(0px 0px 8px rgba(var(--theme-glow-rgb), var(--op-translucent)));
+	}
+
+	/* मेट्रो लाइन्स की स्मूथनेस */
+	.mapContainer svg line {
+		stroke-linecap: round; 
+		transition: stroke-width var(--transition-smooth), opacity var(--transition-smooth);
+	}
+
+	/* =========================================================================
+	   Floating Glassmorphic Zoom Controls
+	   ========================================================================= */
+	#zoomControls {
+		position: absolute;
+		bottom: var(--space-xl);
+		right: var(--space-xl);
+		padding: var(--space-sm);
+		border-radius: var(--radius-md);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		border: 1px solid var(--border-color);
+		box-shadow: var(--shadow-md);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		z-index: var(--z-sidebar);
+		gap: var(--space-xs);
+		transition: background-color var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+	}
+
+	#zoomControls output {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		text-align: center;
+		padding: var(--space-xs) var(--space-sm);
+		min-width: 50px;
+	}
+
+	#zoomControls button {
+		width: 36px;
+		height: 36px;
+		font-size: var(--fs-lg);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		background-color: var(--btn-reset-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-sm);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: var(--shadow-sm);
+		transition: all var(--transition-fast);
+	}
+
+	#zoomControls button:hover {
+		background-color: var(--btn-reset-hover);
+		transform: scale(1.05);
+	}
+
+	#zoomControls button:active {
+		transform: scale(0.95);
+	}
+
+	/* Transition for Interactive Map Elements */
+	circle, line, text {
+		transition: opacity var(--transition-smooth), r var(--transition-smooth), stroke-width var(--transition-smooth), font-weight var(--transition-smooth);
+	}
 }
 
-.map-section {
-    flex: 1;
-}
-.mapContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    outline: none;
-    background: transparent; /* डुप्लिकेट बैकग्राउंड हटाया */
-    border: none; /* लाल रंग का डुप्लिकेट बॉर्डर हटाया */
-}
-
-.mapContainer svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-/* =========================================================================
-   SVG Map Elements Styling & Micro-interactions (नया जोड़ा गया)
-   ========================================================================= */
-
-/* स्टेशन के नाम (Labels) को थीम-फ्रेंडली बनाना */
-.mapContainer svg text {
-    fill: var(--text-primary) !important; /* हर थीम के हिसाब से टेक्स्ट का रंग बदलेगा */
-    font-family: var(--map-font) !important;
-    font-weight: var(--fw-medium) !important;
-    transition: fill var(--transition-smooth), opacity var(--transition-smooth);
-    transform-origin: center;
-    transform-box: fill-box;
-    transition: transform var(--transition-spring), opacity var(--transition-smooth); 
-}
-
-/* 3. जब सर्कल पर होवर किया जाए (JS क्लास द्वारा) या सीधे टेक्स्ट पर होवर किया जाए */
-.mapContainer svg text.hovered-text,
-.mapContainer svg text:hover {
-    font-weight: var(--fw-bold) !important;
-    /* translate(60px, -60px) की मदद से टेक्स्ट को सर्कल से दूर खिसकाया गया */
-    transform: translate(60px, -60px) scale(1.25); 
-    cursor: pointer;
-}
-
-/* स्टेशन सर्कल्स (Station Dots) पर होवर इफेक्ट्स */
-.mapContainer svg circle {
-    cursor: pointer;
-    transform-origin: center;
-    transform-box: fill-box; /* यह SVG ट्रांसफॉर्म को स्टेशन के सेंटर पॉइंट पर लॉक रखता है */
-    transition: transform var(--transition-spring), opacity var(--transition-smooth); 
-}
-
-.mapContainer svg circle:hover {
-    transform: scale(1.35); /* होवर करने पर स्टेशन स्मूथली बड़ा होगा */
-    filter: drop-shadow(0px 0px 8px rgba(var(--theme-glow-rgb), var(--opacity-60))); /* हल्का ग्लो */
-}
-
-/* मेट्रो लाइन्स की स्मूथनेस */
-.mapContainer svg line {
-    stroke-linecap: round; /* कोनों को गोल और सॉफ्ट लुक देने के लिए */
-    transition: stroke-width var(--transition-smooth), opacity var(--transition-smooth);
-}
-
-/* =========================================================================
-   Floating Glassmorphic Zoom Controls
-   ========================================================================= */
-#zoomControls {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    padding: var(--space-sm);
-    border-radius: var(--radius-md);
-    background-color: var(--bg-header);
-    backdrop-filter: blur(var(--backdrop-blur));
-    -webkit-backdrop-filter: blur(var(--backdrop-blur));
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-md);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: var(--z-sidebar);
-    gap: var(--space-xs);
-    transition: background-color var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
-}
-
-#zoomControls output {
-    font-family: var(--font-title);
-    font-size: 12px;
-    font-weight: var(--fw-bold);
-    color: var(--text-primary);
-    text-align: center;
-    padding: var(--space-xs) var(--space-sm);
-    min-width: 50px;
-}
-
-#zoomControls button {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-    font-weight: var(--fw-bold);
-    color: var(--text-primary);
-    background-color: var(--btn-reset-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-fast);
-}
-
-#zoomControls button:hover {
-    background-color: var(--btn-reset-hover);
-    transform: scale(1.05);
-}
-
-#zoomControls button:active {
-    transform: scale(0.95);
-}
-
-/* Transition for Interactive Map Elements */
-circle, line, text {
-    transition: opacity var(--transition-smooth), r var(--transition-smooth), stroke-width var(--transition-smooth), font-weight var(--transition-smooth);
+/* Mobile responsive layout for Zoom Controls - Map specific logic */
+/* Mobile responsive layout for Zoom Controls */
+@media (max-width: 768px) {
+	@layer components {
+		body[data-active-tab="recent"] #zoomControls,
+		body[data-active-tab="route"] #zoomControls {
+			display: none;
+		}
+		/* दाहिनी तरफ 12px का साफ़ मार्जिन दिया */
+		#zoomControls {
+			bottom: 90px;
+			right: 12px;                         /* 12px मार्जिन ताकि स्क्रीन से न चिपके */
+			padding: 4px;
+			gap: 4px;
+			border-radius: var(--radius-sm);
+		}
+		#zoomControls output {
+			font-size: 10px;
+			padding: 2px 4px;
+			min-width: 34px;
+		}
+		#zoomControls button {
+			width: 28px;
+			height: 28px;
+			font-size: 14px;
+			border-radius: 6px;
+		}
+	}
 }

@@ -1,74 +1,85 @@
-@import url("./navbar_header.css");
-@import url("./navbar_sidebar.css");
-@import url("./navbar_floating.css");
+@import url("./navbar_header.css") layer(components);
+@import url("./navbar_sidebar.css") layer(components);
+@import url("./navbar_floating.css") layer(components);
 
-/* 1. Base Icon Container */
-.icon {
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	background-color: transparent;
-	transition: var(--transition-smooth, 0.3s ease);
-}
+@layer components {
+	/* 1. Base Icon Container */
+	.icon {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+		transition: var(--transition-smooth);
+	}
 
-/* 2. Pseudo-element to render the actual SVG graphic inside the container */
-.icon::after {
-	content: "";
-	display: block;
-	width: 100%;
-	height: 100%;
-	background-color: var(--text-secondary);
-	-webkit-mask-size: contain;
-	mask-size: contain;
-	-webkit-mask-repeat: no-repeat;
-	mask-repeat: no-repeat;
-	-webkit-mask-position: center;
-	mask-position: center;
-	transition: var(--transition-smooth, 0.3s ease);
-}
+	/* 2. Pseudo-element to render the actual SVG graphic inside the container */
+	.icon::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: var(--text-secondary);
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		transition: var(--transition-smooth);
+	}
 
-/* 
-====================================================================== 
-    Inline URL-Encoded SVGs to bypass CORS issues on local files (file://) 
-====================================================================== 
-*/
-.map-icon::after {
-	-webkit-mask-image: url("../img/icons/map-location-dot-solid-full.svg");
-	mask-image: url("../img/icons/map-location-dot-solid-full.svg");
-}
+	/* 
+	====================================================================== 
+		Inline URL-Encoded SVGs to bypass CORS issues on local files (file://) 
+	====================================================================== 
+	*/
+	.map-icon::after {
+		-webkit-mask-image: url("../img/icons/map-location-dot-solid-full.svg");
+		mask-image: url("../img/icons/map-location-dot-solid-full.svg");
+	}
+	.route-icon::after {
+		-webkit-mask-image: url("../img/icons/diamond-turn-right-solid-full.svg");
+		mask-image: url("../img/icons/diamond-turn-right-solid-full.svg");
+	}
+	.settings-icon::after {
+		-webkit-mask-image: url("../img/icons/gears-solid-full.svg");
+		mask-image: url("../img/icons/gears-solid-full.svg");
+	}
 
-.settings-icon::after {
-	-webkit-mask-image: url("../img/icons/gears-solid-full.svg");
-	mask-image: url("../img/icons/gears-solid-full.svg");
-}
+	.about-icon::after {
+		-webkit-mask-image: url("../img/icons/info.svg");
+		mask-image: url("../img/icons/info.svg");
+	}
 
-.about-icon::after {
-	-webkit-mask-image: url("../img/icons/info.svg");
-	mask-image: url("../img/icons/info.svg");
-}
+	.help-icon::after {
+		-webkit-mask-image: url("../img/icons/help.svg");
+		mask-image: url("../img/icons/help.svg");
+	}
 
-.help-icon::after {
-	-webkit-mask-image: url("../img/icons/help.svg");
-	mask-image: url("../img/icons/help.svg");
-}
+	.recent-icon::after {
+		-webkit-mask-image: url("../img/icons/clock.svg");
+		mask-image: url("../img/icons/clock.svg");
+	}
 
-.recent-icon::after {
-	-webkit-mask-image: url("../img/icons/clock.svg");
-	mask-image: url("../img/icons/clock.svg");
-}
+	.other-icon::after {
+		-webkit-mask-image: url("../img/icons/grip-solid-full.svg");
+		mask-image: url("../img/icons/grip-solid-full.svg");
+	}
 
-.other-icon::after {
-	-webkit-mask-image: url("../img/icons/grip-solid-full.svg");
-	mask-image: url("../img/icons/grip-solid-full.svg");
-}
+	.alarm-on-iocn::after {
+		-webkit-mask-image: url("../img/icons/bell-solid-full.svg");
+		mask-image: url("../img/icons/bell-solid-full.svg");
+	}
 
-.alarm-on-iocn::after {
-	-webkit-mask-image: url("../img/icons/bell-solid-full.svg");
-	mask-image: url("../img/icons/bell-solid-full.svg");
-}
+	.alarm-off-iocn::after {
+		-webkit-mask-image: url("../img/icons/bell-slash-solid-full.svg");
+		mask-image: url("../img/icons/bell-slash-solid-full.svg");
+	}
 
-.alarm-off-iocn::after {
-	-webkit-mask-image: url("../img/icons/bell-slash-solid-full.svg");
-	mask-image: url("../img/icons/bell-slash-solid-full.svg");
+	/* टिकट आइकन के लिए मास्क (User added class) */
+	.ticket-iocn::after {
+		-webkit-mask-image: url("../img/icons/ticket-solid-full.svg");
+		mask-image: url("../img/icons/ticket-solid-full.svg");
+	}
 }

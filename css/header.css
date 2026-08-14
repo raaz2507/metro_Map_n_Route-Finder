@@ -1,0 +1,101 @@
+@layer components {
+	/* Header Component Styling */
+	header.main-header {
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		border-bottom: 1px solid var(--border-color);
+		box-shadow: var(--shadow-sm);
+		padding: var(--space-md) var(--space-3xl);
+		transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+	}
+
+	header.main-header h1 {
+		font-family: var(--font-title);
+		font-size: var(--fs-xl); /* 20px */
+		font-weight: var(--fw-black);
+		color: var(--text-primary);
+		letter-spacing: -0.02em;
+		margin: 0;
+	}
+
+	header.main-header select {
+		background-color: var(--input-bg);
+		border: 1px solid var(--input-border);
+		color: var(--text-primary);
+		padding: var(--space-xs) var(--space-sm);
+		border-radius: var(--radius-sm);
+		font-family: var(--font-main);
+		font-size: var(--fs-sm); /* 14px */
+		font-weight: var(--fw-semibold);
+		outline: none;
+		cursor: pointer;
+		transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+	}
+
+	header.main-header select:focus {
+		border-color: var(--focus-ring-color);
+		box-shadow: 0 0 0 3px rgba(var(--focus-ring-rgb), var(--op-focus-shadow));
+	}
+
+	header.main-header label {
+		font-size: var(--fs-xs); /* 12px */
+		font-weight: var(--fw-bold);
+		color: var(--text-secondary);
+		margin-right: var(--space-xs);
+	}
+
+	header.main-header .site-logo {
+		width: 64px;
+		height: 64px;
+		object-fit: contain;
+	}
+
+	/* =========================================================================
+	   Header Internal Layout rules
+	   ========================================================================= */
+	header.main-header .logo-title-group {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.toolbar {
+		display: flex;
+
+		align-items: center;
+		gap: var(--space-md);
+	}
+}
+
+@media (max-width: 768px) {
+	@layer components {
+		header.main-header {
+			padding: var(--space-sm) var(--space-lg);
+
+			flex-direction: column;
+			gap: var(--space-sm);
+			align-items: center;
+		}
+
+		header.main-header .site-logo {
+			width: 32px;
+			height: 32px;
+		}
+		header.main-header h1 {
+			font-size: var(--fs-sm);                 /* 14px */
+		}
+		header.main-header select {
+			padding: 2px 6px;
+			font-size: var(--fs-xs);                 /* 12px */
+		}
+		header.main-header .logo-title-group {
+			justify-content: center;
+		}
+	   .toolbar {
+			gap: var(--space-md);                    
+			justify-content: center;
+			width: 100%;
+		}
+	}
+}

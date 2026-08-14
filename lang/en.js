@@ -33,7 +33,7 @@ export default {
 	home: {
 		appName: "Metro Map Generator",
 
-		language: "Language",
+		language: "Lang:",
 
 		theme: "Theme",
 
@@ -104,7 +104,7 @@ export default {
     },
     "nav-floating": {
         alarm: "Alarm",
-        ticket: "🎟️ Ticket"
+        ticket: "Ticket"
     },
 
 	footer: {

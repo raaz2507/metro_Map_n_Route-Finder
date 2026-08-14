@@ -1,261 +1,246 @@
-/* =========================================================================
-   Recent Searches Section Styles
-   ========================================================================= */
+@layer components {
+	/* =========================================================================
+	   Recent Searches Section Styles
+	   ========================================================================= */
 
-/* 1. Main container ko transparent karein taaki heading float kare */
-#recent-searches {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg, 16px);
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    overflow: hidden !important; /* Lock bounds */
-}
+	/* 1. Main container */
+	#recent-searches {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		width: 100%;
+		height: 100%;
+		max-height: 100%;
+		overflow: hidden !important; 
+	}
 
-/* Section Header (Title + Clear All button) */
-#recent-searches .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 4px; /* Align with input edges */
-    flex-shrink: 0;                /* Header size scale na ho */
-}
+	/* Section Header (Title + Clear All button) */
+	#recent-searches .section-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 0 var(--space-xs); 
+		flex-shrink: 0;                
+	}
 
-#recent-searches-heading {
-    font-family: var(--font-title, 'Outfit', sans-serif);
-    font-size: 18px;
-    font-weight: var(--fw-bold, 700);
-    letter-spacing: -0.01em;
-    color: var(--text-primary, #0f172a);
-    margin: 0;
-}
+	#recent-searches-heading {
+		font-family: var(--font-title);
+		font-size: var(--fs-md);                /* 18px -> 16px (कॉम्पैक्ट हेडिंग) */
+		font-weight: var(--fw-bold);
+		letter-spacing: -0.01em;
+		color: var(--text-primary);
+		margin: 0;
+	}
 
-/* Clear All Button */
-#clearRecentSearches {
-    background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--opacity-8));
-    border: 1px solid rgba(var(--color-danger-rgb, 239, 68, 68), var(--opacity-15));
-    color: rgb(var(--color-danger-rgb, 239, 68, 68));
-    font-family: var(--font-main, 'Inter', sans-serif);
-    font-size: 11px;
-    font-weight: var(--fw-semibold, 600);
-    cursor: pointer;
-    padding: var(--space-xs, 4px) var(--space-md, 12px);
-    border-radius: var(--radius-md, 12px);
-    transition: all var(--transition-fast, 0.15s ease);
-    box-shadow: var(--shadow-sm);
-    flex-shrink: 0;
-}
+	/* Clear All Button */
+	#clearRecentSearches {
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-glow));
+		border: 1px solid rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-subtle));
+		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+		padding: 2px 8px;                       
+		border-radius: var(--radius-md);
+		transition: all var(--transition-fast);
+		box-shadow: var(--shadow-sm);
+		flex-shrink: 0;
+        margin-top: 4px;
+        margin-right: var(--space-xs);
+	}
 
-#clearRecentSearches:hover {
-    background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--opacity-15));
-    transform: translateY(-1px);
-}
-#clearRecentSearches:active {
-    transform: translateY(0);
-}
+	#clearRecentSearches:hover {
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-subtle));
+		transform: translateY(-1px);
+	}
+	#clearRecentSearches:active {
+		transform: translateY(0);
+	}
 
-/* 3. List Container ko ek solid separate card banayein */
-.recent-search-list-container {
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md, 12px);
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-}
+	/* 3. List Container */
+	.recent-search-list-container {
+		background: transparent !important;
+		border: none !important;
+		padding: 0 !important;
+		box-shadow: none !important;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		flex: 1;
+		min-height: 0;
+		overflow: hidden;
+	}
 
-/* 4. Filter Chips / Tabs (Recent, Most Used, A-Z) Style */
-.filter-chips {
-    display: flex;
-    gap: var(--space-sm, 8px);
-    margin-bottom: var(--space-sm, 8px);
-    width: 100%;
-    flex-shrink: 0;
-}
+	/* 4. Filter Chips / Tabs (Recent, Most Used, A-Z) Style */
+	.filter-chips {
+		display: flex;
+		gap: var(--space-xs);
+		margin-bottom: var(--space-xs);
+		width: 100%;
+		flex-shrink: 0;
+	}
 
+	.filter-chips button {
+		flex: 1;
+		background: var(--btn-reset-bg);
+		border: 1px solid var(--border-color);
+		color: var(--text-secondary);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		padding: 4px 8px;                       /* पैडिंग कम की ताकि "Most Used" न टूटे */
+		border-radius: var(--radius-full);
+		cursor: pointer;
+		white-space: nowrap;                    /* टेक्स्ट दो लाइनों में टूटने से रोका */
+		transition: all var(--transition-fast);
+		outline: none;
+		text-align: center;
+	}
 
-.filter-chips button {
-    flex: 1;
-    background: var(--btn-reset-bg, #f1f5f9);
-    border: 1px solid var(--border-color, #e2e8f0);
-    color: var(--text-secondary, #64748b);
-    font-family: var(--font-main, 'Inter', sans-serif);
-    font-size: 12px;
-    font-weight: var(--fw-medium, 500);
-    padding: var(--space-sm, 8px) var(--space-md, 12px);
-    border-radius: var(--radius-full, 9999px);
-    cursor: pointer;
-    transition: all var(--transition-fast, 0.15s ease);
-    outline: none;
-    text-align: center;
-}
+	.filter-chips button:hover {
+		background: var(--btn-reset-hover);
+		color: var(--text-primary);
+		transform: translateY(-1px);
+	}
 
-.filter-chips button:hover {
-    background: var(--btn-reset-hover, #e2e8f0);
-    color: var(--text-primary, #0f172a);
-    transform: translateY(-1px);
-}
+	/* Active tab filter style */
+	.filter-chips button.active {
+		background: var(--btn-primary-bg);
+		border-color: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		font-weight: var(--fw-semibold);
+		box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), var(--op-focus-shadow));
+	}
 
-/* Active tab filter style (Blue capsule with glow) */
-.filter-chips button.active {
-    background: var(--btn-primary-bg, #3b82f6);
-    border-color: var(--btn-primary-bg, #3b82f6);
-    color: var(--btn-primary-text, #ffffff);
-    font-weight: var(--fw-semibold, 600);
-    box-shadow: 0 4px 10px var(--input-focus-shadow, rgba(59, 130, 246, 0.15));
-}
+	.filter-chips button:active {
+		transform: translateY(0);
+	}
 
-.filter-chips button:active {
-    transform: translateY(0);
-}
+	/* 5. Inner Search List (Transparent, No outer nested card) */
+	#recent-search-list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		margin: 0;
+		padding: 0 8px 0 0;                             /* फालतू अंदरूनी पैडिंग और डिब्बा हटाया */
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		flex: 1;
+		overflow-y: auto;
+		min-height: 0;
+	}
 
-/* List details */
-/* #recent-search-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 0;
-    
-    background: rgba(var(--color-bg-base-rgb), var(--opacity-50));
-    border: 1px solid var(--border-color, #e2e8f0);
-    border-radius: var(--radius-lg, 16px);
-    padding: 16px;
-    box-shadow: var(--shadow-sm);
-    
-    overflow-y: auto;
-    max-height: 400px;
-} */
+	/* Empty State Style */
+	.recent-list-empty {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-muted);
+		text-align: center;
+		padding: var(--space-md) var(--space-sm);
+		border: 1px dashed var(--border-color);
+		border-radius: var(--radius-md);
+		background: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+		line-height: 1.4;
+	}
 
-#recent-search-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm, 8px);
-    margin: 0;
-    padding: var(--space-lg, 16px);
-    
-    background: rgba(var(--color-bg-base-rgb), var(--opacity-50));
-    border: 1px solid var(--border-color, #e2e8f0);
-    border-radius: var(--radius-lg, 16px);
-    box-shadow: var(--shadow-sm);
-    
-    flex: 1;
-    overflow-y: auto;
-    min-height: 0;
-}
-/* Empty State Style */
-.recent-list-empty {
-    font-family: var(--font-main, 'Inter', sans-serif);
-    font-size: 13px;
-    color: var(--text-muted, #94a3b8);
-    text-align: center;
-    padding: var(--space-lg, 16px) var(--space-md, 12px);
-    border: 1px dashed var(--border-color, #e2e8f0);
-    border-radius: var(--radius-md, 12px);
-    background: rgba(var(--color-bg-base-rgb), 0.15);
-    line-height: 1.4;
-}
+	/* Search Item row container */
+	.recent-search-item {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		width: 100%;
+	}
 
-/* Search Item row container */
-.recent-search-item {
-    display: flex;
-    align-items: stretch;
-    gap: 8px;
-    width: 100%;
-}
+	/* Main search button card */
+	.recent-search-btn {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: var(--space-xs);
+		padding: 6px 10px;                       /* पिल की पैडिंग कम की */
+		background: var(--input-bg);
+		border: 1px solid var(--input-border);
+		border-radius: var(--radius-md);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-primary);
+		cursor: pointer;
+		text-align: left;
+		transition: all var(--transition-fast);
+		box-shadow: var(--shadow-sm);
+		overflow: hidden;
+	}
 
-/* Main search button card */
-.recent-search-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    padding: 10px 14px;
-    background: var(--input-bg, #ffffff);
-    border: 1px solid var(--input-border, #cbd5e1);
-    border-radius: var(--radius-md, 12px);
-    font-family: var(--font-main, 'Inter', sans-serif);
-    font-size: 13px;
-    font-weight: var(--fw-medium, 500);
-    color: var(--text-primary, #0f172a);
-    cursor: pointer;
-    text-align: left;
-    transition: all var(--transition-fast, 0.15s ease);
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-}
+	.recent-search-btn:hover {
+		border-color: var(--input-focus-border);
+		box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), var(--op-focus-shadow));
+		transform: translateY(-1px);
+	}
 
-.recent-search-btn:hover {
-    border-color: var(--input-focus-border, #3b82f6);
-    box-shadow: 0 0 0 3px var(--input-focus-shadow, rgba(59, 130, 246, 0.15));
-    transform: translateY(-1px);
-}
+	.recent-search-btn:active {
+		transform: translateY(0);
+	}
 
-.recent-search-btn:active {
-    transform: translateY(0);
-}
+	.recent-search-btn .from,
+	.recent-search-btn .to {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 90px;
+	}
 
-.recent-search-btn .from,
-.recent-search-btn .to {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 110px;
-}
+	.recent-search-btn .arrow {
+		color: var(--text-muted);
+		font-weight: var(--fw-medium);
+		transition: transform var(--transition-fast);
+	}
 
-.recent-search-btn .arrow {
-    color: var(--text-muted, #94a3b8);
-    font-weight: var(--fw-medium, 500);
-    transition: transform var(--transition-fast, 0.15s ease);
-}
+	.recent-search-btn:hover .arrow {
+		transform: translateX(3px);
+		color: var(--btn-primary-bg);
+	}
 
-.recent-search-btn:hover .arrow {
-    transform: translateX(3px);
-    color: var(--btn-primary-bg, #3b82f6);
-}
+	/* Delete item button styling */
+	.delete-search-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: var(--radius-md);
+		border: 1px solid transparent;
+		background: var(--btn-reset-bg);
+		cursor: pointer;
+		align-self: center;
+		transition: all var(--transition-fast);
+		flex-shrink: 0;
+	}
 
-/* Delete item button styling */
-.delete-search-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: var(--radius-md, 12px);
-    border: 1px solid transparent;
-    background: var(--btn-reset-bg, #f1f5f9);
-    cursor: pointer;
-    align-self: center;
-    transition: all var(--transition-fast, 0.15s ease);
-    flex-shrink: 0;
-}
+	.delete-search-btn:hover {
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-subtle));
+		border-color: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-shadow));
+		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+	}
 
-.delete-search-btn:hover {
-    background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--opacity-15));
-    border-color: rgba(var(--color-danger-rgb, 239, 68, 68), var(--opacity-30));
-    color: rgb(var(--color-danger-rgb, 239, 68, 68));
-}
+	body[data-theme="dark"] .delete-search-btn:hover {
+		background: rgba(239, 68, 68, 0.2);
+		border-color: rgba(239, 68, 68, 0.4);
+	}
 
-body[data-theme="dark"] .delete-search-btn:hover {
-    background: rgba(239, 68, 68, 0.2);
-    border-color: rgba(239, 68, 68, 0.4);
-}
+	.delete-search-btn img {
+		width: 14px;
+		height: 14px;
+		opacity: 0.6;
+		transition: opacity var(--transition-fast);
+	}
 
-.delete-search-btn img {
-    width: 16px;
-    height: 16px;
-    opacity: 0.6;
-    transition: opacity var(--transition-fast, 0.15s ease);
-}
-
-.delete-search-btn:hover img {
-    opacity: 1;
+	.delete-search-btn:hover img {
+		opacity: 1;
+	}
 }

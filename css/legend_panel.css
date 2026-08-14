@@ -1,193 +1,209 @@
-/* Stunning Floating Legend Panel */
+@layer components {
+	/* Stunning Floating Legend Panel */
 
-/* Expandable Legend Panel (कार्ड) */
+	/* Expandable Legend Panel (कार्ड) */
+	.legend-panel {
+		position: absolute;
+		top: 10px;
+		right: 10px;
 
+		background: var(--legend-bg);
+		backdrop-filter: blur(2px);
+		border: var(--legend-border);
+		border-radius: var(--legend-radius);
+		width: 380px;
+		box-shadow: var(--legend-shadow);
+		padding: var(--legend-padding);
+		z-index: var(--z-sidebar); /* हेडर के ऊपर तैरने के लिए */
+		
+		/* Animation के लिए */
+		opacity: 0;
+		transform: translateY(-10px);
+		pointer-events: none;
+		transition: all var(--transition-smooth);
+	}
 
-.legend-panel {
-	position: absolute;
-	top:10px;
-	right: 10px;
+	/* एक्टिव होने पर पैनल दिखाना */
+	.legend-panel.active {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
 
-	background: var(--bg-aside);
-	backdrop-filter: blur(2px);
-	border: 2px solid #3b82f6; /* Beautiful Blue Border matching reference */
-	border-radius: 16px;
-	width: 380px;
-	/* max-height: calc(100% - 100px); */
-	/* overflow-y: auto; */
-	box-shadow: var(--shadow-lg);
-	padding: 20px;
-	/* z-index: 100; */
-	/* Animation के लिए */
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-/* एक्टिव होने पर पैनल दिखाना */
-.legend-panel.active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-/* लेजेंड क्लोज़ बटन */
-.legend-close-btn {
-    position: absolute;
-    top: 10px;
-    right: 12px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    font-weight: bold;
-    color: #94a3b8; /* हल्का ग्रे */
-    cursor: pointer;
-    line-height: 1;
-    padding: 0 4px;
-    transition: color 0.2s ease;
-}
+	/* लेजेंड क्लोज़ बटन */
+	.legend-close-btn {
+		position: absolute;
+		top: 10px;
+		right: 12px;
+		background: none;
+		border: none;
+		font-size: var(--fs-2xl);
+		font-weight: var(--fw-bold);
+		color: var(--legend-close-color);
+		cursor: pointer;
+		line-height: 1;
+		padding: 0 var(--space-xs);
+		transition: color var(--transition-fast);
+	}
 
-/* होवर करने पर यह लाल रंग का हो जाएगा */
-.legend-close-btn:hover {
-    color: #ef4444; 
-}
+	/* होवर करने पर यह लाल/डेंजर रंग का हो जाएगा */
+	.legend-close-btn:hover {
+		color: var(--legend-close-hover); 
+	}
 
-/* Legend बटन की स्टाइल और पोजीशन */
-.metro-btn-overlay {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100; /* ताकि यह मैप के ऊपर दिखाई दे */
-    
-    /* मॉडर्न प्रीमियम लुक */
-    background: #ffffff;
-    color: #1e293b;
-    border: 1px solid #e2e8f0;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-family: 'Outfit', sans-serif, Arial;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    
-    /* संरेखण (Alignment) */
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s ease-in-out;
-}
+		/* Legend बटन की ग्लासमोर्फिक स्टाइल और SVG आइकॉन लेआउट */
+	/* Legend बटन की ग्लासमोर्फिक स्टाइल और CSS मास्क द्वारा थीम-रिस्पॉन्सिव SVG आइकन */
+	.metro-btn-overlay {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		z-index: var(--z-sidebar);
+		
+		background: rgba(var(--color-bg-base-rgb), 0.85);
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		color: var(--text-primary);
+		border: 1px solid var(--border-color);
+		padding: 6px 14px;
+		border-radius: var(--radius-full);
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		cursor: pointer;
+		box-shadow: var(--shadow-md);
+		
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		transition: all var(--transition-fast);
+	}
 
-/* होवर (Hover) करने पर इफ़ेक्ट */
-.metro-btn-overlay:hover {
-    background: #f8fafc;
-    border-color: #cbd5e1;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
+	/* CSS Mask se list-solid-full.svg icon (100% Theme Responsive) */
+	.metro-btn-overlay::before {
+		content: "";
+		width: 14px;
+		height: 14px;
+		background-color: var(--text-primary);     /* har theme me apne aap text color lega */
+		-webkit-mask: url("../img/icons/list-solid-full.svg") no-repeat center / contain;
+		mask: url("../img/icons/list-solid-full.svg") no-repeat center / contain;
+		display: inline-block;
+		flex-shrink: 0;
+	}
 
-/* क्लिक (Active) करने पर इफ़ेक्ट */
-.metro-btn-overlay:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
+	.metro-btn-overlay:hover {
+		background: rgba(var(--color-bg-base-rgb), 0.95);
+		border-color: var(--input-focus-border);
+		transform: translateY(-1px);
+		box-shadow: var(--shadow-lg);
+	}
 
+	.metro-btn-overlay:active {
+		transform: translateY(0);
+		box-shadow: var(--shadow-sm);
+	}
 
+	.legend-panel .legend-section {
+		margin-bottom: var(--space-lg);
+	}
 
+	/* आखिरी सेक्शन के नीचे का स्पेस हटा दें */
+	.legend-panel .legend-section:last-child {
+		margin-bottom: 0;
+	}
 
-.legend-panel .legend-section {
-	margin-bottom: 20px;
-}
-/* आखिरी सेक्शन के नीचे का स्पेस हटा दें */
-.legend-panel .legend-section:last-child {
-	margin-bottom: 0;
-}
+	.legend-panel h2 {
+		font-size: var(--fs-md);
+		font-weight: var(--fw-extrabold);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: var(--space-md);
+		color: var(--legend-text-primary);
+		border-bottom: 2px solid var(--legend-border-color);
+		padding-bottom: var(--space-xs);
+	}
 
-.legend-panel h2 {
-	font-size: 1rem;
-	font-weight: 800;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	margin-bottom: 15px;
-	color: #0f172a;
-	border-bottom: 2px solid #e2e8f0;
-	padding-bottom: 10px;
-}
-/* सेक्शन्स की सब-हेडिंग्स (जैसे Metro Lines और Station Types) का स्टाइल */
-.legend-panel .legend-section h3 {
-	font-size: 11px;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	color: #64748b; /* स्लेट ग्रे कलर */
-	margin-top: 0;
-	margin-bottom: 12px;
-}
+	/* सेक्शन्स की सब-हेडिंग्स (जैसे Metro Lines और Station Types) का स्टाइल */
+	.legend-panel .legend-section h3 {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--legend-text-secondary);
+		margin-top: 0;
+		margin-bottom: var(--space-sm);
+	}
 
-.legend-panel .legend-section ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
-.legend-panel .legend_item {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	font-size: 12px;
-	font-weight: 600;
-	color: #334155;
-	line-height: 1.4;
-}
-/* Legend Icons Styling */
-.legend-panel .legend-line-circle {
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 11px;
-	font-weight: 800;
-	flex-shrink: 0;
-	text-align: center;
-	line-height: 1;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* हल्का सा शैडो */
-}
+	.legend-panel .legend-section ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
 
-.legend-panel .legend-icon-circle {
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	border: 2px solid #334155;
-	background: #ffffff;
-	flex-shrink: 0;
-}
-.legend-panel .legend-icon-normal {
-	width: 14px;
-	height: 14px;
-	border-radius: 50%;
-	border: 1.5px solid #64748b;
-	background: #ffffff;
-	flex-shrink: 0;
-}
-.legend-panel .legend-icon-walkway {
-	width: 18px;
-	height: 18px;
-	border-radius: 50%;
-	border: 2px solid #334155;
-	background: #ffffff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	flex-shrink: 0;
-}
-.legend-panel .legend-icon-walkway::after {
-	content: '';
-	width: 6px;
-	height: 6px;
-	background: #334155;
-	border-radius: 50%;
+	.legend-panel .legend_item {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		color: var(--legend-text-secondary);
+		line-height: 1.4;
+	}
+
+	/* Legend Icons Styling */
+	.legend-panel .legend-line-circle {
+		width: var(--lg-line-size);
+		height: var(--lg-line-size);
+		border-radius: var(--radius-full);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-extrabold);
+		flex-shrink: 0;
+		text-align: center;
+		line-height: 1;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.legend-panel .legend-icon-circle {
+		width: var(--lg-interchange-size);
+		height: var(--lg-interchange-size);
+		border-radius: var(--radius-full);
+		border: 2px solid var(--legend-circle-border);
+		background: var(--legend-circle-bg);
+		flex-shrink: 0;
+	}
+
+	.legend-panel .legend-icon-normal {
+		width: var(--lg-normal-size);
+		height: var(--lg-normal-size);
+		border-radius: var(--radius-full);
+		border: 1.5px solid var(--legend-circle-border);
+		background: var(--legend-circle-bg);
+		flex-shrink: 0;
+	}
+
+	.legend-panel .legend-icon-walkway {
+		width: var(--lg-walkway-size);
+		height: var(--lg-walkway-size);
+		border-radius: var(--radius-full);
+		border: 2px solid var(--legend-circle-border);
+		background: var(--legend-circle-bg);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		flex-shrink: 0;
+	}
+
+	.legend-panel .legend-icon-walkway::after {
+		content: '';
+		width: 6px;
+		height: 6px;
+		background: var(--legend-circle-border);
+		border-radius: var(--radius-full);
+	}
 }

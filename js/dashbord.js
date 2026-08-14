@@ -205,6 +205,26 @@ export class Dashboard {
 				showTargetSection(targetId);
 			});
 		});
+        // Single Sidebar Close Button Event Handler
+		const sidebarCloseBtn = document.getElementById("sidebarCloseBtn");
+		if (sidebarCloseBtn) {
+			sidebarCloseBtn.addEventListener("click", () => {
+				// Hide all open sidebar sections
+				sections.forEach((s) => s.classList.remove("active"));
+
+				// Reset active tab on sidebar navigation links back to Map (data-target="none")
+				sidebarLinks.forEach((l) => {
+					const isMapLink = l.getAttribute("data-target") === "none";
+					if (isMapLink) {
+						l.classList.add("active");
+						l.setAttribute("aria-selected", "true");
+					} else {
+						l.classList.remove("active");
+						l.setAttribute("aria-selected", "false");
+					}
+				});
+			});
+		}
 	}
 
 	#floatingNav_event(){

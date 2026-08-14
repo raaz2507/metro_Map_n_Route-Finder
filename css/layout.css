@@ -1,12 +1,193 @@
-/* Old iPhone SE */
-@media(max-width: 320px){}
+@layer base {
+	/* HTML & Body Layout */
+	html, body {
+		overflow: hidden;
+	}
 
-/* Most Android Phone */
-@media(max-width: 360px){}
+	body {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
 
+	/* Main Container Layout */
+	main {
+		flex: 1;
+		display: flex;
+		position: relative;
+		overflow: hidden;
+		width: 100vw;
+	}
+}
 
-/* Mordern iPhone */
-@media(max-width: 390px){}
+@layer components {
+	/* =========================================================================
+	   1. Top-Level Elements Layout (Direct children of body/main)
+	   ========================================================================= */
+	header.main-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index: var(--z-header);
+	}
 
-/* Tablet */
-@media(max-width: 768px){}
+	.header-nav {
+		z-index: var(--z-header);
+		order: 2;
+	}
+
+	/* main's direct child: sidebar wrapper (flex container for nav & aside) */
+	.sidebar-wrapper {
+		position: absolute;
+		top: var(--space-lg);
+		left: var(--space-lg);
+		display: flex;
+		gap: var(--space-md);
+		align-items: flex-start;
+		z-index: var(--z-sidebar);
+		max-height: calc(100% - var(--space-2xl));
+
+		pointer-events: none;
+	}
+
+	/* इसके अंदर के साइडबार और aside पूरी तरह क्लिक योग्य रहेंगे */
+	.sidebar-wrapper > * {
+		pointer-events: auto;
+	}
+	/* main's direct child: map section */
+   .map-section {
+		position: relative;
+		flex: 1;
+		height: calc(100% - 24px);
+		margin: 12px;                            /* चारो तरफ (Top, Right, Bottom, Left) 12px मार्जिन */
+		z-index: var(--z-map);
+	}
+
+	/* .floating-nav-wrapper is the wrapper for floating menu */
+	.floating-nav-wrapper:has(.floating-nav) {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: var(--z-modal); 
+	}
+
+	/* site-footer parent layout */
+	.site-footer {
+		display: flex;
+		flex-direction: column;
+		z-index: var(--z-base);
+	}
+}
+
+/* =========================================================================
+   2. Centralized Media Queries for Top-Level Layout
+   ========================================================================= */
+
+/* Desktop Layout (min-width: 769px) */
+@media (min-width: 769px) {
+	@layer base {
+		html, body {
+			overflow-y: auto !important;
+			overflow-x: hidden !important;
+			height: auto !important;
+			min-height: 100vh;
+		}
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+		main {
+			order: 3;
+			height: calc(100vh - 80px) !important;
+			flex: none !important;
+		}
+	}
+	
+	@layer components {
+		header.main-header {
+			order: 1;
+		}
+		
+		.header-nav {
+			order: 2;
+		}
+
+		.floating-nav-wrapper:has(.floating-nav) {
+			position: absolute;
+			top: calc(100vh - 94px);
+		}
+
+		footer {
+			order: 4;
+		}
+		
+		.site-footer {
+			display: grid;
+			grid-template-columns: 2fr 1fr 1.5fr;
+			align-items: start;
+		}
+	}
+}
+
+/* Tablet & Mobile Layout (max-width: 768px) */
+@media (max-width: 768px) {
+	@layer base {
+		body {
+			height: 100vh;
+			width: 100vw;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+		}
+		main {
+			order: 2;
+			flex: 1;
+			position: relative;
+			overflow: hidden;
+		}
+	}
+
+	@layer components {
+		header.main-header {
+			order: 1;
+		}
+
+		/* Mobile sidebar-wrapper adjustments */
+		.sidebar-wrapper {
+			top: var(--space-sm);
+			left: var(--space-sm);
+			gap: var(--space-xs);
+			max-width: calc(100% - var(--space-md));
+			height: calc(100% - 120px);          /* फ्लोटिंग मेनू से पर्याप्त ऊपर */
+
+		}
+
+		aside {
+			max-width: 320px;
+			height: 100%;
+		}
+		/* Mobile floating nav fixed to bottom (Top Z-Index) */
+		.floating-nav-wrapper:has(.floating-nav) {
+			position: fixed;
+			bottom: 24px;
+			z-index: var(--z-modal);
+		}
+		
+		footer {
+			display: none !important;
+		}
+	   
+	}
+}
+
+/* Modern iPhone Adjustments */
+@media (max-width: 390px) {
+}
+
+/* Most Android Phone Adjustments */
+@media (max-width: 360px) {
+}
+
+/* Old iPhone SE Adjustments */
+@media (max-width: 320px) {
+}

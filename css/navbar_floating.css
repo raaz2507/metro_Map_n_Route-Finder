@@ -1,186 +1,169 @@
-/* =========================================================================
-   4. NAVIGATION (DESKTOP TOP MENU BAR)
-   ========================================================================= */
-:root {
-	--text-secondary: #222327; /* Inactive icon color */
-	--btn-primary-text: #ffffff; /* Active icon inner graphic color */
-	--btn-primary-bg: rgba(46,213,116,0.6); /* Active state green circle background */
-	--text-primary: rgb(9, 60, 30);
-	--theme-glow-rgb: 46, 213, 116;
-}
-:root {
-	--width: 60px;
-	--icon-width: 30px;
-	--text-color: #222327;
-	--icon-size: 50px;
-	--nav-hight: 70px;
-}
-body > nav:has(.floating-nav){
-    position: absolute;
-    /* bottom: 10%; */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5; 
-}
+@layer components {
+	/* =========================================================================
+	   4. NAVIGATION (DESKTOP & MOBILE FLOATING MENU BAR)
+	   ========================================================================= */
+	 
+	.floating-nav {
+		--width: 60px;
+		--icon-width: 30px;
+		--text-color: var(--text-secondary);
+		--icon-size: 50px;
+		--nav-hight: 70px;
+		
+		--nav-glow-rgb: var(--color-primary-rgb);
+		--nav-active-bg: rgb(var(--color-primary-rgb));
+		--nav-active-text: #ffffff;
+	}
 
-/* 1. Main Navigation Container (Transparent to prevent icon clipping) */
-.floating-nav {
-	font-family: "Poppins", sans-serif;
+	/* 1. Main Navigation Container */
+	.floating-nav {
+		font-family: var(--font-title);
 
-	position: relative;
-	width: max-content;
-	height: var(--nav-hight);
-	background: transparent;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0 10px;
-    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.15));
-    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.15));
-}
+		position: relative;
+		width: max-content;
+		height: var(--nav-hight);
+		background: transparent;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 10px;
+		filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.15));
+	}
 
-/* 2. White Background Layer using the Inline SVG Mask for Smooth Cutout Curves */
-.floating-nav::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: var(--bg-header);
-	border-radius: calc(var(--nav-hight) * 0.5);
-	z-index: -1;
+	/* 2. Theme Background Layer using Inline SVG Mask */
+	.floating-nav::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(var(--color-bg-base-rgb), var(--op-aside-bg, 0.85));
+		border-radius: calc(var(--nav-hight) * 0.5);
+		z-index: -1;
 
-	/* Reference to the SVG mask */
-	-webkit-mask: url(#nav-mask);
-	mask: url(#nav-mask);
-}
-/* डार्क थीम के लिए थोड़ी गहरी शैडो */
-body[data-theme="dark"] .floating-nav {
-    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5));
-}
+		-webkit-mask: url(#nav-mask);
+		mask: url(#nav-mask);
+	}
 
-/* साइबरपंक थीम के लिए नियॉन ग्लो शैडो इफ़ेक्ट */
-body[data-theme="cyberpunk"] .floating-nav {
-    filter: drop-shadow(0px 0px 15px rgba(0, 240, 255, 0.4));
-}
+	body[data-theme="dark"] .floating-nav {
+		filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5));
+	}
 
-/* विंटेज थीम के लिए सॉफ्ट शैडो */
-body[data-theme="vintage"] .floating-nav {
-    filter: drop-shadow(0px 8px 20px rgba(139, 94, 60, 0.2));
-}
+	body[data-theme="cyberpunk"] .floating-nav {
+		filter: drop-shadow(0px 0px 15px rgba(var(--color-primary-rgb), 0.4));
+	}
 
+	body[data-theme="vintage"] .floating-nav {
+		filter: drop-shadow(0px 8px 20px rgba(139, 94, 60, 0.2));
+	}
 
-/* CSS Animation for the SVG cutout path to make it transition smoothly */
-#cutout-path {
-	transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+	#cutout-path {
+		transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
 
-.floating-nav-list {
-	display: flex;
-	gap: 10px;
-	list-style: none;
-	width: 100%;
-	justify-content: space-around;
-	padding: 0;
-	margin: 0;
-}
+	.floating-nav-list {
+		display: flex;
+		gap: 10px;
+		list-style: none;
+		width: 100%;
+		justify-content: space-around;
+		padding: 0;
+		margin: 0;
+	}
 
-.floating-nav-item {
-	position: relative;
-	width: var(--width);
-	height: var(--nav-hight);
-	z-index: 1; /* Puts icons above the white background */
-}
+	.floating-nav-item {
+		position: relative;
+		width: var(--width);
+		height: var(--nav-hight);
+		z-index: var(--z-base);
+	}
 
-.floating-nav-item a {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	text-decoration: none;
-}
+	.floating-nav-item a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		text-decoration: none;
+	}
 
-/* 3. Base Icon Container (Always centered, handles the Green Circle) */
-.floating-nav .icon {
-	width: var(--icon-width);
-	height: var(--icon-width);
-	border-radius: 0%;
-}
+	/* Base Icon Container */
+	.floating-nav .icon {
+		width: var(--icon-width);
+		height: var(--icon-width);
+		border-radius: 0%;
+	}
 
-/* 5. Active Icon styling (Outer Green Circle) */
-.floating-nav-item.active a .icon {
-	width: var(--icon-size);
-	height: var(--icon-size);
-	border-radius: 50%;
-	background-color: var(--btn-primary-bg);
-	transform: translateY(-38px);
+		/* Active Icon styling (Theme Primary Orange Glowing Circle) */
+	.floating-nav-item.active a .icon {
+		width: var(--icon-size);
+		height: var(--icon-size);
+		border-radius: var(--radius-full);
+		background-color: rgb(var(--color-primary-rgb)) !important;   /* Theme Bright Orange Circle */
+		transform: translateY(-38px);
 
-    /* 3D Elevation Shadow + Theme Glowing Aura */
-	box-shadow: 
-		0 10px 20px rgba(0, 0, 0, 0.15),                /* 3D ऊंचाई का अहसास देने के लिए डार्क शैडो */
-		0 0 15px rgba(var(--theme-glow-rgb), 0.5),       /* मध्यम ग्लो */
-		0 0 30px rgba(var(--theme-glow-rgb), 0.2);       /* फैला हुआ हल्का ग्लो (Soft Aura) */
-}
+		box-shadow: 
+			0 10px 20px rgba(0, 0, 0, 0.15),
+			0 0 15px rgba(var(--color-primary-rgb), 0.5),
+			0 0 30px rgba(var(--color-primary-rgb), 0.2);
+	}
 
-/* 6. Active Icon graphic inside the Green Circle (Shrunk and Colored White) */
-.floating-nav-item.active a .icon::after {
-	width: 24px;
-	height: 24px;
-	background-color: var(--btn-primary-text); /* White graphic */
-}
+	/* Active Icon graphic inside Glowing Circle (Solid Crisp White Overriding navebar-main.css) */
+	.floating-nav-item.active a .icon::after {
+		width: 24px;
+		height: 24px;
+		background-color: #ffffff !important;                         /* Solid Crisp White Icon */
+	}
 
-.floating-nav-item a .text {
-	position: absolute;
-	bottom: 8px;
+	/* Inactive Text (Theme-Aware Readable Color) */
+	.floating-nav-item a .text {
+		position: absolute;
+		bottom: 8px;
 
-	font-family: "Poppins", sans-serif;
-	font-size: 0.6em;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	color: var(--text-color);
-	transition: 0.5s;
+		font-family: var(--font-title);
+		font-size: 0.6em;
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: var(--text-secondary);
+		transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		opacity: 0.85;
+		transform: translateY(0) scale(0.9);
+	}
 
-	opacity: 0;
-	/* display: none; */
-	transform: translateY(15px) scale(0.6);
-	transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-	font-weight: 500;
-	color: var(--text-color);
-}
+	/* Active Text (Bold Theme Primary Text) */
+	.floating-nav-item.active a .text {
+		opacity: 1;
+		transform: translateY(-7px) scale(1);
+		color: var(--text-primary);
+		font-weight: var(--fw-extrabold);
+	}
 
-.floating-nav-item.active a .text {
-	opacity: 1;
-	/* display: block; */
-	transform: translateY(-7px) scale(1);
-	color: var(--text-primary);
-	text-shadow:
-		0 0 05px rgba(var(--theme-glow-rgb), 0.5),
-		/* Sharp inner glow */ 0 0 15px rgba(var(--theme-glow-rgb), 0.5),
-		/* Medium diffuse glow */ 0 0 25px rgba(var(--theme-glow-rgb), 0.2);
-}
+	/* Mobile Floating Nav Compact Scaling */
+	@media (max-width: 768px) {
+		.floating-nav {
+			--width: 48px;
+			--icon-width: 22px;
+			--icon-size: 42px;
+			--nav-hight: 56px;
+		}
 
+		.floating-nav-list {
+			gap: 4px;
+		}
 
+		.floating-nav-item.active a .icon {
+			transform: translateY(-28px);
+		}
 
+		.floating-nav-item a .text {
+			font-size: 0.52em;
+			bottom: 8px;
+		}
 
-/* =========================================================================
-   6. RESPONSIVE MEDIA QUERIES (DESKTOP OR MOBILE APP STYLE)
-   ========================================================================= */
-
-/* A. Desktop Layout Specifics */
-@media (min-width: 769px) {
-    body > nav:has(.floating-nav) {
-        position: absolute;
-        top: calc(100vh - 94px); /* मैप स्क्रीन के नीचे स्थिर रखने के लिए */
-    }
-}
-
-/* B. Mobile App-like Layout Specifics */
-@media (max-width: 768px) {
-    body > nav:has(.floating-nav) {
-        position: fixed;
-        bottom: 24px;
-    }
+		.floating-nav-item.active a .text {
+			transform: translateY(-6px) scale(0.95);
+		}
+	}
 }
