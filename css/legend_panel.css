@@ -1,20 +1,22 @@
 @layer components {
 	/* Stunning Floating Legend Panel */
 
-	/* Expandable Legend Panel (कार्ड) */
+		/* Expandable Legend Panel (थीम आधारित) */
 	.legend-panel {
 		position: absolute;
 		top: 10px;
 		right: 10px;
 
-		background: var(--legend-bg);
-		backdrop-filter: blur(2px);
-		border: var(--legend-border);
-		border-radius: var(--legend-radius);
+		background: var(--card-bg, #ffffff);
+		color: var(--text-primary);
+		backdrop-filter: blur(var(--backdrop-blur, 16px));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur, 16px));
+		border: 1px solid var(--border-color);
+		border-radius: var(--map-radius);
 		width: 380px;
-		box-shadow: var(--legend-shadow);
-		padding: var(--legend-padding);
-		z-index: var(--z-sidebar); /* हेडर के ऊपर तैरने के लिए */
+		box-shadow: var(--map-shadow);
+		padding: var(--space-lg, 16px);
+		z-index: var(--z-sidebar);
 		
 		/* Animation के लिए */
 		opacity: 0;

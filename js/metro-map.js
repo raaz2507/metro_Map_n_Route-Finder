@@ -345,24 +345,31 @@ export class MetroMap {
 			{ passive: false },
 		);
 
-        // 5. स्टेशन सर्कल पर होवर करने पर उसके टेक्स्ट को हाईलाइट (Bold/Big) करना
-		const circlesList = this.#svg.elements.stations_circleGroup.querySelectorAll("circle");
-		circlesList.forEach(circle => {
-			circle.addEventListener("mouseenter", () => {
-				const stationId = circle.dataset.stationId;
-				const textNode = this.#svg.elements.labelGroup.querySelector(`text[data-station-id="${stationId}"]`);
-				if (textNode) {
-					textNode.classList.add("hovered-text");
+        // 5. ऑप्टिमाइज़्ड डेलीगेटेड होवर लिसनर (Event Delegation for Circles & Text)
+		const mainLayer = this.#svg.elements.mainGroup_layer;
+		if (mainLayer) {
+			const handleHover = (e, isHovered) => {
+				// चाहे माउस circle पर हो या text पर, उसका station-id ढूँढें
+				const target = e.target.closest("circle[data-station-id], text[data-station-id]");
+				if (!target) return;
+				const stationId = target.dataset.stationId;
+				if (!stationId) return;
+
+				const circleNode = this.#svg.elements.stations_circleGroup?.querySelector(`circle[data-station-id="${stationId}"]`);
+				const textNode = this.#svg.elements.labelGroup?.querySelector(`text[data-station-id="${stationId}"]`);
+
+				if (isHovered) {
+					if (circleNode) circleNode.classList.add("hovered-circle");
+					if (textNode) textNode.classList.add("hovered-text");
+				} else {
+					if (circleNode) circleNode.classList.remove("hovered-circle");
+					if (textNode) textNode.classList.remove("hovered-text");
 				}
-			});
-			circle.addEventListener("mouseleave", () => {
-				const stationId = circle.dataset.stationId;
-				const textNode = this.#svg.elements.labelGroup.querySelector(`text[data-station-id="${stationId}"]`);
-				if (textNode) {
-					textNode.classList.remove("hovered-text");
-				}
-			});
-		});
+			};
+
+			mainLayer.addEventListener("mouseover", (e) => handleHover(e, true));
+			mainLayer.addEventListener("mouseout", (e) => handleHover(e, false));
+		}
 	}
 
     
@@ -539,38 +546,159 @@ export class MetroMap {
 		this.#svg.elements.mainGroup_layer.appendChild(tracks_lineGroup);
 	}
 
+	#calculateStationSequenceMap() {
+		const sequenceMap = new Map();
+		const visited = new Set();
+		const stationData = this.#metroData.stationData;
+
+		// 1. टर्मिनस / एंड स्टेशन्स (जिनके 1 ही पड़ोसी हैं) को ढूँढें
+		const leafStations = Object.values(stationData).filter(
+			(st) => st.neighbors && st.neighbors.length === 1,
+		);
+
+		const queue = [];
+		leafStations.forEach((st) => {
+			queue.push({ id: st.id, step: 0 });
+			visited.add(st.id);
+			sequenceMap.set(st.id, 0);
+		});
+
+		// 2. BFS ग्राफ ट्रैवर्सेल: मेट्रो ट्रैक्स के साथ-साथ एक-एक कदम आगे बढ़ना
+		while (queue.length > 0) {
+			const { id, step } = queue.shift();
+			const st = stationData[id];
+			if (!st || !st.neighbors) continue;
+
+			st.neighbors.forEach((nbr) => {
+				if (!visited.has(nbr.station)) {
+					visited.add(nbr.station);
+					sequenceMap.set(nbr.station, step + 1);
+					queue.push({ id: nbr.station, step: step + 1 });
+				}
+			});
+		}
+
+		return sequenceMap;
+	}
+
 	#drawStationLabels(lang = "en") {
 		const labelGroup = this.#createGroup("stationLabels");
 
-		//clear old name if avilable
 		if (this.#svg.elements.labelGroup) {
 			this.#svg.elements.labelGroup.remove();
 		}
-		Object.values(this.#metroData.stationData).forEach((station) => {
+
+		// ग्राफ ट्रैवर्सेल से हर स्टेशन का वास्तविक ट्रैक अनुक्रम (Sequence Step) निकालें
+		const sequenceMap = this.#calculateStationSequenceMap();
+		const stations = Object.values(this.#metroData.stationData);
+
+		stations.forEach((station, index) => {
 			if (!station.xy) return;
+
+			// 1. ट्रैक ओरिएंटेशन (Horizontal vs Vertical)
+			let isHorizontalTrack = true;
+			if (station.neighbors && station.neighbors.length > 0) {
+				const neighborId = station.neighbors[0].station;
+				const neighbor = this.#metroData.stationData[neighborId];
+				if (neighbor && neighbor.xy) {
+					const dx = Math.abs(neighbor.xy.x - station.xy.x);
+					const dy = Math.abs(neighbor.xy.y - station.xy.y);
+					if (dy > dx) {
+						isHorizontalTrack = false;
+					}
+				}
+			}
+
+			// 2. 100% Strict Alternate Sequence along Track Lines (Graph Step Parity)
+			const sequenceStep = sequenceMap.get(station.id) ?? index;
+			const isEven = sequenceStep % 2 === 0;
+
+			// 3. यूनिवर्सल नाम स्प्लिटिंग लॉजिक (Parentheses & Word Boundary)
+			const rawName = lang === "hi" && station.name_hi ? station.name_hi : station.name;
+			
+			const getWrappedLines = (str) => {
+				if (!str) return [str];
+				const trimmed = str.trim();
+
+				const parenMatch = trimmed.match(/^([^(]+)\s*(\(.*\))$/);
+				if (parenMatch) {
+					return [parenMatch[1].trim(), parenMatch[2].trim()];
+				}
+
+				const words = trimmed.split(/\s+/);
+				if (trimmed.length <= 8 || words.length <= 1) {
+					return [trimmed];
+				}
+
+				let line1 = "";
+				let line2 = "";
+				const targetLen = trimmed.length / 2;
+
+				for (let i = 0; i < words.length; i++) {
+					if ((line1 + words[i]).length <= targetLen + 2 || i === 0) {
+						line1 += (line1 ? " " : "") + words[i];
+					} else {
+						line2 += (line2 ? " " : "") + words[i];
+					}
+				}
+				return line2 ? [line1, line2] : [line1];
+			};
+
+			const lines = getWrappedLines(rawName);
+
+			let x = station.xy.x;
+			let y = station.xy.y;
+			let textAnchor = "middle";
+			let dominantBaseline = "alphabetic";
+
+			// 4. डायनामिक ऑफसेट और एंकरिंग तय करना
+			if (isHorizontalTrack) {
+				x = station.xy.x;
+				if (isEven) {
+					const extraTopShift = (lines.length - 1) * 418;
+					y = station.xy.y - 260 - extraTopShift;
+					dominantBaseline = "alphabetic";
+				} else {
+					y = station.xy.y + 260;
+					dominantBaseline = "hanging";
+				}
+				textAnchor = "middle";
+			} else {
+				x = isEven ? station.xy.x - 260 : station.xy.x + 260;
+				y = station.xy.y;
+				textAnchor = isEven ? "end" : "start";
+				dominantBaseline = "central";
+			}
+
+			// 5. SVG Text एलिमेंट तैयार करें
 			const text = document.createElementNS(
 				"http://www.w3.org/2000/svg",
 				"text",
 			);
 
-			// Offset the text slightly from the station center
-			const x = station.xy.x + 150;
-			const y = station.xy.y - 150;
-
 			text.setAttribute("x", x);
 			text.setAttribute("y", y);
-			text.setAttribute("font-size", 450);
+			text.setAttribute("font-size", 380);
 			text.setAttribute("font-family", "Arial, sans-serif");
 			text.setAttribute("fill", "#222");
+			text.setAttribute("text-anchor", textAnchor);
+			text.setAttribute("dominant-baseline", dominantBaseline);
 			text.setAttribute("style", "user-select: none;");
-
-			text.textContent =
-				lang === "hi" && station.name_hi ? station.name_hi : station.name;
-
 			text.dataset.stationId = station.id;
 
-			// Rotate the text -35 degrees around its own anchor point (x, y)
-			// text.setAttribute( "transform", `rotate(-35, ${x}, ${y})` );
+			if (lines.length === 1) {
+				text.textContent = lines[0];
+			} else {
+				lines.forEach((lineText, idx) => {
+					const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+					tspan.setAttribute("x", x);
+					if (idx > 0) {
+						tspan.setAttribute("dy", "1.1em");
+					}
+					tspan.textContent = lineText;
+					text.appendChild(tspan);
+				});
+			}
 
 			labelGroup.appendChild(text);
 		});

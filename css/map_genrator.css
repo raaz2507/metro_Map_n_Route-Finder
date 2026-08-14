@@ -1,18 +1,24 @@
 @import url("./map_styling.css");
 @import url("./legend_panel.css");
 
-.legend-panel, .metro-btn-overlay {
-	/* Local Legend Customization */
-	--legend-bg: var(--bg-aside);
-	--legend-border: 1px solid var(--border-color);
-	--legend-radius: var(--radius-lg);
-	--legend-padding: var(--space-lg);
-	--legend-shadow: var(--shadow-lg);
+:root {
+	/* Map & Legend Base Tokens (Theme Based) */
+	--map-glass-bg: var(--card-bg, #ffffff);
+	--map-border: var(--border-color, rgba(0, 0, 0, 0.15));
+	--map-radius: var(--radius-lg, 16px);
+	--map-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+
+    
+	/* Legend Text & Icon Colors */
+	--legend-text-primary: var(--text-primary, #0f172a);
+	--legend-text-secondary: var(--text-secondary, #475569);
+	--legend-circle-border: var(--legend-text-primary);
+	--legend-circle-bg: rgba(var(--color-bg-base-rgb, 255, 255, 255), 0.9);
+	--legend-close-hover: #ef4444;
 
 	/* Icon Sizes */
-	--lg-line-size: 24px;         /* Line badge (24px) */
-	--lg-walkway-size: 18px;      /* Walkway icon (18px) */
-	--lg-interchange-size: 16px;  /* Interchange circle (16px) */
-	--lg-normal-size: 14px;       /* Normal station circle (14px) */
+	--lg-line-size: 24px;
+	--lg-walkway-size: 18px;
+	--lg-interchange-size: 16px;
+	--lg-normal-size: 14px;
 }
-
