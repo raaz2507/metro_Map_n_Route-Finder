@@ -43,3 +43,24 @@ graph TD
    this.#mapObj.highlightRoute(routeInfo.path);
    ```
 6. **Rendering**: `MetroMap` queries the corresponding SVG line and station elements along the path and updates their styles (e.g., increasing stroke-width, adding shadow, or lowering opacity for non-route lines) to highlight the route.
+
+
+
+                    UNIVERSAL METRO SYSTEM
+                             │
+          ┌──────────────────┼──────────────────┐
+          │                  │                  │
+       NETWORKS            ROUTING            FARES
+          │                  │                  │
+      Operators          Graph Engine        Policies
+      Lines              Route Engine        Products
+      Stations           Transfers           Discounts
+      Services            Walkways            Time Rules
+          │                  │                  │
+          └──────────────────┼──────────────────┘
+                             │
+                       JOURNEY ENGINE
+                             │
+             ┌───────────────┼───────────────┐
+             │               │               │
+           Search           Map           Navigation

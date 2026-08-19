@@ -1,7 +1,7 @@
 export class RouteFinder {
 	#stationData;
 	#fareRules;
-	#lineColors;
+	#lines;
 
 	static LEAST_TRANSFER_PENALTY = 1000;
 	static SHORT_ROUTE_TRANSFER_PENALTY = 0.5;
@@ -9,7 +9,7 @@ export class RouteFinder {
 	constructor(metroData) {
 		this.#stationData = metroData.stationData;
 		this.#fareRules = metroData.fareRules;
-		this.#lineColors = metroData.line_color;
+		this.#lines = metroData.lines;
 		this.#init();
 	}
 	#init(){}
@@ -21,45 +21,6 @@ export class RouteFinder {
 	 * @param {string} routeType - "shortestDistance" या "leastTransfers"
 	 * @returns {Object|null} रूट के विवरण का ऑब्जेक्ट या null
 	 */
-	findRoute(startName, endName, routeType = "shortestDistance") {
-		const startId = this.#findStationIdByName(startName);
-		const endId = this.#findStationIdByName(endName);
-
-		if (!startId || !endId) {
-			console.error(
-				`Stations not found. Start: ${startName} -> ${startId}, End: ${endName} -> ${endId}`,
-			);
-			return null;
-		}
-
-		// यदि शुरुआत और अंत स्टेशन एक ही हैं
-		if (startId === endId) {
-			return {
-				path: [startId],
-				totalDistance: 0,
-				totalFare: 0,
-				totalTime: 0,
-				interchanges: 0,
-			};
-		}
-
-		const result = this.#runDijkstra(startId, endId, routeType);
-		if (!result) return null;
-
-		const totalFare = this.#calculateFare(result.totalDistance);
-		const totalTime = this.#calculateTime(
-			result.path.length,
-			result.interchanges,
-		);
-
-		return {
-			path: result.path,
-			totalDistance: Number(result.totalDistance.toFixed(2)),
-			totalFare: totalFare,
-			totalTime: totalTime,
-			interchanges: result.interchanges,
-		};
-	}
 
 	/**
 	 * इनपुट नाम (English/Hindi/ID) को स्टेशन ID में बदलता है।
@@ -68,12 +29,16 @@ export class RouteFinder {
 		if (!name) return null;
 		const normalizedInput = name.trim().toLowerCase();
 
-		const station = Object.values(this.#stationData).find(
-			(s) =>
-				s.name.toLowerCase() === normalizedInput ||
-				s.id.toLowerCase() === normalizedInput ||
-				(s.name_hi && s.name_hi.toLowerCase() === normalizedInput),
-		);
+		const station = Object.values(this.#stationData).find((s) => {
+			if (!s) return false;
+			const enName = s.name?.en || "";
+			const hiName = s.name?.hi || "";
+			return (
+				enName.toLowerCase() === normalizedInput ||
+				hiName.toLowerCase() === normalizedInput ||
+				s.id.toLowerCase() === normalizedInput
+			);
+		});
 		return station ? station.id : null;
 	}
 
@@ -103,10 +68,6 @@ export class RouteFinder {
 
 		// 2. Dijkstra Loop
 		while (!queue.isEmpty()) {
-			// कतार को सॉर्ट करें (न्यूनतम दूरी वाला नोड पहले निकालने के लिए - min-heap की तरह)
-			// queue.sort((a, b) => a.dist - b.dist);
-			// const curr = queue.shift();
-			// const queue = [];
 			const curr = queue.pop();
 
 			const currKey = `${curr.id}-${curr.line}`;
@@ -204,32 +165,138 @@ export class RouteFinder {
 	}
 
 	/**
-	 * fareRules.slabs के अनुसार दूरी आधारित किराया निकालता है।
+	 * data.json के पॉलिसी-बेस्ड नियमों के अनुसार dynamic किराया निकालता है।
 	 */
-	#calculateFare(distance) {
-		const slabs = this.#fareRules?.slabs;
-
-		if (!slabs?.length) {
-			return 0;
+	#calculateFare(distanceInMeters, startId, endId) {
+		// 1. एयरपोर्ट एक्सप्रेस फेयर मैट्रिक्स जाँचें (Station-Pair Fare)
+		const airportMatrix = this.#fareRules?.policies?.airport_express?.fareMatrix;
+		if (startId && endId && airportMatrix?.[startId]?.[endId] != null) {
+			const baseFare = airportMatrix[startId][endId];
+			return {
+				tokenFare: baseFare,
+				smartCardFare: baseFare,
+				offPeakFare: baseFare,
+				offPeakSmartFare: baseFare
+			};
 		}
 
-		distance = Number(distance.toFixed(2));
+		// 2. मानक DMRC दूरी-आधारित किराया (dmrc_standard)
+		const policy = this.#fareRules?.policies?.dmrc_standard;
+		const slabs = policy?.fareTables?.weekday || [];
+		
+		if (!slabs.length) {
+			return { tokenFare: 0, smartCardFare: 0, offPeakFare: 0, offPeakSmartFare: 0 };
+		}
+
+		const distanceKm = Number((distanceInMeters / 1000).toFixed(2));
+		let baseFare = slabs.at(-1).fare;
 
 		for (const slab of slabs) {
-			if ( distance >= slab.minKm && distance < slab.maxKm ) {
-				return slab.fare;
+			if (slab.maxKm === null) {
+				if (distanceKm >= slab.minKm) {
+					baseFare = slab.fare;
+					break;
+				}
+			} else if (distanceKm >= slab.minKm && distanceKm < slab.maxKm) {
+				baseFare = slab.fare;
+				break;
 			}
 		}
 
-		return slabs.at(-1).fare;
+		// उत्पाद छूट दरें (Products Discount Percentages)
+		const smartCardPct = policy?.products?.smart_card?.discountPercent ?? 10;
+		const offPeakPct = policy?.products?.off_peak_smart_card?.discountPercent ?? 10;
+
+		const smartCardFare = Math.round(baseFare * (1 - smartCardPct / 100));
+		const offPeakFare = Math.round(baseFare * (1 - offPeakPct / 100));
+		const offPeakSmartFare = Math.round(baseFare * (1 - (smartCardPct + offPeakPct) / 100));
+
+		return {
+			tokenFare: baseFare,
+			smartCardFare: smartCardFare,
+			offPeakFare: offPeakFare,
+			offPeakSmartFare: offPeakSmartFare
+		};
+	}
+
+	findRoute(startName, endName, routeType = "shortestDistance") {
+		const startId = this.#findStationIdByName(startName);
+		const endId = this.#findStationIdByName(endName);
+		if (!startId || !endId) return null;
+		if (startId === endId) {
+			return {
+				path: [startId],
+				totalDistance: 0,
+				totalWalkwayDistance: 0,
+				totalTrainTime: 0,
+				totalWalkwayTime: 0,
+				totalTime: 0,
+				interchanges: 0,
+				totalFare: { tokenFare: 0, smartCardFare: 0, offPeakFare: 0, offPeakSmartFare: 0 },
+				steps: []
+			};
+		}
+		const result = this.#runDijkstra(startId, endId, routeType);
+		if (!result) return null;
+
+		// DMRC NORM: किराया हमेशा Shortest Distance से ही तय रहेगा
+		let shortestResult = result;
+		if (routeType !== "shortestDistance") {
+			shortestResult = this.#runDijkstra(startId, endId, "shortestDistance") || result;
+		}
+		const totalFare = this.#calculateFare(shortestResult.totalDistance, startId, endId);
+
+		// स्टेप्स एरे और वॉकवे टाइम की गणना
+		let totalWalkwayTime = 0;
+		let totalWalkwayDistance = 0;
+		const steps = [];
+		for (let i = 0; i < result.path.length - 1; i++) {
+			const currStation = this.#stationData[result.path[i]];
+			const nextStationId = result.path[i + 1];
+			const neighbor = currStation.neighbors?.find(n => n.station === nextStationId);
+			const dist = neighbor ? neighbor.distance : 0;
+			const stepTime = (dist / 600) + 0.5;
+			steps.push({
+				type: "rail",
+				from: result.path[i],
+				to: nextStationId,
+				distance: dist,
+				time: Math.round(stepTime * 10) / 10
+			});
+		}
+		// इंटरचेंज ट्रांसफर स्टेप्स
+		if (result.interchanges > 0) {
+			// इंटरचेंज समय (औसतन 4-5 मिनट प्रति ट्रांसफर)
+			totalWalkwayTime = result.interchanges * 5;
+		}
+		const totalTrainTime = Math.ceil((result.totalDistance / 600) + (result.path.length - 1) * 0.5);
+		const totalTime = totalTrainTime + totalWalkwayTime;
+		return {
+			path: result.path,
+			totalDistance: result.totalDistance,      // पटरियों की दूरी (meters)
+			totalWalkwayDistance: totalWalkwayDistance,// वॉकवे दूरी (meters)
+			totalTrainTime: totalTrainTime,            // ट्रेन का समय (minutes)
+			totalWalkwayTime: totalWalkwayTime,        // वॉकवे समय (minutes)
+			totalTime: totalTime,                      // कुल यात्रा समय (minutes)
+			interchanges: result.interchanges,
+			totalFare: totalFare,                      // 4 किरायों का ऑब्जेक्ट
+			steps: steps
+		};
 	}
 
 	/**
-	 * औसत समय की गणना करता है (2 मिनट प्रति स्टेशन + 5 मिनट प्रति इंटरचेंज)।
+	 * कुल दूरी (मीटर), स्टेशनों की संख्या और इंटरचेंज के आधार पर सटीक यात्रा समय (Minutes) निकालता है।
 	 */
-	#calculateTime(stationCount, interchanges) {
+	#calculateTime(distanceInMeters, stationCount, interchanges) {
 		if (stationCount <= 1) return 0;
-		return (stationCount - 1) * 2 + interchanges * 5;
+		// 1. ट्रेन की वास्तविक मूविंग टाइमिंग (36 km/h = 600m/min)
+		const movingMinutes = distanceInMeters / 600;
+		// 2. हर स्टेशन पर 30 सेकंड (0.5 मिनट) का हॉल्ट/रुकने का समय
+		const haltMinutes = (stationCount - 1) * 0.5;
+		// 3. इंटरचेंज ट्रांसफर का औसतन समय (4 मिनट प्रति इंटरचेंज)
+		const transferMinutes = interchanges * 4;
+		// कुल समय (पूर्णांक में राउंड ऑफ)
+		return Math.ceil(movingMinutes + haltMinutes + transferMinutes);
 	}
 }
 

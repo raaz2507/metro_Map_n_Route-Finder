@@ -33,7 +33,7 @@ export class MetroMap {
 		startY: 0, // माउस/टच शुरू होने का Y पॉइंट
 	};
 
-	#scaleMultiplier = 1.5;
+	#scaleMultiplier = 2.0;
 
 	// =========================================================================
 	// 2. LIFECYCLE / CONSTRUCTOR
@@ -140,12 +140,12 @@ export class MetroMap {
 		track_line_legend.innerHTML = "";
 		station_type_legend.innerHTML = "";
 
-		// 1. मेट्रो लाइन्स रेंडर करें
-		Object.entries(this.#metroData.line_color).forEach(
+				// 1. मेट्रो लाइन्स रेंडर करें
+		const linesData = this.#metroData.lines || {};
+		Object.entries(linesData).forEach(
 			([lineKey, lineInfo]) => {
 				const li = document.createElement("li");
 				li.className = "legend_item";
-				// li.style.color = lineInfo.color;
 
 				// कलर्ड सर्किल बनाएं (डेटा से लेबल लेकर)
 				const circle = document.createElement("span");
@@ -159,24 +159,25 @@ export class MetroMap {
 
 				// नाम सेट करें (भाषा के अनुसार)
 				const text = document.createElement("span");
-				text.textContent =
-					lang === "hi" && lineInfo.name_hi
-						? lineInfo.name_hi
-						: lineInfo.name_en || lineKey;
-
-				li.appendChild(circle);
+				text.textContent = lineInfo.name?.[lang] || lineInfo.name?.en || lineKey;
+				
+                li.appendChild(circle);
 				li.appendChild(text);
 				track_line_legend.appendChild(li);
 			},
 		);
 
 		// 2. स्पेशल स्टेशन टाइप्स रेंडर करें (Walkway, Interchange, Normal)
+		const stationTypes = this.#metroData.station_types || {
+			walkway: { en: "Interchange via walkway / travelators", hi: "वॉकवे / ट्रैवलर द्वारा इंटरचेंज" },
+			interchange: { en: "Interchange Station", hi: "इंटरचेंज स्टेशन" },
+			normal: { en: "Normal Station", hi: "सामान्य स्टेशन" }
+		};
 
-		Object.entries(this.#metroData.station_types).forEach(([type, info]) => {
+		Object.entries(stationTypes).forEach(([type, info]) => {
 			const li = document.createElement("li");
 			li.className = "legend_item";
 
-			// आइकॉन बनाएं
 			const icon = document.createElement("span");
 			if (type === "walkway") {
 				icon.className = "legend-icon-walkway";
@@ -186,9 +187,8 @@ export class MetroMap {
 				icon.className = "legend-icon-normal";
 			}
 
-			// नाम सेट करें
 			const text = document.createElement("span");
-			text.textContent = lang === "hi" ? info.name_hi : info.name_en;
+			text.textContent = info[lang] || info.en;
 
 			li.appendChild(icon);
 			li.appendChild(text);
@@ -349,13 +349,13 @@ export class MetroMap {
 		const mainLayer = this.#svg.elements.mainGroup_layer;
 		if (mainLayer) {
 			const handleHover = (e, isHovered) => {
-				// चाहे माउस circle पर हो या text पर, उसका station-id ढूँढें
-				const target = e.target.closest("circle[data-station-id], text[data-station-id]");
+								// चाहे माउस circle, group या text पर हो, उसका station-id ढूँढें
+				const target = e.target.closest("[data-station-id]");
 				if (!target) return;
 				const stationId = target.dataset.stationId;
 				if (!stationId) return;
 
-				const circleNode = this.#svg.elements.stations_circleGroup?.querySelector(`circle[data-station-id="${stationId}"]`);
+				const circleNode = this.#svg.elements.stations_circleGroup?.querySelector(`[data-station-id="${stationId}"]`);
 				const textNode = this.#svg.elements.labelGroup?.querySelector(`text[data-station-id="${stationId}"]`);
 
 				if (isHovered) {
@@ -393,28 +393,19 @@ export class MetroMap {
 	// =========================================================================
 	// 5. DATA PROCESSING & COORDINATES CONVERSION
 	// =========================================================================
+	// 1. #Lat_Lon_to_X_Y_Conversion() (Line 396)
 	#Lat_Lon_to_X_Y_Conversion() {
 		Object.values(this.#metroData.stationData).forEach((station) => {
-			if (!station.coordinates) return;
-
-			const lat = station.coordinates.latitudeCenter;
-			const lon = station.coordinates.longitudeCenter;
-
-			// Simple Linear Scaling formula to map coords to SVG width and height
-			// prettier-ignore
+			const dec = station.location?.decimal;
+			if (!dec || dec.lat == null || dec.lon == null || dec.lat === "") return;
+			const lat = Number(dec.lat);
+			const lon = Number(dec.lon);
 			const x = (lon - this.#bounds.minLon) * earthScale * this.#scaleMultiplier * Math.cos(this.#avgLatRad);
-
-			// Y is inverted because SVG Y coordinate starts from 0 at the top and goes down
-			const y =
-				(this.#bounds.maxLat - lat) * earthScale * this.#scaleMultiplier;
-
-			// Scaled coordinates ko station.xy property mein store karte hain
+			const y = (this.#bounds.maxLat - lat) * earthScale * this.#scaleMultiplier;
 			station.xy = { x, y };
 		});
-
-        // prettier-ignore 
-		console.log( "Mapped Station Coordinates (X, Y):", this.#metroData.stationData,);
 	}
+
 
 	// =========================================================================
 	// 6. SVG RENDERING & LAYOUT SIZING HELPERS
@@ -436,23 +427,23 @@ export class MetroMap {
 	}
 
 	// Sabhi stations ke coordinates mein se minimum aur maximum Latitude/Longitude find karta hai
+	
 	#getBounds() {
 		let minLat = Infinity;
 		let maxLat = -Infinity;
 		let minLon = Infinity;
 		let maxLon = -Infinity;
-
 		Object.values(this.#metroData.stationData).forEach((station) => {
-			if (station.coordinates) {
-				const lat = station.coordinates.latitudeCenter;
-				const lon = station.coordinates.longitudeCenter;
+			const dec = station.location?.decimal;
+			if (dec && dec.lat != null && dec.lon != null && dec.lat !== "") {
+				const lat = Number(dec.lat);
+				const lon = Number(dec.lon);
 				if (lat < minLat) minLat = lat;
 				if (lat > maxLat) maxLat = lat;
 				if (lon < minLon) minLon = lon;
 				if (lon > maxLon) maxLon = lon;
 			}
 		});
-		// return { minLat, maxLat, minLon, maxLon };
 		this.#bounds = { minLat, maxLat, minLon, maxLon };
 	}
 
@@ -497,18 +488,26 @@ export class MetroMap {
 		Object.values(this.#metroData.stationData).forEach((station) => {
 			const xy = station.xy;
 			if (xy) {
-				// 'station' already station object hai, toh hum directly station.lines use kar sakte hain
-				const lineColor =
-					this.#metroData.line_color[station.lines[0]]?.color ?? "#333";
-				const circle = this.#createCircle(
-					xy.x,
-					xy.y,
-					200,
-					"#FDFBD4",
-					lineColor,
-				);
-				circle.dataset.stationId = station.id;
-				stations_circleGroup.appendChild(circle);
+				const firstLineId = station.lines?.[0];
+				const lineInfo = this.#metroData.lines?.[firstLineId];
+				const lineColor = lineInfo?.color ?? "#333";
+
+				const stationType =
+					station.properties?.station_type ||
+					station.station_type ||
+					(station.lines.length > 1 ? "interchange" : "normal");
+
+				let elem;
+				if (stationType === "walkway") {
+					elem = this.#createWalkwayCircle(xy.x, xy.y, 200, "#FDFBD4", lineColor);
+				} else if (stationType === "interchange") {
+					elem = this.#createInterchangeCircle(xy.x, xy.y, 200, "#FDFBD4", lineColor);
+				} else {
+					elem = this.#createCircle(xy.x, xy.y, 200, "#FDFBD4", lineColor);
+				}
+
+				elem.dataset.stationId = station.id;
+				stations_circleGroup.appendChild(elem);
 			}
 		});
 
@@ -528,30 +527,31 @@ export class MetroMap {
 
 				drawn.add(key);
 				const nextStation = this.#metroData.stationData[neighbor.station];
-				const lineInfo = this.#metroData.line_color[neighbor.line];
+				const lineInfo = this.#metroData.lines?.[neighbor.line];
+				const lineColor = lineInfo?.color ?? "#333";
 
 				const line = this.#createLine(
 					station.xy.x,
 					station.xy.y,
 					nextStation.xy.x,
 					nextStation.xy.y,
-					lineInfo.color,
+					lineColor,
 					100,
 				);
 				line.dataset.edgeId = key;
 				tracks_lineGroup.appendChild(line);
 			});
 		});
+
 		this.#svg.elements.tracks_lineGroup = tracks_lineGroup;
 		this.#svg.elements.mainGroup_layer.appendChild(tracks_lineGroup);
 	}
 
-	#calculateStationSequenceMap() {
+		#calculateStationSequenceMap() {
 		const sequenceMap = new Map();
 		const visited = new Set();
 		const stationData = this.#metroData.stationData;
 
-		// 1. टर्मिनस / एंड स्टेशन्स (जिनके 1 ही पड़ोसी हैं) को ढूँढें
 		const leafStations = Object.values(stationData).filter(
 			(st) => st.neighbors && st.neighbors.length === 1,
 		);
@@ -563,7 +563,6 @@ export class MetroMap {
 			sequenceMap.set(st.id, 0);
 		});
 
-		// 2. BFS ग्राफ ट्रैवर्सेल: मेट्रो ट्रैक्स के साथ-साथ एक-एक कदम आगे बढ़ना
 		while (queue.length > 0) {
 			const { id, step } = queue.shift();
 			const st = stationData[id];
@@ -581,6 +580,53 @@ export class MetroMap {
 		return sequenceMap;
 	}
 
+	// Full 8-Quadrant Empty Sector Selector for Junctions & Curved Stations
+	#getBestLabelQuadrant(station) {
+		if (!station.neighbors || station.neighbors.length < 3) return null;
+
+		// पड़ोसी स्टेशन्स के एंगल्स नापना
+		const angles = [];
+		station.neighbors.forEach((nbr) => {
+			const nbrSt = this.#metroData.stationData[nbr.station];
+			if (nbrSt && nbrSt.xy) {
+				const rad = Math.atan2(nbrSt.xy.y - station.xy.y, nbrSt.xy.x - station.xy.x);
+				let deg = (rad * 180) / Math.PI;
+				if (deg < 0) deg += 360;
+				angles.push(deg);
+			}
+		});
+
+		// सभी 8 मुख्य और डायगोनल दिशाएँ
+		const quadrants = [
+			{ name: "TOP", angle: 270 },
+			{ name: "BOTTOM", angle: 90 },
+			{ name: "LEFT", angle: 180 },
+			{ name: "RIGHT", angle: 0 },
+			{ name: "TR", angle: 315 }, // Top-Right
+			{ name: "TL", angle: 225 }, // Top-Left
+			{ name: "BR", angle: 45 },  // Bottom-Right
+			{ name: "BL", angle: 135 }, // Bottom-Left
+		];
+
+		let bestQuad = "TR";
+		let maxClearance = -1;
+
+		quadrants.forEach((q) => {
+			let minDiff = 360;
+			angles.forEach((a) => {
+				let diff = Math.abs(q.angle - a);
+				if (diff > 180) diff = 360 - diff;
+				if (diff < minDiff) minDiff = diff;
+			});
+			if (minDiff > maxClearance) {
+				maxClearance = minDiff;
+				bestQuad = q.name;
+			}
+		});
+
+		return bestQuad;
+	}
+
 	#drawStationLabels(lang = "en") {
 		const labelGroup = this.#createGroup("stationLabels");
 
@@ -588,33 +634,43 @@ export class MetroMap {
 			this.#svg.elements.labelGroup.remove();
 		}
 
-		// ग्राफ ट्रैवर्सेल से हर स्टेशन का वास्तविक ट्रैक अनुक्रम (Sequence Step) निकालें
 		const sequenceMap = this.#calculateStationSequenceMap();
 		const stations = Object.values(this.#metroData.stationData);
 
 		stations.forEach((station, index) => {
 			if (!station.xy) return;
 
-			// 1. ट्रैक ओरिएंटेशन (Horizontal vs Vertical)
+			// 1. ट्रैक ओरिएंटेशन (Horizontal, Vertical, या Diagonal Slopes) की सटीक पहचान
 			let isHorizontalTrack = true;
+			let isDiagonalTrack = false;
+			let isDiagonalNWSE = false;
+
 			if (station.neighbors && station.neighbors.length > 0) {
 				const neighborId = station.neighbors[0].station;
 				const neighbor = this.#metroData.stationData[neighborId];
 				if (neighbor && neighbor.xy) {
-					const dx = Math.abs(neighbor.xy.x - station.xy.x);
-					const dy = Math.abs(neighbor.xy.y - station.xy.y);
-					if (dy > dx) {
+					const rawDx = neighbor.xy.x - station.xy.x;
+					const rawDy = neighbor.xy.y - station.xy.y;
+					const dx = Math.abs(rawDx);
+					const dy = Math.abs(rawDy);
+					const maxDiff = Math.max(dx, dy);
+
+					if (maxDiff > 0 && Math.abs(dx - dy) < maxDiff * 0.45) {
+						isDiagonalTrack = true;
+						if ((rawDx > 0 && rawDy > 0) || (rawDx < 0 && rawDy < 0)) {
+							isDiagonalNWSE = true;
+						}
+					} else if (dy > dx) {
 						isHorizontalTrack = false;
 					}
 				}
 			}
 
-			// 2. 100% Strict Alternate Sequence along Track Lines (Graph Step Parity)
 			const sequenceStep = sequenceMap.get(station.id) ?? index;
 			const isEven = sequenceStep % 2 === 0;
 
-			// 3. यूनिवर्सल नाम स्प्लिटिंग लॉजिक (Parentheses & Word Boundary)
-			const rawName = lang === "hi" && station.name_hi ? station.name_hi : station.name;
+			// यूनिवर्सल नाम स्प्लिटिंग लॉजिक
+						const rawName = station.name?.[lang] || station.name?.en || "";
 			
 			const getWrappedLines = (str) => {
 				if (!str) return [str];
@@ -651,8 +707,84 @@ export class MetroMap {
 			let textAnchor = "middle";
 			let dominantBaseline = "alphabetic";
 
-			// 4. डायनामिक ऑफसेट और एंकरिंग तय करना
-			if (isHorizontalTrack) {
+			// Full 8-Quadrant Selector for Junctions and Curved Stations
+			const junctionQuad = this.#getBestLabelQuadrant(station);
+
+			if (junctionQuad) {
+				if (junctionQuad === "TOP") {
+					x = station.xy.x;
+					y = station.xy.y - 260 - (lines.length - 1) * 418;
+					textAnchor = "middle";
+					dominantBaseline = "alphabetic";
+				} else if (junctionQuad === "BOTTOM") {
+					x = station.xy.x;
+					y = station.xy.y + 260;
+					textAnchor = "middle";
+					dominantBaseline = "hanging";
+				} else if (junctionQuad === "LEFT") {
+					x = station.xy.x - 260;
+					y = station.xy.y;
+					textAnchor = "end";
+					dominantBaseline = "central";
+				} else if (junctionQuad === "RIGHT") {
+					x = station.xy.x + 260;
+					y = station.xy.y;
+					textAnchor = "start";
+					dominantBaseline = "central";
+				} else if (junctionQuad === "TR") {
+					x = station.xy.x + 240;
+					y = station.xy.y - 240 - (lines.length - 1) * 418;
+					textAnchor = "start";
+					dominantBaseline = "alphabetic";
+				} else if (junctionQuad === "TL") {
+					x = station.xy.x - 240;
+					y = station.xy.y - 240 - (lines.length - 1) * 418;
+					textAnchor = "end";
+					dominantBaseline = "alphabetic";
+				} else if (junctionQuad === "BR") {
+					x = station.xy.x + 240;
+					y = station.xy.y + 240;
+					textAnchor = "start";
+					dominantBaseline = "hanging";
+				} else if (junctionQuad === "BL") {
+					x = station.xy.x - 240;
+					y = station.xy.y + 240;
+					textAnchor = "end";
+					dominantBaseline = "hanging";
+				}
+			} else if (isDiagonalTrack) {
+				// 90° Perpendicular Diagonal Slope Alternating
+				if (isDiagonalNWSE) {
+					// Top-Left से Bottom-Right Slope (उदा: Rohini East / West)
+					if (isEven) {
+						// Top-Right (दाएँ-ऊपर)
+						x = station.xy.x + 280;
+						y = station.xy.y - 280 - (lines.length - 1) * 418;
+						textAnchor = "start";
+						dominantBaseline = "alphabetic";
+					} else {
+						// Bottom-Left (बाएँ-नीचे)
+						x = station.xy.x - 280;
+						y = station.xy.y + 280;
+						textAnchor = "end";
+						dominantBaseline = "hanging";
+					}
+				} else {
+					// Bottom-Left से Top-Right Slope
+					if (isEven) {
+						x = station.xy.x - 280;
+						y = station.xy.y - 280 - (lines.length - 1) * 418;
+						textAnchor = "end";
+						dominantBaseline = "alphabetic";
+					} else {
+						x = station.xy.x + 280;
+						y = station.xy.y + 280;
+						textAnchor = "start";
+						dominantBaseline = "hanging";
+					}
+				}
+			} else if (isHorizontalTrack) {
+				// हॉरिजॉन्टल लाइनों पर (Top / Bottom Alternating)
 				x = station.xy.x;
 				if (isEven) {
 					const extraTopShift = (lines.length - 1) * 418;
@@ -664,13 +796,14 @@ export class MetroMap {
 				}
 				textAnchor = "middle";
 			} else {
+				// वर्टिकल लाइनों पर (Left / Right Alternating)
 				x = isEven ? station.xy.x - 260 : station.xy.x + 260;
 				y = station.xy.y;
 				textAnchor = isEven ? "end" : "start";
 				dominantBaseline = "central";
 			}
 
-			// 5. SVG Text एलिमेंट तैयार करें
+			// SVG Text एलिमेंट तैयार करें
 			const text = document.createElementNS(
 				"http://www.w3.org/2000/svg",
 				"text",
@@ -707,23 +840,23 @@ export class MetroMap {
 		this.#svg.elements.mainGroup_layer.appendChild(labelGroup);
 	}
 
-	/**
+		/**
      * मैप पर खोजे गए रूट को विजुअली हाईलाइट करता है और बाकी सबको धुंधला करता है।
      * @param {Array<string>|null} path - रूट के स्टेशन IDs की सूची, या रीसेट करने के लिए null
      */
     highlightRoute(path) {
         const svg = this.#svg.elements;
-        // सुनिश्चित करें कि सभी SVG ग्रुप्स उपलब्ध हैं
         if (!svg.stations_circleGroup || !svg.tracks_lineGroup || !svg.labelGroup) return;
-        const circles = svg.stations_circleGroup.querySelectorAll("circle");
+
+        // [data-station-id] वाले सभी एलिमेंट्स (चाहे सामान्य सर्किल हों या इंटरचेंज <g> ग्रुप्स)
+        const stationElements = svg.stations_circleGroup.querySelectorAll("[data-station-id]");
         const lines = svg.tracks_lineGroup.querySelectorAll("line");
         const labels = svg.labelGroup.querySelectorAll("text");
+
         // 1. रीसेट लॉजिक: यदि पाथ खाली या null है, तो मैप को पहले जैसा सामान्य करें
         if (!path || path.length === 0) {
-            circles.forEach(circle => {
-                circle.setAttribute("r", "200");
-                circle.setAttribute("stroke-width", "50");
-                circle.style.opacity = "1";
+            stationElements.forEach(elem => {
+                elem.style.opacity = "1";
             });
             lines.forEach(line => {
                 line.setAttribute("stroke-width", "100");
@@ -735,57 +868,56 @@ export class MetroMap {
             });
             return;
         }
-        // 2. रूट स्टेशनों और कड़ियों (edges) की एक Set सूची बनाएं (O(1) तेज़ खोज के लिए)
+
+        // 2. रूट स्टेशनों और कड़ियों (edges) की Set सूची बनाएं
         const pathSet = new Set(path);
         const activeEdges = new Set();
         for (let i = 0; i < path.length - 1; i++) {
-            // कड़ियों की Key ID: [stationA, stationB].sort().join("-")
             const key = [path[i], path[i + 1]].sort().join("-");
             activeEdges.add(key);
         }
-        // 3. स्टेशन सर्किलों को हाईलाइट / फेड-आउट करें
-        circles.forEach(circle => {
-            const stationId = circle.dataset.stationId;
+
+        // 3. सभी स्टेशनों (सामान्य + लाजपत नगर जैसे इंटरचेंज) को हाईलाइट / फेड-आउट करें
+        stationElements.forEach(elem => {
+            const stationId = elem.dataset.stationId;
             if (pathSet.has(stationId)) {
-                circle.setAttribute("r", "250"); // रूट स्टेशनों का आकार बढ़ाएं
-                circle.setAttribute("stroke-width", "75");
-                circle.style.opacity = "1";
+                elem.style.opacity = "1"; // रूट वाले स्टेशनों को 100% साफ़ दिखाएं
             } else {
-                circle.setAttribute("r", "200");
-                circle.setAttribute("stroke-width", "50");
-                circle.style.opacity = "0.15"; // फेड-आउट (धुंधला)
+                elem.style.opacity = "0.15"; // बाकी स्टेशनों को धुंधला करें
             }
         });
+
         // 4. मेट्रो लाइन ट्रैक्स (lines) को हाईलाइट / फेड-आउट करें
         lines.forEach(line => {
             const edgeId = line.dataset.edgeId;
             if (activeEdges.has(edgeId)) {
-                line.setAttribute("stroke-width", "150"); // रूट लाइन्स की मोटाई बढ़ाएं
+                line.setAttribute("stroke-width", "180"); // चुनी हुई लाइन मोटी करें
                 line.style.opacity = "1";
             } else {
                 line.setAttribute("stroke-width", "100");
-                line.style.opacity = "0.15"; // फेड-आउट (धुंधला)
+                line.style.opacity = "0.15";
             }
         });
-        // 5. स्टेशन के नाम लेबल्स (text) को हाईलाइट / फेड-आउट करें
+
+        // 5. स्टेशन नामों को हाईलाइट / फेड-आउट करें
         labels.forEach(label => {
             const stationId = label.dataset.stationId;
             if (pathSet.has(stationId)) {
-                label.style.fontWeight = "bold"; // नाम बोल्ड करें
+                label.style.fontWeight = "bold";
                 label.style.opacity = "1";
             } else {
                 label.style.fontWeight = "normal";
-                label.style.opacity = "0.15"; // फेड-आउट (धुंधला)
+                label.style.opacity = "0.15";
             }
         });
     }
-	// =========================================================================
-	// 7. SVG Elemnts creator
+		// =========================================================================
+	// 7. SVG Elements creator
 	// =========================================================================
 
 	#createGroup(id) {
 		const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-		group.setAttribute("id", id);
+		if (id) group.setAttribute("id", id);
 		return group;
 	}
 
@@ -802,6 +934,7 @@ export class MetroMap {
 		circle.setAttribute("stroke", strokeColor);
 		return circle;
 	}
+
 	#createLine(x1, y1, x2, y2, strokeColor, strokeWidth = 50) {
 		const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
 		line.setAttribute("x1", x1);
@@ -812,4 +945,41 @@ export class MetroMap {
 		line.setAttribute("stroke-width", strokeWidth);
 		return line;
 	}
+
+	#createInterchangeCircle(x, y, radius, fillColor, strokeColor) {
+		const group = this.#createGroup();
+		// 1. Outer concentric ring (⭕ Outer Ring)
+		const outer = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		outer.setAttribute("cx", x);
+		outer.setAttribute("cy", y);
+		outer.setAttribute("r", radius + 60);
+		outer.setAttribute("fill", "none");
+		outer.setAttribute("stroke-width", 40);
+		outer.setAttribute("stroke", strokeColor);
+
+		// 2. Inner main circle
+		const inner = this.#createCircle(x, y, radius, fillColor, strokeColor);
+
+		group.appendChild(outer);
+		group.appendChild(inner);
+		return group;
+	}
+
+	#createWalkwayCircle(x, y, radius, fillColor, strokeColor) {
+		const group = this.#createGroup();
+		// 1. Main outer circle
+		const mainCircle = this.#createCircle(x, y, radius, fillColor, strokeColor);
+
+		// 2. Inner solid center dot (⊙ Center Dot)
+		const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		dot.setAttribute("cx", x);
+		dot.setAttribute("cy", y);
+		dot.setAttribute("r", 90);
+		dot.setAttribute("fill", strokeColor);
+
+		group.appendChild(mainCircle);
+		group.appendChild(dot);
+		return group;
+	}
+
 }

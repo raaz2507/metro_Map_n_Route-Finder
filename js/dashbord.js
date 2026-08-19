@@ -1,9 +1,6 @@
 import data from "../data/data.json" with { type: "json" };
 import { MetroMap } from "./metro-map.js";
-import {
-	plusCode2Coordinates,
-	calculateNeighborDistance,
-} from "./data-utils.js";
+import { calculateNeighborDistance, getCoordinates, normalizeStationCoordinates } from "./data-utils.js";
 import { RouteFinder } from "./route-finder.js";
 
 import i18n from "./i18n.js";
@@ -22,6 +19,7 @@ export class Dashboard {
 	#routeFinder;
 	#activeSearchFilter = "recent";
     #currentRouteInfo = null;
+    #fareRules;
 
 	constructor() {
 		this.#get_element();
@@ -58,13 +56,10 @@ export class Dashboard {
 	// 3. CORE INITIALIZATION & DOM METHODS
 	// =========================================================================
 	async #init() {
-		// 1. Plus Codes को Coordinates में बदलें
-		this.#metroData = plusCode2Coordinates(this.#metroData);
-		// 2. सभी पड़ोसियों के बीच की दूरी की गणना करें
-		this.#metroData = calculateNeighborDistance(this.#metroData);
-		
-		// prettier-ignore
-		this.#mapObj = new MetroMap({mapContainerSelector: ".mapContainer",metroData: this.#metroData, });
+		// 1. यदि किसी का decimal खाली हो तो उसे DMS/PlusCode से भरकर decimal को 100% पूरा करें
+        this.#metroData = normalizeStationCoordinates(this.#metroData);
+        // 2. अब MetroMap इनिशियलाइज़ करें
+        this.#mapObj = new MetroMap({ mapContainerSelector: ".mapContainer", metroData: this.#metroData });
 		// console.log(map);
 
 		// 4. RouteFinder इंजन इनिशियलाइज़ करें
@@ -121,7 +116,7 @@ export class Dashboard {
 		const { stationList } = this.#elemts;
 		for (const station of Object.values(this.#metroData.stationData)) {
 			const option = document.createElement("option");
-			option.value = station.name;
+			option.value = station.name?.en || "";
 			stationList.appendChild(option);
 		}
 	}
@@ -382,39 +377,44 @@ export class Dashboard {
 	}
 
 	// =========================================================================
-	// HELPER METHODS FOR ROUTE OVERVIEW DETAILED RENDERING
+	// HELPER METHODS FOR ROUTE OVERVIEW DETAILED RENDERING (UPDATED)
 	// =========================================================================
-
-	// Quick Stats UI अपडेट करने वाला हेल्पर
+	// Quick Stats UI (दूरी, किराया, समय, स्टेशन काउंट) अपडेट करने वाला हेल्पर
 	#updateQuickOverviewValues(routeInfo) {
 		const totalStation = document.querySelector(
 			"#journeyDetails .total_station .value",
 		);
 		const timeVal = document.querySelector("#journeyDetails .time .value");
-		const fareVal = document.querySelector(
-			"#journeyDetails .fare_amount .value",
-		);
-		const interchangeVal = document.querySelector(
-			"#journeyDetails .interchange_count .value",
-		);
-		const distanceVal = document.querySelector(
-			"#journeyDetails .distance .value",
-		);
+		const fareVal = document.querySelector( "#journeyDetails .fare_amount .value", );
+		const interchangeVal = document.querySelector( "#journeyDetails .interchange_count .value", );
+		const distanceVal = document.querySelector( "#journeyDetails .distance .value", );
 
 		if (totalStation) totalStation.textContent = routeInfo.path.length;
 		if (timeVal) timeVal.textContent = routeInfo.totalTime;
-		if (fareVal) fareVal.textContent = routeInfo.totalFare;
 		if (interchangeVal) interchangeVal.textContent = routeInfo.interchanges;
-		if (distanceVal) distanceVal.textContent = routeInfo.totalDistance;
+		// 1. कुल दूरी मीटर में है, इसे UI पर दिखाने के लिए 1000 से भाग देकर किलोमीटर (km) में बदलें
+		if (distanceVal) {
+			const distKm = typeof routeInfo.totalDistance === "number"
+				? (routeInfo.totalDistance / 1000).toFixed(2)
+				: routeInfo.totalDistance;
+			distanceVal.textContent = distKm;
+		}
+		// 2. किराया (Fare) ऑब्जेक्ट या नंबर हो सकता है (Token, Smart Card, Off-Peak)
+		if (fareVal) {
+			const displayFare = typeof routeInfo.totalFare === "object"
+				? routeInfo.totalFare.tokenFare
+				: routeInfo.totalFare;
+			fareVal.textContent = displayFare;
+		}
 	}
+
 
 	// स्टेशन का भाषा अनुसार नाम प्राप्त करने वाला हेल्पर
 	#getStationLangName(stationId) {
 		const station = this.#metroData.stationData[stationId];
 		if (!station) return "";
-		return this.#settings.currentLang === "hi" && station.name_hi
-			? station.name_hi
-			: station.name;
+		const lang = this.#settings.currentLang;
+		return station.name?.[lang] || station.name?.en || "";
 	}
 
 	// वार्निंग बैनर (Warning Banner) बनाने वाला हेल्पर
@@ -439,39 +439,73 @@ export class Dashboard {
 		`;
 		parent.appendChild(header);
 	}
+    
 
-	// मुख्य आंकड़े वाला कार्ड (Metrics Card) बनाने वाला हेल्पर
-	#renderMetricsCard(parent, routeInfo, totalSteps) {
+		// मुख्य आंकड़े वाला कार्ड (Colorful Metrics Card)
+		#renderMetricsCard(parent, routeInfo, totalSteps) {
 		const metricsCard = document.createElement("div");
 		metricsCard.className = "journey-metrics-card";
 
-		const timeLabel = i18n.t("route.minutesLabel");
-		const changeLabel = i18n.t("route.lineChangeLabel");
-		const stationsLabel = i18n.t("route.stationsLabel");
-		const fareLabel = i18n.t("route.tokenFareLabel");
+		const timeLabel = i18n.t("route.minutesLabel") || "Minutes";
+		const changeLabel = i18n.t("route.lineChangeLabel") || "Line Change";
+		const stationsLabel = i18n.t("route.stationsLabel") || "Stations";
+		const distanceLabel = "Distance";
 
-		const firstText = i18n.t("route.first");
-		const lastText = i18n.t("route.last");
+		const firstText = i18n.t("route.first") || "First";
+		const lastText = i18n.t("route.last") || "Last";
+
+		const distNum = typeof routeInfo.totalDistance === "number"
+			? (routeInfo.totalDistance / 1000).toFixed(1)
+			: parseFloat(routeInfo.totalDistance || 0).toFixed(1);
+
+		const fares = typeof routeInfo.totalFare === "object" ? routeInfo.totalFare : {
+			tokenFare: routeInfo.totalFare || 0,
+			smartCardFare: routeInfo.totalFare || 0,
+			offPeakFare: routeInfo.totalFare || 0,
+			offPeakSmartFare: routeInfo.totalFare || 0
+		};
 
 		metricsCard.innerHTML = `
+			<!-- Row 1: Distance | Minutes | Stations | Line Change -->
 			<div class="metrics-row">
 				<div class="metric-col">
-					<span class="metric-val">${routeInfo.totalTime}</span>
+					<span class="metric-val color-indigo">${distNum} <small style="font-weight:400; font-size:0.75em; opacity:0.8;">km</small></span>
+					<span class="metric-lbl">${distanceLabel}</span>
+				</div>
+				<div class="metric-col">
+					<span class="metric-val color-emerald">${routeInfo.totalTime}</span>
 					<span class="metric-lbl">${timeLabel}</span>
 				</div>
 				<div class="metric-col">
-					<span class="metric-val">${routeInfo.interchanges}</span>
-					<span class="metric-lbl">${changeLabel}</span>
-				</div>
-				<div class="metric-col">
-					<span class="metric-val">${totalSteps}</span>
+					<span class="metric-val color-sky">${totalSteps}</span>
 					<span class="metric-lbl">${stationsLabel}</span>
 				</div>
 				<div class="metric-col">
-					<span class="metric-val">${i18n.t("route.fare", { fare: routeInfo.totalFare })}</span>
-					<span class="metric-lbl">${fareLabel}</span>
+					<span class="metric-val color-amber">${routeInfo.interchanges}</span>
+					<span class="metric-lbl">${changeLabel}</span>
 				</div>
 			</div>
+
+			<!-- Row 2: Token Fare | Smart Card | Off-Peak | Smart Card Off-Peak -->
+			<div class="metrics-row" style="margin-top: 14px; border-top: 1px dashed var(--border-color); padding-top: 12px;">
+				<div class="metric-col">
+					<span class="metric-val">₹${fares.tokenFare}</span>
+					<span class="metric-lbl">Token Fare</span>
+				</div>
+				<div class="metric-col">
+					<span class="metric-val color-blue">₹${fares.smartCardFare}</span>
+					<span class="metric-lbl">Smart Card<br><span class="fare-badge badge-blue">(10% Off)</span></span>
+				</div>
+				<div class="metric-col">
+					<span class="metric-val color-purple">₹${fares.offPeakFare}</span>
+					<span class="metric-lbl">Off-Peak<br><span class="fare-badge badge-purple">(10% Off)</span></span>
+				</div>
+				<div class="metric-col">
+					<span class="metric-val color-green">₹${fares.offPeakSmartFare}</span>
+					<span class="metric-lbl">Off-Peak Smart<br><span class="fare-badge badge-green">(20% Off)</span></span>
+				</div>
+			</div>
+
 			<div class="timing-subrow">
 				<div class="timing-item">☀️ ${firstText} <strong>06:00 AM</strong></div>
 				<div class="timing-item">🌙 ${lastText} <strong>11:00 PM</strong></div>
@@ -479,6 +513,8 @@ export class Dashboard {
 		`;
 		parent.appendChild(metricsCard);
 	}
+
+	
 
 	// मैप पर मार्ग दिखाने वाला बटन (Show Route Map Button)
 	#renderShowRouteButton(parent) {
@@ -562,7 +598,7 @@ export class Dashboard {
 	}
 
 		// पूरी वर्टिकल टाइमलाइन रेंडर करने वाला हेल्पर
-	#renderTimelineSegments(container, segments, segmentLines, totalSteps) {
+		#renderTimelineSegments(container, segments, segmentLines, totalSteps) {
 		const timelineContainer = document.createElement("div");
 		timelineContainer.className = "route-timeline";
 
@@ -571,14 +607,11 @@ export class Dashboard {
 		let animationRowCounter = 0;
 
 		segments.forEach((segment, segmentIndex) => {
-			const lineInfo = this.#metroData.line_color[segment.lineId];
+			const lineInfo = this.#metroData.lines?.[segment.lineId];
 			const lineColor = lineInfo ? lineInfo.color : "#cbd5e1";
-			const lineName =
-				this.#settings.currentLang === "hi" && lineInfo.name_hi
-					? lineInfo.name_hi.split(" - ")[1] || lineInfo.name_hi
-					: lineInfo.name_en
-						? lineInfo.name_en.split(" - ")[1] || lineInfo.name_en
-						: `Line ${segment.lineId}`;
+			const lang = this.#settings.currentLang;
+			const fullLineName = lineInfo?.name?.[lang] || lineInfo?.name?.en || "";
+			const lineName = fullLineName.split(" - ")[1] || fullLineName || `Line ${segment.lineId}`;
 
 			const terminalName = this.#findTerminalTowards(
 				segment.stations,
@@ -673,52 +706,41 @@ export class Dashboard {
 
 			// इंटरचेंज बॉक्स लगाने का हिस्सा
 			if (segmentIndex < segments.length - 1) {
-				const nextSegment = segments[segmentIndex + 1];
-				const nextLineInfo = this.#metroData.line_color[nextSegment.lineId];
-				const nextLineColor = nextLineInfo ? nextLineInfo.color : "#cbd5e1";
-				const nextLineName =
-					this.#settings.currentLang === "hi" && nextLineInfo.name_hi
-						? nextLineInfo.name_hi.split(" - ")[1] || nextLineInfo.name_hi
-						: nextLineInfo.name_en
-							? nextLineInfo.name_en.split(" - ")[1] || nextLineInfo.name_en
-							: `Line ${nextSegment.lineId}`;
-
-				const nextTerminal = this.#findTerminalTowards(
-					nextSegment.stations,
-					nextSegment.lineId,
-				);
-
-				const interchangeContainer = document.createElement("div");
-				interchangeContainer.className = "interchange-container";
-				interchangeContainer.style.setProperty(
-					"--delay",
-					`${animationRowCounter * 120}ms`,
-				);
-
-				// इंटरचेंज टेक्स्ट को ट्रांसलेट करें
-				interchangeContainer.innerHTML = `
-					<div class="interchange-track">
-						<div class="interchange-track-line" style="border-color: ${lineColor};"></div>
-					</div>
-					<div class="interchange-card">
-						<div class="interchange-content">
-							<span class="interchange-icon-walk">
+                const nextSegment = segments[segmentIndex + 1];
+                const interchangeStationId = segment.stations[segment.stations.length - 1];
+                const interchangeStation = this.#metroData.stationData[interchangeStationId];
+                const nextLineInfo = this.#metroData.lines?.[nextSegment.lineId];
+                const nextFullLineName = nextLineInfo?.name?.[lang] || nextLineInfo?.name?.en || "";
+                const nextLineName = nextFullLineName.split(" - ")[1] || nextFullLineName || `Line ${nextSegment.lineId}`;
+                const nextTerminal = this.#findTerminalTowards(
+                    nextSegment.stations,
+                    nextSegment.lineId,
+                );
+                // प्लेटफॉर्म नंबर (असली डेटाबेस से, या "__" फॉलबैक)
+                const platformNo = interchangeStation?.platform || "__";
+                const isWalkway = (interchangeStation?.properties?.station_type || interchangeStation?.station_type) === "walkway";
+                const transferTime = isWalkway ? 5 : 3;
+                const interchangeContainer = document.createElement("div");
+                interchangeContainer.className = "interchange-container";
+                interchangeContainer.innerHTML = `
+                    <div class="interchange-track">
+                        <div class="interchange-track-line" style="border-color: ${lineColor};"></div>
+                    </div>
+                    <div class="interchange-card">
+                        <div class="interchange-content">
+                            <span class="interchange-icon-walk">
                                 <img src="../img/icons/footstep.webp" class="interchange-icon-walk" alt="walk">
                             </span>
-							<span>
-								${i18n.t("route.changeToText", {
-									line: nextLineName,
-									terminal: nextTerminal.toUpperCase(),
-									platform: (segmentIndex % 2) + 2
-								})}
-							</span>
-						</div>
-						<span class="interchange-time-badge">~5m</span>
-					</div>
-				`;
-				timelineContainer.appendChild(interchangeContainer);
-				animationRowCounter++;
-			}
+                            <span>
+                                Change to <strong>${nextLineName}</strong> towards <strong>${nextTerminal.toUpperCase()}</strong> from <strong>Platform No. ${platformNo}</strong>
+                            </span>
+                        </div>
+                        <span class="interchange-time-badge">~${transferTime}m</span>
+                    </div>
+                `;
+                timelineContainer.appendChild(interchangeContainer);
+                animationRowCounter++;
+            }
 		});
 
 		container.appendChild(timelineContainer);
@@ -753,12 +775,16 @@ export class Dashboard {
 	#findStationByName(name) {
 		if (!name) return null;
 		const normalized = name.trim().toLowerCase();
-		return Object.values(this.#metroData.stationData).find(
-			(s) =>
-				s.name.toLowerCase() === normalized ||
-				s.id.toLowerCase() === normalized ||
-				(s.name_hi && s.name_hi.toLowerCase() === normalized),
-		);
+		return Object.values(this.#metroData.stationData).find((s) => {
+			if (!s) return false;
+			const enName = s.name?.en || "";
+			const hiName = s.name?.hi || "";
+			return (
+				enName.toLowerCase() === normalized ||
+				hiName.toLowerCase() === normalized ||
+				s.id.toLowerCase() === normalized
+			);
+		});
 	}
 
 	// हाल ही में किए गए रूट को ID के साथ सहेजने के लिए
@@ -896,9 +922,8 @@ export class Dashboard {
 				const fromName = this.#getStationLangName(item.fromId);
 				const toName = this.#getStationLangName(item.toId);
 
-				const fromNameEn = startStation ? startStation.name : "";
-				const toNameEn = endStation ? endStation.name : "";
-
+				const fromNameEn = startStation ? startStation.name?.en || "" : "";
+				const toNameEn = endStation ? endStation.name?.en || "" : "";
 				return {
 					...item,
 					fromName,

@@ -243,4 +243,33 @@
 	.delete-search-btn:hover img {
 		opacity: 1;
 	}
+
+
+
+
+
+
+
+    /* Color accents for Journey Metrics Card (Theme Compatible) */
+.metric-val.color-indigo { color: #4f46e5; }
+.metric-val.color-emerald { color: #059669; }
+.metric-val.color-sky { color: #0284c7; }
+.metric-val.color-amber { color: #d97706; }
+
+.metric-val.color-blue { color: #2563eb; }
+.metric-val.color-purple { color: #7c3aed; }
+.metric-val.color-green { color: #16a34a; }
+
+/* Fare Discount Badges */
+.fare-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 4px;
+    margin-top: 2px;
+}
+.badge-blue { background: rgba(37, 99, 235, 0.1); color: #2563eb; }
+.badge-purple { background: rgba(124, 58, 237, 0.1); color: #7c3aed; }
+.badge-green { background: rgba(22, 163, 74, 0.12); color: #16a34a; font-weight: 700; }
 }
