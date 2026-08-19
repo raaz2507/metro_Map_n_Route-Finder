@@ -441,7 +441,7 @@ export class Dashboard {
 	}
     
 
-		// मुख्य आंकड़े वाला कार्ड (Colorful Metrics Card)
+			// मुख्य आंकड़े वाला कार्ड (Colorful Metrics Card)
 		#renderMetricsCard(parent, routeInfo, totalSteps) {
 		const metricsCard = document.createElement("div");
 		metricsCard.className = "journey-metrics-card";
@@ -459,11 +459,34 @@ export class Dashboard {
 			: parseFloat(routeInfo.totalDistance || 0).toFixed(1);
 
 		const fares = typeof routeInfo.totalFare === "object" ? routeInfo.totalFare : {
-			tokenFare: routeInfo.totalFare || 0,
-			smartCardFare: routeInfo.totalFare || 0,
-			offPeakFare: routeInfo.totalFare || 0,
-			offPeakSmartFare: routeInfo.totalFare || 0
+			tokenFare: routeInfo.totalFare ?? null,
+			smartCardFare: routeInfo.totalFare ?? null,
+			offPeakFare: routeInfo.totalFare ?? null,
+			offPeakSmartFare: routeInfo.totalFare ?? null
 		};
+
+		const fmtFare = (val) => (val != null ? `₹${val}` : "N/A");
+
+		// 24-घंटे वाले समय (उदा. "23:17:55") को 12-घंटे वाले समय (उदा. "11:17 PM") में बदलने वाला हेल्पर
+		const formatTime12h = (timeStr) => {
+			if (!timeStr) return "N/A";
+			const parts = timeStr.split(":");
+			let hours = parseInt(parts[0], 10);
+			const minutes = parts[1] || "00";
+			const ampm = hours >= 12 ? "PM" : "AM";
+			hours = hours % 12;
+			hours = hours ? hours : 12;
+			const formattedHours = hours < 10 ? `0${hours}` : `${hours}`;
+			return `${formattedHours}:${minutes} ${ampm}`;
+		};
+
+		// यात्रा के शुरुआती स्टेशन (Start Station) से train_schedule टाइमिंग्स प्राप्त करें
+		const startStationId = routeInfo?.path?.[0];
+		const startStation = startStationId ? this.#metroData.stationData?.[startStationId] : null;
+		const schedule = startStation?.train_schedule;
+
+		const firstTrainDisplay = schedule?.first_train ? formatTime12h(schedule.first_train) : "N/A";
+		const lastTrainDisplay = schedule?.last_train ? formatTime12h(schedule.last_train) : "N/A";
 
 		metricsCard.innerHTML = `
 			<!-- Row 1: Distance | Minutes | Stations | Line Change -->
@@ -489,32 +512,30 @@ export class Dashboard {
 			<!-- Row 2: Token Fare | Smart Card | Off-Peak | Smart Card Off-Peak -->
 			<div class="metrics-row" style="margin-top: 14px; border-top: 1px dashed var(--border-color); padding-top: 12px;">
 				<div class="metric-col">
-					<span class="metric-val">₹${fares.tokenFare}</span>
+					<span class="metric-val">${fmtFare(fares.tokenFare)}</span>
 					<span class="metric-lbl">Token Fare</span>
 				</div>
 				<div class="metric-col">
-					<span class="metric-val color-blue">₹${fares.smartCardFare}</span>
-					<span class="metric-lbl">Smart Card<br><span class="fare-badge badge-blue">(10% Off)</span></span>
+					<span class="metric-val color-blue">${fmtFare(fares.smartCardFare)}</span>
+					<span class="metric-lbl">Smart Card<br><span class="fare-badge badge-blue">(${fares.smartCardPct ?? 10}% Off)</span></span>
 				</div>
 				<div class="metric-col">
-					<span class="metric-val color-purple">₹${fares.offPeakFare}</span>
-					<span class="metric-lbl">Off-Peak<br><span class="fare-badge badge-purple">(10% Off)</span></span>
+					<span class="metric-val color-purple">${fmtFare(fares.offPeakFare)}</span>
+					<span class="metric-lbl">Off-Peak<br><span class="fare-badge badge-purple">(${fares.offPeakPct ?? 10}% Off)</span></span>
 				</div>
 				<div class="metric-col">
-					<span class="metric-val color-green">₹${fares.offPeakSmartFare}</span>
-					<span class="metric-lbl">Off-Peak Smart<br><span class="fare-badge badge-green">(20% Off)</span></span>
+					<span class="metric-val color-green">${fmtFare(fares.offPeakSmartFare)}</span>
+					<span class="metric-lbl">Off-Peak Smart<br><span class="fare-badge badge-green">(${fares.offPeakSmartPct ?? 20}% Off)</span></span>
 				</div>
 			</div>
 
 			<div class="timing-subrow">
-				<div class="timing-item">☀️ ${firstText} <strong>06:00 AM</strong></div>
-				<div class="timing-item">🌙 ${lastText} <strong>11:00 PM</strong></div>
+				<div class="timing-item">☀️ ${firstText} <strong>${firstTrainDisplay}</strong></div>
+				<div class="timing-item">🌙 ${lastText} <strong>${lastTrainDisplay}</strong></div>
 			</div>
 		`;
 		parent.appendChild(metricsCard);
 	}
-
-	
 
 	// मैप पर मार्ग दिखाने वाला बटन (Show Route Map Button)
 	#renderShowRouteButton(parent) {
@@ -597,8 +618,65 @@ export class Dashboard {
 		return terminalStation ? this.#getStationLangName(currentId) : "";
 	}
 
-		// पूरी वर्टिकल टाइमलाइन रेंडर करने वाला हेल्पर
-		#renderTimelineSegments(container, segments, segmentLines, totalSteps) {
+    // 1. टर्मिनल स्टेशन की ID निकालने का हेल्पर
+	#findTerminalStationIdTowards(stationIds, lineId) {
+		if (stationIds.length < 2) return "";
+		let currentId = stationIds[stationIds.length - 1];
+		let prevId = stationIds[stationIds.length - 2];
+
+		for (let iter = 0; iter < 100; iter++) {
+			const currentStation = this.#metroData.stationData[currentId];
+			if (!currentStation || !currentStation.neighbors) break;
+
+			const nextNeighbors = currentStation.neighbors.filter(
+				(n) => n.line === lineId && n.station !== prevId,
+			);
+			if (nextNeighbors.length === 0) break;
+
+			prevId = currentId;
+			currentId = nextNeighbors[0].station;
+		}
+
+		return currentId || "";
+	}
+
+	// 2. data.json से dynamic प्लेटफॉर्म नंबर ढूँढने का हेल्पर
+	#getInterchangePlatformNumber(station, targetLineId, terminalStationId) {
+		if (!station || !station.platforms) return "__";
+		const platforms = station.platforms;
+		const matchingPlatforms = [];
+
+		// अगली लाइन से मैच होने वाले सभी प्लेटफॉर्म्स निकालें
+		for (const [platNo, platInfo] of Object.entries(platforms)) {
+			if (platInfo.line === targetLineId) {
+				matchingPlatforms.push({ platNo, platInfo });
+			}
+		}
+
+		if (matchingPlatforms.length === 0) return "__";
+		if (matchingPlatforms.length === 1) return matchingPlatforms[0].platNo;
+
+		// यदि 2 या अधिक प्लेटफॉर्म हैं (उदा: Shiv Vihar vs Majlis Park), तो destination मैच करें
+		if (terminalStationId) {
+			const normalizedTerminalId = terminalStationId.toLowerCase().replace(/_/g, "");
+			for (const p of matchingPlatforms) {
+				const dest = (p.platInfo.destination || "")
+					.toLowerCase()
+					.replace(/_/g, "")
+					.replace(/(first|last)station$/, "");
+
+				if (dest.includes(normalizedTerminalId) || normalizedTerminalId.includes(dest)) {
+					return p.platNo;
+				}
+			}
+		}
+
+		// फॉलबैक: उस लाइन का पहला प्लेटफॉर्म
+		return matchingPlatforms[0].platNo;
+	}
+
+    // पूरी वर्टिकल टाइमलाइन रेंडर करने वाला हेल्पर
+    #renderTimelineSegments(container, segments, segmentLines, totalSteps) {
 		const timelineContainer = document.createElement("div");
 		timelineContainer.className = "route-timeline";
 
@@ -712,14 +790,22 @@ export class Dashboard {
                 const nextLineInfo = this.#metroData.lines?.[nextSegment.lineId];
                 const nextFullLineName = nextLineInfo?.name?.[lang] || nextLineInfo?.name?.en || "";
                 const nextLineName = nextFullLineName.split(" - ")[1] || nextFullLineName || `Line ${nextSegment.lineId}`;
-                const nextTerminal = this.#findTerminalTowards(
-                    nextSegment.stations,
-                    nextSegment.lineId,
-                );
-                // प्लेटफॉर्म नंबर (असली डेटाबेस से, या "__" फॉलबैक)
-                const platformNo = interchangeStation?.platform || "__";
-                const isWalkway = (interchangeStation?.properties?.station_type || interchangeStation?.station_type) === "walkway";
-                const transferTime = isWalkway ? 5 : 3;
+                const nextTerminalId = this.#findTerminalStationIdTowards( nextSegment.stations, nextSegment.lineId, );
+                const nextTerminal = nextTerminalId ? this.#getStationLangName(nextTerminalId) : "";
+
+                // प्लेटफॉर्म नंबर (असली डेटाबेस से dynamic lookup)
+                const platformNo = this.#getInterchangePlatformNumber( interchangeStation, nextSegment.lineId, nextTerminalId, );
+
+                // 2. इंटरचेंज समय (Seconds -> Minutes conversion with strict N/A fallback)
+                let transferTimeText = "N/A";
+                const nextStationInSegment = nextSegment.stations?.[1] || null;
+                const transferData = this.#routeFinder?.getStationTransferData(interchangeStationId, nextStationInSegment);
+                
+                if (transferData && transferData.transferSeconds !== null && transferData.transferSeconds !== undefined) {
+                    const mins = Math.ceil(transferData.transferSeconds / 60);
+                    transferTimeText = `~${mins}m`;
+                }
+
                 const interchangeContainer = document.createElement("div");
                 interchangeContainer.className = "interchange-container";
                 interchangeContainer.innerHTML = `
@@ -735,7 +821,7 @@ export class Dashboard {
                                 Change to <strong>${nextLineName}</strong> towards <strong>${nextTerminal.toUpperCase()}</strong> from <strong>Platform No. ${platformNo}</strong>
                             </span>
                         </div>
-                        <span class="interchange-time-badge">~${transferTime}m</span>
+                        <span class="interchange-time-badge">${transferTimeText}</span>
                     </div>
                 `;
                 timelineContainer.appendChild(interchangeContainer);
@@ -1015,16 +1101,22 @@ export class Dashboard {
 					if (fromId && toId) {
 						this.#deleteRecentSearch(fromId, toId);
 					}
-				} else if (searchBtn) {
+								} else if (searchBtn) {
 					// इनपुट फ़ील्ड्स में भरने के लिए इंग्लिश नाम का उपयोग
 					const fromVal = searchBtn.getAttribute("data-from-en");
 					const toVal = searchBtn.getAttribute("data-to-en");
 
-					if (this.#elemts.startStation && this.#elemts.endStation) {
+				if (this.#elemts.startStation && this.#elemts.endStation) {
 						this.#elemts.startStation.value = fromVal;
 						this.#elemts.endStation.value = toVal;
 
-						// फ़ॉर्म को ऑटो-सबमिट करें
+						// 1. साइडबार एक्टिव टैब को Recent Searches से Route Finder पर शिफ्ट करें
+						const routeFinderTab = document.querySelector('.sidebar-link[data-target="route-finder"]');
+						if (routeFinderTab) {
+							routeFinderTab.click();
+						}
+
+						// 2. फ़ॉर्म को ऑटो-सबमिट करें
 						const form = document.querySelector(".routeFinder");
 						if (form) {
 							form.requestSubmit();

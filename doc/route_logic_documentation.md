@@ -115,12 +115,16 @@ $$\text{trainMovingTime (mins)} = \frac{\text{totalDistanceInMeters}}{600}$$
 - **Station Halt Time**: **30 seconds** (0.5 minute) per intermediate station stop.
 $$\text{stationHaltTime (mins)} = (\text{stationCount} - 1) \times 0.5$$
 
-### 4.3 Dynamic Walkway & Transfer Time
-For interchange stations:
-- **Walkway Transfer (`station_type: "walkway"`)**:
-  - Pedestrian walking halt = **5 minutes**.
-- **Normal Crossover Transfer (`station_type: "interchange"`)**:
-  - Escalator/stair crossover halt = **3 minutes**.
+### 4.3 Pure Dynamic Walkway & Transfer Time
+Transfer time is calculated 100% dynamically based on human walking speed (`avgHumanWalkingSpeedMetersPerMin = 80 m/min`) and physical distance:
+- **Inter-Station Walkway Transfer**:
+  - Physical distance between station coordinates (`lat`, `lon`) is computed dynamically using the **Haversine Geodesic Distance Formula** via `getDistance(stationA, stationB)`.
+  - Transfer time in seconds:
+    $$\text{transferSeconds} = \text{Math.round}\left(\frac{\text{distanceInMeters} \times 60}{\text{walkingSpeed}}\right)$$
+- **Intra-Station Crossover Transfer**:
+  - Physical transfer distance is extracted dynamically from station metadata (`properties.walkway_distance_meters` or `properties.interchange_distance_meters`).
+- **Strict No-Jugaad Rule**:
+  - If valid physical distance metadata or GPS coordinates are unavailable, the system strictly returns `null` (`N/A`) rather than substituting arbitrary fallback numbers.
 
 ### 4.4 Total Journey Time
 $$\text{totalTime} = \text{Math.ceil}(\text{trainMovingTime} + \text{stationHaltTime} + \text{totalWalkwayTime})$$

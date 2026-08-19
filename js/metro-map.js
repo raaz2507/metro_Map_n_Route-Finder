@@ -168,11 +168,7 @@ export class MetroMap {
 		);
 
 		// 2. स्पेशल स्टेशन टाइप्स रेंडर करें (Walkway, Interchange, Normal)
-		const stationTypes = this.#metroData.station_types || {
-			walkway: { en: "Interchange via walkway / travelators", hi: "वॉकवे / ट्रैवलर द्वारा इंटरचेंज" },
-			interchange: { en: "Interchange Station", hi: "इंटरचेंज स्टेशन" },
-			normal: { en: "Normal Station", hi: "सामान्य स्टेशन" }
-		};
+		const stationTypes = this.#metroData.station_types || {};
 
 		Object.entries(stationTypes).forEach(([type, info]) => {
 			const li = document.createElement("li");

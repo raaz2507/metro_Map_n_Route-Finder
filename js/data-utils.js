@@ -5,7 +5,7 @@ const olc = new OpenLocationCode();
 /**
  * 1. मुख्य मेथड: प्राथमिक लोकेशन एक्सट्रैक्टर (Decimal -> DMS -> Plus Code)
  */
-export function getCoordinates(station) {
+export function getCoordinates(station, defaultPrefix = "7JWV") {
     const loc = station?.location;
 
     // Priority 1: Decimal (अगर यहाँ डेटा है, तो तुरंत रिटर्न)
@@ -23,7 +23,7 @@ export function getCoordinates(station) {
 
     // Priority 3: Plus Code (केवल तब जब Decimal और DMS दोनों न मिलें)
     else if (loc?.plusCode) {
-        return decodePlusCode(plusCodeStr, station?.other?.delhiCode || "7JWV");
+        return decodePlusCode(loc.plusCode, station?.other?.delhiCode || defaultPrefix);
     }
 
     // Else Block: जब तीनों में से कहीं भी डेटा न मिले
@@ -140,6 +140,7 @@ export function calculateNeighborDistance(rawMetroData) {
  */
 export function normalizeStationCoordinates(rawMetroData) {
     if (!rawMetroData?.stationData) return rawMetroData;
+    const defaultPrefix = rawMetroData.defaults?.defaultPlusCodePrefix || "7JWV";
     
     Object.values(rawMetroData.stationData).forEach((station) => {
         if (!station.location) {
@@ -149,7 +150,7 @@ export function normalizeStationCoordinates(rawMetroData) {
         const dec = station.location.decimal;
         if (dec?.lat != null && dec?.lon != null && dec?.lat !== "") return;
 
-        const resolvedCoords = getCoordinates(station);
+        const resolvedCoords = getCoordinates(station, defaultPrefix);
         if (resolvedCoords) {
             station.location.decimal = resolvedCoords;
         }
@@ -161,15 +162,15 @@ export function normalizeStationCoordinates(rawMetroData) {
 /**
  * 7. स्टेशन का प्रकार (station_type) सुरक्षित रूप से प्राप्त करने का हेल्पर
  */
-export function getStationType(station) {
-    return station?.properties?.station_type || station?.station_type || "normal";
+export function getStationType(station, defaultType = "normal") {
+    return station?.properties?.station_type || station?.station_type || defaultType;
 }
 
 /**
  * 8. स्टेशन का लेआउट (layout) सुरक्षित रूप से प्राप्त करने का हेल्पर
  */
-export function getStationLayout(station) {
-    return station?.properties?.layout || station?.layout || "elevated";
+export function getStationLayout(station, defaultLayout = "elevated") {
+    return station?.properties?.layout || station?.layout || defaultLayout;
 }
 
 /**

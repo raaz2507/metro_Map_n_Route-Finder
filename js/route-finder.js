@@ -1,19 +1,90 @@
+import { getDistance } from "./data-utils.js";
+
 export class RouteFinder {
 	#stationData;
 	#fareRules;
 	#lines;
-
+	#networks;
+	#walkingSpeed;
 	static LEAST_TRANSFER_PENALTY = 1000;
 	static SHORT_ROUTE_TRANSFER_PENALTY = 0.5;
-
 	constructor(metroData) {
 		this.#stationData = metroData.stationData;
 		this.#fareRules = metroData.fareRules;
 		this.#lines = metroData.lines;
+		this.#networks = metroData.fareRules?.networks || {};
+		this.#walkingSpeed = metroData.avgHumanWalkingSpeedMetersPerMin || 80;
 		this.#init();
 	}
 	#init(){}
 
+    // नेटवर्क स्पीड और हॉल्ट प्राप्त करने वाला हेल्पर मेथड
+	#getNetworkParams(lineId) {
+		const line = this.#lines?.[lineId];
+		const networkKey = line?.network || "dmrc";
+		const netConfig = this.#networks[networkKey] || {};
+		return {
+			speed: netConfig.avgSpeedMetersPerMin || 600,
+			halt: netConfig.stationHaltMinutes ?? 0.5
+		};
+	}
+
+		/**
+	 * यूनिफाइड ट्रांसफर समय कैलकुलेटर
+	 */
+	#calculateStationTransferSeconds(stationId, nextStationId = null) {
+		const station = this.#stationData?.[stationId];
+		if (!station) return { distanceMeters: null, transferSeconds: null };
+
+		const isWalkway = (station.properties?.station_type || station.station_type) === "walkway";
+		const isInterchange = (station.properties?.station_type || station.station_type) === "interchange" || (station.lines && station.lines.length > 1);
+
+		let distanceMeters = null;
+
+		// 1. केवल तब getDistance चलाएं जब 2 स्टेशन्स वास्तव में अलग-अलग हों (जैसे Noida Sec 51 ↔ Sec 52)
+		if (nextStationId && this.#stationData[nextStationId] && stationId !== nextStationId) {
+			const nextStation = this.#stationData[nextStationId];
+			// यदि nextStation भी एक अलग वॉकवे स्टेशन है
+			const isNextWalkway = (nextStation.properties?.station_type || nextStation.station_type) === "walkway";
+			if (isWalkway && isNextWalkway) {
+				distanceMeters = getDistance(station, nextStation);
+			}
+		}
+
+		// 2. यदि एक ही स्टेशन बिल्डिंग के अंदर ट्रांसफर है (उदा: Welcome / Kashmere Gate / Rajouri Garden):
+		if (!distanceMeters || distanceMeters <= 0) {
+			const stationDist = station.properties?.walkway_distance_meters 
+				|| station.properties?.interchange_distance_meters;
+
+			if (stationDist) {
+				distanceMeters = stationDist;
+			} else if (isWalkway) {
+				distanceMeters = 400; // Walkway Skywalk (~5 min)
+			} else if (isInterchange) {
+				distanceMeters = 200; // Normal Vertical Crossover (~3 min)
+			}
+		}
+
+		// 3. यदि कोई भी कंडीशन मैच न हो -> Return null
+		if (!distanceMeters || distanceMeters <= 0 || !this.#walkingSpeed || this.#walkingSpeed <= 0) {
+			return { distanceMeters: null, transferSeconds: null };
+		}
+
+		// 4. Pure Dynamic Seconds Calculation = Math.round((distanceMeters * 60) / walkingSpeed)
+		const transferSeconds = Math.round((distanceMeters * 60) / this.#walkingSpeed);
+
+		return {
+			distanceMeters,
+			transferSeconds
+		};
+	}
+
+	/**
+	 * UI / External Callers के लिए पब्लिक मेथड
+	 */
+	getStationTransferData(stationId, nextStationId = null) {
+		return this.#calculateStationTransferSeconds(stationId, nextStationId);
+	}
 	/**
 	 * Start और End स्टेशन के बीच का रूट ढूंढता है।
 	 * @param {string} startName - शुरुआती स्टेशन का नाम (English, Hindi या ID)
@@ -185,7 +256,8 @@ export class RouteFinder {
 		const slabs = policy?.fareTables?.weekday || [];
 		
 		if (!slabs.length) {
-			return { tokenFare: 0, smartCardFare: 0, offPeakFare: 0, offPeakSmartFare: 0 };
+			console.warn("⚠️ [Fare Warning] No fare slabs found for policy.");
+			return { tokenFare: null, smartCardFare: null, offPeakFare: null, offPeakSmartFare: null };
 		}
 
 		const distanceKm = Number((distanceInMeters / 1000).toFixed(2));
@@ -203,9 +275,9 @@ export class RouteFinder {
 			}
 		}
 
-		// उत्पाद छूट दरें (Products Discount Percentages)
-		const smartCardPct = policy?.products?.smart_card?.discountPercent ?? 10;
-		const offPeakPct = policy?.products?.off_peak_smart_card?.discountPercent ?? 10;
+		// उत्पाद छूट दरें (Products Discount Percentages - Fallback is 0%)
+		const smartCardPct = policy?.products?.smart_card?.discountPercent ?? 0;
+		const offPeakPct = policy?.products?.off_peak_smart_card?.discountPercent ?? 0;
 
 		const smartCardFare = Math.round(baseFare * (1 - smartCardPct / 100));
 		const offPeakFare = Math.round(baseFare * (1 - offPeakPct / 100));
@@ -215,7 +287,10 @@ export class RouteFinder {
 			tokenFare: baseFare,
 			smartCardFare: smartCardFare,
 			offPeakFare: offPeakFare,
-			offPeakSmartFare: offPeakSmartFare
+			offPeakSmartFare: offPeakSmartFare,
+			smartCardPct: smartCardPct,
+			offPeakPct: offPeakPct,
+			offPeakSmartPct: smartCardPct + offPeakPct
 		};
 	}
 
@@ -246,56 +321,90 @@ export class RouteFinder {
 		}
 		const totalFare = this.#calculateFare(shortestResult.totalDistance, startId, endId);
 
-		// स्टेप्स एरे और वॉकवे टाइम की गणना
-		let totalWalkwayTime = 0;
+				// स्टेप्स एरे, ट्रेन टाइम (Seconds) और वॉकवे टाइम (Seconds) की dynamic गणना
+		let totalTrainSeconds = 0;
+		let totalWalkwaySeconds = 0;
 		let totalWalkwayDistance = 0;
+		let hasMissingInterchangeData = false;
 		const steps = [];
+
 		for (let i = 0; i < result.path.length - 1; i++) {
-			const currStation = this.#stationData[result.path[i]];
+			const currStationId = result.path[i];
 			const nextStationId = result.path[i + 1];
+			const currStation = this.#stationData[currStationId];
 			const neighbor = currStation.neighbors?.find(n => n.station === nextStationId);
 			const dist = neighbor ? neighbor.distance : 0;
-			const stepTime = (dist / 600) + 0.5;
+			
+			const netParams = this.#getNetworkParams(neighbor?.line);
+			// ट्रेन समय (सेकंड्स में)
+			const stepSeconds = Math.round(((dist / netParams.speed) + netParams.halt) * 60);
+			totalTrainSeconds += stepSeconds;
+
 			steps.push({
 				type: "rail",
-				from: result.path[i],
+				from: currStationId,
 				to: nextStationId,
+				line: neighbor?.line,
 				distance: dist,
-				time: Math.round(stepTime * 10) / 10
+				timeSeconds: stepSeconds,
+				timeMinutes: Math.round((stepSeconds / 60) * 10) / 10
 			});
+
+						// यदि यह एक इंटरचेंज स्टेशन है
+			if (i < result.path.length - 2) {
+				const nextNeighbor = this.#stationData[nextStationId]?.neighbors?.find(n => n.station === result.path[i + 2]);
+				if (neighbor && nextNeighbor && neighbor.line !== nextNeighbor.line) {
+					const nextStationAfterTransfer = result.path[i + 2] || null;
+					const transferData = this.#calculateStationTransferSeconds(nextStationId, nextStationAfterTransfer);
+					if (transferData.transferSeconds !== null) {
+						totalWalkwaySeconds += transferData.transferSeconds;
+						totalWalkwayDistance += (transferData.distanceMeters || 0);
+					} else {
+						hasMissingInterchangeData = true;
+					}
+
+					steps.push({
+						type: "transfer",
+						atStation: nextStationId,
+						fromLine: neighbor.line,
+						toLine: nextNeighbor.line,
+						distanceMeters: transferData.distanceMeters,
+						transferSeconds: transferData.transferSeconds
+					});
+				}
+			}
 		}
-		// इंटरचेंज ट्रांसफर स्टेप्स
-		if (result.interchanges > 0) {
-			// इंटरचेंज समय (औसतन 4-5 मिनट प्रति ट्रांसफर)
-			totalWalkwayTime = result.interchanges * 5;
-		}
-		const totalTrainTime = Math.ceil((result.totalDistance / 600) + (result.path.length - 1) * 0.5);
-		const totalTime = totalTrainTime + totalWalkwayTime;
+
+		const totalTrainTimeMinutes = Math.ceil(totalTrainSeconds / 60);
+		const totalWalkwayTimeMinutes = hasMissingInterchangeData && totalWalkwaySeconds === 0 
+			? null 
+			: Math.ceil(totalWalkwaySeconds / 60);
+
+		const totalTimeSeconds = totalTrainSeconds + totalWalkwaySeconds;
+		const totalTimeMinutes = Math.ceil(totalTimeSeconds / 60);
+
 		return {
 			path: result.path,
-			totalDistance: result.totalDistance,      // पटरियों की दूरी (meters)
-			totalWalkwayDistance: totalWalkwayDistance,// वॉकवे दूरी (meters)
-			totalTrainTime: totalTrainTime,            // ट्रेन का समय (minutes)
-			totalWalkwayTime: totalWalkwayTime,        // वॉकवे समय (minutes)
-			totalTime: totalTime,                      // कुल यात्रा समय (minutes)
+			totalDistance: result.totalDistance,       // पटरियों की दूरी (meters)
+			totalWalkwayDistance: totalWalkwayDistance, // वॉकवे दूरी (meters)
+			totalTrainTime: totalTrainTimeMinutes,     // ट्रेन का समय (minutes)
+			totalWalkwayTime: totalWalkwayTimeMinutes, // वॉकवे समय (minutes)
+			totalTime: totalTimeMinutes,               // कुल यात्रा समय (minutes)
+			totalTimeSeconds: totalTimeSeconds,         // कुल समय (seconds)
+			totalTrainSeconds: totalTrainSeconds,       // कुल ट्रेन समय (seconds)
+			totalWalkwaySeconds: totalWalkwaySeconds,   // कुल वॉकवे समय (seconds)
 			interchanges: result.interchanges,
-			totalFare: totalFare,                      // 4 किरायों का ऑब्जेक्ट
+			totalFare: totalFare,                       // 4 किरायों का ऑब्जेक्ट
 			steps: steps
 		};
 	}
 
-	/**
-	 * कुल दूरी (मीटर), स्टेशनों की संख्या और इंटरचेंज के आधार पर सटीक यात्रा समय (Minutes) निकालता है।
-	 */
-	#calculateTime(distanceInMeters, stationCount, interchanges) {
+	#calculateTime(distanceInMeters, stationCount, interchanges, lineId = null) {
 		if (stationCount <= 1) return 0;
-		// 1. ट्रेन की वास्तविक मूविंग टाइमिंग (36 km/h = 600m/min)
-		const movingMinutes = distanceInMeters / 600;
-		// 2. हर स्टेशन पर 30 सेकंड (0.5 मिनट) का हॉल्ट/रुकने का समय
-		const haltMinutes = (stationCount - 1) * 0.5;
-		// 3. इंटरचेंज ट्रांसफर का औसतन समय (4 मिनट प्रति इंटरचेंज)
-		const transferMinutes = interchanges * 4;
-		// कुल समय (पूर्णांक में राउंड ऑफ)
+		const netParams = this.#getNetworkParams(lineId);
+		const movingMinutes = distanceInMeters / netParams.speed;
+		const haltMinutes = (stationCount - 1) * netParams.halt;
+		const transferMinutes = Math.ceil((interchanges * 200) / this.#walkingSpeed);
 		return Math.ceil(movingMinutes + haltMinutes + transferMinutes);
 	}
 }
