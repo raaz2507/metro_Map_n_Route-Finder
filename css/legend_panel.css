@@ -86,8 +86,8 @@
 		width: 14px;
 		height: 14px;
 		background-color: var(--text-primary);     /* har theme me apne aap text color lega */
-		-webkit-mask: url("../img/icons/list-solid-full.svg") no-repeat center / contain;
-		mask: url("../img/icons/list-solid-full.svg") no-repeat center / contain;
+		-webkit-mask: url("../assets/icons/list-solid-full.svg") no-repeat center / contain;
+		mask: url("../assets/icons/list-solid-full.svg") no-repeat center / contain;
 		display: inline-block;
 		flex-shrink: 0;
 	}

@@ -35,51 +35,51 @@
 	====================================================================== 
 	*/
 	.map-icon::after {
-		-webkit-mask-image: url("../img/icons/map-location-dot-solid-full.svg");
-		mask-image: url("../img/icons/map-location-dot-solid-full.svg");
+		-webkit-mask-image: url("../assets/icons/map-location-dot-solid-full.svg");
+		mask-image: url("../assets/icons/map-location-dot-solid-full.svg");
 	}
 	.route-icon::after {
-		-webkit-mask-image: url("../img/icons/diamond-turn-right-solid-full.svg");
-		mask-image: url("../img/icons/diamond-turn-right-solid-full.svg");
+		-webkit-mask-image: url("../assets/icons/diamond-turn-right-solid-full.svg");
+		mask-image: url("../assets/icons/diamond-turn-right-solid-full.svg");
 	}
 	.settings-icon::after {
-		-webkit-mask-image: url("../img/icons/gears-solid-full.svg");
-		mask-image: url("../img/icons/gears-solid-full.svg");
+		-webkit-mask-image: url("../assets/icons/gears-solid-full.svg");
+		mask-image: url("../assets/icons/gears-solid-full.svg");
 	}
 
 	.about-icon::after {
-		-webkit-mask-image: url("../img/icons/info.svg");
-		mask-image: url("../img/icons/info.svg");
+		-webkit-mask-image: url("../assets/icons/info.svg");
+		mask-image: url("../assets/icons/info.svg");
 	}
 
 	.help-icon::after {
-		-webkit-mask-image: url("../img/icons/help.svg");
-		mask-image: url("../img/icons/help.svg");
+		-webkit-mask-image: url("../assets/icons/help.svg");
+		mask-image: url("../assets/icons/help.svg");
 	}
 
 	.recent-icon::after {
-		-webkit-mask-image: url("../img/icons/clock.svg");
-		mask-image: url("../img/icons/clock.svg");
+		-webkit-mask-image: url("../assets/icons/clock.svg");
+		mask-image: url("../assets/icons/clock.svg");
 	}
 
 	.other-icon::after {
-		-webkit-mask-image: url("../img/icons/grip-solid-full.svg");
-		mask-image: url("../img/icons/grip-solid-full.svg");
+		-webkit-mask-image: url("../assets/icons/grip-solid-full.svg");
+		mask-image: url("../assets/icons/grip-solid-full.svg");
 	}
 
 	.alarm-on-iocn::after {
-		-webkit-mask-image: url("../img/icons/bell-solid-full.svg");
-		mask-image: url("../img/icons/bell-solid-full.svg");
+		-webkit-mask-image: url("../assets/icons/bell-solid-full.svg");
+		mask-image: url("../assets/icons/bell-solid-full.svg");
 	}
 
 	.alarm-off-iocn::after {
-		-webkit-mask-image: url("../img/icons/bell-slash-solid-full.svg");
-		mask-image: url("../img/icons/bell-slash-solid-full.svg");
+		-webkit-mask-image: url("../assets/icons/bell-slash-solid-full.svg");
+		mask-image: url("../assets/icons/bell-slash-solid-full.svg");
 	}
 
 	/* टिकट आइकन के लिए मास्क (User added class) */
 	.ticket-iocn::after {
-		-webkit-mask-image: url("../img/icons/ticket-solid-full.svg");
-		mask-image: url("../img/icons/ticket-solid-full.svg");
+		-webkit-mask-image: url("../assets/icons/ticket-solid-full.svg");
+		mask-image: url("../assets/icons/ticket-solid-full.svg");
 	}
 }
