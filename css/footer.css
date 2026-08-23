@@ -1,43 +1,69 @@
 @layer components {
-	/* Footer Component Styling & Visuals */
+	/* 1. MAIN FOOTER CONTAINER (3-Row Flex Column) */
 	.site-footer {
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
+		display: flex;
+		flex-direction: column;
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent)); /* ❌ 50% ट्रांसलूसेंट */
 		backdrop-filter: blur(var(--backdrop-blur));
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
 		border-top: 1px solid var(--border-color);
 		color: var(--text-secondary);
 		font-size: var(--fs-sm);
-		padding: var(--space-xl) var(--space-2xl);
-		gap: var(--space-xl);
-		transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
 	}
 
-	.visually-hidden {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border: 0;
+	/* 2. SECTION 1: TOP BRAND BAR */
+	.footer-top-brand {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+		padding: var(--space-xs) var(--space-xl) 0 var(--space-xl); /* ❌ वर्टिकल पैडिंग घटाई */
 	}
 
-	/* =========================================================================
-	   Footer Internal Layout & Component Styling
-	   ========================================================================= */
-	.footer-nav {
-		border-bottom: 1px solid var(--border-color);
-		padding-bottom: var(--space-md);
+	.footer-logo-title {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.footer-logo {
+		width: 48px;
+		height: 48px;
+		object-fit: contain;
+	}
+
+	.footer-top-brand h2 {
+		font-family: var(--font-title);
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	.footer-top-brand p {
+		font-size: var(--fs-xs);
+		margin: 2px 0 0 0;
+		color: var(--text-secondary);
+	}
+
+	/* 3. SECTION 2: MIDDLE MAIN CONTENT (FLEX ROW - SPACE EVENLY) */
+	.footer-middle-content {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-evenly;
+		padding: var(--space-sm) var(--space-xl);
+		gap: var(--space-md);
+		width: 100%;
 	}
 
 	.footer-nav-list {
 		display: flex;
+		gap: var(--space-lg);
 		list-style: none;
-		gap: var(--space-xl);
-		margin: 0;
 		padding: 0;
+		margin: 0;
 	}
 
 	.footer-nav-item a {
@@ -56,113 +82,95 @@
 		background-color: var(--card-bg);
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius-lg);
-		padding: var(--space-lg) var(--space-xl);
-		box-shadow: var(--shadow-sm);
+		padding: var(--space-xs) var(--space-sm);
 		display: flex;
-		gap: var(--space-xl);
+		gap: var(--space-md);
 		align-items: center;
-		max-width: 620px;
-		width: 100%;
-		margin: 0 auto;
-		transition: background-color var(--transition-smooth), 
-					border-color var(--transition-smooth), 
-					transform 0.3s ease, 
-					box-shadow 0.3s ease;
-	}
-
-	.footer-app-info:hover {
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-md);
-		border-color: var(--input-focus-border);
+		max-width: 520px;
 	}
 
 	.qr-code {
-		background: #ffffff; /* क्यूआर कोड स्कैनिंग के लिए व्हाइट ही रखें */
-		padding: var(--space-sm);
+		background: #ffffff;
+		padding: 2px;
 		border-radius: var(--radius-md);
 		border: 1px solid var(--border-color);
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		flex-shrink: 0;
 	}
 
 	.qr-code img {
-		width: 85px;
-		height: 85px;
+		width: 50px;
+		height: 50px;
 		display: block;
 		object-fit: contain;
 	}
 
-	.app-details {
-		flex: 1;
-		min-width: 200px;
-	}
-
-	.app-details h2 {
+	.app-details h3 {
 		font-family: var(--font-title);
-		font-size: var(--fs-md);
+		font-size: var(--fs-sm);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
-		margin: 0 0 var(--space-xs) 0;
+		margin: 0 0 2px 0;
 	}
 
 	.app-details p {
-		margin: 0 0 var(--space-sm) 0;
-		line-height: 1.4;
-		font-size: var(--fs-xs);
+		margin: 0 0 4px 0;
+		font-size: 0.68rem;
 		color: var(--text-secondary);
 	}
 
-	.app-details h3 {
-		font-size: var(--fs-xs);
-		font-weight: var(--fw-bold);
-		color: var(--text-primary);
-		margin: 0 0 var(--space-xs) 0;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-	}
-
 	.footer-feature-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2px var(--space-sm);
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-		gap: var(--space-xs);
 	}
 
 	.footer-feature-item {
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
-		font-size: var(--fs-xs);
+		font-size: 0.65rem;
 		color: var(--text-secondary);
+		white-space: nowrap;
 	}
 
 	.footer-feature-item::before {
 		content: "✓";
-		color: rgb(var(--color-success-rgb)); /* थीम-फ्रेंडली सक्सेस कलर */
+		color: rgb(var(--color-success-rgb));
 		font-weight: bold;
-		font-size: var(--fs-sm);
+	}
+
+	/* 4. SECTION 3: BOTTOM STRIP (NATURAL FULL WIDTH ROW) */
+	.footer-bottom-credit {
+		background-color: rgba(0, 0, 0, 0.35);
+		border-top: 1px solid var(--border-color);
+		padding: var(--space-xs) var(--space-xl);
+		width: 100%;
+		text-align: right; /* ❌ Right Aligned किया गया */
+		font-size: var(--fs-xs);
+	}
+	.footer-bottom-credit p {
+		margin: 2px 0; 
+		line-height: 1.2;
+		color: var(--text-primary);
+		font-weight: var(--fw-semibold);
 	}
 }
-
 /* =========================================================================
    Responsive overrides for Footer internals
    ========================================================================= */
 @media (min-width: 769px) {
 	@layer components {
 		.site-footer {
-			gap: 40px;
-			padding: 40px var(--space-2xl);
+			gap: 10px;
+			/* padding: 40px var(--space-2xl); */
 		}
 		.footer-app-info {
-			order: 1;
 			max-width: 100%;
 		}
 		.footer-nav {
-			order: 2;
 			border-bottom: none;
 			padding-bottom: 0;
 			margin-top: 10px;
@@ -172,7 +180,6 @@
 			gap: var(--space-lg);
 		}
 		.footer-brand {
-			order: 3;
 			border-top: none;
 			padding-top: 0;
 			margin-top: 10px;

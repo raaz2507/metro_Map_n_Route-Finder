@@ -82,4 +82,10 @@
 		-webkit-mask-image: url("../assets/icons/ticket-solid-full.svg");
 		mask-image: url("../assets/icons/ticket-solid-full.svg");
 	}
+
+    /* Share Icon Masking (as per project standard) */
+    .share-icon::after {
+        -webkit-mask-image: url("../assets/icons/share-solid-full.svg");
+        mask-image: url("../assets/icons/share-solid-full.svg");
+    }
 }

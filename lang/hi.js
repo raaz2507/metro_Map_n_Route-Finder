@@ -101,6 +101,7 @@ export default {
 
 	"nav-header": {
         home: "🏠 होम",
+        stations: "🚉 सभी स्टेशन",
         recharge: "💳 कार्ड रिचार्ज",
         others: "🗂️ अन्य",
         help: "❓ सहायता",

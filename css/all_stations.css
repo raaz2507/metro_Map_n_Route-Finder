@@ -1,0 +1,158 @@
+@import url("./base.css");
+@import url("./layout.css");
+
+@import url("./header.css");
+@import url("./navbar_header.css");
+
+@import url("./footer.css");
+
+@import url("./components/coach.css");
+/* ===========================================================================
+   ALL STATIONS DIRECTORY & 3D METRO COACH TRACK UI STYLES
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. COACH GLASS OVERLAY TOKENS (Scoped CSS Variables)
+   --------------------------------------------------------------------------- */
+:root {
+    --glass-bg: rgba(15, 23, 42, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.25);
+    --station-title-color: #ffffff;
+    --timing-value-color: #4ade80;
+    --text-sub: #94a3b8;
+}
+
+body[data-theme="dark"] {
+    --glass-bg: rgba(10, 15, 30, 0.85);
+    --glass-border: rgba(56, 189, 248, 0.3);
+    --station-title-color: #ffffff;
+    --timing-value-color: #38bdf8;
+    --text-sub: #cbd5e1;
+}
+
+body[data-theme="cyberpunk"] {
+    --glass-bg: rgba(15, 10, 30, 0.85);
+    --glass-border: rgba(0, 240, 255, 0.4);
+    --station-title-color: #00f0ff;
+    --timing-value-color: #f43f5e;
+    --text-sub: #cbd5e1;
+}
+
+body[data-theme="vintage"] {
+    --glass-bg: rgba(24, 20, 16, 0.85);
+    --glass-border: rgba(251, 191, 36, 0.35);
+    --station-title-color: #ffffff;
+    --timing-value-color: #fbbf24;
+    --text-sub: #d97706;
+}
+
+/* ---------------------------------------------------------------------------
+   2. PAGE CONTAINER & CONTROLS LAYOUT (Translucent Glassmorphism)
+   --------------------------------------------------------------------------- */
+main, main.stations-page-container {
+    height: auto;
+    min-height: auto;
+    flex: 1 0 auto;
+    overflow: visible;
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    padding: 0 1rem 5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    font-family: var(--font-main, 'Inter', system-ui, sans-serif);
+}
+.directory-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent, 0.5));
+    backdrop-filter: blur(var(--backdrop-blur, 16px));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur, 16px));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl, 20px);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-md);
+}
+
+.search-box-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle, 0.15));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full, 30px);
+    padding: 0.5rem 1.25rem;
+}
+.search-box-wrapper input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: var(--fs-md, 1rem);
+    color: var(--text-primary);
+}
+.search-box-wrapper input::placeholder {
+    color: var(--text-muted);
+}
+
+.filter-chips-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+}
+
+.chip-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: inherit;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition-fast, 0.15s ease);
+}
+
+.chip-btn.active {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* ---------------------------------------------------------------------------
+   3. METRO LINE DIRECTORY SECTIONS & HEADERS (Translucent Glassmorphism)
+   --------------------------------------------------------------------------- */
+.line-directory-section {
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent, 0.5));
+    backdrop-filter: blur(var(--backdrop-blur, 16px));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur, 16px));
+    border-radius: var(--radius-lg, 16px);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem 1rem 1.75rem 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-md);
+}
+.line-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle, 0.2));
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-left: 6px solid #c0282c;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md, 12px);
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold, 700);
+    font-size: var(--fs-lg, 1.15rem);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+

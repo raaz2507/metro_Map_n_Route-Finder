@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Details - Metro Map & Route Finder</title>
+
+    <!-- App Stylesheet -->
+    <link rel="stylesheet" href="./css/station_info.css"/>
+</head>
+<body>
+
+    <!-- Universal Header Container -->
+    <div id="app-header"></div>
+
+    <main class="station-page-container">
+
+        <!-- Top Navigation & Action Bar -->
+        <div class="page-action-bar">
+            <a href="all_stations.html" class="back-btn">⬅️ Back to All Stations</a>
+        </div>
+
+        <!-- TOP BENTO ROW -->
+        <div class="bento-row-top">
+            
+            <!-- Left Column: Route Track Capsules + Hero Banner -->
+            <div class="bento-col-stack-sm">
+                <div class="station-track-bar" id="route-track-container"></div>
+                
+                <!-- 🌟 मेट्रो लाइन्स की जानकारी के लिए पूरी तरह अलग समर्पित डिब्बा -->
+                <section class="feature-card" id="line-info-container"></section>
+                
+                <section class="station-hero-card" id="hero-container"></section>
+            </div>
+
+            <!-- Right Column: Timings + Contacts -->
+            <div class="bento-col-stack">
+                <div class="compact-timings-card" id="operating-hours-container"></div>
+                <section class="feature-card" id="contacts-container"></section>
+            </div>
+
+        </div>
+
+        <!-- Station Gates & Exits -->
+        <!-- <div class="bento-row-twin"></div> -->
+
+        <section class="feature-card">
+            <h3 class="feature-card-header">🚪 Station Gates & Exits</h3>
+            <div class="gate-list" id="gates-container"></div>
+        </section>
+        <!-- Facilities & Amenities Master Card -->
+        <section class="feature-card">
+            <h3 class="feature-card-header">♿ Station Facilities & Amenities</h3>
+            <div id="facilities-container"></div>
+        </section>
+
+        <!-- Parkings & Vertical Transit Tables -->
+        <!-- <div class="bento-row-twin"></div> -->
+
+        <section class="feature-card">
+            <h3 class="feature-card-header">🅿️ Parking Breakdown</h3>
+            <div id="parking-container"></div>
+        </section>
+
+        <section class="feature-card">
+            <h3 class="feature-card-header">🛗 Lifts & Escalators (Vertical Transit)</h3>
+            <div id="transit-container"></div>
+        </section>
+        <!-- Nearby Places -->
+        <section class="feature-card">
+            <h3 class="feature-card-header">📍 Nearby Places & Key Destinations</h3>
+            <div id="nearby-container"></div>
+        </section>
+
+    </main>
+
+    <!-- Universal Footer Container -->
+    <div id="app-footer"></div>
+
+    <!-- ES Module Logic -->
+    <script type="module" src="./js/station_info.js"></script>
+</body>
+</html>

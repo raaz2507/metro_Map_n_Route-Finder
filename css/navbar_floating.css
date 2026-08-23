@@ -2,7 +2,12 @@
 	/* =========================================================================
 	   4. NAVIGATION (DESKTOP & MOBILE FLOATING MENU BAR)
 	   ========================================================================= */
-	 
+	/* FLOATING NAV BAR ANCHORED INSIDE MAIN MAP CANVAS */
+    
+    .floating-nav-wrapper .floating-nav {
+        pointer-events: auto; /* बटन 100% क्लिक होंगे */
+    }
+
 	.floating-nav {
 		--width: 60px;
 		--icon-width: 30px;

@@ -446,3 +446,37 @@
 		--color-info-rgb: 78, 122, 161;         /* Nostalgic Sky Blue */
 	}
 }
+
+@layer base {
+    body {
+        position: relative;
+        font-family: var(--font-main);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--bg-app);
+        color: var(--text-primary);
+        transition: background-color var(--transition-smooth), color var(--transition-smooth);
+    }
+
+    /* 
+       UNIVERSAL APP BACKGROUND IMAGE & THEME FILTER 
+       (Applies automatically to ALL pages: index.html, help.html, about.html, etc.)
+    */
+    body::before {
+        content: "";
+        position: fixed;
+        top: -20px;
+        left: -20px;
+        right: -20px;
+        bottom: -20px;
+        background-image: url('../assets/images/background_com.png'); 
+        background-repeat: no-repeat; 
+        background-size: cover; 
+        background-position: center; 
+        background-attachment: fixed;
+        z-index: var(--z-bg);
+        filter: var(--bg-filter);
+        transition: filter var(--transition-smooth); 
+    }
+}

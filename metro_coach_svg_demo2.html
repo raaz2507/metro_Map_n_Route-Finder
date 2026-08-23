@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3:2 Metro Coach Component with Continuous -45° 3D Track</title>
+
+    <!-- Google Font for Display -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;600;700;800;900&display=swap">
+
+    <!-- App Common CSS -->
+    <link rel="stylesheet" href="./css/style.css"/>
+
+    <!-- 
+      ==========================================================================
+      3:2 METRO COACH COMPONENT STYLES (CONTINUOUS -45° 3D TRACK ROW)
+      - Standalone Coach Cards: viewBox 360x216 containing ONLY Coach & Wheels (No duplicated track snippets inside cards!)
+      - Single Continuous Track Row: 1 unbroken 3D SVG track running across the entire track row
+      - -45° Sleepers: Concrete sleepers angled at -45° diagonal tilt (leaning / from bottom-left to top-right)
+      - 0px Wheel Contact: Coach wheels rest directly on top of the continuous Bottom Rail
+      - Single Language Station Name: EN or HI via selector (Clean White Font)
+      - Timings (2 Lines): First Train (Row 1) + Last Train (Row 2)
+      - Facilities: Extra Large Accessibility & Parking Icons (1.15rem)
+      ==========================================================================
+    -->
+    <style>
+        html, body {
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+            height: auto !important;
+            min-height: 100vh !important;
+        }
+
+        :root {
+            --glass-bg: rgba(15, 23, 42, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --station-title-color: #ffffff;
+            --timing-value-color: #4ade80;
+            --text-sub: #94a3b8;
+        }
+        body[data-theme="dark"] {
+            --glass-bg: rgba(10, 15, 30, 0.85);
+            --glass-border: rgba(56, 189, 248, 0.3);
+            --station-title-color: #ffffff;
+            --timing-value-color: #38bdf8;
+            --text-sub: #cbd5e1;
+        }
+        body[data-theme="cyberpunk"] {
+            --glass-bg: rgba(15, 10, 30, 0.85);
+            --glass-border: rgba(0, 240, 255, 0.4);
+            --station-title-color: #00f0ff;
+            --timing-value-color: #f43f5e;
+            --text-sub: #cbd5e1;
+        }
+        body[data-theme="vintage"] {
+            --glass-bg: rgba(24, 20, 16, 0.85);
+            --glass-border: rgba(251, 191, 36, 0.35);
+            --station-title-color: #ffffff;
+            --timing-value-color: #fbbf24;
+            --text-sub: #d97706;
+        }
+
+        body {
+            background-color: var(--bg-app, #080c14);
+            color: var(--text-primary, #fff);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            padding: 2.5rem 1rem;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .demo-title {
+            text-align: center;
+        }
+
+        .demo-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .controls-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-group select {
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-weight: bold;
+            background: #1e293b;
+            color: #fff;
+            border: 1px solid #475569;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE TRACK ROW WITH CONTINUOUS TRACK BED */
+        .train-track-row {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            padding: 2.5rem 1.5rem 2.2rem 1.5rem;
+        }
+
+        /* 3D CONTINUOUS TRACK ROW (POSITIONED UNDERNEATH COACH CARDS) */
+        .row-continuous-track {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 2%;
+            right: 2%;
+            height: 25px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .continuous-track-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+                /* STANDALONE COACH CARD ENTITY (252px - EXACT 70% ZOOM PERFECT SIZE) */
+        .real-coach-card {
+            position: relative;
+            width: 252px; /* 70% ज़ूम का परफेक्ट साइज़ */
+            flex-shrink: 0;
+            transition: opacity 0.3s, filter 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            z-index: 5;
+            margin-bottom: 0px; /* पहिए सीधे पटरी पर टिके रहेंगे */
+        }
+
+        /* 
+           SUBTLE ENGINE RUMBLE MICRO-VIBRATION (100% READABILITY PRESERVED)
+        */
+        @keyframes engineRumble {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-0.6px); }
+            40% { transform: translateX(0.6px); }
+            60% { transform: translateX(-0.3px); }
+            80% { transform: translateX(0.3px); }
+            100% { transform: translateX(0); }
+        }
+        .real-coach-card:hover .svg-coach-element {
+            /* केवल X-अक्ष पर हॉरिज़ॉन्टल रिअलिस्टिक इंजन वाइब्रेशन */
+            animation: engineRumble 0.5s linear infinite;
+        }
+
+        .real-coach-card:hover .coach-underglow {
+            opacity: 0.9;
+            filter: blur(24px);
+        }
+
+        .coach-underglow {
+            position: absolute;
+            bottom: 15px;
+            left: 8%;
+            right: 8%;
+            height: 25px;
+            background: var(--line-color, #c0282c);
+            filter: blur(22px);
+            opacity: 0.6;
+            border-radius: 50%;
+            transition: opacity 0.3s, background 0.3s;
+        }
+
+        .real-coach-card:hover .coach-underglow {
+            opacity: 0.95;
+            filter: blur(28px);
+        }
+
+        .svg-coach-element {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 12px 25px rgba(0,0,0,0.5));
+        }
+
+        .dynamic-stripe-fill {
+            fill: var(--line-color, #c0282c);
+            transition: fill 0.3s ease;
+        }
+
+        /* 
+           SINGLE NATURAL GLASS WINDOW OVERLAY (MAX READABILITY)
+        */
+        .coach-window-overlay {
+            position: absolute;
+            top: 16%;
+            left: 6.2%;
+            right: 13.2%;
+            height: 58%;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        /* 1. STATION NAME (SINGLE LANGUAGE DISPLAY, LARGE CLEAN WHITE FONT) */
+        .window-station-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--station-title-color);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+            white-space: nowrap;
+            text-align: center;
+            line-height: 1;
+            margin-top: -6px;
+        }
+
+        .window-station-title .lang-hi {
+            display: none;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 700;
+        }
+
+        .window-station-title .lang-en {
+            display: inline-block;
+            font-family: 'Share Tech Mono', monospace;
+            letter-spacing: 2px;
+        }
+
+        /* Language Toggle State (Hindi Active) */
+        body[data-lang="hi"] .window-station-title .lang-en {
+            display: none;
+        }
+        body[data-lang="hi"] .window-station-title .lang-hi {
+            display: inline-block;
+        }
+
+        /* 2. TIMINGS BLOCK (2 ROWS KEY-VALUE ALIGNMENT) */
+        .window-timings-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            width: 100%;
+            padding: 3px 8px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+        }
+
+        .timing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+        }
+
+        .timing-row label {
+            color: var(--text-sub);
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .timing-row strong {
+            color: var(--timing-value-color, #4ade80);
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        /* 3. FACILITIES CHIPS (EXTRA LARGE ACCESSIBILITY ICONS) */
+        .window-facilities-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 8px;
+            width: 100%;
+            padding : 5px 0;
+        }
+
+        .facility-chip {
+            font-size: 1.15rem; /* Extra large accessibility icons */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            line-height: 1;
+        }
+    </style>
+</head>
+<body data-lang="en">
+
+    <div class="demo-container">
+        
+        <div class="demo-title">
+            <h2>🚆 3:2 Metro Coach Component with Continuous -45° 3D Track</h2>
+            <p>Single Unbroken 3D Track Row + -45° Diagonal Sleepers + Standalone Coach Cards (360x216)</p>
+            
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="langSelect" style="font-weight:bold;">Language:</label>
+                    <select id="langSelect" name="langSelect">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी (Hindi)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="theme" style="font-weight:bold;">Theme:</label>
+                    <select id="theme" name="theme">
+                        <option value="light">Classic Light</option>
+                        <option value="dark">Sleek Dark</option>
+                        <option value="cyberpunk">Neon Cyberpunk</option>
+                        <option value="vintage">Vintage Retro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRACK ROW WITH METRO COACHES -->
+        <div class="train-track-row">
+
+            <!-- SINGLE UNBROKEN CONTINUOUS 3D TRACK SVG ROW -->
+            <div class="row-continuous-track">
+                <svg class="continuous-track-svg" viewBox="0 0 1200 25" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="rowSteelRailGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#cbd5e1"/>
+                            <stop offset="30%" stop-color="#64748b"/>
+                            <stop offset="100%" stop-color="#1e293b"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- 3. BOTTOM RAIL (FRONT RAIL - NEAR RAIL): COACH WHEELS REST DIRECTLY ON THIS RAIL (Y:0px) -->
+                    <rect x="0" y="0" width="1200" height="5" fill="#334155" stroke="#334155" stroke-width="0.5" rx="1"/>
+                    
+
+                    <!-- 2. -45° DIAGONAL ISOMETRIC CONCRETE SLEEPERS (REPEATING PATTERN LEANING / FROM BOTTOM-LEFT TO TOP-RIGHT) -->
+                    <pattern id="sleeperPattern" x="0" y="0" width="35" height="25" patternUnits="userSpaceOnUse">
+                        <!-- Sleeper angled -45°: (15,4 -> 29,4 -> 19,12 -> 5,12) -->
+                        <polygon points="15,4 29,4 19,12 5,12" fill="#475569"/>
+                        <polygon points="5,12 19,12 19,16 5,16" fill="#1e293b"/>
+                    </pattern>
+                    <rect x="0" y="0" width="1200" height="25" fill="url(#sleeperPattern)"/>
+
+                    <!-- 1. TOP RAIL (REAR RAIL - FAR RAIL) -->
+                    <rect x="0" y="12" width="1200" height="3" fill="#334155"/>
+                </svg>
+            </div>
+
+            <!-- 1. RED LINE COACH (JLML) -->
+            <a href="station_info.html?code=JLML" class="real-coach-card" style="--line-color: #c0282c;">
+                <div class="coach-underglow"></div>
+
+                <!-- STANDALONE COACH SVG (360x216) - NO TRACK DUPED INSIDE CARD -->
+                <svg class="svg-coach-element" viewBox="0 0 360 216" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="bodyGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="25%" stop-color="#e2e8f0"/>
+                            <stop offset="70%" stop-color="#cbd5e1"/>
+                            <stop offset="100%" stop-color="#94a3b8"/>
+                        </linearGradient>
+                        <linearGradient id="roofGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f8fafc"/>
+                            <stop offset="100%" stop-color="#475569"/>
+                        </linearGradient>
+
+                        <!-- Natural Soft Glass Window Tint -->
+                        <linearGradient id="glassTint" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.85"/>
+                            <stop offset="100%" stop-color="#1e293b" stop-opacity="0.7"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Sleek Metallic Body & Aerodynamic Roof -->
+                    <path d="M12 35 C12 20, 25 12, 45 12 L315 12 C335 12, 348 20, 354 38 L348 165 C340 195, 320 200, 300 200 L25 200 C15 200, 10 185, 10 165 Z" fill="url(#bodyGrad1)" stroke="#64748B" stroke-width="2"/>
+                    <path d="M15 25 C15 12, 28 8, 48 8 L312 8 C328 8, 342 12, 350 25 Z" fill="url(#roofGrad1)"/>
+
+                    <!-- Aerodynamic Front Driver Windshield -->
+                    <path d="M322 18 L344 18 C352 18, 356 28, 350 48 L334 48 Z" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5"/>
+                    <polygon points="325,20 342,20 334,44 325,44" fill="#FFFFFF" opacity="0.3"/>
+
+                    <!-- 1 SINGLE LARGE GLASS WINDOW CUTOUT -->
+                    <rect x="22" y="38" width="290" height="125" rx="8" fill="url(#glassTint)" stroke="#334155" stroke-width="2"/>
+
+                    <!-- Glass Reflection Diagonal Highlight -->
+                    <polygon points="28,42 65,42 45,158 28,158" fill="#FFFFFF" opacity="0.12"/>
+
+                    <!-- Dynamic Line Color Stripe -->
+                    <rect class="dynamic-stripe-fill" x="10" y="166" width="340" height="24" rx="4"/>
+                    <rect x="10" y="174" width="340" height="5" fill="#FFFFFF" opacity="0.8"/>
+
+                    <!-- Front & Rear Wheel Bogies -->
+                    <rect x="45" y="198" width="75" height="18" rx="4" fill="#0F172A"/>
+                    <circle cx="65" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
+                    <circle cx="65" cy="207" r="3" fill="#E2E8F0"/>
+                    <circle cx="100" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
+                    <circle cx="100" cy="207" r="3" fill="#E2E8F0"/>
+
+                    <rect x="240" y="198" width="75" height="18" rx="4" fill="#0F172A"/>
+                    <circle cx="260" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
+                    <circle cx="260" cy="207" r="3" fill="#E2E8F0"/>
+                    <circle cx="295" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
+                    <circle cx="295" cy="207" r="3" fill="#E2E8F0"/>
+
+                    <!-- Headlights -->
+                    <circle cx="348" cy="180" r="5" fill="#38BDF8" stroke="#FFFFFF" stroke-width="1.5"/>
+                    <circle cx="338" cy="180" r="4" fill="#F59E0B"/>
+                </svg>
+
+                <!-- SINGLE NATURAL GLASS WINDOW OVERLAY -->
+                <div class="coach-window-overlay">
+                    
+                    <!-- 1. STATION NAME (SINGLE LANGUAGE ACTIVE) -->
+                    <div class="window-station-title">
+                        <span class="lang-en">JHILMIL</span>
+                        <span class="lang-hi">झिलमिल</span>
+                    </div>
+
+                    <!-- 2. TIMINGS BLOCK (2 ROWS) -->
+                    <div class="window-timings-block">
+                        <div class="timing-row">
+                            <label>First Train:</label>
+                            <strong>05:32 AM</strong>
+                        </div>
+                        <div class="timing-row">
+                            <label>Last Train:</label>
+                            <strong>11:22 PM</strong>
+                        </div>
+                    </div>
+
+                    <!-- 3. FACILITIES CHIPS (EXTRA LARGE ICONS) -->
+                    <div class="window-facilities-row">
+                        <span class="facility-chip">♿</span>
+                        <span class="facility-chip">🅿️</span>
+                        <span class="facility-chip">🛗</span>
+                    </div>
+
+                </div>
+            </a>
+
+            <!-- 2. YELLOW LINE COACH (RCK) -->
+            <a href="station_info.html?code=RCK" class="real-coach-card" style="--line-color: #fdb813;">
+                <div class="coach-underglow"></div>
+
+                <!-- STANDALONE COACH SVG (360x216) -->
+                <svg class="svg-coach-element" viewBox="0 0 360 216" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="bodyGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="25%" stop-color="#e2e8f0"/>
+                            <stop offset="70%" stop-color="#cbd5e1"/>
+                            <stop offset="100%" stop-color="#94a3b8"/>
+                        </linearGradient>
+                        <linearGradient id="roofGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f8fafc"/>
+                            <stop offset="100%" stop-color="#475569"/>
+                        </linearGradient>
+                        <linearGradient id="glassTint2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.85"/>
+                            <stop offset="100%" stop-color="#1e293b" stop-opacity="0.7"/>
+                        </linearGradient>
+                    </defs>
+
+                    <path d="M12 35 C12 20, 25 12, 45 12 L315 12 C335 12, 348 20, 354 38 L348 165 C340 195, 320 200, 300 200 L25 200 C15 200, 10 185, 10 165 Z" fill="url(#bodyGrad2)" stroke="#64748B" stroke-width="2"/>
+                    <path d="M15 25 C15 12, 28 8, 48 8 L312 8 C328 8, 342 12, 350 25 Z" fill="url(#roofGrad2)"/>
+
+                    <path d="M322 18 L344 18 C352 18, 356 28, 350 48 L334 48 Z" fill="#0F172A" stroke="#FDE047" stroke-width="1.5"/>
+                    <polygon points="325,20 342,20 334,44 325,44" fill="#FFFFFF" opacity="0.3"/>
+
+                    <rect x="22" y="38" width="290" height="125" rx="8" fill="url(#glassTint2)" stroke="#334155" stroke-width="2"/>
+
+                    <polygon points="28,42 65,42 45,158 28,158" fill="#FFFFFF" opacity="0.12"/>
+
+                    <rect class="dynamic-stripe-fill" x="10" y="166" width="340" height="24" rx="4"/>
+                    <rect x="10" y="174" width="340" height="5" fill="#FFFFFF" opacity="0.8"/>
+
+                    <rect x="45" y="198" width="75" height="18" rx="4" fill="#0F172A"/>
+                    <circle cx="65" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
+                    <circle cx="65" cy="207" r="3" fill="#E2E8F0"/>
+                    <circle cx="100" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
+                    <circle cx="100" cy="207" r="3" fill="#E2E8F0"/>
+
+                    <rect x="240" y="198" width="75" height="18" rx="4" fill="#0F172A"/>
+                    <circle cx="260" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
+                    <circle cx="260" cy="207" r="3" fill="#E2E8F0"/>
+                    <circle cx="295" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
+                    <circle cx="295" cy="207" r="3" fill="#E2E8F0"/>
+
+                    <circle cx="348" cy="180" r="5" fill="#FDE047" stroke="#FFFFFF" stroke-width="1.5"/>
+                    <circle cx="338" cy="180" r="4" fill="#F59E0B"/>
+                </svg>
+
+                <div class="coach-window-overlay">
+                    <div class="window-station-title">
+                        <span class="lang-en">RAJIV CHOWK</span>
+                        <span class="lang-hi">राजीव चौक</span>
+                    </div>
+
+                    <div class="window-timings-block">
+                        <div class="timing-row">
+                            <label>First Train:</label>
+                            <strong>05:30 AM</strong>
+                        </div>
+                        <div class="timing-row">
+                            <label>Last Train:</label>
+                            <strong>11:35 PM</strong>
+                        </div>
+                    </div>
+
+                    <div class="window-facilities-row">
+                        <span class="facility-chip">♿</span>
+                        <span class="facility-chip">🔄</span>
+                        <span class="facility-chip">🏧</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Language Selector Switcher
+        const langSelect = document.getElementById('langSelect');
+        if (langSelect) {
+            langSelect.addEventListener('change', (e) => {
+                document.body.setAttribute('data-lang', e.target.value);
+            });
+        }
+
+        // Theme Selector Switcher
+        const themeSelect = document.getElementById('theme');
+        if (themeSelect) {
+            themeSelect.addEventListener('change', (e) => {
+                document.body.setAttribute('data-theme', e.target.value);
+            });
+        }
+    </script>
+</body>
+</html>

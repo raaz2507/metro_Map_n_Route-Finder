@@ -92,6 +92,7 @@ export default {
 
 	"nav-header": {
         home: "🏠 Home",
+        stations : "🚉 Stations",
         recharge: "💳 Recharge Card",
         others: "🗂️ Others",
         help: "❓ Help",

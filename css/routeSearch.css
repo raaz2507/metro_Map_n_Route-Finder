@@ -3,6 +3,277 @@
 	   Route Finder Form & Input Styling (Updated for New Structure)
 	   ========================================================================= */
 
+
+
+    
+    	/* Route Priority Container */
+	.route-priority {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		margin-bottom: var(--space-xs);
+	}
+
+	/* Priority Header Flex Row (Text on Left, Share Icon on Right) */
+	.priority-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0px var(--space-sm);
+	}
+
+	.priority-header p {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.sharebtn {
+		display: flex;
+		align-items: center;
+	}
+
+	.sharebtn button {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: var(--space-xs);
+		border-radius: var(--radius-full);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-secondary);
+		transition: var(--transition-fast);
+	}
+
+	.sharebtn button .icon {
+		width: 18px;
+		height: 18px;
+	}
+
+	.sharebtn button:hover {
+		background-color: var(--btn-reset-bg);
+		color: var(--text-primary);
+		transform: scale(1.1);
+	}
+
+	.sharebtn button:active {
+		transform: scale(0.95);
+	}
+
+
+
+    	/* =========================================================================
+	   SHARE ROUTE CUSTOM MODAL & TOAST STYLING (Token-Compliant)
+	   ========================================================================= */
+
+	/* Modal Backdrop Overlay */
+	.share-modal-backdrop {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		z-index: var(--z-modal);
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-md);
+		opacity: 0;
+		transition: opacity var(--transition-smooth);
+	}
+
+	.share-modal-backdrop.active {
+		display: flex;
+		opacity: 1;
+	}
+
+	/* Modal Container Card */
+	.share-modal-card {
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-lg);
+		width: 100%;
+		max-width: 420px;
+		padding: var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		transform: scale(0.9);
+		transition: transform var(--transition-spring);
+	}
+
+	.share-modal-backdrop.active .share-modal-card {
+		transform: scale(1);
+	}
+
+	/* Modal Header */
+	.share-modal-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: var(--space-sm);
+	}
+
+	.share-modal-header h3 {
+		font-family: var(--font-title);
+		font-size: var(--fs-lg);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	.close-modal-btn {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		font-size: var(--fs-md);
+		color: var(--text-secondary);
+		padding: var(--space-xs);
+		border-radius: var(--radius-full);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: var(--transition-fast);
+	}
+
+	.close-modal-btn:hover {
+		background: var(--btn-reset-bg);
+		color: var(--text-primary);
+	}
+
+	/* Route Overview Preview Card Inside Modal */
+	.share-route-preview {
+		background: var(--btn-reset-bg);
+		border: 1px dashed var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--space-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		text-align: center;
+	}
+
+	.preview-header {
+		font-family: var(--font-title);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-xs);
+	}
+
+	.preview-arrow {
+		color: var(--text-secondary);
+	}
+
+	.preview-metrics {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+	}
+
+	/* Share Options Grid */
+	.share-options-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-secondary);
+		margin-top: var(--space-xs);
+		margin-bottom: var(--space-xs);
+	}
+
+	.share-options-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-sm);
+	}
+
+	.share-opt-btn {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: var(--space-sm);
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--space-sm) var(--space-md);
+		font-family: var(--font-main);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-medium);
+		color: var(--text-primary);
+		cursor: pointer;
+		transition: var(--transition-fast);
+	}
+
+	.share-opt-icon {
+		font-size: var(--fs-md);
+	}
+
+	.share-opt-btn:hover {
+		background: var(--btn-reset-bg);
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.share-opt-btn:active {
+		transform: translateY(0);
+	}
+
+	.copy-text-opt {
+		grid-column: span 2;
+		justify-content: center;
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		border: none;
+	}
+
+	.copy-text-opt:hover {
+		background: var(--btn-primary-hover);
+		color: var(--btn-primary-text);
+	}
+
+	/* Floating Toast Notification */
+	.share-toast-msg {
+		position: fixed;
+		bottom: 30px;
+		left: 50%;
+		transform: translateX(-50%) translateY(100px);
+		background: var(--text-primary);
+		color: var(--card-bg);
+		padding: var(--space-sm) var(--space-xl);
+		border-radius: var(--radius-full);
+		font-family: var(--font-main);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-medium);
+		box-shadow: var(--shadow-lg);
+		z-index: var(--z-overlay);
+		opacity: 0;
+		pointer-events: none;
+		transition: transform var(--transition-spring), opacity var(--transition-fast);
+	}
+
+	.share-toast-msg.show {
+		transform: translateX(-50%) translateY(0);
+		opacity: 1;
+	}
+
+
+
+       
 	/* 1. Main Route Finder section ko transparent karein */
 		/* 1. Main Route Finder section styling */
 	.route-finder-section {

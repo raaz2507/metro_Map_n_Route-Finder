@@ -34,6 +34,26 @@ export class Dashboard {
 			stationList: "#stationList",
 			swapButton: "#swapButton",
 
+            shareRouteBtn: "#shareRouteBtn",
+
+            // Modal Elements
+			shareModal: "#shareModal",
+			closeShareModal: "#closeShareModal",
+			shareWhatsAppBtn: "#shareWhatsAppBtn",
+			shareTelegramBtn: "#shareTelegramBtn",
+			shareSmsBtn: "#shareSmsBtn",
+			copyShareUrlBtn: "#copyShareUrlBtn",
+			copyShareTextBtn: "#copyShareTextBtn",
+			shareToast: "#shareToast",
+			
+            // Preview Elements inside Modal
+			sharePreviewFrom: "#sharePreviewFrom",
+			sharePreviewTo: "#sharePreviewTo",
+			sharePreviewDist: "#sharePreviewDist",
+			sharePreviewTime: "#sharePreviewTime",
+			sharePreviewFare: "#sharePreviewFare",
+
+
 			language: "#language",
 
 			theme: "#theme",
@@ -75,6 +95,7 @@ export class Dashboard {
 		
 		this.#stationListGenerator();
 		this.#renderRecentSearches();
+        this.#handleUrlParams();
 	}
 
 	#loadSettings() {
@@ -106,6 +127,7 @@ export class Dashboard {
         this.#sidebarNav_event();
 		this.#floatingNav_event();
 		this.#recentSearches_event();
+        this.#shareRoute_event();
 	}
 
 	// =========================================================================
@@ -441,7 +463,7 @@ export class Dashboard {
 	}
     
 
-			// मुख्य आंकड़े वाला कार्ड (Colorful Metrics Card)
+		// मुख्य आंकड़े वाला कार्ड (Colorful Metrics Card)
 		#renderMetricsCard(parent, routeInfo, totalSteps) {
 		const metricsCard = document.createElement("div");
 		metricsCard.className = "journey-metrics-card";
@@ -1046,7 +1068,7 @@ export class Dashboard {
 						<span class="to">${item.toName}</span>
 					</button>
 					<button type="button" class="delete-search-btn" aria-label="${i18n.t("home.deleteRoute")}" data-from-id="${item.fromId}" data-to-id="${item.toId}">
-						<img src="./img/icons/trash-can-solid-full.svg" alt="🗑️" aria-hidden="true">
+						<img src="../assets/icons/trash-can-solid-full.svg" alt="🗑️" aria-hidden="true">
 					</button>
 				</li>
 			`).join("");
@@ -1125,5 +1147,287 @@ export class Dashboard {
 				}
 			});
 		}
+	}
+
+    	// 24-घंटे वाले समय (उदा. "23:17:55") को 12-घंटे वाले समय (उदा. "11:17 PM") में बदलने वाला यूटिलिटी मेथड
+	#formatTime12h(timeStr) {
+		if (!timeStr) return "N/A";
+		const parts = timeStr.split(":");
+		let hours = parseInt(parts[0], 10);
+		const minutes = parts[1] || "00";
+		if (isNaN(hours)) return timeStr;
+		const ampm = hours >= 12 ? "PM" : "AM";
+		hours = hours % 12;
+		hours = hours ? hours : 12;
+		const formattedHours = hours < 10 ? `0${hours}` : `${hours}`;
+		return `${formattedHours}:${minutes} ${ampm}`;
+	}
+
+    	// =========================================================================
+	// SHARE & URL ROUTE AUTO-LOAD METHODS
+	// =========================================================================
+	
+		// URL पैरामीटर्स से ऑटो-रूट जनरेट करने वाला मेथड
+	#handleUrlParams() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const fromId = urlParams.get("from");
+		const toId = urlParams.get("to");
+		const priority = urlParams.get("priority");
+
+		if (!fromId || !toId) return;
+
+		const startStationObj = this.#metroData.stationData[fromId];
+		const endStationObj = this.#metroData.stationData[toId];
+
+		if (!startStationObj || !endStationObj) return;
+
+		const currentLang = this.#settings.currentLang || "en";
+
+		if (this.#elemts.startStation) {
+			this.#elemts.startStation.value = startStationObj.name[currentLang] || startStationObj.name.en;
+		}
+		if (this.#elemts.endStation) {
+			this.#elemts.endStation.value = endStationObj.name[currentLang] || endStationObj.name.en;
+		}
+
+		if (priority) {
+			const priorityRadio = document.querySelector(`input[name="routeType"][value="${priority}"]`);
+			if (priorityRadio) priorityRadio.checked = true;
+		}
+
+		const form = document.querySelector(".routeFinder");
+		if (form) {
+			setTimeout(() => {
+				// 1. यदि साइडबार सेक्शन बंद है, तो Route Finder वाली टैब को क्लिक करके विंडो खोलें
+				const routeFinderTab = document.querySelector('.sidebar-link[data-target="route-finder"]');
+				if (routeFinderTab) {
+					routeFinderTab.click();
+				}
+				// 2. फ़ॉर्म सबमिट करके रूट कैलकुलेट करें
+				form.requestSubmit();
+				// 3. विजुअल स्क्रॉल करें
+				const routeSection = document.getElementById("route-finder");
+				if (routeSection) {
+					routeSection.scrollIntoView({ behavior: "smooth" });
+				}
+			}, 150);
+		}
+	}
+
+	// =========================================================================
+	// HYBRID SHARE & CUSTOM MODAL METHODS
+	// =========================================================================
+
+	// 1. मुख्य शेयर इंवेंट हैंडलर (Hybrid logic: Mobile vs Desktop)
+	#shareRoute_event() {
+		if (!this.#elemts.shareRouteBtn) return;
+
+		// Modal Close button listener
+		if (this.#elemts.closeShareModal) {
+			this.#elemts.closeShareModal.addEventListener("click", () => this.#closeShareModal());
+		}
+
+		// Modal Backdrop click listener (बाहर क्लिक करने पर मोडल बंद करें)
+		if (this.#elemts.shareModal) {
+			this.#elemts.shareModal.addEventListener("click", (e) => {
+				if (e.target === this.#elemts.shareModal) {
+					this.#closeShareModal();
+				}
+			});
+		}
+
+		// Escape key listener
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape" && this.#elemts.shareModal?.classList.contains("active")) {
+				this.#closeShareModal();
+			}
+		});
+
+		// Share button click
+		this.#elemts.shareRouteBtn.addEventListener("click", async () => {
+			if (!this.#currentRouteInfo || !this.#currentRouteInfo.path || this.#currentRouteInfo.path.length === 0) {
+				alert(
+					this.#settings.currentLang === "hi"
+						? "कृपया शेयर करने से पहले रूट खोजें।"
+						: "Please calculate a route first before sharing."
+				);
+				return;
+			}
+
+			const routeInfo = this.#currentRouteInfo;
+			const path = routeInfo.path;
+			const startId = path[0];
+			const endId = path[path.length - 1];
+
+			const routeTypeRadio = document.querySelector('input[name="routeType"]:checked');
+			const priorityVal = routeTypeRadio ? routeTypeRadio.value : "fastest";
+
+			// डायनेमिक शेयर URL (Station IDs के साथ)
+			const shareUrl = `${window.location.origin}${window.location.pathname}?from=${startId}&to=${endId}&priority=${priorityVal}`;
+
+			const startName = this.#getStationLangName(startId);
+			const endName = this.#getStationLangName(endId);
+
+			const distKm = typeof routeInfo.totalDistance === "number"
+				? (routeInfo.totalDistance / 1000).toFixed(1)
+				: routeInfo.totalDistance;
+			const totalMin = routeInfo.totalTime;
+			const stationCount = path.length;
+			const interchangeCount = routeInfo.interchanges;
+
+			const fares = typeof routeInfo.totalFare === "object" && routeInfo.totalFare !== null
+				? routeInfo.totalFare
+				: { tokenFare: routeInfo.totalFare, smartCardFare: routeInfo.totalFare, offPeakSmartFare: routeInfo.totalFare };
+
+			const tokenFare = fares.tokenFare ?? "N/A";
+			const smartCardFare = fares.smartCardFare ?? "N/A";
+			const offPeakFare = fares.offPeakSmartFare ?? fares.offPeakFare ?? "N/A";
+
+			const startStationObj = this.#metroData.stationData[startId];
+			const firstTrain = this.#formatTime12h(startStationObj?.train_schedule?.first_train);
+			const lastTrain = this.#formatTime12h(startStationObj?.train_schedule?.last_train);
+
+			// WhatsApp / SMS स्ट्रक्चर्ड मैसेज
+			const shareText = `🚇 Delhi Metro Route Info
+
+📍 From: ${startName}
+🎯 To: ${endName}
+📏 Distance: ${distKm} km | ⏱️ Time: ${totalMin} mins
+🚉 Stations: ${stationCount} | 🔀 Line Change: ${interchangeCount}
+
+💰 Fares:
+• Token: ₹${tokenFare}
+• Smart Card: ₹${smartCardFare} (10% Off)
+• Off-Peak Smart: ₹${offPeakFare} (20% Off)
+
+☀️ First Train: ${firstTrain}
+🌙 Last Train: ${lastTrain}
+
+🔗 Direct Route Link:
+${shareUrl}`;
+
+			const shareData = {
+				startName,
+				endName,
+				distKm,
+				totalMin,
+				tokenFare,
+				shareUrl,
+				shareText
+			};
+
+			// A) मोबाइल पर Native Share Sheet खोलें (यदि उपलब्ध हो)
+			if (navigator.share) {
+				try {
+					await navigator.share({
+						title: `Metro Route: ${startName} to ${endName}`,
+						text: shareText,
+					});
+					return;
+				} catch (err) {
+					if (err.name === "AbortError") return;
+				}
+			}
+
+			// B) डेस्कटॉप / Fallback पर Custom Share Modal खोलें
+			this.#openShareModal(shareData);
+		});
+	}
+
+	// 2. Custom Share Modal विंडो खोलने का मेथड
+	#openShareModal(data) {
+		const { startName, endName, distKm, totalMin, tokenFare, shareUrl, shareText } = data;
+		const { shareModal, sharePreviewFrom, sharePreviewTo, sharePreviewDist, sharePreviewTime, sharePreviewFare } = this.#elemts;
+
+		if (!shareModal) return;
+
+		// प्रिव्यू कार्ड में विवरण भरें
+		if (sharePreviewFrom) sharePreviewFrom.textContent = startName;
+		if (sharePreviewTo) sharePreviewTo.textContent = endName;
+		if (sharePreviewDist) sharePreviewDist.textContent = `${distKm} km`;
+		if (sharePreviewTime) sharePreviewTime.textContent = `${totalMin} min`;
+		if (sharePreviewFare) sharePreviewFare.textContent = `₹${tokenFare}`;
+
+		const encodedText = encodeURIComponent(shareText);
+		const encodedUrl = encodeURIComponent(shareUrl);
+
+		// 🟩 WhatsApp Share
+		if (this.#elemts.shareWhatsAppBtn) {
+			this.#elemts.shareWhatsAppBtn.onclick = () => {
+				window.open(`https://api.whatsapp.com/send?text=${encodedText}`, "_blank");
+			};
+		}
+
+		// 🔷 Telegram Share
+		if (this.#elemts.shareTelegramBtn) {
+			this.#elemts.shareTelegramBtn.onclick = () => {
+				window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`, "_blank");
+			};
+		}
+
+		// 💬 SMS Share
+		if (this.#elemts.shareSmsBtn) {
+			this.#elemts.shareSmsBtn.onclick = () => {
+				window.location.href = `sms:?body=${encodedText}`;
+			};
+		}
+
+		// 🔗 Copy Direct Link Only
+		if (this.#elemts.copyShareUrlBtn) {
+			this.#elemts.copyShareUrlBtn.onclick = async () => {
+				try {
+					await navigator.clipboard.writeText(shareUrl);
+					this.#showShareToast(
+						this.#settings.currentLang === "hi"
+							? "रूट का लिंक क्लिपबोर्ड में कॉपी हो गया!"
+							: "Route link copied to clipboard!"
+					);
+				} catch (e) {
+					console.error("Clipboard copy failed:", e);
+				}
+			};
+		}
+
+		// 📋 Copy Full Details & Link
+		if (this.#elemts.copyShareTextBtn) {
+			this.#elemts.copyShareTextBtn.onclick = async () => {
+				try {
+					await navigator.clipboard.writeText(shareText);
+					this.#showShareToast(
+						this.#settings.currentLang === "hi"
+							? "पूरा विवरण और लिंक क्लिपबोर्ड में कॉपी हो गया!"
+							: "Full details & link copied to clipboard!"
+					);
+				} catch (e) {
+					console.error("Clipboard copy failed:", e);
+				}
+			};
+		}
+
+		// मोडल को एक्टिव करें
+		shareModal.classList.add("active");
+		shareModal.setAttribute("aria-hidden", "false");
+	}
+
+	// 3. Custom Share Modal बंद करने का मेथड
+	#closeShareModal() {
+		const { shareModal } = this.#elemts;
+		if (shareModal) {
+			shareModal.classList.remove("active");
+			shareModal.setAttribute("aria-hidden", "true");
+		}
+	}
+
+	// 4. इन-ऐप टोस्ट नोटिफिकेशन दिखाने का मेथड
+	#showShareToast(message) {
+		const toast = this.#elemts.shareToast;
+		if (!toast) return;
+
+		toast.textContent = message;
+		toast.classList.add("show");
+
+		setTimeout(() => {
+			toast.classList.remove("show");
+		}, 3000);
 	}
 }

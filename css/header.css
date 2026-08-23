@@ -1,7 +1,7 @@
 @layer components {
 	/* Header Component Styling */
 	header.main-header {
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent)); /* ❌ 50% ट्रांसलूसेंट */
 		backdrop-filter: blur(var(--backdrop-blur));
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
 		border-bottom: 1px solid var(--border-color);

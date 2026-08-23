@@ -234,6 +234,14 @@
             <label for="mp3FileInput">Select MP3 Audio File:</label>
             <input type="file" id="mp3FileInput" accept="audio/*">
         </div>
+        <!-- Volume Control Slider -->
+        <div class="form-group">
+            <label for="volumeRange">Alarm Volume Level:</label>
+            <div class="slider-container">
+                <input type="range" id="volumeRange" min="0" max="100" value="100">
+                <span class="distance-display" id="volumeVal">100%</span>
+            </div>
+        </div>
 
         <div class="form-group">
             <label for="vibrationSelect">Vibration Pattern:</label>
@@ -260,8 +268,12 @@
 
 <script type="module">
     import { AlarmSystem } from "./js/alarm-system.js";
+    import { GpsTracker } from "./js/gps-tracker.js";
+    import { TrainSpeedometer } from "./js/train-speedometer.js";
 
     document.addEventListener("DOMContentLoaded", () => {
+        const volumeRange = document.getElementById("volumeRange");
+        const volumeVal = document.getElementById("volumeVal");
         const alarmBtnText = document.getElementById("alarmBtnText");
         const alarmToggleBtn = document.getElementById("alarmToggleBtn");
         const alarmStatusBadge = document.getElementById("alarmStatusBadge");
@@ -291,6 +303,7 @@
 
         // Initialize AlarmSystem Instance
         const alarmSystem = new AlarmSystem({
+            volume: Number(volumeRange.value) / 100,
             thresholdDistance: Number(thresholdSelect.value),
             onStateChange: (newState) => {
                 alarmStatusBadge.textContent = newState;
@@ -313,6 +326,33 @@
             onLog: (msg, type) => appendLog(msg, type)
         });
 
+
+
+        // 2. TrainSpeedometer Initialize
+        const speedometer = new TrainSpeedometer({
+            onSpeedUpdate: (speedData) => {
+                console.log(`Live Speed: ${speedData.currentSpeed} km/h | State: ${speedData.motionState}`);
+            }
+        });
+        // 3. GpsTracker Initialize & Connections
+        const gpsTracker = new GpsTracker({
+            onPositionUpdate: (posData) => {
+                // A. Send position to Speedometer
+                speedometer.updateFromGps(posData);
+                // B. If distance to target exists, send to AlarmSystem
+                if (posData.distanceToTarget !== null) {
+                    alarmSystem.updateDistance(posData.distanceToTarget);
+                }
+            }
+        });
+        // Example: Set Target Coordinates (e.g. Rajiv Chowk Metro Station)
+        gpsTracker.setTarget(28.6328, 77.2197);
+        // Start Real GPS or Simulate
+        // gpsTracker.startTracking();
+        // OR test simulation:
+        // gpsTracker.simulatePosition(28.6350, 77.2200, 42.5);
+
+
         // Event Listeners
         alarmToggleBtn.addEventListener("click", (e) => {
             e.preventDefault();
@@ -322,7 +362,11 @@
                 alarmSystem.updateDistance(distanceRange.value);
             }
         });
-
+        volumeRange.addEventListener("input", (e) => {
+            const volPct = e.target.value;
+            volumeVal.textContent = `${volPct}%`;
+            alarmSystem.setVolume(volPct / 100);
+        });
         stopAlarmBtn.addEventListener("click", () => {
             alarmSystem.stopAlarm();
         });

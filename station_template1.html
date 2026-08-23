@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Info - Template 1 (Tabbed Layout)</title>
+
+    <!-- Pre-written app CSS -->
+    <link rel="stylesheet" href="./css/style.css"/>
+
+    <!-- 
+      ==========================================================================
+      TEMPLATE 1 SPECIFIC STYLES (Inline to keep template self-contained)
+      Concept: App-like on Mobile, Dashboard on Desktop.
+      Smart CSS: Flexbox + Grid + Clamp (Minimal @media queries needed)
+      ==========================================================================
+    -->
+    <style>
+        /* Base Container & Glassmorphism Styling */
+        .station-page-container {
+            max-width: 1100px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        /* Search Section Widget */
+        .station-search-box {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            padding: 0.5rem 1.25rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .search-input-wrapper:focus-within {
+            border-color: #007bff;
+            box-shadow: 0 4px 25px rgba(0, 123, 255, 0.25);
+        }
+
+        .search-input-wrapper input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            padding: 0.5rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            color: inherit;
+        }
+
+        /* Autocomplete Suggestions Container */
+        .suggestions-dropdown {
+            position: absolute;
+            top: 105%;
+            left: 0;
+            right: 0;
+            background: rgba(30, 30, 40, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .suggestions-dropdown.active {
+            display: block;
+        }
+
+        .suggestion-item {
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #fff;
+            transition: background 0.2s;
+        }
+
+        .suggestion-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .suggestion-badge {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Hero Station Banner Component */
+        .station-hero-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: clamp(1.2rem, 3vw, 2rem);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .station-main-title h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .station-main-title p {
+            margin: 0.25rem 0 0 0;
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        .line-badges-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .line-pill {
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .line-pill.red { background-color: #c0282c; }
+        .line-pill.yellow { background-color: #fdb813; color: #111; }
+        .line-pill.blue { background-color: #0072bb; }
+        .line-pill.violet { background-color: #8b008b; }
+
+        .interchange-pill {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: #222;
+            font-weight: 700;
+        }
+
+        /* App-Style Tab Navigation Bar */
+        .tabs-nav-bar {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: thin;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: inherit;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px 12px 0 0;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .tab-btn.active {
+            background: #007bff;
+            color: #fff;
+            border-color: #007bff;
+            box-shadow: 0 -2px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Tab Content Panels Container */
+        .tab-content-panel {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+
+        .tab-content-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Smart Responsive Grid Cards inside Panels */
+        .cards-auto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            font-size: 1.15rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Gate List Item Styling */
+        .gate-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+        }
+
+        .gate-number {
+            font-weight: bold;
+            color: #007bff;
+            min-width: 90px;
+        }
+
+        .divyang-tag {
+            font-size: 0.75rem;
+            background: #28a745;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 6px;
+            margin-left: 6px;
+        }
+
+        /* Timing Table */
+        .timing-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .timing-row strong {
+            color: #28a745;
+        }
+
+        /* Facilities Grid */
+        .facility-pill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .facility-chip {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header (Reused from index.html structure) -->
+    <header class="main-header">
+        <div class="logo-title-group">
+            <img src="assets/images/site_icon.svg" alt="Metro Logo" class="site-logo">
+            <h1>Metro Map Generator</h1>
+        </div>
+
+        <section class="toolbar">
+            <div class="theme-selector">
+                <label for="theme" data-i18n="home.theme">Theme:</label>
+                <select name="theme" id="theme">
+                    <option value="light" data-i18n="themes.light">Classic Light</option>
+                    <option value="dark" data-i18n="themes.dark">Sleek Dark</option>
+                    <option value="cyberpunk" data-i18n="themes.cyberpunk">Neon Cyberpunk</option>
+                    <option value="vintage" data-i18n="themes.vintage">Vintage Retro</option>
+                    <option value="mint" data-i18n="themes.mint">Forest Mint</option>
+                    <option value="ghibli" data-i18n="themes.ghibli">Ghibli Nostalgia</option>
+                </select>
+            </div>
+            <div class="lang-selector">
+                <label for="language" data-i18n="home.language">Lang:</label>
+                <select id="language" name="lang">
+                    <option value="en">Eng</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+            </div>
+        </section>
+    </header>
+
+    <!-- Header Navigation Bar -->
+    <nav class="header-nav" id="header-nav" aria-label="Header Navigation">
+        <ul class="header-nav-list">
+            <li class="header-nav-item"><a href="index.html" data-i18n="nav-header.home">🏠 Home</a></li>
+            <li class="header-nav-item"><a href="#" data-i18n="nav-header.recharge">💳 Recharge Card</a></li>
+            <li class="header-nav-item"><a href="other.html" data-i18n="nav-header.others">🗂️ Others</a></li>
+            <li class="header-nav-item"><a href="help.html" data-i18n="nav-header.help">❓ Help</a></li>
+            <li class="header-nav-item"><a href="about.html" data-i18n="nav-header.about">ℹ️ About</a></li>
+        </ul>
+    </nav>
+
+    <!-- 
+        ======================================================================
+        MAIN CONTENT AREA - TEMPLATE 1 (TABBED DASHBOARD PATTERN)
+        ======================================================================
+        DOCUMENTATION COMMENT:
+        PROS:
+        - Very neat mobile app feel. Keeps screen length short and organized.
+        - Tabs allow quick switching without overwhelming scrolling.
+        CONS:
+        - User must click tabs to see different sections.
+    -->
+    <main class="station-page-container">
+
+        <!-- 1. Search Bar Widget with Mock Autocomplete -->
+        <section class="station-search-box">
+            <div class="search-input-wrapper">
+                <span>🔍</span>
+                <input type="text" id="station-search-input" placeholder="Type station name (e.g. Rajiv Chowk, Jhilmil)..." autocomplete="off">
+            </div>
+            <div class="suggestions-dropdown" id="suggestions-dropdown"></div>
+        </section>
+
+        <!-- 2. Hero Station Header Banner -->
+        <section class="station-hero-card">
+            <div class="station-main-title">
+                <h2 id="st-name-en">Rajiv Chowk <span style="font-weight: normal; font-size: 0.7em;" id="st-name-hi">(राजीव चौक)</span></h2>
+                <p>Station Code: <strong id="st-code">RCK</strong> | Type: <span id="st-type">Underground</span></p>
+            </div>
+            <div class="line-badges-group" id="st-lines">
+                <span class="line-pill yellow">● Yellow Line</span>
+                <span class="line-pill blue">● Blue Line</span>
+                <span class="line-pill interchange-pill">🔄 Interchange</span>
+            </div>
+        </section>
+
+        <!-- 3. Tabbed Navigation Bar -->
+        <nav class="tabs-nav-bar" aria-label="Station Information Tabs">
+            <button class="tab-btn active" data-tab="tab-gates">🚪 Gates & Exits</button>
+            <button class="tab-btn" data-tab="tab-timings">⏰ Train Timings</button>
+            <button class="tab-btn" data-tab="tab-facilities">♿ Facilities & Lifts</button>
+            <button class="tab-btn" data-tab="tab-contact">📞 Contact & Nearby</button>
+        </nav>
+
+        <!-- 4. Tab Panels Container -->
+        <div class="tabs-wrapper">
+
+            <!-- TAB 1: GATES & EXITS -->
+            <div class="tab-content-panel active" id="tab-gates">
+                <div class="cards-auto-grid">
+                    <div class="info-card">
+                        <h3>🚪 Station Gates Details</h3>
+                        <div id="gates-list-container">
+                            <div class="gate-item">
+                                <div>
+                                    <span class="gate-number">Gate No. 1</span>
+                                    <span class="divyang-tag">♿ Accessible</span>
+                                    <div style="font-size:0.85rem; opacity:0.8; margin-top:2px;">Towards Connaught Place B-Block & Janpath</div>
+                                </div>
+                                <span style="color:#28a745; font-size:0.85rem; font-weight:bold;">OPEN</span>
+                            </div>
+                            <div class="gate-item">
+                                <div>
+                                    <span class="gate-number">Gate No. 2</span>
+                                    <div style="font-size:0.85rem; opacity:0.8; margin-top:2px;">Towards Palika Bazaar & PVR Plaza</div>
+                                </div>
+                                <span style="color:#28a745; font-size:0.85rem; font-weight:bold;">OPEN</span>
+                            </div>
+                            <div class="gate-item">
+                                <div>
+                                    <span class="gate-number">Gate No. 6</span>
+                                    <span class="divyang-tag">♿ Accessible</span>
+                                    <div style="font-size:0.85rem; opacity:0.8; margin-top:2px;">Towards Regal Cinema & Janpath Road</div>
+                                </div>
+                                <span style="color:#28a745; font-size:0.85rem; font-weight:bold;">OPEN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: TRAIN TIMINGS -->
+            <div class="tab-content-panel" id="tab-timings">
+                <div class="cards-auto-grid">
+                    <div class="info-card">
+                        <h3>🟡 Yellow Line Timings</h3>
+                        <div class="timing-row">
+                            <span>Towards Samaypur Badli (First):</span>
+                            <strong>05:42 AM</strong>
+                        </div>
+                        <div class="timing-row">
+                            <span>Towards Samaypur Badli (Last):</span>
+                            <strong>11:35 PM</strong>
+                        </div>
+                        <hr style="opacity: 0.1; margin: 0.5rem 0;">
+                        <div class="timing-row">
+                            <span>Towards Millennium City Centre (First):</span>
+                            <strong>05:30 AM</strong>
+                        </div>
+                        <div class="timing-row">
+                            <span>Towards Millennium City Centre (Last):</span>
+                            <strong>11:30 PM</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🔵 Blue Line Timings</h3>
+                        <div class="timing-row">
+                            <span>Towards Dwarka Sec 21 (First):</span>
+                            <strong>05:35 AM</strong>
+                        </div>
+                        <div class="timing-row">
+                            <span>Towards Dwarka Sec 21 (Last):</span>
+                            <strong>11:38 PM</strong>
+                        </div>
+                        <hr style="opacity: 0.1; margin: 0.5rem 0;">
+                        <div class="timing-row">
+                            <span>Towards Noida Electronic City (First):</span>
+                            <strong>05:40 AM</strong>
+                        </div>
+                        <div class="timing-row">
+                            <span>Towards Noida Electronic City (Last):</span>
+                            <strong>11:28 PM</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: FACILITIES & ACCESSIBILITY -->
+            <div class="tab-content-panel" id="tab-facilities">
+                <div class="cards-auto-grid">
+                    <div class="info-card">
+                        <h3>✨ Station Amenities</h3>
+                        <div class="facility-pill-grid" id="facilities-container">
+                            <span class="facility-chip">♿ Divyang Friendly</span>
+                            <span class="facility-chip">🅿️ Parking Available</span>
+                            <span class="facility-chip">🛗 Lift / Escalators Available</span>
+                            <span class="facility-chip">🏧 ATM (SBI / HDFC)</span>
+                            <span class="facility-chip">🚻 Restroom Facilities</span>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🛗 Lifts & Escalators Status</h3>
+                        <div class="gate-item">
+                            <div>
+                                <strong>Escalator 1:</strong> Ground to Concourse
+                            </div>
+                            <span style="color:#28a745; font-weight:bold;">Working</span>
+                        </div>
+                        <div class="gate-item">
+                            <div>
+                                <strong>Lift 3:</strong> Platform to Concourse
+                            </div>
+                            <span style="color:#28a745; font-weight:bold;">Working</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: CONTACT & NEARBY -->
+            <div class="tab-content-panel" id="tab-contact">
+                <div class="cards-auto-grid">
+                    <div class="info-card">
+                        <h3>📞 Station Helpline & Contact</h3>
+                        <p><strong>Mobile Helpline:</strong> <a href="tel:8800793101" style="color:#007bff;">8800793101</a></p>
+                        <p><strong>Landline:</strong> 011-23417910</p>
+                        <p><strong>DMRC Central Helpline:</strong> 155370</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>📍 Nearby Landmarks & Places</h3>
+                        <ul style="padding-left:1.2rem; margin:0; line-height:1.6;">
+                            <li>Connaught Place Inner & Outer Circle</li>
+                            <li>Palika Bazaar Underground Market</li>
+                            <li>Janpath Market & Central Park</li>
+                            <li>Hanuman Mandir & Gurudwara Bangla Sahib</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 
+      ==========================================================================
+      INLINE DEMO JS FOR TEMPLATE 1
+      - Theme Switcher Sync
+      - Tab Switcher Controller
+      - Mock Autocomplete Search Controller
+      ==========================================================================
+    -->
+    <script>
+        // 1. Theme Switcher Event Listener (Integrates with css/base.css)
+        const themeSelect = document.getElementById('theme');
+        if (themeSelect) {
+            themeSelect.addEventListener('change', (e) => {
+                document.body.setAttribute('data-theme', e.target.value);
+            });
+        }
+
+        // 2. Tab Switcher Controller
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-content-panel');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Deactivate all tabs
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabPanels.forEach(p => p.classList.remove('active'));
+
+                // Activate clicked tab
+                btn.classList.add('active');
+                const targetTabId = btn.getAttribute('data-tab');
+                document.getElementById(targetTabId).classList.add('active');
+            });
+        });
+
+        // 3. Mock Data for Demo Search & Station Switcher
+        const MOCK_STATIONS = [
+            {
+                nameEn: "Rajiv Chowk",
+                nameHi: "राजीव चौक",
+                code: "RCK",
+                type: "Underground",
+                lines: [
+                    { name: "Yellow Line", class: "yellow" },
+                    { name: "Blue Line", class: "blue" }
+                ],
+                interchange: true
+            },
+            {
+                nameEn: "Jhilmil",
+                nameHi: "झिलमिल",
+                code: "JLML",
+                type: "Elevated",
+                lines: [
+                    { name: "Red Line", class: "red" }
+                ],
+                interchange: false
+            },
+            {
+                nameEn: "Kashmere Gate",
+                nameHi: "कश्मीरी गेट",
+                code: "KG",
+                type: "Underground",
+                lines: [
+                    { name: "Red Line", class: "red" },
+                    { name: "Yellow Line", class: "yellow" },
+                    { name: "Violet Line", class: "violet" }
+                ],
+                interchange: true
+            }
+        ];
+
+        // 4. Mock Autocomplete Search Input Handler
+        const searchInput = document.getElementById('station-search-input');
+        const dropdown = document.getElementById('suggestions-dropdown');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim().toLowerCase();
+            dropdown.innerHTML = '';
+
+            if (query.length === 0) {
+                dropdown.classList.remove('active');
+                return;
+            }
+
+            const matches = MOCK_STATIONS.filter(st => 
+                st.nameEn.toLowerCase().includes(query) || 
+                st.nameHi.includes(query) ||
+                st.code.toLowerCase().includes(query)
+            );
+
+            if (matches.length > 0) {
+                matches.forEach(st => {
+                    const item = document.createElement('div');
+                    item.className = 'suggestion-item';
+                    item.innerHTML = `
+                        <div>
+                            <strong>${st.nameEn}</strong> (${st.nameHi})
+                            <span style="font-size:0.8rem; opacity:0.7;"> - Code: ${st.code}</span>
+                        </div>
+                        <span class="suggestion-badge" style="background:${st.lines[0].class === 'yellow' ? '#fdb813; color:#111;' : st.lines[0].class === 'red' ? '#c0282c;' : '#0072bb;'}">${st.lines[0].name}</span>
+                    `;
+                    item.addEventListener('click', () => {
+                        selectStationDemo(st);
+                        dropdown.classList.remove('active');
+                        searchInput.value = st.nameEn;
+                    });
+                    dropdown.appendChild(item);
+                });
+                dropdown.classList.add('active');
+            } else {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // 5. Update UI Demo when a station is clicked
+        function selectStationDemo(st) {
+            document.getElementById('st-name-en').childNodes[0].textContent = st.nameEn + ' ';
+            document.getElementById('st-name-hi').textContent = `(${st.nameHi})`;
+            document.getElementById('st-code').textContent = st.code;
+            document.getElementById('st-type').textContent = st.type;
+
+            const linesContainer = document.getElementById('st-lines');
+            linesContainer.innerHTML = '';
+            st.lines.forEach(l => {
+                const badge = document.createElement('span');
+                badge.className = `line-pill ${l.class}`;
+                badge.textContent = `● ${l.name}`;
+                linesContainer.appendChild(badge);
+            });
+
+            if (st.interchange) {
+                const icBadge = document.createElement('span');
+                icBadge.className = 'line-pill interchange-pill';
+                icBadge.textContent = '🔄 Interchange';
+                linesContainer.appendChild(icBadge);
+            }
+        }
+    </script>
+</body>
+</html>

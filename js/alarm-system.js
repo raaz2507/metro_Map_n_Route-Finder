@@ -20,6 +20,7 @@ export class AlarmSystem {
         // Callbacks for UI updates
         this.onStateChange = options.onStateChange || null;
         this.onLog = options.onLog || null;
+        this.volume = options.volume !== undefined ? Number(options.volume) : 1.0; // Volume range: 0.0 to 1.0
 
         // Predefined Vibration Patterns (in milliseconds)
         this.vibrationPatterns = {
@@ -63,6 +64,14 @@ export class AlarmSystem {
     setSoundType(type) {
         this.soundType = type;
         this.log(`Sound Type set to: ${type}`);
+    }
+    setVolume(level) {
+        // level is between 0.0 and 1.0
+        this.volume = Math.max(0, Math.min(1, Number(level)));
+        if (this.customAudioElement) {
+            this.customAudioElement.volume = this.volume;
+        }
+        this.log(`Volume set to: ${Math.round(this.volume * 100)}%`);
     }
 
     setCustomAudioUrl(url) {
@@ -173,7 +182,7 @@ export class AlarmSystem {
             const gain = this.audioCtx.createGain();
             osc.type = "sine";
             osc.frequency.setValueAtTime(880, now); // A5 tone
-            gain.gain.setValueAtTime(0.3, now);
+            gain.gain.setValueAtTime(0.3 * this.volume, now);
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
 
             osc.connect(gain);
@@ -188,7 +197,7 @@ export class AlarmSystem {
                 const gain = this.audioCtx.createGain();
                 osc.type = "sine";
                 osc.frequency.setValueAtTime(freq, startTime);
-                gain.gain.setValueAtTime(0.2, startTime);
+                gain.gain.setValueAtTime(0.2 * this.volume, startTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
                 osc.connect(gain);
                 gain.connect(this.audioCtx.destination);
@@ -209,7 +218,7 @@ export class AlarmSystem {
             osc.frequency.linearRampToValueAtTime(900, now + 0.4);
             osc.frequency.linearRampToValueAtTime(400, now + 0.8);
 
-            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.setValueAtTime(0.15 * this.volume, now);
             gain.gain.linearRampToValueAtTime(0.001, now + 0.85);
 
             osc.connect(gain);

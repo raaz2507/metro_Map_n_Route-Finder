@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Stations Directory - Template 2 (Coach Grid Layout)</title>
+
+    <!-- Pre-written App Stylesheet -->
+    <link rel="stylesheet" href="./css/all_stations.css"/>
+    
+</head>
+<body>
+
+     <!-- 1. Universal Header Container -->
+    <div id="app-header"></div>
+    
+
+    <main class="stations-page-container">
+        <!-- Controls Area -->
+        <section class="directory-controls">
+            <div class="search-box-wrapper">
+                <span>🔍</span>
+                <input type="text" id="dir-search-input" placeholder="Search station by name or code (e.g. Jhilmil, Rajiv Chowk)...">
+            </div>
+            <!-- Dynamic Line Filter Chips -->
+            <div class="filter-chips-wrapper" id="filter-chips-wrapper">
+                <button class="chip-btn active" data-line="all">All Lines</button>
+            </div>
+        </section>
+        <!-- Dynamic Container where JS Class will render Line Sections & Coach Tracks -->
+        <div id="stations-directory-container">
+            <!-- Dynamic Line Sections & Track Rows will be rendered here by js/all_stations.js -->
+        </div>
+    </main>
+    
+    <!-- 2. Universal Footer Container -->
+    <div id="app-footer"></div>
+    <!-- 3. Page Script Module -->
+    <script type="module" src="./js/all_stations.js"></script>
+    
+</body>
+</html>
