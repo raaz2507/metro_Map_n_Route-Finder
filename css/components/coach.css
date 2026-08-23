@@ -240,7 +240,7 @@ body[data-lang="hi"] .window-station-title .lang-hi {
     padding: 1rem 0.5rem;
     position: relative;
     /* 3D Track SVG with Dynamic calc() Step Height */
-    background-image: url("../assets/images/metro_track.svg");
+    background-image: url("../../assets/images/metro_track.svg");
     background-size: 20px var(--step-h); /* ❌ calc() से ऑटोमैटिक 148px हो जाएगा! */
     background-position: 0 0;
     background-repeat: repeat;

@@ -162,7 +162,10 @@
 			height: calc(100% - 120px);          /* फ्लोटिंग मेनू से पर्याप्त ऊपर */
 
 		}
-
+        .map-section {
+            min-height: calc(100vh - 180px);         /* 👈 हेडर और नेविगेशन बार छोड़कर पूरी मोबाइल स्क्रीन भरेगा */
+            height: calc(100vh - 180px);
+        }
 		aside {
 			max-width: 320px;
 			height: 100%;
