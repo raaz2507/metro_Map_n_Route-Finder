@@ -3,12 +3,12 @@
  * Handles rendering, active page link highlighting, theme switching, and language selector syncing.
  */
 export class HeaderComponent {
-        static render(activePage = 'home', targetContainerId = 'app-header') {
+    static render(activePage = 'home', targetContainerId = 'app-header') {
         const container = document.getElementById(targetContainerId);
         if (!container) return;
 
-        const currentTheme = localStorage.getItem('app-theme') || 'light';
-        const currentLang = localStorage.getItem('app-lang') || 'en';
+        const currentTheme = localStorage.getItem('app-theme') || localStorage.getItem('metro-theme') || 'light';
+        const currentLang = localStorage.getItem('app-lang') || localStorage.getItem('language') || 'en';
 
         // Set initial theme & lang attributes on body
         document.body.setAttribute('data-theme', currentTheme);
@@ -23,18 +23,18 @@ export class HeaderComponent {
 
                 <section class="toolbar">
                     <div class="theme-selector">
-                        <label for="theme" data-i18n="home.theme">Theme:</label>
+                        <label for="theme" data-i18n="header.themes.label">Theme:</label>
                         <select name="theme" id="theme">
-                            <option value="light" ${currentTheme === 'light' ? 'selected' : ''} data-i18n="themes.light">Classic Light</option>
-                            <option value="dark" ${currentTheme === 'dark' ? 'selected' : ''} data-i18n="themes.dark">Sleek Dark</option>
-                            <option value="cyberpunk" ${currentTheme === 'cyberpunk' ? 'selected' : ''} data-i18n="themes.cyberpunk">Neon Cyberpunk</option>
-                            <option value="vintage" ${currentTheme === 'vintage' ? 'selected' : ''} data-i18n="themes.vintage">Vintage Retro</option>
-                            <option value="mint" ${currentTheme === 'mint' ? 'selected' : ''} data-i18n="themes.mint">Forest Mint</option>
-                            <option value="ghibli" ${currentTheme === 'ghibli' ? 'selected' : ''} data-i18n="themes.ghibli">Ghibli Nostalgia</option>
+                            <option value="light" ${currentTheme === 'light' ? 'selected' : ''} data-i18n="header.themes.light">Classic Light</option>
+                            <option value="dark" ${currentTheme === 'dark' ? 'selected' : ''} data-i18n="header.themes.dark">Sleek Dark</option>
+                            <option value="cyberpunk" ${currentTheme === 'cyberpunk' ? 'selected' : ''} data-i18n="header.themes.cyberpunk">Neon Cyberpunk</option>
+                            <option value="vintage" ${currentTheme === 'vintage' ? 'selected' : ''} data-i18n="header.themes.vintage">Vintage Retro</option>
+                            <option value="mint" ${currentTheme === 'mint' ? 'selected' : ''} data-i18n="header.themes.mint">Forest Mint</option>
+                            <option value="ghibli" ${currentTheme === 'ghibli' ? 'selected' : ''} data-i18n="header.themes.ghibli">Ghibli Nostalgia</option>
                         </select>
                     </div>
                     <div class="lang-selector">
-                        <label for="language" data-i18n="home.language">Lang:</label>
+                        <label for="language" data-i18n="header.language">Lang:</label>
                         <select id="language" name="lang">
                             <option value="en" ${currentLang === 'en' ? 'selected' : ''}>Eng</option>
                             <option value="hi" ${currentLang === 'hi' ? 'selected' : ''}>हिन्दी</option>
@@ -47,7 +47,6 @@ export class HeaderComponent {
                     <li class="header-nav-item">
                         <a href="index.html" class="${activePage === 'home' ? 'active' : ''}" data-i18n="nav-header.home">🏠 Home</a>
                     </li>
-                     <!-- 🚉 ALL STATIONS DIRECTORY LINK -->
                     <li class="header-nav-item">
                         <a href="all_stations.html" class="${activePage === 'stations' ? 'active' : ''}" data-i18n="nav-header.stations">🚉 Stations</a>
                     </li>
@@ -77,6 +76,7 @@ export class HeaderComponent {
                 const theme = e.target.value;
                 document.body.setAttribute('data-theme', theme);
                 localStorage.setItem('app-theme', theme);
+                localStorage.setItem('metro-theme', theme);
             });
         }
 
@@ -86,6 +86,10 @@ export class HeaderComponent {
                 const lang = e.target.value;
                 document.body.setAttribute('data-lang', lang);
                 localStorage.setItem('app-lang', lang);
+                localStorage.setItem('language', lang);
+
+                // चुनी गई भाषा के अनुसार पूरे पेज को रीलोड करें
+                window.location.reload();
             });
         }
     }

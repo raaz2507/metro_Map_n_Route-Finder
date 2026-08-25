@@ -1,0 +1,159 @@
+@import url("../base/base.css");
+@import url("../layout/layout.css");
+
+@import url("../layout/header.css");
+@import url("../layout/navbar_header.css");
+
+@import url("../layout/footer.css");
+
+@import url("../components/coach.css");
+
+/* ===========================================================================
+   ALL STATIONS DIRECTORY & CONTROLS LAYOUT (Pure base.css Tokens)
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. PAGE CONTAINER LAYOUT
+   --------------------------------------------------------------------------- */
+main, main.stations-page-container {
+    height: auto;
+    min-height: auto;
+    flex: 1 0 auto;
+    overflow: visible;
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    padding: 0 var(--space-lg) var(--space-3xl) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    font-family: var(--font-main);
+}
+
+/* ---------------------------------------------------------------------------
+   2. DIRECTORY CONTROLS & SEARCH BOX
+   --------------------------------------------------------------------------- */
+.directory-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+    backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.search-box-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: var(--space-sm) var(--space-xl);
+}
+
+.search-box-wrapper input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    padding: var(--space-xs);
+    font-size: var(--fs-md);
+    color: var(--text-primary);
+}
+
+.search-box-wrapper input::placeholder {
+    color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------------------
+   3. NETWORK OPERATOR FILTER GROUPS & CHIPS LAYOUT
+   --------------------------------------------------------------------------- */
+.filter-chips-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding-bottom: var(--space-xs);
+}
+
+.network-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.network-group-title {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    padding-left: var(--space-xs);
+}
+
+.network-chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.chip-btn {
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: var(--space-xs) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.chip-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.chip-btn.active {
+    background-color: var(--line-color, var(--btn-primary-bg));
+    color: var(--btn-primary-text, #ffffff);
+    border-color: var(--line-color, var(--btn-primary-bg));
+    box-shadow: var(--shadow-md);
+}
+
+/* ---------------------------------------------------------------------------
+   4. METRO LINE DIRECTORY SECTIONS & HEADERS
+   --------------------------------------------------------------------------- */
+.line-directory-section {
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+    backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl) var(--space-lg);
+    margin-bottom: var(--space-xl);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.line-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-left: 6px solid var(--line-color, var(--btn-primary-bg));
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+}

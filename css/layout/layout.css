@@ -1,0 +1,200 @@
+@layer base {
+	/* HTML & Body Natural Page Scroll Layout */
+	html, body {
+		/* overflow: hidden; ❌ (Removed to allow natural page scrolling) */
+		width: 100%;
+	}
+
+	body {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		/* min-height: 100vh; */
+	}
+
+	/* Main Page Content Area */
+	main {
+		flex: 1 0 auto;
+		display: flex;
+		position: relative;
+		width: 100%;
+        min-height: 40vh;
+	}
+}
+
+@layer components {
+	/* =========================================================================
+	   1. Top-Level Elements Layout (Direct children of body/main)
+	   ========================================================================= */
+	header.main-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index: var(--z-header);
+	}
+
+	.header-nav {
+		z-index: var(--z-header);
+	}
+
+	/* main's direct child: sidebar wrapper (flex container for nav & aside) */
+	.sidebar-wrapper {
+		position: absolute;
+		top: var(--space-lg);
+		left: var(--space-lg);
+		display: flex;
+		gap: var(--space-md);
+		align-items: flex-start;
+		z-index: var(--z-sidebar);
+		max-height: calc(100% - var(--space-2xl));
+
+		pointer-events: none;
+	}
+
+	/* इसके अंदर के साइडबार और aside पूरी तरह क्लिक योग्य रहेंगे */
+	.sidebar-wrapper > * {
+		pointer-events: auto;
+	}
+	/* main's direct child: map section */
+   .map-section {
+		position: relative;
+		flex: 1;
+        min-height: 480px;  /* ⬅️ 1. इससे छोटा कभी नहीं होगा (No Squishing) */
+        max-height: 720px;  /* ⬅️ 2. इससे बड़ा कभी नहीं होगा (No Over-expansion) */
+        height: 68vh;  
+		margin: 12px;                            /* चारो तरफ (Top, Right, Bottom, Left) 12px मार्जिन */
+		z-index: var(--z-map);
+	}
+
+	/* .floating-nav-wrapper is the wrapper for floating menu */
+	.floating-nav-wrapper:has(.floating-nav) {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: var(--z-modal); 
+	}
+
+	/* site-footer parent layout */
+	.site-footer {
+		display: flex;
+		flex-direction: column;
+		z-index: var(--z-base);
+	}
+}
+
+/* =========================================================================
+   2. Centralized Media Queries for Top-Level Layout
+   ========================================================================= */
+
+/* Desktop Layout (min-width: 769px) */
+@media (min-width: 769px) {
+	@layer base {
+		html, body {
+			overflow-y: auto ;
+			overflow-x: hidden;
+			height: auto;
+			min-height: 100vh;
+		}
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+		main {
+			/* height: calc(100vh - 80px); */
+			/* flex: none; */
+		}
+	}
+	
+	@layer components {
+		header.main-header {
+		}
+		
+		.header-nav {
+		}
+
+		.floating-nav-wrapper:has(.floating-nav) {
+            position: absolute;
+            top: auto;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+		footer {
+		}
+		
+		.site-footer {
+			display: grid;
+			grid-template-columns: 2fr 1fr 1.5fr;
+			align-items: start;
+		}
+	}
+}
+
+/* Tablet & Mobile Layout (max-width: 768px) */
+@media (max-width: 768px) {
+	@layer base {
+        html, body {
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+            height: auto !important;
+            min-height: 100vh;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+            position: relative;
+            overflow: visible !important;
+        }
+    }
+
+	@layer components {
+		header.main-header {
+		}
+
+		/* Mobile sidebar-wrapper adjustments */
+		.sidebar-wrapper {
+			top: var(--space-sm);
+			left: var(--space-sm);
+			gap: var(--space-xs);
+			max-width: calc(100% - var(--space-md));
+			height: calc(100% - 120px);          /* फ्लोटिंग मेनू से पर्याप्त ऊपर */
+
+		}
+        .map-section {
+            min-height: calc(100vh - 180px);         /* 👈 हेडर और नेविगेशन बार छोड़कर पूरी मोबाइल स्क्रीन भरेगा */
+            height: calc(100vh - 180px);
+        }
+		aside {
+			max-width: 320px;
+			height: 100%;
+		}
+		/* Mobile floating nav fixed to bottom (Top Z-Index) */
+		.floating-nav-wrapper:has(.floating-nav) {
+			position: fixed;
+			bottom: 24px;
+			z-index: var(--z-modal);
+		}
+		
+		footer {
+			display: none !important;
+		}
+	   
+	}
+}
+
+/* Modern iPhone Adjustments */
+@media (max-width: 390px) {
+}
+
+/* Most Android Phone Adjustments */
+@media (max-width: 360px) {
+}
+
+/* Old iPhone SE Adjustments */
+@media (max-width: 320px) {
+}

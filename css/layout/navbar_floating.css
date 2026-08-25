@@ -1,0 +1,170 @@
+@layer components {
+	/* =========================================================================
+	   4. NAVIGATION (DESKTOP & MOBILE FLOATING MENU BAR) - Token-Compliant
+	   ========================================================================= */
+	
+    .floating-nav-wrapper .floating-nav {
+        pointer-events: auto;
+    }
+
+	.floating-nav {
+		--width: 60px;
+		--icon-width: 30px;
+		--text-color: var(--text-secondary);
+		--icon-size: 50px;
+		--nav-hight: 70px;
+		
+		--nav-glow-rgb: var(--color-primary-rgb);
+		--nav-active-bg: rgb(var(--color-primary-rgb));
+		--nav-active-text: var(--btn-primary-text, #ffffff);
+	}
+
+	.floating-nav {
+		font-family: var(--font-title);
+		position: relative;
+		width: max-content;
+		height: var(--nav-hight);
+		background: transparent;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 var(--space-sm);
+		filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.15));
+	}
+
+	.floating-nav::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(var(--color-bg-base-rgb), var(--op-aside-bg, 0.85));
+		border-radius: calc(var(--nav-hight) * 0.5);
+		z-index: -1;
+		-webkit-mask: url(#nav-mask);
+		mask: url(#nav-mask);
+	}
+
+	body[data-theme="dark"] .floating-nav {
+		filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5));
+	}
+
+	body[data-theme="cyberpunk"] .floating-nav {
+		filter: drop-shadow(0px 0px 15px rgba(var(--color-primary-rgb), 0.4));
+	}
+
+	body[data-theme="vintage"] .floating-nav {
+		filter: drop-shadow(0px 8px 20px rgba(139, 94, 60, 0.2));
+	}
+
+	#cutout-path {
+		transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+
+	.floating-nav-list {
+		display: flex;
+		gap: var(--space-sm);
+		list-style: none;
+		width: 100%;
+		justify-content: space-around;
+		padding: 0;
+		margin: 0;
+	}
+
+	.floating-nav-item {
+		position: relative;
+		width: var(--width);
+		height: var(--nav-hight);
+		z-index: var(--z-base);
+	}
+
+	.floating-nav-item a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		text-decoration: none;
+	}
+
+	.floating-nav .icon {
+		width: var(--icon-width);
+		height: var(--icon-width);
+		border-radius: 0%;
+	}
+
+	/* Active Icon styling (Theme Primary Orange Glowing Circle) */
+    .floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon {
+        width: var(--icon-size);
+        height: var(--icon-size);
+        border-radius: var(--radius-full);
+        background-color: rgb(var(--color-primary-rgb)); /* ⬅️ ब्राइट ऑरेंज/ब्लू थीम गोला */
+        transform: translateY(-38px);
+        box-shadow: 
+            0 10px 20px rgba(0, 0, 0, 0.15),
+            0 0 15px rgba(var(--color-primary-rgb), 0.5),
+            0 0 30px rgba(var(--color-primary-rgb), 0.2);
+    }
+
+    .floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon::after {
+        transform: scale(0.7);  
+        background-color: var(--btn-primary-text, #ffffff); /* ⬅️ गोले के अंदर का सॉलिड वाइट आइकॉन */
+    }
+
+	.floating-nav-item a .text {
+		position: absolute;
+		bottom: var(--space-xs);
+		font-family: var(--font-title);
+		font-size: 0.6em;
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: var(--text-secondary);
+		transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color var(--transition-fast);
+		opacity: var(--op-semi-heavy);
+		transform: translateY(0) scale(0.9);
+	}
+
+	.floating-nav-item.active a .text {
+		opacity: 1;
+		transform: translateY(-7px) scale(1);
+		color: var(--text-primary);
+		font-weight: var(--fw-extrabold);
+	}
+
+	@media (max-width: 768px) {
+		.floating-nav {
+			--width: 48px;
+			--icon-width: 22px;
+			--icon-size: 42px;
+			--nav-hight: 56px;
+		}
+
+		.floating-nav-list {
+			gap: var(--space-xs);
+		}
+
+		.floating-nav-item.active a .icon {
+			transform: translateY(-28px);
+		}
+
+		.floating-nav-item a .text {
+			font-size: 0.52em;
+			bottom: var(--space-xs);
+		}
+
+		.floating-nav-item.active a .text {
+			transform: translateY(-6px) scale(0.95);
+		}
+	}
+}
+
+/* UNLAYERED OVERRIDE: Active Icon Circle Color (Unlayered beats @layer components naturally) */
+.floating-nav-item.active a .icon {
+    background-color: rgb(var(--color-primary-rgb)); /* ⬅️ ब्राइट ऑरेंज/ब्लू थीम गोला */
+}
+
+.floating-nav-item.active a .icon::after {
+    background-color: var(--btn-primary-text, #ffffff); /* ⬅️ अंदर का वाइट आइकॉन */
+}

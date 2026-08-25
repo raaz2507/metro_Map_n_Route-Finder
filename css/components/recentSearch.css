@@ -1,0 +1,304 @@
+@layer components {
+	/* =========================================================================
+	   Recent Searches Section Styles
+	   ========================================================================= */
+
+	/* 1. Main container */
+	#recent-searches {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		width: 100%;
+		height: 100%;
+		max-height: 100%;
+		overflow: hidden ; 
+	}
+
+	/* Section Header (Title + Clear All button) */
+	#recent-searches .section-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 0 var(--space-xs); 
+		flex-shrink: 0;                
+	}
+
+	#recent-searches-heading {
+		font-family: var(--font-title);
+		font-size: var(--fs-md);                /* 18px -> 16px (कॉम्पैक्ट हेडिंग) */
+		font-weight: var(--fw-bold);
+		letter-spacing: -0.01em;
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	/* Clear All Button */
+	#clearRecentSearches {
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-glow));
+		border: 1px solid rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-subtle));
+		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+		padding: 2px 8px;                       
+		border-radius: var(--radius-md);
+		transition: all var(--transition-fast);
+		box-shadow: var(--shadow-sm);
+		flex-shrink: 0;
+        margin-top: 4px;
+        margin-right: var(--space-xs);
+	}
+
+	#clearRecentSearches:hover {
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-subtle));
+		transform: translateY(-1px);
+	}
+	#clearRecentSearches:active {
+		transform: translateY(0);
+	}
+
+	/* 3. List Container */
+	.recent-search-list-container {
+		background: transparent ;
+		border: none ;
+		padding: 0 ;
+		box-shadow: none ;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		flex: 1;
+		min-height: 0;
+		overflow: hidden;
+	}
+
+	/* 4. Filter Chips / Tabs (Recent, Most Used, A-Z) Style */
+	.filter-chips {
+		display: flex;
+		gap: var(--space-xs);
+		margin-bottom: var(--space-xs);
+		width: 100%;
+		flex-shrink: 0;
+	}
+
+	.filter-chips button {
+		flex: 1;
+		background: var(--btn-reset-bg);
+		border: 1px solid var(--border-color);
+		color: var(--text-secondary);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		padding: 4px 8px;                       /* पैडिंग कम की ताकि "Most Used" न टूटे */
+		border-radius: var(--radius-full);
+		cursor: pointer;
+		white-space: nowrap;                    /* टेक्स्ट दो लाइनों में टूटने से रोका */
+		transition: all var(--transition-fast);
+		outline: none;
+		text-align: center;
+	}
+
+	.filter-chips button:hover {
+		background: var(--btn-reset-hover);
+		color: var(--text-primary);
+		transform: translateY(-1px);
+	}
+
+	/* Active tab filter style */
+	.filter-chips button.active {
+		background: var(--btn-primary-bg);
+		border-color: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		font-weight: var(--fw-semibold);
+		box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), var(--op-focus-shadow));
+	}
+
+	.filter-chips button:active {
+		transform: translateY(0);
+	}
+
+	/* 5. Inner Search List (Transparent, No outer nested card) */
+	#recent-search-list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		margin: 0;
+		padding: 0 8px 0 0;                             /* फालतू अंदरूनी पैडिंग और डिब्बा हटाया */
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		flex: 1;
+		overflow-y: auto;
+		min-height: 0;
+	}
+
+	/* Empty State Style */
+	.recent-list-empty {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-muted);
+		text-align: center;
+		padding: var(--space-md) var(--space-sm);
+		border: 1px dashed var(--border-color);
+		border-radius: var(--radius-md);
+		background: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+		line-height: 1.4;
+	}
+
+	/* Search Item row container */
+	.recent-search-item {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		width: 100%;
+	}
+
+	/* Main search button card */
+	.recent-search-btn {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: var(--space-xs);
+		padding: 6px 10px;                       /* पिल की पैडिंग कम की */
+		background: var(--input-bg);
+		border: 1px solid var(--input-border);
+		border-radius: var(--radius-md);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-primary);
+		cursor: pointer;
+		text-align: left;
+		transition: all var(--transition-fast);
+		box-shadow: var(--shadow-sm);
+		overflow: hidden;
+	}
+
+	.recent-search-btn:hover {
+		border-color: var(--input-focus-border);
+		box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), var(--op-focus-shadow));
+		transform: translateY(-1px);
+	}
+
+	.recent-search-btn:active {
+		transform: translateY(0);
+	}
+
+		.recent-search-btn .from,
+	.recent-search-btn .to {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		flex-shrink: 1;
+		min-width: 0;
+	}
+
+	.recent-search-btn .from > span:last-child,
+	.recent-search-btn .to > span:last-child {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		min-width: 0;
+		flex-shrink: 1;
+	}
+
+	.recent-search-btn .line-dots {
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+		flex-shrink: 0;
+	}
+
+	.recent-search-btn .line-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		display: inline-block;
+		flex-shrink: 0;
+	}
+
+	.recent-search-btn .arrow {
+		flex-shrink: 0;
+		color: var(--text-muted);
+		font-weight: var(--fw-medium);
+		transition: transform var(--transition-fast);
+	}
+
+	.recent-search-btn:hover .arrow {
+		transform: translateX(3px);
+		color: var(--btn-primary-bg);
+	}
+
+		/* Delete item button styling (Normal state me bhi Red Danger theme) */
+	.delete-search-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: var(--radius-md);
+		border: 1px solid rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-subtle, 0.3));
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-glow, 0.12));
+		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+		cursor: pointer;
+		align-self: center;
+		transition: all var(--transition-fast);
+		flex-shrink: 0;
+	}
+
+	.delete-search-btn:hover {
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-subtle, 0.25));
+		border-color: rgba(var(--color-danger-rgb, 239, 68, 68), var(--op-shadow, 0.6));
+		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+		transform: translateY(-1px);
+	}
+
+	body[data-theme="dark"] .delete-search-btn {
+		background: rgba(239, 68, 68, 0.15);
+		border-color: rgba(239, 68, 68, 0.35);
+	}
+
+	body[data-theme="dark"] .delete-search-btn:hover {
+		background: rgba(239, 68, 68, 0.3);
+		border-color: rgba(239, 68, 68, 0.6);
+	}
+
+	.delete-search-btn img {
+		width: 14px;
+		height: 14px;
+		opacity: 0.85;
+		transition: opacity var(--transition-fast);
+	}
+
+	.delete-search-btn:hover img {
+		opacity: 1;
+	}
+
+
+
+    /* Color accents for Journey Metrics Card (Theme Compatible) */
+.metric-val.color-indigo { color: #4f46e5; }
+.metric-val.color-emerald { color: #059669; }
+.metric-val.color-sky { color: #0284c7; }
+.metric-val.color-amber { color: #d97706; }
+
+.metric-val.color-blue { color: #2563eb; }
+.metric-val.color-purple { color: #7c3aed; }
+.metric-val.color-green { color: #16a34a; }
+
+/* Fare Discount Badges */
+.fare-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 4px;
+    margin-top: 2px;
+}
+.badge-blue { background: rgba(37, 99, 235, 0.1); color: #2563eb; }
+.badge-purple { background: rgba(124, 58, 237, 0.1); color: #7c3aed; }
+.badge-green { background: rgba(22, 163, 74, 0.12); color: #16a34a; font-weight: 700; }
+}

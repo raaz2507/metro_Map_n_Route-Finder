@@ -1,0 +1,678 @@
+@import url("../base/base.css");
+@import url("../layout/layout.css");
+@import url("../layout/header.css");
+@import url("../layout/navbar_header.css");
+@import url("../layout/footer.css");
+
+/* =========================================================================
+   PART 1: LAYOUT & RESPONSIVE MEDIA QUERIES (Pure base.css Tokens)
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   Sub-Section 1.1: Base Page Container & Grid System
+   ------------------------------------------------------------------------- */
+main.station-page-container {
+    height: auto;
+    min-height: auto;
+    flex: 1 0 auto;
+    overflow: visible;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg) var(--space-3xl) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    font-family: var(--font-main);
+}
+
+.bento-row-top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 1.2: Flex Stacks & Action Bar Alignment
+   ------------------------------------------------------------------------- */
+.bento-col-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.bento-col-stack-sm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.page-action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xs);
+}
+
+a.back-btn,
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: var(--space-xs) var(--space-lg);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+a.back-btn:hover,
+.back-btn:hover {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    box-shadow: var(--shadow-md);
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 1.3: Centered Route Track Bar Grid Structure
+   ------------------------------------------------------------------------- */
+.station-track-bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    min-height: 52px;
+}
+
+.track-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.track-col.prev-col {
+    align-items: flex-start;
+}
+
+.track-col.center-col {
+    align-items: center;
+    justify-content: center;
+}
+
+.track-col.next-col {
+    align-items: flex-end;
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 1.4: Option B Standard Fluid Breakpoints
+   ------------------------------------------------------------------------- */
+@media (min-width: 769px) {
+    .bento-row-top {
+        display: grid;
+        grid-template-columns: 2.1fr 1fr;
+        gap: var(--space-lg);
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-row-top {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .station-track-bar {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+        text-align: center;
+    }
+
+    .track-col.prev-col,
+    .track-col.center-col,
+    .track-col.next-col {
+        align-items: center;
+        width: 100%;
+    }
+
+    .route-capsule {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* =========================================================================
+   PART 2: VISUAL STYLING & THEME TOKENS
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   Sub-Section 2.1: Bento Feature Cards & Hero Glass Styling
+   ------------------------------------------------------------------------- */
+.station-hero-card,
+.feature-card,
+.station-track-bar {
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+    backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-primary);
+}
+
+.station-hero-card,
+.feature-card {
+    padding: clamp(var(--space-md), 2.5vw, var(--space-xl));
+}
+
+.station-hero-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.station-main-title h2 {
+    font-size: var(--fs-3xl);
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.35;
+    padding-top: 3px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.station-main-title p {
+    margin: var(--space-xs) 0 0 0;
+    color: var(--text-primary);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    opacity: var(--op-heavy);
+}
+
+.station-main-title p strong {
+    color: var(--text-primary);
+    font-weight: var(--fw-bold);
+}
+
+.station-description-p {
+    margin-top: var(--space-md);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--card-bg);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--btn-primary-bg);
+}
+
+.feature-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--fs-lg);
+    font-family: var(--font-title);
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+    margin: 0 0 var(--space-md) 0;
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 2.2: Route Track Capsules & Hover Effects
+   ------------------------------------------------------------------------- */
+.route-capsule {
+    background-color: var(--line-color, var(--btn-primary-bg));
+    padding: var(--space-xs) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+    color: var(--btn-primary-text, #ffffff);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+}
+
+.route-capsule.prev:hover,
+.route-capsule.next:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.route-capsule.current {
+    background-color: var(--line-color, var(--btn-primary-bg));
+    border: 2px solid var(--card-bg);
+    color: var(--btn-primary-text, #ffffff);
+    font-weight: var(--fw-bold);
+    box-shadow: var(--shadow-md);
+}
+
+.route-capsule.disabled {
+    background-color: var(--line-color, var(--btn-primary-bg));
+    color: var(--btn-primary-text, #ffffff);
+    opacity: var(--op-glass);
+    cursor: default;
+    pointer-events: none;
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 2.3: Dedicated Metro Line Info Strip & Micro-Chips
+   ------------------------------------------------------------------------- */
+.line-info-master-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.line-strip-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.chip-net {
+    font-size: var(--badge-font-size);
+    color: var(--btn-primary-bg);
+    background-color: var(--card-bg);                          
+    border: 1px solid rgba(var(--color-primary-rgb), var(--op-shadow));       
+    padding: var(--badge-padding);
+    border-radius: var(--radius-full);
+    font-weight: var(--fw-semibold);
+    box-shadow: var(--shadow-sm);
+}
+
+.chip-label {
+    background-color: var(--line-color, var(--btn-primary-bg));
+    color: var(--btn-primary-text);
+    font-weight: var(--fw-bold);
+    font-size: var(--badge-font-size);
+    padding: var(--badge-padding);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+}
+
+.chip-name {
+    background-color: var(--card-bg);                          
+    color: var(--line-color, var(--text-primary));            
+    border: 1px solid var(--line-color, var(--border-color));  
+    font-weight: var(--fw-bold);
+    font-size: var(--badge-font-size);
+    padding: var(--badge-padding);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+}
+
+.chip-route {
+    background-color: var(--card-bg);                           
+    color: var(--text-primary);                                 
+    border: 1px solid var(--border-color);
+    font-weight: var(--fw-medium);
+    font-size: var(--badge-font-size);
+    padding: var(--badge-padding);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+}
+
+.interchange-badge-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--badge-font-size);
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+    background: rgba(var(--color-interchange-bg-rgb), var(--op-solid));
+    border: 1px solid var(--border-color);
+    padding: var(--badge-padding);
+    border-radius: var(--radius-full);
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 2.4: Timings, Helplines & Sub-Item Cards
+   ------------------------------------------------------------------------- */
+.compact-timings-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm) var(--space-md);
+    backdrop-filter: blur(var(--backdrop-blur));
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    font-size: var(--fs-xs);
+    min-height: 52px;
+    justify-content: center;
+}
+
+.compact-timing-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xs);
+}
+
+.compact-timing-row.border-top-dashed {
+    border-top: 1px dashed var(--border-color);
+    padding-top: var(--space-xs);
+    margin-top: 2px;
+}
+
+.contacts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.contact-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    color: var(--text-primary);
+}
+
+.contact-box strong {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+}
+
+.contact-box a {
+    color: var(--btn-primary-bg);
+    text-decoration: none;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-md);
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 2.5: Horizontal 3:2 Gate Cards Bento Grid
+   ------------------------------------------------------------------------- */
+.gate-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-md);
+}
+
+.gate-card-32 {
+    min-height: 95px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.gate-card-32:hover {
+    border-color: var(--btn-primary-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.gate-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gate-title-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.gate-number {
+    font-weight: var(--fw-bold);
+    color: var(--btn-primary-bg);
+    font-size: var(--fs-md);
+}
+
+.gate-code-tag {
+    font-size: var(--badge-font-size);
+    background-color: rgba(var(--color-primary-rgb), var(--op-subtle));
+    color: var(--btn-primary-bg);
+    padding: 1px 6px;
+    border-radius: var(--badge-radius);
+    font-weight: var(--fw-semibold);
+}
+
+.gate-card-body {
+    display: flex;
+    align-items: center;
+}
+
+.gate-card-footer {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.divyang-tag.accessible {
+    font-size: var(--badge-font-size);
+    background-color: rgba(var(--color-success-rgb), var(--op-subtle));
+    color: rgb(var(--color-success-rgb));
+    border: 1px solid rgba(var(--color-success-rgb), var(--op-shadow));
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-weight: var(--fw-semibold);
+}
+
+.divyang-tag.standard {
+    font-size: var(--badge-font-size);
+    background-color: var(--btn-reset-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-weight: var(--fw-medium);
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 2.6: Facilities & Amenities Sub-Sections
+   ------------------------------------------------------------------------- */
+.facilities-master-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.facility-subcategory {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px dashed var(--border-color);
+    padding: var(--space-md) 0;
+    border-radius: 0;
+}
+
+.facility-subcategory:last-child {
+    border-bottom: none;
+}
+
+.facility-subcategory-title {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    color: var(--btn-primary-bg);
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.facility-items-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.facility-pill {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-xs);
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    box-shadow: var(--shadow-sm);
+}
+
+.facility-pill .facility-name {
+    font-weight: var(--fw-semibold);
+    color: var(--text-primary);
+}
+
+.facility-pill .facility-loc {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 2.7: Tabular Format Tables (Parkings & Transit)
+   ------------------------------------------------------------------------- */
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.station-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--fs-sm);
+}
+
+.station-table th {
+    background-color: var(--card-bg);
+    padding: var(--space-sm) var(--space-md);
+    font-weight: var(--fw-bold);
+    color: var(--btn-primary-bg);
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.station-table td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+    color: var(--text-primary);
+}
+
+.station-table tr:hover td {
+    background-color: var(--card-bg);
+}
+
+.station-table td.status-active {
+    color: rgb(var(--color-success-rgb));
+    font-weight: var(--fw-bold);
+}
+
+.station-table td.status-maintenance {
+    color: rgb(var(--color-danger-rgb));
+    font-weight: var(--fw-bold);
+}
+
+.station-table td.status-yes {
+    color: rgb(var(--color-success-rgb));
+    font-weight: var(--fw-semibold);
+}
+
+.station-table td.status-no {
+    color: rgb(var(--color-danger-rgb));
+    font-weight: var(--fw-semibold);
+}
+
+/* -------------------------------------------------------------------------
+   Sub-Section 2.8: Nearby Places & Destinations
+   ------------------------------------------------------------------------- */
+.nearby-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+}
+
+.nearby-cat-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    color: var(--text-primary);
+}
+
+.nearby-cat-title {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+    color: rgb(var(--color-warning-rgb));
+    margin-bottom: var(--space-xs);
+}
+
+.nearby-places-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.nearby-place-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--fs-sm);
+    padding: var(--space-xs) 0;
+    border-bottom: 1px dashed var(--border-color);
+    color: var(--text-primary);
+}
+
+.nearby-place-item:last-child {
+    border-bottom: none;
+}
+
+.distance-chip {
+    background-color: rgba(var(--color-primary-rgb), var(--op-subtle));
+    color: var(--btn-primary-bg);
+    border: 1px solid rgba(var(--color-primary-rgb), var(--op-shadow));
+    padding: 2px var(--space-xs);
+    border-radius: var(--radius-sm);
+    font-size: var(--badge-font-size);
+    font-weight: var(--fw-semibold);
+    white-space: nowrap;
+}
+
+.empty-data-notice {
+    text-align: center;
+    padding: var(--space-lg);
+    color: var(--text-secondary);
+    font-size: var(--fs-sm);
+}

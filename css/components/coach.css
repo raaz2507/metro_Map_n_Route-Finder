@@ -2,7 +2,7 @@
    COACH COMPONENT THEME TOKENS (Self-Contained in coach.css)
    --------------------------------------------------------------------------- */
 
-/* Theme 1: Classic Light (Metro Interior Lights ON!) */
+/* Theme 1: Classic Light */
 :root {
     --coach-body-grad-start: #ffffff;
     --coach-body-grad-end: #cbd5e1;
@@ -12,15 +12,14 @@
     --coach-window-border: rgba(203, 213, 225, 0.9);
     --coach-title-color: #0f172a;
     --coach-value-color: #059669;
-}
-:root {
+
     --coach-w: 200px;
-    --coach-h: calc(var(--coach-w) * 0.6); /* 120px */
-    --row-gap: 28px;                       /* ❌ आप गैप जो भी रखें (28px, 30px, आदि) */
-    --step-h: calc(var(--coach-h) + var(--row-gap)); /* 148px */
+    --coach-h: calc(var(--coach-w) * 0.6);
+    --row-gap: 28px;
+    --step-h: calc(var(--coach-h) + var(--row-gap));
 }
 
-/* Theme 2: Sleek Dark (Night Metro Charcoal Shell) */
+/* Theme 2: Sleek Dark */
 body[data-theme="dark"] {
     --coach-body-grad-start: #334155;
     --coach-body-grad-end: #0f172a;
@@ -32,7 +31,7 @@ body[data-theme="dark"] {
     --coach-value-color: #4ade80;
 }
 
-/* Theme 3: Neon Cyberpunk (Montana Neon Shell) */
+/* Theme 3: Neon Cyberpunk */
 body[data-theme="cyberpunk"] {
     --coach-body-grad-start: #1e1b4b;
     --coach-body-grad-end: #09090b;
@@ -44,7 +43,7 @@ body[data-theme="cyberpunk"] {
     --coach-value-color: #ffe600;
 }
 
-/* Theme 4: Vintage Retro (Brass Parchment Shell) */
+/* Theme 4: Vintage Retro */
 body[data-theme="vintage"] {
     --coach-body-grad-start: #f4efe2;
     --coach-body-grad-end: #c4b89b;
@@ -56,7 +55,7 @@ body[data-theme="vintage"] {
     --coach-value-color: #c98a22;
 }
 
-/* Theme 5: Forest Mint (Mint Metallic Shell) */
+/* Theme 5: Forest Mint */
 body[data-theme="mint"] {
     --coach-body-grad-start: #f0fdf4;
     --coach-body-grad-end: #a7f3d0;
@@ -68,7 +67,7 @@ body[data-theme="mint"] {
     --coach-value-color: #059669;
 }
 
-/* Theme 6: Ghibli Nostalgia (Cream Watercolor Shell) */
+/* Theme 6: Ghibli Nostalgia */
 body[data-theme="ghibli"] {
     --coach-body-grad-start: #fafaf5;
     --coach-body-grad-end: #d2cfbb;
@@ -80,108 +79,74 @@ body[data-theme="ghibli"] {
     --coach-value-color: #d48f38;
 }
 
-
-
-
-
-
-
 /* ---------------------------------------------------------------------------
-   6. GLASS WINDOW OVERLAY (Theme-Adaptive & Option C 2-Line Wrap)
+   2. GLASS WINDOW OVERLAY (Theme-Adaptive & 2-Line Wrap)
    --------------------------------------------------------------------------- */
-
-
 .coach-window-overlay {
     position: absolute;
     top: 15%;
     left: 6.2%;
     right: 13.2%;
     height: 58%;
-    z-index: 10;
+    z-index: var(--z-map);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 8px;
+    padding: var(--space-xs) var(--space-sm);
     background: var(--coach-window-bg);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(var(--backdrop-blur));
     border: 1px solid var(--coach-window-border);
-    border-radius: var(--radius-sm, 6px);
+    border-radius: var(--radius-xs);
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.15);
     pointer-events: none;
-    transition: background 0.3s, border 0.3s;
+    transition: background var(--transition-smooth), border var(--transition-smooth);
 }
 
-/* Option C: 2-Line Compact Station Name Wrap */
 .window-station-title {
     position: static;
-    font-size: 0.86rem;
-    font-weight: 800;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-extrabold);
     color: var(--coach-title-color);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     letter-spacing: 0.5px;
     text-align: center;
-    line-height: 1.05;
-    margin-bottom: 2px;
+    line-height: 1.1;
+    margin-bottom: var(--space-xs);
     max-width: 100%;
     width: 100%;
-
-    /* 2-Line Wrap Rule */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     word-break: break-word;
-    transition: color 0.3s;
+    transition: color var(--transition-smooth);
 }
 
-.window-station-title .lang-en {
-    font-family: var(--font-title, 'Inter', system-ui, -apple-system, sans-serif);
-    display: inline;
-}
-
-.window-station-title .lang-hi {
-    font-family: var(--font-main, 'Inter', system-ui, sans-serif);
-    font-weight: 700;
-    font-size: 0.75rem;
-    display: none;
-}
-
-/* Header Language State Switcher */
-body[data-lang="hi"] .window-station-title .lang-en {
-    display: none;
-}
-body[data-lang="hi"] .window-station-title .lang-hi {
-    display: inline;
-}
-
-/* Option 4: Single-Line Timings Range */
 .window-timings-line {
     width: 100%;
     text-align: center;
-    font-size: 0.64rem;
-    font-weight: 800;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-extrabold);
     color: var(--coach-value-color);
     letter-spacing: 0.3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: color 0.3s;
+    transition: color var(--transition-smooth);
 }
 
-
 /* ---------------------------------------------------------------------------
-   5. STANDALONE METRO COACH CARD & ANIMATIONS
+   3. STANDALONE METRO COACH CARD & ANIMATIONS
    --------------------------------------------------------------------------- */
 .real-coach-card {
     position: relative;
-    width: 200px;
+    width: var(--coach-w);
     flex-shrink: 0;
-    transition: opacity 0.3s, filter 0.3s;
+    transition: opacity var(--transition-smooth), filter var(--transition-smooth);
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    z-index: 5;
+    z-index: var(--z-base);
     margin-bottom: 0px;
 }
 
@@ -204,21 +169,21 @@ body[data-lang="hi"] .window-station-title .lang-hi {
     left: 8%;
     right: 8%;
     height: 25px;
-    background: var(--line-color, #c0282c);
+    background: var(--line-color, var(--color-danger-rgb));
     filter: blur(22px);
-    opacity: 0.6;
-    border-radius: 50%;
-    transition: opacity 0.3s, background 0.3s;
+    opacity: var(--op-translucent);
+    border-radius: var(--radius-full);
+    transition: opacity var(--transition-smooth), background var(--transition-smooth);
 }
 
 .real-coach-card:hover .coach-underglow {
-    opacity: 0.95;
+    opacity: var(--op-heavy);
     filter: blur(28px);
 }
 
 .svg-coach-element {
     position: relative;
-    z-index: 2;
+    z-index: var(--z-base);
     width: 100%;
     height: auto;
     display: block;
@@ -226,38 +191,102 @@ body[data-lang="hi"] .window-station-title .lang-hi {
 }
 
 .dynamic-stripe-fill {
-    fill: var(--line-color, #c0282c);
-    transition: fill 0.3s ease;
+    fill: var(--line-color, var(--btn-primary-bg));
+    transition: fill var(--transition-smooth);
 }
 
 /* ---------------------------------------------------------------------------
-   4. 3D DYNAMIC RESPONSIVE TRACK GRID (Pure CSS SVG Vector Track)
+   4. 3D DYNAMIC RESPONSIVE TRACK GRID
    --------------------------------------------------------------------------- */
 .train-track-row {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--coach-w), 1fr));
-    gap: var(--row-gap) 1.25rem;
-    padding: 1rem 0.5rem;
+    gap: var(--row-gap) var(--space-md);
+    padding: var(--space-lg) var(--space-sm);
     position: relative;
-    /* 3D Track SVG with Dynamic calc() Step Height */
     background-image: url("../../assets/images/metro_track.svg");
-    background-size: 20px var(--step-h); /* ❌ calc() से ऑटोमैटिक 148px हो जाएगा! */
+    background-size: 20px var(--step-h);
     background-position: 0 0;
     background-repeat: repeat;
 }
 
-.row-continuous-track {
+/* ---------------------------------------------------------------------------
+   5. COACH BOTTOM STRIPE BADGES (Positioned on the color stripe)
+   --------------------------------------------------------------------------- */
+.coach-stripe-badges {
     position: absolute;
-    bottom: 1.5rem;
-    left: 1%;
-    right: 1%;
-    height: 25px;
-    z-index: 1;
-    pointer-events: none;
+    bottom: 13px; /* ⬅️ यह ऊपर था */
+    left: 8%;
+    right: 8%;
+    height: 20px;
+    z-index: var(--z-map);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    pointer-events: auto;
 }
 
-.continuous-track-svg {
-    width: 100%;
-    height: 100%;
+.coach-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xs);
+    border-radius: var(--radius-xs);
+    line-height: 1;
+    backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--border-color);
+    background: rgba(var(--color-bg-base-rgb), var(--op-glass));
+    transition: transform var(--transition-fast);
+    cursor: help;
+    pointer-events: auto;
+    box-shadow: var(--shadow-sm);
+}
+
+.coach-badge:hover {
+    transform: scale(1.2);
+}
+
+.badge-icon-img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    flex-shrink: 0;
     display: block;
+    pointer-events: auto;
+}
+
+/* Dark & Cyberpunk Theme Contrast Fix */
+body[data-theme="dark"] .coach-badge,
+body[data-theme="cyberpunk"] .coach-badge {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #38bdf8;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+body[data-theme="dark"] .badge-icon-img,
+body[data-theme="cyberpunk"] .badge-icon-img {
+    filter: brightness(0) invert(1); /* ⬅️ इससे डार्क थीम में आइकॉन सफ़ेद (White) दिखेगा */
+}
+
+.badge-elevated {
+    color: rgb(var(--color-info-rgb));
+    border-color: rgba(var(--color-info-rgb), var(--op-translucent));
+}
+
+.badge-underground {
+    color: rgb(var(--color-primary-rgb));
+    border-color: rgba(var(--color-primary-rgb), var(--op-translucent));
+}
+
+.badge-at-grade {
+    color: rgb(var(--color-success-rgb));
+    border-color: rgba(var(--color-success-rgb), var(--op-translucent));
+}
+
+.badge-interchange {
+    color: rgb(var(--color-warning-rgb));
+    border-color: rgba(var(--color-warning-rgb), var(--op-translucent));
 }

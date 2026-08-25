@@ -6,7 +6,7 @@
     <title>Metro Alarm System - Testing & Playground</title>
 
     <!-- Main Navigation CSS for Floating Icon -->
-    <link rel="stylesheet" href="./css/navebar-main.css">
+    <link rel="stylesheet" href="./css/layout/navbar-main.css">
 
     <style>
         :root {
@@ -267,9 +267,9 @@
 </div>
 
 <script type="module">
-    import { AlarmSystem } from "./js/alarm-system.js";
-    import { GpsTracker } from "./js/gps-tracker.js";
-    import { TrainSpeedometer } from "./js/train-speedometer.js";
+    import { AlarmSystem } from "./js/services/alarm-system.js";
+    import { GpsTracker } from "./js/services/gps-tracker.js";
+    import { TrainSpeedometer } from "./js/services/train-speedometer.js";
 
     document.addEventListener("DOMContentLoaded", () => {
         const volumeRange = document.getElementById("volumeRange");

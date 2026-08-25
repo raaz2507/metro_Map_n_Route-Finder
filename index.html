@@ -22,7 +22,7 @@
 	<!-- Site Icon / Favicon -->
     <link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
 	<title data-i18n-title-tag="meta.title">Metro Map Generator</title>
-	<link rel="stylesheet" href="./css/index.css"/>
+	<link rel="stylesheet" href="./css/pages/index.css"/>
 </head>
 
 <body>
@@ -68,16 +68,16 @@
 				<section id="recent-searches" aria-labelledby="recent-searches-heading" class="sidebar-section">
 					<!-- Header -->
 					<header class="section-header recent-header">
-						<h2 id="recent-searches-heading" data-i18n="home.recentSearches">Recent Searchs</h2>
-						<button type="button" id="clearRecentSearches" data-i18n="home.clearAll"> Clear All </button>
+						<h2 id="recent-searches-heading" data-i18n="pages.home.sidebar.recent.recentSearches">Recent Searches</h2>
+						<button type="button" id="clearRecentSearches" data-i18n="pages.home.sidebar.recent.clearAll"> Clear All </button>
 					</header>
 
 					<!-- Search History -->
 					<div class="recent-search-list-container">
 						<div class="filter-chips">
-							<button type="button" class="active" data-i18n="home.recent">Recent</button>
-							<button type="button" data-i18n="home.mostUsed">Most Used</button>
-							<button type="button" data-i18n="home.az">A-Z</button>
+							<button type="button" class="active" data-i18n="pages.home.sidebar.recent.recent">Recent</button>
+							<button type="button" data-i18n="pages.home.sidebar.recent.mostUsed">Most Used</button>
+							<button type="button" data-i18n="pages.home.sidebar.recent.az">A-Z</button>
 						</div>
 						<ul id="recent-search-list">
 							<li class="recent-list-empty"> No recent journeys found </li >
@@ -101,25 +101,25 @@
 					<form action="" method="post" class="routeFinder">
 						<!-- <h2 id="route-finder-heading" data-i18n="home.routeFinder">Route Finder</h2> -->
 						<fieldset>
-							<legend id="route-finder-heading" data-i18n="home.routeFinder">Route Finder</legend>
+							<legend id="route-finder-heading" data-i18n="pages.home.sidebar.findroute.routeFinder">Route Finder</legend>
 
 							<!-- <legend>Route Finder</legend> -->
 							<!-- Start Station -->
 							<div class="form-group">
-								<label for="startStation" data-i18n="home.startStation">From</label>
-								<input type="text" id="startStation" data-i18n-placeholder="home.startPlaceholder" placeholder="Enter start station" list="stationList" value="Badarpur Border" autocomplete="off" required>
+								<label for="startStation" data-i18n="pages.home.sidebar.findroute.startStation">From</label>
+								<input type="text" id="startStation" data-i18n-placeholder="pages.home.sidebar.findroute.startPlaceholder" placeholder="Enter start station" list="stationList" value="Badarpur Border" autocomplete="off" required>
 							</div>
 							
 							<!-- Swap Button -->
-							<button type="button" id="swapButton" aria-label="Swap stations" data-i18n-title="home.swapStations" title="Swap stations">
+							<button type="button" id="swapButton" aria-label="Swap stations" data-i18n-title="pages.home.sidebar.findroute.swapStations" title="Swap stations">
 								<!-- &#8644; -->
 								<img src="./assets/icons/swap_calls.svg" alt="" srcset="">
 							</button>
 
 							<!-- End Station -->
 							<div class="form-group">
-								<label for="endStation" data-i18n="home.endStation">To</label>
-								<input type="text" id="endStation" data-i18n-placeholder="home.endPlaceholder" placeholder="Enter end station" list="stationList" value="Anand Vihar" autocomplete="off" required>
+								<label for="endStation" data-i18n="pages.home.sidebar.findroute.endStation">To</label>
+								<input type="text" id="endStation" data-i18n-placeholder="pages.home.sidebar.findroute.endPlaceholder" placeholder="Enter end station" list="stationList" value="Anand Vihar" autocomplete="off" required>
 							</div>
 
 							<!-- Shared Datalist -->
@@ -127,8 +127,8 @@
 							
 							<!-- Actions -->
 							<div class="form-actions">
-								<button type="submit" data-i18n="home.findRoute">Find Route</button>
-								<button type="reset" data-i18n="home.resetForm">Reset</button>
+								<button type="submit" data-i18n="pages.home.sidebar.findroute.findRoute">Find Route</button>
+								<button type="reset" data-i18n="pages.home.sidebar.findroute.resetForm">Reset</button>
 							</div>
 							
 						</fieldset>
@@ -136,9 +136,9 @@
 					<div id="journeyDetails">
 						<section class="route-priority">
 							 <div class="priority-header">
-                                <p data-i18n="home.priority">Priority</p>
+                                <p data-i18n="pages.home.sidebar.findroute.priority">Priority</p>
                                 <div class="sharebtn">
-                                    <button type="button" id="shareRouteBtn" aria-label="Share Route" data-i18n-title="home.shareRoute" title="Share Route">
+                                    <button type="button" id="shareRouteBtn" aria-label="Share Route" data-i18n-title="pages.home.sidebar.findroute.shareModal.title" title="Share Route">
                                         <span class="icon share-icon" aria-hidden="true"></span>
                                     </button>
                                 </div>
@@ -151,13 +151,13 @@
 								<!-- शॉर्टेस्ट (Runner Icon) लेबल -->
 								<label class="switch-slider-label" for="priority-fastest">
 									<img src="assets/icons/runer.svg" alt="Shortest" class="switch-icon">
-									<span data-i18n="home.shortest">Shortest</span>
+									<span data-i18n="pages.home.sidebar.findroute.shortest">Shortest</span>
 								</label>
 								
 								<!-- कम इंटरचेंज (Relax Icon) लेबल -->
 								<label class="switch-slider-label" for="priority-leastTransfers">
 									<img src="assets/icons/relex.svg" alt="Less Interchange" class="switch-icon">
-									<span data-i18n="home.lessInterchange">Less Interchange</span>
+									<span data-i18n="pages.home.sidebar.findroute.lessInterchange">Less Interchange</span>
 								</label>
 								
 								<!-- सफ़ेद स्लाइडिंग थम्ब -->
@@ -172,9 +172,7 @@
 							<div class="distance"><span class="value">00</span> Km</div>
 						</section> -->
 						<section class="route-overview" aria-labelledby="route-overview-heading" aria-live="polite">
-							<h2 id="route-overview-heading" data-i18n="home.journeyDetails">
-								Journey Details
-							</h2>
+							<h2 id="route-overview-heading" data-i18n="pages.home.sidebar.findroute.journeyDetails">Journey Details</h2>
 						</section>
 					</div>
 				</section>
@@ -196,6 +194,10 @@
 				</div>
 				
 			</div> -->
+             <div id="speedometer-widget" class="speedometer-widget" title="Live Train Speed">
+                <span class="speed-number" id="speed-value">0.0</span>
+                <span class="speed-unit">km/h</span>
+            </div>
 			<!-- <div id="zoomControls">
 				<output name="zoomLevel" id="zoomLevel" for="zoomInBtn zoomOutBtn resetZoomBtn">00%</output>
 				<button id="zoomInBtn">+</button>
@@ -203,6 +205,8 @@
 				<button id="resetZoomBtn">=</button>
 			</div> -->
 		</section>
+
+
 		<nav class="floating-nav-wrapper" id="floating-nav-wrapper" aria-label="Floating Navigation Wrapper">
             <!-- 7. Inline SVG Mask that creates a physically transparent notch with smooth curves -->
             <svg width="0" height="0" style="position: absolute;">
@@ -267,29 +271,30 @@
                             <span class="text" data-i18n="nav-floating.ticket">🎟️ Ticket</span>
                         </a>
                     </li>
-                    
+                     <!-- <li class="floating-nav-item">
+                        <a href="#" id="speedometerBtn" data-tab="speed">
+                            <span class="icon speed-icon"></span>
+                            <span class="text" data-i18n="nav-floating.speed">Speed</span>
+                        </a>
+                    </li> -->
                     
                 </ul>
             </div>
         </nav>
+       
 	</main>
   
 
    <div id="app-footer"></div>
 	
-
-
-
-
-
-    	<!-- =========================================================================
+    <!-- =========================================================================
 	   SHARE ROUTE CUSTOM MODAL (Desktop & Fallback Popup)
-	   ========================================================================= -->
+	========================================================================= -->
 	<div id="shareModal" class="share-modal-backdrop" aria-hidden="true">
 		<div class="share-modal-card" role="dialog" aria-labelledby="shareModalTitle">
 			<!-- Modal Header -->
 			<header class="share-modal-header">
-				<h3 id="shareModalTitle" data-i18n="home.shareRoute">Share Route</h3>
+				<h3 id="shareModalTitle" data-i18n="pages.home.sidebar.findroute.shareModal.title">Share Route</h3>
 				<button type="button" id="closeShareModal" class="close-modal-btn" aria-label="Close">
 					<span class="icon close-icon" aria-hidden="true">✕</span>
 				</button>
@@ -347,5 +352,5 @@
 
     
 </body>
-<script type="module" src="./js/index.js"></script>
+<script type="module" src="./js/pages/index.js"></script>
 </html>

@@ -1,0 +1,77 @@
+@import url("./navbar_header.css") layer(components);
+@import url("./navbar_sidebar.css") layer(components);
+@import url("./navbar_floating.css") layer(components);
+
+@layer components {
+	/* 1. Base Icon Container */
+	.icon {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+		transition: var(--transition-smooth);
+	}
+
+	/* 2. Pseudo-element to render the actual SVG graphic inside the container */
+	.icon::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: var(--text-secondary);
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		transition: var(--transition-smooth);
+	}
+
+	/* Inline URL-Encoded SVGs */
+	.map-icon::after {
+		-webkit-mask-image: url("../../assets/icons/map-location-dot-solid-full.svg");
+		mask-image: url("../../assets/icons/map-location-dot-solid-full.svg");
+	}
+	.route-icon::after {
+		-webkit-mask-image: url("../../assets/icons/diamond-turn-right-solid-full.svg");
+		mask-image: url("../../assets/icons/diamond-turn-right-solid-full.svg");
+	}
+	.settings-icon::after {
+		-webkit-mask-image: url("../../assets/icons/gears-solid-full.svg");
+		mask-image: url("../../assets/icons/gears-solid-full.svg");
+	}
+	.about-icon::after {
+		-webkit-mask-image: url("../../assets/icons/info.svg");
+		mask-image: url("../../assets/icons/info.svg");
+	}
+	.help-icon::after {
+		-webkit-mask-image: url("../../assets/icons/help.svg");
+		mask-image: url("../../assets/icons/help.svg");
+	}
+	.recent-icon::after {
+		-webkit-mask-image: url("../../assets/icons/clock.svg");
+		mask-image: url("../../assets/icons/clock.svg");
+	}
+	.other-icon::after {
+		-webkit-mask-image: url("../../assets/icons/grip-solid-full.svg");
+		mask-image: url("../../assets/icons/grip-solid-full.svg");
+	}
+	.alarm-on-iocn::after {
+		-webkit-mask-image: url("../../assets/icons/bell-solid-full.svg");
+		mask-image: url("../../assets/icons/bell-solid-full.svg");
+	}
+	.alarm-off-iocn::after {
+		-webkit-mask-image: url("../../assets/icons/bell-slash-solid-full.svg");
+		mask-image: url("../../assets/icons/bell-slash-solid-full.svg");
+	}
+	.ticket-iocn::after {
+		-webkit-mask-image: url("../../assets/icons/ticket-solid-full.svg");
+		mask-image: url("../../assets/icons/ticket-solid-full.svg");
+	}
+    .share-icon::after {
+        -webkit-mask-image: url("../../assets/icons/share-solid-full.svg");
+        mask-image: url("../../assets/icons/share-solid-full.svg");
+    }
+}
