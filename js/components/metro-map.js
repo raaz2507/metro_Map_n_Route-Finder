@@ -563,6 +563,13 @@ export class MetroMap {
 
 				drawn.add(key);
 				const nextStation = this.#metroData.stationData[neighbor.station];
+				
+				// Explicit Warning & Crash Prevention Guard
+				if (!nextStation) {
+					console.warn(`[Metro Map Warning] Neighbor station "${neighbor.station}" defined for "${station.id}", but missing in stationData!`);
+					return;
+				}
+
 				const lineInfo = this.#metroData.lines?.[neighbor.line];
 				const lineColor = lineInfo?.color ?? "#333";
 
@@ -630,6 +637,8 @@ export class MetroMap {
 				let deg = (rad * 180) / Math.PI;
 				if (deg < 0) deg += 360;
 				angles.push(deg);
+			} else {
+				console.warn(`[Metro Map Label Warning] Neighbor station "${nbr.station}" missing in stationData for label angle calculation of "${station.id}"!`);
 			}
 		});
 

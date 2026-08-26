@@ -22,6 +22,11 @@
 				"operator": "Rapid Metro Gurugram",
 				"avgSpeedMetersPerMin": 600,
 				"stationHaltMinutes": 0.4
+			},
+			"ncrtc": {
+				"operator": "National Capital Region Transport Corporation",
+				"avgSpeedMetersPerMin": 1100,
+				"stationHaltMinutes": 0.5
 			}
 		},
 		"policies": {
@@ -205,6 +210,84 @@
 						"label": {"en": "Smart Card", "hi": "स्मार्ट कार्ड"}
 					}
 				}
+			},
+			"ncrtc_standard": {
+			"network": "ncrtc",
+			"effectiveFrom": "2025-01-01",
+			"fareModel": "station_pair",
+			"calculation": {
+				"rounding": "exact"
+			},
+			"fareMatrix": {
+				"sarai_kale_khan": { "sarai_kale_khan": 0, "new_ashok_nagar": 30, "anand_vihar": 50, "sahibabad": 60, "ghaziabad": 80, "guldhar": 90, "duhai": 100, "duhai_depot": 110, "murad_nagar": 120, "modi_nagar_south": 140, "modi_nagar_north": 140, "meerut_south": 160, "partapur": 170, "rithani": 180, "shatabdi_nagar": 180, "brahampuri": 190, "meerut_central": 190, "bhaisali": 200, "begumpul": 200, "mes_colony": 210, "daurli": 210, "meerut_north": 210, "modipuram": 210 },
+				"new_ashok_nagar": { "sarai_kale_khan": 30, "new_ashok_nagar": 0, "anand_vihar": 30, "sahibabad": 50, "ghaziabad": 60, "guldhar": 70, "duhai": 80, "duhai_depot": 90, "murad_nagar": 100, "modi_nagar_south": 120, "modi_nagar_north": 130, "meerut_south": 150, "partapur": 160, "rithani": 160, "shatabdi_nagar": 160, "brahampuri": 170, "meerut_central": 170, "bhaisali": 180, "begumpul": 180, "mes_colony": 190, "daurli": 200, "meerut_north": 200, "modipuram": 200 },
+				"anand_vihar": { "sarai_kale_khan": 50, "new_ashok_nagar": 30, "anand_vihar": 0, "sahibabad": 30, "ghaziabad": 40, "guldhar": 50, "duhai": 60, "duhai_depot": 70, "murad_nagar": 80, "modi_nagar_south": 90, "modi_nagar_north": 100, "meerut_south": 130, "partapur": 140, "rithani": 140, "shatabdi_nagar": 140, "brahampuri": 160, "meerut_central": 160, "bhaisali": 160, "begumpul": 160, "mes_colony": 170, "daurli": 180, "meerut_north": 180, "modipuram": 180 },
+				"sahibabad": { "sarai_kale_khan": 60, "new_ashok_nagar": 50, "anand_vihar": 30, "sahibabad": 0, "ghaziabad": 30, "guldhar": 30, "duhai": 40, "duhai_depot": 50, "murad_nagar": 60, "modi_nagar_south": 80, "modi_nagar_north": 90, "meerut_south": 110, "partapur": 120, "rithani": 130, "shatabdi_nagar": 130, "brahampuri": 140, "meerut_central": 140, "bhaisali": 140, "begumpul": 140, "mes_colony": 160, "daurli": 160, "meerut_north": 160, "modipuram": 160 },
+				"ghaziabad": { "sarai_kale_khan": 80, "new_ashok_nagar": 60, "anand_vihar": 40, "sahibabad": 30, "ghaziabad": 0, "guldhar": 20, "duhai": 30, "duhai_depot": 30, "murad_nagar": 40, "modi_nagar_south": 60, "modi_nagar_north": 80, "meerut_south": 90, "partapur": 100, "rithani": 110, "shatabdi_nagar": 110, "brahampuri": 120, "meerut_central": 120, "bhaisali": 120, "begumpul": 120, "mes_colony": 140, "daurli": 140, "meerut_north": 150, "modipuram": 150 },
+				"guldhar": { "sarai_kale_khan": 90, "new_ashok_nagar": 70, "anand_vihar": 50, "sahibabad": 30, "ghaziabad": 20, "guldhar": 0, "duhai": 20, "duhai_depot": 30, "murad_nagar": 30, "modi_nagar_south": 50, "modi_nagar_north": 60, "meerut_south": 80, "partapur": 100, "rithani": 100, "shatabdi_nagar": 100, "brahampuri": 110, "meerut_central": 110, "bhaisali": 120, "begumpul": 120, "mes_colony": 130, "daurli": 140, "meerut_north": 140, "modipuram": 140 },
+				"duhai": { "sarai_kale_khan": 100, "new_ashok_nagar": 80, "anand_vihar": 60, "sahibabad": 40, "ghaziabad": 30, "guldhar": 20, "duhai": 0, "duhai_depot": 20, "murad_nagar": 20, "modi_nagar_south": 40, "modi_nagar_north": 50, "meerut_south": 70, "partapur": 80, "rithani": 90, "shatabdi_nagar": 90, "brahampuri": 100, "meerut_central": 100, "bhaisali": 100, "begumpul": 100, "mes_colony": 120, "daurli": 120, "meerut_north": 120, "modipuram": 120 },
+				"duhai_depot": { "sarai_kale_khan": 110, "new_ashok_nagar": 90, "anand_vihar": 70, "sahibabad": 50, "ghaziabad": 30, "guldhar": 30, "duhai": 20, "duhai_depot": 0, "murad_nagar": 30, "modi_nagar_south": 40, "modi_nagar_north": 60, "meerut_south": 80, "partapur": 90, "rithani": 100, "shatabdi_nagar": 100, "brahampuri": 110, "meerut_central": 110, "bhaisali": 110, "begumpul": 110, "mes_colony": 120, "daurli": 130, "meerut_north": 130, "modipuram": 130 },
+				"murad_nagar": { "sarai_kale_khan": 120, "new_ashok_nagar": 100, "anand_vihar": 80, "sahibabad": 60, "ghaziabad": 40, "guldhar": 30, "duhai": 20, "duhai_depot": 30, "murad_nagar": 0, "modi_nagar_south": 20, "modi_nagar_north": 30, "meerut_south": 60, "partapur": 70, "rithani": 70, "shatabdi_nagar": 70, "brahampuri": 80, "meerut_central": 80, "bhaisali": 90, "begumpul": 90, "mes_colony": 100, "daurli": 110, "meerut_north": 110, "modipuram": 110 },
+				"modi_nagar_south": { "sarai_kale_khan": 140, "new_ashok_nagar": 120, "anand_vihar": 90, "sahibabad": 80, "ghaziabad": 60, "guldhar": 50, "duhai": 40, "duhai_depot": 40, "murad_nagar": 20, "modi_nagar_south": 0, "modi_nagar_north": 20, "meerut_south": 40, "partapur": 50, "rithani": 60, "shatabdi_nagar": 60, "brahampuri": 70, "meerut_central": 70, "bhaisali": 70, "begumpul": 70, "mes_colony": 80, "daurli": 90, "meerut_north": 90, "modipuram": 90 },
+				"modi_nagar_north": { "sarai_kale_khan": 140, "new_ashok_nagar": 130, "anand_vihar": 100, "sahibabad": 90, "ghaziabad": 80, "guldhar": 60, "duhai": 50, "duhai_depot": 60, "murad_nagar": 30, "modi_nagar_south": 20, "modi_nagar_north": 0, "meerut_south": 30, "partapur": 40, "rithani": 50, "shatabdi_nagar": 50, "brahampuri": 60, "meerut_central": 60, "bhaisali": 60, "begumpul": 60, "mes_colony": 70, "daurli": 80, "meerut_north": 80, "modipuram": 80 },
+				"meerut_south": { "sarai_kale_khan": 160, "new_ashok_nagar": 150, "anand_vihar": 130, "sahibabad": 110, "ghaziabad": 90, "guldhar": 80, "duhai": 70, "duhai_depot": 80, "murad_nagar": 60, "modi_nagar_south": 40, "modi_nagar_north": 30, "meerut_south": 0, "partapur": 20, "rithani": 20, "shatabdi_nagar": 30, "brahampuri": 30, "meerut_central": 30, "bhaisali": 40, "begumpul": 40, "mes_colony": 50, "daurli": 50, "meerut_north": 50, "modipuram": 60 },
+				"partapur": { "sarai_kale_khan": 170, "new_ashok_nagar": 160, "anand_vihar": 140, "sahibabad": 120, "ghaziabad": 100, "guldhar": 100, "duhai": 80, "duhai_depot": 90, "murad_nagar": 70, "modi_nagar_south": 50, "modi_nagar_north": 40, "meerut_south": 20, "partapur": 0, "rithani": 20, "shatabdi_nagar": 20, "brahampuri": 20, "meerut_central": 30, "bhaisali": 30, "begumpul": 30, "mes_colony": 40, "daurli": 50, "meerut_north": 50, "modipuram": 50 },
+				"rithani": { "sarai_kale_khan": 180, "new_ashok_nagar": 160, "anand_vihar": 140, "sahibabad": 130, "ghaziabad": 110, "guldhar": 100, "duhai": 90, "duhai_depot": 100, "murad_nagar": 70, "modi_nagar_south": 60, "modi_nagar_north": 50, "meerut_south": 20, "partapur": 20, "rithani": 0, "shatabdi_nagar": 20, "brahampuri": 20, "meerut_central": 20, "bhaisali": 30, "begumpul": 30, "mes_colony": 30, "daurli": 50, "meerut_north": 50, "modipuram": 50 },
+				"shatabdi_nagar": { "sarai_kale_khan": 180, "new_ashok_nagar": 160, "anand_vihar": 140, "sahibabad": 130, "ghaziabad": 110, "guldhar": 100, "duhai": 90, "duhai_depot": 100, "murad_nagar": 70, "modi_nagar_south": 60, "modi_nagar_north": 50, "meerut_south": 30, "partapur": 20, "rithani": 20, "shatabdi_nagar": 0, "brahampuri": 20, "meerut_central": 20, "bhaisali": 20, "begumpul": 30, "mes_colony": 30, "daurli": 40, "meerut_north": 40, "modipuram": 50 },
+				"brahampuri": { "sarai_kale_khan": 190, "new_ashok_nagar": 170, "anand_vihar": 160, "sahibabad": 140, "ghaziabad": 120, "guldhar": 110, "duhai": 100, "duhai_depot": 110, "murad_nagar": 80, "modi_nagar_south": 70, "modi_nagar_north": 60, "meerut_south": 30, "partapur": 20, "rithani": 20, "shatabdi_nagar": 20, "brahampuri": 0, "meerut_central": 20, "bhaisali": 20, "begumpul": 20, "mes_colony": 30, "daurli": 30, "meerut_north": 30, "modipuram": 50 },
+				"meerut_central": { "sarai_kale_khan": 190, "new_ashok_nagar": 170, "anand_vihar": 160, "sahibabad": 140, "ghaziabad": 120, "guldhar": 110, "duhai": 100, "duhai_depot": 110, "murad_nagar": 80, "modi_nagar_south": 70, "modi_nagar_north": 60, "meerut_south": 30, "partapur": 30, "rithani": 20, "shatabdi_nagar": 20, "brahampuri": 20, "meerut_central": 0, "bhaisali": 20, "begumpul": 20, "mes_colony": 20, "daurli": 30, "meerut_north": 30, "modipuram": 40 },
+				"bhaisali": { "sarai_kale_khan": 200, "new_ashok_nagar": 180, "anand_vihar": 160, "sahibabad": 140, "ghaziabad": 120, "guldhar": 120, "duhai": 100, "duhai_depot": 110, "murad_nagar": 90, "modi_nagar_south": 70, "modi_nagar_north": 60, "meerut_south": 40, "partapur": 30, "rithani": 30, "shatabdi_nagar": 20, "brahampuri": 20, "meerut_central": 20, "bhaisali": 0, "begumpul": 20, "mes_colony": 20, "daurli": 20, "meerut_north": 30, "modipuram": 30 },
+				"begumpul": { "sarai_kale_khan": 200, "new_ashok_nagar": 180, "anand_vihar": 160, "sahibabad": 140, "ghaziabad": 120, "guldhar": 120, "duhai": 100, "duhai_depot": 110, "murad_nagar": 90, "modi_nagar_south": 70, "modi_nagar_north": 60, "meerut_south": 40, "partapur": 30, "rithani": 30, "shatabdi_nagar": 30, "brahampuri": 20, "meerut_central": 20, "bhaisali": 20, "begumpul": 0, "mes_colony": 20, "daurli": 20, "meerut_north": 30, "modipuram": 30 },
+				"mes_colony": { "sarai_kale_khan": 210, "new_ashok_nagar": 190, "anand_vihar": 170, "sahibabad": 160, "ghaziabad": 140, "guldhar": 130, "duhai": 120, "duhai_depot": 120, "murad_nagar": 100, "modi_nagar_south": 80, "modi_nagar_north": 70, "meerut_south": 50, "partapur": 40, "rithani": 30, "shatabdi_nagar": 30, "brahampuri": 30, "meerut_central": 20, "bhaisali": 20, "begumpul": 20, "mes_colony": 0, "daurli": 20, "meerut_north": 20, "modipuram": 30 },
+				"daurli": { "sarai_kale_khan": 210, "new_ashok_nagar": 200, "anand_vihar": 180, "sahibabad": 160, "ghaziabad": 140, "guldhar": 140, "duhai": 120, "duhai_depot": 130, "murad_nagar": 110, "modi_nagar_south": 90, "modi_nagar_north": 80, "meerut_south": 50, "partapur": 50, "rithani": 50, "shatabdi_nagar": 40, "brahampuri": 30, "meerut_central": 30, "bhaisali": 20, "begumpul": 20, "mes_colony": 20, "daurli": 0, "meerut_north": 20, "modipuram": 20 },
+				"meerut_north": { "sarai_kale_khan": 210, "new_ashok_nagar": 200, "anand_vihar": 180, "sahibabad": 160, "ghaziabad": 150, "guldhar": 140, "duhai": 120, "duhai_depot": 130, "murad_nagar": 110, "modi_nagar_south": 90, "modi_nagar_north": 80, "meerut_south": 50, "partapur": 50, "rithani": 50, "shatabdi_nagar": 40, "brahampuri": 30, "meerut_central": 30, "bhaisali": 30, "begumpul": 30, "mes_colony": 20, "daurli": 20, "meerut_north": 0, "modipuram": 20 },
+				"modipuram": { "sarai_kale_khan": 210, "new_ashok_nagar": 200, "anand_vihar": 180, "sahibabad": 160, "ghaziabad": 150, "guldhar": 140, "duhai": 120, "duhai_depot": 130, "murad_nagar": 110, "modi_nagar_south": 90, "modi_nagar_north": 80, "meerut_south": 60, "partapur": 50, "rithani": 50, "shatabdi_nagar": 50, "brahampuri": 50, "meerut_central": 40, "bhaisali": 30, "begumpul": 30, "mes_colony": 30, "daurli": 20, "meerut_north": 20, "modipuram": 0 }
+			},
+			"products": {
+				"standard_qr": {
+				"type": "base",
+				"label": { "en": "Standard Class Ticket", "hi": "स्टैंडर्ड क्लास टिकट" }
+				}
+			}
+			},
+			"ncrtc_premium": {
+			"network": "ncrtc",
+			"effectiveFrom": "2025-01-01",
+			"fareModel": "station_pair",
+			"calculation": {
+				"rounding": "exact"
+			},
+			"fareMatrix": {
+				"sarai_kale_khan": { "sarai_kale_khan": 0, "new_ashok_nagar": 35, "anand_vihar": 60, "sahibabad": 70, "ghaziabad": 95, "guldhar": 110, "duhai": 120, "duhai_depot": 130, "murad_nagar": 145, "modi_nagar_south": 170, "modi_nagar_north": 170, "meerut_south": 190, "partapur": 200, "rithani": 210, "shatabdi_nagar": 215, "brahampuri": 225, "meerut_central": 225, "bhaisali": 235, "begumpul": 240, "mes_colony": 250, "daurli": 250, "meerut_north": 250, "modipuram": 250 },
+				"new_ashok_nagar": { "sarai_kale_khan": 35, "new_ashok_nagar": 0, "anand_vihar": 35, "sahibabad": 60, "ghaziabad": 70, "guldhar": 85, "duhai": 95, "duhai_depot": 110, "murad_nagar": 120, "modi_nagar_south": 145, "modi_nagar_north": 155, "meerut_south": 180, "partapur": 190, "rithani": 190, "shatabdi_nagar": 190, "brahampuri": 200, "meerut_central": 200, "bhaisali": 210, "begumpul": 215, "mes_colony": 225, "daurli": 235, "meerut_north": 235, "modipuram": 240 },
+				"anand_vihar": { "sarai_kale_khan": 60, "new_ashok_nagar": 35, "anand_vihar": 0, "sahibabad": 35, "ghaziabad": 50, "guldhar": 60, "duhai": 70, "duhai_depot": 85, "murad_nagar": 95, "modi_nagar_south": 110, "modi_nagar_north": 120, "meerut_south": 155, "partapur": 165, "rithani": 165, "shatabdi_nagar": 170, "brahampuri": 190, "meerut_central": 190, "bhaisali": 190, "begumpul": 190, "mes_colony": 200, "daurli": 210, "meerut_north": 210, "modipuram": 215 },
+				"sahibabad": { "sarai_kale_khan": 70, "new_ashok_nagar": 60, "anand_vihar": 35, "sahibabad": 0, "ghaziabad": 35, "guldhar": 35, "duhai": 50, "duhai_depot": 60, "murad_nagar": 70, "modi_nagar_south": 95, "modi_nagar_north": 110, "meerut_south": 130, "partapur": 140, "rithani": 150, "shatabdi_nagar": 155, "brahampuri": 165, "meerut_central": 165, "bhaisali": 165, "begumpul": 170, "mes_colony": 190, "daurli": 190, "meerut_north": 190, "modipuram": 190 },
+				"ghaziabad": { "sarai_kale_khan": 95, "new_ashok_nagar": 70, "anand_vihar": 50, "sahibabad": 35, "ghaziabad": 0, "guldhar": 25, "duhai": 35, "duhai_depot": 35, "murad_nagar": 50, "modi_nagar_south": 70, "modi_nagar_north": 95, "meerut_south": 110, "partapur": 120, "rithani": 130, "shatabdi_nagar": 130, "brahampuri": 140, "meerut_central": 140, "bhaisali": 140, "begumpul": 145, "mes_colony": 165, "daurli": 165, "meerut_north": 175, "modipuram": 180 },
+				"guldhar": { "sarai_kale_khan": 110, "new_ashok_nagar": 85, "anand_vihar": 60, "sahibabad": 35, "ghaziabad": 25, "guldhar": 0, "duhai": 25, "duhai_depot": 35, "murad_nagar": 35, "modi_nagar_south": 60, "modi_nagar_north": 70, "meerut_south": 95, "partapur": 115, "rithani": 115, "shatabdi_nagar": 120, "brahampuri": 130, "meerut_central": 130, "bhaisali": 140, "begumpul": 145, "mes_colony": 155, "daurli": 165, "meerut_north": 165, "modipuram": 170 },
+				"duhai": { "sarai_kale_khan": 120, "new_ashok_nagar": 95, "anand_vihar": 70, "sahibabad": 50, "ghaziabad": 35, "guldhar": 25, "duhai": 0, "duhai_depot": 25, "murad_nagar": 25, "modi_nagar_south": 50, "modi_nagar_north": 60, "meerut_south": 85, "partapur": 95, "rithani": 105, "shatabdi_nagar": 110, "brahampuri": 120, "meerut_central": 120, "bhaisali": 120, "begumpul": 120, "mes_colony": 140, "daurli": 140, "meerut_north": 140, "modipuram": 145 },
+				"duhai_depot": { "sarai_kale_khan": 130, "new_ashok_nagar": 110, "anand_vihar": 85, "sahibabad": 60, "ghaziabad": 35, "guldhar": 35, "duhai": 25, "duhai_depot": 0, "murad_nagar": 35, "modi_nagar_south": 50, "modi_nagar_north": 70, "meerut_south": 95, "partapur": 105, "rithani": 115, "shatabdi_nagar": 120, "brahampuri": 130, "meerut_central": 130, "bhaisali": 130, "begumpul": 130, "mes_colony": 140, "daurli": 150, "meerut_north": 150, "modipuram": 155 },
+				"murad_nagar": { "sarai_kale_khan": 145, "new_ashok_nagar": 120, "anand_vihar": 95, "sahibabad": 70, "ghaziabad": 50, "guldhar": 35, "duhai": 25, "duhai_depot": 35, "murad_nagar": 0, "modi_nagar_south": 25, "modi_nagar_north": 35, "meerut_south": 70, "partapur": 80, "rithani": 80, "shatabdi_nagar": 85, "brahampuri": 95, "meerut_central": 95, "bhaisali": 105, "begumpul": 110, "mes_colony": 120, "daurli": 130, "meerut_north": 130, "modipuram": 130 },
+				"modi_nagar_south": { "sarai_kale_khan": 170, "new_ashok_nagar": 145, "anand_vihar": 110, "sahibabad": 95, "ghaziabad": 70, "guldhar": 60, "duhai": 50, "duhai_depot": 50, "murad_nagar": 25, "modi_nagar_south": 0, "modi_nagar_north": 25, "meerut_south": 50, "partapur": 60, "rithani": 70, "shatabdi_nagar": 70, "brahampuri": 80, "meerut_central": 80, "bhaisali": 80, "begumpul": 85, "mes_colony": 95, "daurli": 105, "meerut_north": 105, "modipuram": 110 },
+				"modi_nagar_north": { "sarai_kale_khan": 170, "new_ashok_nagar": 155, "anand_vihar": 120, "sahibabad": 110, "ghaziabad": 95, "guldhar": 70, "duhai": 60, "duhai_depot": 70, "murad_nagar": 35, "modi_nagar_south": 25, "modi_nagar_north": 0, "meerut_south": 35, "partapur": 45, "rithani": 55, "shatabdi_nagar": 60, "brahampuri": 70, "meerut_central": 70, "bhaisali": 70, "begumpul": 70, "mes_colony": 80, "daurli": 90, "meerut_north": 90, "modipuram": 95 },
+				"meerut_south": { "sarai_kale_khan": 190, "new_ashok_nagar": 180, "anand_vihar": 155, "sahibabad": 130, "ghaziabad": 110, "guldhar": 95, "duhai": 85, "duhai_depot": 95, "murad_nagar": 70, "modi_nagar_south": 50, "modi_nagar_north": 35, "meerut_south": 0, "partapur": 45, "rithani": 45, "shatabdi_nagar": 35, "brahampuri": 35, "meerut_central": 35, "bhaisali": 45, "begumpul": 50, "mes_colony": 60, "daurli": 60, "meerut_north": 60, "modipuram": 70 },
+				"partapur": { "sarai_kale_khan": 200, "new_ashok_nagar": 190, "anand_vihar": 165, "sahibabad": 140, "ghaziabad": 120, "guldhar": 115, "duhai": 95, "duhai_depot": 105, "murad_nagar": 80, "modi_nagar_south": 60, "modi_nagar_north": 45, "meerut_south": 45, "partapur": 0, "rithani": 20, "shatabdi_nagar": 45, "brahampuri": 20, "meerut_central": 30, "bhaisali": 30, "begumpul": 35, "mes_colony": 45, "daurli": 55, "meerut_north": 55, "modipuram": 60 },
+				"rithani": { "sarai_kale_khan": 210, "new_ashok_nagar": 190, "anand_vihar": 165, "sahibabad": 150, "ghaziabad": 130, "guldhar": 115, "duhai": 105, "duhai_depot": 115, "murad_nagar": 80, "modi_nagar_south": 70, "modi_nagar_north": 55, "meerut_south": 45, "partapur": 20, "rithani": 0, "shatabdi_nagar": 45, "brahampuri": 20, "meerut_central": 20, "bhaisali": 30, "begumpul": 35, "mes_colony": 35, "daurli": 55, "meerut_north": 55, "modipuram": 60 },
+				"shatabdi_nagar": { "sarai_kale_khan": 215, "new_ashok_nagar": 190, "anand_vihar": 170, "sahibabad": 155, "ghaziabad": 130, "guldhar": 120, "duhai": 110, "duhai_depot": 120, "murad_nagar": 85, "modi_nagar_south": 70, "modi_nagar_north": 60, "meerut_south": 35, "partapur": 45, "rithani": 45, "shatabdi_nagar": 0, "brahampuri": 45, "meerut_central": 45, "bhaisali": 45, "begumpul": 35, "mes_colony": 35, "daurli": 45, "meerut_north": 45, "modipuram": 60 },
+				"brahampuri": { "sarai_kale_khan": 225, "new_ashok_nagar": 200, "anand_vihar": 190, "sahibabad": 165, "ghaziabad": 140, "guldhar": 130, "duhai": 120, "duhai_depot": 130, "murad_nagar": 95, "modi_nagar_south": 80, "modi_nagar_north": 70, "meerut_south": 35, "partapur": 20, "rithani": 20, "shatabdi_nagar": 45, "brahampuri": 0, "meerut_central": 20, "bhaisali": 20, "begumpul": 45, "mes_colony": 30, "daurli": 30, "meerut_north": 30, "modipuram": 55 },
+				"meerut_central": { "sarai_kale_khan": 225, "new_ashok_nagar": 200, "anand_vihar": 190, "sahibabad": 165, "ghaziabad": 140, "guldhar": 130, "duhai": 120, "duhai_depot": 130, "murad_nagar": 95, "modi_nagar_south": 80, "modi_nagar_north": 70, "meerut_south": 35, "partapur": 30, "rithani": 20, "shatabdi_nagar": 45, "brahampuri": 20, "meerut_central": 0, "bhaisali": 20, "begumpul": 45, "mes_colony": 20, "daurli": 30, "meerut_north": 30, "modipuram": 45 },
+				"bhaisali": { "sarai_kale_khan": 235, "new_ashok_nagar": 210, "anand_vihar": 190, "sahibabad": 165, "ghaziabad": 140, "guldhar": 140, "duhai": 120, "duhai_depot": 130, "murad_nagar": 105, "modi_nagar_south": 80, "modi_nagar_north": 70, "meerut_south": 45, "partapur": 30, "rithani": 30, "shatabdi_nagar": 45, "brahampuri": 20, "meerut_central": 20, "bhaisali": 0, "begumpul": 45, "mes_colony": 20, "daurli": 20, "meerut_north": 30, "modipuram": 35 },
+				"begumpul": { "sarai_kale_khan": 240, "new_ashok_nagar": 215, "anand_vihar": 190, "sahibabad": 170, "ghaziabad": 145, "guldhar": 145, "duhai": 120, "duhai_depot": 130, "murad_nagar": 110, "modi_nagar_south": 85, "modi_nagar_north": 70, "meerut_south": 50, "partapur": 35, "rithani": 35, "shatabdi_nagar": 35, "brahampuri": 45, "meerut_central": 45, "bhaisali": 45, "begumpul": 0, "mes_colony": 45, "daurli": 45, "meerut_north": 55, "modipuram": 35 },
+				"mes_colony": { "sarai_kale_khan": 250, "new_ashok_nagar": 225, "anand_vihar": 200, "sahibabad": 190, "ghaziabad": 165, "guldhar": 155, "duhai": 140, "duhai_depot": 140, "murad_nagar": 120, "modi_nagar_south": 95, "modi_nagar_north": 80, "meerut_south": 60, "partapur": 45, "rithani": 35, "shatabdi_nagar": 35, "brahampuri": 30, "meerut_central": 20, "bhaisali": 20, "begumpul": 45, "mes_colony": 0, "daurli": 20, "meerut_north": 20, "modipuram": 55 },
+				"daurli": { "sarai_kale_khan": 250, "new_ashok_nagar": 235, "anand_vihar": 210, "sahibabad": 190, "ghaziabad": 165, "guldhar": 165, "duhai": 140, "duhai_depot": 150, "murad_nagar": 130, "modi_nagar_south": 105, "modi_nagar_north": 90, "meerut_south": 60, "partapur": 55, "rithani": 55, "shatabdi_nagar": 45, "brahampuri": 30, "meerut_central": 30, "bhaisali": 20, "begumpul": 45, "mes_colony": 20, "daurli": 0, "meerut_north": 20, "modipuram": 45 },
+				"meerut_north": { "sarai_kale_khan": 250, "new_ashok_nagar": 235, "anand_vihar": 210, "sahibabad": 190, "ghaziabad": 175, "guldhar": 165, "duhai": 140, "duhai_depot": 150, "murad_nagar": 130, "modi_nagar_south": 105, "modi_nagar_north": 90, "meerut_south": 60, "partapur": 55, "rithani": 55, "shatabdi_nagar": 45, "brahampuri": 30, "meerut_central": 30, "bhaisali": 30, "begumpul": 55, "mes_colony": 20, "daurli": 20, "meerut_north": 0, "modipuram": 45 },
+				"modipuram": { "sarai_kale_khan": 250, "new_ashok_nagar": 240, "anand_vihar": 215, "sahibabad": 190, "ghaziabad": 180, "guldhar": 170, "duhai": 145, "duhai_depot": 155, "murad_nagar": 130, "modi_nagar_south": 110, "modi_nagar_north": 95, "meerut_south": 70, "partapur": 60, "rithani": 60, "shatabdi_nagar": 60, "brahampuri": 55, "meerut_central": 45, "bhaisali": 35, "begumpul": 35, "mes_colony": 55, "daurli": 45, "meerut_north": 45, "modipuram": 0 }
+			},
+			"products": {
+				"premium_qr": {
+				"type": "base",
+				"label": { "en": "Premium Class Ticket", "hi": "प्रीमियम क्लास टिकट" }
+				}
+			}
 			}
 		}
 	},
@@ -390,6 +473,40 @@
 			"stations": ["sector_55_66", "sector_54_chowk", "sector_53_54", "sector_42_43", "dlf_phase_1", "sikandarpur", "dlf_phase_2", "belvedere_towers", "cyber_city", "moulsari_avenue", "dlf_phase_3"],
 			"farePolicy": "rapid_metro_standard",
 			"name": {"en": "Rapid Metro (Gurugram) - Sector 55-56 to Phase-3", "hi": "रैपिड मेट्रो (गुरुग्राम) - सेक्टर 55-56 से फेज-3"}
+		},
+		"ncrtc.delhi_meerut_rrts": {
+			"id": "ncrtc.delhi_meerut_rrts",
+			"network": "ncrtc",
+			"operator": "ncrtc",
+			"label": "RRTS",
+			"short_name": { "en": "Namo Bharat", "hi": "नमो भारत" },
+			"color": "#E31E24",
+			"color_name": "red",
+			"style": "solid",
+			"route": { "from": "jangpura", "to": "modipuram" },
+			"stations": [ "jangpura", "sarai_kale_khan", "new_ashok_nagar", "anand_vihar", "sahibabad", "ghaziabad", "guldhar", "duhai", "duhai_depot", "murad_nagar", "modi_nagar_south", "modi_nagar_north", "meerut_south", "shatabdi_nagar", "begumpul", "modipuram" ],
+			"farePolicy": "ncrtc_standard",
+			"name": {
+				"en": "Delhi–Ghaziabad–Meerut Namo Bharat",
+				"hi": "दिल्ली–गाज़ियाबाद–मेरठ नमो भारत"
+			}
+		},
+		"ncrtc.meerut_metro": {
+			"id": "ncrtc.meerut_metro",
+			"network": "ncrtc",
+			"operator": "ncrtc",
+			"label": "MRTS",
+			"short_name": {
+				"en": "Meerut Metro",
+				"hi": "मेरठ मेट्रो"
+			},
+			"color": "#0072BC",
+			"color_name": "blue",
+			"style": "solid",
+			"route": { "from": "meerut_south", "to": "modipuram" },
+			"stations": [ "meerut_south", "partapur", "rithani", "shatabdi_nagar", "brahampuri", "meerut_central", "bhaisali", "begumpul", "mes_colony", "daurli", "meerut_north", "modipuram" ],
+			"farePolicy": "ncrtc_standard",
+			"name": { "en": "Meerut Metro - Meerut South to Modipuram", "hi": "मेरठ मेट्रो - मेरठ साउथ से मोदीपुरम" }
 		}
 	},
 	"stationData": {
@@ -3138,7 +3255,7 @@
 		"anand_vihar": {
 			"id": "anand_vihar",
 			"name": {"en": "Anand Vihar", "hi": "आनंद विहार"},
-			"lines": ["dmrc.blue_vaishali", "dmrc.pink"],
+			"lines": ["dmrc.blue_vaishali", "dmrc.pink", "ncrtc.delhi_meerut_rrts"],
 			"properties": {
 				"layout": "elevated",
 				"station_type": "interchange",
@@ -3154,7 +3271,9 @@
 				{"station": "karkar_duma", "line": "dmrc.blue_vaishali", "distance": 1182},
 				{"station": "kaushambi", "line": "dmrc.blue_vaishali", "distance": 633},
 				{"station": "karkar_duma", "line": "dmrc.pink", "distance": 1182},
-				{"station": "ip_extension", "line": "dmrc.pink", "distance": 2126}
+				{"station": "ip_extension", "line": "dmrc.pink", "distance": 2126},
+				{"station": "new_ashok_nagar", "line": "ncrtc.delhi_meerut_rrts", "distance": 6591},
+				{"station": "sahibabad", "line": "ncrtc.delhi_meerut_rrts", "distance": 5410}
 			],
 			"location": {
 				"decimal": {"lat": 28.646753, "lon": 77.318004},
@@ -5402,10 +5521,10 @@
 		"new_ashok_nagar": {
 			"id": "new_ashok_nagar",
 			"name": {"en": "New Ashok Nagar", "hi": "नई अशोक नगर"},
-			"lines": ["dmrc.blue_main"],
+			"lines": ["dmrc.blue_main", "ncrtc.delhi_meerut_rrts"],
 			"properties": {
 				"layout": "elevated",
-				"station_type": "normal",
+				"station_type": "interchange",
 				"status": "operational"
 			},
 			"platforms": {
@@ -5414,7 +5533,9 @@
 			},
 			"neighbors": [
 				{"station": "mayur_vihar_extention", "line": "dmrc.blue_main", "distance": 915},
-				{"station": "noida_sector_15", "line": "dmrc.blue_main", "distance": 1017}
+				{"station": "noida_sector_15", "line": "dmrc.blue_main", "distance": 1017},
+				{"station": "sarai_kale_khan", "line": "ncrtc.delhi_meerut_rrts", "distance": 4529},
+				{"station": "anand_vihar", "line": "ncrtc.delhi_meerut_rrts", "distance": 6591}
 			],
 			"location": {
 				"decimal": {"lat": 28.58916, "lon": 77.30204},

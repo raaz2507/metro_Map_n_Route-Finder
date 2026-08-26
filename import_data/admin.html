@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-font-size="normal">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Metro Network Audit & Admin Dashboard</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+		body { font-family: 'Inter', sans-serif; transition: background-color 0.2s ease, color 0.2s ease, font-size 0.15s ease; }
+		pre { font-family: 'Courier New', Courier, monospace; }
+		.custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+		.custom-scrollbar::-webkit-scrollbar-track { background: var(--bg-scroll-track, #0f172a); }
+		.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--bg-scroll-thumb, #334155); border-radius: 3px; }
+
+		/* ========================================================================= */
+		/* DYNAMIC FONT SIZE SCALING ENGINE                                          */
+		/* ========================================================================= */
+		html[data-font-size="small"] { font-size: 14px; }
+		html[data-font-size="normal"] { font-size: 16px; }
+		html[data-font-size="large"] { font-size: 18px; }
+
+		/* ========================================================================= */
+		/* 4 THEME PALETTES ENGINE (DARK, LIGHT, SPA, B/W)                           */
+		/* ========================================================================= */
+		:root, [data-theme="dark"] {
+			--bg-page: #020617;
+			--bg-sidebar: #0f172a;
+			--bg-header: rgba(15, 23, 42, 0.85);
+			--bg-card: #0f172a;
+			--bg-surface: #020617;
+			--bg-inset: rgba(2, 6, 23, 0.6);
+			--text-main: #f8fafc;
+			--text-muted: #94a3b8;
+			--text-sub: #64748b;
+			--border-subtle: #1e293b;
+			--border-card: #1e293b;
+			--accent: #6366f1;
+			--accent-hover: #4f46e5;
+			--accent-text: #818cf8;
+			--bg-scroll-track: #0f172a;
+			--bg-scroll-thumb: #334155;
+		}
+
+		[data-theme="light"] {
+			--bg-page: #f1f5f9;
+			--bg-sidebar: #ffffff;
+			--bg-header: rgba(255, 255, 255, 0.9);
+			--bg-card: #ffffff;
+			--bg-surface: #f8fafc;
+			--bg-inset: #f1f5f9;
+			--text-main: #0f172a;
+			--text-muted: #475569;
+			--text-sub: #94a3b8;
+			--border-subtle: #e2e8f0;
+			--border-card: #cbd5e1;
+			--accent: #4f46e5;
+			--accent-hover: #4338ca;
+			--accent-text: #4f46e5;
+			--bg-scroll-track: #f1f5f9;
+			--bg-scroll-thumb: #cbd5e1;
+		}
+
+		[data-theme="spa"] {
+			--bg-page: #031c1f;
+			--bg-sidebar: #062b30;
+			--bg-header: rgba(6, 43, 48, 0.9);
+			--bg-card: #062b30;
+			--bg-surface: #031c1f;
+			--bg-inset: rgba(3, 28, 31, 0.7);
+			--text-main: #f0fdfa;
+			--text-muted: #99f6e4;
+			--text-sub: #5eead4;
+			--border-subtle: #0f4c54;
+			--border-card: #0f4c54;
+			--accent: #0d9488;
+			--accent-hover: #0f766e;
+			--accent-text: #2dd4bf;
+			--bg-scroll-track: #031c1f;
+			--bg-scroll-thumb: #0f4c54;
+		}
+
+		[data-theme="bw"] {
+			--bg-page: #000000;
+			--bg-sidebar: #050505;
+			--bg-header: rgba(0, 0, 0, 0.95);
+			--bg-card: #0a0a0a;
+			--bg-surface: #000000;
+			--bg-inset: #050505;
+			--text-main: #ffffff;
+			--text-muted: #d4d4d4;
+			--text-sub: #a3a3a3;
+			--border-subtle: #262626;
+			--border-card: #333333;
+			--accent: #ffffff;
+			--accent-hover: #e5e5e5;
+			--accent-text: #ffffff;
+			--bg-scroll-track: #000000;
+			--bg-scroll-thumb: #262626;
+		}
+
+		/* CSS Application Utility Classes */
+		.theme-bg-page { background-color: var(--bg-page); }
+		.theme-bg-sidebar { background-color: var(--bg-sidebar); }
+		.theme-bg-header { background-color: var(--bg-header); }
+		.theme-bg-card { background-color: var(--bg-card); }
+		.theme-bg-surface { background-color: var(--bg-surface); }
+		.theme-bg-inset { background-color: var(--bg-inset); }
+		.theme-text-main { color: var(--text-main); }
+		.theme-text-muted { color: var(--text-muted); }
+		.theme-text-sub { color: var(--text-sub); }
+		.theme-border { border-color: var(--border-subtle); }
+		.theme-border-card { border-color: var(--border-card); }
+
+		.theme-pill-active, .pref-pill-active {
+			background-color: var(--accent) !important;
+			color: #ffffff !important;
+			border-color: var(--accent) !important;
+		}
+
+		.stage-tab-active {
+			background-color: var(--accent) !important;
+			color: #ffffff !important;
+			border-color: var(--accent) !important;
+			box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+		}
+	</style>
+</head>
+<body class="theme-bg-page theme-text-main min-h-screen flex flex-col md:flex-row antialiased">
+
+	<!-- MOBILE HEADER -->
+	<header class="md:hidden border-b theme-border theme-bg-header backdrop-blur px-4 py-3 flex items-center justify-between sticky top-0 z-30">
+		<div class="flex items-center space-x-3">
+			<div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shadow-md shadow-indigo-600/30">
+				<i class="fa-solid fa-code-merge text-sm"></i>
+			</div>
+			<span class="font-bold text-sm tracking-tight theme-text-main">Metro Audit Hub</span>
+		</div>
+		<button id="mobileMenuBtn" class="theme-text-muted hover:theme-text-main p-2 rounded-lg" aria-label="Toggle navigation menu">
+			<i class="fa-solid fa-bars text-lg"></i>
+		</button>
+	</header>
+
+	<!-- LEFT SIDEBAR NAVIGATION -->
+	<aside id="sidebar" class="fixed md:sticky top-0 left-0 z-40 h-screen w-84 theme-bg-sidebar border-r theme-border flex flex-col justify-between transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0 shadow-2xl md:shadow-none">
+		
+		<!-- BRAND HEADER -->
+		<div class="p-4 border-b theme-border flex items-center justify-between">
+			<div class="flex items-center space-x-3">
+				<div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25">
+					<i class="fa-solid fa-code-merge text-base"></i>
+				</div>
+				<div>
+					<h1 class="text-sm font-bold tracking-tight theme-text-main flex items-center gap-1.5">
+						<span>Metro Audit Hub</span>
+						<span class="px-1.5 py-0.2 text-[9px] font-bold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded">v4.5</span>
+					</h1>
+					<p class="text-[10px] theme-text-muted" data-i18n="sidebar_subtitle">Universal Pipeline Engine</p>
+				</div>
+			</div>
+			<button id="closeSidebarBtn" class="md:hidden theme-text-muted hover:theme-text-main p-1.5 rounded-lg border theme-border" aria-label="Close sidebar">
+				<i class="fa-solid fa-xmark text-sm"></i>
+			</button>
+		</div>
+
+		<!-- TOP GLOBAL SYNC & 3-COLUMN STAGE METRICS (TOP PLACEMENT) -->
+		<div class="p-3 border-b theme-border theme-bg-inset space-y-2.5">
+			
+			<!-- Sync Button -->
+			<button id="globalSyncBtn" class="w-full bg-indigo-600 hover:bg-indigo-500 active:scale-[0.98] disabled:opacity-50 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-indigo-600/20 flex items-center justify-center space-x-2 group">
+				<i id="globalSyncIcon" class="fa-solid fa-arrows-rotate text-indigo-200 group-hover:rotate-180 transition-transform duration-500"></i>
+				<span id="globalSyncText" data-i18n="sync_all_btn">Sync All Networks</span>
+			</button>
+
+			<!-- COLORFUL 3-COLUMN STAGE METRICS COUNTER GRID (DYNAMIC) -->
+			<div class="grid grid-cols-3 gap-1.5 text-center pt-0.5">
+				
+				<!-- STAGE 3 COUNTER (EMERALD) -->
+				<div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-2 transition-transform hover:scale-105" title="Stage 3: Master Structured (Supervised)">
+					<div class="flex items-center justify-center space-x-1 mb-0.5">
+						<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+						<span class="text-[9px] font-extrabold text-emerald-400 uppercase tracking-tight">Stage 3</span>
+					</div>
+					<div id="countStage3Nets" class="text-xs font-extrabold text-emerald-400 font-mono">0 Nets</div>
+					<div id="countStage3Stns" class="text-[9px] text-emerald-400/80 font-mono mt-0.5">0 Stns</div>
+				</div>
+
+				<!-- STAGE 2 COUNTER (AMBER) -->
+				<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-2 transition-transform hover:scale-105" title="Stage 2: Basic Cleaned (Awaiting Supervision)">
+					<div class="flex items-center justify-center space-x-1 mb-0.5">
+						<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+						<span class="text-[9px] font-extrabold text-amber-400 uppercase tracking-tight">Stage 2</span>
+					</div>
+					<div id="countStage2Nets" class="text-xs font-extrabold text-amber-400 font-mono">0 Nets</div>
+					<div id="countStage2Stns" class="text-[9px] text-amber-400/80 font-mono mt-0.5">0 Stns</div>
+				</div>
+
+				<!-- STAGE 1 COUNTER (ROSE) -->
+				<div class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-2 transition-transform hover:scale-105" title="Stage 1: Pending Raw Scraping / Missing">
+					<div class="flex items-center justify-center space-x-1 mb-0.5">
+						<span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+						<span class="text-[9px] font-extrabold text-rose-400 uppercase tracking-tight">Stage 1</span>
+					</div>
+					<div id="countStage1Nets" class="text-xs font-extrabold text-rose-400 font-mono">0 Nets</div>
+					<div id="countStage1Stns" class="text-[9px] text-rose-400/80 font-mono mt-0.5">0 Stns</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- NETWORKS LIST (MIDDLE SECTION) -->
+		<div class="flex-1 overflow-y-auto p-3 space-y-2 custom-scrollbar">
+			<div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider theme-text-sub px-2">
+				<span data-i18n="sidebar_networks_title">Transit Networks</span>
+				<span id="sidebarNetworkCount" class="font-mono text-indigo-400">4 Active</span>
+			</div>
+			
+			<div id="networkNavList" class="space-y-1.5">
+				<!-- Dynamically Injected by SidebarNavigationComponent -->
+			</div>
+		</div>
+
+		<!-- BOTTOM DETAILED STAGE GUIDE & NETWORK STATS SUMMARY -->
+		<div class="p-3 border-t theme-border theme-bg-inset space-y-2.5">
+			
+			<!-- Total Scope Summary Pill -->
+			<div class="theme-bg-card border theme-border rounded-xl p-2 flex items-center justify-between shadow-sm">
+				<div class="flex items-center space-x-2">
+					<div class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></div>
+					<span class="text-[10px] font-bold theme-text-main" data-i18n="audit_scope_total">Audit Scope Total</span>
+				</div>
+				<span id="sidebarTotalStationSum" class="text-xs font-extrabold text-indigo-400 font-mono">0 Stations</span>
+			</div>
+
+			<!-- Detailed 3-Stage Explanation Guide -->
+			<div class="space-y-1 text-[10px]">
+				<div class="theme-bg-card border theme-border rounded-lg p-1.5 space-y-0.5">
+					<div class="flex items-center space-x-1.5">
+						<span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0 animate-pulse"></span>
+						<span class="font-bold text-emerald-400">Stage 3: Master Structured</span>
+					</div>
+					<p class="text-[9px] theme-text-muted leading-tight pl-3.5" data-i18n="stage_3_desc">Supervised verified schema ({net}_master.json).</p>
+				</div>
+
+				<div class="theme-bg-card border theme-border rounded-lg p-1.5 space-y-0.5">
+					<div class="flex items-center space-x-1.5">
+						<span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span>
+						<span class="font-bold text-amber-400">Stage 2: Basic Cleaned</span>
+					</div>
+					<p class="text-[9px] theme-text-muted leading-tight pl-3.5" data-i18n="stage_2_desc">Scraped & deduplicated ({net}_cleaned.json).</p>
+				</div>
+
+				<div class="theme-bg-card border theme-border rounded-lg p-1.5 space-y-0.5">
+					<div class="flex items-center space-x-1.5">
+						<span class="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0"></span>
+						<span class="font-bold text-rose-400">Stage 1: Raw Intake</span>
+					</div>
+					<p class="text-[9px] theme-text-muted leading-tight pl-3.5" data-i18n="stage_1_desc">Greedy scraped raw data ({net}_raw.json).</p>
+				</div>
+			</div>
+
+			<div class="text-[10px] theme-text-sub text-center font-mono pt-0.5 border-t theme-border" id="sidebarSyncTime">
+				Sync: Just now
+			</div>
+		</div>
+	</aside>
+
+	<!-- MOBILE BACKDROP OVERLAY -->
+	<div id="mobileBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-30 hidden md:hidden"></div>
+
+	<!-- MAIN CONTENT AREA -->
+	<div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+
+		<!-- TOP METRICS STATS HEADER (FULL WIDTH) -->
+		<div class="theme-bg-header border-b theme-border px-4 sm:px-8 py-5">
+			<div class="w-full space-y-4">
+				
+				<!-- ROW 1: NETWORK TITLE & TOP-RIGHT PREFERENCES CAPSULE + OFFICIAL SITE -->
+				<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+					
+					<!-- Left: Network Info -->
+					<div>
+						<div class="flex items-center gap-2 mb-1">
+							<span id="headerPipelineStageBadge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold theme-bg-inset theme-text-muted border theme-border">
+								Loading Pipeline Stage...
+							</span>
+							<span class="text-xs theme-text-sub">•</span>
+							<span class="text-xs theme-text-muted font-mono" id="headerStateLabel">Transit Network</span>
+						</div>
+
+						<h2 class="text-xl sm:text-2xl font-extrabold theme-text-main tracking-tight flex items-center gap-2.5">
+							<span id="headerNetworkIcon">🚄</span>
+							<span id="headerNetworkName">Transit Network</span>
+						</h2>
+						<p class="text-xs theme-text-muted mt-0.5" id="headerNetworkSub">Mass Rapid Transit System</p>
+					</div>
+
+					<!-- Right: Unified Preferences Capsule (Lang + Size + Theme) + Official Site -->
+					<div class="flex flex-wrap items-center gap-2.5">
+						
+						<!-- UNIFIED PREFERENCES CAPSULE CONTAINER -->
+						<div class="flex items-center p-1 rounded-xl theme-bg-card border theme-border-card shadow-sm space-x-1.5 flex-wrap gap-y-1">
+							
+							<!-- 1. Admin UI Language Selector (EN / HI) -->
+							<div class="flex items-center p-0.5 rounded-lg theme-bg-inset border theme-border space-x-0.5" title="Admin UI Language">
+								<span class="text-[10px] font-bold theme-text-sub px-1.5 flex items-center gap-1">
+									<i class="fa-solid fa-globe text-[9px] text-indigo-400"></i>
+									<span class="hidden sm:inline">UI:</span>
+								</span>
+								<button data-set-lang="en" class="lang-select-btn px-2 py-0.5 rounded text-[11px] font-bold theme-text-muted hover:theme-text-main transition-all">EN</button>
+								<button data-set-lang="hi" class="lang-select-btn px-2 py-0.5 rounded text-[11px] font-bold theme-text-muted hover:theme-text-main transition-all">HI</button>
+							</div>
+
+							<!-- 2. Font Size Selector -->
+							<div class="flex items-center p-0.5 rounded-lg theme-bg-inset border theme-border space-x-0.5" title="Font Size">
+								<span class="text-[10px] font-bold theme-text-sub px-1.5 flex items-center gap-1">
+									<i class="fa-solid fa-font text-[9px] text-indigo-400"></i>
+									<span class="hidden sm:inline" data-i18n="size_label">Size:</span>
+								</span>
+								<button data-set-font="small" class="font-select-btn px-2 py-0.5 rounded text-[10px] font-bold theme-text-muted hover:theme-text-main transition-all" title="Small (14px)">A-</button>
+								<button data-set-font="normal" class="font-select-btn px-2 py-0.5 rounded text-[11px] font-bold theme-text-muted hover:theme-text-main transition-all" title="Default (16px)">A</button>
+								<button data-set-font="large" class="font-select-btn px-2 py-0.5 rounded text-[13px] font-bold theme-text-muted hover:theme-text-main transition-all" title="Large (18px)">A+</button>
+							</div>
+
+							<!-- 3. Theme Switcher -->
+							<div class="flex items-center p-0.5 rounded-lg theme-bg-inset border theme-border space-x-0.5" title="Color Theme">
+								<span class="text-[10px] font-bold theme-text-sub px-1.5 flex items-center gap-1">
+									<i class="fa-solid fa-palette text-[9px] text-indigo-400"></i>
+									<span class="hidden sm:inline" data-i18n="theme_label">Theme:</span>
+								</span>
+								<button data-set-theme="dark" class="theme-select-btn px-2 py-0.5 rounded text-[11px] font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1" title="Dark Theme">
+									<span>🌙</span><span class="hidden sm:inline text-[10px]">Dark</span>
+								</button>
+								<button data-set-theme="light" class="theme-select-btn px-2 py-0.5 rounded text-[11px] font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1" title="Light Theme">
+									<span>☀️</span><span class="hidden sm:inline text-[10px]">Light</span>
+								</button>
+								<button data-set-theme="spa" class="theme-select-btn px-2 py-0.5 rounded text-[11px] font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1" title="Spa Theme">
+									<span>🌿</span><span class="hidden sm:inline text-[10px]">Spa</span>
+								</button>
+								<button data-set-theme="bw" class="theme-select-btn px-2 py-0.5 rounded text-[11px] font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1" title="B/W Theme">
+									<span>🖤</span><span class="hidden sm:inline text-[10px]">B/W</span>
+								</button>
+							</div>
+
+						</div>
+
+						<!-- Official Source Website Link -->
+						<a id="headerSourceLink" href="#" target="_blank" class="bg-indigo-600/15 hover:bg-indigo-600/25 border border-indigo-500/30 text-indigo-400 text-xs font-semibold px-3.5 py-2.5 rounded-xl transition-all flex items-center justify-center space-x-1.5 shadow-sm group whitespace-nowrap">
+							<i class="fa-solid fa-arrow-up-right-from-square text-[11px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+							<span data-i18n="official_site_btn">Official Site</span>
+						</a>
+
+					</div>
+
+				</div>
+
+				<!-- ROW 2: SYMMETRICAL PIPELINE CONTROL BAR (VIEWING STAGE & PIPELINE ACTIONS) -->
+				<div class="p-3 rounded-2xl theme-bg-card border theme-border shadow-sm flex flex-wrap items-center justify-between gap-3">
+					
+					<!-- LEFT: UNIFIED VIEWING STAGE INSET CONTAINER -->
+					<div class="flex items-center p-1 rounded-xl theme-bg-inset border theme-border space-x-1.5 flex-wrap sm:flex-nowrap">
+						<span class="text-[10px] font-bold uppercase tracking-wider theme-text-sub px-2 whitespace-nowrap" data-i18n="viewing_stage_label">Viewing Stage:</span>
+						
+						<!-- Tab 1: Raw -->
+						<button data-view-stage="raw" class="stage-view-tab px-3 py-1.5 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1.5 whitespace-nowrap">
+							<span class="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0"></span>
+							<span data-i18n="stage_1_tab">1. Raw</span>
+							<span id="tabRawCount" class="text-[10px] font-mono px-1.5 py-0.2 rounded theme-bg-card theme-text-sub ml-0.5">0</span>
+						</button>
+
+						<!-- Tab 2: Cleaned -->
+						<button data-view-stage="cleaned" class="stage-view-tab px-3 py-1.5 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1.5 whitespace-nowrap">
+							<span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span>
+							<span data-i18n="stage_2_tab">2. Cleaned</span>
+							<span id="tabCleanedCount" class="text-[10px] font-mono px-1.5 py-0.2 rounded theme-bg-card theme-text-sub ml-0.5">0</span>
+						</button>
+
+						<!-- Tab 3: Master -->
+						<button data-view-stage="master" class="stage-view-tab px-3 py-1.5 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1.5 whitespace-nowrap">
+							<span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
+							<span data-i18n="stage_3_tab">3. Master</span>
+							<span id="tabMasterCount" class="text-[10px] font-mono px-1.5 py-0.2 rounded theme-bg-card theme-text-sub ml-0.5">0</span>
+						</button>
+					</div>
+
+					<!-- RIGHT: UNIFIED PIPELINE ACTIONS INSET CONTAINER -->
+					<div class="flex items-center p-1 rounded-xl theme-bg-inset border theme-border space-x-1.5 flex-wrap sm:flex-nowrap">
+						<span class="text-[10px] font-bold uppercase tracking-wider theme-text-sub px-2 whitespace-nowrap" data-i18n="pipeline_actions_label">Pipeline Actions:</span>
+
+						<!-- Action 1: Fetch Raw -->
+						<button id="btnActionFetchRaw" class="theme-bg-card hover:theme-bg-surface border theme-border theme-text-main text-xs font-semibold px-3 py-1.5 rounded-lg transition-all shadow-sm flex items-center space-x-1.5 active:scale-95 whitespace-nowrap" title="Trigger greedy web scraper for this network">
+							<i class="fa-solid fa-cloud-arrow-down text-rose-400 text-xs"></i>
+							<span data-i18n="action_fetch_raw">Fetch Raw</span>
+						</button>
+
+						<!-- Action 2: Clean Process -->
+						<button id="btnActionClean" class="theme-bg-card hover:theme-bg-surface border theme-border theme-text-main text-xs font-semibold px-3 py-1.5 rounded-lg transition-all shadow-sm flex items-center space-x-1.5 active:scale-95 whitespace-nowrap" title="Filter & deduplicate raw JSON into cleaned dataset">
+							<i class="fa-solid fa-broom text-amber-400 text-xs"></i>
+							<span data-i18n="action_clean_process">Process Clean</span>
+						</button>
+
+						<!-- Action 3: Generate Master (Supervised) -->
+						<button id="btnActionMaster" class="bg-indigo-600/15 hover:bg-indigo-600/25 border border-indigo-500/30 text-indigo-300 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all shadow-sm flex items-center space-x-1.5 active:scale-95 whitespace-nowrap" title="Supervised schema validation & master promotion">
+							<i class="fa-solid fa-gem text-emerald-400 text-xs"></i>
+							<span data-i18n="action_generate_master">Generate Master</span>
+						</button>
+					</div>
+
+				</div>
+
+				<!-- ROW 3: METRICS TILES (100% DYNAMIC) -->
+				<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+					<div class="theme-bg-card border theme-border-card rounded-xl p-3.5 shadow-sm">
+						<div class="text-[10px] font-semibold uppercase theme-text-muted" data-i18n="metric_total_stations">Total Stations (Active View)</div>
+						<div class="text-xl font-extrabold theme-text-main mt-0.5" id="metricTotalStations">0</div>
+					</div>
+					<div class="theme-bg-card border theme-border-card rounded-xl p-3.5 shadow-sm">
+						<div class="text-[10px] font-semibold uppercase text-cyan-400" data-i18n="metric_new_staging">New Staging</div>
+						<div class="text-xl font-extrabold text-cyan-400 mt-0.5" id="metricNewStations">0</div>
+					</div>
+					<div class="theme-bg-card border theme-border-card rounded-xl p-3.5 shadow-sm">
+						<div class="text-[10px] font-semibold uppercase theme-text-muted" data-i18n="metric_pipeline_stage">Active Pipeline Stage</div>
+						<div class="text-xs font-bold theme-text-main mt-1.5 truncate" id="metricPipelineStage">Loading...</div>
+					</div>
+					<div class="theme-bg-card border theme-border-card rounded-xl p-3.5 shadow-sm">
+						<div class="text-[10px] font-semibold uppercase theme-text-muted" data-i18n="metric_audit_status">Audit Status</div>
+						<div class="text-xs font-bold mt-1.5 flex items-center gap-1" id="metricAuditStatusContainer">
+							<i class="fa-solid fa-circle-notch fa-spin text-xs text-indigo-400"></i>
+							<span id="metricAuditStatus" class="theme-text-muted">Checking...</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- ROW 4: STANDALONE FULL-WIDTH SEARCH BAR (AFTER COUNTERS) -->
+				<div class="relative w-full pt-1">
+					<i class="fa-solid fa-magnifying-glass absolute left-3.5 top-4 theme-text-sub text-xs pointer-events-none"></i>
+					<input type="text" id="stationSearchInput" placeholder="Search stations by name, Tamil, Hindi, Russian, code, slug..." class="w-full theme-bg-card border theme-border-card theme-text-main text-xs rounded-xl pl-9 pr-8 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder-slate-500 transition-colors shadow-sm">
+					<button id="clearSearchBtn" class="absolute right-2.5 top-3 theme-text-sub hover:theme-text-main text-xs hidden p-1">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- CONTENT SECTIONS (FULL WIDTH) -->
+		<main class="flex-1 w-full px-4 sm:px-8 py-6 sm:py-8 space-y-8">
+
+			<!-- SECTION 1: NEWLY DETECTED STATIONS (STAGING REVIEW) -->
+			<section class="space-y-4">
+				<div class="flex items-center justify-between border-b theme-border pb-3">
+					<div class="flex items-center space-x-2.5">
+						<div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
+						<h3 class="text-sm font-bold theme-text-main uppercase tracking-wider" data-i18n="section_1_title">Section 1: Newly Detected Stations (Staging Review)</h3>
+					</div>
+					<span id="stagingBadgeCount" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">0 Pending</span>
+				</div>
+
+				<div id="stagingStationsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+					<!-- Injected by StationCardsRenderer -->
+				</div>
+			</section>
+
+			<!-- SECTION 2: PRODUCTION STATIONS GRID -->
+			<section class="space-y-4">
+				<div class="flex items-center justify-between border-b theme-border pb-3">
+					<div class="flex items-center space-x-2.5">
+						<i class="fa-solid fa-layer-group text-indigo-400 text-sm"></i>
+						<h3 class="text-sm font-bold theme-text-main uppercase tracking-wider" id="prodSectionTitle">Section 2: Active Station Dataset</h3>
+					</div>
+					<span id="prodBadgeCount" class="text-xs font-medium theme-text-muted">Showing 0 Stations</span>
+				</div>
+
+				<div id="prodStationsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+					<!-- Injected by StationCardsRenderer -->
+				</div>
+			</section>
+
+		</main>
+
+	</div>
+
+	<!-- CONFIRMATION DIALOG MODAL (SYNC ALL NETWORKS) -->
+	<div id="confirmSyncModal" role="dialog" aria-modal="true" aria-labelledby="confirmSyncTitle" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+		<div class="theme-bg-card border theme-border rounded-2xl w-full max-w-md shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+			<div class="p-6 space-y-4">
+				<div class="flex items-start justify-between gap-3">
+					<div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 flex-shrink-0">
+						<i class="fa-solid fa-triangle-exclamation text-lg"></i>
+					</div>
+					<div class="flex-1">
+						<h3 id="confirmSyncTitle" class="text-sm font-bold theme-text-main" data-i18n="confirm_sync_title">Confirm Multi-Network Synchronization</h3>
+						<p class="text-xs theme-text-muted mt-1 leading-relaxed" data-i18n="confirm_sync_desc">
+							This action will scan live manifests and trigger automated audit diff checks across all registered transit networks.
+						</p>
+					</div>
+					<button id="closeSyncModalBtn" class="theme-text-muted hover:theme-text-main p-1" aria-label="Close dialog">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</div>
+			</div>
+
+			<div class="px-6 py-3.5 border-t theme-border theme-bg-inset flex items-center justify-end space-x-2.5">
+				<button id="cancelSyncBtn" class="theme-bg-card hover:theme-bg-surface text-xs font-semibold px-4 py-2 rounded-xl transition-all border theme-border" data-i18n="cancel_btn">
+					Cancel
+				</button>
+				<button id="executeSyncBtn" class="bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all shadow-md shadow-indigo-600/30 flex items-center space-x-1.5">
+					<i class="fa-solid fa-arrows-rotate"></i>
+					<span data-i18n="confirm_sync_btn">Yes, Sync All Networks</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- ACTION MODAL (PIPELINE TRIGGER FEEDBACK / SUPERVISED MASTER NOTICE) -->
+	<div id="actionModal" role="dialog" aria-modal="true" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+		<div class="theme-bg-card border theme-border rounded-2xl w-full max-w-md shadow-2xl overflow-hidden">
+			<div class="p-6 space-y-4">
+				<div class="flex items-start gap-3">
+					<div id="actionModalIcon" class="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+						<i class="fa-solid fa-play"></i>
+					</div>
+					<div class="flex-1">
+						<h3 id="actionModalTitle" class="text-sm font-bold theme-text-main">Pipeline Action Triggered</h3>
+						<p id="actionModalDesc" class="text-xs theme-text-muted mt-1 leading-relaxed"></p>
+					</div>
+					<button id="closeActionModalBtn" class="theme-text-muted hover:theme-text-main p-1" aria-label="Close dialog">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</div>
+				<div id="actionModalDetail" class="theme-bg-inset border theme-border rounded-xl p-3 text-[11px] theme-text-muted font-mono leading-relaxed"></div>
+			</div>
+			<div class="px-6 py-3.5 border-t theme-border theme-bg-inset flex items-center justify-end">
+				<button id="actionModalOkBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all shadow-md shadow-indigo-600/30" data-i18n="ack_btn">
+					Acknowledge
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- TOAST NOTIFICATIONS CONTAINER -->
+	<div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+	<!-- ========================================================================= -->
+	<!-- ENTERPRISE UTILITY CLASSES & 100% DYNAMIC MULTILINGUAL PIPELINE           -->
+	<!-- ========================================================================= -->
+	<script>
+		/**
+		 * 1. Safe Client-Side Storage Manager
+		 */
+		class StorageManager {
+			static get(key, defaultValue = null) {
+				try {
+					const item = localStorage.getItem(`metro_audit_${key}`);
+					return item ? JSON.parse(item) : defaultValue;
+				} catch {
+					return defaultValue;
+				}
+			}
+
+			static set(key, value) {
+				try {
+					localStorage.setItem(`metro_audit_${key}`, JSON.stringify(value));
+					return true;
+				} catch {
+					return false;
+				}
+			}
+
+			static remove(key) {
+				try { localStorage.removeItem(`metro_audit_${key}`); } catch {}
+			}
+		}
+
+		/**
+		 * 2. Lightweight Native In-Memory UI Translation Engine (Zero External Dependencies)
+		 */
+		class I18nEngine {
+			static #currentLang = StorageManager.get('admin_lang', 'en');
+
+			static #translations = {
+				en: {
+					sidebar_subtitle: "Universal Pipeline Engine",
+					sync_all_btn: "Sync All Networks",
+					sidebar_networks_title: "Transit Networks",
+					audit_scope_total: "Audit Scope Total",
+					stage_3_desc: "Supervised verified schema ({net}_master.json).",
+					stage_2_desc: "Scraped & deduplicated ({net}_cleaned.json).",
+					stage_1_desc: "Greedy scraped raw data ({net}_raw.json).",
+					official_site_btn: "Official Site",
+					viewing_stage_label: "Viewing Stage:",
+					stage_1_tab: "1. Raw",
+					stage_2_tab: "2. Cleaned",
+					stage_3_tab: "3. Master",
+					pipeline_actions_label: "Pipeline Actions:",
+					action_fetch_raw: "Fetch Raw",
+					action_clean_process: "Process Clean",
+					action_generate_master: "Generate Master",
+					metric_total_stations: "Total Stations (Active View)",
+					metric_new_staging: "New Staging",
+					metric_pipeline_stage: "Active Pipeline Stage",
+					metric_audit_status: "Audit Status",
+					section_1_title: "Section 1: Newly Detected Stations (Staging Review)",
+					confirm_sync_title: "Confirm Multi-Network Synchronization",
+					confirm_sync_desc: "This action will scan live manifests and trigger automated audit diff checks across all registered transit networks.",
+					cancel_btn: "Cancel",
+					confirm_sync_btn: "Yes, Sync All Networks",
+					ack_btn: "Acknowledge",
+					size_label: "Size:",
+					theme_label: "Theme:",
+					search_placeholder: "Search stations by name, Tamil, Hindi, Russian, code, slug..."
+				},
+				hi: {
+					sidebar_subtitle: "यूनिवर्सल पाइपलाइन इंजन",
+					sync_all_btn: "सभी नेटवर्क सिंक करें",
+					sidebar_networks_title: "मेट्रो नेटवर्क्स",
+					audit_scope_total: "कुल ऑडिट स्कोप",
+					stage_3_desc: "डेवलपर सुपरवाइज़्ड स्कीमा ({net}_master.json)।",
+					stage_2_desc: "स्क्रैप्ड व डीडुप्लिकेटेड ({net}_cleaned.json)।",
+					stage_1_desc: "रॉ इंटेक डेटा ({net}_raw.json)।",
+					official_site_btn: "आधिकारिक वेबसाइट",
+					viewing_stage_label: "सक्रिय स्टेज:",
+					stage_1_tab: "1. रॉ (Raw)",
+					stage_2_tab: "2. क्लीन (Cleaned)",
+					stage_3_tab: "3. मास्टर (Master)",
+					pipeline_actions_label: "पाइपलाइन एक्शन:",
+					action_fetch_raw: "कच्चा डेटा खींचें",
+					action_clean_process: "क्लीन प्रोसेस",
+					action_generate_master: "मास्टर स्कीमा बनाएँ",
+					metric_total_stations: "कुल स्टेशन्स (सक्रिय व्यू)",
+					metric_new_staging: "नई स्टेजिंग समीक्षा",
+					metric_pipeline_stage: "सक्रिय पाइपलाइन स्टेज",
+					metric_audit_status: "ऑडिट स्थिति",
+					section_1_title: "सेक्शन 1: नए डिटेक्टेड स्टेशन्स (स्टेजिंग समीक्षा)",
+					confirm_sync_title: "मल्टी-नेटवर्क सिंक्रोनाइज़ेशन कन्फर्म करें",
+					confirm_sync_desc: "यह एक्शन सभी रजिस्टर्ड नेटवर्क्स के लाइव मैनिफ़ेस्ट को स्कैन करके ऑटोमेटेड ऑडिट चलाएगा।",
+					cancel_btn: "रद्द करें",
+					confirm_sync_btn: "हाँ, सभी सिंक करें",
+					ack_btn: "स्वीकार करें",
+					size_label: "आकार:",
+					theme_label: "थीम:",
+					search_placeholder: "स्टेशन नाम, तमिल, हिंदी, रशियन, कोड या स्लग से खोजें..."
+				}
+			};
+
+			static init() {
+				this.applyLanguage(this.#currentLang);
+			}
+
+			static applyLanguage(lang) {
+				this.#currentLang = (lang === 'hi') ? 'hi' : 'en';
+				StorageManager.set('admin_lang', this.#currentLang);
+
+				const dict = this.#translations[this.#currentLang];
+				document.querySelectorAll('[data-i18n]').forEach(el => {
+					const key = el.getAttribute('data-i18n');
+					if (dict[key]) el.textContent = dict[key];
+				});
+
+				const searchInput = document.getElementById('stationSearchInput');
+				if (searchInput) searchInput.placeholder = dict.search_placeholder;
+
+				document.querySelectorAll('.lang-select-btn').forEach(btn => {
+					const btnLang = btn.getAttribute('data-set-lang');
+					btn.classList.toggle('pref-pill-active', btnLang === this.#currentLang);
+				});
+			}
+
+			static getLang() { return this.#currentLang; }
+			static t(key, fallback = '') { return this.#translations[this.#currentLang]?.[key] || fallback; }
+		}
+
+		/**
+		 * 3. Theme & Font Size Preferences Managers
+		 */
+		class ThemeManager {
+			static #currentTheme = StorageManager.get('theme', 'dark');
+
+			static init() {
+				this.applyTheme(this.#currentTheme);
+			}
+
+			static applyTheme(themeName) {
+				const validThemes = ['dark', 'light', 'spa', 'bw'];
+				const theme = validThemes.includes(themeName) ? themeName : 'dark';
+				this.#currentTheme = theme;
+				document.documentElement.setAttribute('data-theme', theme);
+				StorageManager.set('theme', theme);
+
+				document.querySelectorAll('.theme-select-btn').forEach(btn => {
+					const btnTheme = btn.getAttribute('data-set-theme');
+					btn.classList.toggle('pref-pill-active', btnTheme === theme);
+				});
+			}
+
+			static getTheme() { return this.#currentTheme; }
+		}
+
+		class FontSizeManager {
+			static #currentSize = StorageManager.get('font_size', 'normal');
+
+			static init() {
+				this.applySize(this.#currentSize);
+			}
+
+			static applySize(sizeName) {
+				const validSizes = ['small', 'normal', 'large'];
+				const size = validSizes.includes(sizeName) ? sizeName : 'normal';
+				this.#currentSize = size;
+				document.documentElement.setAttribute('data-font-size', size);
+				StorageManager.set('font_size', size);
+
+				document.querySelectorAll('.font-select-btn').forEach(btn => {
+					const btnSize = btn.getAttribute('data-set-font');
+					btn.classList.toggle('pref-pill-active', btnSize === size);
+				});
+			}
+
+			static getSize() { return this.#currentSize; }
+		}
+
+		/**
+		 * 4. High-Performance Fluent DOM Builder
+		 */
+		class DOMBuilder {
+			static create(tag, options = {}) {
+				const el = document.createElement(tag);
+				if (options.className) el.className = options.className;
+				if (options.textContent) el.textContent = options.textContent;
+				if (options.html) el.innerHTML = options.html;
+				if (options.attributes) {
+					Object.entries(options.attributes).forEach(([k, v]) => el.setAttribute(k, v));
+				}
+				if (options.children) {
+					options.children.forEach(c => c && el.appendChild(c));
+				}
+				return el;
+			}
+
+			static fragment() { return document.createDocumentFragment(); }
+
+			static escape(str) {
+				if (!str) return '';
+				return String(str).replace(/[&<>"']/g, match => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[match]);
+			}
+		}
+
+		/**
+		 * 5. Toast Notification Subsystem
+		 */
+		class ToastNotifierService {
+			#container;
+			constructor(containerElement) { this.#container = containerElement; }
+
+			show(message, type = 'info') {
+				const bgColors = {
+					success: 'bg-emerald-600 text-white shadow-emerald-500/20',
+					error: 'bg-rose-600 text-white shadow-rose-500/20',
+					info: 'bg-slate-800 text-slate-200 border border-slate-700'
+				};
+				const icons = { success: 'fa-circle-check', error: 'fa-triangle-exclamation', info: 'fa-circle-info' };
+
+				const toast = DOMBuilder.create('div', {
+					className: `pointer-events-auto px-4 py-2.5 rounded-xl text-xs font-semibold shadow-2xl flex items-center space-x-2 transition-all transform duration-200 ease-out translate-y-2 opacity-0 ${bgColors[type] || bgColors.info}`,
+					html: `<i class="fa-solid ${icons[type] || icons.info}"></i><span>${DOMBuilder.escape(message)}</span>`
+				});
+
+				this.#container.appendChild(toast);
+				requestAnimationFrame(() => toast.classList.remove('translate-y-2', 'opacity-0'));
+
+				setTimeout(() => {
+					toast.classList.add('opacity-0', 'translate-y-2');
+					setTimeout(() => toast.remove(), 200);
+				}, 3000);
+			}
+		}
+
+		/**
+		 * 6. 3-Tier Multi-Stage Audit Data & Dynamic Cache Service
+		 */
+		class AuditDataService {
+			#manifest = null;
+			#cache = new Map();
+
+			async fetchManifest() {
+				const res = await fetch('./master_audit_manifest.json');
+				if (!res.ok) throw new Error('Manifest file unavailable');
+				this.#manifest = await res.json();
+				return this.#manifest;
+			}
+
+			getManifest() { return this.#manifest; }
+
+			getNetworkConfig(networkId) {
+				const fallback = {
+					id: networkId,
+					icon: '🚄',
+					name: networkId,
+					subtitle: 'Transit System',
+					state: 'Active',
+					pipeline_stage: 'stage_1_raw',
+					supervised_by_developer: false,
+					source_url: '#',
+					raw_file: `./${networkId}_data/${networkId}_raw.json`,
+					cleaned_file: `./${networkId}_data/${networkId}_cleaned.json`,
+					master_file: `./${networkId}_data/${networkId}_master.json`,
+					staging_file: `./${networkId}_data/${networkId}_staging_new.json`
+				};
+
+				if (this.#manifest?.networks && this.#manifest.networks[networkId]) {
+					const net = this.#manifest.networks[networkId];
+					const resolvePath = (p, defaultPath) => {
+						if (!p) return defaultPath;
+						if (p.startsWith('import_data/')) return `./${p.replace('import_data/', '')}`;
+						if (!p.startsWith('./') && !p.startsWith('../')) return `./${p}`;
+						return p;
+					};
+					return {
+						...net,
+						raw_file: resolvePath(net.raw_file, `./${networkId}_data/${networkId}_raw.json`),
+						cleaned_file: resolvePath(net.cleaned_file, `./${networkId}_data/${networkId}_cleaned.json`),
+						master_file: resolvePath(net.master_file, `./${networkId}_data/${networkId}_master.json`),
+						staging_file: resolvePath(net.staging_file, `./${networkId}_data/${networkId}_staging_new.json`)
+					};
+				}
+				return fallback;
+			}
+
+			async fetchStageData(filePath, abortSignal) {
+				const cacheKey = `file_${filePath}`;
+				if (this.#cache.has(cacheKey)) {
+					return this.#cache.get(cacheKey);
+				}
+
+				const res = await fetch(filePath, { signal: abortSignal });
+				if (!res.ok) throw new Error(`File not found on disk: ${filePath}`);
+				const data = await res.json();
+				this.#cache.set(cacheKey, data);
+				return data;
+			}
+
+			async probeStageFile(filePath) {
+				try {
+					const data = await this.fetchStageData(filePath);
+					return { isAvailable: true, count: Object.keys(data || {}).length, data };
+				} catch {
+					return { isAvailable: false, count: 0, data: null };
+				}
+			}
+
+			async probeNetworkAllStages(networkConfig) {
+				const raw = await this.probeStageFile(networkConfig.raw_file);
+				const cleaned = await this.probeStageFile(networkConfig.cleaned_file);
+				const master = await this.probeStageFile(networkConfig.master_file);
+				const staging = await this.probeStageFile(networkConfig.staging_file);
+
+				let activeStage = 'stage_1_raw';
+				if (master.isAvailable && networkConfig.supervised_by_developer) activeStage = 'stage_3_structured';
+				else if (cleaned.isAvailable && cleaned.count > 0) activeStage = 'stage_2_cleaned';
+				else if (raw.isAvailable) activeStage = 'stage_1_raw';
+
+				return { raw, cleaned, master, staging, activeStage };
+			}
+
+			invalidateCache(filePath = null) {
+				if (filePath) this.#cache.delete(`file_${filePath}`);
+				else this.#cache.clear();
+			}
+
+			updateNetworkSyncTimestamp(networkId) {
+				if (this.#manifest?.networks && this.#manifest.networks[networkId]) {
+					this.#manifest.networks[networkId].last_sync_timestamp = new Date().toISOString();
+				}
+			}
+
+			updateAllNetworksSyncTimestamp() {
+				if (this.#manifest?.networks) {
+					const now = new Date().toISOString();
+					this.#manifest.last_audit_timestamp = now;
+					Object.keys(this.#manifest.networks).forEach(netId => {
+						this.#manifest.networks[netId].last_sync_timestamp = now;
+					});
+				}
+			}
+		}
+
+		/**
+		 * 7. Dynamic Sidebar Navigation Component
+		 */
+		class SidebarNavigationComponent {
+			#sidebarEl; #navListEl; #countEl; #syncTimeEl; #backdropEl; #totalSumEl;
+			#stageCounters = {};
+			#dataService;
+
+			constructor(sidebarEl, navListEl, countEl, syncTimeEl, backdropEl, totalSumEl, stageCounters, dataService) {
+				this.#sidebarEl = sidebarEl;
+				this.#navListEl = navListEl;
+				this.#countEl = countEl;
+				this.#syncTimeEl = syncTimeEl;
+				this.#backdropEl = backdropEl;
+				this.#totalSumEl = totalSumEl;
+				this.#stageCounters = stageCounters;
+				this.#dataService = dataService;
+			}
+
+			async renderNetworks(manifest, activeNetworkId, onSelect, onSync) {
+				this.#navListEl.innerHTML = '';
+				const networks = manifest?.networks || {};
+				const entries = Object.entries(networks);
+
+				this.#countEl.textContent = `${entries.length} Active`;
+				const frag = DOMBuilder.fragment();
+
+				let totalNetworkStations = 0;
+				let s3Nets = 0, s3Stns = 0;
+				let s2Nets = 0, s2Stns = 0;
+				let s1Nets = 0, s1Stns = 0;
+
+				for (const [netId, netInfo] of entries) {
+					const netConfig = this.#dataService.getNetworkConfig(netId);
+					const probe = await this.#dataService.probeNetworkAllStages(netConfig);
+
+					let totalSt = 0;
+					let dotColor = 'bg-rose-500';
+					let stageTitle = 'Stage 1: Raw Intake / Missing Dataset';
+
+					if (probe.activeStage === 'stage_3_structured') {
+						s3Nets++;
+						s3Stns += probe.master.count;
+						totalSt = probe.master.count;
+						dotColor = 'bg-emerald-400';
+						stageTitle = 'Stage 3: Master Structured (Supervised)';
+					} else if (probe.activeStage === 'stage_2_cleaned') {
+						s2Nets++;
+						s2Stns += probe.cleaned.count;
+						totalSt = probe.cleaned.count;
+						dotColor = 'bg-amber-400';
+						stageTitle = 'Stage 2: Basic Cleaned (Awaiting Supervision)';
+					} else {
+						s1Nets++;
+						s1Stns += probe.raw.count;
+						totalSt = probe.raw.count;
+						dotColor = 'bg-rose-500';
+						stageTitle = 'Stage 1: Raw Data / Awaiting Ingestion';
+					}
+
+					totalNetworkStations += totalSt;
+
+					const icon = netInfo.icon || '🚆';
+					const syncFormatted = this.#formatSyncTimestamp(netInfo.last_sync_timestamp);
+					
+					let agencyCode = 'TRANSIT';
+					let subLineName = netInfo.name || netId;
+
+					if (netId === 'nmrc_noida') {
+						agencyCode = 'NMRC • Noida';
+						subLineName = 'Noida Aqua Line';
+					} else if (netId === 'dmrc_delhi') {
+						agencyCode = 'DMRC • Delhi';
+						subLineName = 'Delhi Metro Network';
+					} else if (netId === 'ncrtc_rrts') {
+						agencyCode = 'NCRTC • RRTS';
+						subLineName = 'Namo Bharat Corridor';
+					} else if (netId === 'rapid_metro_gurugram') {
+						agencyCode = 'Rapid Metro • Gurugram';
+						subLineName = 'Cybercity Loop Line';
+					}
+
+					const newSt = probe.staging.count;
+					let countPillHtml = '';
+
+					if (totalSt === 0 && !probe.raw.isAvailable && !probe.cleaned.isAvailable && !probe.master.isAvailable) {
+						countPillHtml = `
+							<div class="flex items-center space-x-1 font-mono text-[10px] px-2 py-0.5 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-400 font-bold">
+								<span>Missing</span>
+							</div>
+						`;
+					} else if (newSt > 0) {
+						countPillHtml = `
+							<div class="flex items-center space-x-1 font-mono text-[10px] px-2 py-0.5 rounded-lg theme-bg-inset border theme-border font-bold">
+								<span class="text-cyan-400 animate-pulse">+${newSt}</span>
+								<span class="theme-text-sub">|</span>
+								<span class="theme-text-main">${totalSt}</span>
+							</div>
+						`;
+					} else {
+						countPillHtml = `
+							<div class="flex items-center space-x-1 font-mono text-[10px] px-2 py-0.5 rounded-lg theme-bg-inset border theme-border font-bold">
+								<span class="theme-text-sub">0</span>
+								<span class="theme-text-sub">|</span>
+								<span class="theme-text-main">${totalSt}</span>
+							</div>
+						`;
+					}
+
+					const isSelected = netId === activeNetworkId;
+
+					const row = DOMBuilder.create('div', {
+						className: `w-full text-left p-3 rounded-2xl text-xs font-semibold flex items-center justify-between transition-all cursor-pointer group border ${isSelected ? 'bg-indigo-600 text-white border-indigo-500/60 shadow-lg shadow-indigo-600/25' : 'theme-bg-card theme-border hover:theme-bg-inset hover:border-indigo-500/30'}`,
+						attributes: { 'data-network': netId },
+						html: `
+							<div class="flex items-center space-x-3 min-w-0 pr-1">
+								<div class="w-8 h-8 rounded-xl ${isSelected ? 'bg-white/10' : 'theme-bg-inset border theme-border'} flex items-center justify-center text-base flex-shrink-0">
+									${icon}
+								</div>
+								<div class="min-w-0 leading-tight">
+									<div class="font-bold flex items-center gap-1.5 truncate">
+										<span class="${isSelected ? 'text-white' : 'theme-text-main'}">${DOMBuilder.escape(agencyCode)}</span>
+										<span class="w-2 h-2 rounded-full ${dotColor} flex-shrink-0" title="${stageTitle}"></span>
+									</div>
+									<div class="text-[11px] ${isSelected ? 'text-indigo-100' : 'theme-text-muted'} truncate mt-0.5 font-medium">
+										${DOMBuilder.escape(subLineName)}
+									</div>
+									<div class="text-[9px] ${isSelected ? 'text-indigo-200' : 'theme-text-sub'} font-mono mt-0.5 flex items-center gap-1">
+										<i class="fa-solid fa-clock text-[8px]"></i>
+										<span>${syncFormatted}</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="flex items-center space-x-2 flex-shrink-0">
+								${countPillHtml}
+								<button class="network-sync-btn p-1.5 rounded-lg border theme-border ${isSelected ? 'bg-white/15 hover:bg-white/25 text-white border-white/20' : 'theme-bg-inset hover:theme-bg-surface theme-text-muted hover:theme-text-main'} shadow-sm transition-all active:scale-90" title="Sync ${DOMBuilder.escape(agencyCode)}" aria-label="Sync network">
+									<i class="fa-solid fa-rotate text-[10px]"></i>
+								</button>
+							</div>
+						`
+					});
+
+					row.addEventListener('click', (e) => {
+						if (!e.target.closest('.network-sync-btn')) {
+							onSelect(netId);
+							this.toggleMobileDrawer(false);
+						}
+					});
+
+					const syncBtn = row.querySelector('.network-sync-btn');
+					syncBtn.addEventListener('click', (e) => {
+						e.stopPropagation();
+						onSync(netId, syncBtn);
+					});
+
+					frag.appendChild(row);
+				}
+
+				this.#navListEl.appendChild(frag);
+
+				if (this.#totalSumEl) {
+					this.#totalSumEl.textContent = `${totalNetworkStations} Stations`;
+				}
+
+				if (this.#stageCounters.s3Nets) this.#stageCounters.s3Nets.textContent = `${s3Nets} Net${s3Nets === 1 ? '' : 's'}`;
+				if (this.#stageCounters.s3Stns) this.#stageCounters.s3Stns.textContent = `${s3Stns} Stns`;
+				if (this.#stageCounters.s2Nets) this.#stageCounters.s2Nets.textContent = `${s2Nets} Nets`;
+				if (this.#stageCounters.s2Stns) this.#stageCounters.s2Stns.textContent = `${s2Stns} Stns`;
+				if (this.#stageCounters.s1Nets) this.#stageCounters.s1Nets.textContent = `${s1Nets} Nets`;
+				if (this.#stageCounters.s1Stns) this.#stageCounters.s1Stns.textContent = `${s1Stns} Stns`;
+
+				if (manifest?.last_audit_timestamp) {
+					this.#syncTimeEl.textContent = `Sync: ${this.#formatSyncTimestamp(manifest.last_audit_timestamp)}`;
+				}
+			}
+
+			toggleMobileDrawer(isOpen) {
+				if (isOpen) {
+					this.#sidebarEl.classList.remove('-translate-x-full');
+					this.#backdropEl.classList.remove('hidden');
+				} else {
+					this.#sidebarEl.classList.add('-translate-x-full');
+					this.#backdropEl.classList.add('hidden');
+				}
+			}
+
+			#formatSyncTimestamp(isoStr) {
+				if (!isoStr) return 'Not Synced';
+				try {
+					const dt = new Date(isoStr);
+					if (isNaN(dt.getTime())) return 'Not Synced';
+					const day = dt.getDate();
+					const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+					return `${day} ${months[dt.getMonth()]} ${dt.getFullYear()}, ${String(dt.getHours()).padStart(2, '0')}:${String(dt.getMinutes()).padStart(2, '0')}`;
+				} catch {
+					return 'Not Synced';
+				}
+			}
+		}
+
+		/**
+		 * 8. Universal 100% Dynamic Multilingual Station Cards Renderer
+		 */
+		class StationCardsRenderer {
+			renderStagingSection(container, badgeEl, metricEl, stagingData, currentNetworkId, currentStage) {
+				container.innerHTML = '';
+				const keys = Object.keys(stagingData || {});
+
+				metricEl.textContent = keys.length;
+				badgeEl.textContent = `${keys.length} Pending Review`;
+
+				if (keys.length === 0) {
+					container.innerHTML = `
+						<div class="col-span-full theme-bg-card border border-dashed theme-border rounded-2xl py-8 px-6 text-center">
+							<div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 mx-auto flex items-center justify-center text-base mb-2">
+								<i class="fa-solid fa-circle-check"></i>
+							</div>
+							<h4 class="text-sm font-bold theme-text-main">All Stations Synchronized</h4>
+							<p class="text-xs theme-text-muted mt-1 max-w-sm mx-auto">No newly detected stations pending staging review.</p>
+						</div>
+					`;
+					return;
+				}
+
+				const frag = DOMBuilder.fragment();
+				keys.forEach(key => {
+					frag.appendChild(this.#createCard(key, stagingData[key], 'staging', currentNetworkId, currentStage));
+				});
+				container.appendChild(frag);
+			}
+
+			renderProductionSection(container, badgeEl, metricEl, stageData, query = '', currentNetworkId, currentStage) {
+				container.innerHTML = '';
+				let keys = Object.keys(stageData || {});
+
+				metricEl.textContent = keys.length;
+
+				if (query.trim()) {
+					const q = query.toLowerCase().trim();
+					keys = keys.filter(k => {
+						const st = stageData[k];
+						if (!st) return false;
+
+						// Universal Multi-Script Search Filter (matches any language, code, slug)
+						if (k.toLowerCase().includes(q)) return true;
+						if (st.code && st.code.toLowerCase().includes(q)) return true;
+
+						// Check all string fields inside st.name or st directly
+						if (typeof st.name === 'string' && st.name.toLowerCase().includes(q)) return true;
+						if (typeof st.name === 'object' && st.name !== null) {
+							for (const val of Object.values(st.name)) {
+								if (typeof val === 'string' && val.toLowerCase().includes(q)) return true;
+							}
+						}
+
+						// Check prefixed language fields (name_en, name_hi, name_ta, name_ru, etc.)
+						for (const [propKey, propVal] of Object.entries(st)) {
+							if (propKey.startsWith('name_') && typeof propVal === 'string' && propVal.toLowerCase().includes(q)) {
+								return true;
+							}
+						}
+
+						return false;
+					});
+				}
+
+				badgeEl.textContent = `Showing ${keys.length} Stations`;
+
+				if (keys.length === 0) {
+					container.innerHTML = `
+						<div class="col-span-full py-12 text-center theme-text-sub text-sm">
+							<i class="fa-solid fa-magnifying-glass text-2xl mb-2"></i>
+							<p>No stations match your query in this stage dataset.</p>
+						</div>
+					`;
+					return;
+				}
+
+				const frag = DOMBuilder.fragment();
+				keys.forEach(key => {
+					frag.appendChild(this.#createCard(key, stageData[key], 'prod', currentNetworkId, currentStage));
+				});
+				container.appendChild(frag);
+			}
+
+			#createCard(key, st, source, currentNetworkId, currentStage) {
+				// 100% Dynamic Multilingual Name Extraction
+				let primaryTitle = key;
+				const otherLangBadges = [];
+
+				if (st.name && typeof st.name === 'object') {
+					primaryTitle = st.name.en || Object.values(st.name)[0] || key;
+					Object.entries(st.name).forEach(([langCode, langText]) => {
+						if (langCode !== 'en' && langText) {
+							otherLangBadges.push({ code: langCode.toUpperCase(), text: langText });
+						}
+					});
+				} else if (typeof st.name === 'string') {
+					primaryTitle = st.name;
+				} else if (st.station_name) {
+					primaryTitle = st.station_name;
+				} else if (st.name_en) {
+					primaryTitle = st.name_en;
+				}
+
+				// Collect any flat multilingual keys (e.g. name_hi, name_ta, name_ru)
+				Object.entries(st).forEach(([k, v]) => {
+					if (k.startsWith('name_') && k !== 'name_en' && typeof v === 'string' && v) {
+						const code = k.replace('name_', '').toUpperCase();
+						if (!otherLangBadges.some(b => b.code === code)) {
+							otherLangBadges.push({ code, text: v });
+						}
+					}
+				});
+
+				const langPillsHtml = otherLangBadges.map(b => `
+					<span class="inline-flex items-center space-x-1 px-1.5 py-0.2 rounded-md theme-bg-inset border theme-border text-[10px] theme-text-muted">
+						<span class="font-bold text-[8px] text-indigo-400 uppercase">${DOMBuilder.escape(b.code)}:</span>
+						<span>${DOMBuilder.escape(b.text)}</span>
+					</span>
+				`).join('');
+
+				const gatesCount = st.gates ? (Array.isArray(st.gates) ? st.gates.length : Object.keys(st.gates).length) : 0;
+				const facCount = st.facilities ? (Array.isArray(st.facilities) ? st.facilities.length : Object.keys(st.facilities).length) : 0;
+				const stateStr = (st.properties && st.properties.state) ? st.properties.state : (st.state || 'Operational');
+				const codeStr = st.code || 'STD';
+				const isStaging = source === 'staging';
+
+				let stageTag = 'STAGE 1: RAW';
+				let stageTagClass = 'bg-rose-500/10 text-rose-400 border border-rose-500/20';
+				if (currentStage === 'master') {
+					stageTag = 'STAGE 3: MASTER';
+					stageTagClass = 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+				} else if (currentStage === 'cleaned') {
+					stageTag = 'STAGE 2: CLEANED';
+					stageTagClass = 'bg-amber-500/10 text-amber-400 border border-amber-500/20';
+				}
+
+				const card = DOMBuilder.create('div', {
+					className: `group theme-bg-card border ${isStaging ? 'border-cyan-500/40 hover:border-cyan-400 shadow-cyan-500/5' : 'theme-border-card hover:border-indigo-500/60'} rounded-2xl p-4 sm:p-5 transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between`,
+					html: `
+						<div>
+							<div class="flex items-start justify-between gap-2 mb-2">
+								<div class="min-w-0">
+									<h4 class="text-sm font-bold theme-text-main group-hover:text-indigo-400 transition-colors truncate">${DOMBuilder.escape(primaryTitle)}</h4>
+									<span class="text-[10px] theme-text-sub font-mono block truncate mt-0.5">${DOMBuilder.escape(key)}</span>
+								</div>
+								<span class="px-2 py-0.5 rounded-full text-[9px] font-bold ${isStaging ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30' : stageTagClass} flex-shrink-0">
+									${isStaging ? 'STAGING' : stageTag}
+								</span>
+							</div>
+
+							<!-- Dynamic Multilingual Badges (Russian, Tamil, Hindi, Bengali, etc.) -->
+							${langPillsHtml ? `<div class="flex flex-wrap gap-1 mb-2.5 max-h-12 overflow-hidden">${langPillsHtml}</div>` : ''}
+
+							<div class="grid grid-cols-3 gap-2 py-2.5 border-y theme-border text-center my-2 theme-bg-inset rounded-xl">
+								<div>
+									<div class="text-[9px] font-bold uppercase theme-text-sub">Gates</div>
+									<div class="text-xs font-extrabold theme-text-main mt-0.5">${gatesCount}</div>
+								</div>
+								<div>
+									<div class="text-[9px] font-bold uppercase theme-text-sub">Facilities</div>
+									<div class="text-xs font-extrabold theme-text-main mt-0.5">${facCount}</div>
+								</div>
+								<div>
+									<div class="text-[9px] font-bold uppercase theme-text-sub">Code</div>
+									<div class="text-xs font-extrabold text-indigo-400 font-mono mt-0.5">${DOMBuilder.escape(codeStr)}</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="flex items-center justify-between text-xs pt-2 theme-text-muted">
+							<span class="text-[11px] theme-text-sub truncate">${DOMBuilder.escape(stateStr)}</span>
+							<span class="text-indigo-400 font-semibold text-[11px] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+								<span>Inspect</span>
+								<i class="fa-solid fa-chevron-right text-[9px]"></i>
+							</span>
+						</div>
+					`
+				});
+
+				card.addEventListener('click', () => {
+					window.location.href = `station_detail.html?network=${encodeURIComponent(currentNetworkId)}&station=${encodeURIComponent(key)}&stage=${encodeURIComponent(currentStage)}&source=${encodeURIComponent(source)}`;
+				});
+
+				return card;
+			}
+		}
+
+		/**
+		 * 9. Main Application Controller & Coordinator
+		 */
+		class MetroAdminApp {
+			#notifier; #dataService; #sidebarNav; #renderer;
+			#currentNetworkId = StorageManager.get('active_network', 'ncrtc_rrts');
+			#currentViewStage = StorageManager.get('view_stage', 'cleaned');
+			#currentStageData = {}; #currentStagingData = {};
+			#abortController = null; #dom = {};
+			#debounceTimer = null;
+
+			constructor() { this.init(); }
+
+			async init() {
+				ThemeManager.init();
+				FontSizeManager.init();
+				I18nEngine.init();
+				
+				this.#cacheDom();
+				
+				this.#notifier = new ToastNotifierService(this.#dom.toastContainer);
+				this.#dataService = new AuditDataService();
+				this.#sidebarNav = new SidebarNavigationComponent(
+					this.#dom.sidebar,
+					this.#dom.networkNavList,
+					this.#dom.sidebarNetworkCount,
+					this.#dom.sidebarSyncTime,
+					this.#dom.mobileBackdrop,
+					this.#dom.sidebarTotalStationSum,
+					{
+						s3Nets: this.#dom.countStage3Nets,
+						s3Stns: this.#dom.countStage3Stns,
+						s2Nets: this.#dom.countStage2Nets,
+						s2Stns: this.#dom.countStage2Stns,
+						s1Nets: this.#dom.countStage1Nets,
+						s1Stns: this.#dom.countStage1Stns
+					},
+					this.#dataService
+				);
+				this.#renderer = new StationCardsRenderer();
+
+				this.#bindEvents();
+
+				const savedSearch = StorageManager.get('search_query', '');
+				if (savedSearch) {
+					this.#dom.searchInput.value = savedSearch;
+					this.#dom.clearSearchBtn.classList.remove('hidden');
+				}
+
+				try {
+					const manifest = await this.#dataService.fetchManifest();
+					await this.#sidebarNav.renderNetworks(
+						manifest,
+						this.#currentNetworkId,
+						(netId) => this.selectNetwork(netId),
+						(netId, btn) => this.syncSingleNetwork(netId, btn)
+					);
+					await this.selectNetwork(this.#currentNetworkId);
+				} catch (err) {
+					this.#notifier.show(`Failed to load manifest: ${err.message}`, 'error');
+				}
+			}
+
+			async selectNetwork(networkId) {
+				this.#currentNetworkId = networkId;
+				StorageManager.set('active_network', networkId);
+
+				const manifest = this.#dataService.getManifest();
+				this.#sidebarNav.renderNetworks(
+					manifest,
+					this.#currentNetworkId,
+					(netId) => this.selectNetwork(netId),
+					(netId, btn) => this.syncSingleNetwork(netId, btn)
+				);
+
+				if (this.#abortController) this.#abortController.abort();
+				this.#abortController = new AbortController();
+
+				const config = this.#dataService.getNetworkConfig(networkId);
+				this.#dom.headerNetworkName.textContent = config.name || networkId;
+				this.#dom.headerNetworkIcon.textContent = config.icon || '🚆';
+				this.#dom.headerNetworkSub.textContent = config.subtitle || `${config.city || ''} Transit Network`;
+				this.#dom.headerStateLabel.textContent = config.state || 'Active';
+				this.#dom.headerSourceLink.href = config.source_url || '#';
+
+				this.#renderLoading();
+
+				try {
+					const probe = await this.#dataService.probeNetworkAllStages(config);
+					
+					this.#dom.tabRawCount.textContent = probe.raw.isAvailable ? probe.raw.count : 'N/A';
+					this.#dom.tabCleanedCount.textContent = probe.cleaned.isAvailable ? probe.cleaned.count : 'N/A';
+					this.#dom.tabMasterCount.textContent = probe.master.isAvailable ? probe.master.count : 'N/A';
+
+					let activeStage = this.#currentViewStage;
+					if (activeStage === 'master' && !probe.master.isAvailable) {
+						activeStage = probe.cleaned.isAvailable ? 'cleaned' : (probe.raw.isAvailable ? 'raw' : 'cleaned');
+					} else if (activeStage === 'cleaned' && !probe.cleaned.isAvailable) {
+						activeStage = probe.master.isAvailable ? 'master' : (probe.raw.isAvailable ? 'raw' : 'cleaned');
+					}
+					this.switchViewStage(activeStage, false);
+
+					let targetPath = config.cleaned_file;
+					if (this.#currentViewStage === 'raw') targetPath = config.raw_file;
+					else if (this.#currentViewStage === 'master') targetPath = config.master_file;
+
+					this.#currentStageData = (await this.#dataService.fetchStageData(targetPath, this.#abortController.signal)) || {};
+					
+					try {
+						this.#currentStagingData = (await this.#dataService.fetchStageData(config.staging_file, this.#abortController.signal)) || {};
+					} catch {
+						this.#currentStagingData = {};
+					}
+
+					if (this.#currentViewStage === 'master') {
+						this.#dom.headerPipelineStageBadge.textContent = '🟢 STAGE 3: MASTER STRUCTURED (SUPERVISED)';
+						this.#dom.headerPipelineStageBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+						this.#dom.metricPipelineStage.textContent = 'Stage 3 (Master)';
+					} else if (this.#currentViewStage === 'cleaned') {
+						this.#dom.headerPipelineStageBadge.textContent = '🟡 STAGE 2: BASIC CLEANED (AWAITING SUPERVISION)';
+						this.#dom.headerPipelineStageBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20';
+						this.#dom.metricPipelineStage.textContent = 'Stage 2 (Cleaned)';
+					} else {
+						this.#dom.headerPipelineStageBadge.textContent = '🔴 STAGE 1: RAW INTAKE (GREEDY SCRAPED)';
+						this.#dom.headerPipelineStageBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20';
+						this.#dom.metricPipelineStage.textContent = 'Stage 1 (Raw)';
+					}
+
+					this.#dom.metricAuditStatusContainer.innerHTML = `
+						<i class="fa-solid fa-circle-check text-xs text-emerald-400"></i>
+						<span id="metricAuditStatus" class="text-emerald-400 font-bold">Synchronized</span>
+					`;
+
+					this.#dom.prodSectionTitle.textContent = `Section 2: ${this.#currentViewStage.toUpperCase()} Station Dataset`;
+
+					this.#renderer.renderStagingSection(
+						this.#dom.stagingContainer,
+						this.#dom.stagingBadgeCount,
+						this.#dom.metricNewStations,
+						this.#currentStagingData,
+						this.#currentNetworkId,
+						this.#currentViewStage
+					);
+
+					this.#renderer.renderProductionSection(
+						this.#dom.prodContainer,
+						this.#dom.prodBadgeCount,
+						this.#dom.metricTotalStations,
+						this.#currentStageData,
+						this.#dom.searchInput.value,
+						this.#currentNetworkId,
+						this.#currentViewStage
+					);
+
+				} catch (err) {
+					if (err.name !== 'AbortError') {
+						this.#renderError(err.message, config);
+					}
+				}
+			}
+
+			switchViewStage(stageName, reload = true) {
+				this.#currentViewStage = stageName;
+				StorageManager.set('view_stage', stageName);
+
+				document.querySelectorAll('.stage-view-tab').forEach(tab => {
+					const s = tab.getAttribute('data-view-stage');
+					tab.classList.toggle('stage-tab-active', s === stageName);
+				});
+
+				if (reload) {
+					this.selectNetwork(this.#currentNetworkId);
+				}
+			}
+
+			triggerAction(actionType) {
+				const config = this.#dataService.getNetworkConfig(this.#currentNetworkId);
+				const modal = this.#dom.actionModal;
+				const title = this.#dom.actionModalTitle;
+				const desc = this.#dom.actionModalDesc;
+				const detail = this.#dom.actionModalDetail;
+				const icon = this.#dom.actionModalIcon;
+
+				if (actionType === 'fetch_raw') {
+					icon.className = 'w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 bg-rose-500/10 text-rose-400 border border-rose-500/20';
+					icon.innerHTML = '<i class="fa-solid fa-cloud-arrow-down"></i>';
+					title.textContent = `Fetch Raw Data: ${config.name}`;
+					desc.textContent = `Executing greedy web scraper for ${config.name} to pull live data into Stage 1 (${config.raw_file}).`;
+					detail.innerHTML = `
+						<div>• Script: <span class="text-indigo-400">${DOMBuilder.escape(config.scraper_script || 'scrape_stations.py')}</span></div>
+						<div>• Endpoint: <span class="theme-text-main">${DOMBuilder.escape(config.api_endpoint || config.source_url)}</span></div>
+						<div>• Target File: <span class="text-rose-400 font-bold">${DOMBuilder.escape(config.raw_file)}</span></div>
+					`;
+					modal.classList.remove('hidden');
+					this.#notifier.show(`Scraper triggered for ${config.name}`, 'info');
+
+				} else if (actionType === 'clean_process') {
+					icon.className = 'w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 bg-amber-500/10 text-amber-400 border border-amber-500/20';
+					icon.innerHTML = '<i class="fa-solid fa-broom"></i>';
+					title.textContent = `Process Clean: ${config.name}`;
+					desc.textContent = `Running 1st-filter deduplication and normalization script to generate Stage 2 Cleaned dataset (${config.cleaned_file}).`;
+					detail.innerHTML = `
+						<div>• Script: <span class="text-indigo-400">${DOMBuilder.escape(config.clean_script || 'clean_json.py')}</span></div>
+						<div>• Source: <span class="text-rose-400">${DOMBuilder.escape(config.raw_file)}</span></div>
+						<div>• Target Output: <span class="text-amber-400 font-bold">${DOMBuilder.escape(config.cleaned_file)}</span></div>
+					`;
+					modal.classList.remove('hidden');
+					this.#notifier.show(`Cleaning process triggered for ${config.name}`, 'info');
+
+				} else if (actionType === 'generate_master') {
+					if (config.supervised_by_developer) {
+						icon.className = 'w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+						icon.innerHTML = '<i class="fa-solid fa-gem"></i>';
+						title.textContent = `Generate Master Schema: ${config.name}`;
+						desc.textContent = `Developer supervision verified! Generating production-grade Stage 3 Master dataset (${config.master_file}).`;
+						detail.innerHTML = `
+							<div>• Status: <span class="text-emerald-400 font-bold">🟢 Supervised Schema Approved</span></div>
+							<div>• Script: <span class="text-indigo-400">${DOMBuilder.escape(config.master_script || 'structure_stations.py')}</span></div>
+							<div>• Target Master: <span class="text-emerald-400 font-bold">${DOMBuilder.escape(config.master_file)}</span></div>
+						`;
+					} else {
+						icon.className = 'w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0 bg-amber-500/10 text-amber-400 border border-amber-500/20';
+						icon.innerHTML = '<i class="fa-solid fa-shield-halved"></i>';
+						title.textContent = `Developer Supervision Required`;
+						desc.textContent = `Master schema has NOT been finalized by developer for ${config.name}. System will NOT force unverified master generation.`;
+						detail.innerHTML = `
+							<div>• Protection: <span class="text-amber-400 font-bold">🟡 Supervised Validation Enforced</span></div>
+							<div>• Current Stage: <span class="theme-text-main">Stage 2 (Cleaned)</span></div>
+							<div>• Rule: Developer must supervise custom schema before Master promotion.</div>
+						`;
+					}
+					modal.classList.remove('hidden');
+				}
+			}
+
+			async syncSingleNetwork(networkId, btnElement) {
+				const config = this.#dataService.getNetworkConfig(networkId);
+				const icon = btnElement.querySelector('i');
+				icon.classList.add('fa-spin');
+				btnElement.disabled = true;
+
+				try {
+					this.#dataService.invalidateCache();
+					this.#dataService.updateNetworkSyncTimestamp(networkId);
+					await this.#sidebarNav.renderNetworks(
+						this.#dataService.getManifest(),
+						this.#currentNetworkId,
+						(netId) => this.selectNetwork(netId),
+						(netId, btn) => this.syncSingleNetwork(netId, btn)
+					);
+
+					if (this.#currentNetworkId === networkId) {
+						await this.selectNetwork(networkId);
+					}
+					this.#notifier.show(`Synchronized ${config.name}!`, 'success');
+				} catch (err) {
+					this.#notifier.show(`Sync failed: ${err.message}`, 'error');
+				} finally {
+					icon.classList.remove('fa-spin');
+					btnElement.disabled = false;
+				}
+			}
+
+			async executeGlobalSync() {
+				this.#setGlobalLoading(true);
+				try {
+					this.#dataService.invalidateCache();
+					this.#dataService.updateAllNetworksSyncTimestamp();
+					const manifest = await this.#dataService.fetchManifest();
+					await this.#sidebarNav.renderNetworks(
+						manifest,
+						this.#currentNetworkId,
+						(netId) => this.selectNetwork(netId),
+						(netId, btn) => this.syncSingleNetwork(netId, btn)
+					);
+					await this.selectNetwork(this.#currentNetworkId);
+					this.#notifier.show('All transit networks synchronized successfully!', 'success');
+				} catch (err) {
+					this.#notifier.show(`Global sync error: ${err.message}`, 'error');
+				} finally {
+					this.#setGlobalLoading(false);
+				}
+			}
+
+			#cacheDom() {
+				this.#dom = {
+					sidebar: document.getElementById('sidebar'),
+					mobileMenuBtn: document.getElementById('mobileMenuBtn'),
+					closeSidebarBtn: document.getElementById('closeSidebarBtn'),
+					mobileBackdrop: document.getElementById('mobileBackdrop'),
+					networkNavList: document.getElementById('networkNavList'),
+					sidebarNetworkCount: document.getElementById('sidebarNetworkCount'),
+					sidebarTotalStationSum: document.getElementById('sidebarTotalStationSum'),
+					countStage3Nets: document.getElementById('countStage3Nets'),
+					countStage3Stns: document.getElementById('countStage3Stns'),
+					countStage2Nets: document.getElementById('countStage2Nets'),
+					countStage2Stns: document.getElementById('countStage2Stns'),
+					countStage1Nets: document.getElementById('countStage1Nets'),
+					countStage1Stns: document.getElementById('countStage1Stns'),
+					globalSyncBtn: document.getElementById('globalSyncBtn'),
+					globalSyncIcon: document.getElementById('globalSyncIcon'),
+					globalSyncText: document.getElementById('globalSyncText'),
+					sidebarSyncTime: document.getElementById('sidebarSyncTime'),
+					headerNetworkName: document.getElementById('headerNetworkName'),
+					headerNetworkIcon: document.getElementById('headerNetworkIcon'),
+					headerNetworkSub: document.getElementById('headerNetworkSub'),
+					headerPipelineStageBadge: document.getElementById('headerPipelineStageBadge'),
+					headerStateLabel: document.getElementById('headerStateLabel'),
+					headerSourceLink: document.getElementById('headerSourceLink'),
+					searchInput: document.getElementById('stationSearchInput'),
+					clearSearchBtn: document.getElementById('clearSearchBtn'),
+					tabRawCount: document.getElementById('tabRawCount'),
+					tabCleanedCount: document.getElementById('tabCleanedCount'),
+					tabMasterCount: document.getElementById('tabMasterCount'),
+					btnActionFetchRaw: document.getElementById('btnActionFetchRaw'),
+					btnActionClean: document.getElementById('btnActionClean'),
+					btnActionMaster: document.getElementById('btnActionMaster'),
+					metricTotalStations: document.getElementById('metricTotalStations'),
+					metricNewStations: document.getElementById('metricNewStations'),
+					metricPipelineStage: document.getElementById('metricPipelineStage'),
+					metricAuditStatus: document.getElementById('metricAuditStatus'),
+					metricAuditStatusContainer: document.getElementById('metricAuditStatusContainer'),
+					prodSectionTitle: document.getElementById('prodSectionTitle'),
+					stagingBadgeCount: document.getElementById('stagingBadgeCount'),
+					stagingContainer: document.getElementById('stagingStationsContainer'),
+					prodBadgeCount: document.getElementById('prodBadgeCount'),
+					prodContainer: document.getElementById('prodStationsContainer'),
+					confirmSyncModal: document.getElementById('confirmSyncModal'),
+					closeSyncModalBtn: document.getElementById('closeSyncModalBtn'),
+					cancelSyncBtn: document.getElementById('cancelSyncBtn'),
+					executeSyncBtn: document.getElementById('executeSyncBtn'),
+					actionModal: document.getElementById('actionModal'),
+					actionModalTitle: document.getElementById('actionModalTitle'),
+					actionModalDesc: document.getElementById('actionModalDesc'),
+					actionModalDetail: document.getElementById('actionModalDetail'),
+					actionModalIcon: document.getElementById('actionModalIcon'),
+					closeActionModalBtn: document.getElementById('closeActionModalBtn'),
+					actionModalOkBtn: document.getElementById('actionModalOkBtn'),
+					toastContainer: document.getElementById('toastContainer')
+				};
+			}
+
+			#bindEvents() {
+				this.#dom.mobileMenuBtn.addEventListener('click', () => this.#sidebarNav.toggleMobileDrawer(true));
+				this.#dom.closeSidebarBtn.addEventListener('click', () => this.#sidebarNav.toggleMobileDrawer(false));
+				this.#dom.mobileBackdrop.addEventListener('click', () => this.#sidebarNav.toggleMobileDrawer(false));
+
+				this.#dom.globalSyncBtn.addEventListener('click', () => this.#toggleConfirmModal(true));
+				this.#dom.closeSyncModalBtn.addEventListener('click', () => this.#toggleConfirmModal(false));
+				this.#dom.cancelSyncBtn.addEventListener('click', () => this.#toggleConfirmModal(false));
+				
+				this.#dom.confirmSyncModal.addEventListener('click', (e) => {
+					if (e.target === this.#dom.confirmSyncModal) this.#toggleConfirmModal(false);
+				});
+
+				this.#dom.closeActionModalBtn.addEventListener('click', () => this.#dom.actionModal.classList.add('hidden'));
+				this.#dom.actionModalOkBtn.addEventListener('click', () => this.#dom.actionModal.classList.add('hidden'));
+				this.#dom.actionModal.addEventListener('click', (e) => {
+					if (e.target === this.#dom.actionModal) this.#dom.actionModal.classList.add('hidden');
+				});
+
+				window.addEventListener('keydown', (e) => {
+					if (e.key === 'Escape') {
+						this.#toggleConfirmModal(false);
+						this.#dom.actionModal.classList.add('hidden');
+					}
+				});
+
+				this.#dom.executeSyncBtn.addEventListener('click', () => {
+					this.#toggleConfirmModal(false);
+					this.executeGlobalSync();
+				});
+
+				// Theme switcher
+				document.querySelectorAll('.theme-select-btn').forEach(btn => {
+					btn.addEventListener('click', () => {
+						const theme = btn.getAttribute('data-set-theme');
+						ThemeManager.applyTheme(theme);
+					});
+				});
+
+				// Font size switcher
+				document.querySelectorAll('.font-select-btn').forEach(btn => {
+					btn.addEventListener('click', () => {
+						const size = btn.getAttribute('data-set-font');
+						FontSizeManager.applySize(size);
+					});
+				});
+
+				// Admin UI Language switcher (EN / HI)
+				document.querySelectorAll('.lang-select-btn').forEach(btn => {
+					btn.addEventListener('click', () => {
+						const lang = btn.getAttribute('data-set-lang');
+						I18nEngine.applyLanguage(lang);
+					});
+				});
+
+				// Stage view tabs switcher
+				document.querySelectorAll('.stage-view-tab').forEach(tab => {
+					tab.addEventListener('click', () => {
+						const stage = tab.getAttribute('data-view-stage');
+						this.switchViewStage(stage, true);
+					});
+				});
+
+				// Action triggers
+				this.#dom.btnActionFetchRaw.addEventListener('click', () => this.triggerAction('fetch_raw'));
+				this.#dom.btnActionClean.addEventListener('click', () => this.triggerAction('clean_process'));
+				this.#dom.btnActionMaster.addEventListener('click', () => this.triggerAction('generate_master'));
+
+				// Universal Multi-Script Debounced Search
+				this.#dom.searchInput.addEventListener('input', (e) => {
+					const query = e.target.value;
+					if (query) this.#dom.clearSearchBtn.classList.remove('hidden');
+					else this.#dom.clearSearchBtn.classList.add('hidden');
+
+					clearTimeout(this.#debounceTimer);
+					this.#debounceTimer = setTimeout(() => {
+						StorageManager.set('search_query', query);
+						this.#renderer.renderProductionSection(
+							this.#dom.prodContainer,
+							this.#dom.prodBadgeCount,
+							this.#dom.metricTotalStations,
+							this.#currentStageData,
+							query,
+							this.#currentNetworkId,
+							this.#currentViewStage
+						);
+					}, 300);
+				});
+
+				this.#dom.clearSearchBtn.addEventListener('click', () => {
+					this.#dom.searchInput.value = '';
+					this.#dom.clearSearchBtn.classList.add('hidden');
+					StorageManager.remove('search_query');
+					this.#renderer.renderProductionSection(
+						this.#dom.prodContainer,
+						this.#dom.prodBadgeCount,
+						this.#dom.metricTotalStations,
+						this.#currentStageData,
+						'',
+						this.#currentNetworkId,
+						this.#currentViewStage
+					);
+				});
+			}
+
+			#toggleConfirmModal(isOpen) {
+				if (isOpen) {
+					this.#dom.confirmSyncModal.classList.remove('hidden');
+				} else {
+					this.#dom.confirmSyncModal.classList.add('hidden');
+				}
+			}
+
+			#renderLoading() {
+				this.#dom.metricAuditStatusContainer.innerHTML = `
+					<i class="fa-solid fa-circle-notch fa-spin text-xs text-indigo-400"></i>
+					<span id="metricAuditStatus" class="theme-text-muted">Loading...</span>
+				`;
+				this.#dom.stagingContainer.innerHTML = '<div class="col-span-full py-10 text-center theme-text-muted text-xs"><i class="fa-solid fa-spinner fa-spin text-xl text-cyan-400 mb-2"></i><p>Checking staging stations...</p></div>';
+				this.#dom.prodContainer.innerHTML = '<div class="col-span-full py-10 text-center theme-text-muted text-xs"><i class="fa-solid fa-spinner fa-spin text-xl text-indigo-400 mb-2"></i><p>Loading stage dataset...</p></div>';
+			}
+
+			#renderError(msg, config) {
+				this.#dom.metricTotalStations.textContent = '0';
+				this.#dom.metricNewStations.textContent = '0';
+				this.#dom.metricPipelineStage.textContent = `Stage (${this.#currentViewStage}) Missing`;
+				
+				this.#dom.headerPipelineStageBadge.textContent = `🔴 STAGE: ${this.#currentViewStage.toUpperCase()} FILE MISSING`;
+				this.#dom.headerPipelineStageBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20';
+
+				this.#dom.metricAuditStatusContainer.innerHTML = `
+					<i class="fa-solid fa-circle-exclamation text-xs text-rose-400"></i>
+					<span id="metricAuditStatus" class="text-rose-400 font-bold">Missing File</span>
+				`;
+
+				this.#dom.stagingBadgeCount.textContent = '0 Pending';
+				this.#dom.prodBadgeCount.textContent = '0 Stations Found';
+
+				this.#dom.stagingContainer.innerHTML = `
+					<div class="col-span-full theme-bg-card border border-dashed theme-border rounded-2xl py-6 px-6 text-center">
+						<p class="text-xs theme-text-sub">Staging file unavailable for this network.</p>
+					</div>
+				`;
+
+				let targetPath = config.cleaned_file;
+				if (this.#currentViewStage === 'raw') targetPath = config.raw_file;
+				else if (this.#currentViewStage === 'master') targetPath = config.master_file;
+
+				this.#dom.prodContainer.innerHTML = `
+					<div class="col-span-full theme-bg-card border border-rose-500/30 rounded-2xl p-8 text-center theme-text-muted text-xs">
+						<div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 border border-rose-500/20 flex items-center justify-center text-xl mx-auto mb-3">
+							<i class="fa-solid fa-file-circle-xmark"></i>
+						</div>
+						<h4 class="text-sm font-bold theme-text-main mb-1">${this.#currentViewStage.toUpperCase()} File Not Found on Disk</h4>
+						<p class="theme-text-muted max-w-md mx-auto mb-4 font-mono text-[11px]">${DOMBuilder.escape(msg)}</p>
+						<div class="inline-flex items-center space-x-2 text-[10px] px-3 py-1.5 rounded-lg theme-bg-inset border theme-border theme-text-sub">
+							<i class="fa-solid fa-triangle-exclamation text-amber-400"></i>
+							<span>Expected path: <span class="font-mono text-indigo-400">${DOMBuilder.escape(targetPath)}</span></span>
+						</div>
+					</div>
+				`;
+			}
+
+			#setGlobalLoading(isLoading) {
+				this.#dom.globalSyncBtn.disabled = isLoading;
+				if (isLoading) {
+					this.#dom.globalSyncIcon.classList.add('fa-spin');
+					this.#dom.globalSyncText.textContent = 'Syncing...';
+				} else {
+					this.#dom.globalSyncIcon.classList.remove('fa-spin');
+					this.#dom.globalSyncText.textContent = I18nEngine.t('sync_all_btn', 'Sync All Networks');
+				}
+			}
+		}
+
+		document.addEventListener('DOMContentLoaded', () => {
+			window.app = new MetroAdminApp();
+		});
+	</script>
+</body>
+</html>

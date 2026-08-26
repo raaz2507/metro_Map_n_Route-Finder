@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Station Deep Inspector & Audit Details</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+		body { font-family: 'Inter', sans-serif; transition: background-color 0.2s ease, color 0.2s ease; }
+		pre, code, .font-code { font-family: 'JetBrains Mono', monospace; }
+		.custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+		.custom-scrollbar::-webkit-scrollbar-track { background: var(--bg-scroll-track, #0f172a); }
+		.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--bg-scroll-thumb, #334155); border-radius: 3px; }
+
+		/* ========================================================================= */
+		/* 4 THEME PALETTES ENGINE (DARK, LIGHT, SPA, B/W)                           */
+		/* ========================================================================= */
+		:root, [data-theme="dark"] {
+			--bg-page: #020617;
+			--bg-header: rgba(15, 23, 42, 0.85);
+			--bg-card: #0f172a;
+			--bg-surface: #020617;
+			--bg-inset: rgba(2, 6, 23, 0.6);
+			--text-main: #f8fafc;
+			--text-muted: #94a3b8;
+			--text-sub: #64748b;
+			--border-subtle: #1e293b;
+			--border-card: #1e293b;
+			--accent: #6366f1;
+			--accent-text: #818cf8;
+			--bg-scroll-track: #0f172a;
+			--bg-scroll-thumb: #334155;
+
+			/* JSON Syntax Colors */
+			--json-key: #38bdf8;
+			--json-str: #34d399;
+			--json-num: #fbbf24;
+			--json-bool: #c084fc;
+			--json-null: #f43f5e;
+			--json-bracket: #94a3b8;
+			--json-line-hover: rgba(30, 41, 59, 0.6);
+		}
+
+		[data-theme="light"] {
+			--bg-page: #f1f5f9;
+			--bg-header: rgba(255, 255, 255, 0.9);
+			--bg-card: #ffffff;
+			--bg-surface: #f8fafc;
+			--bg-inset: #f1f5f9;
+			--text-main: #0f172a;
+			--text-muted: #475569;
+			--text-sub: #94a3b8;
+			--border-subtle: #e2e8f0;
+			--border-card: #e2e8f0;
+			--accent: #4f46e5;
+			--accent-text: #4f46e5;
+			--bg-scroll-track: #f1f5f9;
+			--bg-scroll-thumb: #cbd5e1;
+
+			/* JSON Syntax Colors */
+			--json-key: #0284c7;
+			--json-str: #059669;
+			--json-num: #d97706;
+			--json-bool: #7c3aed;
+			--json-null: #e11d48;
+			--json-bracket: #64748b;
+			--json-line-hover: rgba(226, 232, 240, 0.6);
+		}
+
+		[data-theme="spa"] {
+			--bg-page: #031c1f;
+			--bg-header: rgba(6, 43, 48, 0.9);
+			--bg-card: #062b30;
+			--bg-surface: #031c1f;
+			--bg-inset: rgba(3, 28, 31, 0.7);
+			--text-main: #f0fdfa;
+			--text-muted: #99f6e4;
+			--text-sub: #5eead4;
+			--border-subtle: #0f4c54;
+			--border-card: #0f4c54;
+			--accent: #0d9488;
+			--accent-text: #2dd4bf;
+			--bg-scroll-track: #031c1f;
+			--bg-scroll-thumb: #0f4c54;
+
+			/* JSON Syntax Colors */
+			--json-key: #2dd4bf;
+			--json-str: #86efac;
+			--json-num: #fcd34d;
+			--json-bool: #a78bfa;
+			--json-null: #fda4af;
+			--json-bracket: #99f6e4;
+			--json-line-hover: rgba(15, 76, 84, 0.5);
+		}
+
+		[data-theme="bw"] {
+			--bg-page: #000000;
+			--bg-header: rgba(0, 0, 0, 0.95);
+			--bg-card: #0a0a0a;
+			--bg-surface: #000000;
+			--bg-inset: #050505;
+			--text-main: #ffffff;
+			--text-muted: #d4d4d4;
+			--text-sub: #a3a3a3;
+			--border-subtle: #262626;
+			--border-card: #333333;
+			--accent: #ffffff;
+			--accent-text: #ffffff;
+			--bg-scroll-track: #000000;
+			--bg-scroll-thumb: #262626;
+
+			/* JSON Syntax Colors */
+			--json-key: #ffffff;
+			--json-str: #d4d4d4;
+			--json-num: #ffffff;
+			--json-bool: #e5e5e5;
+			--json-null: #a3a3a3;
+			--json-bracket: #a3a3a3;
+			--json-line-hover: rgba(38, 38, 38, 0.7);
+		}
+
+		/* CSS Application Utility Classes */
+		.theme-bg-page { background-color: var(--bg-page); }
+		.theme-bg-header { background-color: var(--bg-header); }
+		.theme-bg-card { background-color: var(--bg-card); }
+		.theme-bg-surface { background-color: var(--bg-surface); }
+		.theme-bg-inset { background-color: var(--bg-inset); }
+		.theme-text-main { color: var(--text-main); }
+		.theme-text-muted { color: var(--text-muted); }
+		.theme-text-sub { color: var(--text-sub); }
+		.theme-border { border-color: var(--border-subtle); }
+		.theme-border-card { border-color: var(--border-card); }
+
+		.theme-pill-active {
+			background-color: var(--accent) !important;
+			color: #ffffff !important;
+			border-color: var(--accent) !important;
+		}
+
+		.stage-tab-active {
+			background-color: var(--accent) !important;
+			color: #ffffff !important;
+			border-color: var(--accent) !important;
+		}
+
+		/* JSON Tree Styling */
+		.json-line { display: flex; line-height: 1.6; font-size: 12px; transition: background-color 0.15s ease; }
+		.json-line:hover { background-color: var(--json-line-hover); }
+		.line-num { min-width: 42px; text-align: right; padding-right: 12px; user-select: none; color: var(--text-sub); border-right: 1px solid var(--border-subtle); margin-right: 10px; flex-shrink: 0; }
+		.json-toggle { cursor: pointer; user-select: none; margin-right: 6px; width: 14px; display: inline-block; text-align: center; color: var(--accent-text); }
+		.json-key { color: var(--json-key); font-weight: 500; }
+		.json-str { color: var(--json-str); word-break: break-all; }
+		.json-num { color: var(--json-num); font-weight: 600; }
+		.json-bool { color: var(--json-bool); font-weight: 600; }
+		.json-null { color: var(--json-null); font-weight: 600; }
+		.json-bracket { color: var(--json-bracket); font-weight: bold; }
+		.json-collapsed-text { color: var(--text-sub); font-style: italic; background: var(--bg-inset); padding: 1px 6px; border-radius: 4px; font-size: 11px; margin: 0 4px; cursor: pointer; }
+		
+		/* Search Match Highlights */
+		.json-match-line { background-color: rgba(245, 158, 11, 0.15); border-left: 2px solid #f59e0b; }
+		.json-match-line.active-match { background-color: rgba(99, 102, 241, 0.3); border-left: 3px solid #818cf8; outline: 1px solid rgba(129, 140, 248, 0.5); }
+		.json-highlight { background-color: rgba(245, 158, 11, 0.35); color: #fef08a; padding: 1px 3px; border-radius: 3px; font-weight: 700; }
+		.active-match .json-highlight { background-color: rgba(99, 102, 241, 0.6); color: #ffffff; }
+		.toggle-btn-active { background-color: #4f46e5 !important; color: #ffffff !important; border-color: #6366f1 !important; }
+	</style>
+</head>
+<body class="theme-bg-page theme-text-main min-h-screen flex flex-col antialiased">
+
+	<!-- TOP NAV & BREADCRUMBS (FULL WIDTH EDGE-TO-EDGE) -->
+	<header class="border-b theme-border theme-bg-header backdrop-blur sticky top-0 z-30 w-full px-4 sm:px-6 lg:px-8">
+		<div class="w-full h-16 flex items-center justify-between gap-3">
+			
+			<div class="flex items-center space-x-3 sm:space-x-4 min-w-0">
+				<a href="admin.html" class="theme-bg-card hover:theme-bg-surface theme-text-muted hover:theme-text-main px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all border theme-border shadow-sm">
+					<i class="fa-solid fa-arrow-left"></i>
+					<span class="hidden sm:inline">Dashboard</span>
+				</a>
+
+				<div class="flex items-center space-x-2 text-xs theme-text-muted font-medium truncate">
+					<span class="hidden sm:inline">Audit Hub</span>
+					<i class="fa-solid fa-chevron-right text-[10px] theme-text-sub hidden sm:inline"></i>
+					<span id="breadcrumbNetwork">Transit Network</span>
+					<i class="fa-solid fa-chevron-right text-[10px] theme-text-sub"></i>
+					<span id="breadcrumbStation" class="text-indigo-400 font-semibold truncate">Station Details</span>
+				</div>
+			</div>
+
+			<div class="flex items-center space-x-2.5">
+				
+				<!-- 3-STAGE SWITCHER TABS -->
+				<div class="flex items-center p-0.5 rounded-xl theme-bg-inset border theme-border space-x-0.5" title="Switch Stage Payload">
+					<button data-detail-stage="raw" class="detail-stage-btn px-2.5 py-1 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1">
+						<span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+						<span class="text-[11px]">Raw</span>
+					</button>
+					<button data-detail-stage="cleaned" class="detail-stage-btn px-2.5 py-1 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1">
+						<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+						<span class="text-[11px]">Cleaned</span>
+					</button>
+					<button data-detail-stage="master" class="detail-stage-btn px-2.5 py-1 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all flex items-center space-x-1">
+						<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+						<span class="text-[11px]">Master</span>
+					</button>
+				</div>
+
+				<!-- 4-THEME SWITCHER SELECTOR -->
+				<div class="flex items-center p-1 rounded-xl theme-bg-inset border theme-border space-x-0.5" title="Select Theme">
+					<button data-set-theme="dark" class="theme-select-btn px-1.5 py-0.5 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all" title="Dark Theme">🌙</button>
+					<button data-set-theme="light" class="theme-select-btn px-1.5 py-0.5 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all" title="Light Theme">☀️</button>
+					<button data-set-theme="spa" class="theme-select-btn px-1.5 py-0.5 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all" title="Spa Theme">🌿</button>
+					<button data-set-theme="bw" class="theme-select-btn px-1.5 py-0.5 rounded-lg text-xs font-semibold theme-text-muted hover:theme-text-main transition-all" title="B/W Theme">🖤</button>
+				</div>
+
+				<span id="headerPipelineStageBadge" class="hidden lg:inline-block px-2.5 py-1 rounded-full text-[10px] font-bold theme-bg-card theme-text-muted border theme-border">STAGE EVALUATING...</span>
+				<span id="headerSourceBadge" class="px-2.5 py-1 rounded-full text-[10px] font-bold theme-bg-card theme-text-muted">STAGE 2</span>
+			</div>
+
+		</div>
+	</header>
+
+	<!-- MAIN 50-50 SPLIT SCREEN CONTAINER (FULL WIDTH WIDESCREEN EDGE-TO-EDGE) -->
+	<main class="flex-1 w-full px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+		
+		<div class="flex flex-col-reverse lg:flex-row gap-6 items-start w-full">
+
+			<!-- ========================================================================= -->
+			<!-- LEFT SECTION (50% WIDTH ON DESKTOP / DOWNSIDE ON MOBILE): VISUAL CARDS    -->
+			<!-- ========================================================================= -->
+			<div id="visualColumn" class="w-full lg:w-1/2 space-y-6">
+
+				<!-- HERO STATION SUMMARY CARD -->
+				<section id="heroCard" class="theme-bg-card border theme-border-card rounded-3xl p-6 shadow-xl relative overflow-hidden">
+					<div class="space-y-4">
+						<div class="flex flex-wrap items-center gap-2">
+							<span id="heroLayoutBadge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Elevated</span>
+							<span id="heroTypeBadge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold theme-bg-inset theme-text-muted">Normal</span>
+							<span id="heroStageBadge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold theme-bg-inset theme-text-muted">Loading Stage...</span>
+						</div>
+
+						<div>
+							<h1 class="text-xl sm:text-2xl font-extrabold theme-text-main tracking-tight flex items-baseline gap-2.5">
+								<span id="heroNameEn">Station Name</span>
+								<span id="heroNameHi" class="text-sm font-normal theme-text-muted"></span>
+							</h1>
+							<p class="text-xs theme-text-muted mt-1 font-mono" id="heroSlug">slug • Code: <span class="text-indigo-400 font-bold" id="heroCode">STD</span></p>
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 theme-bg-inset border theme-border rounded-2xl p-3 text-xs">
+							<div>
+								<div class="text-[9px] theme-text-sub font-bold uppercase">Coordinates</div>
+								<div class="font-mono theme-text-main mt-0.5 text-[11px] truncate" id="heroCoords">N/A</div>
+							</div>
+							<div>
+								<div class="text-[9px] theme-text-sub font-bold uppercase">Timings</div>
+								<div class="theme-text-main mt-0.5 text-[11px]" id="heroTimings">06:00 - 22:00</div>
+							</div>
+							<div>
+								<div class="text-[9px] theme-text-sub font-bold uppercase">Control Room</div>
+								<div class="theme-text-main mt-0.5 font-mono text-[11px]" id="heroContact">N/A</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 1. GATES & LANDMARKS SECTION -->
+				<section class="theme-bg-card border theme-border rounded-2xl p-5 space-y-3">
+					<div class="flex items-center space-x-2 border-b theme-border pb-2.5">
+						<i class="fa-solid fa-door-open text-indigo-400"></i>
+						<h3 class="text-xs font-bold theme-text-main uppercase tracking-wider">Gates & Landmarks</h3>
+					</div>
+					<div id="gatesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+				</section>
+
+				<!-- 2. STATE-AWARE PARKING CHARGES MATRIX -->
+				<section class="theme-bg-card border theme-border rounded-2xl p-5 space-y-3">
+					<div class="flex items-center justify-between border-b theme-border pb-2.5">
+						<div class="flex items-center space-x-2">
+							<i class="fa-solid fa-square-parking text-emerald-400"></i>
+							<h3 class="text-xs font-bold theme-text-main uppercase tracking-wider">Parking Charges</h3>
+						</div>
+						<span id="parkingStateBadge" class="text-[10px] font-bold theme-text-muted">INR (₹)</span>
+					</div>
+					<div id="parkingContainer" class="space-y-4"></div>
+				</section>
+
+				<!-- 3. FACILITIES & LOCATIONS -->
+				<section class="theme-bg-card border theme-border rounded-2xl p-5 space-y-3">
+					<div class="flex items-center space-x-2 border-b theme-border pb-2.5">
+						<i class="fa-solid fa-restroom text-amber-400"></i>
+						<h3 class="text-xs font-bold theme-text-main uppercase tracking-wider">Station Facilities</h3>
+					</div>
+					<div id="facilitiesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+				</section>
+
+				<!-- 4. VERTICAL TRANSIT (LIFTS & ESCALATORS) -->
+				<section class="theme-bg-card border theme-border rounded-2xl p-5 space-y-3">
+					<div class="flex items-center space-x-2 border-b theme-border pb-2.5">
+						<i class="fa-solid fa-elevator text-cyan-400"></i>
+						<h3 class="text-xs font-bold theme-text-main uppercase tracking-wider">Vertical Transit</h3>
+					</div>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+						<div class="theme-bg-inset border theme-border rounded-xl p-3.5 space-y-2">
+							<h4 class="text-[11px] font-bold theme-text-main flex items-center justify-between">
+								<span>Lifts (<span id="liftsCount">0</span>)</span>
+								<i class="fa-solid fa-elevator text-indigo-400"></i>
+							</h4>
+							<div id="liftsList" class="space-y-1.5 custom-scrollbar max-h-48 overflow-y-auto pr-1"></div>
+						</div>
+						<div class="theme-bg-inset border theme-border rounded-xl p-3.5 space-y-2">
+							<h4 class="text-[11px] font-bold theme-text-main flex items-center justify-between">
+								<span>Escalators (<span id="escalatorsCount">0</span>)</span>
+								<i class="fa-solid fa-stairs text-indigo-400"></i>
+							</h4>
+							<div id="escalatorsList" class="space-y-1.5 custom-scrollbar max-h-48 overflow-y-auto pr-1"></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 5. STATION LAYOUT FILES & FEEDER BUSES -->
+				<section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+					
+					<!-- Layout Files -->
+					<div class="theme-bg-card border theme-border rounded-2xl p-4 space-y-3">
+						<div class="flex items-center space-x-2 border-b theme-border pb-2">
+							<i class="fa-solid fa-map-location-dot text-indigo-400"></i>
+							<h3 class="text-xs font-bold theme-text-main uppercase">Layout Files</h3>
+						</div>
+						<div id="layoutsContainer" class="space-y-2"></div>
+					</div>
+
+					<!-- Feeder Bus Routes -->
+					<div class="theme-bg-card border theme-border rounded-2xl p-4 space-y-3">
+						<div class="flex items-center space-x-2 border-b theme-border pb-2">
+							<i class="fa-solid fa-bus text-indigo-400"></i>
+							<h3 class="text-xs font-bold theme-text-main uppercase">Feeder Buses</h3>
+						</div>
+						<div id="feederBusesContainer" class="space-y-2"></div>
+					</div>
+
+				</section>
+
+				<!-- 6. NEIGHBORING ROUTE GRAPH -->
+				<section class="theme-bg-card border theme-border rounded-2xl p-5 space-y-3">
+					<div class="flex items-center space-x-2 border-b theme-border pb-2.5">
+						<i class="fa-solid fa-route text-indigo-400"></i>
+						<h3 class="text-xs font-bold theme-text-main uppercase tracking-wider">Adjacent Route Links</h3>
+					</div>
+					<div id="neighborsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+				</section>
+
+			</div>
+
+			<!-- ========================================================================= -->
+			<!-- RIGHT SECTION (50% WIDTH ON DESKTOP / TOP ON MOBILE): RAW JSON TREE      -->
+			<!-- ========================================================================= -->
+			<div id="jsonColumn" class="w-full lg:w-1/2 lg:sticky lg:top-20 space-y-3">
+				
+				<!-- VS CODE / FIREFOX STYLE IDE FIND & JSON TOOLBAR -->
+				<div class="theme-bg-card border theme-border-card rounded-2xl p-3.5 sm:p-4 space-y-3 shadow-xl">
+					
+					<!-- Top Action Bar -->
+					<div class="flex items-center justify-between gap-2">
+						<div class="min-w-0">
+							<h3 class="text-xs font-bold theme-text-main flex items-center space-x-2 truncate">
+								<i class="fa-solid fa-code text-indigo-400"></i>
+								<span id="jsonViewerTitle" class="truncate">Station JSON Payload</span>
+							</h3>
+							<p class="text-[10px] theme-text-muted truncate">Line Numbered Gutter • Foldable Tree</p>
+						</div>
+						
+						<div class="flex items-center gap-1.5 flex-shrink-0">
+							<!-- SINGLE SMART TOGGLE BUTTON -->
+							<button id="toggleAllJsonBtn" class="theme-bg-inset hover:theme-bg-surface text-xs font-semibold px-2.5 py-1.5 rounded-xl transition-all border theme-border flex items-center space-x-1.5">
+								<i id="toggleAllIcon" class="fa-solid fa-angles-up text-amber-400 text-[10px]"></i>
+								<span id="toggleAllText">Collapse All</span>
+							</button>
+
+							<!-- COPY & DOWNLOAD BUTTONS -->
+							<button id="copyStationJsonBtn" class="bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white text-[11px] font-semibold px-2.5 py-1.5 rounded-xl transition-all shadow-md shadow-indigo-600/30 flex items-center space-x-1" title="Copy Raw JSON">
+								<i class="fa-solid fa-copy text-[10px]"></i>
+								<span class="hidden sm:inline">Copy</span>
+							</button>
+							<button id="downloadStationJsonBtn" class="theme-bg-inset hover:theme-bg-surface text-[11px] font-semibold p-1.5 rounded-xl transition-all border theme-border" title="Download .json file">
+								<i class="fa-solid fa-download text-[10px]"></i>
+							</button>
+						</div>
+					</div>
+
+					<!-- PROPER IDE-GRADE FIND WIDGET (REGEX, CASE, WHOLE-WORD, NEXT/PREV NAV) -->
+					<div class="theme-bg-surface border theme-border rounded-xl p-1.5 flex flex-wrap sm:flex-nowrap items-center gap-1.5 shadow-inner">
+						
+						<!-- Search Input Field -->
+						<div class="relative flex-1 min-w-[160px] flex items-center">
+							<i class="fa-solid fa-magnifying-glass absolute left-2.5 theme-text-sub text-xs pointer-events-none"></i>
+							<input type="text" id="jsonSearchInput" placeholder="Find in JSON (e.g. 'gate', '\d{10}', 'status')..." class="w-full bg-transparent theme-text-main text-xs pl-8 pr-6 py-1.5 focus:outline-none placeholder-slate-500 font-mono">
+							<button id="clearJsonSearchBtn" class="absolute right-1.5 theme-text-sub hover:theme-text-main text-xs hidden p-0.5" title="Clear Search">
+								<i class="fa-solid fa-xmark"></i>
+							</button>
+						</div>
+
+						<!-- Match Counter Badge -->
+						<div id="jsonMatchBadge" class="text-[10px] font-mono font-bold px-2 py-1 rounded theme-bg-card border theme-border theme-text-muted whitespace-nowrap">
+							0 of 0
+						</div>
+
+						<!-- Next / Previous Navigation Buttons -->
+						<div class="flex items-center border-l theme-border pl-1.5 space-x-0.5">
+							<button id="prevMatchBtn" disabled class="p-1.5 theme-text-sub hover:theme-text-main disabled:opacity-30 disabled:pointer-events-none rounded hover:theme-bg-inset transition-colors" title="Previous Match (Shift+Enter)">
+								<i class="fa-solid fa-chevron-up text-[10px]"></i>
+							</button>
+							<button id="nextMatchBtn" disabled class="p-1.5 theme-text-sub hover:theme-text-main disabled:opacity-30 disabled:pointer-events-none rounded hover:theme-bg-inset transition-colors" title="Next Match (Enter)">
+								<i class="fa-solid fa-chevron-down text-[10px]"></i>
+							</button>
+						</div>
+
+						<!-- IDE Toggles: Match Case (Aa), Whole Word (\b), Regex (.*) -->
+						<div class="flex items-center border-l theme-border pl-1.5 space-x-1">
+							<button id="toggleCaseBtn" class="px-1.5 py-0.5 rounded text-[11px] font-bold font-mono theme-text-muted hover:theme-text-main theme-bg-card border theme-border transition-all" title="Match Case">
+								Aa
+							</button>
+							<button id="toggleWordBtn" class="px-1.5 py-0.5 rounded text-[11px] font-bold font-mono theme-text-muted hover:theme-text-main theme-bg-card border theme-border transition-all" title="Match Whole Word">
+								\b
+							</button>
+							<button id="toggleRegexBtn" class="px-1.5 py-0.5 rounded text-[11px] font-bold font-mono theme-text-muted hover:theme-text-main theme-bg-card border theme-border transition-all" title="Use Regular Expression">
+								.*
+							</button>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- INTERACTIVE LINE-NUMBERED JSON TREE CONTAINER -->
+				<div class="theme-bg-surface border theme-border-card rounded-2xl p-3 sm:p-4 overflow-x-auto overflow-y-auto max-h-[60vh] lg:max-h-[calc(100vh-14rem)] custom-scrollbar shadow-2xl font-code text-xs">
+					<div id="jsonTreeContainer" class="space-y-0.5 select-text"></div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</main>
+
+	<!-- TOAST NOTIFICATIONS -->
+	<div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+	<!-- ========================================================================= -->
+	<!-- ENTERPRISE UTILITY CLASSES & 3-STAGE DETAIL PIPELINE                      -->
+	<!-- ========================================================================= -->
+	<script>
+		/**
+		 * 1. Safe Client-Side Storage Manager
+		 */
+		class StorageManager {
+			static get(key, defaultValue = null) {
+				try {
+					const item = localStorage.getItem(`metro_detail_${key}`);
+					return item ? JSON.parse(item) : defaultValue;
+				} catch {
+					return defaultValue;
+				}
+			}
+
+			static set(key, value) {
+				try {
+					localStorage.setItem(`metro_detail_${key}`, JSON.stringify(value));
+					return true;
+				} catch {
+					return false;
+				}
+			}
+
+			static remove(key) {
+				try { localStorage.removeItem(`metro_detail_${key}`); } catch {}
+			}
+		}
+
+		/**
+		 * 2. Enterprise 4-Theme Engine (Dark, Light, Spa, B/W)
+		 */
+		class ThemeManager {
+			static #currentTheme = StorageManager.get('theme', 'dark');
+
+			static init() {
+				this.applyTheme(this.#currentTheme);
+			}
+
+			static applyTheme(themeName) {
+				const validThemes = ['dark', 'light', 'spa', 'bw'];
+				const theme = validThemes.includes(themeName) ? themeName : 'dark';
+				this.#currentTheme = theme;
+				document.documentElement.setAttribute('data-theme', theme);
+				StorageManager.set('theme', theme);
+
+				// Update Switcher UI Buttons
+				document.querySelectorAll('.theme-select-btn').forEach(btn => {
+					const btnTheme = btn.getAttribute('data-set-theme');
+					btn.classList.toggle('theme-pill-active', btnTheme === theme);
+				});
+			}
+
+			static getTheme() {
+				return this.#currentTheme;
+			}
+		}
+
+		/**
+		 * 3. High-Performance Fluent DOM Builder
+		 */
+		class DOMBuilder {
+			static create(tag, options = {}) {
+				const el = document.createElement(tag);
+				if (options.className) el.className = options.className;
+				if (options.textContent) el.textContent = options.textContent;
+				if (options.html) el.innerHTML = options.html;
+				if (options.attributes) {
+					Object.entries(options.attributes).forEach(([k, v]) => el.setAttribute(k, v));
+				}
+				if (options.children) {
+					options.children.forEach(c => c && el.appendChild(c));
+				}
+				return el;
+			}
+
+			static fragment() { return document.createDocumentFragment(); }
+
+			static escape(str) {
+				if (!str) return '';
+				return String(str).replace(/[&<>"']/g, match => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[match]);
+			}
+		}
+
+		/**
+		 * 4. Toast Notification Subsystem
+		 */
+		class ToastNotifierService {
+			#container;
+			constructor(containerEl) { this.#container = containerEl; }
+
+			show(message, type = 'info') {
+				const bgColors = {
+					success: 'bg-emerald-600 text-white shadow-emerald-500/20',
+					error: 'bg-rose-600 text-white shadow-rose-500/20',
+					info: 'bg-slate-800 text-slate-200 border border-slate-700'
+				};
+				const icons = { success: 'fa-circle-check', error: 'fa-triangle-exclamation', info: 'fa-circle-info' };
+
+				const toast = DOMBuilder.create('div', {
+					className: `pointer-events-auto px-4 py-2.5 rounded-xl text-xs font-semibold shadow-2xl flex items-center space-x-2 transition-all transform duration-200 ease-out translate-y-2 opacity-0 ${bgColors[type] || bgColors.info}`,
+					html: `<i class="fa-solid ${icons[type] || icons.info}"></i><span>${DOMBuilder.escape(message)}</span>`
+				});
+
+				this.#container.appendChild(toast);
+				requestAnimationFrame(() => toast.classList.remove('translate-y-2', 'opacity-0'));
+				setTimeout(() => {
+					toast.classList.add('opacity-0', 'translate-y-2');
+					setTimeout(() => toast.remove(), 200);
+				}, 3000);
+			}
+		}
+
+		/**
+		 * 5. Station Data Fetcher Service with 3-Tier Support
+		 */
+		class StationDataService {
+			#manifest = null;
+			#datasetCache = new Map();
+
+			async fetchManifest() {
+				try {
+					const res = await fetch('./master_audit_manifest.json');
+					if (res.ok) this.#manifest = await res.json();
+				} catch {}
+				return this.#manifest;
+			}
+
+			getNetworkMeta(networkId) {
+				if (this.#manifest?.networks && this.#manifest.networks[networkId]) {
+					return this.#manifest.networks[networkId];
+				}
+				return {
+					name: networkId,
+					pipeline_stage: networkId === 'ncrtc_rrts' ? 'stage_3_structured' : 'stage_2_cleaned',
+					supervised_by_developer: networkId === 'ncrtc_rrts',
+					raw_file: `./${networkId}_data/${networkId}_raw.json`,
+					cleaned_file: `./${networkId}_data/${networkId}_cleaned.json`,
+					master_file: `./${networkId}_data/${networkId}_master.json`,
+					staging_file: `./${networkId}_data/${networkId}_staging_new.json`
+				};
+			}
+
+			async fetchStation(networkId, stationSlug, stage = 'cleaned', source = 'prod') {
+				const meta = this.getNetworkMeta(networkId);
+				const resolvePath = (p, def) => {
+					if (!p) return def;
+					if (p.startsWith('import_data/')) return `./${p.replace('import_data/', '')}`;
+					if (!p.startsWith('./') && !p.startsWith('../')) return `./${p}`;
+					return p;
+				};
+
+				let dataFile = resolvePath(meta.cleaned_file, `./${networkId}_data/${networkId}_cleaned.json`);
+				if (stage === 'raw') dataFile = resolvePath(meta.raw_file, `./${networkId}_data/${networkId}_raw.json`);
+				else if (stage === 'master') dataFile = resolvePath(meta.master_file, `./${networkId}_data/${networkId}_master.json`);
+
+				if (source === 'staging') {
+					dataFile = resolvePath(meta.staging_file, `./${networkId}_data/${networkId}_staging_new.json`);
+				}
+
+				let dataset;
+				if (this.#datasetCache.has(dataFile)) {
+					dataset = this.#datasetCache.get(dataFile);
+				} else {
+					const res = await fetch(dataFile);
+					if (!res.ok) throw new Error(`Dataset file not found: ${dataFile}`);
+					dataset = await res.json();
+					this.#datasetCache.set(dataFile, dataset);
+				}
+
+				const station = dataset[stationSlug];
+				if (!station) throw new Error(`Station '${stationSlug}' not found in ${stage.toUpperCase()} dataset.`);
+				return station;
+			}
+		}
+
+		/**
+		 * 6. Visual Organized Cards Renderer
+		 */
+		class VisualCardsRenderer {
+			renderAll(st, slug, source, networkId, netMeta, stage, dom) {
+				const nameEn = (st.name && st.name.en) ? st.name.en : (st.name_en ? st.name_en : (typeof st.name === 'string' ? st.name : (st.station_name || slug)));
+				const nameHi = (st.name && st.name.hi) ? st.name.hi : (st.name_hi || '');
+
+				dom.breadcrumbNetwork.textContent = netMeta.name || networkId;
+				dom.breadcrumbStation.textContent = nameEn;
+				dom.heroNameEn.textContent = nameEn;
+				dom.heroNameHi.textContent = nameHi;
+				dom.heroSlug.textContent = `${slug} • Code: `;
+				dom.heroCode.textContent = st.code || 'STD';
+
+				const lat = st.location?.decimal?.lat || st.latitude || 'N/A';
+				const lon = st.location?.decimal?.lon || st.longitude || 'N/A';
+				dom.heroCoords.textContent = `${lat}, ${lon}`;
+				dom.heroTimings.textContent = `${st.timings?.opening || '06:00:00'} - ${st.timings?.closing || '22:00:00'}`;
+				dom.heroContact.textContent = st.contact?.mobile || 'N/A';
+
+				dom.headerSourceBadge.textContent = `VIEW: ${stage.toUpperCase()}`;
+				dom.headerSourceBadge.className = `px-2.5 py-1 rounded-full text-[10px] font-bold ${stage === 'master' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : (stage === 'raw' ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20')}`;
+
+				if (stage === 'master') {
+					dom.headerPipelineStageBadge.textContent = 'STAGE 3: MASTER STRUCTURED';
+					dom.headerPipelineStageBadge.className = 'hidden lg:inline-block px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+					dom.heroStageBadge.textContent = 'Supervised Schema';
+					dom.heroStageBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+				} else if (stage === 'cleaned') {
+					dom.headerPipelineStageBadge.textContent = 'STAGE 2: BASIC CLEANED';
+					dom.headerPipelineStageBadge.className = 'hidden lg:inline-block px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20';
+					dom.heroStageBadge.textContent = 'Cleaned Data';
+					dom.heroStageBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20';
+				} else {
+					dom.headerPipelineStageBadge.textContent = 'STAGE 1: RAW INTAKE';
+					dom.headerPipelineStageBadge.className = 'hidden lg:inline-block px-2.5 py-1 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20';
+					dom.heroStageBadge.textContent = 'Raw Scraped Data';
+					dom.heroStageBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20';
+				}
+
+				dom.heroLayoutBadge.textContent = (st.properties?.layout || st.type || 'Elevated').toUpperCase();
+				dom.heroTypeBadge.textContent = (st.properties?.station_type || (st.interchange ? 'Interchange' : 'Normal')).toUpperCase();
+
+				this.#renderGates(dom.gatesGrid, st.gates || (st.gate_directions || {}));
+				this.#renderParking(dom.parkingContainer, dom.parkingStateBadge, st.parkingCharges || st.parking || {});
+				this.#renderFacilities(dom.facilitiesGrid, st.facilities || {});
+				this.#renderVerticalTransit(dom.liftsList, dom.liftsCount, dom.escalatorsList, dom.escalatorsCount, st.vertical_transit || {});
+				this.#renderLayouts(dom.layoutsContainer, st.stationLayout || []);
+				this.#renderFeederBuses(dom.feederBusesContainer, st.feederBusRouteInfo || []);
+				this.#renderNeighbors(dom.neighborsGrid, st.neighbors || []);
+			}
+
+			#renderGates(container, gates) {
+				container.innerHTML = '';
+				const entries = Object.entries(gates);
+				if (entries.length === 0) {
+					container.innerHTML = '<div class="col-span-full text-xs theme-text-sub py-2">No gates registered.</div>';
+					return;
+				}
+				const frag = DOMBuilder.fragment();
+				entries.forEach(([gId, g]) => {
+					const landmarkStr = typeof g === 'string' ? g : (g.landmark?.en || g.landmark || 'Station Entrance');
+					const card = DOMBuilder.create('div', {
+						className: 'theme-bg-inset border theme-border rounded-xl p-3 space-y-1.5',
+						html: `
+							<div class="flex items-center justify-between">
+								<span class="text-[11px] font-bold theme-text-main font-mono bg-indigo-500/10 text-indigo-400 px-1.5 py-0.5 rounded border border-indigo-500/20">Gate ${gId} (${g.code || 'GA' + gId})</span>
+								<span class="text-[9px] font-bold ${g.status === 'open' ? 'text-emerald-400' : 'theme-text-sub'} uppercase">${g.status || 'open'}</span>
+							</div>
+							<p class="text-[11px] theme-text-muted leading-relaxed">${DOMBuilder.escape(landmarkStr)}</p>
+							<div class="flex items-center space-x-1.5 text-[9px] theme-text-sub pt-1 border-t theme-border">
+								<i class="fa-solid fa-wheelchair ${g.divyang ? 'text-cyan-400' : 'theme-text-sub'}"></i>
+								<span>${g.divyang ? 'Divyangjan Accessible' : 'Standard Gate'}</span>
+							</div>
+						`
+					});
+					frag.appendChild(card);
+				});
+				container.appendChild(frag);
+			}
+
+			#renderParking(container, stateBadge, pc) {
+				container.innerHTML = '';
+				const rates = pc.rates || pc || {};
+				stateBadge.textContent = `State: ${pc.state || 'Delhi'} • ${pc.currency || 'INR'} (${pc.symbol || '₹'})`;
+
+				if (Object.keys(rates).length === 0) {
+					container.innerHTML = '<div class="text-xs theme-text-sub py-3 theme-bg-inset border theme-border rounded-xl text-center">No parking rates applicable.</div>';
+					return;
+				}
+
+				const frag = DOMBuilder.fragment();
+				if (rates.four_wheeler) frag.appendChild(this.#createVehicleCard('Four Wheeler', 'fa-car', rates.four_wheeler));
+				if (rates.two_wheeler) frag.appendChild(this.#createVehicleCard('Two Wheeler', 'fa-motorcycle', rates.two_wheeler));
+				container.appendChild(frag);
+			}
+
+			#createVehicleCard(title, icon, vObj) {
+				let dayRows = '';
+				(vObj.day_charges || []).forEach(dc => {
+					const maxStr = dc.max_minutes === 'OPERATIONAL_CLOSE' ? 'Op. Close' : `${dc.max_minutes / 60} hrs`;
+					dayRows += `<div class="flex items-center justify-between text-[11px] py-0.5 border-b theme-border"><span class="theme-text-muted">${dc.tag || `${dc.min_minutes / 60} to ${maxStr}`}</span><span class="font-bold theme-text-main font-mono">₹ ${dc.fare}/-</span></div>`;
+				});
+
+				let nightRows = '';
+				(vObj.night_charges || []).forEach(nc => {
+					nightRows += `<div class="flex items-center justify-between text-[11px] py-0.5 border-b theme-border"><span class="theme-text-muted">${nc.tag || '00:00 - 05:00'}</span><span class="font-bold text-amber-400 font-mono">₹ ${nc.fare}/-</span></div>`;
+				});
+
+				let passRows = '';
+				Object.entries(vObj.monthly_passes || {}).forEach(([tKey, tObj]) => {
+					passRows += `<div class="flex items-center justify-between text-[11px] py-0.5 border-b theme-border"><span class="theme-text-muted uppercase font-mono">${tKey.replace('_', ' ')} (${tObj.timing})</span><span class="font-bold text-cyan-400 font-mono">₹ ${tObj.fare}/-</span></div>`;
+				});
+
+				return DOMBuilder.create('div', {
+					className: 'theme-bg-inset border theme-border rounded-xl p-3.5 space-y-2.5',
+					html: `
+						<div class="flex items-center space-x-2 border-b theme-border pb-1.5">
+							<i class="fa-solid ${icon} text-indigo-400 text-xs"></i>
+							<h4 class="text-xs font-bold theme-text-main uppercase">${title}</h4>
+						</div>
+						<div class="space-y-2">
+							<div><div class="text-[9px] font-bold theme-text-sub uppercase mb-0.5">Day Parking</div>${dayRows}</div>
+							${nightRows ? `<div><div class="text-[9px] font-bold text-amber-500 uppercase mb-0.5">Night Parking</div>${nightRows}</div>` : ''}
+							${passRows ? `<div><div class="text-[9px] font-bold text-cyan-400 uppercase mb-0.5">Monthly Passes</div>${passRows}</div>` : ''}
+						</div>
+					`
+				});
+			}
+
+			#renderFacilities(container, fac) {
+				container.innerHTML = '';
+				if (Array.isArray(fac)) {
+					const frag = DOMBuilder.fragment();
+					fac.forEach(f => {
+						frag.appendChild(DOMBuilder.create('div', {
+							className: 'theme-bg-inset border theme-border rounded-xl p-3 text-xs theme-text-muted',
+							html: `<i class="fa-solid fa-circle-dot text-[7px] text-indigo-400 mr-2"></i>${DOMBuilder.escape(typeof f === 'string' ? f : f.name)}`
+						}));
+					});
+					container.appendChild(frag);
+					return;
+				}
+
+				const entries = Object.entries(fac);
+				if (entries.length === 0) {
+					container.innerHTML = '<div class="col-span-full text-xs theme-text-sub py-2">No facilities registered.</div>';
+					return;
+				}
+				const frag = DOMBuilder.fragment();
+				entries.forEach(([cat, items]) => {
+					let locs = '';
+					(Array.isArray(items) ? items : [items]).forEach(it => { locs += `<div class="text-[11px] theme-text-muted font-medium">${DOMBuilder.escape(it.location || (typeof it === 'string' ? it : 'Station Premises'))}</div>`; });
+					
+					const card = DOMBuilder.create('div', {
+						className: 'theme-bg-inset border theme-border rounded-xl p-3 space-y-1.5',
+						html: `
+							<div class="flex items-center justify-between">
+								<span class="text-xs font-bold text-indigo-400 flex items-center space-x-1.5"><i class="fa-solid fa-circle-dot text-[7px]"></i><span>${DOMBuilder.escape(cat)}</span></span>
+								<span class="text-[9px] font-bold theme-text-sub">${Array.isArray(items) ? items.length : 1} Loc</span>
+							</div>
+							${locs}
+						`
+					});
+					frag.appendChild(card);
+				});
+				container.appendChild(frag);
+			}
+
+			#renderVerticalTransit(liftsList, liftsCount, escList, escCount, vt) {
+				const lifts = vt.lifts || {};
+				const escalators = vt.escalators || {};
+
+				liftsCount.textContent = Object.keys(lifts).length;
+				escCount.textContent = Object.keys(escalators).length;
+
+				liftsList.innerHTML = '';
+				const liftFrag = DOMBuilder.fragment();
+				Object.entries(lifts).forEach(([lId, l]) => {
+					liftFrag.appendChild(DOMBuilder.create('div', {
+						className: 'text-[11px] p-2 rounded-lg theme-bg-card border theme-border flex items-center justify-between',
+						html: `<span class="font-bold theme-text-main font-mono">${DOMBuilder.escape(l.name || 'Lift ' + lId)}</span><span class="text-[9px] ${l.divyang_friendly ? 'text-cyan-400' : 'theme-text-sub'} font-semibold">${l.divyang_friendly ? 'Stretcher' : 'Standard'}</span>`
+					}));
+				});
+				liftsList.appendChild(liftFrag);
+
+				escList.innerHTML = '';
+				const escFrag = DOMBuilder.fragment();
+				Object.entries(escalators).forEach(([eId, e]) => {
+					escFrag.appendChild(DOMBuilder.create('div', {
+						className: 'text-[11px] p-2 rounded-lg theme-bg-card border theme-border flex items-center justify-between',
+						html: `<span class="font-bold theme-text-main font-mono">${DOMBuilder.escape(e.name || 'Escalator ' + eId)}</span><span class="text-[9px] text-indigo-400 font-semibold uppercase">${DOMBuilder.escape(e.direction || 'Up')}</span>`
+					}));
+				});
+				escList.appendChild(escFrag);
+			}
+
+			#renderLayouts(container, sl) {
+				container.innerHTML = '';
+				if (!Array.isArray(sl) || sl.length === 0) { container.innerHTML = '<div class="text-xs theme-text-sub py-2">No layout diagrams available.</div>'; return; }
+				const frag = DOMBuilder.fragment();
+				sl.forEach(l => {
+					const pdfUrl = l.layout?.pdf || l.pdf || '';
+					const pngUrl = l.layout?.png || l.png || '';
+					frag.appendChild(DOMBuilder.create('div', {
+						className: 'p-2.5 theme-bg-inset border theme-border rounded-xl flex items-center justify-between gap-2',
+						html: `
+							<div><span class="text-xs font-bold theme-text-main block">${DOMBuilder.escape(l.level || 'Station Level')}</span><span class="text-[9px] theme-text-sub font-mono">${DOMBuilder.escape(l.id || 'N/A')}</span></div>
+							<div class="flex items-center space-x-1.5">
+								${pdfUrl ? `<a href="${pdfUrl}" target="_blank" class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 text-[10px] font-bold hover:bg-rose-500 hover:text-white transition-all flex items-center space-x-1"><i class="fa-solid fa-file-pdf"></i><span>PDF</span></a>` : ''}
+								${pngUrl ? `<a href="${pngUrl}" target="_blank" class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold hover:bg-emerald-500 hover:text-white transition-all flex items-center space-x-1"><i class="fa-solid fa-image"></i><span>PNG</span></a>` : ''}
+							</div>
+						`
+					}));
+				});
+				container.appendChild(frag);
+			}
+
+			#renderFeederBuses(container, fb) {
+				container.innerHTML = '';
+				if (!Array.isArray(fb) || fb.length === 0) { container.innerHTML = '<div class="text-xs theme-text-sub py-2">No feeder routes.</div>'; return; }
+				const frag = DOMBuilder.fragment();
+				fb.forEach(b => {
+					frag.appendChild(DOMBuilder.create('div', {
+						className: 'p-2.5 theme-bg-inset border theme-border rounded-xl space-y-0.5',
+						html: `
+							<div class="flex items-center justify-between"><span class="text-xs font-bold theme-text-main">${DOMBuilder.escape(b.route_name || 'Feeder Route')}</span><span class="text-[9px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-1.5 py-0.5 rounded border border-cyan-500/20">${DOMBuilder.escape(b.route_no || 'BUS')}</span></div>
+							<div class="text-[10px] theme-text-muted">Freq: ${DOMBuilder.escape(b.frequency || 'N/A')}</div>
+						`
+					}));
+				});
+				container.appendChild(frag);
+			}
+
+			#renderNeighbors(container, nb) {
+				container.innerHTML = '';
+				if (!Array.isArray(nb) || nb.length === 0) { container.innerHTML = '<div class="col-span-full text-xs theme-text-sub py-2">Terminal station.</div>'; return; }
+				const frag = DOMBuilder.fragment();
+				nb.forEach(n => {
+					frag.appendChild(DOMBuilder.create('div', {
+						className: 'p-3 theme-bg-inset border theme-border rounded-xl flex items-center justify-between',
+						html: `
+							<div><span class="text-xs font-bold theme-text-main block capitalize font-mono">${DOMBuilder.escape((n.station || '').replace(/_/g, ' '))}</span><span class="text-[9px] theme-text-sub font-mono">${DOMBuilder.escape(n.line || 'ncrtc')}</span></div>
+							<div class="text-right"><div class="text-xs font-bold text-indigo-400 font-mono">${(n.distance_m / 1000).toFixed(2)} km</div><div class="text-[9px] theme-text-sub">${Math.round(n.travel_time_sec / 60)} mins</div></div>
+						`
+					}));
+				});
+				container.appendChild(frag);
+			}
+		}
+
+		/**
+		 * 7. High-Performance IDE-Grade JSON Tree & Regex Search Engine
+		 */
+		class ExpandableJsonTreeRenderer {
+			#container;
+			#lineCounter = 1;
+			#isCollapsed = StorageManager.get('json_tree_collapsed', false);
+			#matchedLines = [];
+			#currentMatchIndex = -1;
+
+			constructor(containerElement) {
+				this.#container = containerElement;
+			}
+
+			renderJsonTree(data) {
+				this.#container.innerHTML = '';
+				this.#lineCounter = 1;
+				this.#matchedLines = [];
+				this.#currentMatchIndex = -1;
+				
+				const frag = DOMBuilder.fragment();
+				const rootWrapper = DOMBuilder.create('div', { className: 'json-tree-root' });
+				this.#renderNode(data, rootWrapper, 0, false, null);
+				frag.appendChild(rootWrapper);
+				this.#container.appendChild(frag);
+
+				if (this.#isCollapsed) {
+					this.#collapseAll();
+				}
+			}
+
+			executeSearch(query, options, matchBadgeEl, prevBtn, nextBtn) {
+				this.#clearHighlights();
+				this.#matchedLines = [];
+				this.#currentMatchIndex = -1;
+
+				if (!query || !query.trim()) {
+					matchBadgeEl.textContent = '0 of 0';
+					matchBadgeEl.className = 'text-[10px] font-mono font-bold px-2 py-1 rounded theme-bg-card border theme-border theme-text-muted whitespace-nowrap';
+					prevBtn.disabled = true;
+					nextBtn.disabled = true;
+					this.#recalculateLineNumbers();
+					return;
+				}
+
+				let regex;
+				try {
+					let pattern = query;
+					if (!options.isRegex) {
+						pattern = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+					}
+					if (options.isWholeWord) {
+						pattern = `\\b${pattern}\\b`;
+					}
+					const flags = options.isCaseSensitive ? 'g' : 'gi';
+					regex = new RegExp(pattern, flags);
+				} catch (err) {
+					matchBadgeEl.textContent = 'Invalid Regex';
+					matchBadgeEl.className = 'text-[10px] font-mono font-bold px-2 py-1 rounded bg-rose-500/10 border border-rose-500/30 text-rose-400 whitespace-nowrap';
+					prevBtn.disabled = true;
+					nextBtn.disabled = true;
+					return;
+				}
+
+				const allLines = this.#container.querySelectorAll('.json-line');
+				allLines.forEach(l => {
+					const textSpan = l.querySelector('span:nth-child(2)');
+					if (!textSpan) return;
+
+					const originalText = textSpan.textContent;
+					regex.lastIndex = 0;
+
+					if (regex.test(originalText)) {
+						this.#matchedLines.push(l);
+						l.classList.add('json-match-line');
+
+						// Auto-expand parent collapsibles
+						let parent = l.parentElement;
+						while (parent && parent !== this.#container) {
+							if (parent.classList.contains('json-collapsible')) {
+								parent.classList.remove('hidden');
+								const toggleBtn = parent.previousElementSibling?.querySelector('.json-toggle');
+								if (toggleBtn) toggleBtn.innerHTML = '▼';
+								const collapsedText = parent.previousElementSibling?.querySelector('.json-collapsed-text');
+								if (collapsedText) collapsedText.classList.add('hidden');
+							}
+							parent = parent.parentElement;
+						}
+					}
+				});
+
+				const total = this.#matchedLines.length;
+				if (total > 0) {
+					this.#currentMatchIndex = 0;
+					this.#focusActiveMatch(matchBadgeEl, prevBtn, nextBtn);
+				} else {
+					matchBadgeEl.textContent = '0 of 0';
+					matchBadgeEl.className = 'text-[10px] font-mono font-bold px-2 py-1 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 whitespace-nowrap';
+					prevBtn.disabled = true;
+					nextBtn.disabled = true;
+				}
+
+				this.#recalculateLineNumbers();
+			}
+
+			nextMatch(matchBadgeEl, prevBtn, nextBtn) {
+				if (this.#matchedLines.length === 0) return;
+				this.#currentMatchIndex = (this.#currentMatchIndex + 1) % this.#matchedLines.length;
+				this.#focusActiveMatch(matchBadgeEl, prevBtn, nextBtn);
+			}
+
+			prevMatch(matchBadgeEl, prevBtn, nextBtn) {
+				if (this.#matchedLines.length === 0) return;
+				this.#currentMatchIndex = (this.#currentMatchIndex - 1 + this.#matchedLines.length) % this.#matchedLines.length;
+				this.#focusActiveMatch(matchBadgeEl, prevBtn, nextBtn);
+			}
+
+			#focusActiveMatch(matchBadgeEl, prevBtn, nextBtn) {
+				const total = this.#matchedLines.length;
+				if (total === 0 || this.#currentMatchIndex < 0) return;
+
+				this.#matchedLines.forEach(l => l.classList.remove('active-match'));
+
+				const activeLine = this.#matchedLines[this.#currentMatchIndex];
+				activeLine.classList.add('active-match');
+
+				activeLine.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+				matchBadgeEl.textContent = `${this.#currentMatchIndex + 1} of ${total}`;
+				matchBadgeEl.className = 'text-[10px] font-mono font-bold px-2 py-1 rounded bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 whitespace-nowrap';
+				prevBtn.disabled = total <= 1;
+				nextBtn.disabled = total <= 1;
+			}
+
+			#clearHighlights() {
+				const allLines = this.#container.querySelectorAll('.json-line');
+				allLines.forEach(l => {
+					l.classList.remove('json-match-line', 'active-match');
+				});
+			}
+
+			toggleAll(toggleBtn, toggleIcon, toggleText) {
+				if (this.#isCollapsed) {
+					this.#expandAll();
+					this.#isCollapsed = false;
+					toggleIcon.className = 'fa-solid fa-angles-up text-amber-400 text-[10px]';
+					toggleText.textContent = 'Collapse All';
+				} else {
+					this.#collapseAll();
+					this.#isCollapsed = true;
+					toggleIcon.className = 'fa-solid fa-angles-down text-indigo-400 text-[10px]';
+					toggleText.textContent = 'Expand All';
+				}
+				StorageManager.set('json_tree_collapsed', this.#isCollapsed);
+			}
+
+			#expandAll() {
+				const toggles = this.#container.querySelectorAll('.json-collapsible');
+				toggles.forEach(node => {
+					node.classList.remove('hidden');
+					const toggleBtn = node.previousElementSibling?.querySelector('.json-toggle');
+					if (toggleBtn) toggleBtn.innerHTML = '▼';
+					const collapsedText = node.previousElementSibling?.querySelector('.json-collapsed-text');
+					if (collapsedText) collapsedText.classList.add('hidden');
+				});
+				this.#recalculateLineNumbers();
+			}
+
+			#collapseAll() {
+				const toggles = this.#container.querySelectorAll('.json-collapsible');
+				toggles.forEach(node => {
+					node.classList.add('hidden');
+					const toggleBtn = node.previousElementSibling?.querySelector('.json-toggle');
+					if (toggleBtn) toggleBtn.innerHTML = '▶';
+					const collapsedText = node.previousElementSibling?.querySelector('.json-collapsed-text');
+					if (collapsedText) collapsedText.classList.remove('hidden');
+				});
+				this.#recalculateLineNumbers();
+			}
+
+			#renderNode(val, parentEl, indentLevel, isLast, keyName) {
+				const indentPadding = indentLevel * 16;
+
+				if (val !== null && typeof val === 'object') {
+					const isArr = Array.isArray(val);
+					const keys = Object.keys(val);
+					const openBracket = isArr ? '[' : '{';
+					const closeBracket = isArr ? ']' : '}';
+
+					const keyPrefix = keyName !== null ? `<span class="json-key">"${DOMBuilder.escape(keyName)}"</span>: ` : '';
+					const itemCount = keys.length;
+
+					const headerLine = DOMBuilder.create('div', {
+						className: 'json-line',
+						html: `
+							<span class="line-num">${this.#lineCounter++}</span>
+							<span style="padding-left: ${indentPadding}px;" class="flex items-center">
+								<span class="json-toggle">▼</span>
+								${keyPrefix}<span class="json-bracket">${openBracket}</span>
+								<span class="json-collapsed-text hidden">... ${itemCount} ${isArr ? 'items' : 'keys'} ... ${closeBracket}${isLast ? '' : ','}</span>
+							</span>
+						`
+					});
+					parentEl.appendChild(headerLine);
+
+					const childrenContainer = DOMBuilder.create('div', { className: 'json-collapsible' });
+
+					keys.forEach((k, idx) => {
+						const childIsLast = idx === keys.length - 1;
+						this.#renderNode(val[k], childrenContainer, indentLevel + 1, childIsLast, isArr ? null : k);
+					});
+
+					parentEl.appendChild(childrenContainer);
+
+					const footerLine = DOMBuilder.create('div', {
+						className: 'json-line json-closing-line',
+						html: `
+							<span class="line-num">${this.#lineCounter++}</span>
+							<span style="padding-left: ${indentPadding}px;"><span class="json-bracket">${closeBracket}</span>${isLast ? '' : '<span class="theme-text-sub">,</span>'}</span>
+						`
+					});
+					childrenContainer.appendChild(footerLine);
+
+					const toggleBtn = headerLine.querySelector('.json-toggle');
+					const collapsedSpan = headerLine.querySelector('.json-collapsed-text');
+
+					const toggleAction = () => {
+						const isHidden = childrenContainer.classList.toggle('hidden');
+						toggleBtn.innerHTML = isHidden ? '▶' : '▼';
+						collapsedSpan.classList.toggle('hidden', !isHidden);
+						this.#recalculateLineNumbers();
+					};
+
+					toggleBtn.addEventListener('click', toggleAction);
+					collapsedSpan.addEventListener('click', toggleAction);
+
+				} else {
+					const keyPrefix = keyName !== null ? `<span class="json-key">"${DOMBuilder.escape(keyName)}"</span>: ` : '';
+					const valHtml = this.#formatPrimitive(val);
+					const comma = isLast ? '' : '<span class="theme-text-sub">,</span>';
+
+					const line = DOMBuilder.create('div', {
+						className: 'json-line',
+						html: `
+							<span class="line-num">${this.#lineCounter++}</span>
+							<span style="padding-left: ${indentPadding + 14}px;">${keyPrefix}${valHtml}${comma}</span>
+						`
+					});
+					parentEl.appendChild(line);
+				}
+			}
+
+			#formatPrimitive(val) {
+				if (typeof val === 'string') return `<span class="json-str">"${DOMBuilder.escape(val)}"</span>`;
+				if (typeof val === 'number') return `<span class="json-num">${val}</span>`;
+				if (typeof val === 'boolean') return `<span class="json-bool">${val}</span>`;
+				if (val === null) return `<span class="json-null">null</span>`;
+				return `<span class="theme-text-muted">${DOMBuilder.escape(String(val))}</span>`;
+			}
+
+			#recalculateLineNumbers() {
+				let count = 1;
+				const allVisibleLines = this.#container.querySelectorAll('.json-line');
+				allVisibleLines.forEach(l => {
+					if (l.offsetParent !== null) {
+						const numEl = l.querySelector('.line-num');
+						if (numEl) numEl.textContent = count++;
+					}
+				});
+			}
+		}
+
+		/**
+		 * 8. Main Station Detail Coordinator with 3-Stage Selection
+		 */
+		class StationDetailApp {
+			#notifier; #dataService; #visualRenderer; #treeRenderer;
+			#networkId = 'ncrtc_rrts'; #stationSlug = 'sarai_kale_khan';
+			#currentStage = 'cleaned'; #source = 'prod';
+			#stationData = null; #dom = {};
+			#searchDebounce = null;
+			#searchOptions = { isCaseSensitive: false, isWholeWord: false, isRegex: false };
+
+			constructor() { this.init(); }
+
+			async init() {
+				ThemeManager.init();
+				this.#cacheDom();
+				this.#parseUrlParams();
+
+				this.#notifier = new ToastNotifierService(this.#dom.toastContainer);
+				this.#dataService = new StationDataService();
+				this.#visualRenderer = new VisualCardsRenderer();
+				this.#treeRenderer = new ExpandableJsonTreeRenderer(this.#dom.jsonTreeContainer);
+
+				this.#bindEvents();
+				
+				await this.#dataService.fetchManifest();
+				await this.#loadData();
+			}
+
+			#cacheDom() {
+				this.#dom = {
+					breadcrumbNetwork: document.getElementById('breadcrumbNetwork'),
+					breadcrumbStation: document.getElementById('breadcrumbStation'),
+					headerPipelineStageBadge: document.getElementById('headerPipelineStageBadge'),
+					headerSourceBadge: document.getElementById('headerSourceBadge'),
+					heroLayoutBadge: document.getElementById('heroLayoutBadge'),
+					heroTypeBadge: document.getElementById('heroTypeBadge'),
+					heroStageBadge: document.getElementById('heroStageBadge'),
+					heroNameEn: document.getElementById('heroNameEn'),
+					heroNameHi: document.getElementById('heroNameHi'),
+					heroSlug: document.getElementById('heroSlug'),
+					heroCode: document.getElementById('heroCode'),
+					heroCoords: document.getElementById('heroCoords'),
+					heroTimings: document.getElementById('heroTimings'),
+					heroContact: document.getElementById('heroContact'),
+					gatesGrid: document.getElementById('gatesGrid'),
+					parkingStateBadge: document.getElementById('parkingStateBadge'),
+					parkingContainer: document.getElementById('parkingContainer'),
+					facilitiesGrid: document.getElementById('facilitiesGrid'),
+					liftsCount: document.getElementById('liftsCount'),
+					liftsList: document.getElementById('liftsList'),
+					escalatorsCount: document.getElementById('escalatorsCount'),
+					escalatorsList: document.getElementById('escalatorsList'),
+					layoutsContainer: document.getElementById('layoutsContainer'),
+					feederBusesContainer: document.getElementById('feederBusesContainer'),
+					neighborsGrid: document.getElementById('neighborsGrid'),
+					jsonTreeContainer: document.getElementById('jsonTreeContainer'),
+					jsonViewerTitle: document.getElementById('jsonViewerTitle'),
+					jsonSearchInput: document.getElementById('jsonSearchInput'),
+					jsonMatchBadge: document.getElementById('jsonMatchBadge'),
+					clearJsonSearchBtn: document.getElementById('clearJsonSearchBtn'),
+					prevMatchBtn: document.getElementById('prevMatchBtn'),
+					nextMatchBtn: document.getElementById('nextMatchBtn'),
+					toggleCaseBtn: document.getElementById('toggleCaseBtn'),
+					toggleWordBtn: document.getElementById('toggleWordBtn'),
+					toggleRegexBtn: document.getElementById('toggleRegexBtn'),
+					toggleAllJsonBtn: document.getElementById('toggleAllJsonBtn'),
+					toggleAllIcon: document.getElementById('toggleAllIcon'),
+					toggleAllText: document.getElementById('toggleAllText'),
+					copyStationJsonBtn: document.getElementById('copyStationJsonBtn'),
+					downloadStationJsonBtn: document.getElementById('downloadStationJsonBtn'),
+					toastContainer: document.getElementById('toastContainer')
+				};
+			}
+
+			#parseUrlParams() {
+				const p = new URLSearchParams(window.location.search);
+				this.#networkId = p.get('network') || 'ncrtc_rrts';
+				this.#stationSlug = p.get('station') || 'sarai_kale_khan';
+				this.#currentStage = p.get('stage') || StorageManager.get('view_stage', 'cleaned');
+				this.#source = p.get('source') || 'prod';
+				
+				this.#updateStageButtonsUI();
+			}
+
+			#updateStageButtonsUI() {
+				document.querySelectorAll('.detail-stage-btn').forEach(btn => {
+					const s = btn.getAttribute('data-detail-stage');
+					btn.classList.toggle('stage-tab-active', s === this.#currentStage);
+				});
+			}
+
+			#bindEvents() {
+				this.#dom.toggleAllJsonBtn.addEventListener('click', () => {
+					this.#treeRenderer.toggleAll(
+						this.#dom.toggleAllJsonBtn,
+						this.#dom.toggleAllIcon,
+						this.#dom.toggleAllText
+					);
+				});
+
+				this.#dom.copyStationJsonBtn.addEventListener('click', () => {
+					if (this.#stationData) {
+						navigator.clipboard.writeText(JSON.stringify(this.#stationData, null, 2))
+							.then(() => this.#notifier.show('Station JSON copied to clipboard!', 'success'))
+							.catch(() => this.#notifier.show('Failed to copy JSON', 'error'));
+					}
+				});
+
+				this.#dom.downloadStationJsonBtn.addEventListener('click', () => this.#downloadJson());
+
+				// Theme Switcher
+				document.querySelectorAll('.theme-select-btn').forEach(btn => {
+					btn.addEventListener('click', () => {
+						const theme = btn.getAttribute('data-set-theme');
+						ThemeManager.applyTheme(theme);
+					});
+				});
+
+				// Stage Switcher
+				document.querySelectorAll('.detail-stage-btn').forEach(btn => {
+					btn.addEventListener('click', async () => {
+						const stage = btn.getAttribute('data-detail-stage');
+						this.#currentStage = stage;
+						this.#updateStageButtonsUI();
+						await this.#loadData();
+					});
+				});
+
+				// IDE Find Search Input
+				this.#dom.jsonSearchInput.addEventListener('input', (e) => {
+					const val = e.target.value;
+					if (val) {
+						this.#dom.clearJsonSearchBtn.classList.remove('hidden');
+					} else {
+						this.#dom.clearJsonSearchBtn.classList.add('hidden');
+					}
+
+					clearTimeout(this.#searchDebounce);
+					this.#searchDebounce = setTimeout(() => this.#triggerSearch(), 200);
+				});
+
+				this.#dom.jsonSearchInput.addEventListener('keydown', (e) => {
+					if (e.key === 'Enter') {
+						e.preventDefault();
+						if (e.shiftKey) {
+							this.#treeRenderer.prevMatch(this.#dom.jsonMatchBadge, this.#dom.prevMatchBtn, this.#dom.nextMatchBtn);
+						} else {
+							this.#treeRenderer.nextMatch(this.#dom.jsonMatchBadge, this.#dom.prevMatchBtn, this.#dom.nextMatchBtn);
+						}
+					}
+				});
+
+				this.#dom.clearJsonSearchBtn.addEventListener('click', () => {
+					this.#dom.jsonSearchInput.value = '';
+					this.#dom.clearJsonSearchBtn.classList.add('hidden');
+					this.#triggerSearch();
+				});
+
+				this.#dom.prevMatchBtn.addEventListener('click', () => {
+					this.#treeRenderer.prevMatch(this.#dom.jsonMatchBadge, this.#dom.prevMatchBtn, this.#dom.nextMatchBtn);
+				});
+
+				this.#dom.nextMatchBtn.addEventListener('click', () => {
+					this.#treeRenderer.nextMatch(this.#dom.jsonMatchBadge, this.#dom.prevMatchBtn, this.#dom.nextMatchBtn);
+				});
+
+				this.#dom.toggleCaseBtn.addEventListener('click', () => {
+					this.#searchOptions.isCaseSensitive = !this.#searchOptions.isCaseSensitive;
+					this.#dom.toggleCaseBtn.classList.toggle('toggle-btn-active', this.#searchOptions.isCaseSensitive);
+					this.#triggerSearch();
+				});
+
+				this.#dom.toggleWordBtn.addEventListener('click', () => {
+					this.#searchOptions.isWholeWord = !this.#searchOptions.isWholeWord;
+					this.#dom.toggleWordBtn.classList.toggle('toggle-btn-active', this.#searchOptions.isWholeWord);
+					this.#triggerSearch();
+				});
+
+				this.#dom.toggleRegexBtn.addEventListener('click', () => {
+					this.#searchOptions.isRegex = !this.#searchOptions.isRegex;
+					this.#dom.toggleRegexBtn.classList.toggle('toggle-btn-active', this.#searchOptions.isRegex);
+					this.#triggerSearch();
+				});
+			}
+
+			#triggerSearch() {
+				const query = this.#dom.jsonSearchInput.value;
+				this.#treeRenderer.executeSearch(
+					query,
+					this.#searchOptions,
+					this.#dom.jsonMatchBadge,
+					this.#dom.prevMatchBtn,
+					this.#dom.nextMatchBtn
+				);
+			}
+
+			async #loadData() {
+				try {
+					const netMeta = this.#dataService.getNetworkMeta(this.#networkId);
+					this.#stationData = await this.#dataService.fetchStation(this.#networkId, this.#stationSlug, this.#currentStage, this.#source);
+					
+					this.#visualRenderer.renderAll(this.#stationData, this.#stationSlug, this.#source, this.#networkId, netMeta, this.#currentStage, this.#dom);
+					this.#treeRenderer.renderJsonTree(this.#stationData);
+					
+					const nameEn = (this.#stationData.name && this.#stationData.name.en) ? this.#stationData.name.en : (this.#stationData.name_en || this.#stationSlug);
+					this.#dom.jsonViewerTitle.textContent = `${nameEn} (${this.#currentStage.toUpperCase()}) Payload`;
+
+				} catch (err) {
+					this.#notifier.show(`Load Error: ${err.message}`, 'error');
+					this.#dom.jsonViewerTitle.textContent = `Payload Error (${this.#currentStage.toUpperCase()})`;
+					this.#dom.jsonTreeContainer.innerHTML = `
+						<div class="p-6 text-center text-rose-400">
+							<i class="fa-solid fa-triangle-exclamation text-2xl mb-2"></i>
+							<p class="font-bold text-xs">${DOMBuilder.escape(err.message)}</p>
+						</div>
+					`;
+				}
+			}
+
+			#downloadJson() {
+				if (!this.#stationData) return;
+				const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.#stationData, null, 2));
+				const a = document.createElement('a');
+				a.setAttribute("href", dataStr);
+				a.setAttribute("download", `${this.#stationSlug}_${this.#currentStage}.json`);
+				document.body.appendChild(a);
+				a.click();
+				a.remove();
+				this.#notifier.show(`Downloaded ${this.#stationSlug}_${this.#currentStage}.json`, 'success');
+			}
+		}
+
+		document.addEventListener('DOMContentLoaded', () => {
+			window.app = new StationDetailApp();
+		});
+	</script>
+</body>
+</html>

@@ -199,13 +199,29 @@ export class AllStationsDirectory {
         this.containerEl.innerHTML = html;
     }
 
-        buildCoachCardHTML(stationId, lineInfo) {
-        const st = this.stations[stationId];
+    buildCoachCardHTML(stationId, lineInfo) {
+		const st = this.stations[stationId];
 
-        let stationTitle = st.name?.en?.toUpperCase();
-        if (this.lang === 'hi' && st.name?.hi) {
-            stationTitle = st.name.hi;
-        }
+		// Explicit Data Guard & Developer Warning (No Silent Suppression)
+		if (!st) {
+			console.error(`[Data Integrity Error] Station ID "${stationId}" is referenced in line "${lineInfo.id}", but missing in stationData of data.json!`);
+			return `
+				<div class="real-coach-card missing-station-card" style="--line-color: #ef4444; border: 2px dashed #ef4444; background: rgba(239, 68, 68, 0.08); padding: 1rem; border-radius: var(--radius-lg, 12px); margin: 0.5rem;">
+					<div style="color: #ef4444; font-weight: bold; font-size: var(--fs-sm, 14px);">
+						⚠️ Missing Station Data: <code>${stationId}</code>
+					</div>
+					<div style="font-size: var(--fs-xs, 12px); color: var(--text-secondary, #64748b); margin-top: 4px;">
+						Defined in <strong>${lineInfo.short_name?.en || lineInfo.id}</strong>, but missing in <code>data.json -> stationData</code>.
+					</div>
+				</div>
+			`;
+		}
+
+		let stationTitle = st.name?.en?.toUpperCase();
+		if (this.lang === 'hi' && st.name?.hi) {
+			stationTitle = st.name.hi;
+		}
+		
         
         const lineColor = lineInfo.color || '#c0282c';
         const firstTrain = this.formatTo12Hour(st.train_schedule?.first_train);
