@@ -4,55 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <!-- Open Graph / Facebook / WhatsApp / Telegram -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
-	<meta property="og:title" content="Metro Map & Route Finder">
-	<meta property="og:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily.">
-	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png"> 
+    <!-- Open Graph / SEO Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
+    <meta property="og:title" content="Metro Stations Directory - Coach Grid Layout">
+    <meta property="og:description" content="Explore all metro stations, lines, first & last train timings, and transit facilities.">
+    <meta property="og:image" content="./assets/images/share_image_com.png"> 
 
-	<!-- Twitter / X -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
-	<meta name="twitter:title" content="Metro Map & Route Finder">
-	<meta name="twitter:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily.">
-	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
+    <meta name="twitter:title" content="Metro Stations Directory">
+    <meta name="twitter:description" content="Explore all metro stations, lines, first & last train timings, and transit facilities.">
+    <meta name="twitter:image" content="./assets/images/share_image_com.png">
     
     <!-- Site Icon / Favicon -->
     <link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
-    <title>All Stations Directory - Template 2 (Coach Grid Layout)</title>
+    <title>All Stations Directory - Metro Guide</title>
 
-    <!-- Pre-written App Stylesheet -->
-    <link rel="stylesheet" href="./css/pages/all_stations.css"/>
-    
+    <!-- Page Stylesheet -->
+    <link rel="stylesheet" href="./css/pages/all_stations.css">
 </head>
 <body>
 
-     <!-- 1. Universal Header Container -->
+    <!-- 1. Universal Header Container -->
     <div id="app-header"></div>
-    
 
+    <!-- 2. Main Stations Directory Container -->
     <main class="stations-page-container">
-        <!-- Controls Area -->
-        <section class="directory-controls">
+        <!-- Controls & Search Area -->
+        <section class="directory-controls" aria-label="Search and Filter Stations">
             <div class="search-box-wrapper">
-                <span>🔍</span>
-                <input type="text" id="dir-search-input" placeholder="Search station by name or code (e.g. Jhilmil, Rajiv Chowk)...">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input 
+                    type="text" 
+                    id="dir-search-input" 
+                    placeholder="Search station, hospital, landmark by name or code (e.g. Rajiv Chowk, AIIMS)..."
+                    aria-label="Search stations or landmarks"
+                    autocomplete="off"
+                >
+                <button type="button" id="clear-search-btn" class="clear-btn" aria-label="Clear Search" hidden>✕</button>
+
+                <!-- Dynamic Autocomplete Search Dropdown Panel -->
+                <div class="search-autocomplete-dropdown" id="search-autocomplete-dropdown" role="listbox" hidden></div>
             </div>
+
             <!-- Dynamic Line Filter Chips -->
-            <div class="filter-chips-wrapper" id="filter-chips-wrapper">
+            <div class="filter-chips-wrapper" id="filter-chips-wrapper" role="group" aria-label="Filter by Line">
                 <button class="chip-btn active" data-line="all">All Lines</button>
             </div>
         </section>
+
         <!-- Dynamic Container where JS Class will render Line Sections & Coach Tracks -->
-        <div id="stations-directory-container">
-            <!-- Dynamic Line Sections & Track Rows will be rendered here by js/all_stations.js -->
+        <div id="stations-directory-container" aria-live="polite">
+            <!-- Initial Loading State -->
+            <div class="loading-state" style="text-align: center; padding: 4rem 1rem; color: var(--text-secondary);">
+                <p>Loading Stations Directory...</p>
+            </div>
         </div>
     </main>
     
-    <!-- 2. Universal Footer Container -->
+    <!-- 3. Universal Footer Container -->
     <div id="app-footer"></div>
-    <!-- 3. Page Script Module -->
+
+    <!-- 4. Page Script Module -->
     <script type="module" src="./js/pages/all_stations.js"></script>
     
 </body>

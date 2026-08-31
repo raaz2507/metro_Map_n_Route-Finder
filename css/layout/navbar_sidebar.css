@@ -11,8 +11,9 @@
 		padding: var(--space-xs);
 		width: fit-content;
 		height: fit-content;
-		margin: 0 auto;
+		margin: 0;
 		box-shadow: var(--shadow-sm);
+		flex-shrink: 0;
 	}
 
 	.sidebar-nav-list {

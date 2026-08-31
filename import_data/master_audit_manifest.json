@@ -51,15 +51,15 @@
 			"subtitle": "Rapid Transit System connecting Noida to Greater Noida Sector Delta",
 			"source_url": "https://www.nmrcnoida.com/",
 			"api_endpoint": "https://www.nmrcnoida.com/api/station-list",
-			"pipeline_stage": "stage_2_cleaned",
-			"supervised_by_developer": false,
+			"pipeline_stage": "stage_3_structured",
+			"supervised_by_developer": true,
 			"status": "up_to_date",
 			"raw_file": "import_data/nmrc_noida_data/nmrc_raw.json",
 			"cleaned_file": "import_data/nmrc_noida_data/nmrc_cleaned.json",
 			"master_file": "import_data/nmrc_noida_data/nmrc_master.json",
 			"staging_file": "import_data/nmrc_noida_data/nmrc_staging_new.json",
 			"scraper_script": "import_data/nmrc_noida_data/scrape_nmrc_stations.py",
-			"clean_script": "import_data/nmrc_noida_data/clean_nmrc_json.py",
+			"clean_script": "import_data/nmrc_noida_data/clean_nmrc_stations.py",
 			"master_script": "import_data/nmrc_noida_data/structure_nmrc_stations.py"
 		},
 		"rapid_metro_gurugram": {

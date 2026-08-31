@@ -1,0 +1,147 @@
+@layer components {
+    /* =======================================================================
+       UNIVERSAL SEARCH BOX & AUTOCOMPLETE DROPDOWN COMPONENT (DRY)
+       ======================================================================= */
+    .search-box-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: rgba(var(--color-bg-base-rgb), var(--op-semi-heavy));
+        border: 1.5px solid var(--border-color);
+        border-radius: var(--radius-full);
+        padding: var(--space-sm) var(--space-xl);
+        gap: var(--space-md);
+        transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .search-box-wrapper:focus-within {
+        border-color: var(--btn-primary-bg);
+        box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.25);
+    }
+
+    .search-icon {
+        font-size: 1.15rem;
+        opacity: 0.8;
+    }
+
+    .search-box-wrapper input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 1rem;
+        font-family: var(--font-main);
+        color: var(--text-primary);
+        font-weight: var(--fw-medium);
+    }
+
+    .search-box-wrapper input::placeholder {
+        color: var(--text-secondary);
+    }
+
+    .clear-btn {
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: var(--space-xs);
+        border-radius: var(--radius-full);
+        line-height: 1;
+        display: grid;
+        place-items: center;
+        transition: color var(--transition-fast);
+    }
+
+    .clear-btn:hover {
+        color: var(--text-primary);
+    }
+
+    /* Floating Autocomplete Search Dropdown */
+    .search-autocomplete-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        max-height: 380px;
+        overflow-y: auto;
+        background-color: rgba(var(--color-bg-base-rgb), var(--op-heavy, 0.96));
+        border: 1.5px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        backdrop-filter: blur(var(--backdrop-blur));
+        -webkit-backdrop-filter: blur(var(--backdrop-blur));
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .autocomplete-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-sm) var(--space-md);
+        cursor: pointer;
+        border-bottom: 1px solid var(--border-color);
+        transition: background-color var(--transition-fast);
+        text-decoration: none;
+        color: var(--text-primary);
+        gap: var(--space-md);
+    }
+
+    .autocomplete-item:last-child {
+        border-bottom: none;
+    }
+
+    .autocomplete-item:hover,
+    .autocomplete-item.focused {
+        background-color: rgba(var(--color-primary-rgb), 0.14);
+    }
+
+    .result-main-group {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        min-width: 0;
+    }
+
+    .result-icon {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    .result-text-group {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .result-title {
+        font-size: 0.9rem;
+        font-weight: var(--fw-bold);
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .result-subtitle {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .result-meta-badge {
+        font-size: 0.725rem;
+        font-weight: var(--fw-semibold);
+        color: var(--text-secondary);
+        background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+        border: 1px solid var(--border-color);
+        padding: 2px var(--space-xs);
+        border-radius: var(--radius-sm);
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+}

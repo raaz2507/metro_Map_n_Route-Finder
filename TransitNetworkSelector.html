@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph / SEO Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
+    <meta property="og:title" content="Transit Network & City Selector - India Metro Guide">
+    <meta property="og:description" content="Select transit networks across Delhi NCR, Mumbai, Pune, Kolkata, Bengaluru and explore route maps, lines, and fares.">
+    <meta property="og:image" content="assets/images/share_image_com.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Transit Network & City Selector">
+    <meta name="twitter:description" content="Explore India's Metro, RRTS, and Monorail networks city-wise.">
+    <meta name="twitter:image" content="assets/images/share_image_com.png">
+
+    <!-- Site Icon / Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/site_icon.svg">
+    <title>Transit Network Selector - All India Metro & RRTS</title>
+
+    <!-- Pre-written App Stylesheet -->
+    <link rel="stylesheet" href="css/pages/transit_network_selector.css">
+</head>
+<body>
+
+    <!-- 1. Universal Header Container -->
+    <div id="app-header"></div>
+
+    <!-- 2. Main Page Container -->
+    <main class="network-selector-page">
+        <!-- Controls & Filter Toolbar -->
+        <section class="selector-controls" aria-label="Search and Filter Transit Networks">
+            <div class="search-box-wrapper">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input 
+                    type="text" 
+                    id="network-search-input" 
+                    placeholder="Search city, station, hospital, tourist place (e.g. AIIMS, India Gate, DMRC)..." 
+                    data-i18n-placeholder="pages.networks.searchPlaceholder"
+                    aria-label="Search transit networks"
+                    autocomplete="off"
+                >
+                <button type="button" id="clear-search-btn" class="clear-btn" aria-label="Clear Search" hidden>✕</button>
+
+                <!-- Dynamic Autocomplete Search Dropdown Panel -->
+                <div class="search-autocomplete-dropdown" id="search-autocomplete-dropdown" role="listbox" hidden></div>
+            </div>
+
+            <!-- Filter & Sort Controls Rows -->
+            <div class="filters-row">
+                <!-- 1. Mode Filter Row -->
+                <div class="filter-group">
+                    <span class="filter-label" data-i18n="pages.networks.modeLabel">Mode:</span>
+                    <div class="filter-chips-wrapper" id="mode-chips-wrapper" role="radiogroup" aria-label="Filter by Transit Mode">
+                        <button type="button" class="chip-btn active" data-mode="all" data-i18n="pages.networks.allModes" aria-checked="true">All Modes</button>
+                        <button type="button" class="chip-btn" data-mode="Metro" data-i18n="pages.networks.metro" aria-checked="false">🚇 Metro</button>
+                        <button type="button" class="chip-btn" data-mode="RRTS" data-i18n="pages.networks.rrts" aria-checked="false">🚆 RRTS</button>
+                        <button type="button" class="chip-btn" data-mode="Monorail" data-i18n="pages.networks.monorail" aria-checked="false">🚝 Monorail</button>
+                        <button type="button" class="chip-btn" data-mode="MetroLite" data-i18n="pages.networks.metrolite" aria-checked="false">🚋 MetroLite</button>
+                        <button type="button" class="chip-btn" data-mode="MetroNeo" data-i18n="pages.networks.metroneo" aria-checked="false">⚡ MetroNeo</button>
+                    </div>
+                </div>
+
+                <!-- 2. Status Filter Row -->
+                <div class="filter-group">
+                    <span class="filter-label" data-i18n="pages.networks.statusLabel">Status:</span>
+                    <div class="filter-chips-wrapper" id="status-chips-wrapper" role="radiogroup" aria-label="Filter by Network Status">
+                        <button type="button" class="chip-btn active" data-status="all" data-i18n="pages.networks.allStatus" aria-checked="true">All Status</button>
+                        <button type="button" class="chip-btn" data-status="operational" data-i18n="pages.networks.operational" aria-checked="false">🟢 Operational</button>
+                        <button type="button" class="chip-btn" data-status="operational_partial" data-i18n="pages.networks.partial" aria-checked="false">🟡 Partial</button>
+                        <button type="button" class="chip-btn" data-status="under_construction" data-i18n="pages.networks.underConstruction" aria-checked="false">🚧 Under Construction</button>
+                    </div>
+                </div>
+
+                <!-- 3. Sort By Chips Row -->
+                <div class="filter-group">
+                    <span class="filter-label" data-i18n="pages.networks.sortByLabel">Sort By:</span>
+                    <div class="filter-chips-wrapper" id="sort-chips-wrapper" role="radiogroup" aria-label="Sort Transit Networks">
+                        <button type="button" class="chip-btn active" data-sort="status_smart" data-i18n="pages.networks.sortStatus" aria-checked="true">🟢 Status (Default)</button>
+                        <button type="button" class="chip-btn" data-sort="city_asc" data-i18n="pages.networks.sortCity" aria-checked="false">🏙️ City (A → Z)</button>
+                        <button type="button" class="chip-btn" data-sort="name_asc" data-i18n="pages.networks.sortName" aria-checked="false">🚇 Name (A → Z)</button>
+                        <button type="button" class="chip-btn" data-sort="mode" data-i18n="pages.networks.sortMode" aria-checked="false">🚆 Mode</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats & Counter Summary Bar -->
+        <section class="results-stats-bar" id="results-stats-bar" aria-live="polite">
+            <span id="stats-counter-text">Loading transit registry...</span>
+        </section>
+
+        <!-- Dynamic Container for City Sections and Network Cards -->
+        <section id="transit-selector-container" class="transit-sections-container" aria-label="Transit Networks List">
+            <!-- Dynamic City Groups and Network Cards rendered by JS -->
+            <div class="loading-state">
+                <div class="spinner" aria-hidden="true"></div>
+                <p>Loading India Transit Registry...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 3. Universal Footer Container -->
+    <div id="app-footer"></div>
+
+    <!-- 4. Page Script Module -->
+    <script type="module" src="js/pages/transit_network_selector.js"></script>
+</body>
+</html>

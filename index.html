@@ -20,15 +20,15 @@
 	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
 	
 	<!-- Site Icon / Favicon -->
-    <link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
+	<link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
 	<title data-i18n-title-tag="meta.title">Metro Map Generator</title>
 	<link rel="stylesheet" href="./css/pages/index.css"/>
 </head>
 
 <body>
-    <div id="app-header"></div>
+	<div id="app-header"></div>
 	
-    
+	
 	
 	<main>
 		<div class="sidebar-wrapper">
@@ -61,10 +61,10 @@
 				</ul>
 			</nav>
 			<aside aria-label="Sidebar Content Panel" role="region">
-                <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar panel">&times;</button>
+				<button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar panel">&times;</button>
 				<section id="app-settings" aria-labelledby="settings-section" class="sidebar-section">
-                    <!-- app setting wil appare here -->
-                </section>
+					<!-- app setting wil appare here -->
+				</section>
 				<section id="recent-searches" aria-labelledby="recent-searches-heading" class="sidebar-section">
 					<!-- Header -->
 					<header class="section-header recent-header">
@@ -99,31 +99,31 @@
 
 				<section id="route-finder" class="route-finder-section sidebar-section" aria-labelledby="route-finder-heading">
 					<form action="" method="post" class="routeFinder">
-						<!-- <h2 id="route-finder-heading" data-i18n="home.routeFinder">Route Finder</h2> -->
 						<fieldset>
 							<legend id="route-finder-heading" data-i18n="pages.home.sidebar.findroute.routeFinder">Route Finder</legend>
 
-							<!-- <legend>Route Finder</legend> -->
 							<!-- Start Station -->
 							<div class="form-group">
 								<label for="startStation" data-i18n="pages.home.sidebar.findroute.startStation">From</label>
-								<input type="text" id="startStation" data-i18n-placeholder="pages.home.sidebar.findroute.startPlaceholder" placeholder="Enter start station" list="stationList" value="Badarpur Border" autocomplete="off" required>
+								<div class="input-autocomplete-wrapper">
+									<input type="text" id="startStation" data-i18n-placeholder="pages.home.sidebar.findroute.startPlaceholder" placeholder="Enter start station" value="Badarpur Border" autocomplete="off" required>
+									<div class="station-autocomplete-dropdown" id="startStation-dropdown" role="listbox" hidden></div>
+								</div>
 							</div>
 							
 							<!-- Swap Button -->
 							<button type="button" id="swapButton" aria-label="Swap stations" data-i18n-title="pages.home.sidebar.findroute.swapStations" title="Swap stations">
-								<!-- &#8644; -->
 								<img src="./assets/icons/swap_calls.svg" alt="" srcset="">
 							</button>
 
 							<!-- End Station -->
 							<div class="form-group">
 								<label for="endStation" data-i18n="pages.home.sidebar.findroute.endStation">To</label>
-								<input type="text" id="endStation" data-i18n-placeholder="pages.home.sidebar.findroute.endPlaceholder" placeholder="Enter end station" list="stationList" value="Anand Vihar" autocomplete="off" required>
+								<div class="input-autocomplete-wrapper">
+									<input type="text" id="endStation" data-i18n-placeholder="pages.home.sidebar.findroute.endPlaceholder" placeholder="Enter end station" value="Anand Vihar" autocomplete="off" required>
+									<div class="station-autocomplete-dropdown" id="endStation-dropdown" role="listbox" hidden></div>
+								</div>
 							</div>
-
-							<!-- Shared Datalist -->
-							<datalist id="stationList"></datalist>
 							
 							<!-- Actions -->
 							<div class="form-actions">
@@ -136,13 +136,13 @@
 					<div id="journeyDetails">
 						<section class="route-priority">
 							 <div class="priority-header">
-                                <p data-i18n="pages.home.sidebar.findroute.priority">Priority</p>
-                                <div class="sharebtn">
-                                    <button type="button" id="shareRouteBtn" aria-label="Share Route" data-i18n-title="pages.home.sidebar.findroute.shareModal.title" title="Share Route">
-                                        <span class="icon share-icon" aria-hidden="true"></span>
-                                    </button>
-                                </div>
-                            </div>
+								<p data-i18n="pages.home.sidebar.findroute.priority">Priority</p>
+								<div class="sharebtn">
+									<button type="button" id="shareRouteBtn" aria-label="Share Route" data-i18n-title="pages.home.sidebar.findroute.shareModal.title" title="Share Route">
+										<span class="icon share-icon" aria-hidden="true"></span>
+									</button>
+								</div>
+							</div>
 							<div class="switch-slider-track">
 								<!-- इनपुट्स को ट्रैक के शीर्ष स्तर पर रखें ताकि CSS सिबलिंग सिलेक्टर्स काम कर सकें -->
 								<input type="radio" id="priority-fastest" name="routeType" value="fastest" checked>
@@ -194,10 +194,10 @@
 				</div>
 				
 			</div> -->
-             <div id="speedometer-widget" class="speedometer-widget" title="Live Train Speed">
-                <span class="speed-number" id="speed-value">0.0</span>
-                <span class="speed-unit">km/h</span>
-            </div>
+			 <div id="speedometer-widget" class="speedometer-widget" title="Live Train Speed">
+				<span class="speed-number" id="speed-value">0.0</span>
+				<span class="speed-unit">km/h</span>
+			</div>
 			<!-- <div id="zoomControls">
 				<output name="zoomLevel" id="zoomLevel" for="zoomInBtn zoomOutBtn resetZoomBtn">00%</output>
 				<button id="zoomInBtn">+</button>
@@ -208,86 +208,86 @@
 
 
 		<nav class="floating-nav-wrapper" id="floating-nav-wrapper" aria-label="Floating Navigation Wrapper">
-            <!-- 7. Inline SVG Mask that creates a physically transparent notch with smooth curves -->
-            <svg width="0" height="0" style="position: absolute;">
-                <defs>
-                    <mask id="nav-mask" maskContentUnits="userSpaceOnUse">
-                        <!-- White background to keep the rest of the navbar visible -->
-                        <rect width="1000" height="70" fill="white"  />
-                        
-                        <!-- Black smooth S-curve notch path to cut out a transparent hole. 
-                                We will shift it horizontally in JavaScript -->
-                        <path id="cutout-path" d="M -45 0 C -33 0, -28 32, 0 32 C 28 32, 33 0, 45 0 Z" fill="black" transform="translate(50, 0)" />
-                    </mask>
-                </defs>
-            </svg>
-            <div class="floating-nav" aria-label="Mobile Navigation">
-                <ul class="floating-nav-list">
-                    <!-- <li  class="floating-nav-item active">
-                        <a href="index.html" data-tab="map">
-                            <span class="icon map-icon"></span>
-                            <span class="text" data-i18n="navigation.map">Map</span>
-                        </a>
-                    </li> -->
-                    <!-- <li class="floating-nav-item" >
-                        <a href="#" data-tab="setting">
-                            <span class="icon settings-icon"></span>
-                            <span class="text" data-i18n="navigation.settings">Settings</span>
-                        </a>
-                    </li> -->
-                    <!-- <li class="floating-nav-item active">
-                        <a href="#" target="_blank" data-tab="about">
-                            <span class="icon about-icon"></span>
-                            <span class="text" data-i18n="navigation.about">About</span>
-                        </a>
-                    </li> -->
-                    <!-- <li class="floating-nav-item">
-                        <a href="#" target="_blank" >
-                            <span class="icon help-icon"></span>
-                            <span class="text" data-i18n="navigation.help">help</span>
-                        </a>
-                    </li>
-                    <li class="floating-nav-item" >
-                        <a href="#" target="_blank">
-                            <span class="icon other-icon"></span>
-                            <span class="text" data-i18n="navigation.other">other</span>
-                        </a>
-                    </li>
-                    <li class="floating-nav-item">
-                        <a href="#">
-                            <span class="icon recent-icon"></span>
-                            <span class="text" data-i18n="navigation.recent">recent</span>
-                        </a>
-                    </li> -->
-                    <li class="floating-nav-item active">
-                        <a href="#">
-                            <span class="icon alarm-on-iocn"></span>
-                            <span class="text" data-i18n="nav-floating.alarm">Alarm</span>
-                        </a>
-                    </li>
-                    <li class="floating-nav-item active">
-                        <a href="#">
-                            <span class="icon ticket-iocn"></span>
-                            <span class="text" data-i18n="nav-floating.ticket">🎟️ Ticket</span>
-                        </a>
-                    </li>
-                     <!-- <li class="floating-nav-item">
-                        <a href="#" id="speedometerBtn" data-tab="speed">
-                            <span class="icon speed-icon"></span>
-                            <span class="text" data-i18n="nav-floating.speed">Speed</span>
-                        </a>
-                    </li> -->
-                    
-                </ul>
-            </div>
-        </nav>
-       
+			<!-- 7. Inline SVG Mask that creates a physically transparent notch with smooth curves -->
+			<svg width="0" height="0" style="position: absolute;">
+				<defs>
+					<mask id="nav-mask" maskContentUnits="userSpaceOnUse">
+						<!-- White background to keep the rest of the navbar visible -->
+						<rect width="1000" height="70" fill="white"  />
+						
+						<!-- Black smooth S-curve notch path to cut out a transparent hole. 
+								We will shift it horizontally in JavaScript -->
+						<path id="cutout-path" d="M -45 0 C -33 0, -28 32, 0 32 C 28 32, 33 0, 45 0 Z" fill="black" transform="translate(50, 0)" />
+					</mask>
+				</defs>
+			</svg>
+			<div class="floating-nav" aria-label="Mobile Navigation">
+				<ul class="floating-nav-list">
+					<!-- <li  class="floating-nav-item active">
+						<a href="index.html" data-tab="map">
+							<span class="icon map-icon"></span>
+							<span class="text" data-i18n="navigation.map">Map</span>
+						</a>
+					</li> -->
+					<!-- <li class="floating-nav-item" >
+						<a href="#" data-tab="setting">
+							<span class="icon settings-icon"></span>
+							<span class="text" data-i18n="navigation.settings">Settings</span>
+						</a>
+					</li> -->
+					<!-- <li class="floating-nav-item active">
+						<a href="#" target="_blank" data-tab="about">
+							<span class="icon about-icon"></span>
+							<span class="text" data-i18n="navigation.about">About</span>
+						</a>
+					</li> -->
+					<!-- <li class="floating-nav-item">
+						<a href="#" target="_blank" >
+							<span class="icon help-icon"></span>
+							<span class="text" data-i18n="navigation.help">help</span>
+						</a>
+					</li>
+					<li class="floating-nav-item" >
+						<a href="#" target="_blank">
+							<span class="icon other-icon"></span>
+							<span class="text" data-i18n="navigation.other">other</span>
+						</a>
+					</li>
+					<li class="floating-nav-item">
+						<a href="#">
+							<span class="icon recent-icon"></span>
+							<span class="text" data-i18n="navigation.recent">recent</span>
+						</a>
+					</li> -->
+					<li class="floating-nav-item active">
+						<a href="#">
+							<span class="icon alarm-on-iocn"></span>
+							<span class="text" data-i18n="nav-floating.alarm">Alarm</span>
+						</a>
+					</li>
+					<li class="floating-nav-item active">
+						<a href="#">
+							<span class="icon ticket-iocn"></span>
+							<span class="text" data-i18n="nav-floating.ticket">🎟️ Ticket</span>
+						</a>
+					</li>
+					 <!-- <li class="floating-nav-item">
+						<a href="#" id="speedometerBtn" data-tab="speed">
+							<span class="icon speed-icon"></span>
+							<span class="text" data-i18n="nav-floating.speed">Speed</span>
+						</a>
+					</li> -->
+					
+				</ul>
+			</div>
+		</nav>
+	   
 	</main>
   
 
    <div id="app-footer"></div>
 	
-    <!-- =========================================================================
+	<!-- =========================================================================
 	   SHARE ROUTE CUSTOM MODAL (Desktop & Fallback Popup)
 	========================================================================= -->
 	<div id="shareModal" class="share-modal-backdrop" aria-hidden="true">
@@ -350,7 +350,7 @@
 	<!-- Floating Toast Notification Container -->
 	<div id="shareToast" class="share-toast-msg" aria-live="polite"></div>
 
-    
+	
 </body>
 <script type="module" src="./js/pages/index.js"></script>
 </html>

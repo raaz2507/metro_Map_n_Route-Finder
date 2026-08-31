@@ -86,12 +86,88 @@
 		filter: drop-shadow(0px 0px 8px rgba(var(--theme-glow-rgb), 0.6));
 	}
 
-	/* मेट्रो लाइन्स की स्मूथनेस */
-	.mapContainer svg line {
-		stroke-linecap: round; 
-		transition: stroke-width var(--transition-smooth), opacity var(--transition-smooth);
+	/* =========================================================================
+	   HIGH-PERFORMANCE 60 FPS MAP VISUAL STATE ENGINE (GPU Accelerated)
+	   ========================================================================= */
+	.mapContainer svg.map-dimmed circle,
+	.mapContainer svg.map-dimmed line,
+	.mapContainer svg.map-dimmed text {
+		opacity: 0.15;
+		transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
+	/* =========================================================================
+	   1. LEGEND STATION TYPES & ROUTE CIRCLES - PURE SIZE BREATHING PULSE
+	   ========================================================================= */
+	@keyframes pulse-legend-station {
+		0%, 100% {
+			transform: scale(1.0);
+		}
+		50% {
+			transform: scale(1.4);
+		}
+	}
+
+	.mapContainer svg.map-dimmed circle.highlighted,
+	.mapContainer svg.map-dimmed g.highlighted circle {
+		opacity: 1;
+		animation: pulse-legend-station 1.4s ease-in-out infinite;
+	}
+
+	/* =========================================================================
+	   2. HIGHLIGHTED METRO TRACKS (Full Opacity)
+	========================================================================= */
+	@keyframes pulse-highlight-line {
+		0%, 100% {
+			stroke-width: 160;
+			filter: drop-shadow(0 0 6px rgba(var(--color-primary-rgb), 0.6));
+		}
+		50% {
+			stroke-width: 230;
+			filter: drop-shadow(0 0 20px rgba(var(--color-primary-rgb), 1));
+		}
+	}
+
+	.mapContainer svg.map-dimmed line.highlighted-line {
+		opacity: 1;
+		animation: pulse-highlight-line 1.5s ease-in-out infinite;
+	}
+
+	/* =========================================================================
+	   3. ALL HIGHLIGHTED STATION LABELS (Same Rich Hover Effect: 500px + Halo)
+	   ========================================================================= */
+	.mapContainer svg.map-dimmed text.highlighted-text,
+	.mapContainer svg.map-dimmed text.highlighted-text tspan,
+	.mapContainer svg.map-dimmed text.target-highlight-text,
+	.mapContainer svg.map-dimmed text.target-highlight-text tspan {
+		opacity: 1;
+		font-size: 500px;
+		font-weight: var(--fw-bold);
+		fill: var(--text-primary);
+		stroke: var(--card-bg);
+		stroke-width: 300px;
+		paint-order: stroke fill;
+		stroke-linejoin: round;
+		filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.35));
+	}
+
+	/* =========================================================================
+	   4. TARGET STATION (Single Destination from Search) - Pure Size Pulse
+	   ========================================================================= */
+	@keyframes pulse-target-station {
+		0%, 100% {
+			transform: scale(1.1);
+		}
+		50% {
+			transform: scale(1.65);
+		}
+	}
+
+	.mapContainer svg.map-dimmed circle.target-highlight-circle,
+	.mapContainer svg.map-dimmed g.target-highlight-circle circle {
+		opacity: 1;
+		animation: pulse-target-station 1.2s ease-in-out infinite;
+	}
 	/* =========================================================================
 	   Floating Glassmorphic Zoom Controls
 	   ========================================================================= */

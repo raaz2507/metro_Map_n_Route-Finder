@@ -888,29 +888,23 @@ export class MetroMap {
 
 
 		/**
-	 * सेंट्रल विजुअल स्टेट इंजन: रूट, लाइन या स्टेशन प्रकार के आधार पर सिंगल-पास मैप हाईलाइट करता है
+	 * ⚡ हाई-परफॉरमेंस विजुअल स्टेट इंजन: 1000 नोड्स पर लूप चलाने के बजाय 
+	 * पेरेंट क्लास '.map-dimmed' और सिर्फ 5-10 एक्टिव एलिमेंट्स को छूता है (60 FPS)
 	 */
 	#applyMapVisualState(config = {}) {
 		const svg = this.#svg.elements;
-		if (!svg.stations_circleGroup || !svg.tracks_lineGroup || !svg.labelGroup) return;
+		if (!svg.svg || !svg.stations_circleGroup || !svg.tracks_lineGroup || !svg.labelGroup) return;
 
-		const stationElements = svg.stations_circleGroup.querySelectorAll("[data-station-id]");
-		const lines = svg.tracks_lineGroup.querySelectorAll("line");
-		const labels = svg.labelGroup.querySelectorAll("text");
+		const { path, lineId, stationType, stationId } = config;
 
-		const { path, lineId, stationType } = config;
+		// 1. पिछले सभी एक्टिव हाईलाइट्स को 0ms में साफ करें
+		svg.svg.querySelectorAll(".highlighted, .highlighted-line, .highlighted-text, .target-highlight-circle, .target-highlight-text").forEach(el => {
+			el.classList.remove("highlighted", "highlighted-line", "highlighted-text", "target-highlight-circle", "target-highlight-text");
+		});
 
-		// 1. रीसेट लॉजिक: यदि कोई फ़िल्टर नहीं है तो पूरा मैप 100% सामान्य करें
-		if (!path && !lineId && !stationType) {
-			stationElements.forEach(elem => { elem.style.opacity = "1"; });
-			lines.forEach(line => {
-				line.setAttribute("stroke-width", "100");
-				line.style.opacity = "1";
-			});
-			labels.forEach(label => {
-				label.style.fontWeight = "normal";
-				label.style.opacity = "1";
-			});
+		// 2. रीसेट लॉजिक: यदि कोई फ़िल्टर नहीं है तो सीधे '.map-dimmed' हटाकर तुरंत बाहर निकलें
+		if (!path && !lineId && !stationType && !stationId) {
+			svg.svg.classList.remove("map-dimmed");
 			if (this.#elemts.clearRouteBtn) {
 				this.#elemts.clearRouteBtn.classList.add("hidden");
 			}
@@ -920,80 +914,105 @@ export class MetroMap {
 			return;
 		}
 
-		// Clear Route बटन दिखाएं
+		// 3. पेरेंट SVG पर '.map-dimmed' लगाएं (GPU 1-step dimming)
+		svg.svg.classList.add("map-dimmed");
+
 		if (this.#elemts.clearRouteBtn) {
 			this.#elemts.clearRouteBtn.classList.remove("hidden");
 		}
 
-		// Mode A: पाथ (रूट) के आधार पर Sets बनाएं
-		let pathSet = null;
-		let activeEdges = null;
-		if (path && Array.isArray(path)) {
-			pathSet = new Set(path);
-			activeEdges = new Set();
-			for (let i = 0; i < path.length - 1; i++) {
-				const key = [path[i], path[i + 1]].sort().join("-");
-				activeEdges.add(key);
-			}
+		// 🎯 Case A: सिंगल स्टेशन हाईलाइट (पल्सिंग और बड़ा)
+		if (stationId) {
+			const circleNode = svg.stations_circleGroup.querySelector(`[data-station-id="${stationId}"]`);
+			const textNode = svg.labelGroup.querySelector(`text[data-station-id="${stationId}"]`);
+			if (circleNode) circleNode.classList.add("target-highlight-circle");
+			if (textNode) textNode.classList.add("target-highlight-text");
+			return;
 		}
 
-		// Mode B: लाइन ID के आधार पर स्टेशन Set बनाएं
-		let lineStationSet = null;
+		// 🚇 Case B: रूट पाथ हाईलाइट
+		if (path && Array.isArray(path)) {
+			path.forEach(stId => {
+				const circleNode = svg.stations_circleGroup.querySelector(`[data-station-id="${stId}"]`);
+				const textNode = svg.labelGroup.querySelector(`text[data-station-id="${stId}"]`);
+				if (circleNode) circleNode.classList.add("highlighted");
+				if (textNode) textNode.classList.add("highlighted-text");
+			});
+
+			for (let i = 0; i < path.length - 1; i++) {
+				const edgeId1 = `${path[i]}-${path[i + 1]}`;
+				const edgeId2 = `${path[i + 1]}-${path[i]}`;
+				const edgeNode = svg.tracks_lineGroup.querySelector(`line[data-edge-id="${edgeId1}"], line[data-edge-id="${edgeId2}"]`);
+				if (edgeNode) edgeNode.classList.add("highlighted-line");
+			}
+			return;
+		}
+
+		// 🎨 Case C: लाइन ID हाईलाइट
 		if (lineId) {
 			const lineObj = this.#metroData.lines?.[lineId];
-			lineStationSet = new Set(lineObj?.stations || []);
+			const lineStations = lineObj?.stations || [];
+			lineStations.forEach(stId => {
+				const circleNode = svg.stations_circleGroup.querySelector(`[data-station-id="${stId}"]`);
+				const textNode = svg.labelGroup.querySelector(`text[data-station-id="${stId}"]`);
+				if (circleNode) circleNode.classList.add("highlighted");
+				if (textNode) textNode.classList.add("highlighted-text");
+			});
+
+			svg.tracks_lineGroup.querySelectorAll(`line[data-line-id="${lineId}"]`).forEach(l => {
+				l.classList.add("highlighted-line");
+			});
+			return;
 		}
 
-		// 2. स्टेशन सर्कल्स अपडेट करें
-		stationElements.forEach(elem => {
-			const stId = elem.dataset.stationId;
-			const stType = elem.dataset.stationType;
+		// 🏷️ Case D: स्टेशन टाइप (Interchange / Normal)
+		if (stationType) {
+			svg.stations_circleGroup.querySelectorAll(`[data-station-type="${stationType}"]`).forEach(circleNode => {
+				circleNode.classList.add("highlighted");
+				const stId = circleNode.dataset.stationId;
+				const textNode = svg.labelGroup.querySelector(`text[data-station-id="${stId}"]`);
+				if (textNode) textNode.classList.add("highlighted-text");
+			});
+		}
+	}
 
-			let isHighlighted = false;
-			if (pathSet) isHighlighted = pathSet.has(stId);
-			else if (lineStationSet) isHighlighted = lineStationSet.has(stId);
-			else if (stationType) isHighlighted = (stType === stationType);
+	// -------------------------------------------------------------------------
+	// Public Methods API (Centralized & 0ms Instant)
+	// -------------------------------------------------------------------------
 
-			elem.style.opacity = isHighlighted ? "1" : "0.15";
-		});
+	highlightStation(stationId, autoPan = true) {
+		if (!stationId) {
+			this.#applyMapVisualState({});
+			return;
+		}
 
-		// 3. मेट्रो लाइन ट्रैक्स अपडेट करें
-		lines.forEach(line => {
-			let isHighlighted = false;
-			if (activeEdges) {
-				isHighlighted = activeEdges.has(line.dataset.edgeId);
-			} else if (lineId) {
-				isHighlighted = (line.dataset.lineId === lineId);
+		// 1. सेंट्रल इंजन से टारगेट स्टेशन को पल्स और बाकी मैप को डिम करें
+		this.#applyMapVisualState({ stationId });
+
+		// 2. 180% ज़ूम के साथ स्टेशन को स्क्रीन के सटीक केंद्र में लाएँ
+		if (autoPan) {
+			const stationObj = this.#metroData?.stationData?.[stationId];
+			if (stationObj?.xy) {
+				const targetX = stationObj.xy.x;
+				const targetY = stationObj.xy.y;
+
+				const svgSize = this.#calculateSVGSize();
+				const centerX = svgSize.width / 2;
+				const centerY = svgSize.height / 2;
+
+				this.zoomScale = 2.8; // 180% आरामदायक ज़ूम ताकि स्टेशन बड़ा दिखे
+				this.#pan.panX = centerX - (targetX * this.zoomScale);
+				this.#pan.panY = centerY - (targetY * this.zoomScale);
+
+				this.#updateZoomTransform();
 			}
-
-			if (isHighlighted) {
-				line.setAttribute("stroke-width", "180");
-				line.style.opacity = "1";
-			} else {
-				line.setAttribute("stroke-width", "100");
-				line.style.opacity = "0.15";
-			}
-		});
-
-		// 4. स्टेशन नाम लेबल्स अपडेट करें
-		labels.forEach(label => {
-			const stId = label.dataset.stationId;
-			const st = this.#metroData.stationData[stId];
-			const stType = st?.properties?.station_type || st?.station_type || ((st?.lines?.length > 1) ? "interchange" : "normal");
-
-			let isHighlighted = false;
-			if (pathSet) isHighlighted = pathSet.has(stId);
-			else if (lineStationSet) isHighlighted = lineStationSet.has(stId);
-			else if (stationType) isHighlighted = (stType === stationType);
-
-			label.style.fontWeight = isHighlighted ? "bold" : "normal";
-			label.style.opacity = isHighlighted ? "1" : "0.15";
-		});
+		}
 	}
 
 	// -------------------------------------------------------------------------
 	// Public Methods API
 	// -------------------------------------------------------------------------
+
 
 	highlightRoute(path) {
 		if (!path || path.length === 0) {

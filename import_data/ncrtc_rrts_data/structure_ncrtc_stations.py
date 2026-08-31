@@ -1,55 +1,85 @@
+#!/usr/bin/env python3
 """
-NCRTC RRTS Station Dataset Structuring Script
-=============================================
+================================================================================
+NCRTC Namo Bharat RRTS Master Structuring Script (Stage 3 Supervised)
+================================================================================
 Location: import_data/ncrtc_rrts_data/structure_ncrtc_stations.py
+Input   : import_data/ncrtc_rrts_data/ncrtc_cleaned.json
+Output  : import_data/ncrtc_rrts_data/ncrtc_master.json
 
-Reads raw cleaned NCRTC data (ncrtc_all_stations_scraped_cleaned.json)
-and detail metadata (detail_data.json) from the same directory, applies all DMRC-aligned
-zero-loss transformation and deduplication rules, and generates the structured dataset
-(ncrtc_all_stations_structured_new.json).
-
-Usage:
-    python import_data/ncrtc_rrts_data/structure_ncrtc_stations.py
+Purpose:
+--------
+Applies developer-approved Stage 3 canonical structuring to Namo Bharat stations:
+  1. Harmonizes state-aware parking matrices (Delhi vs UP tariffs).
+  2. Builds canonical gate, platform, and vertical transit dictionaries.
+  3. Formats first/last train schedules and station control room contacts.
+  4. Preserves 100% of underlying raw payloads without data loss.
+================================================================================
 """
 
 import json
 import os
 import re
+import sys
+import time
+from pathlib import Path
 
-def slugify(text):
-    text = text.lower().strip()
-    text = re.sub(r'[^\w\s-]', '', text)
-    text = re.sub(r'[\s_-]+', '_', text)
-    return text
+# UTF-8 stdout configuration for Windows & SSE logs
+try:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    if hasattr(sys.stderr, 'reconfigure'):
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
 
-def parse_fare_num(fare_str):
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_FILE = BASE_DIR / "ncrtc_cleaned.json"
+OUTPUT_FILE = BASE_DIR / "ncrtc_master.json"
+
+
+def log(level: str, message: str):
+    ts = time.strftime("%H:%M:%S")
+    print(f"[{ts}] [NCRTC MASTER STRUCTURE] [{level}] {message}", flush=True)
+
+
+def slugify(text: str) -> str:
+    if not text:
+        return "unknown"
+    s = text.lower().strip()
+    s = re.sub(r"[^\w\s-]", "", s)
+    s = re.sub(r"[\s_-]+", "_", s)
+    return s.strip("_")
+
+
+def parse_fare_num(fare_str: str) -> int:
     if not fare_str:
         return 0
-    m = re.search(r'\d+', fare_str)
+    m = re.search(r"\d+", str(fare_str))
     return int(m.group(0)) if m else 0
 
-def parse_parking_charges_structured(raw_pc, st_state_raw):
+
+def parse_parking_charges_structured(raw_pc: dict, st_state_raw: str) -> dict:
     if not raw_pc or not isinstance(raw_pc, dict) or not raw_pc.get("charges"):
         return {}
-        
-    target_state = "Delhi" if "delhi" in st_state_raw.lower() else "Uttar Pradesh"
+
+    target_state = "Delhi" if "delhi" in str(st_state_raw).lower() else "Uttar Pradesh"
     rates = {}
-    
+
     for item_obj in raw_pc.get("charges", []):
         v_type = item_obj.get("item", "")
         v_key = "four_wheeler" if "four" in v_type.lower() or "cars" in v_type.lower() else \
                 "two_wheeler" if "two" in v_type.lower() else \
                 "helmet" if "helmet" in v_type.lower() else \
                 "bicycle" if "bicycle" in v_type.lower() else "other"
-                
+
         for cy in item_obj.get("cycles", []):
             cy_name = cy.get("cycle", "").lower()
-            
+
             for p in cy.get("periods", []):
                 p_text = p.get("period", "")
                 p_lower = p_text.lower()
-                
-                # Extract state-specific fare
+
                 fare_val = 0
                 for st_f in p.get("states", []):
                     if st_f.get("state", "").lower() == target_state.lower():
@@ -57,7 +87,7 @@ def parse_parking_charges_structured(raw_pc, st_state_raw):
                         break
                 if fare_val == 0 and p.get("states"):
                     fare_val = parse_fare_num(p["states"][0].get("fare"))
-                    
+
                 if "helmet" in v_key:
                     if "helmet" not in rates:
                         rates["helmet"] = []
@@ -76,7 +106,7 @@ def parse_parking_charges_structured(raw_pc, st_state_raw):
                 else:
                     if v_key not in rates:
                         rates[v_key] = {}
-                    
+
                     if "night" in cy_name or "night" in p_lower:
                         if "night_charges" not in rates[v_key]:
                             rates[v_key]["night_charges"] = []
@@ -97,275 +127,231 @@ def parse_parking_charges_structured(raw_pc, st_state_raw):
                     else:
                         if "day_charges" not in rates[v_key]:
                             rates[v_key]["day_charges"] = []
-                        
-                        if "pick-up" in p_lower or "drop off" in p_lower:
-                            item_dict = {"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": fare_val}
-                        elif "16" in p_lower and "12" in p_lower:
-                            item_dict = {"min_minutes": 720, "max_minutes": 960, "fare": fare_val}
-                        elif "12" in p_lower and "6" in p_lower:
-                            item_dict = {"min_minutes": 360, "max_minutes": 720, "fare": fare_val}
-                        elif "6" in p_lower and "10" in p_lower:
-                            item_dict = {"min_minutes": 10, "max_minutes": 360, "fare": fare_val}
-                        elif "16" in p_lower or "operations" in p_lower:
-                            item_dict = {"min_minutes": 960, "max_minutes": "OPERATIONAL_CLOSE", "tag": "Station Operations", "fare": fare_val}
+
+                        if "up-to 10" in p_lower or "drop off" in p_lower:
+                            min_m, max_m = 0, 10
+                        elif "6 hours" in p_lower or "6 hrs" in p_lower:
+                            min_m, max_m = 10, 360
+                        elif "12 hours" in p_lower or "12 hrs" in p_lower:
+                            min_m, max_m = 360, 720
+                        elif "16 hours" in p_lower or "16 hrs" in p_lower:
+                            min_m, max_m = 720, 960
                         else:
-                            item_dict = {"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": fare_val}
-                            
-                        rates[v_key]["day_charges"].append(item_dict)
-                        
-    return {
-        "state": target_state,
-        "currency": "INR",
-        "symbol": "₹",
-        "rates": rates
-    }
+                            min_m, max_m = 0, 720
 
-def smart_inline_format(obj, indent_level=0):
-    ind = "\t" * indent_level
-    child_ind = "\t" * (indent_level + 1)
-    if isinstance(obj, dict):
-        if not obj:
-            return "{}"
-        single_line = json.dumps(obj, ensure_ascii=False)
-        if len(single_line) <= 120 and "\n" not in single_line:
-            return single_line
-        items = []
-        for k, v in obj.items():
-            formatted_v = smart_inline_format(v, indent_level + 1)
-            items.append(f'{child_ind}{json.dumps(k, ensure_ascii=False)}: {formatted_v}')
-        return "{\n" + ",\n".join(items) + "\n" + ind + "}"
-    elif isinstance(obj, list):
-        if not obj:
-            return "[]"
-        single_line = json.dumps(obj, ensure_ascii=False)
-        if len(single_line) <= 120 and "\n" not in single_line:
-            return single_line
-        items = []
-        for item in obj:
-            formatted_item = smart_inline_format(item, indent_level + 1)
-            items.append(f'{child_ind}{formatted_item}')
-        return "[\n" + ",\n".join(items) + "\n" + ind + "]"
-    else:
-        return json.dumps(obj, ensure_ascii=False)
+                        rates[v_key]["day_charges"].append({
+                            "min_minutes": min_m, "max_minutes": max_m,
+                            "tag": p_text,
+                            "fare": fare_val
+                        })
+    return rates
 
-def main():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    input_path = os.path.join(base_dir, "ncrtc_all_stations_scraped_cleaned.json")
-    detail_path = os.path.join(base_dir, "detail_data.json")
-    output_path = os.path.join(base_dir, "ncrtc_all_stations_structured_new.json")
 
-    print(f"Reading input file: {input_path}")
+def generate_ncrtc_master_json(input_path: Path, output_path: Path) -> int:
+    log("INIT", "==================================================================")
+    log("INIT", "Starting NCRTC Namo Bharat Stage 3 Master Structuring...")
+    log("INIT", f"Input File  : {input_path.name}")
+    log("INIT", f"Output File : {output_path.name}")
+    log("INIT", "==================================================================")
+
+    if not input_path.exists():
+        log("ERROR", f"Input file not found: {input_path}")
+        sys.exit(1)
+
     with open(input_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+        raw_input = json.load(f)
 
-    hindi_names = {}
-    if os.path.exists(detail_path):
-        print(f"Reading detail data for Hindi names: {detail_path}")
-        with open(detail_path, "r", encoding="utf-8") as f:
-            det_data = json.load(f)
-            for s_id, s_obj in det_data.get("stationData", {}).items():
-                name_hi = s_obj.get("name", {}).get("hi", "")
-                if name_hi:
-                    hindi_names[s_id] = name_hi
+    if isinstance(raw_input, dict):
+        if "stations" in raw_input and isinstance(raw_input["stations"], list):
+            station_items = [(slugify(st.get("name", "")), st) for st in raw_input["stations"]]
+        else:
+            station_items = list(raw_input.items())
+    elif isinstance(raw_input, list):
+        station_items = [(slugify(st.get("name", "")), st) for st in raw_input]
+    else:
+        station_items = []
+
+    log("PROCESS", f"Structuring {len(station_items)} stations into canonical Stage 3 Master...")
 
     interchange_stations = {"sarai_kale_khan", "anand_vihar", "new_ashok_nagar", "ghaziabad", "meerut_south"}
-
     structured_data = {}
 
-    for st in data.get("stations", []):
-        st_name = st.get("name", "")
-        slug = slugify(st_name)
-        st_id = slug
-        
-        st_state_raw = st.get("state", "")
-        about_text = st.get("about", "")
+    for key, entity in station_items:
+        slug = str(entity.get("id", key)).strip().lower()
+
+        # Handle both nested {summary_raw, details_raw} and flat objects
+        summary = entity.get("summary_raw", {}) if "summary_raw" in entity else entity
+        details = entity.get("details_raw", {}) if "details_raw" in entity else entity
+
+        st_name = summary.get("name") or entity.get("station_name") or slug.replace("_", " ").title()
+        st_code = summary.get("code") or entity.get("station_code") or "STD"
+        st_state = summary.get("state") or details.get("station", {}).get("state", "Uttar Pradesh, India")
+
+        about_text = details.get("about", "")
         about_lower = about_text.lower()
-        
         if "underground" in about_lower:
             layout_val = "underground"
         elif "at grade" in about_lower or "at-grade" in about_lower:
             layout_val = "at-grade"
         else:
             layout_val = "elevated"
-            
-        st_type_val = "interchange" if slug in interchange_stations else "normal"
-        
-        name_object = {
-            "en": st_name,
-            "hi": hindi_names.get(slug, "")
-        }
 
-        lat_val = float(st.get("latitude", 0)) if st.get("latitude") else 0.0
-        lon_val = float(st.get("longitude", 0)) if st.get("longitude") else 0.0
-        location = {
-            "decimal": {
-                "lat": lat_val,
-                "lon": lon_val
+        # Coordinates
+        lat_val = float(summary.get("latitude", 0)) if summary.get("latitude") else None
+        lng_val = float(summary.get("longitude", 0)) if summary.get("longitude") else None
+
+        # Gates
+        gates_dict = {}
+        for idx, g in enumerate(details.get("gates", []), start=1):
+            g_num = g.get("gateNo") or g.get("gate_no") or f"G{idx}"
+            gates_dict[str(g_num)] = {
+                "number": str(g_num),
+                "landmark": g.get("landmark", f"Gate {g_num} Entry/Exit"),
+                "accessible": g.get("isDivyangFriendly", True)
             }
-        }
-        
-        properties = {
-            "layout": layout_val,
-            "station_type": st_type_val,
-            "status": "operational",
-            "is_terminal": st.get("isTerminal", False),
-            "order": st.get("order", 0),
-            "state": st_state_raw
-        }
-        
-        timings = {"opening": "06:00:00", "closing": "22:00:00"}
-        for tt in st.get("trainTiming", []):
-            direction = tt.get("direction", "").lower()
-            t_val = tt.get("time", "")
-            if "first" in direction and t_val:
-                timings["opening"] = f"{t_val}:00" if len(t_val) == 5 else t_val
-            elif "last" in direction and t_val:
-                timings["closing"] = f"{t_val}:00" if len(t_val) == 5 else t_val
 
-        control_room = st.get("stationControlRoom", "")
-        contact = {"mobile": control_room if control_room else "", "landline": ""}
-        
-        neighbors = []
-        left_st = st.get("leftStation", {})
-        left_info = st.get("leftJourneyInfo", {})
-        if left_st and left_st.get("name"):
-            dist_val = int(left_info.get("distance", {}).get("value", 0)) if left_info.get("distance", {}).get("value") else 0
-            time_val = int(left_info.get("time", {}).get("value", 0)) if left_info.get("time", {}).get("value") else 0
-            neighbors.append({
-                "station": slugify(left_st.get("name", "")),
-                "line": "ncrtc.namo_bharat",
-                "distance_m": dist_val,
-                "travel_time_sec": time_val
-            })
-            
-        right_st = st.get("rightStation", {})
-        right_info = st.get("rightJourneyInfo", {})
-        if right_st and right_st.get("name"):
-            dist_val = int(right_info.get("distance", {}).get("value", 0)) if right_info.get("distance", {}).get("value") else 0
-            time_val = int(right_info.get("time", {}).get("value", 0)) if right_info.get("time", {}).get("value") else 0
-            neighbors.append({
-                "station": slugify(right_st.get("name", "")),
-                "line": "ncrtc.namo_bharat",
-                "distance_m": dist_val,
-                "travel_time_sec": time_val
-            })
+        # Platforms
+        platforms_dict = {}
+        for p in details.get("platforms", []):
+            p_num = str(p.get("platformNumber", p.get("id", "1")))
+            platforms_dict[p_num] = {
+                "number": int(p_num) if p_num.isdigit() else 1,
+                "train_towards": p.get("trainTowards", ""),
+                "doors_open": p.get("doorsOpen", "Left")
+            }
 
-        platforms_dict = {
-            str(p.get("number", p.get("id", ""))): {
-                "number": p.get("number"),
-                "is_open": p.get("isOpen", True),
-                "lounge": p.get("isPremiumLoungeAvailable", False)
-            } for p in st.get("platforms", [])
-        }
-
-        # Cleaned Gates Object (DMRC landmark aligned, duplicate location string removed)
-        gates_dict = {
-            str(g.get("number", g.get("id", ""))): {
-                "code": "GA" + str(g.get("number", g.get("id", ""))),
-                "divyang": g.get("hasSpecialAid", st.get("isDivyangFriendly", False)),
-                "status": "open" if g.get("isOpen", True) else "closed",
-                "landmark": {"en": g.get("location", ""), "hi": ""}
-            } for g in st.get("gates", [])
-        }
-            
-        has_parking = st.get("hasParking", False)
-        parkings_list = []
-        if has_parking or st.get("parkingCharges", {}).get("charges"):
-            parkings_list.append({
-                "provider": "NCRTC Authorised Parking",
-                "capacity_car": 0, "capacity_motorcycle": 0, "capacity_cycle": 0,
-                "code": "PA1",
-                "location": "Station Premises"
-            })
-            
-        # Cleaned Facilities Object (Stripped redundant name key)
-        facilities_dict = {}
-        for fac in st.get("facilities", []):
-            f_name = fac.get("name", "General")
-            if f_name not in facilities_dict:
-                facilities_dict[f_name] = []
-            facilities_dict[f_name].append({
-                "location": fac.get("location", "")
-            })
-            
+        # Lifts & Escalators
         lifts_dict = {
             str(idx): {
-                "code": f"LIFT_{idx}",
-                "name": l.get("name", ""),
+                "name": l.get("name", f"Lift {idx}"),
                 "location": l.get("location", ""),
-                "divyang_friendly": l.get("isStretcherLiftAvailable", True),
                 "status": l.get("isOpen", True)
-            } for idx, l in enumerate(st.get("lift", []), start=1)
+            } for idx, l in enumerate(details.get("lift", []), start=1)
         }
-            
         escalators_dict = {
             str(idx): {
-                "code": f"ESC_{idx}",
-                "name": e.get("name", ""),
+                "name": e.get("name", f"Escalator {idx}"),
                 "location": e.get("location", ""),
-                "direction": e.get("directionIndicator", ""),
                 "status": e.get("isOpen", True)
-            } for idx, e in enumerate(st.get("escalator", []), start=1)
+            } for idx, e in enumerate(details.get("escalator", []), start=1)
         }
 
-        # Cleaned stationLayout (Stripped duplicate displayName key)
-        cleaned_layout = []
-        for l_item in st.get("stationLayout", []):
-            if isinstance(l_item, dict):
-                cleaned_item = {
-                    "layout": l_item.get("layout", {}),
-                    "level": l_item.get("level", ""),
-                    "id": l_item.get("id")
-                }
-                cleaned_layout.append(cleaned_item)
+        # Facilities
+        fac_list = details.get("facilities", [])
+        facilities_dict = {}
+        for f_item in fac_list:
+            if isinstance(f_item, dict):
+                f_name = f_item.get("name", "")
+                if f_name:
+                    f_key = slugify(f_name)
+                    facilities_dict[f_key] = {"name": f_name, "available": True}
 
-        # Cleaned feederBusRouteInfo (Direct flat objects)
-        cleaned_feeder_bus = []
-        for fb_item in st.get("feederBusRouteInfo", []):
-            if isinstance(fb_item, dict):
-                r_obj = {"route_name": fb_item.get("routeName", fb_item.get("route_name", ""))}
-                for kv in fb_item.get("infoList", []):
-                    k = kv.get("key", "").lower().replace(" ", "_").replace(".", "")
-                    v = kv.get("value", "")
-                    if k:
-                        r_obj[k] = v
-                cleaned_feeder_bus.append(r_obj)
+        # Contact Room
+        contact_room = details.get("stationControlRoom", {})
+        if isinstance(contact_room, dict):
+            contact_obj = {
+                "mobile": contact_room.get("mobileNo", ""),
+                "landline": contact_room.get("landlineNo", "")
+            }
+        else:
+            contact_obj = {
+                "mobile": str(contact_room) if contact_room else "",
+                "landline": ""
+            }
 
-        parsed_parking_charges = parse_parking_charges_structured(st.get("parkingCharges", {}), st_state_raw)
+        # Timings
+        train_timing = details.get("trainTiming", {})
+        if isinstance(train_timing, dict):
+            timings_obj = {
+                "frequency_minutes": train_timing.get("frequency", "15 mins"),
+                "first_train": train_timing.get("firstTrain", "06:00 AM"),
+                "last_train": train_timing.get("lastTrain", "10:00 PM")
+            }
+        else:
+            timings_obj = {
+                "frequency_minutes": str(train_timing) if train_timing else "15 mins",
+                "first_train": "06:00 AM",
+                "last_train": "10:00 PM"
+            }
+
+        # Parking Rates
+        parsed_parking_charges = parse_parking_charges_structured(details.get("parkingCharges", {}), st_state)
+
+        # Prevent duplicate station key collision in JSON
+        orig_slug = slug
+        counter = 1
+        while slug in structured_data and structured_data[slug].get("station_code") != st_code:
+            slug = f"{orig_slug}({counter})"
+            counter += 1
 
         structured_data[slug] = {
-            "id": st_id,
-            "name": name_object,
-            "code": st.get("code", ""),
-            "location": location,
-            "properties": properties,
-            "timings": timings,
-            "description": about_text,
-            "contact": contact,
-            "neighbors": neighbors,
+            "id": slug,
+            "station_code": st_code,
+            "station_name": st_name,
+            "properties": {
+                "state": st_state,
+                "layout": layout_val,
+                "type": "interchange" if slug in interchange_stations else "normal",
+                "is_terminal": summary.get("isTerminal", False),
+                "order": summary.get("order", 0)
+            },
+            "location": {
+                "latitude": lat_val,
+                "longitude": lng_val
+            },
+            "timings": timings_obj,
+            "contact": contact_obj,
             "platforms": platforms_dict,
             "gates": gates_dict,
-            "parkings": parkings_list,
-            "parkingCharges": parsed_parking_charges,
             "facilities": facilities_dict,
-            "vertical_transit": {"lifts": lifts_dict, "escalators": escalators_dict},
-            "nearby_places": [],
-            "stationLayout": cleaned_layout,
-            "images": st.get("images", {}),
-            "banner": st.get("banner", {}),
-            "media": st.get("media", {}),
-            "infoLink": st.get("infoLink", ""),
-            "feederBusRouteInfo": cleaned_feeder_bus
+            "vertical_transit": {
+                "lifts": lifts_dict,
+                "escalators": escalators_dict
+            },
+            "parking_charges": parsed_parking_charges,
+            "station_layout_urls": details.get("stationLayout", []),
+            "images": summary.get("images", {}),
+            "media": details.get("media", {}),
+            # 100% VERBATIM PRESERVED RAW OBJECTS
+            "summary_raw": summary,
+            "details_raw": details
         }
 
-    formatted_json = smart_inline_format(structured_data)
+def get_safe_json_path(target_file: Path) -> Path:
+    if not target_file.exists():
+        return target_file
+    stem = target_file.stem
+    ext = target_file.suffix
+    clean_stem = re.sub(r"\(\d+\)$", "", stem)
+    counter = 1
+    while True:
+        candidate = target_file.parent / f"{clean_stem}({counter}){ext}"
+        if not candidate.exists():
+            return candidate
+        counter += 1
 
-    print(f"Saving output file: {output_path}")
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(formatted_json)
 
-    lines_count = len(formatted_json.splitlines())
-    print(f"SUCCESS: Generated {output_path} ({lines_count} lines) successfully!")
+    # Write atomically with standard tab indentation
+    final_output = get_safe_json_path(output_path)
+    final_output.parent.mkdir(parents=True, exist_ok=True)
+    temp_output = final_output.with_suffix(".tmp")
+
+    with open(temp_output, "w", encoding="utf-8") as f:
+        json.dump(structured_data, f, indent="\t", ensure_ascii=False)
+
+    temp_output.replace(final_output)
+
+    file_size_kb = final_output.stat().st_size / 1024
+    line_count = sum(1 for _ in open(final_output, "r", encoding="utf-8"))
+
+    log("SUCCESS", f"✅ NCRTC Stage 3 Master generated successfully!")
+    log("SUCCESS", f"✅ Compiled {len(structured_data)} master stations.")
+    log("SUCCESS", f"✅ Output written atomically to: {final_output.name}")
+    log("SUCCESS", f"✅ File Stats: {file_size_kb:.1f} KB ({line_count:,} lines, {len(structured_data)} stations)")
+    log("SUCCESS", "==================================================================")
+    return len(structured_data)
+
 
 if __name__ == "__main__":
-    main()
+    count = generate_ncrtc_master_json(INPUT_FILE, OUTPUT_FILE)
+    sys.exit(0)

@@ -2,28 +2,30 @@
 
 export default {
 	meta: {
-		title: "Metro Map Generator",
-		ogTitle: "Metro Map & Route Finder",
+		title: "YatraMarg",
+		ogTitle: "Maps • Routes • Fares • Journey Assistance",
 		ogDescription: "Find the best metro routes, ticket fares, travel time, and intermediate stations easily.",
-		twitterTitle: "Metro Map & Route Finder",
+		twitterTitle: "Maps • Routes • Fares • Journey Assistance",
 		twitterDescription: "Find the best metro routes, ticket fares, travel time, and intermediate stations easily."
 	},
-    "header":{
-		appName: "Metro Map Generator",
+    header: {
+		appName: "YatraMarg",
+		tagLine : "Maps • Routes • Fares • Journey Assistance",
         language: "Lang:",
 		
 		themes: {
-			label:"Theme",
+			label: "Theme:",
 			light: "Classic Light",
 			dark: "Sleek Dark",
 			cyberpunk: "Neon Cyberpunk",
 			vintage: "Vintage Retro",
 			mint: "Forest Mint",
 			ghibli: "Ghibli Nostalgia"
-		},
+		}
     },
 
 	"nav-header": {
+		networks: "🌐 Networks",
 		home: "🏠 Home",
 		stations: "🚉 Stations",
 		recharge: "💳 Recharge Card",
@@ -43,7 +45,7 @@ export default {
 		ticket: "Ticket"
 	},
 
-	"footer": {
+	footer: {
 		footerNavigation: "Footer Navigation",
 		about: "About",
 		bookTicket: "Book Ticket",
@@ -62,11 +64,19 @@ export default {
 		developedBy: "Developed with ❤️"
 	},
 	
-	// Page-Scoped Namespaces (New Clean Structure)
+	// Page-Scoped Namespaces
 	pages: {
 		home: {
-			sidebar:{
-				findroute:{
+			sidebar: {
+				recent: {
+					recentSearches: "Recent Searches",
+					clearAll: "Clear All",
+					recent: "Recent",
+					mostUsed: "Most Used",
+					az: "A-Z",
+					noRecentJourney: "No recent journeys found"
+				},
+				findroute: {
 					routeFinder: "Route Finder",
 					startStation: "From",
 					endStation: "To",
@@ -96,32 +106,37 @@ export default {
 						lineChangeLabel: "Line Change",
 						stationsLabel: "Stations",
 						tokenFareLabel: "Token Fare",
-						directionText: "Towards {terminal} (Platform No. {platform})",
-						changeToText: "Change to <strong>{line}</strong> towards <strong>{terminal}</strong> from <strong>Platform No. {platform}</strong>"
-					},
-					shareModal: {
-						title: "Share Route",
-						selectOption: "Select Share Option:",
-						whatsapp: "WhatsApp",
-						telegram: "Telegram",
-						sms: "SMS",
-						copyLink: "Copy Link",
-						copyDetails: "Copy Details"
-					},
-				},
-				recent:{
-					recentSearches: "Recent Searches",
-					clearAll: "Clear All",
-					recent: "Recent",
-					mostUsed: "Most Used",
-					az: "A-Z",
-					noRecentJourney: "No recent journeys found",
-				},
+						directionText: "Towards {terminal} (Platform No. {platform})"
+					}
+				}
 			},
-			map:{
-			label: "Map",
-            clearRoute: "Clear Route",
+			map: {
+				label: "Map",
+				clearRoute: "Clear Route"
 			}
+		},
+		networks: {
+			searchPlaceholder: "Search city, station, hospital, tourist place (e.g. AIIMS, India Gate, DMRC)...",
+			modeLabel: "Mode:",
+			allModes: "All Modes",
+			metro: "🚇 Metro",
+			rrts: "🚆 RRTS",
+			monorail: "🚝 Monorail",
+			metrolite: "🚋 MetroLite",
+			metroneo: "⚡ MetroNeo",
+			statusLabel: "Status:",
+			allStatus: "All Status",
+			operational: "🟢 Operational",
+			partial: "🟡 Partial",
+			underConstruction: "🚧 Under Construction",
+			sortByLabel: "Sort By:",
+			sortStatus: "🟢 Status (Default)",
+			sortCity: "🏙️ City (A → Z)",
+			sortName: "🚇 Name (A → Z)",
+			sortMode: "🚆 Mode",
+			showingCount: "Showing {count} transit networks",
+			noNetworksFound: "No transit networks found",
+			noNetworksQuery: "No networks match \"{query}\"."
 		},
 		all_stations: {
 			searchPlaceholder: "Search station by name or code (e.g. Jhilmil, Rajiv Chowk)...",
@@ -140,7 +155,7 @@ export default {
 			helplines: "📞 Helplines & Support",
 			mobileHelpline: "Station Mobile Helpline",
 			landline: "Station Landline",
-			dmrcHelpline: "DMRC Universal Helpline",
+			dmrcHelpline: "Universal Helpline",
 			gates: "🚪 Station Gates & Exits",
 			facilities: "♿ Station Facilities & Amenities",
 			parking: "🅿️ Parking Breakdown",
@@ -164,5 +179,5 @@ export default {
 			divyangAccessible: "♿ Divyang Accessible",
 			standardAccess: "🚶 Standard Access"
 		}
-	},
+	}
 };

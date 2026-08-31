@@ -2,15 +2,16 @@
 
 export default {
 	meta: {
-		title: "मेट्रो मैप जनरेटर",
-		ogTitle: "मेट्रो मैप एवं रूट फाइंडर",
+		title: "यात्रा-मार्ग ",
+		ogTitle: "मानचित्र • मार्ग • किराया • यात्रा सहायता",
 		ogDescription: "आसानी से सर्वश्रेष्ठ मेट्रो मार्ग, टिकट किराया, यात्रा समय और मध्यवर्ती स्टेशन खोजें।",
-		twitterTitle: "मेट्रो मैप एवं रूट फाइंडर",
+		twitterTitle: "मानचित्र • मार्ग • किराया • यात्रा सहायता",
 		twitterDescription: "आसानी से सर्वश्रेष्ठ मेट्रो मार्ग, टिकट किराया, यात्रा समय और मध्यवर्ती स्टेशन खोजें।"
 	},
 
 	header: {
-		appName: "मेट्रो मैप जनरेटर",
+		appName: "यात्रा-मार्ग ",
+		tagLine : "मानचित्र • मार्ग • किराया • यात्रा-सहायता",
 		language: "भाषा:",
 		
 		themes: {
@@ -25,6 +26,7 @@ export default {
 	},
 
 	"nav-header": {
+		networks: "🌐 नेटवर्क",
 		home: "🏠 होम",
 		stations: "🚉 स्टेशन",
 		recharge: "💳 कार्ड रीचार्ज",
@@ -66,6 +68,14 @@ export default {
 	pages: {
 		home: {
 			sidebar: {
+				recent: {
+					recentSearches: "हालिया खोजें",
+					clearAll: "सभी साफ़ करें",
+					recent: "हालिया",
+					mostUsed: "अक्सर उपयोग किए गए",
+					az: "अ-ज्ञ (A-Z)",
+					noRecentJourney: "कोई हालिया यात्रा नहीं मिली"
+				},
 				findroute: {
 					routeFinder: "मार्ग खोजक",
 					startStation: "से",
@@ -96,32 +106,37 @@ export default {
 						lineChangeLabel: "लाइन परिवर्तन",
 						stationsLabel: "स्टेशन",
 						tokenFareLabel: "किराया",
-						directionText: "दिशा: {terminal} की ओर (प्लेटफ़ॉर्म नंबर {platform})",
-						changeToText: "<strong>{line}</strong> पर बदलें, <strong>{terminal}</strong> की ओर (प्लेटफ़ॉर्म नंबर {platform})"
-					},
-					shareModal: {
-						title: "रूट शेयर करें",
-						selectOption: "शेयर विकल्प चुनें:",
-						whatsapp: "व्हाट्सएप",
-						telegram: "टेलीग्राम",
-						sms: "एसएमएस",
-						copyLink: "कॉपी लिंक",
-						copyDetails: "विवरण कॉपी करें"
+						directionText: "दिशा: {terminal} की ओर (प्लेटफ़ॉर्म नंबर {platform})"
 					}
-				},
-				recent: {
-					recentSearches: "हाल की खोजें",
-					clearAll: "सभी हटाएँ",
-					recent: "हालिया",
-					mostUsed: "सबसे अधिक उपयोग",
-					az: "अ-ज्ञ",
-					noRecentJourney: "कोई हालिया यात्रा उपलब्ध नहीं है"
 				}
 			},
 			map: {
 				label: "मानचित्र",
 				clearRoute: "रूट साफ़ करें"
 			}
+		},
+		networks: {
+			searchPlaceholder: "शहर, स्टेशन, अस्पताल या पर्यटन स्थल खोजें (उदा: AIIMS, इंडिया गेट, DMRC)...",
+			modeLabel: "मोड:",
+			allModes: "सभी मोड",
+			metro: "🚇 मेट्रो",
+			rrts: "🚆 आरआरटीएस",
+			monorail: "🚝 मोनोरेल",
+			metrolite: "🚋 मेट्रोलाइट",
+			metroneo: "⚡ मेट्रोनियो",
+			statusLabel: "स्थिति:",
+			allStatus: "सभी स्थितियाँ",
+			operational: "🟢 संचालित",
+			partial: "🟡 आंशिक संचालित",
+			underConstruction: "🚧 निर्माणाधीन",
+			sortByLabel: "क्रमबद्ध करें:",
+			sortStatus: "🟢 स्थिति (डिफ़ॉल्ट)",
+			sortCity: "🏙️ शहर (A → Z)",
+			sortName: "🚇 नाम (A → Z)",
+			sortMode: "🚆 मोड",
+			showingCount: "{count} पारगमन नेटवर्क दिखाए जा रहे हैं",
+			noNetworksFound: "कोई पारगमन नेटवर्क नहीं मिला",
+			noNetworksQuery: "\"{query}\" से मेल खाता कोई नेटवर्क नहीं मिला।"
 		},
 		all_stations: {
 			searchPlaceholder: "स्टेशन के नाम या कोड से खोजें (उदा: झिलमिल, राजीव चौक)...",

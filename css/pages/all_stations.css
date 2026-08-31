@@ -7,6 +7,7 @@
 @import url("../layout/footer.css");
 
 @import url("../components/coach.css");
+@import url("../components/universal_search.css");
 
 /* ===========================================================================
    ALL STATIONS DIRECTORY & CONTROLS LAYOUT (Pure base.css Tokens)
@@ -43,29 +44,6 @@ main, main.stations-page-container {
     border-radius: var(--radius-xl);
     padding: var(--space-xl);
     box-shadow: var(--shadow-md);
-}
-
-.search-box-wrapper {
-    display: flex;
-    align-items: center;
-    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
-    padding: var(--space-sm) var(--space-xl);
-}
-
-.search-box-wrapper input {
-    border: none;
-    outline: none;
-    background: transparent;
-    width: 100%;
-    padding: var(--space-xs);
-    font-size: var(--fs-md);
-    color: var(--text-primary);
-}
-
-.search-box-wrapper input::placeholder {
-    color: var(--text-muted);
 }
 
 /* ---------------------------------------------------------------------------
@@ -156,4 +134,20 @@ main, main.stations-page-container {
     font-size: var(--fs-lg);
     color: var(--text-primary);
     margin-bottom: var(--space-lg);
+}
+
+/* Empty State Box */
+.directory-empty-state {
+    text-align: center;
+    padding: var(--space-3xl) var(--space-lg);
+    color: var(--text-secondary);
+    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-xl);
+}
+
+.directory-empty-state h3 {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--space-xs);
+    color: var(--text-primary);
 }

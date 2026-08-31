@@ -145,8 +145,10 @@
 			gap: var(--space-xs);
 		}
 
+		/* मोबाइल में एक्टिव गोले को नॉच के साथ 100% सही संरेखित करें */
+		.floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon,
 		.floating-nav-item.active a .icon {
-			transform: translateY(-28px);
+			transform: translateY(-24px);
 		}
 
 		.floating-nav-item a .text {

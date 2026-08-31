@@ -34,7 +34,8 @@ export class Dashboard {
 		const elemtMap = {
 			startStation: "#startStation",
 			endStation: "#endStation",
-			stationList: "#stationList",
+			startStationDropdown: "#startStation-dropdown",
+			endStationDropdown: "#endStation-dropdown",
 			swapButton: "#swapButton",
 
             shareRouteBtn: "#shareRouteBtn",
@@ -56,9 +57,7 @@ export class Dashboard {
 			sharePreviewTime: "#sharePreviewTime",
 			sharePreviewFare: "#sharePreviewFare",
 
-
 			language: "#language",
-
 			theme: "#theme",
 
 			recentSearchList: "#recent-search-list",
@@ -80,8 +79,11 @@ export class Dashboard {
 	// =========================================================================
 	async #init() {
 		// 1. यदि किसी का decimal खाली हो तो उसे DMS/PlusCode से भरकर decimal को 100% पूरा करें
-        this.#metroData = this.#metroData = metroDataStore.data;
-        // 2. अब MetroMap इनिशियलाइज़ करें
+        
+		// ✅ JODEIN (New Async Dynamic Loader):
+		this.#metroData = await metroDataStore.loadCity();
+        
+		// 2. अब MetroMap इनिशियलाइज़ करें
         this.#mapObj = new MetroMap({ 
             mapContainerSelector: ".mapContainer", 
             metroData: this.#metroData,
@@ -105,7 +107,7 @@ export class Dashboard {
 		this.#mapObj.setTheme = this.#settings.currentTheme;
 		
 		this.#recentSearchService = new RecentSearchService(this.#metroData);
-		this.#stationListGenerator();
+		this.#initStationAutocomplete();
 		this.#renderRecentSearches();
         this.#handleUrlParams();
 		new FloatingNav();
@@ -150,13 +152,184 @@ export class Dashboard {
 	// 4. methods for dashbord
 	// =========================================================================
 
-	#stationListGenerator() {
-		const { stationList } = this.#elemts;
-		for (const station of Object.values(this.#metroData.stationData)) {
-			const option = document.createElement("option");
-			option.value = station.name?.en || "";
-			stationList.appendChild(option);
+		// =========================================================================
+	// 4. SMART MULTI-CRITERIA STATION AUTOCOMPLETE (Acronyms, Substring, Bilingual)
+	// =========================================================================
+
+	#initStationAutocomplete() {
+		const { startStation, startStationDropdown, endStation, endStationDropdown } = this.#elemts;
+		if (startStation && startStationDropdown) {
+			this.#bindStationAutocomplete(startStation, startStationDropdown);
 		}
+		if (endStation && endStationDropdown) {
+			this.#bindStationAutocomplete(endStation, endStationDropdown);
+		}
+	}
+
+	#bindStationAutocomplete(inputEl, dropdownEl) {
+		let focusedIndex = -1;
+		let currentResults = [];
+		const hideDropdown = () => {
+			dropdownEl.hidden = true;
+			dropdownEl.innerHTML = "";
+			focusedIndex = -1;
+			currentResults = [];
+		};
+		const selectItem = (station) => {
+			// हमेशा ताज़ा सक्रिय भाषा का ही नाम इनपुट में भरें
+			const activeLang = localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
+			const displayName = (activeLang === "hi" && station.name?.hi) ? station.name.hi : (station.name?.en || station.id);
+			inputEl.value = displayName;
+			hideDropdown();
+			inputEl.focus();
+		};
+		// 1. Live Input Event
+		inputEl.addEventListener("input", (e) => {
+			const query = e.target.value.trim();
+			if (query.length === 0) {
+				hideDropdown();
+				return;
+			}
+			const results = this.#searchStations(query);
+			currentResults = results;
+			focusedIndex = -1;
+			if (results.length === 0) {
+				hideDropdown();
+				return;
+			}
+			this.#renderStationDropdown(dropdownEl, results, selectItem);
+		});
+		// 2. Keyboard Navigation
+		inputEl.addEventListener("keydown", (e) => {
+			if (dropdownEl.hidden || currentResults.length === 0) return;
+			const items = dropdownEl.querySelectorAll(".station-autocomplete-item");
+			if (e.key === "ArrowDown") {
+				e.preventDefault();
+				focusedIndex = (focusedIndex + 1) % items.length;
+				this.#updateFocusedDropdownItem(items, focusedIndex);
+			} else if (e.key === "ArrowUp") {
+				e.preventDefault();
+				focusedIndex = (focusedIndex - 1 + items.length) % items.length;
+				this.#updateFocusedDropdownItem(items, focusedIndex);
+			} else if (e.key === "Enter") {
+				if (focusedIndex >= 0 && currentResults[focusedIndex]) {
+					e.preventDefault();
+					selectItem(currentResults[focusedIndex]);
+				}
+			} else if (e.key === "Escape") {
+				hideDropdown();
+			}
+		});
+		// 3. Close on outside click
+		document.addEventListener("click", (e) => {
+			if (!inputEl.contains(e.target) && !dropdownEl.contains(e.target)) {
+				hideDropdown();
+			}
+		});
+	}
+
+	/**
+	 * 4-Layer Matcher: Exact, Prefix, Acronym (e.g. gtb, kg, nsp), Substring (e.g. teg, chowk)
+	 */
+	#searchStations(query) {
+		if (!query || !this.#metroData?.stationData) return [];
+		const q = query.trim().toLowerCase();
+		const stations = Object.values(this.#metroData.stationData);
+		const scoredResults = [];
+
+		for (const st of stations) {
+			const enName = (st.name?.en || "").toLowerCase();
+			const hiName = (st.name?.hi || "").toLowerCase();
+			const stId = (st.id || "").toLowerCase();
+
+			// Generate acronym: e.g. "Guru Teg Bahadur Nagar" -> "gtb" or "gtbn"
+			const words = enName.split(/[\s-]+/).filter(Boolean);
+			const acronym = words.map(w => w[0]).join("");
+
+			let score = 0;
+
+			// 1. Exact Match
+			if (enName === q || hiName === q || stId === q) {
+				score = 100;
+			}
+			// 2. Prefix Match (Start of station name or start of any word)
+			else if (enName.startsWith(q) || hiName.startsWith(q) || words.some(w => w.startsWith(q))) {
+				score = 80;
+			}
+			// 3. Acronym Match (e.g. "gtb", "kg", "nsp", "rc", "cp")
+			else if (acronym === q || acronym.startsWith(q)) {
+				score = 75;
+			}
+			// 4. Substring / Middle-word Match (e.g. "teg", "chowk", "vihar", "bahadur")
+			else if (enName.includes(q) || hiName.includes(q) || stId.includes(q)) {
+				score = 50;
+			}
+
+			if (score > 0) {
+				scoredResults.push({ station: st, score });
+			}
+		}
+
+		// Sort by highest relevance score
+		scoredResults.sort((a, b) => b.score - a.score);
+		return scoredResults.slice(0, 8).map(item => item.station);
+	}
+
+	#renderStationDropdown(dropdownEl, results, onSelectCallback) {
+		const activeLang = localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
+		const lines = this.#metroData.lines || {};
+		const html = results.map((st, idx) => {
+			// सक्रिय भाषा के अनुसार सही नाम चुनें (Strict Language Match)
+			const displayName = (activeLang === "hi" && st.name?.hi) ? st.name.hi : (st.name?.en || st.id);
+			// मेट्रो लाइन्स के कलर डॉट्स
+			const lineDots = (st.lines || []).map(lineId => {
+				const lineInfo = lines[lineId];
+				const color = lineInfo?.color || "#007bff";
+				const lineTitle = (activeLang === "hi" && lineInfo?.name?.hi) ? lineInfo.name.hi : (lineInfo?.name?.en || lineId);
+				return `<span class="st-line-dot" style="background-color:${color};" title="${this.#escapeHTML(lineTitle)}"></span>`;
+			}).join("");
+			const isInterchange = (st.lines || []).length > 1;
+			return `
+				<div class="station-autocomplete-item" data-index="${idx}" tabindex="-1" role="option">
+					<div class="st-item-name-group">
+						<span class="st-item-main-name">🚇 ${this.#escapeHTML(displayName)}</span>
+					</div>
+					<div class="st-item-lines-group">
+						${lineDots}
+						${isInterchange ? `<span class="st-interchange-badge">🔄</span>` : ""}
+					</div>
+				</div>
+			`;
+		}).join("");
+		dropdownEl.innerHTML = html;
+		dropdownEl.hidden = false;
+		dropdownEl.querySelectorAll(".station-autocomplete-item").forEach(itemEl => {
+			itemEl.addEventListener("click", () => {
+				const idx = parseInt(itemEl.dataset.index, 10);
+				if (results[idx]) {
+					onSelectCallback(results[idx]);
+				}
+			});
+		});
+	}
+
+	#updateFocusedDropdownItem(items, focusedIndex) {
+		items.forEach((el, idx) => {
+			el.classList.toggle("focused", idx === focusedIndex);
+			if (idx === focusedIndex) {
+				el.scrollIntoView({ block: "nearest" });
+			}
+		});
+	}
+
+	#escapeHTML(str) {
+		if (!str || typeof str !== "string") return "";
+		return str
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/"/g, "&quot;")
+			.replace(/'/g, "&#039;");
 	}
 
 	#station_input_event() {
@@ -465,8 +638,8 @@ export class Dashboard {
 		const stationsLabel = i18n.t("pages.home.sidebar.findroute.route.stationsLabel") || "Stations";
 		const distanceLabel = "Distance";
 
-		const firstText = i18n.t("route.first") || "First";
-		const lastText = i18n.t("route.last") || "Last";
+		const firstText = i18n.t("pages.home.sidebar.findroute.route.first") || "First";
+		const lastText = i18n.t("pages.home.sidebar.findroute.route.last") || "Last";
 
 		const distNum = typeof routeInfo.totalDistance === "number"
 			? (routeInfo.totalDistance / 1000).toFixed(1)
@@ -542,7 +715,7 @@ export class Dashboard {
 	#renderShowRouteButton(parent) {
 		const showRouteBtn = document.createElement("button");
 		showRouteBtn.className = "btn-show-route";
-		showRouteBtn.innerHTML = `🗺️ ${i18n.t("route.showOnMap")}`;
+		showRouteBtn.innerHTML = `🗺️ ${i18n.t("pages.home.sidebar.findroute.route.showOnMap")}`;
 		showRouteBtn.addEventListener("click", () => {
 			// MetroMap के एन्कैप्सुलेटेड मेथड को कॉल करें जो स्क्रॉल और री-हाईलाइट दोनों संभालेगा
 			if (this.#mapObj) {
@@ -573,10 +746,10 @@ export class Dashboard {
  			const terminalName = terminalId ? this.#getStationLangName(terminalId) : "";
 			
 			// दिशा के टेक्स्ट को i18n द्वारा ट्रांसलेट करें
-			const directionText = i18n.t("route.directionText", {
+			const directionText = i18n.t("pages.home.sidebar.findroute.route.directionText", {
 				terminal: terminalName.toUpperCase(),
 				platform: (segmentIndex % 2) + 1
-			});
+			});;
 
 			const segmentEl = document.createElement("div");
 			segmentEl.className = "timeline-segment";
@@ -627,7 +800,7 @@ export class Dashboard {
 				// गेट टेक्स्ट को ट्रांसलेट करें
 				let gateBadgeHtml = "";
 				if (isFirstOverall || isLastOverall) {
-					gateBadgeHtml = `<span class="badge-gate">🚪 ${i18n.t("route.gate")}</span>`;
+					gateBadgeHtml = `<span class="badge-gate">🚪 ${i18n.t("pages.home.sidebar.findroute.route.gate")}</span>`;
 				}
 
 				const dotTextColor = isYellowLike ? "#000000" : "#ffffff";
@@ -910,50 +1083,70 @@ export class Dashboard {
 	// SHARE & URL ROUTE AUTO-LOAD METHODS
 	// =========================================================================
 	
-	// URL पैरामीटर्स से ऑटो-रूट जनरेट करने वाला मेथड
+		// URL पैरामीटर्स से ऑटो-रूट और सिंगल डेस्टिनेशन हैंडल करने वाला स्मार्ट मेथड
 	#handleUrlParams() {
 		const urlParams = new URLSearchParams(window.location.search);
 		const fromId = urlParams.get("from");
-		const toId = urlParams.get("to");
+		const toId = urlParams.get("to") || urlParams.get("station");
 		const priority = urlParams.get("priority");
 
-		if (!fromId || !toId) return;
-
-		const startStationObj = this.#metroData.stationData[fromId];
-		const endStationObj = this.#metroData.stationData[toId];
-
-		if (!startStationObj || !endStationObj) return;
+		if (!fromId && !toId) return;
 
 		const currentLang = this.#settings.currentLang || "en";
+		const startStationObj = fromId && this.#metroData?.stationData ? this.#metroData.stationData[fromId] : null;
+		const endStationObj = toId && this.#metroData?.stationData ? this.#metroData.stationData[toId] : null;
 
-		if (this.#elemts.startStation) {
-			this.#elemts.startStation.value = startStationObj.name[currentLang] || startStationObj.name.en;
-		}
-		if (this.#elemts.endStation) {
-			this.#elemts.endStation.value = endStationObj.name[currentLang] || endStationObj.name.en;
-		}
+		// 1. यदि सिर्फ Destination (toId) मौजूद है (सर्च बार से आने पर)
+		if (!fromId && endStationObj) {
+			if (this.#elemts.endStation) {
+				this.#elemts.endStation.value = endStationObj.name[currentLang] || endStationObj.name.en;
+			}
 
-		if (priority) {
-			const priorityRadio = document.querySelector(`input[name="routeType"][value="${priority}"]`);
-			if (priorityRadio) priorityRadio.checked = true;
-		}
+			// 📍 स्टेशन को बड़ा और पल्सिंग ब्लिंक कराएं
+			if (this.#mapObj) {
+				this.#mapObj.highlightStation(toId, true);
+			}
 
-		const form = document.querySelector(".routeFinder");
-		if (form) {
 			setTimeout(() => {
-				// 1. यदि साइडबार सेक्शन बंद है, तो Route Finder वाली टैब को क्लिक करके विंडो खोलें
 				const routeFinderTab = document.querySelector('.sidebar-link[data-target="route-finder"]');
 				if (routeFinderTab) {
 					routeFinderTab.click();
 				}
-				// 2. फ़ॉर्म सबमिट करके रूट कैलकुलेट करें
-				form.requestSubmit();
-				// 3. विजुअल स्क्रॉल करें
-				const routeSection = document.getElementById("route-finder");
-				if (routeSection) {
-					routeSection.scrollIntoView({ behavior: "smooth" });
+				if (this.#elemts.startStation) {
+					this.#elemts.startStation.focus();
 				}
 			}, 150);
+			return;
+		}
+
+		// 2. यदि From और To दोनों मौजूद हैं (Full Route Calculation)
+		if (startStationObj && endStationObj) {
+			if (this.#elemts.startStation) {
+				this.#elemts.startStation.value = startStationObj.name[currentLang] || startStationObj.name.en;
+			}
+			if (this.#elemts.endStation) {
+				this.#elemts.endStation.value = endStationObj.name[currentLang] || endStationObj.name.en;
+			}
+
+			if (priority) {
+				const priorityRadio = document.querySelector(`input[name="routeType"][value="${priority}"]`);
+				if (priorityRadio) priorityRadio.checked = true;
+			}
+
+			const form = document.querySelector(".routeFinder");
+			if (form) {
+				setTimeout(() => {
+					const routeFinderTab = document.querySelector('.sidebar-link[data-target="route-finder"]');
+					if (routeFinderTab) {
+						routeFinderTab.click();
+					}
+					form.requestSubmit();
+					const routeSection = document.getElementById("route-finder");
+					if (routeSection) {
+						routeSection.scrollIntoView({ behavior: "smooth" });
+					}
+				}, 150);
+			}
 		}
 	}
 }

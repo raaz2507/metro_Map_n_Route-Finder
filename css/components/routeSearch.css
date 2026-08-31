@@ -44,7 +44,10 @@
 		align-items: center;
 		justify-content: center;
 		color: var(--text-secondary);
-		transition: transform var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+		transition:
+			transform var(--transition-fast),
+			color var(--transition-fast),
+			background-color var(--transition-fast);
 	}
 
 	.sharebtn button .icon {
@@ -61,7 +64,6 @@
 	.sharebtn button:active {
 		transform: scale(0.95);
 	}
-
 
 	/* =========================================================================
 	   SHARE ROUTE CUSTOM MODAL & TOAST STYLING (Token-Compliant)
@@ -139,7 +141,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: transform var(--transition-fast), color var(--transition-fast);
+		transition:
+			transform var(--transition-fast),
+			color var(--transition-fast);
 	}
 
 	.close-modal-btn:hover {
@@ -212,7 +216,9 @@
 		font-weight: var(--fw-medium);
 		color: var(--text-primary);
 		cursor: pointer;
-		transition: transform var(--transition-fast), background-color var(--transition-fast);
+		transition:
+			transform var(--transition-fast),
+			background-color var(--transition-fast);
 	}
 
 	.share-opt-icon {
@@ -259,7 +265,9 @@
 		z-index: var(--z-overlay);
 		opacity: 0;
 		pointer-events: none;
-		transition: transform var(--transition-spring), opacity var(--transition-fast);
+		transition:
+			transform var(--transition-spring),
+			opacity var(--transition-fast);
 	}
 
 	.share-toast-msg.show {
@@ -271,7 +279,7 @@
 	   Route Finder Section & Form Elements
 	   ========================================================================= */
 	.route-finder-section {
-		overflow-y: auto; 
+		overflow-y: auto;
 	}
 
 	#route-finder-heading {
@@ -337,22 +345,25 @@
 		background: var(--input-bg);
 		border: 1px solid var(--input-border);
 		border-radius: var(--radius-md);
-		transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+		transition:
+			border-color var(--transition-fast),
+			box-shadow var(--transition-fast);
 		outline: none;
 		box-shadow: var(--shadow-sm);
 	}
 
 	.form-group input[type="text"]:focus {
 		border-color: var(--input-focus-border);
-		box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), var(--op-focus-shadow)), 
-					var(--shadow-sm);
+		box-shadow:
+			0 0 0 4px rgba(var(--color-primary-rgb), var(--op-focus-shadow)),
+			var(--shadow-sm);
 	}
 
 	/* Floating Swap Button */
 	#swapButton {
 		position: absolute;
 		right: 0px;
-		top: 39%; 
+		top: 39%;
 		width: 55px;
 		height: 55px;
 		border-radius: var(--radius-full);
@@ -365,7 +376,10 @@
 		align-items: center;
 		justify-content: center;
 		box-shadow: var(--shadow-sm);
-		transition: transform var(--transition-spring), border-color var(--transition-fast), box-shadow var(--transition-fast);
+		transition:
+			transform var(--transition-spring),
+			border-color var(--transition-fast),
+			box-shadow var(--transition-fast);
 		z-index: var(--z-base);
 	}
 
@@ -380,10 +394,10 @@
 	}
 
 	#swapButton img {
-		width: 24px;              
+		width: 24px;
 		height: 24px;
-		object-fit: contain;      
-		transition: transform var(--transition-smooth); 
+		object-fit: contain;
+		transition: transform var(--transition-smooth);
 	}
 
 	/* Action Buttons Container */
@@ -396,14 +410,17 @@
 
 	.form-actions button[type="reset"],
 	.form-actions button[type="submit"] {
-		flex: 1; 
+		flex: 1;
 		padding: var(--space-md);
 		font-family: var(--font-main);
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-bold);
 		border-radius: var(--radius-md);
 		cursor: pointer;
-		transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+		transition:
+			transform var(--transition-fast),
+			box-shadow var(--transition-fast),
+			background-color var(--transition-fast);
 		outline: none;
 		text-align: center;
 		border: none;
@@ -423,13 +440,15 @@
 	.form-actions button[type="submit"] {
 		background: var(--btn-primary-bg);
 		color: var(--btn-primary-text);
-		box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), var(--op-focus-shadow));
+		box-shadow: 0 4px 12px
+			rgba(var(--color-primary-rgb), var(--op-focus-shadow));
 	}
 
 	.form-actions button[type="submit"]:hover {
 		background: var(--btn-primary-hover);
 		transform: translateY(-2px);
-		box-shadow: 0 6px 16px rgba(var(--color-primary-rgb), var(--op-focus-shadow));
+		box-shadow: 0 6px 16px
+			rgba(var(--color-primary-rgb), var(--op-focus-shadow));
 	}
 
 	.form-actions button[type="submit"]:active,
@@ -441,7 +460,7 @@
 	   Journey Details & Priority Switch Slider
 	   ========================================================================= */
 	#journeyDetails {
-		display: none; 
+		display: none;
 		flex-direction: column;
 		gap: var(--space-lg);
 		margin-top: var(--space-lg);
@@ -455,14 +474,14 @@
 		padding: var(--space-lg);
 		box-shadow: var(--shadow-sm);
 		width: 100%;
-		margin-top: var(--space-lg); 
+		margin-top: var(--space-lg);
 		display: flex;
 	}
 
 	.route-overview {
 		display: flex;
 		flex-direction: column;
-		row-gap: var(--space-lg); 
+		row-gap: var(--space-lg);
 	}
 
 	.route-priority {
@@ -486,8 +505,8 @@
 	.switch-slider-track {
 		display: flex;
 		position: relative;
-		background-color: var(--btn-reset-bg); 
-		border-radius: var(--radius-full); 
+		background-color: var(--btn-reset-bg);
+		border-radius: var(--radius-full);
 		padding: 4px;
 		height: 44px;
 		align-items: center;
@@ -495,7 +514,9 @@
 		user-select: none;
 		border: 1px solid var(--border-color);
 		overflow: hidden;
-		transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+		transition:
+			background-color var(--transition-smooth),
+			border-color var(--transition-smooth);
 	}
 
 	.switch-slider-track input[type="radio"] {
@@ -508,7 +529,7 @@
 		top: 4px;
 		bottom: 4px;
 		left: 4px;
-		width: calc(50% - 4px); 
+		width: calc(50% - 4px);
 		background: var(--card-bg);
 		border-radius: var(--radius-full);
 		box-shadow: var(--shadow-sm);
@@ -547,7 +568,7 @@
 		height: 18px;
 		object-fit: contain;
 		transition: filter var(--transition-fast);
-		filter: opacity(0.5); 
+		filter: opacity(0.5);
 	}
 
 	body[data-theme="dark"] .switch-slider-label {
@@ -555,7 +576,7 @@
 	}
 
 	body[data-theme="dark"] .switch-icon {
-		filter: invert(1) opacity(0.5); 
+		filter: invert(1) opacity(0.5);
 	}
 
 	/* Active Tab Styling */
@@ -566,12 +587,20 @@
 	}
 
 	#priority-fastest:checked ~ label[for="priority-fastest"] .switch-icon,
-	#priority-leastTransfers:checked ~ label[for="priority-leastTransfers"] .switch-icon {
+	#priority-leastTransfers:checked
+		~ label[for="priority-leastTransfers"]
+		.switch-icon {
 		filter: opacity(0.9);
 	}
 
-	body[data-theme="dark"] #priority-fastest:checked ~ label[for="priority-fastest"] .switch-icon,
-	body[data-theme="dark"] #priority-leastTransfers:checked ~ label[for="priority-leastTransfers"] .switch-icon {
+	body[data-theme="dark"]
+		#priority-fastest:checked
+		~ label[for="priority-fastest"]
+		.switch-icon,
+	body[data-theme="dark"]
+		#priority-leastTransfers:checked
+		~ label[for="priority-leastTransfers"]
+		.switch-icon {
 		filter: invert(0) opacity(0.9);
 	}
 
@@ -700,7 +729,9 @@
 		font-weight: var(--fw-bold);
 		border-radius: var(--radius-md);
 		cursor: pointer;
-		transition: transform var(--transition-fast), background-color var(--transition-fast);
+		transition:
+			transform var(--transition-fast),
+			background-color var(--transition-fast);
 	}
 
 	.btn-show-route:hover {
@@ -771,18 +802,20 @@
 	}
 
 	.station-row:hover {
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-glow)); 
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-glow));
 		border-radius: var(--radius-sm);
 	}
 
 	.station-row:hover .station-dot-solid {
-		transform: scale(1.18); 
-		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), 0 0 12px var(--line-color);  
+		transform: scale(1.18);
+		box-shadow:
+			0 4px 10px rgba(0, 0, 0, 0.15),
+			0 0 12px var(--line-color);
 	}
 
 	.station-row:hover .station-name-main {
-		transform: translateX(6px) scale(1.06); 
-		color: var(--text-primary); 
+		transform: translateX(6px) scale(1.06);
+		color: var(--text-primary);
 	}
 
 	body[data-theme="dark"] .station-row:hover {
@@ -804,7 +837,7 @@
 		width: 22px;
 		height: 22px;
 		border-radius: var(--radius-full);
-		margin-top: 0px; 
+		margin-top: 0px;
 		z-index: var(--z-base);
 		display: flex;
 		align-items: center;
@@ -815,7 +848,9 @@
 		line-height: 1;
 		animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 		animation-delay: var(--delay);
-		transition: transform var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow var(--transition-fast);
+		transition:
+			transform var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1),
+			box-shadow var(--transition-fast);
 	}
 
 	@keyframes popIn {
@@ -831,15 +866,15 @@
 
 	.station-track-line {
 		position: absolute;
-		top: 11px; 
-		bottom: -11px; 
+		top: 11px;
+		bottom: -11px;
 		left: 50%;
 		transform: translateX(-50%);
-		width: 4px; 
+		width: 4px;
 		z-index: 0;
 		border-radius: var(--radius-xs);
 		animation: drawLine 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
-		animation-delay: calc(var(--delay) + 120ms); 
+		animation-delay: calc(var(--delay) + 120ms);
 		transform-origin: top;
 	}
 
@@ -852,7 +887,10 @@
 		}
 	}
 
-	.route-timeline .timeline-segment:last-child .station-row:last-child .station-track-line {
+	.route-timeline
+		.timeline-segment:last-child
+		.station-row:last-child
+		.station-track-line {
 		display: none;
 	}
 
@@ -864,7 +902,9 @@
 		margin-top: 2px;
 	}
 
-	.segment-header, .station-info, .interchange-card {
+	.segment-header,
+	.station-info,
+	.interchange-card {
 		animation: slideFadeIn 0.35s ease-out both;
 		animation-delay: calc(var(--delay) + 40ms);
 	}
@@ -889,8 +929,10 @@
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
-		transition: transform var(--transition-fast), color var(--transition-fast);
-		transform-origin: left center; 
+		transition:
+			transform var(--transition-fast),
+			color var(--transition-fast);
+		transform-origin: left center;
 	}
 
 	.badge-gate {
@@ -941,7 +983,7 @@
 		display: flex;
 		position: relative;
 		padding-bottom: var(--space-md);
-		padding-left: var(--space-xl); 
+		padding-left: var(--space-xl);
 	}
 
 	.interchange-card {
@@ -968,7 +1010,7 @@
 	}
 
 	.interchange-icon-walk {
-		width: 24px; 
+		width: 24px;
 		height: 24px;
 		flex-shrink: 0;
 		display: flex;
@@ -991,6 +1033,102 @@
 		border-radius: var(--radius-full);
 		white-space: nowrap;
 		flex-shrink: 0;
+	}
+
+	/* ===========================================================================
+   STATION AUTOCOMPLETE DROPDOWN STYLING (Clean Single-Line UI)
+   =========================================================================== */
+	.input-autocomplete-wrapper {
+		position: relative;
+		width: 100%;
+	}
+
+	/* 1. By default dropdown band rahega */
+	.station-autocomplete-dropdown {
+		display: none;
+		position: absolute;
+		top: calc(100% + 4px);
+		left: 0;
+		right: 0;
+		max-height: 240px;
+		overflow-y: auto;
+		background-color: var(--card-bg, rgba(var(--color-bg-base-rgb), 0.98));
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-lg);
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		z-index: 1050;
+		flex-direction: column;
+	}
+
+	/* 2. Sirf tabhi dikhe jab isme stations ki list ho */
+	.station-autocomplete-dropdown:not([hidden]):not(:empty) {
+		display: flex;
+	}
+
+	.station-autocomplete-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px 14px;
+		min-height: 42px;
+		box-sizing: border-box;
+		cursor: pointer;
+		border-bottom: 1px solid var(--border-color);
+		transition: background-color var(--transition-fast);
+		color: var(--text-primary);
+		gap: var(--space-sm);
+		text-decoration: none;
+	}
+
+	.station-autocomplete-item:last-child {
+		border-bottom: none;
+	}
+
+	.station-autocomplete-item:hover,
+	.station-autocomplete-item.focused {
+		background-color: rgba(var(--color-primary-rgb), 0.15);
+	}
+
+	.st-item-name-group {
+		display: flex;
+		align-items: center;
+		text-align: left;
+		overflow: hidden;
+	}
+
+	.st-item-main-name {
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-medium);
+		color: var(--text-primary);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.st-item-lines-group {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		flex-shrink: 0;
+	}
+
+	.st-line-dot {
+		width: 10px;
+		height: 10px;
+		border-radius: var(--radius-full);
+		display: inline-block;
+		box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+	}
+
+	.st-interchange-badge {
+		font-size: var(--fs-xs);
+		background: var(--btn-reset-bg, rgba(255, 255, 255, 0.1));
+		border: 1px solid var(--border-color);
+		padding: 2px 6px;
+		border-radius: var(--radius-full);
+		color: var(--text-secondary);
 	}
 
 	/* Option B Responsive Compact Mobile Breakpoint */

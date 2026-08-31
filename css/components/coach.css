@@ -80,22 +80,23 @@ body[data-theme="ghibli"] {
 }
 
 /* ---------------------------------------------------------------------------
-   2. GLASS WINDOW OVERLAY (Theme-Adaptive & 2-Line Wrap)
+   2. GLASS WINDOW OVERLAY (Theme-Adaptive & Devanagari Matra Safe)
    --------------------------------------------------------------------------- */
 .coach-window-overlay {
     position: absolute;
-    top: 15%;
+    top: 13%;
     left: 6.2%;
     right: 13.2%;
-    height: 58%;
+    height: 61%;
     z-index: var(--z-map);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-xs) var(--space-sm);
+    padding: 5px 6px 3px 6px;
     background: var(--coach-window-bg);
     backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
     border: 1px solid var(--coach-window-border);
     border-radius: var(--radius-xs);
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.15);
@@ -105,13 +106,14 @@ body[data-theme="ghibli"] {
 
 .window-station-title {
     position: static;
-    font-size: var(--fs-sm);
-    font-weight: var(--fw-extrabold);
+    font-size: 0.8125rem; /* 13px - perfectly balanced for Hindi & English */
+    font-weight: var(--fw-bold);
     color: var(--coach-title-color);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
     text-align: center;
-    line-height: 1.1;
-    margin-bottom: var(--space-xs);
+    line-height: 1.35; /* मात्राओं को कटने से बचाने के लिए सुरक्षित लाइन-हाइट */
+    padding-top: 1px;
+    margin-bottom: 2px;
     max-width: 100%;
     width: 100%;
     display: -webkit-box;
@@ -129,6 +131,7 @@ body[data-theme="ghibli"] {
     font-weight: var(--fw-extrabold);
     color: var(--coach-value-color);
     letter-spacing: 0.3px;
+    line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

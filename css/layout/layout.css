@@ -115,10 +115,10 @@
 		.floating-nav-wrapper:has(.floating-nav) {
             position: absolute;
             top: auto;
-            bottom: 2rem;
+            bottom: 2.75rem; /* 👈 बॉर्डर से पर्याप्त ऊपर फ्लोट कराने के लिए */
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1000;
+            z-index: var(--z-modal, 1000);
         }
 
 		footer {
@@ -160,23 +160,31 @@
 		.sidebar-wrapper {
 			top: var(--space-sm);
 			left: var(--space-sm);
+			right: var(--space-sm);
 			gap: var(--space-xs);
+			width: auto;
 			max-width: calc(100% - var(--space-md));
-			height: calc(100% - 120px);          /* फ्लोटिंग मेनू से पर्याप्त ऊपर */
-
+			height: calc(100% - 120px);
+			justify-content: flex-start;
+			align-items: flex-start;
 		}
         .map-section {
             min-height: calc(100vh - 180px);         /* 👈 हेडर और नेविगेशन बार छोड़कर पूरी मोबाइल स्क्रीन भरेगा */
             height: calc(100vh - 180px);
         }
 		aside {
-			max-width: 320px;
+			flex: 1;
+			width: 100%;
+			max-width: 100% !important; /* 👈 320px ki limit hata di */
 			height: 100%;
 		}
-		/* Mobile floating nav fixed to bottom (Top Z-Index) */
+		
+		/* Mobile floating nav fixed to bottom (Safe Floating Elevation) */
 		.floating-nav-wrapper:has(.floating-nav) {
 			position: fixed;
-			bottom: 24px;
+			bottom: max(32px, calc(env(safe-area-inset-bottom, 0px) + 20px));
+			left: 50%;
+			transform: translateX(-50%);
 			z-index: var(--z-modal);
 		}
 		
