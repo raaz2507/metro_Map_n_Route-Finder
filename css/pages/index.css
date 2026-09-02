@@ -12,9 +12,11 @@
 @import url("../layout/navbar-main.css");
 
 @import url("../components/map_genrator.css");
-
-
-
+@import url("../components/toast.css");
+@import url("../components/app-settings.css");
+@import url("../components/alarm-banner.css");
+@import url("../components/widget-speedometer.css");
+@import url("../components/widget-telemetry.css");
 
 /* =========================================================================
    1. GLOBAL & BODY SETTINGS (Base Layer)
@@ -57,47 +59,6 @@
 		position: relative;
 		overflow: hidden;
 		width: 100vw;
-	}
-}
-
-/* =========================================================================
-   Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
-   ========================================================================= */
-@layer components {
-	.speedometer-widget {
-		position: absolute;
-		bottom: calc(var(--space-xl) + 185px);
-		right: calc(var(--space-xl) - 5px);
-		width: 80px;
-		height: 66px;
-		border-radius: var(--radius-full);
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
-		backdrop-filter: blur(var(--backdrop-blur));
-		-webkit-backdrop-filter: blur(var(--backdrop-blur));
-		border: 2px solid var(--btn-primary-bg);
-		box-shadow: var(--shadow-md), 0 0 14px rgba(var(--color-primary-rgb), 0.3);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		z-index: var(--z-sidebar);
-		transition: all var(--transition-smooth);
-	}
-
-	.speedometer-widget .speed-number {
-		font-family: var(--font-title);
-		font-size: var(--fs-2xl);
-		font-weight: var(--fw-black);
-		color: var(--btn-primary-bg);
-		line-height: 1;
-		letter-spacing: -0.5px;
-	}
-
-	.speedometer-widget .speed-unit {
-		font-size: 0.6rem;
-		font-weight: var(--fw-bold);
-		color: var(--text-secondary);
-		margin-top: 3px;
 	}
 }
 

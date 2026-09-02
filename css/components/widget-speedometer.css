@@ -1,0 +1,136 @@
+/* =========================================================================
+   Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
+   ========================================================================= */
+@layer components {
+	/* =========================================================================
+       Floating Glassmorphic Speedometer Widget (Dynamic Speed Colors & Tooltip)
+       ========================================================================= */
+    .speedometer-widget {
+        position: absolute;
+        bottom: calc(var(--space-xl) + 185px);
+        right: calc(var(--space-xl) - 5px);
+        width: 80px;
+        height: 66px;
+        border-radius: var(--radius-full);
+        background-color: rgba(var(--color-bg-base-rgb), var(--op-aside-bg, 0.88));
+        backdrop-filter: blur(var(--backdrop-blur));
+        -webkit-backdrop-filter: blur(var(--backdrop-blur));
+        border: 2px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: var(--z-sidebar, 200);
+        cursor: pointer;
+        user-select: none;
+        outline: none;
+        transition: 
+            border-color var(--transition-smooth), 
+            box-shadow var(--transition-smooth),
+            transform var(--transition-spring);
+    }
+
+    .speedometer-widget:hover,
+    .speedometer-widget:focus-visible {
+        transform: scale(1.05);
+    }
+
+    .speedometer-widget .speed-number {
+        font-family: var(--font-title);
+        font-size: var(--fs-2xl);
+        font-weight: var(--fw-black);
+        color: var(--text-primary);
+        line-height: 1;
+        letter-spacing: -0.5px;
+        transition: color var(--transition-smooth);
+    }
+
+    .speedometer-widget .speed-unit {
+        font-size: 0.6rem;
+        font-weight: var(--fw-bold);
+        color: var(--text-secondary);
+        margin-top: 3px;
+    }
+
+    /* 🟢 1. Speed State: HALTED (0 - 3 km/h) */
+    .speedometer-widget[data-motion="HALTED"] {
+        border-color: var(--border-color);
+    }
+    .speedometer-widget[data-motion="HALTED"] .speed-number {
+        color: var(--text-secondary);
+    }
+
+    /* 🟡 2. Speed State: DEPARTING (3 - 35 km/h - Amber Glow) */
+    .speedometer-widget[data-motion="DEPARTING"] {
+        border-color: #f59e0b;
+        box-shadow: var(--shadow-md), 0 0 16px rgba(245, 158, 11, 0.4);
+    }
+    .speedometer-widget[data-motion="DEPARTING"] .speed-number {
+        color: #f59e0b;
+    }
+
+    /* 🟢 3. Speed State: CRUISING (> 35 km/h - High Speed Neon Emerald) */
+    .speedometer-widget[data-motion="CRUISING"] {
+        border-color: #10b981;
+        box-shadow: var(--shadow-lg), 0 0 22px rgba(16, 185, 129, 0.55);
+        animation: speed-cruising-pulse 1.5s infinite alternate ease-in-out;
+    }
+    .speedometer-widget[data-motion="CRUISING"] .speed-number {
+        color: #10b981;
+    }
+
+    @keyframes speed-cruising-pulse {
+        from { box-shadow: var(--shadow-lg), 0 0 12px rgba(16, 185, 129, 0.35); }
+        to { box-shadow: var(--shadow-xl), 0 0 28px rgba(16, 185, 129, 0.7); }
+    }
+
+    /* 🏎️ Speedometer Popover Tooltip */
+    .speedometer-tooltip {
+        position: absolute;
+        right: calc(100% + var(--space-md));
+        top: 50%;
+        transform: translateY(-50%) scale(0.92);
+        opacity: 0;
+        pointer-events: none;
+        min-width: 170px;
+        padding: var(--space-sm) var(--space-md);
+        background: rgba(var(--color-bg-base-rgb), var(--op-aside-bg, 0.92));
+        backdrop-filter: blur(var(--backdrop-blur));
+        -webkit-backdrop-filter: blur(var(--backdrop-blur));
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-xl);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        transition: opacity var(--transition-fast), transform var(--transition-spring);
+        z-index: var(--z-toast, 700);
+    }
+
+    .speedometer-widget:hover .speedometer-tooltip,
+    .speedometer-widget.tooltip-active .speedometer-tooltip {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+        pointer-events: auto;
+    }
+
+    .tooltip-header {
+        font-family: var(--font-title);
+        font-size: var(--fs-xs);
+        font-weight: var(--fw-bold);
+        color: var(--text-primary);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 3px;
+    }
+
+    .tooltip-grid { display: flex; flex-direction: column; gap: 3px; }
+    .tooltip-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; }
+    .tooltip-label { color: var(--text-secondary); }
+    .tooltip-val { font-weight: var(--fw-bold); color: var(--text-primary); }
+}
+
+
+
+
+

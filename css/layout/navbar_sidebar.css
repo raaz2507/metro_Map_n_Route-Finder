@@ -69,16 +69,16 @@
 		height: 24px;
 	}
 
-	/* Text style with ellipsis truncation if it overflows */
+	/* Text style: Allows clean wrapping into next line without cutting */
 	.sidebar-link span:last-child {
-		font-size: 0.7rem;
+		font-size: 0.68rem;
 		font-weight: var(--fw-semibold);
-		letter-spacing: 0.5px;
+		letter-spacing: 0.2px;
 		text-transform: capitalize;
 		max-width: 100%;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		white-space: normal;
+		line-height: 1.15;
+		word-break: break-word;
 		display: block;
 	}
 }

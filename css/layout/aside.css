@@ -36,7 +36,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-md);
-		background: rgba(var(--color-bg-base-rgb), var(--op-aside-bg, 0.85));
+		background: rgba(var(--op-aside-bg, --op-glass));
 		backdrop-filter: blur(var(--backdrop-blur));
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
 		border: 1px solid var(--border-color);
@@ -120,12 +120,19 @@
 		width: min(var(--route-finder-width), calc(100vw - 95px));
 		flex: 0 1 auto;                          /* शुरुआत में केवल फ़ॉर्म जितना छोटा रहेगा */
 		height: auto;
+		overflow: visible;                       /* 👈 ड्रॉपडाउन को बाहर निकलने की अनुमति */
 	}
 
-	/* जब रूट रिजल्ट (Journey Details) दिखेगा, केवल तभी 100% फैलेगा */
+	/* जब रूट रिजल्ट (Journey Details) दिखेगा, केवल तभी 100% फैलेगा और स्क्रोल चालू होगा */
 	#route-finder:has(#journeyDetails.active) {
 		flex: 1 1 auto;
 		height: 100%;
+		overflow-y: auto;
+	}
+
+	/* जब भी ड्रॉपडाउन खुला हो, कार्ड से बाहर ओवरफ्लो होने दे (No Clipping) */
+	#route-finder:has(.station-autocomplete-dropdown:not([hidden])) {
+		overflow: visible !important;
 	}
 
 	/* Sidebar Sections Show/Hide */

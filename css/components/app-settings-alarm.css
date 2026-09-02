@@ -1,0 +1,195 @@
+@layer components {
+    /* =========================================================================
+       🔔 ALARM TAB SPECIFIC TOKENS & ACCENTS
+       ========================================================================= */
+    :root {
+        --tab-alarm-accent: #f59e0b;
+        --tab-alarm-accent-rgb: 245, 158, 11;
+        --tab-alarm-bg: rgba(var(--tab-alarm-accent-rgb), 0.05);
+        --tab-alarm-border: rgba(var(--tab-alarm-accent-rgb), 0.35);
+        --tab-alarm-glow: rgba(var(--tab-alarm-accent-rgb), 0.18);
+    }
+
+    /* 🌟 Alarm Active Tab Style */
+    .folder-tab[data-tab="alarm"].active {
+        background: rgba(var(--tab-alarm-accent-rgb), 0.14);
+        color: var(--tab-alarm-accent);
+        border-color: var(--tab-alarm-border);
+        border-bottom-color: transparent;
+        margin-bottom: -1px;
+        z-index: 2;
+        box-shadow: 0 -2px 8px rgba(var(--tab-alarm-accent-rgb), 0.15);
+    }
+
+    /* 🎴 Alarm Scoped Fieldsets (Cards) */
+    .settings-tab-panel[data-panel="alarm"] .settings-fieldset {
+        margin: 0;
+        padding: var(--space-md);
+        border: 1px solid var(--tab-alarm-border);
+        border-radius: var(--radius-lg);
+        background: var(--tab-alarm-bg);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+    }
+
+    .settings-tab-panel[data-panel="alarm"] .settings-fieldset:hover {
+        border-color: var(--tab-alarm-accent);
+        box-shadow: 0 4px 16px var(--tab-alarm-glow);
+    }
+
+    .settings-tab-panel[data-panel="alarm"] .settings-legend {
+        float: none;
+        width: auto;
+        padding: 4px var(--space-sm);
+        margin-left: -4px;
+        font-family: var(--font-title);
+        font-size: var(--fs-xs);
+        font-weight: var(--fw-bold);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--tab-alarm-accent);
+        background: rgba(var(--tab-alarm-accent-rgb), 0.12);
+        border: 1px solid var(--tab-alarm-border);
+        border-radius: var(--radius-full);
+    }
+
+    /* Alarm Toggle Active State */
+    .settings-tab-panel[data-panel="alarm"] .switch-toggle input:checked + .switch-slider {
+        background-color: var(--tab-alarm-accent);
+        border-color: var(--tab-alarm-accent);
+    }
+
+    .settings-tab-panel[data-panel="alarm"] .switch-toggle input:checked + .switch-slider::before {
+        transform: translateX(20px);
+    }
+
+    .settings-tab-panel[data-panel="alarm"] .switch-toggle input:focus-visible + .switch-slider {
+        box-shadow: 0 0 0 3px var(--tab-alarm-glow);
+    }
+
+    /* Alarm Slider & Badge Accent */
+    .settings-tab-panel[data-panel="alarm"] .slider-val-badge {
+        color: var(--tab-alarm-accent);
+        background: var(--tab-alarm-bg);
+        border: 1px solid var(--tab-alarm-border);
+    }
+
+    .settings-tab-panel[data-panel="alarm"] .settings-range-slider {
+        accent-color: var(--tab-alarm-accent);
+    }
+
+    .settings-tab-panel[data-panel="alarm"] .settings-select:focus {
+        border-color: var(--tab-alarm-accent);
+        box-shadow: 0 0 0 3px var(--tab-alarm-glow);
+    }
+
+    /* 🎵 Custom MP3 Audio Uploader Box */
+    .custom-audio-uploader {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        padding: var(--space-sm);
+        background: rgba(var(--color-bg-base-rgb), 0.35);
+        border: 1px dashed var(--tab-alarm-border);
+        border-radius: var(--radius-md);
+        transition: background-color var(--transition-fast);
+    }
+
+    .uploader-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .uploader-title {
+        font-size: var(--fs-xs);
+        font-weight: var(--fw-semibold);
+        color: var(--text-primary);
+    }
+
+    .supported-formats {
+        font-size: 0.7rem;
+        color: var(--text-secondary);
+        opacity: 0.8;
+    }
+
+    .custom-file-btn {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: 8px 12px;
+        background: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        user-select: none;
+    }
+
+    .custom-file-btn:hover {
+        border-color: var(--tab-alarm-accent);
+        background: var(--tab-alarm-bg);
+    }
+
+    .file-name-display {
+        font-size: var(--fs-xs);
+        color: var(--text-secondary);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+    }
+
+    .visually-hidden-file {
+        display: none !important;
+    }
+
+    /* 🔊 Test Preview Action Buttons */
+    .settings-action-row {
+        display: flex;
+        gap: var(--space-xs);
+    }
+
+    .btn-settings-action {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-xs);
+        padding: var(--space-xs) var(--space-md);
+        background: var(--tab-alarm-bg);
+        border: 1px solid var(--tab-alarm-border);
+        color: var(--tab-alarm-accent);
+        border-radius: var(--radius-md);
+        font-family: var(--font-title);
+        font-size: var(--fs-xs);
+        font-weight: var(--fw-bold);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .btn-settings-action:hover {
+        background: var(--tab-alarm-accent);
+        color: #ffffff;
+        box-shadow: 0 4px 12px var(--tab-alarm-glow);
+        transform: translateY(-1px);
+    }
+
+    .btn-settings-action:active {
+        transform: translateY(0);
+    }
+
+    .btn-settings-action.playing {
+        background: #ef4444;
+        border-color: #ef4444;
+        color: #ffffff;
+        animation: pulse-ring 1s infinite alternate;
+    }
+
+    @keyframes pulse-ring {
+        from { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+        to { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+    }
+}

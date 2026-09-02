@@ -280,6 +280,16 @@
 		transform: translateY(-8px) scale(0.95);
 		pointer-events: none;
 	}
+	/* 👁️ Show Route Mode (Primary Blue Accent) */
+	.clear-route-highlight-btn.show-mode {
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		color: rgb(var(--color-primary-rgb));
+		border-color: rgba(var(--color-primary-rgb), var(--op-translucent));
+	}
+	.clear-route-highlight-btn.show-mode:hover {
+		background: rgba(var(--color-primary-rgb), var(--op-translucent));
+		box-shadow: var(--shadow-lg);
+	}
 }
 
 

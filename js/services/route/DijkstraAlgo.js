@@ -1,0 +1,273 @@
+/**
+ * 🚇 Dijkstra Algorithm - Pure State-Space Graph Solver
+ * Enterprise ES2022 OOP Class with Private Encapsulation (#)
+ * 
+ * विशेषताएँ:
+ * 1. State-Space Platform Routing: 'stationId-line' के आधार पर इंटरचेंज और पाथ को ट्रैक करता है।
+ * 2. Binary Min-Heap Priority Queue: O((V + E) log V) टाइम कॉम्प्लेक्सिटी में तेज़ पाथफाइंडिंग।
+ * 3. Dual Route Modes:
+ *    - 'leastTransfers': न्यूनतम इंटरचेंज (कम से कम ट्रेन बदलना)।
+ *    - 'shortestDistance': न्यूनतम भौगोलिक दूरी (किमी/मीटर)।
+ */
+
+class PriorityQueue {
+	#heap = [];
+
+	push(node) {
+		this.#heap.push(node);
+		this.#bubbleUp();
+	}
+
+	pop() {
+		if (this.isEmpty()) return null;
+		const top = this.#heap[0];
+		const bottom = this.#heap.pop();
+		if (this.#heap.length > 0) {
+			this.#heap[0] = bottom;
+			this.#bubbleDown();
+		}
+		return top;
+	}
+
+	isEmpty() {
+		return this.#heap.length === 0;
+	}
+
+	#bubbleUp() {
+		let index = this.#heap.length - 1;
+		while (index > 0) {
+			const parentIndex = Math.floor((index - 1) / 2);
+			if (this.#heap[index].dist >= this.#heap[parentIndex].dist) break;
+			[this.#heap[index], this.#heap[parentIndex]] = [this.#heap[parentIndex], this.#heap[index]];
+			index = parentIndex;
+		}
+	}
+
+	#bubbleDown() {
+		let index = 0;
+		const length = this.#heap.length;
+
+		while (true) {
+			let smallest = index;
+			const left = index * 2 + 1;
+			const right = index * 2 + 2;
+
+			if (left < length && this.#heap[left].dist < this.#heap[smallest].dist) {
+				smallest = left;
+			}
+			if (right < length && this.#heap[right].dist < this.#heap[smallest].dist) {
+				smallest = right;
+			}
+			if (smallest === index) break;
+
+			[this.#heap[index], this.#heap[smallest]] = [this.#heap[smallest], this.#heap[index]];
+			index = smallest;
+		}
+	}
+}
+
+export class DijkstraAlgo {
+	// Private State Fields
+	#stationData = null;
+	#lines = null;
+	#pathCache = new Map();
+
+	// Transfer Penalties (वर्चुअल पेनल्टी जिससे एल्गोरिद्म सही रूट चुने)
+	static LEAST_TRANSFER_PENALTY = 1000;      // 1000 मीटर की पेनल्टी ताकि लाइन न बदलनी पड़े
+	static SHORT_ROUTE_TRANSFER_PENALTY = 0.5; // 0.5 मीटर की हल्की पेनल्टी ताकि व्यर्थ ट्रांसफर न हो
+
+	/**
+	 * @param {Object} stationData - स्टेशनों का डेटा (पड़ोसी स्टेशनों और लाइन्स सहित)
+	 * @param {Object} lines - लाइन्स का डेटा
+	 */
+	constructor(stationData = {}, lines = {}) {
+		this.updateData(stationData, lines);
+	}
+
+	/**
+	 * नया डेटा अपडेट करें और ग्राफ नेबर्स की प्री-कंपाइलेशन करें
+	 */
+	updateData(stationData, lines) {
+		this.#stationData = stationData || {};
+		this.#lines = lines || {};
+		this.#pathCache.clear();
+		// 🚀 Pre-compile Keys (लूप में स्ट्रिंग एलोकेशन खत्म)
+		for (const st of Object.values(this.#stationData)) {
+			if (st && st.neighbors && Array.isArray(st.neighbors)) {
+				for (const n of st.neighbors) {
+					if (!n.targetKey) {
+						n.targetKey = `${n.station}-${n.line}`;
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * दो स्टेशनों के बीच का सबसे अनुकूल पाथ खोजें
+	 * @param {string} startStationId - शुरुआती स्टेशन ID
+	 * @param {string} endStationId - अंतिम स्टेशन ID
+	 * @param {string} routeType - "leastTransfers" | "shortestDistance"
+	 * @returns {Object|null} पाथ, दूरी, इंटरचेंज और उपयोग की गई लाइन्स
+	 */
+		findPath(startStationId, endStationId, routeType = "leastTransfers") {
+		if (!startStationId || !endStationId || !this.#stationData[startStationId] || !this.#stationData[endStationId]) {
+			return null;
+		}
+
+		// ⚡ 1. Cache Check
+		const cacheKey = `${startStationId}:${endStationId}:${routeType}`;
+		if (this.#pathCache.has(cacheKey)) {
+			return this.#pathCache.get(cacheKey);
+		}
+
+		// यदि शुरुआती और अंतिम स्टेशन एक ही हों
+		if (startStationId === endStationId) {
+			const startLines = this.#stationData[startStationId].lines || [];
+			const result = {
+				path: [startStationId],
+				totalDistanceMeters: 0,
+				interchanges: 0,
+				linesUsed: startLines.length > 0 ? [startLines[0]] : [],
+				segments: []
+			};
+			this.#pathCache.set(cacheKey, result);
+			return result;
+		}
+
+		const dists = {};
+		const prev = {};
+		const visited = new Set();
+		const queue = new PriorityQueue();
+
+		const startLines = this.#stationData[startStationId].lines || [];
+		startLines.forEach((line) => {
+			const startKey = `${startStationId}-${line}`;
+			dists[startKey] = 0;
+			queue.push({
+				id: startStationId,
+				dist: 0,
+				interchanges: 0,
+				line: line
+			});
+		});
+
+		let endNodeReached = null;
+
+		while (!queue.isEmpty()) {
+			const curr = queue.pop();
+			const currKey = `${curr.id}-${curr.line}`;
+
+			if (visited.has(currKey)) continue;
+			visited.add(currKey);
+
+			if (curr.id === endStationId) {
+				endNodeReached = curr;
+				break;
+			}
+
+			const station = this.#stationData[curr.id];
+			if (!station || !station.neighbors) continue;
+
+			for (let i = 0; i < station.neighbors.length; i++) {
+				const neighbor = station.neighbors[i];
+				const neighborId = neighbor.station;
+				const edgeLine = neighbor.line;
+				const isTransfer = curr.line !== edgeLine;
+
+				let weight = Number(neighbor.distance) || 0;
+				let transferCost = 0;
+
+				if (isTransfer) {
+					transferCost = 1;
+					weight += (routeType === "leastTransfers")
+						? DijkstraAlgo.LEAST_TRANSFER_PENALTY
+						: DijkstraAlgo.SHORT_ROUTE_TRANSFER_PENALTY;
+				}
+
+				// ⚡ Pre-computed Key Access
+				const nextKey = neighbor.targetKey || `${neighborId}-${edgeLine}`;
+				const newDist = curr.dist + weight;
+
+				if (dists[nextKey] === undefined || newDist < dists[nextKey]) {
+					dists[nextKey] = newDist;
+					prev[nextKey] = {
+						parentId: curr.id,
+						parentLine: curr.line,
+						edgeLine: edgeLine
+					};
+
+					queue.push({
+						id: neighborId,
+						dist: newDist,
+						interchanges: curr.interchanges + transferCost,
+						line: edgeLine
+					});
+				}
+			}
+		}
+
+		if (!endNodeReached) return null;
+
+		const finalResult = this.#reconstructPath(startStationId, endStationId, endNodeReached, prev);
+		
+		if (this.#pathCache.size >= 100) {
+			const oldestKey = this.#pathCache.keys().next().value;
+			this.#pathCache.delete(oldestKey);
+		}
+		this.#pathCache.set(cacheKey, finalResult);
+
+		return finalResult;
+	}
+
+	/**
+	 * बैक-ट्रैकिंग द्वारा सटीक स्टेशन पाथ और वास्तविक दूरी निकालें
+	 */
+	#reconstructPath(startId, endId, endNode, prev) {
+		const path = [];
+		const segments = [];
+		const linesUsedSet = new Set();
+		let tempState = `${endId}-${endNode.line}`;
+		let totalRealDistance = 0;
+
+		while (tempState) {
+			const parts = tempState.split("-");
+			const stationId = parts[0];
+
+			if (path[0] !== stationId) {
+				path.unshift(stationId);
+			}
+
+			const parentInfo = prev[tempState];
+			if (parentInfo) {
+				const parentStation = this.#stationData[parentInfo.parentId];
+				const edge = parentStation?.neighbors?.find(
+					(n) => n.station === stationId && n.line === parentInfo.edgeLine
+				);
+
+				const edgeDist = edge ? Number(edge.distance) || 0 : 0;
+				totalRealDistance += edgeDist;
+
+				linesUsedSet.add(parentInfo.edgeLine);
+				segments.unshift({
+					from: parentInfo.parentId,
+					to: stationId,
+					line: parentInfo.edgeLine,
+					distance: edgeDist
+				});
+
+				tempState = `${parentInfo.parentId}-${parentInfo.parentLine}`;
+			} else {
+				tempState = null;
+			}
+		}
+
+		return {
+			path,
+			totalDistanceMeters: Math.round(totalRealDistance),
+			interchanges: endNode.interchanges,
+			linesUsed: Array.from(linesUsedSet),
+			segments
+		};
+	}
+}

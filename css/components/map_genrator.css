@@ -2,22 +2,21 @@
 @import url("./legend_panel.css");
 
 :root {
-	/* Map & Legend Base Tokens (Theme Based) */
-	--map-glass-bg: var(--card-bg, #ffffff);
-	--map-border: var(--border-color, rgba(0, 0, 0, 0.15));
-	--map-radius: var(--radius-lg, 16px);
-	--map-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+	/* Map & Legend Base Tokens (Pure Base.css Tokens) */
+	--map-glass-bg: var(--card-bg);
+	--map-border: var(--border-color);
+	--map-radius: var(--radius-lg);
+	--map-shadow: var(--shadow-lg);
 
-    
 	/* Legend Text & Icon Colors */
-	--legend-text-primary: var(--text-primary, #0f172a);
-	--legend-text-secondary: var(--text-secondary, #475569);
+	--legend-text-primary: var(--text-primary);
+	--legend-text-secondary: var(--text-secondary);
 	--legend-circle-border: var(--legend-text-primary);
-	--legend-circle-bg: rgba(var(--color-bg-base-rgb, 255, 255, 255), 0.9);
-	--legend-close-hover: #ef4444;
+	--legend-circle-bg: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
+	--legend-close-hover: rgb(var(--color-danger-rgb));
 
 	/* Icon Sizes */
-	--lg-line-size: 24px;
+	--lg-line-size: var(--space-xl);
 	--lg-walkway-size: 18px;
 	--lg-interchange-size: 16px;
 	--lg-normal-size: 14px;

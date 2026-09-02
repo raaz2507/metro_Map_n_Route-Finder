@@ -1,0 +1,155 @@
+@layer components {
+    /* =========================================================================
+       🔔 FLOATING ALARM ACTION BANNER (100% base.css Tokens)
+       ========================================================================= */
+    .alarm-ringing-banner {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: calc(var(--nav-floating-height, 65px) + var(--space-lg));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: var(--z-toast, 700);
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(var(--space-xl)) scale(0.92);
+        transition: 
+            opacity var(--transition-smooth), 
+            transform var(--transition-spring);
+    }
+
+    .alarm-ringing-banner.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+
+    .banner-glass-pill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-md);
+        padding: var(--space-sm) var(--space-lg);
+        max-width: 520px;
+        width: calc(100% - var(--space-2xl));
+        background: rgba(var(--color-bg-base-rgb), var(--op-aside-bg, 0.9));
+        backdrop-filter: blur(var(--backdrop-blur));
+        -webkit-backdrop-filter: blur(var(--backdrop-blur));
+        border: 1.5px solid var(--tab-alarm-accent, #f59e0b);
+        border-radius: var(--radius-full);
+        box-shadow: 
+            var(--shadow-xl),
+            0 0 20px rgba(var(--tab-alarm-accent-rgb, 245, 158, 11), 0.3);
+        animation: banner-alarm-glow 1.6s infinite alternate ease-in-out;
+    }
+
+    .banner-info {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        min-width: 0;
+        flex: 1;
+    }
+
+    .banner-pulse-icon {
+        font-size: var(--fs-xl);
+        animation: bell-swing 0.7s infinite ease-in-out alternate;
+        flex-shrink: 0;
+    }
+
+    .banner-text-wrap {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        gap: 1px;
+    }
+
+    .banner-station-name {
+        font-family: var(--font-title);
+        font-size: var(--fs-sm);
+        font-weight: var(--fw-bold);
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        letter-spacing: -0.2px;
+    }
+
+    .banner-subtext {
+        font-size: var(--fs-xs);
+        color: var(--tab-alarm-accent, #f59e0b);
+        font-weight: var(--fw-semibold);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .banner-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        flex-shrink: 0;
+    }
+
+    .banner-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-full);
+        font-family: var(--font-title);
+        font-size: var(--fs-xs);
+        font-weight: var(--fw-bold);
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: 
+            background-color var(--transition-fast),
+            color var(--transition-fast),
+            transform var(--transition-fast);
+        user-select: none;
+    }
+
+    .banner-btn:active {
+        transform: scale(0.94);
+    }
+
+    .btn-dismiss {
+        background: var(--tab-alarm-bg, rgba(245, 158, 11, 0.12));
+        border-color: var(--tab-alarm-border, rgba(245, 158, 11, 0.4));
+        color: var(--tab-alarm-accent, #f59e0b);
+    }
+    .btn-dismiss:hover { background: var(--tab-alarm-accent, #f59e0b); color: #ffffff; }
+
+    .btn-snooze {
+        background: rgba(var(--color-bg-base-rgb), var(--op-translucent, 0.5));
+        border-color: var(--border-color);
+        color: var(--text-secondary);
+    }
+    .btn-snooze:hover { background: var(--border-color); color: var(--text-primary); }
+
+    .btn-stop {
+        background: rgba(239, 68, 68, 0.12);
+        border-color: rgba(239, 68, 68, 0.35);
+        color: #ef4444;
+    }
+    .btn-stop:hover { background: #ef4444; color: #ffffff; }
+
+    @keyframes banner-alarm-glow {
+        from {
+            box-shadow: 
+                var(--shadow-lg),
+                0 0 10px rgba(var(--tab-alarm-accent-rgb, 245, 158, 11), 0.2);
+        }
+        to {
+            box-shadow: 
+                var(--shadow-xl),
+                0 0 24px rgba(var(--tab-alarm-accent-rgb, 245, 158, 11), 0.55);
+        }
+    }
+
+    @keyframes bell-swing {
+        0% { transform: rotate(-18deg); }
+        100% { transform: rotate(18deg); }
+    }
+}

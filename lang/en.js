@@ -35,6 +35,7 @@ export default {
 	},
 
 	"nav-sidebar": {
+		route: "Find Route",
 		recent: "Recent",
 		map: "Map",
 		setting: "Setting"
@@ -107,12 +108,145 @@ export default {
 						stationsLabel: "Stations",
 						tokenFareLabel: "Token Fare",
 						directionText: "Towards {terminal} (Platform No. {platform})"
+					},
+					shareModal: {
+						title: "Share Route",
+						selectOption: "Select Share Option:",
+						whatsapp: "WhatsApp",
+						telegram: "Telegram",
+						sms: "SMS",
+						copyLink: "Copy Link",
+						copyDetails: "Copy Details"
+					}
+				},
+				appSettings: {
+					heding : "App Settings",
+					 tabs: {
+						alarm: "Alarm",
+						map: "Map"
+					},
+					map: {
+						title: "Map & Display Settings",
+						sections: {
+							display: "🗺️ Map Display & View"
+						},
+						autoCenter: {
+							label: "Auto-Center on Route",
+							desc: "Automatically zoom and center map when a new route is searched."
+						},
+						walkways: {
+							label: "Show Interchange Walkways",
+							desc: "Draw dashed connecting footpaths between interchange stations."
+						}
+					},
+					alarm:{
+						title: "Alarm & Journey Settings",
+						subtitle: "Configure alerts, triggers, and audio options",
+						sections: {
+							triggers: "🎯 Trigger & Geofence",
+							audio: "🔊 Sound & Volume",
+							vibration: "📳 Haptics & Vibration",
+							voice: "🗣️ Offline Voice Alerts"
+						},
+						threshold: {
+							label: "Arrival Alert Distance",
+							desc: "Alarm triggers when train reaches within this distance from station.",
+							station1: "🚉 1 Station Before (Proximity)",
+							m200: "200 Meters (~1 min)",
+							m500: "500 Meters (Recommended)",
+							m1000: "1.0 Kilometer (~2-3 min)",
+							m2000: "2.0 Kilometers (~4-5 min)"
+						},
+						alerts: {
+							destination: "Destination Station Alarm",
+							destinationDesc: "Rings loudly before arriving at your destination.",
+							interchange: "Line Interchange Alarm",
+							interchangeDesc: "Alerts you before approaching transfer stations to switch lines."
+						},
+						sound: {
+							toneLabel: "Alarm Sound Tone",
+							chime: "Metro Chime (Melodic)",
+							beep: "Warning Beep (Pulse)",
+							siren: "Emergency Siren",
+							custom: "Custom Audio (MP3)",
+							uploadMp3: "Choose Custom MP3 File",
+							volume: "Alarm Volume",
+							testSound: "🔊 Test Sound"
+						},
+						vibe: {
+							patternLabel: "Vibration Pattern",
+							long: "Long Alert Pattern",
+							short: "Short Pulses",
+							sos: "SOS Pattern",
+							continuous: "Continuous",
+							testVibe: "📳 Test Vibration",
+							vibeSuccess: "📳 Vibration triggered! (Check touch haptics if not felt)",
+							vibeBlocked: "⚠️ Vibration blocked. Ensure phone is not on Silent/DND and Haptics is ON.",
+							unsupported: "📳 Haptic vibration is only supported on mobile devices (Android/PWA)"
+						},
+						voice: {
+							enable: "Voice Announcements (TTS)",
+							enableDesc: "Announces upcoming station names and line change reminders aloud offline.",
+							voiceSelect: "Announcement Voice",
+							testVoice: "🗣️ Test Voice"
+						},
+						reset: "Reset to Default",
+						
 					}
 				}
 			},
 			map: {
 				label: "Map",
-				clearRoute: "Clear Route"
+				clearRoute: "Clear Route",
+				showRoute: "Show Route"
+			},
+			alarmBanner: {
+    			approaching: "Approaching Station",
+				interchangeAlert: "Interchange Station • Change Line Here",
+				destinationAlert: "Destination Station • Arriving Soon",
+				dismiss: "🔕 Dismiss",
+				snooze: "⏱️ Snooze (2m)",
+				stopAlarm: "🛑 Stop Alarm",
+				enabledToast: "Live journey alarm enabled",
+				stoppedToast: "Live alarm disabled",
+				snoozeToast: "Alarm snoozed for 2 minutes",
+				dismissToast: "Next alert active for destination",
+				noRouteToast: "Please search a route first to enable alarm"
+			},
+			gps: {
+				permissionDenied: "📍 Location permission denied. Please allow GPS to track live speed and arrival alerts.",
+				unavailable: "📍 GPS signal unavailable. Please ensure Device Location is ON.",
+				gpsFallbackWarning: "⚠️ GPS is off or unavailable. Alarm is running in Fallback Mode (Timer & Motion Sensors).",
+			},
+			speedometer: {
+				title: "Live Speedometer",
+				topSpeed: "Top Speed",
+				gpsAccuracy: "GPS Accuracy",
+				status: "Status",
+				statusHalted: "Stationary",
+				statusDeparting: "Accelerating",
+				statusCruising: "Cruising"
+			},
+			telemetry: {
+				title: "Signal Telemetry",
+				gps: "GPS Status",
+				network: "Network",
+				accuracy: "Precision",
+				guideTitle: "📡 Telemetry & GPS Guide",
+				guideActive: "🟢 80%-100%: Strong Satellite Lock (Active GPS)",
+				guideFair: "🟡 40%-79%: Fair / Moderate Signal (Station Sheds)",
+				guideTunnel: "🔴 In Tunnel: Underground Transit (Timer Fallback Active)",
+				guideDeviceOff: "📵 Device GPS Off: Turn on Device Location",
+				guideBlocked: "🚫 Blocked: Location permission denied in browser",
+				gpsBlocked: "🚫 Blocked",
+				gpsPrompt: "⚠️ Not Allowed",
+				gpsDeviceOff: "📵 GPS Off",
+				gpsTunnel: "🚇 In Tunnel",
+				gpsActive: "🛰️ Active",
+				netOnline: "Online",
+				netOffline: "Offline (Cache)",
+				gpsReady: "🛰️ Ready",
+				gpsAcquiring: "🛰️ Searching...",
 			}
 		},
 		networks: {

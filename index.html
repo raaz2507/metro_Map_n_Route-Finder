@@ -1,88 +1,267 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+		<!-- Open Graph / Facebook / WhatsApp / Telegram -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/" />
+		<meta property="og:title" content="Metro Map & Route Finder" />
+		<meta property="og:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily." />
+		<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png" />
 
-	<!-- Open Graph / Facebook / WhatsApp / Telegram -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
-	<meta property="og:title" content="Metro Map & Route Finder">
-	<meta property="og:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily.">
-	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png"> 
+		<!-- Twitter / X -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/" />
+		<meta name="twitter:title" content="Metro Map & Route Finder" />
+		<meta name="twitter:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily." />
+		<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png" />
 
-	<!-- Twitter / X -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
-	<meta name="twitter:title" content="Metro Map & Route Finder">
-	<meta name="twitter:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily.">
-	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
-	
-	<!-- Site Icon / Favicon -->
-	<link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
-	<title data-i18n-title-tag="meta.title">Metro Map Generator</title>
-	<link rel="stylesheet" href="./css/pages/index.css"/>
-</head>
+		<!-- Site Icon / Favicon -->
+		<link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg" />
+		<title data-i18n-title-tag="meta.title">Metro Map Generator</title>
+		<link rel="stylesheet" href="./css/pages/index.css" />
+	</head>
 
-<body>
-	<div id="app-header"></div>
-	
-	
-	
-	<main>
-		<div class="sidebar-wrapper">
-			<nav class="sidebar-nav" id="sidebar-nav" aria-label="Sidebar Navigation">  
-				<ul class="sidebar-nav-list">
-					<li class="sidebar-nav-item">
+	<body>
+		<div id="app-header"></div>
+
+		<main>
+			<div class="sidebar-wrapper">
+				<nav class="sidebar-nav" id="sidebar-nav" aria-label="Sidebar Navigation">
+					<ul class="sidebar-nav-list">
+						<li class="sidebar-nav-item">
 							<button type="button" class="sidebar-link active" data-target="none" aria-controls="none" aria-selected="false">
-							<span class="map-icon icon" aria-hidden="true"></span>
-							<span data-i18n="nav-sidebar.map" >Map</span>
+								<span class="map-icon icon" aria-hidden="true"></span>
+								<span data-i18n="nav-sidebar.map">Map</span>
 							</button>
-					</li>
-					<li class="sidebar-nav-item">
-						<button type="button" class="sidebar-link " data-target="recent-searches" aria-controls="recent-searches" aria-selected="true">
-							<span class="recent-icon icon" aria-hidden="true"></span>
-							<span class="" data-i18n="nav-sidebar.recent">Recent</span>
-						</button>
-					</li>
-					<li class="sidebar-nav-item">
-						<button type="button" class="sidebar-link" data-target="route-finder" aria-controls="route-finder" aria-selected="false">
-							<span class="route-icon icon" aria-hidden="true"></span>
-							<span data-i18n="home.routeFinder">Route</span>
-						</button>
-					</li>
-					<li class="sidebar-nav-item">
-						<button type="button" class="sidebar-link" data-target="app-settings" aria-controls="app-settings" aria-selected="false">
-							<span class="settings-icon icon" aria-hidden="true"></span>
-							<span data-i18n="nav-sidebar.setting" >Setting</span>
-						</button>
-					</li>
-				</ul>
-			</nav>
-			<aside aria-label="Sidebar Content Panel" role="region">
-				<button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar panel">&times;</button>
-				<section id="app-settings" aria-labelledby="settings-section" class="sidebar-section">
-					<!-- app setting wil appare here -->
-				</section>
-				<section id="recent-searches" aria-labelledby="recent-searches-heading" class="sidebar-section">
-					<!-- Header -->
-					<header class="section-header recent-header">
-						<h2 id="recent-searches-heading" data-i18n="pages.home.sidebar.recent.recentSearches">Recent Searches</h2>
-						<button type="button" id="clearRecentSearches" data-i18n="pages.home.sidebar.recent.clearAll"> Clear All </button>
-					</header>
+						</li>
+						<li class="sidebar-nav-item">
+							<button type="button" class="sidebar-link" data-target="recent-searches" aria-controls="recent-searches" aria-selected="true">
+								<span class="recent-icon icon" aria-hidden="true"></span>
+								<span class="" data-i18n="nav-sidebar.recent">Recent</span>
+							</button>
+						</li>
+						<li class="sidebar-nav-item">
+							<button type="button" class="sidebar-link" data-target="route-finder" aria-controls="route-finder" aria-selected="false">
+								<span class="route-icon icon" aria-hidden="true"></span>
+								<span data-i18n="pages.home.sidebar.findroute.findRoute">Find Route</span>
+							</button>
+						</li>
+						<li class="sidebar-nav-item">
+							<button type="button" class="sidebar-link" data-target="app-settings" aria-controls="app-settings" aria-selected="false">
+								<span class="settings-icon icon" aria-hidden="true"></span>
+								<span data-i18n="nav-sidebar.setting">Setting</span>
+							</button>
+						</li>
+					</ul>
+				</nav>
+				<aside aria-label="Sidebar Content Panel" role="region">
+					<button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close sidebar panel">&times;</button>
+					<section id="app-settings" aria-labelledby="settings-section" class="sidebar-section">
+						<!-- app setting wil appare here -->
+						<!-- Header -->
+						<header class="section-header settings-header">
+							<h2 id="settings-heading" data-i18n="pages.home.sidebar.appSettings.heding">App Settings</h2>
+						</header>
 
-					<!-- Search History -->
-					<div class="recent-search-list-container">
-						<div class="filter-chips">
-							<button type="button" class="active" data-i18n="pages.home.sidebar.recent.recent">Recent</button>
-							<button type="button" data-i18n="pages.home.sidebar.recent.mostUsed">Most Used</button>
-							<button type="button" data-i18n="pages.home.sidebar.recent.az">A-Z</button>
+						<!-- 📁 Folder Tab Navigation Bar -->
+						<div class="settings-folder-tabs" role="tablist" aria-label="Settings Tabs">
+							<!-- Alarm Tab -->
+							<button type="button" class="folder-tab active" data-tab="alarm" role="tab" aria-selected="true" aria-controls="panel-setting-alarm">
+								<span class="tab-icon" aria-hidden="true">🔔</span>
+								<span class="tab-label" data-i18n="pages.home.sidebar.appSettings.alarm.title">Alarm</span>
+							</button>
+							<!-- 🗺️ Map Tab -->
+							<button type="button" class="folder-tab" data-tab="map" role="tab" aria-selected="false" aria-controls="panel-setting-map">
+								<span class="tab-icon" aria-hidden="true">🗺️</span>
+								<span class="tab-label" data-i18n="pages.home.sidebar.appSettings.tabs.map">Map</span>
+							</button>
 						</div>
-						<ul id="recent-search-list">
-							<li class="recent-list-empty"> No recent journeys found </li >
-							<!-- Dynamic Content -->
-							<!-- <li class="recent-search-item">
+
+						<!-- 📂1 Folder Panels Container -->
+						<div class="settings-folder-content">
+							<!-- Panel: Alarm Settings -->
+							<div id="panel-setting-alarm" class="settings-tab-panel active" data-panel="alarm" role="tabpanel" aria-labelledby="tab-alarm">
+								<!-- 1. Trigger & Geofence Section -->
+								<fieldset class="settings-fieldset">
+									<legend class="settings-legend" data-i18n="pages.home.sidebar.appSettings.alarm.sections.triggers">🎯 Trigger & Geofence</legend>
+									<!-- Arrival Distance Dropdown -->
+									<div class="settings-form-group">
+										<label for="settingThresholdDist" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.threshold.label">Arrival Alert Distance</label>
+										<p class="settings-desc" data-i18n="pages.home.sidebar.appSettings.alarm.threshold.desc">Alarm triggers when train reaches within this distance from station.</p>
+										<select id="settingThresholdDist" class="settings-select">
+											<option value="station_1" data-i18n="pages.home.sidebar.appSettings.alarm.threshold.station1">🚉 1 Station Before (Proximity)</option>
+											<option value="200" data-i18n="pages.home.sidebar.appSettings.alarm.threshold.m200">200 Meters (~1 min)</option>
+											<option value="500" selected data-i18n="pages.home.sidebar.appSettings.alarm.threshold.m500">500 Meters (Recommended)</option>
+											<option value="1000" data-i18n="pages.home.sidebar.appSettings.alarm.threshold.m1000">1.0 Kilometer (~2-3 min)</option>
+											<option value="2000" data-i18n="pages.home.sidebar.appSettings.alarm.threshold.m2000">2.0 Kilometers (~4-5 min)</option>
+										</select>
+									</div>
+									<!-- Destination Alert Toggle -->
+									<div class="settings-form-row">
+										<div class="settings-label-wrapper">
+											<label for="settingAlertDest" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.alerts.destination">Destination Station Alarm</label>
+											<span class="settings-desc" data-i18n="pages.home.sidebar.appSettings.alarm.alerts.destinationDesc">Rings loudly before arriving at your destination.</span>
+										</div>
+										<label class="switch-toggle" for="settingAlertDest">
+											<input type="checkbox" id="settingAlertDest" checked />
+											<span class="switch-slider" aria-hidden="true"></span>
+										</label>
+									</div>
+									<!-- Interchange Alert Toggle -->
+									<div class="settings-form-row">
+										<div class="settings-label-wrapper">
+											<label for="settingAlertInterchange" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.alerts.interchange">Line Interchange Alarm</label>
+											<span class="settings-desc" data-i18n="pages.home.sidebar.appSettings.alarm.alerts.interchangeDesc">Alerts you before approaching transfer stations to switch lines.</span>
+										</div>
+										<label class="switch-toggle" for="settingAlertInterchange">
+											<input type="checkbox" id="settingAlertInterchange" checked />
+											<span class="switch-slider" aria-hidden="true"></span>
+										</label>
+									</div>
+								</fieldset>
+								<!-- 2. Audio & Volume Section -->
+								<fieldset class="settings-fieldset">
+									<legend class="settings-legend" data-i18n="pages.home.sidebar.appSettings.alarm.sections.audio">🔊 Sound & Volume</legend>
+									<!-- Sound Tone Dropdown -->
+									<div class="settings-form-group">
+										<label for="settingSoundType" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.sound.toneLabel">Alarm Sound Tone</label>
+										<select id="settingSoundType" class="settings-select">
+											<option value="chime" selected data-i18n="pages.home.sidebar.appSettings.alarm.sound.chime">Metro Chime (Melodic)</option>
+											<option value="beep" data-i18n="pages.home.sidebar.appSettings.alarm.sound.beep">Warning Beep (Pulse)</option>
+											<option value="siren" data-i18n="pages.home.sidebar.appSettings.alarm.sound.siren">Emergency Siren</option>
+											<option value="custom" data-i18n="pages.home.sidebar.appSettings.alarm.sound.custom">Custom Audio (MP3)</option>
+										</select>
+
+										<!-- 🎵 Custom MP3 File Uploader Box -->
+										<div id="settingCustomMp3Box" class="custom-audio-uploader">
+											<div class="uploader-header">
+												<span class="uploader-title" data-i18n="pages.home.sidebar.appSettings.alarm.sound.uploadMp3">Choose Custom Audio File</span>
+												<span class="supported-formats">MP3, WAV, OGG, M4A</span>
+											</div>
+											<label for="settingMp3File" class="custom-file-btn">
+												<span class="file-icon" aria-hidden="true">📁</span>
+												<span id="selectedFileName" class="file-name-display">Select Audio File...</span>
+												<input type="file" id="settingMp3File" accept="audio/*" class="visually-hidden-file" />
+											</label>
+										</div>
+									</div>
+									<!-- Custom MP3 File Selection -->
+									<div id="settingCustomMp3Box" class="settings-form-group custom-file-group" style="display: none">
+										<label for="settingMp3File" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.sound.uploadMp3">Choose Custom MP3 File</label>
+										<input type="file" id="settingMp3File" accept="audio/*" class="settings-file-input" />
+									</div>
+									<!-- Volume Slider -->
+									<div class="settings-form-group">
+										<div class="slider-header-row">
+											<label for="settingVolumeRange" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.sound.volume">Alarm Volume</label>
+											<span id="settingVolumeBadge" class="slider-val-badge">80%</span>
+										</div>
+										<div class="slider-control-row">
+											<input type="range" id="settingVolumeRange" class="settings-range-slider" min="0" max="100" value="80" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" />
+										</div>
+									</div>
+									<!-- Test Sound Button -->
+									<div class="settings-action-row">
+										<button type="button" id="btnTestSound" class="btn-settings-action">
+											<span class="btn-icon" aria-hidden="true">🔊</span>
+											<span data-i18n="pages.home.sidebar.appSettings.alarm.sound.testSound">Test Sound</span>
+										</button>
+									</div>
+								</fieldset>
+								<!-- 3. Vibration & Haptics Section -->
+								<fieldset class="settings-fieldset">
+									<legend class="settings-legend" data-i18n="pages.home.sidebar.appSettings.alarm.sections.vibration">📳 Haptics & Vibration</legend>
+									<div class="settings-form-group">
+										<label for="settingVibePattern" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.vibe.patternLabel">Vibration Pattern</label>
+										<select id="settingVibePattern" class="settings-select">
+											<option value="long" selected data-i18n="pages.home.sidebar.appSettings.alarm.vibe.long">Long Alert Pattern</option>
+											<option value="short" data-i18n="pages.home.sidebar.appSettings.alarm.vibe.short">Short Pulses</option>
+											<option value="sos" data-i18n="pages.home.sidebar.appSettings.alarm.vibe.sos">SOS Pattern</option>
+											<option value="continuous" data-i18n="pages.home.sidebar.appSettings.alarm.vibe.continuous">Continuous</option>
+										</select>
+									</div>
+									<!-- Test Vibe Button -->
+									<div class="settings-action-row">
+										<button type="button" id="btnTestVibe" class="btn-settings-action">
+											<span class="btn-icon" aria-hidden="true">📳</span>
+											<span data-i18n="pages.home.sidebar.appSettings.alarm.vibe.testVibe">Test Vibration</span>
+										</button>
+									</div>
+								</fieldset>
+								<!-- 4. Offline Voice Announcement Section -->
+								<fieldset class="settings-fieldset">
+									<legend class="settings-legend" data-i18n="pages.home.sidebar.appSettings.alarm.sections.voice">🗣️ Offline Voice Alerts</legend>
+
+									<!-- TTS On/Off Toggle -->
+									<div class="settings-form-row">
+										<div class="settings-label-wrapper">
+											<label for="settingVoiceAnnounce" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.voice.enable">Voice Announcements (TTS)</label>
+											<span class="settings-desc" data-i18n="pages.home.sidebar.appSettings.alarm.voice.enableDesc">Announces upcoming station names and line change reminders aloud offline.</span>
+										</div>
+										<label class="switch-toggle" for="settingVoiceAnnounce">
+											<input type="checkbox" id="settingVoiceAnnounce" checked />
+											<span class="switch-slider" aria-hidden="true"></span>
+										</label>
+									</div>
+
+									<!-- Voice Selection Dropdown -->
+									<div class="settings-form-group" id="settingVoicePickerBox">
+										<label for="settingVoiceSelect" class="settings-label" data-i18n="pages.home.sidebar.appSettings.alarm.voice.voiceSelect">Announcement Voice</label>
+										<select id="settingVoiceSelect" class="settings-select">
+											<option value="auto">Auto (Match App Language)</option>
+											<!-- डिवाइस में उपलब्ध वॉइस JS द्वारा यहाँ अपने आप लोड होंगी -->
+										</select>
+									</div>
+
+									<!-- Test Voice Announcement Button -->
+									<div class="settings-action-row">
+										<button type="button" id="btnTestVoice" class="btn-settings-action">
+											<span class="btn-icon" aria-hidden="true">🗣️</span>
+											<span data-i18n="pages.home.sidebar.appSettings.alarm.voice.testVoice">Test Voice</span>
+										</button>
+									</div>
+								</fieldset>
+
+								<!-- Reset Button -->
+								<div class="settings-footer-actions">
+									<button type="button" id="btnResetSettings" class="btn-reset-defaults">
+										<span class="btn-icon" aria-hidden="true">🔄</span>
+										<span data-i18n="pages.home.sidebar.appSettings.alarm.reset">Reset to Default</span>
+									</button>
+								</div>
+							</div>
+							<!-- 👆 अलार्म पैनल यहाँ बंद हुआ -->
+
+							<!-- 🗺️ Panel 2: Map Settings (फोल्डर के अंदर ही रहेगा) -->
+							<div id="panel-setting-map" class="settings-tab-panel" data-panel="map" role="tabpanel" aria-labelledby="tab-map">
+								<fieldset class="settings-fieldset">
+									<legend class="settings-legend" data-i18n="pages.home.sidebar.appSettings.map.sections.display">🗺️ Map Display & View</legend>
+								</fieldset>
+							</div>
+						</div>
+						<!-- 👆 पूरा फोल्डर (.settings-folder-content) अब यहाँ बंद होगा -->
+					</section>
+					<section id="recent-searches" aria-labelledby="recent-searches-heading" class="sidebar-section">
+						<!-- Header -->
+						<header class="section-header recent-header">
+							<h2 id="recent-searches-heading" data-i18n="pages.home.sidebar.recent.recentSearches">Recent Searches</h2>
+							<button type="button" id="clearRecentSearches" data-i18n="pages.home.sidebar.recent.clearAll">Clear All</button>
+						</header>
+
+						<!-- Search History -->
+						<div class="recent-search-list-container">
+							<div class="filter-chips">
+								<button type="button" class="active" data-i18n="pages.home.sidebar.recent.recent">Recent</button>
+								<button type="button" data-i18n="pages.home.sidebar.recent.mostUsed">Most Used</button>
+								<button type="button" data-i18n="pages.home.sidebar.recent.az">A-Z</button>
+							</div>
+							<ul id="recent-search-list">
+								<li class="recent-list-empty">No recent journeys found</li>
+								<!-- Dynamic Content -->
+								<!-- <li class="recent-search-item">
 								<button type="button" class="recent-search-btn">
 									<span class="from">Rajiv Chowk</span>
 									<span class="arrow">→</span>
@@ -93,155 +272,271 @@
 									<img src="./assets/icons/trash-can-solid-full.svg" alt="🗑️" aria-hidden="true">
 								</button>
 							</li> -->
-						</ul>
-					</div>
-				</section>
+							</ul>
+						</div>
+					</section>
 
-				<section id="route-finder" class="route-finder-section sidebar-section" aria-labelledby="route-finder-heading">
-					<form action="" method="post" class="routeFinder">
-						<fieldset>
-							<legend id="route-finder-heading" data-i18n="pages.home.sidebar.findroute.routeFinder">Route Finder</legend>
+					<section id="route-finder" class="route-finder-section sidebar-section" aria-labelledby="route-finder-heading">
+						<form action="" method="post" class="routeFinder">
+							<fieldset>
+								<legend id="route-finder-heading" data-i18n="pages.home.sidebar.findroute.routeFinder">Route Finder</legend>
 
-							<!-- Start Station -->
-							<div class="form-group">
-								<label for="startStation" data-i18n="pages.home.sidebar.findroute.startStation">From</label>
-								<div class="input-autocomplete-wrapper">
-									<input type="text" id="startStation" data-i18n-placeholder="pages.home.sidebar.findroute.startPlaceholder" placeholder="Enter start station" value="Badarpur Border" autocomplete="off" required>
-									<div class="station-autocomplete-dropdown" id="startStation-dropdown" role="listbox" hidden></div>
+								<!-- Start Station -->
+								<div class="form-group">
+									<label for="startStation" data-i18n="pages.home.sidebar.findroute.startStation">From</label>
+									<div class="input-autocomplete-wrapper">
+										<input
+											type="text"
+											id="startStation"
+											data-i18n-placeholder="pages.home.sidebar.findroute.startPlaceholder"
+											placeholder="Enter start station"
+											value="Badarpur Border"
+											autocomplete="off"
+											required
+										/>
+										<div class="station-autocomplete-dropdown" id="startStation-dropdown" role="listbox" hidden></div>
+									</div>
 								</div>
-							</div>
-							
-							<!-- Swap Button -->
-							<button type="button" id="swapButton" aria-label="Swap stations" data-i18n-title="pages.home.sidebar.findroute.swapStations" title="Swap stations">
-								<img src="./assets/icons/swap_calls.svg" alt="" srcset="">
-							</button>
 
-							<!-- End Station -->
-							<div class="form-group">
-								<label for="endStation" data-i18n="pages.home.sidebar.findroute.endStation">To</label>
-								<div class="input-autocomplete-wrapper">
-									<input type="text" id="endStation" data-i18n-placeholder="pages.home.sidebar.findroute.endPlaceholder" placeholder="Enter end station" value="Anand Vihar" autocomplete="off" required>
-									<div class="station-autocomplete-dropdown" id="endStation-dropdown" role="listbox" hidden></div>
+								<!-- Swap Button -->
+								<button type="button" id="swapButton" aria-label="Swap stations" data-i18n-title="pages.home.sidebar.findroute.swapStations" title="Swap stations">
+									<img src="./assets/icons/swap_calls.svg" alt="" srcset="" />
+								</button>
+
+								<!-- End Station -->
+								<div class="form-group">
+									<label for="endStation" data-i18n="pages.home.sidebar.findroute.endStation">To</label>
+									<div class="input-autocomplete-wrapper">
+										<input
+											type="text"
+											id="endStation"
+											data-i18n-placeholder="pages.home.sidebar.findroute.endPlaceholder"
+											placeholder="Enter end station"
+											value="Anand Vihar"
+											autocomplete="off"
+											required
+										/>
+										<div class="station-autocomplete-dropdown" id="endStation-dropdown" role="listbox" hidden></div>
+									</div>
 								</div>
-							</div>
-							
-							<!-- Actions -->
-							<div class="form-actions">
-								<button type="submit" data-i18n="pages.home.sidebar.findroute.findRoute">Find Route</button>
-								<button type="reset" data-i18n="pages.home.sidebar.findroute.resetForm">Reset</button>
-							</div>
-							
-						</fieldset>
-					</form>
-					<div id="journeyDetails">
-						<section class="route-priority">
-							 <div class="priority-header">
-								<p data-i18n="pages.home.sidebar.findroute.priority">Priority</p>
-								<div class="sharebtn">
-									<button type="button" id="shareRouteBtn" aria-label="Share Route" data-i18n-title="pages.home.sidebar.findroute.shareModal.title" title="Share Route">
-										<span class="icon share-icon" aria-hidden="true"></span>
-									</button>
+
+								<!-- Actions -->
+								<div class="form-actions">
+									<button type="submit" data-i18n="pages.home.sidebar.findroute.findRoute">Find Route</button>
+									<button type="reset" data-i18n="pages.home.sidebar.findroute.resetForm">Reset</button>
 								</div>
-							</div>
-							<div class="switch-slider-track">
-								<!-- इनपुट्स को ट्रैक के शीर्ष स्तर पर रखें ताकि CSS सिबलिंग सिलेक्टर्स काम कर सकें -->
-								<input type="radio" id="priority-fastest" name="routeType" value="fastest" checked>
-								<input type="radio" id="priority-leastTransfers" name="routeType" value="leastTransfers">
-								
-								<!-- शॉर्टेस्ट (Runner Icon) लेबल -->
-								<label class="switch-slider-label" for="priority-fastest">
-									<img src="assets/icons/runer.svg" alt="Shortest" class="switch-icon">
-									<span data-i18n="pages.home.sidebar.findroute.shortest">Shortest</span>
-								</label>
-								
-								<!-- कम इंटरचेंज (Relax Icon) लेबल -->
-								<label class="switch-slider-label" for="priority-leastTransfers">
-									<img src="assets/icons/relex.svg" alt="Less Interchange" class="switch-icon">
-									<span data-i18n="pages.home.sidebar.findroute.lessInterchange">Less Interchange</span>
-								</label>
-								
-								<!-- सफ़ेद स्लाइडिंग थम्ब -->
-								<div class="switch-slider-thumb"></div>
-							</div>
-						</section>
-						<!-- <section class="quickoverview">
+							</fieldset>
+						</form>
+						<div id="journeyDetails">
+							<section class="route-priority">
+								<div class="priority-header">
+									<p data-i18n="pages.home.sidebar.findroute.priority">Priority</p>
+									<div class="sharebtn">
+										<button type="button" id="shareRouteBtn" aria-label="Share Route" data-i18n-title="pages.home.sidebar.findroute.shareModal.title" title="Share Route">
+											<span class="icon share-icon" aria-hidden="true"></span>
+										</button>
+									</div>
+								</div>
+								<div class="switch-slider-track">
+									<!-- इनपुट्स को ट्रैक के शीर्ष स्तर पर रखें ताकि CSS सिबलिंग सिलेक्टर्स काम कर सकें -->
+									<input type="radio" id="priority-fastest" name="routeType" value="fastest" checked />
+									<input type="radio" id="priority-leastTransfers" name="routeType" value="leastTransfers" />
+
+									<!-- शॉर्टेस्ट (Runner Icon) लेबल -->
+									<label class="switch-slider-label" for="priority-fastest">
+										<img src="assets/icons/runer.svg" alt="Shortest" class="switch-icon" />
+										<span data-i18n="pages.home.sidebar.findroute.shortest">Shortest</span>
+									</label>
+
+									<!-- कम इंटरचेंज (Relax Icon) लेबल -->
+									<label class="switch-slider-label" for="priority-leastTransfers">
+										<img src="assets/icons/relex.svg" alt="Less Interchange" class="switch-icon" />
+										<span data-i18n="pages.home.sidebar.findroute.lessInterchange">Less Interchange</span>
+									</label>
+
+									<!-- सफ़ेद स्लाइडिंग थम्ब -->
+									<div class="switch-slider-thumb"></div>
+								</div>
+							</section>
+							<!-- <section class="quickoverview">
 							<div class="total_station"><span class="value">00</span>stations</div>
 							<div class="time"><span class="value">00</span>min</div>
 							<div class="fare_amount"><span class="value">00</span>Rs</div>
 							<div class="interchange_count"><span class="value">00</span>Interchange</div>
 							<div class="distance"><span class="value">00</span> Km</div>
 						</section> -->
-						<section class="route-overview" aria-labelledby="route-overview-heading" aria-live="polite">
-							<h2 id="route-overview-heading" data-i18n="pages.home.sidebar.findroute.journeyDetails">Journey Details</h2>
-						</section>
-					</div>
-				</section>
-			</aside>
-
-		</div>
-
-		<section class="map-section">
-			<section class="mapContainer" aria-label="Interactive Metro Map" role="img"></section>
-			<!-- <div class="legend-panel">
-				<h2>Legend</h2>
-				<div class="legend-section">
-					<h3>Metro Track Lines</h3>
-					<ul id="track_line_legend"></ul>
-				</div>
-				<div class="legend-section">
-					<h3>Station Type</h3>
-					<ul id="station_type_legend"></ul>
-				</div>
-				
-			</div> -->
-			 <div id="speedometer-widget" class="speedometer-widget" title="Live Train Speed">
-				<span class="speed-number" id="speed-value">0.0</span>
-				<span class="speed-unit">km/h</span>
+							<section class="route-overview" aria-labelledby="route-overview-heading" aria-live="polite">
+								<h2 id="route-overview-heading" data-i18n="pages.home.sidebar.findroute.journeyDetails">Journey Details</h2>
+							</section>
+						</div>
+					</section>
+				</aside>
 			</div>
-			<!-- <div id="zoomControls">
+
+			<section class="map-section">
+				<section class="mapContainer" aria-label="Interactive Metro Map" role="img"></section>
+				<!-- <div class="legend-panel">
+					<h2>Legend</h2>
+					<div class="legend-section">
+						<h3>Metro Track Lines</h3>
+						<ul id="track_line_legend"></ul>
+					</div>
+					<div class="legend-section">
+						<h3>Station Type</h3>
+						<ul id="station_type_legend"></ul>
+					</div>
+					
+				</div> -->
+
+				<!-- 📊 Live Telemetry Signal Card with (?) Help Popover -->
+				<div id="telemetrySignalCard" class="telemetry-signal-card" role="region" aria-label="Signal Telemetry">
+					<!-- Header with (?) Button -->
+					<div class="telemetry-card-header">
+						<span class="telemetry-title" data-i18n="pages.home.telemetry.title">Telemetry</span>
+						<button type="button" id="telemetryHelpBtn" class="telemetry-help-btn" aria-label="Signal Guide" aria-expanded="false">
+							?
+						</button>
+					</div>
+
+					<!-- Row 1: GPS Status & Percentage -->
+					<div class="telemetry-row" id="rowGpsSignal">
+						<span class="telemetry-label">
+							<span class="telemetry-icon" aria-hidden="true">🛰️</span>
+							<span data-i18n="pages.home.telemetry.gps">GPS Status</span>
+						</span>
+						<span class="telemetry-badge badge-neutral" id="gpsPercentBadge">0%</span>
+					</div>
+
+					<!-- Row 2: Internet Network Percentage -->
+					<div class="telemetry-row" id="rowNetSignal">
+						<span class="telemetry-label">
+							<span class="telemetry-icon" aria-hidden="true">📶</span>
+							<span data-i18n="pages.home.telemetry.network">Network</span>
+						</span>
+						<span class="telemetry-badge badge-success" id="netPercentBadge">100%</span>
+					</div>
+
+					<!-- Row 3: GPS Precision in Meters -->
+					<div class="telemetry-row">
+						<span class="telemetry-label">
+							<span class="telemetry-icon" aria-hidden="true">🎯</span>
+							<span data-i18n="pages.home.telemetry.accuracy">Precision</span>
+						</span>
+						<span class="telemetry-badge" id="gpsAccuracyBadge">±-- m</span>
+					</div>
+
+					<!-- ❓ Sliding Guide Popover (Hover or Click on ?) -->
+					<div id="telemetryGuidePopover" class="telemetry-guide-popover" aria-hidden="true">
+						<div class="popover-title" data-i18n="pages.home.telemetry.guideTitle">📡 Telemetry & GPS Guide</div>
+						<ul class="popover-list">
+							<li data-i18n="pages.home.telemetry.guideActive">🟢 80%-100%: Strong Satellite Lock</li>
+							<li data-i18n="pages.home.telemetry.guideFair">🟡 40%-79%: Moderate Signal</li>
+							<li data-i18n="pages.home.telemetry.guideTunnel">🔴 In Tunnel: Timer Fallback Active</li>
+							<li data-i18n="pages.home.telemetry.guideDeviceOff">📵 GPS Off: Enable Device Location</li>
+							<li data-i18n="pages.home.telemetry.guideBlocked">🚫 Blocked: Location permission denied</li>
+						</ul>
+					</div>
+				</div>
+
+
+				<!-- ⚡ Interactive Live Speedometer Widget with Popover Tooltip -->
+				<div id="speedometer-widget" class="speedometer-widget" data-motion="HALTED" role="region" aria-label="Live Train Speedometer" tabindex="0">
+					<span class="speed-number" id="speed-value">0.0</span>
+					<span class="speed-unit">km/h</span>
+
+					<!-- 🏎️ Live Telemetry Floating Tooltip -->
+					<div id="speedometerTooltip" class="speedometer-tooltip" aria-hidden="true">
+						<div class="tooltip-header" data-i18n="pages.home.speedometer.title">Live Speedometer</div>
+						<div class="tooltip-grid">
+							<div class="tooltip-row">
+								<span class="tooltip-label" data-i18n="pages.home.speedometer.topSpeed">Top Speed:</span>
+								<span class="tooltip-val" id="speedTopValue">0.0 km/h</span>
+							</div>
+							<div class="tooltip-row">
+								<span class="tooltip-label" data-i18n="pages.home.speedometer.gpsAccuracy">GPS Accuracy:</span>
+								<span class="tooltip-val" id="speedAccuracyValue">±-- m</span>
+							</div>
+							<div class="tooltip-row">
+								<span class="tooltip-label" data-i18n="pages.home.speedometer.status">Status:</span>
+								<span class="tooltip-val" id="speedStatusValue" data-i18n="pages.home.speedometer.statusHalted">Stationary</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div id="zoomControls">
 				<output name="zoomLevel" id="zoomLevel" for="zoomInBtn zoomOutBtn resetZoomBtn">00%</output>
 				<button id="zoomInBtn">+</button>
 				<button id="zoomOutBtn">-</button>
 				<button id="resetZoomBtn">=</button>
 			</div> -->
-		</section>
+			</section>
 
 
-		<nav class="floating-nav-wrapper" id="floating-nav-wrapper" aria-label="Floating Navigation Wrapper">
-			<!-- 7. Inline SVG Mask that creates a physically transparent notch with smooth curves -->
-			<svg width="0" height="0" style="position: absolute;">
-				<defs>
-					<mask id="nav-mask" maskContentUnits="userSpaceOnUse">
-						<!-- White background to keep the rest of the navbar visible -->
-						<rect width="1000" height="70" fill="white"  />
-						
-						<!-- Black smooth S-curve notch path to cut out a transparent hole. 
+
+<!-- 🔔 Ringing Alarm Floating Action Banner -->
+<div id="alarmRingingBanner" class="alarm-ringing-banner" role="alert" aria-live="assertive" aria-hidden="true">
+	<div class="banner-glass-pill">
+		<div class="banner-info">
+			<span class="banner-pulse-icon" aria-hidden="true">🔔</span>
+			<div class="banner-text-wrap">
+				<span id="alarmTargetStationName" class="banner-station-name">---</span>
+				<span id="alarmTargetSubtext" class="banner-subtext" data-i18n="pages.home.alarmBanner.approaching">Approaching Station</span>
+			</div>
+		</div>
+		<div class="banner-actions">
+			<button type="button" id="btnAlarmDismiss" class="banner-btn btn-dismiss">
+				<span data-i18n="pages.home.alarmBanner.dismiss">🔕 Dismiss</span>
+			</button>
+			<button type="button" id="btnAlarmSnooze" class="banner-btn btn-snooze">
+				<span data-i18n="pages.home.alarmBanner.snooze">⏱️ Snooze</span>
+			</button>
+			<button type="button" id="btnAlarmStop" class="banner-btn btn-stop">
+				<span data-i18n="pages.home.alarmBanner.stopAlarm">🛑 Stop</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+			<nav class="floating-nav-wrapper" id="floating-nav-wrapper" aria-label="Floating Navigation Wrapper">
+				<!-- 7. Inline SVG Mask that creates a physically transparent notch with smooth curves -->
+				<svg width="0" height="0" style="position: absolute">
+					<defs>
+						<mask id="nav-mask" maskContentUnits="userSpaceOnUse">
+							<!-- White background to keep the rest of the navbar visible -->
+							<rect width="1000" height="70" fill="white" />
+
+							<!-- Black smooth S-curve notch path to cut out a transparent hole. 
 								We will shift it horizontally in JavaScript -->
-						<path id="cutout-path" d="M -45 0 C -33 0, -28 32, 0 32 C 28 32, 33 0, 45 0 Z" fill="black" transform="translate(50, 0)" />
-					</mask>
-				</defs>
-			</svg>
-			<div class="floating-nav" aria-label="Mobile Navigation">
-				<ul class="floating-nav-list">
-					<!-- <li  class="floating-nav-item active">
+							<path id="cutout-path" d="M -45 0 C -33 0, -28 32, 0 32 C 28 32, 33 0, 45 0 Z" fill="black" transform="translate(50, 0)" />
+						</mask>
+					</defs>
+				</svg>
+				<div class="floating-nav" aria-label="Mobile Navigation">
+					<ul class="floating-nav-list">
+						<!-- <li  class="floating-nav-item active">
 						<a href="index.html" data-tab="map">
 							<span class="icon map-icon"></span>
 							<span class="text" data-i18n="navigation.map">Map</span>
 						</a>
 					</li> -->
-					<!-- <li class="floating-nav-item" >
+						<!-- <li class="floating-nav-item" >
 						<a href="#" data-tab="setting">
 							<span class="icon settings-icon"></span>
 							<span class="text" data-i18n="navigation.settings">Settings</span>
 						</a>
 					</li> -->
-					<!-- <li class="floating-nav-item active">
+						<!-- <li class="floating-nav-item active">
 						<a href="#" target="_blank" data-tab="about">
 							<span class="icon about-icon"></span>
 							<span class="text" data-i18n="navigation.about">About</span>
 						</a>
 					</li> -->
-					<!-- <li class="floating-nav-item">
+						<!-- <li class="floating-nav-item">
 						<a href="#" target="_blank" >
 							<span class="icon help-icon"></span>
 							<span class="text" data-i18n="navigation.help">help</span>
@@ -259,98 +554,95 @@
 							<span class="text" data-i18n="navigation.recent">recent</span>
 						</a>
 					</li> -->
-					<li class="floating-nav-item active">
-						<a href="#">
-							<span class="icon alarm-on-iocn"></span>
-							<span class="text" data-i18n="nav-floating.alarm">Alarm</span>
-						</a>
-					</li>
-					<li class="floating-nav-item active">
-						<a href="#">
-							<span class="icon ticket-iocn"></span>
-							<span class="text" data-i18n="nav-floating.ticket">🎟️ Ticket</span>
-						</a>
-					</li>
-					 <!-- <li class="floating-nav-item">
+						<li class="floating-nav-item" id="floatingAlarmNav" data-tab="alarm">
+								<a href="#" id="floatingAlarmBtn" aria-label="Alarm Tracker">
+										<span class="icon alarm-off-iocn" id="floatingAlarmIcon"></span>
+										<span class="text" data-i18n="nav-floating.alarm">Alarm</span>
+								</a>
+						</li>
+						<li class="floating-nav-item active">
+							<a href="#">
+								<span class="icon ticket-iocn"></span>
+								<span class="text" data-i18n="nav-floating.ticket">🎟️ Ticket</span>
+							</a>
+						</li>
+						<!-- <li class="floating-nav-item">
 						<a href="#" id="speedometerBtn" data-tab="speed">
 							<span class="icon speed-icon"></span>
 							<span class="text" data-i18n="nav-floating.speed">Speed</span>
 						</a>
 					</li> -->
-					
-				</ul>
-			</div>
-		</nav>
-	   
-	</main>
-  
-
-   <div id="app-footer"></div>
-	
-	<!-- =========================================================================
-	   SHARE ROUTE CUSTOM MODAL (Desktop & Fallback Popup)
-	========================================================================= -->
-	<div id="shareModal" class="share-modal-backdrop" aria-hidden="true">
-		<div class="share-modal-card" role="dialog" aria-labelledby="shareModalTitle">
-			<!-- Modal Header -->
-			<header class="share-modal-header">
-				<h3 id="shareModalTitle" data-i18n="pages.home.sidebar.findroute.shareModal.title">Share Route</h3>
-				<button type="button" id="closeShareModal" class="close-modal-btn" aria-label="Close">
-					<span class="icon close-icon" aria-hidden="true">✕</span>
-				</button>
-			</header>
-
-			<!-- Modal Body: Route Overview Preview -->
-			<div class="share-modal-body">
-				<div class="share-route-preview">
-					<div class="preview-header">
-						<span id="sharePreviewFrom" class="preview-station">Start</span>
-						<span class="preview-arrow">➔</span>
-						<span id="sharePreviewTo" class="preview-station">Destination</span>
-					</div>
-					<div class="preview-metrics">
-						<span id="sharePreviewDist">0.0 km</span> • 
-						<span id="sharePreviewTime">0 min</span> • 
-						<span id="sharePreviewFare">₹0</span>
-					</div>
+					</ul>
 				</div>
+			</nav>
+		</main>
 
-				<!-- Share Actions Grid -->
-				<p class="share-options-title">Select Share Option:</p>
-				<div class="share-options-grid">
-					<button type="button" id="shareWhatsAppBtn" class="share-opt-btn whatsapp-opt">
-						<span class="share-opt-icon">💬</span>
-						<span>WhatsApp</span>
-					</button>
+		<div id="app-footer"></div>
 
-					<button type="button" id="shareTelegramBtn" class="share-opt-btn telegram-opt">
-						<span class="share-opt-icon">✈️</span>
-						<span>Telegram</span>
+		<!-- =========================================================================
+		 SHARE ROUTE CUSTOM MODAL (Desktop & Fallback Popup)
+	========================================================================= -->
+		<div id="shareModal" class="share-modal-backdrop" aria-hidden="true">
+			<div class="share-modal-card" role="dialog" aria-labelledby="shareModalTitle">
+				<!-- Modal Header -->
+				<header class="share-modal-header">
+					<h3 id="shareModalTitle" data-i18n="pages.home.sidebar.findroute.shareModal.title">Share Route</h3>
+					<button type="button" id="closeShareModal" class="close-modal-btn" aria-label="Close">
+						<span class="icon close-icon" aria-hidden="true">✕</span>
 					</button>
+				</header>
 
-					<button type="button" id="shareSmsBtn" class="share-opt-btn sms-opt">
-						<span class="share-opt-icon">📱</span>
-						<span>SMS</span>
-					</button>
+				<!-- Modal Body: Route Overview Preview -->
+				<div class="share-modal-body">
+					<div class="share-route-preview">
+						<div class="preview-header">
+							<span id="sharePreviewFrom" class="preview-station">Start</span>
+							<span class="preview-arrow">➔</span>
+							<span id="sharePreviewTo" class="preview-station">Destination</span>
+						</div>
+						<div class="preview-metrics">
+							<span id="sharePreviewDist">0.0 km</span>
+							•
+							<span id="sharePreviewTime">0 min</span>
+							•
+							<span id="sharePreviewFare">₹0</span>
+						</div>
+					</div>
 
-					<button type="button" id="copyShareUrlBtn" class="share-opt-btn copy-url-opt">
-						<span class="share-opt-icon">🔗</span>
-						<span>Copy Link</span>
-					</button>
+					<!-- Share Actions Grid -->
+					<p class="share-options-title" data-i18n="pages.home.sidebar.findroute.shareModal.selectOption">Select Share Option:</p>
+					<div class="share-options-grid">
+						<button type="button" id="shareWhatsAppBtn" class="share-opt-btn whatsapp-opt">
+							<span class="share-opt-icon">💬</span>
+							<span data-i18n="pages.home.sidebar.findroute.shareModal.whatsapp">WhatsApp</span>
+						</button>
 
-					<button type="button" id="copyShareTextBtn" class="share-opt-btn copy-text-opt">
-						<span class="share-opt-icon">📋</span>
-						<span>Copy Details</span>
-					</button>
+						<button type="button" id="shareTelegramBtn" class="share-opt-btn telegram-opt">
+							<span class="share-opt-icon">✈️</span>
+							<span data-i18n="pages.home.sidebar.findroute.shareModal.telegram">Telegram</span>
+						</button>
+
+						<button type="button" id="shareSmsBtn" class="share-opt-btn sms-opt">
+							<span class="share-opt-icon">📱</span>
+							<span data-i18n="pages.home.sidebar.findroute.shareModal.sms">SMS</span>
+						</button>
+
+						<button type="button" id="copyShareUrlBtn" class="share-opt-btn copy-url-opt">
+							<span class="share-opt-icon">🔗</span>
+							<span data-i18n="pages.home.sidebar.findroute.shareModal.copyLink">Copy Link</span>
+						</button>
+
+						<button type="button" id="copyShareTextBtn" class="share-opt-btn copy-text-opt">
+							<span class="share-opt-icon">📋</span>
+							<span data-i18n="pages.home.sidebar.findroute.shareModal.copyDetails">Copy Details</span>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Floating Toast Notification Container -->
-	<div id="shareToast" class="share-toast-msg" aria-live="polite"></div>
-
-	
-</body>
-<script type="module" src="./js/pages/index.js"></script>
+		<!-- Floating Toast Notification Container -->
+		<div id="shareToast" class="share-toast-msg" aria-live="polite"></div>
+	</body>
+	<script type="module" src="./js/pages/home.js"></script>
 </html>

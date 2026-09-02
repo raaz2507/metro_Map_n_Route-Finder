@@ -1,0 +1,60 @@
+@layer components {
+    /* 🗺️ MAP THEME ACCENTS (Sky Blue) */
+    :root {
+        --tab-map-accent: #0ea5e9;
+        --tab-map-accent-rgb: 14, 165, 233;
+        --tab-map-bg: rgba(var(--tab-map-accent-rgb), 0.05);
+        --tab-map-border: rgba(var(--tab-map-accent-rgb), 0.35);
+        --tab-map-glow: rgba(var(--tab-map-accent-rgb), 0.18);
+    }
+
+    /* 🌟 Map Active Tab */
+    .folder-tab[data-tab="map"].active {
+        background: rgba(var(--tab-map-accent-rgb), 0.14);
+        color: var(--tab-map-accent);
+        border-color: var(--tab-map-border);
+        border-bottom-color: transparent;
+        margin-bottom: -1px;
+        z-index: 2;
+        box-shadow: 0 -2px 8px rgba(var(--tab-map-accent-rgb), 0.15);
+    }
+
+    /* 🎴 Map Scoped Fieldset & Legend */
+    .settings-tab-panel[data-panel="map"] .settings-fieldset {
+        margin: 0;
+        padding: var(--space-md);
+        border: 1px solid var(--tab-map-border);
+        border-radius: var(--radius-lg);
+        background: var(--tab-map-bg);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+    }
+
+    .settings-tab-panel[data-panel="map"] .settings-fieldset:hover {
+        border-color: var(--tab-map-accent);
+        box-shadow: 0 4px 16px var(--tab-map-glow);
+    }
+
+    .settings-tab-panel[data-panel="map"] .settings-legend {
+        float: none;
+        width: auto;
+        padding: 4px var(--space-sm);
+        margin-left: -4px;
+        font-family: var(--font-title);
+        font-size: var(--fs-xs);
+        font-weight: var(--fw-bold);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--tab-map-accent);
+        background: rgba(var(--tab-map-accent-rgb), 0.12);
+        border: 1px solid var(--tab-map-border);
+        border-radius: var(--radius-full);
+    }
+
+    .settings-tab-panel[data-panel="map"] .switch-toggle input:checked + .switch-slider {
+        background-color: var(--tab-map-accent);
+        border-color: var(--tab-map-accent);
+    }
+}

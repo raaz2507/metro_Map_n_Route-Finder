@@ -3,168 +3,211 @@
  * Handles Mobile Native Web Share API, Desktop Custom Share Modal,
  * Social Media share links (WhatsApp, Telegram, SMS), Clipboard copy, and Toast notifications.
  */
+import { centerClass } from "../core/CenterClass.js";
+
 export class ShareModalComponent {
-    #elements = {};
+	#elements = {};
+	#abortController = null;
 
-    constructor() {
-        this.#getElements();
-        this.#initEvents();
-    }
+	constructor() {
+		this.#abortController = new AbortController();
+		this.#getElements();
+		this.#initEvents();
+	}
 
-    #getElements() {
-        this.#elements = {
-            shareModal: document.getElementById("shareModal"),
-            closeShareModal: document.getElementById("closeShareModal"),
-            shareWhatsAppBtn: document.getElementById("shareWhatsAppBtn"),
-            shareTelegramBtn: document.getElementById("shareTelegramBtn"),
-            shareSmsBtn: document.getElementById("shareSmsBtn"),
-            copyShareUrlBtn: document.getElementById("copyShareUrlBtn"),
-            copyShareTextBtn: document.getElementById("copyShareTextBtn"),
-            shareToast: document.getElementById("shareToast"),
-            sharePreviewFrom: document.getElementById("sharePreviewFrom"),
-            sharePreviewTo: document.getElementById("sharePreviewTo"),
-            sharePreviewDist: document.getElementById("sharePreviewDist"),
-            sharePreviewTime: document.getElementById("sharePreviewTime"),
-            sharePreviewFare: document.getElementById("sharePreviewFare"),
-        };
-    }
+	destroy() {
+		if (this.#abortController) {
+			this.#abortController.abort();
+			this.#abortController = null;
+		}
+		this.close();
+	}
 
-    #initEvents() {
-        const { closeShareModal, shareModal } = this.#elements;
+	#getElements() {
+		this.#elements = {
+			shareModal: document.getElementById("shareModal"),
+			closeShareModal: document.getElementById("closeShareModal"),
+			shareWhatsAppBtn: document.getElementById("shareWhatsAppBtn"),
+			shareTelegramBtn: document.getElementById("shareTelegramBtn"),
+			shareSmsBtn: document.getElementById("shareSmsBtn"),
+			copyShareUrlBtn: document.getElementById("copyShareUrlBtn"),
+			copyShareTextBtn: document.getElementById("copyShareTextBtn"),
+			shareToast: document.getElementById("shareToast"),
+			sharePreviewFrom: document.getElementById("sharePreviewFrom"),
+			sharePreviewTo: document.getElementById("sharePreviewTo"),
+			sharePreviewDist: document.getElementById("sharePreviewDist"),
+			sharePreviewTime: document.getElementById("sharePreviewTime"),
+			sharePreviewFare: document.getElementById("sharePreviewFare"),
+		};
+	}
 
-        if (closeShareModal) {
-            closeShareModal.addEventListener("click", () => this.close());
-        }
+		#initEvents() {
+		const signal = this.#abortController.signal;
+		const { closeShareModal, shareModal } = this.#elements;
 
-        if (shareModal) {
-            shareModal.addEventListener("click", (e) => {
-                if (e.target === shareModal) {
-                    this.close();
-                }
-            });
-        }
+		if (closeShareModal) {
+			closeShareModal.addEventListener("click", () => this.close(), { signal });
+		}
 
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && shareModal?.classList.contains("active")) {
-                this.close();
-            }
-        });
-    }
+		if (shareModal) {
+			shareModal.addEventListener("click", (e) => {
+				if (e.target === shareModal) {
+					this.close();
+				}
+			}, { signal });
+		}
 
-    /**
-     * Share Action: Mobile Web Share API ya Desktop Custom Share Modal
-     * @param {Object} shareData 
-     * @param {string} currentLang 
-     */
-    async share(shareData, currentLang = "en") {
-        if (!shareData) return;
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape" && shareModal?.classList.contains("active")) {
+				this.close();
+			}
+		}, { signal });
+	}
 
-        const { shareText, startName, endName } = shareData;
+	/**
+	 * 🚇 रूट इंफॉर्मेशन ऑब्जेक्ट से शेयरिंग को स्वतः फॉर्मेट और ट्रिगर करना
+	 */
+	shareRoute(routeInfo, lang = "en") {
+		if (!routeInfo?.path?.length) return;
 
-        // A) Mobile Native Share Sheet (yadi available ho)
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: `Metro Route: ${startName} to ${endName}`,
-                    text: shareText,
-                });
-                return;
-            } catch (err) {
-                if (err.name === "AbortError") return;
-            }
-        }
+		const path = routeInfo.path;
+		const startId = path[0];
+		const endId = path[path.length - 1];
 
-        // B) Desktop / Fallback Custom Share Modal
-        this.open(shareData, currentLang);
-    }
+		const startName = centerClass.getStationName(startId, lang);
+		const endName = centerClass.getStationName(endId, lang);
+		const distKm = (routeInfo.totalDistanceMeters / 1000).toFixed(1);
+		const totalMin = Math.round(routeInfo.totalTravelTimeSeconds / 60);
+		const fare = routeInfo.fare?.totalFare || 0;
 
-    /**
-     * Custom Share Modal Open karein aur links fill karein
-     */
-    open(data, currentLang = "en") {
-        const { startName, endName, distKm, totalMin, tokenFare, shareUrl, shareText } = data;
-        const { shareModal, sharePreviewFrom, sharePreviewTo, sharePreviewDist, sharePreviewTime, sharePreviewFare, shareWhatsAppBtn, shareTelegramBtn, shareSmsBtn, copyShareUrlBtn, copyShareTextBtn } = this.#elements;
+		const shareUrl = `${window.location.origin}${window.location.pathname}?from=${encodeURIComponent(startId)}&to=${encodeURIComponent(endId)}`;
+		const shareText = `🚇 Metro Route: ${startName} → ${endName}\n⏱️ Time: ~${totalMin} min | 📏 Distance: ${distKm} km | 💰 Fare: ₹${fare}\n🔗 Details: ${shareUrl}`;
 
-        if (!shareModal) return;
+		this.#share({
+			startName,
+			endName,
+			distKm,
+			totalMin,
+			tokenFare: fare,
+			shareUrl,
+			shareText
+		}, lang);
+	}
 
-        if (sharePreviewFrom) sharePreviewFrom.textContent = startName;
-        if (sharePreviewTo) sharePreviewTo.textContent = endName;
-        if (sharePreviewDist) sharePreviewDist.textContent = `${distKm} km`;
-        if (sharePreviewTime) sharePreviewTime.textContent = `${totalMin} min`;
-        if (sharePreviewFare) sharePreviewFare.textContent = `₹${tokenFare}`;
+	/**
+	 * Share Action: Mobile Web Share API ya Desktop Custom Share Modal
+	 * @param {Object} shareData 
+	 * @param {string} currentLang 
+	 */
+	async #share(shareData, currentLang = "en") {
+		if (!shareData) return;
 
-        const encodedText = encodeURIComponent(shareText);
-        const encodedUrl = encodeURIComponent(shareUrl);
+		const { shareText, startName, endName } = shareData;
 
-        if (shareWhatsAppBtn) {
-            shareWhatsAppBtn.onclick = () => {
-                window.open(`https://api.whatsapp.com/send?text=${encodedText}`, "_blank");
-            };
-        }
+		// A) Mobile Native Share Sheet (yadi available ho)
+		if (navigator.share) {
+			try {
+				await navigator.share({
+					title: `Metro Route: ${startName} to ${endName}`,
+					text: shareText,
+				});
+				return;
+			} catch (err) {
+				if (err.name === "AbortError") return;
+			}
+		}
 
-        if (shareTelegramBtn) {
-            shareTelegramBtn.onclick = () => {
-                window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`, "_blank");
-            };
-        }
+		// B) Desktop / Fallback Custom Share Modal
+		this.#open(shareData, currentLang);
+	}
 
-        if (shareSmsBtn) {
-            shareSmsBtn.onclick = () => {
-                window.location.href = `sms:?body=${encodedText}`;
-            };
-        }
+	/**
+	 * Custom Share Modal Open karein aur links fill karein
+	 */
+	#open(data, currentLang = "en") {
+		const { startName, endName, distKm, totalMin, tokenFare, shareUrl, shareText } = data;
+		const { shareModal, sharePreviewFrom, sharePreviewTo, sharePreviewDist, sharePreviewTime, sharePreviewFare, shareWhatsAppBtn, shareTelegramBtn, shareSmsBtn, copyShareUrlBtn, copyShareTextBtn } = this.#elements;
 
-        if (copyShareUrlBtn) {
-            copyShareUrlBtn.onclick = async () => {
-                try {
-                    await navigator.clipboard.writeText(shareUrl);
-                    this.showToast(
-                        currentLang === "hi"
-                            ? "रूट का लिंक क्लिपबोर्ड में कॉपी हो गया!"
-                            : "Route link copied to clipboard!"
-                    );
-                } catch (e) {
-                    console.error("Clipboard copy failed:", e);
-                }
-            };
-        }
+		if (!shareModal) return;
 
-        if (copyShareTextBtn) {
-            copyShareTextBtn.onclick = async () => {
-                try {
-                    await navigator.clipboard.writeText(shareText);
-                    this.showToast(
-                        currentLang === "hi"
-                            ? "पूरा विवरण और लिंक क्लिपबोर्ड में कॉपी हो गया!"
-                            : "Full details & link copied to clipboard!"
-                    );
-                } catch (e) {
-                    console.error("Clipboard copy failed:", e);
-                }
-            };
-        }
+		if (sharePreviewFrom) sharePreviewFrom.textContent = startName;
+		if (sharePreviewTo) sharePreviewTo.textContent = endName;
+		if (sharePreviewDist) sharePreviewDist.textContent = `${distKm} km`;
+		if (sharePreviewTime) sharePreviewTime.textContent = `${totalMin} min`;
+		if (sharePreviewFare) sharePreviewFare.textContent = `₹${tokenFare}`;
 
-        shareModal.classList.add("active");
-        shareModal.setAttribute("aria-hidden", "false");
-    }
+		const encodedText = encodeURIComponent(shareText);
+		const encodedUrl = encodeURIComponent(shareUrl);
 
-    close() {
-        const { shareModal } = this.#elements;
-        if (shareModal) {
-            shareModal.classList.remove("active");
-            shareModal.setAttribute("aria-hidden", "true");
-        }
-    }
+		if (shareWhatsAppBtn) {
+			shareWhatsAppBtn.onclick = () => {
+				window.open(`https://api.whatsapp.com/send?text=${encodedText}`, "_blank");
+			};
+		}
 
-    showToast(message) {
-        const toast = this.#elements.shareToast;
-        if (!toast) return;
+		if (shareTelegramBtn) {
+			shareTelegramBtn.onclick = () => {
+				window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`, "_blank");
+			};
+		}
 
-        toast.textContent = message;
-        toast.classList.add("show");
+		if (shareSmsBtn) {
+			shareSmsBtn.onclick = () => {
+				window.location.href = `sms:?body=${encodedText}`;
+			};
+		}
 
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 3000);
-    }
+		if (copyShareUrlBtn) {
+			copyShareUrlBtn.onclick = async () => {
+				try {
+					await navigator.clipboard.writeText(shareUrl);
+					this.#showToast(
+						currentLang === "hi"
+							? "रूट का लिंक क्लिपबोर्ड में कॉपी हो गया!"
+							: "Route link copied to clipboard!"
+					);
+				} catch (e) {
+					console.error("Clipboard copy failed:", e);
+				}
+			};
+		}
+
+		if (copyShareTextBtn) {
+			copyShareTextBtn.onclick = async () => {
+				try {
+					await navigator.clipboard.writeText(shareText);
+					this.#showToast(
+						currentLang === "hi"
+							? "पूरा विवरण और लिंक क्लिपबोर्ड में कॉपी हो गया!"
+							: "Full details & link copied to clipboard!"
+					);
+				} catch (e) {
+					console.error("Clipboard copy failed:", e);
+				}
+			};
+		}
+
+		shareModal.classList.add("active");
+		shareModal.setAttribute("aria-hidden", "false");
+	}
+
+	close() {
+		const { shareModal } = this.#elements;
+		if (shareModal) {
+			shareModal.classList.remove("active");
+			shareModal.setAttribute("aria-hidden", "true");
+		}
+	}
+
+	#showToast(message) {
+		const toast = this.#elements.shareToast;
+		if (!toast) return;
+
+		toast.textContent = message;
+		toast.classList.add("show");
+
+		setTimeout(() => {
+			toast.classList.remove("show");
+		}, 3000);
+	}
 }
