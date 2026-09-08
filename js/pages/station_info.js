@@ -7,8 +7,8 @@ import { metroDataStore } from "../core/metro-data-store.js";
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 
-import enLang from "../../lang/en.js";
-import hiLang from "../../lang/hi.js";
+import i18n from "../core/i18n.js";
+import { appStateStore } from "../core/app-state-store.js";
 
 export class StationInfoManager {
     // Private State Fields
@@ -47,9 +47,10 @@ export class StationInfoManager {
      * Initialize active language dictionary
      */
     #initLocalization() {
-        this.#lang = localStorage.getItem("app-lang") || localStorage.getItem("language") || "en";
-        const dictionary = this.#lang === "hi" ? hiLang : enLang;
-        this.#t = dictionary.pages?.station_info || dictionary.station_info || enLang.pages?.station_info || {};
+        this.#lang = appStateStore.getState("currentLang") || "en";
+        this.#t = new Proxy({}, {
+            get: (_, key) => i18n.t(`pages.station_info.${key}`)
+        });
     }
 
     /**

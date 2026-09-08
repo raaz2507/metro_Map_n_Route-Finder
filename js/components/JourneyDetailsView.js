@@ -85,7 +85,7 @@ export class JourneyDetailsView {
 		const timeLabel = i18n.t("pages.home.sidebar.findroute.route.minutesLabel") || "Minutes";
 		const changeLabel = i18n.t("pages.home.sidebar.findroute.route.lineChangeLabel") || "Line Change";
 		const stationsLabel = i18n.t("pages.home.sidebar.findroute.route.stationsLabel") || "Stations";
-		const distanceLabel = "Distance";
+		const distanceLabel = i18n.t("pages.home.sidebar.findroute.route.distanceLabel") || "Distance";
 		const distNum = (routeInfo.totalDistanceMeters / 1000).toFixed(1);
 		const totalMin = Math.round(routeInfo.totalTravelTimeSeconds / 60);
 		const fares = routeInfo.fare?.products || {};
@@ -151,15 +151,94 @@ export class JourneyDetailsView {
 					<span class="metric-lbl">Off-Peak Smart${offPeakSmartBadge}</span>
 				</div>
 			</div>
-			<div class="timing-subrow" style="margin-top: 12px; border-top: 1px dashed var(--border-color); padding-top: 10px;">
+						<div class="timing-subrow" style="margin-top: 12px; border-top: 1px dashed var(--border-color); padding-top: 10px;">
 				<div class="timing-item">☀️ ${firstText} <strong>${firstTrainDisplay}</strong></div>
 				<div class="timing-item">🌙 ${lastText} <strong>${lastTrainDisplay}</strong></div>
 			</div>
+
+			<!-- 🎟️ एक्सपैंडेबल मल्टी-लेग ब्रेकडाउन (100% i18n) -->
+			${routeInfo.fare?.isMultiTicket ? `
+				<div class="fare-breakdown-toggle-box" style="margin-top: 12px; border-top: 1px dashed var(--border-color); padding-top: 10px;">
+					<button type="button" class="fare-breakdown-btn" id="fareBreakdownBtn">
+						<span class="btn-text">ℹ️ ${i18n.t("pages.home.sidebar.findroute.route.breakdownToggle", { count: routeInfo.fare.legs?.length || 2 })}</span>
+						<span class="btn-arrow" id="fareBreakdownArrow">▼</span>
+					</button>
+					
+					<!-- कोलैप्सेबल लेग कंटेनर (बाय डिफ़ॉल्ट बंद) -->
+					<div class="fare-legs-container" id="fareLegsContent" style="display: none; margin-top: 10px; flex-direction: column; gap: 10px;">
+						${(routeInfo.fare.legs || []).map((leg) => {
+							const fromName = centerClass.getStationName(leg.fromStation, this.#settings.currentLang);
+							const toName = centerClass.getStationName(leg.toStation, this.#settings.currentLang);
+							const lName = leg.lineName?.[this.#settings.currentLang] || leg.lineName?.en || leg.lineName;
+							
+							const alertsHtml = (leg.alerts || []).map(a => {
+								const alertText = i18n.t(a.i18nKey, a.params || {}) || a.defaultText;
+								return `
+									<div class="leg-alert-pill ${a.type}">
+										<span>${a.icon}</span> <span>${alertText}</span>
+									</div>
+								`;
+							}).join("");
+
+							return `
+								<div class="leg-item-card">
+									<!-- हेडर: रंगीन लाइन पिल + रूट -->
+									<div class="leg-card-header">
+										<span class="line-badge-solid" style="background-color: ${leg.lineColor}; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">${lName}</span>
+										<span class="leg-route-title" style="font-weight: 600; font-size: 0.85rem;">${fromName} ➔ ${toName}</span>
+									</div>
+
+									<!-- अलर्ट्स (सुरक्षा जांच, NCMC, वॉकवे) -->
+									${alertsHtml ? `<div class="leg-alerts-list" style="margin: 6px 0; display: flex; flex-direction: column; gap: 4px;">${alertsHtml}</div>` : ""}
+
+									<!-- रो 1: दूरी, समय, स्टेशन और लाइन परिवर्तन (पूरे 4 कॉलम + मुख्य कार्ड जैसे कलर्स) -->
+									<div class="metrics-row leg-mini-row" style="background: rgba(0,0,0,0.02); padding: 8px 6px; border-radius: 6px;">
+										<div class="metric-col"><span class="metric-val color-indigo" style="font-size: 0.95rem;">${leg.distanceKm} <small style="font-size:0.75em;">km</small></span><span class="metric-lbl">${distanceLabel}</span></div>
+										<div class="metric-col"><span class="metric-val color-emerald" style="font-size: 0.95rem;">${leg.travelMinutes}</span><span class="metric-lbl">${timeLabel}</span></div>
+										<div class="metric-col"><span class="metric-val color-sky" style="font-size: 0.95rem;">${leg.stationsCount}</span><span class="metric-lbl">${stationsLabel}</span></div>
+										<div class="metric-col"><span class="metric-val color-amber" style="font-size: 0.95rem;">${leg.interchangesCount || 0}</span><span class="metric-lbl">${changeLabel}</span></div>
+									</div>
+
+									<!-- रो 2: चारों किराये + डिस्काउंट बैज -->
+									<div class="metrics-row leg-mini-row" style="margin-top: 6px; padding: 8px 6px; background: rgba(0,0,0,0.02); border-radius: 6px;">
+										<div class="metric-col"><span class="metric-val" style="font-size: 0.95rem;">₹${leg.fares.token}</span><span class="metric-lbl">Token</span></div>
+										<div class="metric-col"><span class="metric-val color-blue" style="font-size: 0.95rem;">₹${leg.fares.smartCard}</span><span class="metric-lbl">Smart Card<br><span class="fare-badge badge-blue">(10% Off)</span></span></div>
+										<div class="metric-col"><span class="metric-val color-purple" style="font-size: 0.95rem;">₹${leg.fares.offPeak}</span><span class="metric-lbl">Off-Peak<br><span class="fare-badge badge-purple">(10% Off)</span></span></div>
+										<div class="metric-col"><span class="metric-val color-green" style="font-size: 0.95rem;">₹${leg.fares.offPeakSmartCard}</span><span class="metric-lbl">Off-Peak Smart<br><span class="fare-badge badge-green">(20% Off)</span></span></div>
+									</div>
+								</div>
+							`;
+						}).join("")}
+
+						<!-- बचत हाइलाइट (100% i18n) -->
+						${routeInfo.fare?.discounts?.savingsAmount > 0 ? `
+							<div class="savings-highlight" style="text-align: center; font-size: 0.82rem; color: var(--color-emerald, #10b981); font-weight: bold; padding: 6px; background: rgba(16, 185, 129, 0.08); border-radius: 6px;">
+								🎉 ${i18n.t("pages.home.sidebar.findroute.route.smartCardSavings", { amount: routeInfo.fare.discounts.savingsAmount })}
+							</div>
+						` : ""}
+					</div>
+				</div>
+			` : ""}
 		`;
 		parent.appendChild(metricsCard);
+
+		// 🎯 टॉगल इवेंट लिसनर (क्लिक करने पर खुलना/बंद होना)
+		if (routeInfo.fare?.isMultiTicket) {
+			const toggleBtn = metricsCard.querySelector("#fareBreakdownBtn");
+			const content = metricsCard.querySelector("#fareLegsContent");
+			const arrow = metricsCard.querySelector("#fareBreakdownArrow");
+			if (toggleBtn && content) {
+				toggleBtn.addEventListener("click", () => {
+					const isHidden = content.style.display === "none";
+					content.style.display = isHidden ? "flex" : "none";
+					if (arrow) arrow.textContent = isHidden ? "▲" : "▼";
+				});
+			}
+		}
 	}
 
 	#renderTimelineCard(parent, routeInfo) {
+		
 		const timelineCard = document.createElement("div");
 		timelineCard.className = "timeline-card";
 
@@ -172,6 +251,7 @@ export class JourneyDetailsView {
 
 		const firstStationId = routeInfo.path[0];
 		const lastStationId = routeInfo.path[routeInfo.path.length - 1];
+		const currentCity = localStorage.getItem("active_city") || "delhi_ncr";
 
 		steps.forEach((step, segmentIndex) => {
 			const lineName = step.shortName?.[this.#settings.currentLang] || step.shortName?.en || step.line;
@@ -242,10 +322,14 @@ export class JourneyDetailsView {
 						<div class="station-track-line" style="background-color: ${trackColor};"></div>
 					</div>
 					<div class="station-info">
-						<span class="station-name-main">
+						<a href="station_info.html?id=${encodeURIComponent(st.id)}&city=${encodeURIComponent(currentCity)}" 
+						   class="station-name-main" 
+						   target="_blank" 
+						   rel="noopener noreferrer" 
+						   title="${name}">
 							${name}
 							${gateBadgeHtml}
-						</span>
+						</a>
 						<span class="station-time-cumulative">${hopText}~${st.timeMinutes}m</span>
 					</div>
 				`;
@@ -255,7 +339,7 @@ export class JourneyDetailsView {
 
 			timelineContainer.appendChild(segmentEl);
 
-			// 🚶 इंटरचेंज वॉकवे बॉक्स
+						// 🚶 इंटरचेंज वॉकवे बॉक्स
 			if (segmentIndex < steps.length - 1) {
 				const nextStep = steps[segmentIndex + 1];
 				const metroData = centerClass.getMetroData();
@@ -264,6 +348,37 @@ export class JourneyDetailsView {
 				const nextLineName = nextStep.shortName?.[this.#settings.currentLang] || nextStep.shortName?.en || nextStep.line;
 				const transferMins = Math.ceil((step.nextTransferSeconds || 180) / 60);
 				const transferDistText = step.nextTransferDistanceMeters ? `${step.nextTransferDistanceMeters} m · ` : "";
+
+				// 🏷️ डायनामिक ट्रांसफर मोड व सिविल बैज
+				const tData = step.nextTransfer || {};
+				const mode = tData.transferMode;
+				const dist = tData.distanceMeters || step.nextTransferDistanceMeters;
+				let modeBadgeHtml = "";
+
+				if (mode === "cross_platform") {
+					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.crossPlatform") || "Cross-Platform";
+					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">↔️ ${label}</span>`;
+				} else if (mode === "vertical") {
+					const levels = tData.levels || 1;
+					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.levelChange", { level: levels }) || `Level ${levels} Change`;
+					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">↕️ ${label}</span>`;
+				} else if (mode === "skywalk") {
+					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.skywalk", { distance: dist }) || `Skywalk (${dist}m)`;
+					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">🌉 ${label}</span>`;
+				} else if (mode === "corridor") {
+					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.corridor", { distance: dist }) || `Corridor (${dist}m)`;
+					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">🚶 ${label}</span>`;
+				}
+
+				let featureBadgesHtml = "";
+				if (tData.freeERickshaw) {
+					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.freeERickshaw") || "Free E-Rickshaw";
+					featureBadgesHtml += `<span class="transfer-pill-badge transfer-pill-rickshaw">🛺 ${label}</span>`;
+				}
+				if (tData.securityCheckRequired) {
+					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.securityCheck") || "Security Check";
+					featureBadgesHtml += `<span class="transfer-pill-badge transfer-pill-security">🛡️ ${label}</span>`;
+				}
 
 				const interchangeContainer = document.createElement("div");
 				interchangeContainer.className = "interchange-container";
@@ -277,9 +392,15 @@ export class JourneyDetailsView {
 							<span class="interchange-icon-walk">
 								<img src="assets/sprites/footstep.webp" class="interchange-icon-walk" alt="walk">
 							</span>
-							<span>
-								Change to <strong>${nextLineName}</strong>
-							</span>
+							<div class="interchange-details-col">
+								<span>
+									Change to <strong>${nextLineName}</strong>
+								</span>
+								<div class="interchange-badges-row">
+									${modeBadgeHtml}
+									${featureBadgesHtml}
+								</div>
+							</div>
 						</div>
 						<span class="interchange-time-badge">${transferDistText}~${transferMins}m</span>
 					</div>

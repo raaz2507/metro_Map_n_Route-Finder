@@ -8,326 +8,569 @@
 
 /* Universal Search Component Import */
 @import url("../components/universal_search.css");
+@import url("../components/toast.css");
 
 /* ===========================================================================
    1. BASE LAYER - PAGE CONTAINER (Clean Semi-Translucent Panel)
    =========================================================================== */
 @layer base {
-    main.network-selector-page {
-        height: auto;
-        min-height: calc(100vh - 160px);
-        flex: 1 0 auto;
-        overflow: visible;
-        max-width: 1280px;
-        margin: 1.5rem auto;
-        padding: var(--space-xl);
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-xl);
-        font-family: var(--font-main);
-        color: var(--text-primary);
-        background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-        backdrop-filter: blur(var(--backdrop-blur));
-        -webkit-backdrop-filter: blur(var(--backdrop-blur));
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-md);
-    }
+	main.network-selector-page {
+		height: auto;
+		min-height: calc(100vh - 160px);
+		flex: 1 0 auto;
+		overflow: visible;
+		max-width: 1280px;
+		margin: 1.5rem auto;
+		padding: var(--space-xl);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+		font-family: var(--font-main);
+		color: var(--text-primary);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-md);
+	}
 }
 
 /* ===========================================================================
    2. COMPONENTS LAYER - CONTROLS, COMPACT CARDS & BADGES
    =========================================================================== */
 @layer components {
-    /* Controls Container Wrapper */
-    .selector-controls {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-lg);
-        background: transparent;
-        border: none;
-        padding: 0;
-        box-shadow: none;
-    }
+	/* Controls Container Wrapper */
+	.selector-controls {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+		background: transparent;
+		border: none;
+		padding: 0;
+		box-shadow: none;
+	}
 
-    /* Filters & Sort Rows (Row-Aligned Layout) */
-    .filters-row {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-md);
-    }
+	/* Filters & Sort Rows (Row-Aligned Layout) */
+	.filters-row {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
 
-    .filter-group {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: var(--space-md);
-        flex-wrap: wrap;
-    }
+	.filter-group {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: var(--space-md);
+		flex-wrap: wrap;
+	}
 
-    .filter-label {
-        font-size: 0.825rem;
-        font-weight: var(--fw-bold);
-        color: var(--text-primary);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        min-width: 70px;
-        flex-shrink: 0;
-    }
+	.filter-label {
+		font-size: 0.825rem;
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		min-width: 70px;
+		flex-shrink: 0;
+	}
 
-    .filter-chips-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-xs);
-        align-items: center;
-        flex: 1;
-    }
+	.filter-chips-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+		align-items: center;
+		flex: 1;
+	}
 
-    /* Inactive Chips - Crisp Dark Text & Clear Solid-Translucent Background */
-    .chip-btn {
-        border: 1.5px solid var(--border-color);
-        background-color: rgba(var(--color-bg-base-rgb), var(--op-semi-heavy));
-        color: var(--text-primary);
-        padding: 5px var(--space-md);
-        border-radius: var(--radius-full);
-        font-size: 0.825rem;
-        font-family: var(--font-main);
-        font-weight: var(--fw-semibold);
-        cursor: pointer;
-        transition: all var(--transition-fast);
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        user-select: none;
-        box-shadow: var(--shadow-sm);
-    }
+	/* Inactive Chips - Crisp Dark Text & Clear Solid-Translucent Background */
+	.chip-btn {
+		border: 1.5px solid var(--border-color);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-semi-heavy));
+		color: var(--text-primary);
+		padding: 5px var(--space-md);
+		border-radius: var(--radius-full);
+		font-size: 0.825rem;
+		font-family: var(--font-main);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		user-select: none;
+		box-shadow: var(--shadow-sm);
+	}
 
-    .chip-btn:hover {
-        border-color: var(--btn-primary-bg);
-        transform: translateY(-1px);
-    }
+	.chip-btn:hover {
+		border-color: var(--btn-primary-bg);
+		transform: translateY(-1px);
+	}
 
-    /* Active Chips - Fully Dynamic Theme Primary Tokens (No Hardcoded Colors) */
-    .chip-btn.active {
-        background-color: var(--btn-primary-bg);
-        color: var(--btn-primary-text);
-        border-color: var(--btn-primary-bg);
-        box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.35);
-    }
+	/* Active Chips - Fully Dynamic Theme Primary Tokens (No Hardcoded Colors) */
+	.chip-btn.active {
+		background-color: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		border-color: var(--btn-primary-bg);
+		box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.35);
+	}
 
-    /* Stats Bar */
-    .results-stats-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 var(--space-xs);
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        font-weight: var(--fw-medium);
-    }
+	/* Stats Bar */
+	.results-stats-bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 var(--space-xs);
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		font-weight: var(--fw-medium);
+	}
 
-    /* Compact Unified Flat Grid & Sleek Tiles */
-    .transit-sections-container {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-lg);
-    }
+	/* Compact Unified Flat Grid & Sleek Tiles */
+	.transit-sections-container {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+	}
 
-    .networks-compact-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-    }
+	
 
-    @media (min-width: 580px) {
-        .networks-compact-grid {
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-            gap: var(--space-lg);
-        }
-    }
+	/* Loading & Empty States */
+	.loading-state, .empty-state {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-3xl) var(--space-xl);
+		gap: var(--space-lg);
+		text-align: center;
+		color: var(--text-secondary);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+		border: 1px dashed var(--border-color);
+		border-radius: var(--radius-xl);
+	}
 
-    /* Sleek Compact Card */
-    .network-card-compact {
-        background-color: rgba(var(--color-bg-base-rgb), var(--op-semi-heavy));
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius-lg);
-        padding: var(--space-md) var(--space-lg);
-        box-shadow: var(--shadow-sm);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: var(--space-sm);
-        cursor: pointer;
-        user-select: none;
-        transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-        min-height: 125px;
-    }
+	.spinner {
+		width: 40px;
+		height: 40px;
+		border: 3px solid rgba(var(--color-primary-rgb), 0.2);
+		border-top-color: var(--btn-primary-bg);
+		border-radius: 50%;
+		animation: spin 0.8s linear infinite;
+	}
 
-    .network-card-compact:hover {
-        background-color: rgba(var(--color-bg-base-rgb), var(--op-heavy));
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
-        border-color: var(--btn-primary-bg);
-    }
+	@keyframes spin {
+		to { transform: rotate(360deg); }
+	}
 
-    .network-card-compact:focus-visible {
-        outline: 2px solid var(--btn-primary-bg);
-        outline-offset: 2px;
-    }
 
-    /* Card Top Meta (City Tag + Mode Badge) */
-    .card-top-meta {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: var(--space-xs);
-    }
 
-    .city-tag {
-        font-size: 0.8rem;
-        font-weight: var(--fw-semibold);
-        color: var(--text-secondary);
-        background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
-        padding: 2px var(--space-xs);
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--border-color);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 140px;
-    }
 
-    /* Card Main Info */
-    .card-main-info {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-    }
 
-    .compact-network-name {
-        font-family: var(--font-title);
-        font-size: 1.05rem;
-        font-weight: var(--fw-bold);
-        color: var(--text-primary);
-        line-height: 1.3;
-        margin: 0;
-    }
 
-    .compact-operator {
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin: 0;
-    }
 
-    /* Card Bottom Row (Status + Action Arrow) */
-    .card-bottom-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: var(--space-xs);
-        padding-top: var(--space-xs);
-        border-top: 1px solid rgba(var(--border-color-rgb, 148, 163, 184), 0.15);
-    }
 
-    .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 3px;
-        padding: 2px var(--space-xs);
-        border-radius: var(--radius-full);
-        font-size: 0.725rem;
-        font-weight: var(--fw-semibold);
-        line-height: 1.2;
-    }
 
-    .mode-badge {
-        background-color: rgba(var(--color-primary-rgb), 0.12);
-        color: var(--text-primary);
-        border: 1px solid rgba(var(--color-primary-rgb), 0.25);
-    }
 
-    .status-badge.status-operational {
-        background-color: rgba(34, 197, 94, 0.12);
-        color: #16a34a;
-        border: 1px solid rgba(34, 197, 94, 0.28);
-    }
 
-    .status-badge.status-operational_partial {
-        background-color: rgba(234, 179, 8, 0.12);
-        color: #ca8a04;
-        border: 1px solid rgba(234, 179, 8, 0.28);
-    }
 
-    .status-badge.status-under_construction {
-        background-color: rgba(249, 115, 22, 0.12);
-        color: #ea580c;
-        border: 1px solid rgba(249, 115, 22, 0.28);
-    }
+		/* =========================================================================
+	   DYNAMIC RESPONSIVE NETWORKS GRID
+	   ========================================================================= */
+	.networks-compact-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: var(--space-lg);
+	}
 
-    .status-badge.status-approved,
-    .status-badge.status-proposed {
-        background-color: rgba(148, 163, 184, 0.14);
-        color: var(--text-secondary);
-        border: 1px solid var(--border-color);
-    }
+	/* =========================================================================
+	   FINAL CONCEPT 12: HYBRID SIGNATURE CARD
+	   ========================================================================= */
+	.network-card-compact {
+		position: relative;
+		background: linear-gradient(160deg, color-mix(in srgb, var(--card-city-accent) 12%, var(--card-bg)) 0%, var(--card-bg) 65%);
+		border: 2px solid color-mix(in srgb, var(--card-city-accent) 45%, #C2B39A);
+		border-radius: var(--radius-xl);
+		padding: var(--space-md) var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 142px;
+		cursor: pointer;
+		user-select: none;
+		overflow: hidden;
+		box-shadow: 2px 3px 0 color-mix(in srgb, var(--card-city-accent) 55%, #8A7968);
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+	}
 
-    .action-indicators {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-    }
+	.network-card-compact:hover {
+		transform: translate(-1px, -2px);
+		box-shadow: 3px 6px 0 color-mix(in srgb, var(--card-city-accent) 65%, #6E5D4F);
+		border-color: var(--card-city-accent);
+	}
 
-    .official-website-link {
-        font-size: 0.95rem;
-        text-decoration: none;
-        opacity: 0.75;
-        transition: opacity var(--transition-fast), transform var(--transition-fast);
-    }
+	/* Top-Left Radial Hover Color Spread */
+	.network-card-compact::before {
+		content: '';
+		position: absolute;
+		top: -40px;
+		left: -40px;
+		width: 140px;
+		height: 140px;
+		border-radius: 50%;
+		background: radial-gradient(circle, color-mix(in srgb, var(--card-city-accent) 24%, transparent) 0%, transparent 70%);
+		pointer-events: none;
+		transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease;
+		transform-origin: top left;
+		opacity: 0;
+		transform: scale(0.7);
+		z-index: 0;
+	}
 
-    .official-website-link:hover {
-        opacity: 1;
-        transform: scale(1.15);
-    }
+	.network-card-compact:hover::before {
+		opacity: 0.6;
+		transform: scale(1.8);
+	}
 
-    .arrow-indicator {
-        font-size: 0.85rem;
-        color: var(--text-primary);
-        font-weight: var(--fw-bold);
-        transition: transform var(--transition-fast);
-    }
+	/* Metro Route Trace Silhouette */
+	.network-card-compact .card-trace-bg {
+		position: absolute;
+		bottom: 8px;
+		right: 32px;
+		width: 85px;
+		height: 35px;
+		opacity: 0.22;
+		background-color: var(--card-city-accent);
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		pointer-events: none;
+	}
 
-    .network-card-compact:hover .arrow-indicator {
-        transform: translateX(3px);
-    }
 
-    /* Loading & Empty States */
-    .loading-state, .empty-state {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: var(--space-3xl) var(--space-xl);
-        gap: var(--space-lg);
-        text-align: center;
-        color: var(--text-secondary);
-        background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-        border: 1px dashed var(--border-color);
-        border-radius: var(--radius-xl);
-    }
 
-    .spinner {
-        width: 40px;
-        height: 40px;
-        border: 3px solid rgba(var(--color-primary-rgb), 0.2);
-        border-top-color: var(--btn-primary-bg);
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-    }
+	/* Card Top Header (Stamp + Brand Logo / Cluster) */
+	.network-card-compact .card-top-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+	}
 
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
+	/* Dashed City Stamp */
+	.network-card-compact .city-stamp {
+		font-family: 'Comfortaa', cursive, sans-serif;
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--card-city-accent);
+		border: 1.5px dashed var(--card-city-accent);
+		background: color-mix(in srgb, var(--card-city-accent) 6%, transparent);
+		padding: 2px 9px;
+		border-radius: var(--radius-full);
+		white-space: nowrap;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	/* Single Brand Icon (Clean 36px, transparent) */
+	.network-card-compact .brand-avatar-box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.network-card-compact .brand-avatar-box img {
+		width: 36px;
+		height: 36px;
+		object-fit: contain;
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+	}
+
+	/* Multi-Logo Avatar Cluster (for Group Cards) */
+	.network-card-compact .avatar-cluster {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.network-card-compact .avatar-cluster img {
+		width: 26px;
+		height: 26px;
+		object-fit: contain;
+		border-radius: var(--radius-full);
+		background: #ffffff;
+		border: 2px solid var(--card-bg);
+		box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+		margin-left: -8px;
+		padding: 2px;
+		transition: transform var(--transition-fast);
+	}
+
+	.network-card-compact .avatar-cluster img:first-child {
+		margin-left: 0;
+	}
+
+	.network-card-compact:hover .avatar-cluster img {
+		transform: translateY(-2px);
+	}
+
+	.network-card-compact .cluster-count {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.7rem;
+		font-weight: var(--fw-bold);
+		height: 26px;
+		padding: 0 6px;
+		border-radius: var(--radius-full);
+		background: color-mix(in srgb, var(--card-city-accent) 15%, var(--card-bg));
+		color: var(--card-city-accent);
+		border: 2px solid var(--card-bg);
+		margin-left: -8px;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+	}
+
+	/* Card Content (Title + Operator Subtitle) */
+	.network-card-compact .card-body {
+		margin: var(--space-xs) 0 2px 0;
+		position: relative;
+		z-index: 1;
+	}
+
+	.network-card-compact .network-title {
+		font-family: 'Comfortaa', cursive, sans-serif;
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		line-height: 1.25;
+		margin: 0;
+	}
+
+	.network-card-compact .operator-sub {
+		font-family: 'Arvo', Georgia, serif;
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		font-style: italic;
+		margin: 2px 0 0 0;
+	}
+
+	/* Card Footer Row */
+	.network-card-compact .card-foot {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: var(--fs-xs);
+		position: relative;
+		z-index: 1;
+		margin-top: var(--space-xs);
+	}
+
+	/* Mode & Status Meta Group */
+	.network-card-compact .foot-meta-group {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 0.72rem;
+		font-weight: var(--fw-semibold);
+		color: var(--text-secondary);
+	}
+
+	.network-card-compact .mode-tag {
+		color: var(--text-primary);
+		font-weight: var(--fw-bold);
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+	}
+
+	.network-card-compact .meta-sep {
+		color: var(--border-color);
+		font-size: 0.65rem;
+	}
+
+	.network-card-compact .status-tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 0.72rem;
+		font-weight: var(--fw-semibold);
+		color: color-mix(in srgb, var(--status-color, #10B981) 85%, var(--text-primary));
+		transition: color var(--transition-fast);
+	}
+
+	/* Animated Live Pulse Dot (Still by default, pulses on card hover) */
+	.network-card-compact .live-status-dot {
+		position: relative;
+		display: inline-block;
+		width: 7px;
+		height: 7px;
+		border-radius: var(--radius-full);
+		background-color: var(--status-color, #10B981);
+		flex-shrink: 0;
+		transition: background-color var(--transition-fast);
+	}
+
+	.network-card-compact .live-status-dot::before {
+		content: '';
+		position: absolute;
+		top: -2.5px;
+		left: -2.5px;
+		right: -2.5px;
+		bottom: -2.5px;
+		border-radius: var(--radius-full);
+		background-color: var(--status-color, #10B981);
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity var(--transition-fast);
+	}
+
+	.network-card-compact:hover .live-status-dot::before {
+		opacity: 0.75;
+		animation: status-pulse-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+	}
+
+	@keyframes status-pulse-ping {
+		70%, 100% {
+			transform: scale(2.4);
+			opacity: 0;
+		}
+	}
+
+	/* Status Color Tokens */
+	.status-operational { --status-color: #10B981; }              /* Green Pulse (Operational) */
+	.status-partial, 
+	.status-operational_partial { --status-color: #F59E0B; }      /* Amber Pulse (Partial Service) */
+	.status-construction,
+	.status-under_construction { --status-color: #F97316; }       /* Orange Pulse (Construction) */
+	.status-approved { --status-color: #06B6D4; }                 /* Cyan Pulse (Approved) */
+	.status-proposed { --status-color: #8B5CF6; }                 /* Purple Pulse (Proposed) */
+
+	/* Group Card Linked Lines Badge */
+	.network-card-compact .linked-lines-badge {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--card-city-accent);
+	}
+
+	/* Action Indicators Group */
+	.network-card-compact .action-group {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-left: auto;
+	}
+
+	/* Official Website Icon Link (Clean, borderless - No circle & No background) */
+	.network-card-compact .official-website-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-muted);
+		text-decoration: none;
+		background: transparent;
+		border: none;
+		padding: 2px;
+		transition: color var(--transition-fast), transform var(--transition-fast);
+	}
+	
+	.network-card-compact .official-website-link .ui-vector-icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	.network-card-compact:hover .official-website-link {
+		color: #0EA5E9; /* Vibrant Skyblue on card hover */
+	}
+
+	.network-card-compact .official-website-link:hover {
+		color: #0284C7;
+		transform: scale(1.2);
+	}
+
+	/* Interactive Right Arrow */
+	.network-card-compact .action-arrow {
+		color: var(--text-muted);
+		font-size: var(--fs-md);
+		transition: transform var(--transition-fast), color var(--transition-fast);
+		line-height: 1;
+	}
+
+	.network-card-compact:hover .action-arrow {
+		transform: translateX(4px);
+		color: var(--card-city-accent);
+	}
+
+	/* Dynamic Vector Mask Icons */
+	.ui-vector-icon {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		background-color: currentColor;
+		-webkit-mask: var(--icon-url) no-repeat center / contain;
+		mask: var(--icon-url) no-repeat center / contain;
+		vertical-align: middle;
+		flex-shrink: 0;
+		transition: background-color var(--transition-fast);
+	}
+
+	.icon-leaf { --icon-url: url('../../assets/icons/ui/leaf.svg'); }
+	.icon-pin { --icon-url: url('../../assets/icons/ui/pin.svg'); }
+	.icon-globe { --icon-url: url('../../assets/icons/ui/globe.svg'); }
+	.icon-metro { --icon-url: url('../../assets/icons/ui/metro.svg'); }
+	.icon-rrts { --icon-url: url('../../assets/icons/ui/mode_rrts.svg'); }
+	.icon-monorail { --icon-url: url('../../assets/icons/ui/mode_monorail.svg'); }
+	.icon-metrolite { --icon-url: url('../../assets/icons/ui/mode_metrolite.svg'); }
+	.icon-metroneo { --icon-url: url('../../assets/icons/ui/mode_metroneo.svg'); }
+	.icon-status-operational { --icon-url: url('../../assets/icons/ui/status_operational.svg'); }
+	.icon-status-partial { --icon-url: url('../../assets/icons/ui/status_partial.svg'); }
+	.icon-status-construction { --icon-url: url('../../assets/icons/ui/status_under_construction.svg'); }
+	.icon-city { --icon-url: url('../../assets/icons/ui/icon_city.svg'); }
+	.icon-sort-alpha { --icon-url: url('../../assets/icons/ui/icon_sort_alpha.svg'); }
+	.icon-all-modes { --icon-url: url('../../assets/icons/ui/all_modes.svg'); }
+	.icon-all-status { --icon-url: url('../../assets/icons/ui/all_status.svg'); }
+
+	/* Inactive status chips icon color accents */
+	.chip-btn[data-status="operational"]:not(.active) .icon-status-operational { background-color: #10B981; }
+	.chip-btn[data-status="operational_partial"]:not(.active) .icon-status-partial { background-color: #F59E0B; }
+	.chip-btn[data-status="under_construction"]:not(.active) .icon-status-construction { background-color: #F97316; }
+
+	/* =========================================================================
+	   CLEAN COMPONENT UTILITIES (Replaces JS Inline Styles)
+	   ========================================================================= */
+	
+	/* 1. Section Wrappers & Titles */
+	.network-section-wrapper {
+		margin-bottom: 2rem;
+	}
+	.network-section-title {
+		margin-bottom: 1rem;
+		color: var(--text-primary);
+		border-bottom: 2px solid var(--border-color);
+		padding-bottom: 0.5rem;
+		font-size: var(--fs-lg);
+		font-weight: var(--fw-bold);
+	}
+	/* 2. Mode Icon Styling in Card */
+	.network-card-compact .mode-tag .ui-vector-icon {
+		background-color: var(--card-city-accent);
+		width: 14px;
+		height: 14px;
+		margin-right: 3px;
+	}
+	/* 3. Leaf Icon in City Stamp */
+	.network-card-compact .city-stamp .ui-vector-icon {
+		width: 12px;
+		height: 12px;
+	}
+	/* 4. Globe Icon in Official Website Link */
+	.network-card-compact .official-website-link .ui-vector-icon {
+		width: 18px !important;
+		height: 18px !important;
+	}
 }

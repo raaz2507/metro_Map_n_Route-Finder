@@ -234,23 +234,8 @@ export class GPSTracker {
 
     #handleError(error) {
         console.warn("[GPSTracker] GPS Error:", error);
-		
-		// 1. AlarmManager को सूचित करें
-        if (typeof this.#onError === "function") {
-            this.#onError(error);
-        }
 
-        let msgKey = "pages.home.gps.unavailable";
-        if (error.code === 1) { // 1 = PERMISSION_DENIED
-            msgKey = "pages.home.gps.permissionDenied";
-        }
-
-        // 📍 स्क्रीन पर साफ़ टोस्ट मैसेज दिखाएं
-        eventBus.emit("SHOW_TOAST", {
-            message: i18n.t(msgKey) || "📍 Please enable GPS / Location permissions for live speed & tracking",
-            type: "error"
-        });
-
+        // शुद्ध हार्डवेयर एरर को केवल कॉलिंग लेयर (AlarmManager / TelemetryService) तक पहुँचाएँ
         if (typeof this.#onError === "function") {
             this.#onError(error);
         }

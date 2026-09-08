@@ -11,74 +11,125 @@
 	],
 	"cities": {
 		"delhi_ncr": {
-			"name": "Delhi NCR",
-			"state": "Delhi, Haryana, UP",
+			"name": {
+				"en": "Delhi NCR",
+				"hi": "दिल्ली एनसीआर"
+			},
+			"state": {
+				"en": "Delhi, Haryana, UP",
+				"hi": "दिल्ली, हरियाणा, उत्तर प्रदेश"
+			},
+			"hasData": true,
 			"dataPath": "data/cities/delhi_ncr",
 			"networks": {
 				"dmrc": {
-					"name": "Delhi Metro",
+					"name": {
+						"en": "Delhi Metro",
+						"hi": "दिल्ली मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "Delhi Metro Rail Corporation",
 					"website": "https://www.delhimetrorail.com",
-					"dataPath": "data/cities/delhi_ncr"
+					"hasData": true,
+					"dataPath": "data/cities/delhi_ncr",
+					"icon": "assets/icons/networks/dmrc.svg"
 				},
 				"nmrc": {
-					"name": "Noida Metro",
+					"name": {
+						"en": "Noida Metro",
+						"hi": "नोएडा मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "Noida Metro Rail Corporation",
 					"website": "https://www.nmrcnoida.com",
-					"dataPath": "data/cities/delhi_ncr"
+					"hasData": true,
+					"dataPath": "data/cities/delhi_ncr",
+					"icon": "assets/icons/networks/nmrc.png"
 				},
 				"rapid_metro_gurugram": {
-					"name": "Rapid Metro Gurugram",
+					"name": {
+						"en": "Rapid Metro Gurugram",
+						"hi": "रैपिड मेट्रो गुरुग्राम"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "HMRTC / DMRC",
 					"website": "https://hmrtc.org.in",
-					"dataPath": "data/cities/delhi_ncr"
+					"hasData": true,
+					"dataPath": "data/cities/delhi_ncr",
+					"icon": "assets/icons/networks/rapid_metro.svg"
 				},
 				"delhi_meerut_rrts": {
-					"name": "Namo Bharat RRTS (Delhi-Meerut)",
+					"name": {
+						"en": "Namo Bharat RRTS (Delhi-Meerut)",
+						"hi": "नमो भारत आरआरटीएस (दिल्ली-मेरठ)"
+					},
 					"mode": "RRTS",
 					"status": "operational_partial",
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
-					"dataPath": "data/cities/delhi_ncr"
+					"hasData": true,
+					"dataPath": "data/cities/delhi_ncr",
+					"icon": "assets/icons/networks/ncrtc.svg"
 				},
 				"delhi_alwar_rrts": {
-					"name": "Delhi-Alwar RRTS",
+					"name": {
+						"en": "Delhi-Alwar RRTS",
+						"hi": "दिल्ली-अलवर आरआरटीएस"
+					},
 					"mode": "RRTS",
 					"status": "under_construction",
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
-					"dataPath": "data/cities/delhi_ncr"
+					"hasData": true,
+					"dataPath": "data/cities/delhi_ncr",
+					"icon": "assets/icons/networks/ncrtc.svg"
 				},
 				"delhi_panipat_rrts": {
-					"name": "Delhi-Panipat RRTS",
+					"name": {
+						"en": "Delhi-Panipat RRTS",
+						"hi": "दिल्ली-पानीपत आरआरटीएस"
+					},
 					"mode": "RRTS",
 					"status": "approved",
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
-					"dataPath": "data/cities/delhi_ncr"
+					"hasData": true,
+					"dataPath": "data/cities/delhi_ncr",
+					"icon": "assets/icons/networks/ncrtc.svg"
 				}
-			}
+			},
+			"themeColor": "#1E40AF"
 		},
 		"mumbai": {
-			"name": "Mumbai",
-			"state": "Maharashtra",
+			"name": {
+				"en": "Mumbai",
+				"hi": "मुंबई"
+			},
+			"state": {
+				"en": "Maharashtra",
+				"hi": "महाराष्ट्र"
+			},
 			"networks": {
 				"mumbai_metro": {
-					"name": "Mumbai Metro",
+					"name": {
+						"en": "Mumbai Metro",
+						"hi": "मुंबई मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "MMRDA / MMRC",
 					"website": "https://mmrcl.com",
-					"dataPath": "mumbai_metro_data"
+					"dataPath": "mumbai_metro_data",
+					"icon": "assets/icons/networks/mumbai_metro.svg"
 				},
 				"mumbai_monorail": {
-					"name": "Mumbai Monorail",
+					"name": {
+						"en": "Mumbai Monorail",
+						"hi": "मुंबई मोनोरेल"
+					},
 					"mode": "Monorail",
 					"status": "operational",
 					"operator": "MMRDA",
@@ -86,7 +137,10 @@
 					"dataPath": "mumbai_monorail_data"
 				},
 				"thane_metro": {
-					"name": "Thane Metro",
+					"name": {
+						"en": "Thane Metro",
+						"hi": "ठाणे मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "under_construction",
 					"operator": "MMRDA",
@@ -94,316 +148,542 @@
 					"dataPath": "thane_metro_data"
 				},
 				"navi_mumbai_metro": {
-					"name": "Navi Mumbai Metro",
+					"name": {
+						"en": "Navi Mumbai Metro",
+						"hi": "नवी मुंबई मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "CIDCO",
 					"website": "https://cidco.maharashtra.gov.in",
 					"dataPath": "navi_mumbai_metro_data"
 				}
-			}
+			},
+			"themeColor": "#0284C7"
 		},
 		"kolkata": {
-			"name": "Kolkata",
-			"state": "West Bengal",
+			"name": {
+				"en": "Kolkata",
+				"hi": "कोलकाता"
+			},
+			"state": {
+				"en": "West Bengal",
+				"hi": "पश्चिम बंगाल"
+			},
 			"networks": {
 				"kolkata_metro": {
-					"name": "Kolkata Metro",
+					"name": {
+						"en": "Kolkata Metro",
+						"hi": "कोलकाता मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "Metro Railway Kolkata / Indian Railways",
 					"website": "https://mtp.indianrailways.gov.in",
-					"dataPath": "kolkata_metro_data"
+					"dataPath": "kolkata_metro_data",
+					"icon": "assets/icons/networks/kolkata_metro.svg"
 				}
-			}
+			},
+			"themeColor": "#BE123C"
 		},
 		"bengaluru": {
-			"name": "Bengaluru",
-			"state": "Karnataka",
+			"name": {
+				"en": "Bengaluru",
+				"hi": "बेंगलुरु"
+			},
+			"state": {
+				"en": "Karnataka",
+				"hi": "कर्नाटक"
+			},
 			"networks": {
 				"namma_metro": {
-					"name": "Namma Metro",
+					"name": {
+						"en": "Namma Metro",
+						"hi": "नम्मा मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "BMRCL",
 					"website": "https://english.bmrc.co.in",
-					"dataPath": "bengaluru_metro_data"
+					"dataPath": "bengaluru_metro_data",
+					"icon": "assets/icons/networks/namma_metro.png"
 				}
-			}
+			},
+			"themeColor": "#059669"
 		},
 		"hyderabad": {
-			"name": "Hyderabad",
-			"state": "Telangana",
+			"name": {
+				"en": "Hyderabad",
+				"hi": "हैदराबाद"
+			},
+			"state": {
+				"en": "Telangana",
+				"hi": "तेलंगाना"
+			},
 			"networks": {
 				"hyderabad_metro": {
-					"name": "Hyderabad Metro",
+					"name": {
+						"en": "Hyderabad Metro",
+						"hi": "हैदराबाद मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "L&T Metro Rail / HMRL",
 					"website": "https://www.ltmetro.com",
-					"dataPath": "hyderabad_metro_data"
+					"dataPath": "hyderabad_metro_data",
+					"icon": "assets/icons/networks/hyderabad_metro.svg"
 				}
-			}
+			},
+			"themeColor": "#7C3AED"
 		},
 		"chennai": {
-			"name": "Chennai",
-			"state": "Tamil Nadu",
+			"name": {
+				"en": "Chennai",
+				"hi": "चेन्नई"
+			},
+			"state": {
+				"en": "Tamil Nadu",
+				"hi": "तमिलनाडु"
+			},
 			"networks": {
 				"chennai_metro": {
-					"name": "Chennai Metro",
+					"name": {
+						"en": "Chennai Metro",
+						"hi": "चेन्नई मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "CMRL",
 					"website": "https://chennaimetrorail.org",
-					"dataPath": "chennai_metro_data"
+					"dataPath": "chennai_metro_data",
+					"icon": "assets/icons/networks/chennai_metro.svg"
 				},
 				"chennai_light_rail": {
-					"name": "Chennai Light Rail",
+					"name": {
+						"en": "Chennai Light Rail",
+						"hi": "चेन्नई लाइट रेल"
+					},
 					"mode": "MetroLite",
 					"status": "proposed",
 					"operator": "CMRL",
 					"website": "https://chennaimetrorail.org",
 					"dataPath": "chennai_light_rail_data"
 				}
-			}
+			},
+			"themeColor": "#B45309"
 		},
 		"kochi": {
-			"name": "Kochi",
-			"state": "Kerala",
+			"name": {
+				"en": "Kochi",
+				"hi": "कोच्चि"
+			},
+			"state": {
+				"en": "Kerala",
+				"hi": "केरल"
+			},
 			"networks": {
 				"kochi_metro": {
-					"name": "Kochi Metro",
+					"name": {
+						"en": "Kochi Metro",
+						"hi": "कोच्चि मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "KMRL",
 					"website": "https://kochimetro.org",
-					"dataPath": "kochi_metro_data"
+					"dataPath": "kochi_metro_data",
+					"icon": "assets/icons/networks/kochi_metro.png"
 				}
-			}
+			},
+			"themeColor": "#0D9488"
 		},
 		"ahmedabad_gandhinagar": {
-			"name": "Ahmedabad - Gandhinagar",
-			"state": "Gujarat",
+			"name": {
+				"en": "Ahmedabad - Gandhinagar",
+				"hi": "अहमदाबाद - गांधीनगर"
+			},
+			"state": {
+				"en": "Gujarat",
+				"hi": "गुजरात"
+			},
 			"networks": {
 				"ahmedabad_metro": {
-					"name": "Ahmedabad Metro",
+					"name": {
+						"en": "Ahmedabad Metro",
+						"hi": "अहमदाबाद मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "GMRC",
 					"website": "https://www.gujaratmetrorail.com",
 					"dataPath": "ahmedabad_metro_data"
 				}
-			}
+			},
+			"themeColor": "#F59E0B"
 		},
 		"nagpur": {
-			"name": "Nagpur",
-			"state": "Maharashtra",
+			"name": {
+				"en": "Nagpur",
+				"hi": "नागपुर"
+			},
+			"state": {
+				"en": "Maharashtra",
+				"hi": "महाराष्ट्र"
+			},
 			"networks": {
 				"nagpur_metro": {
-					"name": "Nagpur Metro",
+					"name": {
+						"en": "Nagpur Metro",
+						"hi": "नागपुर मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "Maha Metro",
 					"website": "https://www.mahametro.org",
 					"dataPath": "nagpur_metro_data"
 				}
-			}
+			},
+			"themeColor": "#D97706"
 		},
 		"pune": {
-			"name": "Pune",
-			"state": "Maharashtra",
+			"name": {
+				"en": "Pune",
+				"hi": "पुणे"
+			},
+			"state": {
+				"en": "Maharashtra",
+				"hi": "महाराष्ट्र"
+			},
 			"networks": {
 				"pune_metro": {
-					"name": "Pune Metro",
+					"name": {
+						"en": "Pune Metro",
+						"hi": "पुणे मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "Maha Metro / PMRDA",
 					"website": "https://www.mahametro.org",
-					"dataPath": "pune_metro_data"
+					"dataPath": "pune_metro_data",
+					"icon": "assets/icons/networks/pune_metro.png"
 				}
-			}
+			},
+			"themeColor": "#D97706"
 		},
 		"jaipur": {
-			"name": "Jaipur",
-			"state": "Rajasthan",
+			"name": {
+				"en": "Jaipur",
+				"hi": "जयपुर"
+			},
+			"state": {
+				"en": "Rajasthan",
+				"hi": "राजस्थान"
+			},
 			"networks": {
 				"jaipur_metro": {
-					"name": "Jaipur Metro",
+					"name": {
+						"en": "Jaipur Metro",
+						"hi": "जयपुर मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "JMRC",
 					"website": "https://transport.rajasthan.gov.in/jmrc",
 					"dataPath": "jaipur_metro_data"
 				}
-			}
+			},
+			"themeColor": "#E11D48"
 		},
 		"lucknow": {
-			"name": "Lucknow",
-			"state": "Uttar Pradesh",
+			"name": {
+				"en": "Lucknow",
+				"hi": "लखनऊ"
+			},
+			"state": {
+				"en": "Uttar Pradesh",
+				"hi": "उत्तर प्रदेश"
+			},
 			"networks": {
 				"lucknow_metro": {
-					"name": "Lucknow Metro",
+					"name": {
+						"en": "Lucknow Metro",
+						"hi": "लखनऊ मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "lucknow_metro_data"
+					"dataPath": "lucknow_metro_data",
+					"icon": "assets/icons/networks/up_metro.svg"
 				}
-			}
+			},
+			"themeColor": "#C2410C"
 		},
 		"kanpur": {
-			"name": "Kanpur",
-			"state": "Uttar Pradesh",
+			"name": {
+				"en": "Kanpur",
+				"hi": "कानपुर"
+			},
+			"state": {
+				"en": "Uttar Pradesh",
+				"hi": "उत्तर प्रदेश"
+			},
 			"networks": {
 				"kanpur_metro": {
-					"name": "Kanpur Metro",
+					"name": {
+						"en": "Kanpur Metro",
+						"hi": "कानपुर मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "kanpur_metro_data"
+					"dataPath": "kanpur_metro_data",
+					"icon": "assets/icons/networks/up_metro.svg"
 				}
-			}
+			},
+			"themeColor": "#C2410C"
 		},
 		"agra": {
-			"name": "Agra",
-			"state": "Uttar Pradesh",
+			"name": {
+				"en": "Agra",
+				"hi": "आगरा"
+			},
+			"state": {
+				"en": "Uttar Pradesh",
+				"hi": "उत्तर प्रदेश"
+			},
 			"networks": {
 				"agra_metro": {
-					"name": "Agra Metro",
+					"name": {
+						"en": "Agra Metro",
+						"hi": "आगरा मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "agra_metro_data"
+					"dataPath": "agra_metro_data",
+					"icon": "assets/icons/networks/up_metro.svg"
 				}
-			}
+			},
+			"themeColor": "#C2410C"
 		},
 		"indore": {
-			"name": "Indore",
-			"state": "Madhya Pradesh",
+			"name": {
+				"en": "Indore",
+				"hi": "इंदौर"
+			},
+			"state": {
+				"en": "Madhya Pradesh",
+				"hi": "मध्य प्रदेश"
+			},
 			"networks": {
 				"indore_metro": {
-					"name": "Indore Metro",
+					"name": {
+						"en": "Indore Metro",
+						"hi": "इंदौर मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational_partial",
 					"operator": "MPMRCL",
 					"website": "https://mpmetrorail.com",
 					"dataPath": "indore_metro_data"
 				}
-			}
+			},
+			"themeColor": "#0891B2"
 		},
 		"bhopal": {
-			"name": "Bhopal",
-			"state": "Madhya Pradesh",
+			"name": {
+				"en": "Bhopal",
+				"hi": "भोपाल"
+			},
+			"state": {
+				"en": "Madhya Pradesh",
+				"hi": "मध्य प्रदेश"
+			},
 			"networks": {
 				"bhopal_metro": {
-					"name": "Bhopal Metro",
+					"name": {
+						"en": "Bhopal Metro",
+						"hi": "भोपाल मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "operational_partial",
 					"operator": "MPMRCL",
 					"website": "https://mpmetrorail.com",
 					"dataPath": "bhopal_metro_data"
 				}
-			}
+			},
+			"themeColor": "#0891B2"
 		},
 		"patna": {
-			"name": "Patna",
-			"state": "Bihar",
+			"name": {
+				"en": "Patna",
+				"hi": "पटना"
+			},
+			"state": {
+				"en": "Bihar",
+				"hi": "बिहार"
+			},
 			"networks": {
 				"patna_metro": {
-					"name": "Patna Metro",
+					"name": {
+						"en": "Patna Metro",
+						"hi": "पटना मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "under_construction",
 					"operator": "PMRC",
 					"website": "https://pmrc.bihar.gov.in",
 					"dataPath": "patna_metro_data"
 				}
-			}
+			},
+			"themeColor": "#9333EA"
 		},
 		"surat": {
-			"name": "Surat",
-			"state": "Gujarat",
+			"name": {
+				"en": "Surat",
+				"hi": "सूरत"
+			},
+			"state": {
+				"en": "Gujarat",
+				"hi": "गुजरात"
+			},
 			"networks": {
 				"surat_metro": {
-					"name": "Surat Metro",
+					"name": {
+						"en": "Surat Metro",
+						"hi": "सूरत मेट्रो"
+					},
 					"mode": "Metro",
 					"status": "under_construction",
 					"operator": "GMRC",
 					"website": "https://www.gujaratmetrorail.com",
 					"dataPath": "surat_metro_data"
 				}
-			}
+			},
+			"themeColor": "#F59E0B"
 		},
 		"meerut": {
-			"name": "Meerut",
-			"state": "Uttar Pradesh",
+			"name": {
+				"en": "Meerut",
+				"hi": "मेरठ"
+			},
+			"state": {
+				"en": "Uttar Pradesh",
+				"hi": "उत्तर प्रदेश"
+			},
 			"networks": {
 				"meerut_metro": {
-					"name": "Meerut Metro (Local Corridor)",
+					"name": {
+						"en": "Meerut Metro (Local Corridor)",
+						"hi": "मेरठ मेट्रो (लोकल कॉरिडोर)"
+					},
 					"mode": "Metro",
 					"status": "under_construction",
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
 					"dataPath": "meerut_metro_data"
 				}
-			}
+			},
+			"themeColor": "#C2410C"
 		},
 		"gorakhpur": {
-			"name": "Gorakhpur",
-			"state": "Uttar Pradesh",
+			"name": {
+				"en": "Gorakhpur",
+				"hi": "गोरखपुर"
+			},
+			"state": {
+				"en": "Uttar Pradesh",
+				"hi": "उत्तर प्रदेश"
+			},
 			"networks": {
 				"gorakhpur_metrolite": {
-					"name": "Gorakhpur MetroLite",
+					"name": {
+						"en": "Gorakhpur MetroLite",
+						"hi": "गोरखपुर मेट्रोलाइट"
+					},
 					"mode": "MetroLite",
 					"status": "approved",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
 					"dataPath": "gorakhpur_metrolite_data"
 				}
-			}
+			},
+			"themeColor": "#C2410C"
 		},
 		"jammu": {
-			"name": "Jammu",
-			"state": "Jammu & Kashmir",
+			"name": {
+				"en": "Jammu",
+				"hi": "जम्मू"
+			},
+			"state": {
+				"en": "Jammu & Kashmir",
+				"hi": "जम्मू और कश्मीर"
+			},
 			"networks": {
 				"jammu_metrolite": {
-					"name": "Jammu MetroLite",
+					"name": {
+						"en": "Jammu MetroLite",
+						"hi": "जम्मू मेट्रोलाइट"
+					},
 					"mode": "MetroLite",
 					"status": "approved",
 					"operator": "Government of J&K / JKMRTC",
 					"website": "https://jkmrtc.co.in",
 					"dataPath": "jammu_metrolite_data"
 				}
-			}
+			},
+			"themeColor": "#2563EB"
 		},
 		"srinagar": {
-			"name": "Srinagar",
-			"state": "Jammu & Kashmir",
+			"name": {
+				"en": "Srinagar",
+				"hi": "श्रीनगर"
+			},
+			"state": {
+				"en": "Jammu & Kashmir",
+				"hi": "जम्मू और कश्मीर"
+			},
 			"networks": {
 				"srinagar_metrolite": {
-					"name": "Srinagar MetroLite",
+					"name": {
+						"en": "Srinagar MetroLite",
+						"hi": "श्रीनगर मेट्रोलाइट"
+					},
 					"mode": "MetroLite",
 					"status": "approved",
 					"operator": "Government of J&K / JKMRTC",
 					"website": "https://jkmrtc.co.in",
 					"dataPath": "srinagar_metrolite_data"
 				}
-			}
+			},
+			"themeColor": "#2563EB"
 		},
 		"dehradun": {
-			"name": "Dehradun",
-			"state": "Uttarakhand",
+			"name": {
+				"en": "Dehradun",
+				"hi": "देहरादून"
+			},
+			"state": {
+				"en": "Uttarakhand",
+				"hi": "उत्तराखंड"
+			},
 			"networks": {
 				"dehradun_metroneo": {
-					"name": "Dehradun MetroNeo",
+					"name": {
+						"en": "Dehradun MetroNeo",
+						"hi": "देहरादून मेट्रोनियो"
+					},
 					"mode": "MetroNeo",
 					"status": "proposed",
 					"operator": "UKMRC",
 					"website": null,
 					"dataPath": "dehradun_metroneo_data"
 				}
-			}
+			},
+			"themeColor": "#047857"
 		}
 	}
 }

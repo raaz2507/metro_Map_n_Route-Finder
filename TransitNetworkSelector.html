@@ -31,7 +31,7 @@
 
     <!-- 2. Main Page Container -->
     <main class="network-selector-page">
-        <!-- Controls & Filter Toolbar -->
+               <!-- Controls & Filter Toolbar -->
         <section class="selector-controls" aria-label="Search and Filter Transit Networks">
             <div class="search-box-wrapper">
                 <span class="search-icon" aria-hidden="true">🔍</span>
@@ -39,7 +39,7 @@
                     type="text" 
                     id="network-search-input" 
                     placeholder="Search city, station, hospital, tourist place (e.g. AIIMS, India Gate, DMRC)..." 
-                    data-i18n-placeholder="pages.networks.searchPlaceholder"
+                    data-i18n-placeholder="pages.networks.search.placeholder"
                     aria-label="Search transit networks"
                     autocomplete="off"
                 >
@@ -49,40 +49,38 @@
                 <div class="search-autocomplete-dropdown" id="search-autocomplete-dropdown" role="listbox" hidden></div>
             </div>
 
-            <!-- Filter & Sort Controls Rows -->
+           <!-- Filter & Sort Controls Rows -->
             <div class="filters-row">
                 <!-- 1. Mode Filter Row -->
                 <div class="filter-group">
-                    <span class="filter-label" data-i18n="pages.networks.modeLabel">Mode:</span>
+                    <span class="filter-label" data-i18n="pages.networks.filters.modeLabel">Mode:</span>
                     <div class="filter-chips-wrapper" id="mode-chips-wrapper" role="radiogroup" aria-label="Filter by Transit Mode">
-                        <button type="button" class="chip-btn active" data-mode="all" data-i18n="pages.networks.allModes" aria-checked="true">All Modes</button>
-                        <button type="button" class="chip-btn" data-mode="Metro" data-i18n="pages.networks.metro" aria-checked="false">🚇 Metro</button>
-                        <button type="button" class="chip-btn" data-mode="RRTS" data-i18n="pages.networks.rrts" aria-checked="false">🚆 RRTS</button>
-                        <button type="button" class="chip-btn" data-mode="Monorail" data-i18n="pages.networks.monorail" aria-checked="false">🚝 Monorail</button>
-                        <button type="button" class="chip-btn" data-mode="MetroLite" data-i18n="pages.networks.metrolite" aria-checked="false">🚋 MetroLite</button>
-                        <button type="button" class="chip-btn" data-mode="MetroNeo" data-i18n="pages.networks.metroneo" aria-checked="false">⚡ MetroNeo</button>
+                    	<button type="button" class="chip-btn active" data-mode="all" aria-checked="true"><span class="ui-vector-icon icon-all-modes"></span> <span data-i18n="pages.networks.filters.allModes">All Modes</span></button>
+                        <button type="button" class="chip-btn" data-mode="Metro" aria-checked="false"><span class="ui-vector-icon icon-metro"></span> <span data-i18n="pages.networks.filters.metro">Metro</span></button>
+                        <button type="button" class="chip-btn" data-mode="RRTS" aria-checked="false"><span class="ui-vector-icon icon-rrts"></span> <span data-i18n="pages.networks.filters.rrts">RRTS</span></button>
+                        <button type="button" class="chip-btn" data-mode="Monorail" aria-checked="false"><span class="ui-vector-icon icon-monorail"></span> <span data-i18n="pages.networks.filters.monorail">Monorail</span></button>
+                        <button type="button" class="chip-btn" data-mode="MetroLite" aria-checked="false"><span class="ui-vector-icon icon-metrolite"></span> <span data-i18n="pages.networks.filters.metrolite">MetroLite</span></button>
+                        <button type="button" class="chip-btn" data-mode="MetroNeo" aria-checked="false"><span class="ui-vector-icon icon-metroneo"></span> <span data-i18n="pages.networks.filters.metroneo">MetroNeo</span></button>
                     </div>
                 </div>
-
                 <!-- 2. Status Filter Row -->
                 <div class="filter-group">
-                    <span class="filter-label" data-i18n="pages.networks.statusLabel">Status:</span>
+                    <span class="filter-label" data-i18n="pages.networks.filters.statusLabel">Status:</span>
                     <div class="filter-chips-wrapper" id="status-chips-wrapper" role="radiogroup" aria-label="Filter by Network Status">
-                        <button type="button" class="chip-btn active" data-status="all" data-i18n="pages.networks.allStatus" aria-checked="true">All Status</button>
-                        <button type="button" class="chip-btn" data-status="operational" data-i18n="pages.networks.operational" aria-checked="false">🟢 Operational</button>
-                        <button type="button" class="chip-btn" data-status="operational_partial" data-i18n="pages.networks.partial" aria-checked="false">🟡 Partial</button>
-                        <button type="button" class="chip-btn" data-status="under_construction" data-i18n="pages.networks.underConstruction" aria-checked="false">🚧 Under Construction</button>
+                        <button type="button" class="chip-btn active" data-status="all" aria-checked="true"><span class="ui-vector-icon icon-all-status"></span> <span data-i18n="pages.networks.filters.allStatus">All Status</span></button>
+                        <button type="button" class="chip-btn" data-status="operational" aria-checked="false"><span class="ui-vector-icon icon-status-operational"></span> <span data-i18n="pages.networks.filters.operational">Operational</span></button>
+                        <button type="button" class="chip-btn" data-status="operational_partial" aria-checked="false"><span class="ui-vector-icon icon-status-partial"></span> <span data-i18n="pages.networks.filters.partial">Partial</span></button>
+                        <button type="button" class="chip-btn" data-status="under_construction" aria-checked="false"><span class="ui-vector-icon icon-status-construction"></span> <span data-i18n="pages.networks.filters.underConstruction">Under Construction</span></button>
                     </div>
                 </div>
-
                 <!-- 3. Sort By Chips Row -->
                 <div class="filter-group">
-                    <span class="filter-label" data-i18n="pages.networks.sortByLabel">Sort By:</span>
+                    <span class="filter-label" data-i18n="pages.networks.filters.sortByLabel">Sort By:</span>
                     <div class="filter-chips-wrapper" id="sort-chips-wrapper" role="radiogroup" aria-label="Sort Transit Networks">
-                        <button type="button" class="chip-btn active" data-sort="status_smart" data-i18n="pages.networks.sortStatus" aria-checked="true">🟢 Status (Default)</button>
-                        <button type="button" class="chip-btn" data-sort="city_asc" data-i18n="pages.networks.sortCity" aria-checked="false">🏙️ City (A → Z)</button>
-                        <button type="button" class="chip-btn" data-sort="name_asc" data-i18n="pages.networks.sortName" aria-checked="false">🚇 Name (A → Z)</button>
-                        <button type="button" class="chip-btn" data-sort="mode" data-i18n="pages.networks.sortMode" aria-checked="false">🚆 Mode</button>
+                        <button type="button" class="chip-btn active" data-sort="status_smart" aria-checked="true"><span class="ui-vector-icon icon-status-operational"></span> <span data-i18n="pages.networks.filters.sortStatus">Status (Default)</span></button>
+                        <button type="button" class="chip-btn" data-sort="city_asc" aria-checked="false"><span class="ui-vector-icon icon-city"></span> <span data-i18n="pages.networks.filters.sortCity">City (A → Z)</span></button>
+                        <button type="button" class="chip-btn" data-sort="name_asc" aria-checked="false"><span class="ui-vector-icon icon-sort-alpha"></span> <span data-i18n="pages.networks.filters.sortName">Name (A → Z)</span></button>
+                        <button type="button" class="chip-btn" data-sort="mode" aria-checked="false"><span class="ui-vector-icon icon-rrts"></span> <span data-i18n="pages.networks.filters.sortMode">Mode</span></button>
                     </div>
                 </div>
             </div>

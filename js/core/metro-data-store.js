@@ -6,296 +6,311 @@
 import { normalizeStationCoordinates } from "./data-utils.js";
 
 class MetroDataStore {
-    // Private State Fields
-    #metroData = null;
-    #stationsDetailData = null;
-    #currentCity = "delhi_ncr";
-    #currentNetwork = null;
-    #registryData = null;
-    #abortController = null;
-    #defaultCity = "delhi_ncr";
+	// Private State Fields
+	#rawCityData = null;
+	#metroData = null;
+	#stationsDetailData = null;
+	#currentCity = "delhi_ncr";
+	#currentNetwork = null;
+	#registryData = null;
+	#abortController = null;
+	#defaultCity = "delhi_ncr";
 
-    constructor() {
-        this.#metroData = {
-            defaults: {},
-            fareRules: {},
-            station_types: {},
-            lines: {},
-            stationData: {}
-        };
-    }
+	constructor() {
+		this.#metroData = {
+			defaults: {},
+			fareRules: {},
+			station_types: {},
+			lines: {},
+			stationData: {},
+			transfers: {}
+		};
+	}
 
-    /**
-     * Loads master transit registry (india_transit_registry.json)
-     */
-    async loadRegistry() {
-        if (this.#registryData) return this.#registryData;
+	/**
+	 * Loads master transit registry (india_transit_registry.json)
+	 */
+	async loadRegistry() {
+		if (this.#registryData) return this.#registryData;
 
-        try {
-            const response = await fetch("data/india_transit_registry.json");
-            if (response.ok) {
-                this.#registryData = await response.json();
-            }
-        } catch (error) {
-            console.warn("[MetroDataStore] Failed to load transit registry:", error);
-        }
-        return this.#registryData;
-    }
+		try {
+			const response = await fetch("data/india_transit_registry.json");
+			if (response.ok) {
+				this.#registryData = await response.json();
+			}
+		} catch (error) {
+			console.warn("[MetroDataStore] Failed to load transit registry:", error);
+		}
+		return this.#registryData;
+	}
 
-    /**
-     * Dynamically loads transit graph data for the requested or detected city.
-     * Priority: 1. Passed cityKey -> 2. URL (?city=) -> 3. localStorage -> 4. 'delhi_ncr'
-     */
-    async loadCity(cityKey = null, networkKey = null) {
-        // 1. Resolve Target City & Network
-        const resolvedCity = this.#resolveCityKey(cityKey);
-        const resolvedNetwork = this.#resolveNetworkKey(networkKey);
+	/**
+	 * Dynamically loads and filters transit graph data for the requested city and network.
+	 */
+	async loadCity(cityKey = null, networkKey = null) {
+		const resolvedCity = this.#resolveCityKey(cityKey);
+		const resolvedNetwork = this.#resolveNetworkKey(networkKey);
+		// Prevent redundant fetch if same city is already in memory
+		if (this.#rawCityData && this.#currentCity === resolvedCity) {
+			this.#currentNetwork = resolvedNetwork;
+			this.#metroData = this.#filterByNetwork(this.#rawCityData, resolvedNetwork);
+			this.#persistSelection(resolvedCity, resolvedNetwork);
+			return this.#metroData;
+		}
+		if (this.#abortController) {
+			this.#abortController.abort();
+		}
+		this.#abortController = new AbortController();
+				const dataPath = `data/cities/${resolvedCity}/transit_network.json`;
+		try {
+			console.log(`[MetroDataStore] Loading transit data for: "${resolvedCity}" from ${dataPath}...`);
+			const response = await fetch(dataPath, { signal: this.#abortController.signal });
+			if (!response.ok) {
+				throw new Error(`Data file not found for city "${resolvedCity}" (HTTP ${response.status})`);
+			}
+			const rawData = await response.json();
+			this.#rawCityData = normalizeStationCoordinates(rawData);
+			this.#currentCity = resolvedCity;
+			this.#currentNetwork = resolvedNetwork;
+			this.#metroData = this.#filterByNetwork(this.#rawCityData, resolvedNetwork);
+			this.#persistSelection(resolvedCity, resolvedNetwork);
+			return this.#metroData;
+		} catch (error) {
+			if (error.name === "AbortError") return this.#metroData;
+			console.warn(`[MetroDataStore] Failed to load "${resolvedCity}". Falling back to default "${this.#defaultCity}"...`, error);
+			if (resolvedCity !== this.#defaultCity) {
+				const fallbackData = await this.loadCity(this.#defaultCity, "dmrc");
+				if (fallbackData) {
+					fallbackData._fallback = { requestedCity: resolvedCity, fallbackCity: this.#defaultCity };
+				}
+				return fallbackData;
+			}
+			throw error;
+		}
+	}
 
-        // Prevent redundant fetch if same city is already loaded
-        if (this.#metroData && this.#currentCity === resolvedCity && Object.keys(this.#metroData.lines || {}).length > 0) {
-            this.#currentNetwork = resolvedNetwork;
-            return this.#metroData;
-        }
+	/**
+	 * Pure Filtering Pipeline (Filters Lines, Stations, and Fares by Network)
+	 */
+	#filterByNetwork(rawData, networkKey) {
+		if (!rawData) return rawData;
+		// अगर नेटवर्क खाली या 'all' है -> तो Combined City Data रिटर्न करें
+		if (!networkKey || networkKey === "all" || networkKey.trim() === "") {
+			return rawData;
+		}
+		const normalizedNetKey = networkKey.trim().toLowerCase();
+		const rawLines = rawData.lines || {};
+		const rawStations = rawData.stationData || {};
+		const rawFareRules = rawData.fareRules || {};
+		// 1. केवल चुने हुए नेटवर्क की लाइन्स फ़िल्टर करें
+		const filteredLines = {};
+		const activeStationIds = new Set();
+		for (const [lineId, lineObj] of Object.entries(rawLines)) {
+			const lineNetwork = (lineObj.network || "").trim().toLowerCase();
+			if (lineNetwork === normalizedNetKey) {
+				filteredLines[lineId] = lineObj;
+				if (Array.isArray(lineObj.stations)) {
+					lineObj.stations.forEach(stId => activeStationIds.add(stId));
+				}
+			}
+		}
+		if (Object.keys(filteredLines).length === 0) {
+			return rawData;
+		}
+		// 2. केवल एक्टिव लाइन्स के स्टेशन्स रखें और उनके नेबर्स को क्लीन करें
+		const filteredStationData = {};
+		for (const stId of activeStationIds) {
+			if (rawStations[stId]) {
+				const originalStation = rawStations[stId];
+				filteredStationData[stId] = {
+					...originalStation,
+					lines: (originalStation.lines || []).filter(lineId => filteredLines[lineId]),
+					neighbors: (originalStation.neighbors || []).filter(nbr => filteredLines[nbr.line] && activeStationIds.has(nbr.station))
+				};
+			}
+		}
+		// 3. केवल संबंधित फेयर पॉलिसियां रखें
+		const filteredFareRules = {
+			version: rawFareRules.version || "1.0",
+			currency: rawFareRules.currency || "INR",
+			networks: {},
+			policies: {}
+		};
+		if (rawFareRules.networks && rawFareRules.networks[normalizedNetKey]) {
+			filteredFareRules.networks[normalizedNetKey] = rawFareRules.networks[normalizedNetKey];
+		} else {
+			filteredFareRules.networks = rawFareRules.networks || {};
+		}
+		if (rawFareRules.policies) {
+			for (const [pKey, pObj] of Object.entries(rawFareRules.policies)) {
+				const policyNetwork = (pObj.network || "").trim().toLowerCase();
+				if (policyNetwork === normalizedNetKey) {
+					filteredFareRules.policies[pKey] = pObj;
+				}
+			}
+			if (Object.keys(filteredFareRules.policies).length === 0) {
+				filteredFareRules.policies = rawFareRules.policies;
+			}
+		}
+				// 4. केवल एक्टिव लाइन्स के ट्रांसफर्स रखें
+		const rawTransfers = rawData.transfers || {};
+		const filteredTransfers = {};
+		for (const [stId, lineMap] of Object.entries(rawTransfers)) {
+			if (activeStationIds.has(stId)) {
+				const stFiltered = {};
+				for (const [fromLine, targetMap] of Object.entries(lineMap)) {
+					if (filteredLines[fromLine]) {
+						const targetsFiltered = {};
+						for (const [targetKey, targetObj] of Object.entries(targetMap)) {
+							const [toStation, toLine] = targetKey.split(":");
+							if (activeStationIds.has(toStation) && filteredLines[toLine]) {
+								targetsFiltered[targetKey] = targetObj;
+							}
+						}
+						if (Object.keys(targetsFiltered).length > 0) {
+							stFiltered[fromLine] = targetsFiltered;
+						}
+					}
+				}
+				if (Object.keys(stFiltered).length > 0) {
+					filteredTransfers[stId] = stFiltered;
+				}
+			}
+		}
 
-        // 2. Abort previous pending fetch to prevent race conditions
-        if (this.#abortController) {
-            this.#abortController.abort();
-        }
-        this.#abortController = new AbortController();
+		return {
+			...rawData,
+			lines: filteredLines,
+			stationData: filteredStationData,
+			fareRules: filteredFareRules,
+			transfers: filteredTransfers
+		};
+	}
 
-        const dataPath = `data/cities/${resolvedCity}/data.json`;
+	#persistSelection(city, network) {
+		try {
+			localStorage.setItem("active_city", city);
+			if (network) {
+				localStorage.setItem("active_network", network);
+			} else {
+				localStorage.removeItem("active_network");
+			}
+		} catch (e) {}
+	}
 
-        try {
-            console.log(`[MetroDataStore] Loading transit data for: "${resolvedCity}" from ${dataPath}...`);
-            const response = await fetch(dataPath, {
-                signal: this.#abortController.signal
-            });
+	/**
+	 * Dynamically loads detailed station facilities data (stations_data.json)
+	 */
+	async loadStationsDetail(cityKey = null) {
+		const resolvedCity = this.#resolveCityKey(cityKey);
+		const dataPath = `data/cities/${resolvedCity}/station_details.json`;
 
-            if (!response.ok) {
-                throw new Error(`Data file not found for city "${resolvedCity}" (HTTP ${response.status})`);
-            }
+		try {
+			const response = await fetch(dataPath);
+			if (!response.ok) {
+				throw new Error(`Detailed stations file not found for "${resolvedCity}"`);
+			}
+			this.#stationsDetailData = await response.json();
+			return this.#stationsDetailData;
+		} catch (error) {
+			console.warn(`[MetroDataStore] Failed to load stations detail for "${resolvedCity}":`, error);
+			if (resolvedCity !== this.#defaultCity) {
+				return await this.loadStationsDetail(this.#defaultCity);
+			}
+			return {};
+		}
+	}
 
-            const rawData = await response.json();
-            this.#metroData = normalizeStationCoordinates(rawData);
-            this.#currentCity = resolvedCity;
-            this.#currentNetwork = resolvedNetwork;
+		/**
+	 * Resolves City Key using 3-tier hierarchy
+	 */
+	#resolveCityKey(explicitCity) {
+		if (explicitCity && typeof explicitCity === "string" && explicitCity.trim() !== "") {
+			return explicitCity.trim().toLowerCase();
+		}
 
-            // Persist active city in localStorage
-            try {
-                localStorage.setItem("active_city", resolvedCity);
-                if (resolvedNetwork) {
-                    localStorage.setItem("active_network", resolvedNetwork);
-                }
-            } catch (e) {
-                console.warn("[MetroDataStore] LocalStorage write failed:", e);
-            }
+		if (typeof window !== "undefined" && window.location) {
+			const urlParams = new URLSearchParams(window.location.search);
+			const paramCity = urlParams.get("city") || urlParams.get("region");
+			if (paramCity && paramCity.trim() !== "") {
+				return paramCity.trim().toLowerCase();
+			}
+		}
 
-            return this.#metroData;
-        } catch (error) {
-            if (error.name === "AbortError") {
-                return this.#metroData;
-            }
+		try {
+			const storedCity = localStorage.getItem("active_city");
+			if (storedCity && storedCity.trim() !== "") {
+				return storedCity.trim().toLowerCase();
+			}
+		} catch (e) {}
 
-            console.warn(`[MetroDataStore] Failed to load "${resolvedCity}". Falling back to default "${this.#defaultCity}"...`, error);
+		return this.#defaultCity;
+	}
 
-            // Fallback to Default City (delhi_ncr) and SHOW TOAST NOTICE
-            if (resolvedCity !== this.#defaultCity) {
-                this.#showFallbackToast(resolvedCity, this.#defaultCity);
-                return await this.loadCity(this.#defaultCity, "dmrc");
-            }
+	/**
+	 * Resolves Network Key
+	 */
+	#resolveNetworkKey(explicitNetwork) {
+		if (explicitNetwork && typeof explicitNetwork === "string") {
+			return explicitNetwork.trim().toLowerCase();
+		}
 
-            throw error;
-        }
-    }
+		if (typeof window !== "undefined" && window.location) {
+			const urlParams = new URLSearchParams(window.location.search);
+			if (urlParams.has("network") || urlParams.has("net")) {
+				const paramNet = urlParams.get("network") ?? urlParams.get("net");
+				return (paramNet || "").trim().toLowerCase();
+			}
+		}
 
-    /**
-     * Dynamically loads detailed station facilities data (stations_data.json)
-     */
-    async loadStationsDetail(cityKey = null) {
-        const resolvedCity = this.#resolveCityKey(cityKey);
-        const dataPath = `data/cities/${resolvedCity}/stations_data.json`;
+		try {
+			const storedNet = localStorage.getItem("active_network");
+			if (storedNet && storedNet.trim() !== "") {
+				return storedNet.trim().toLowerCase();
+			}
+		} catch (e) {}
 
-        try {
-            const response = await fetch(dataPath);
-            if (!response.ok) {
-                throw new Error(`Detailed stations file not found for "${resolvedCity}"`);
-            }
-            this.#stationsDetailData = await response.json();
-            return this.#stationsDetailData;
-        } catch (error) {
-            console.warn(`[MetroDataStore] Failed to load stations detail for "${resolvedCity}":`, error);
-            if (resolvedCity !== this.#defaultCity) {
-                return await this.loadStationsDetail(this.#defaultCity);
-            }
-            return {};
-        }
-    }
+		return null;
+	}
 
-    /**
-     * Resolves City Key using 3-tier hierarchy
-     */
-    #resolveCityKey(explicitCity) {
-        if (explicitCity && typeof explicitCity === "string" && explicitCity.trim() !== "") {
-            return explicitCity.trim().toLowerCase();
-        }
+	
 
-        // Check URL Parameters (?city=delhi_ncr)
-        if (typeof window !== "undefined" && window.location) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const paramCity = urlParams.get("city") || urlParams.get("region");
-            if (paramCity && paramCity.trim() !== "") {
-                return paramCity.trim().toLowerCase();
-            }
-        }
+	// Public Getters
+	get data() {
+		return this.#metroData;
+	}
 
-        // Check LocalStorage
-        try {
-            const storedCity = localStorage.getItem("active_city");
-            if (storedCity && storedCity.trim() !== "") {
-                return storedCity.trim().toLowerCase();
-            }
-        } catch (e) {
-            // Ignore
-        }
+	get stationData() {
+		return this.#metroData?.stationData || {};
+	}
 
-        return this.#defaultCity;
-    }
+	get lines() {
+		return this.#metroData?.lines || {};
+	}
 
-    /**
-     * Resolves Network Key
-     */
-    #resolveNetworkKey(explicitNetwork) {
-        if (explicitNetwork && typeof explicitNetwork === "string" && explicitNetwork.trim() !== "") {
-            return explicitNetwork.trim().toLowerCase();
-        }
+	get fareRules() {
+		return this.#metroData?.fareRules || {};
+	}
 
-        if (typeof window !== "undefined" && window.location) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const paramNet = urlParams.get("network") || urlParams.get("net");
-            if (paramNet && paramNet.trim() !== "") {
-                return paramNet.trim().toLowerCase();
-            }
-        }
+	get transfers() {
+		return this.#metroData?.transfers || {};
+	}
+	
+	get currentCity() {
+		return this.#currentCity;
+	}
 
-        try {
-            const storedNet = localStorage.getItem("active_network");
-            if (storedNet && storedNet.trim() !== "") {
-                return storedNet.trim().toLowerCase();
-            }
-        } catch (e) {
-            // Ignore
-        }
+	get currentNetwork() {
+		return this.#currentNetwork;
+	}
 
-        return null;
-    }
+	get stationsDetail() {
+		return this.#stationsDetailData || {};
+	}
 
-        /**
-     * Highly Visible, Animated Top-Center Notification Toast on Data Fallback
-     */
-    #showFallbackToast(requestedCity, fallbackCity) {
-        if (typeof document === "undefined") return;
-
-        const formattedRequested = requestedCity.replace(/_/g, " ").toUpperCase();
-        const formattedFallback = fallbackCity.replace(/_/g, " ").toUpperCase();
-
-        // Remove any existing fallback toast first
-        const existing = document.getElementById("metro-fallback-toast");
-        if (existing) existing.remove();
-
-        const toast = document.createElement("div");
-        toast.id = "metro-fallback-toast";
-        toast.setAttribute("role", "alert");
-        toast.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <span style="font-size: 1.3rem;">⚠️</span>
-                <div>
-                    <strong style="color: #92400e; font-weight: 700; display: block; font-size: 0.95rem;">City Data Under Construction</strong>
-                    <span style="color: #78350f; font-size: 0.85rem;">
-                        Transit data for "<strong>${formattedRequested}</strong>" is not yet available. Showing <strong>${formattedFallback}</strong> map.
-                    </span>
-                </div>
-            </div>
-            <button type="button" aria-label="Close Notice" style="background: transparent; border: none; font-size: 1.1rem; color: #92400e; cursor: pointer; padding: 2px 6px; font-weight: bold; margin-left: 12px; line-height: 1;">✕</button>
-        `;
-
-        // Modern High-Visibility Top Toast Styles
-        Object.assign(toast.style, {
-            position: "fixed",
-            top: "85px",
-            left: "50%",
-            transform: "translateX(-50%) translateY(-20px)",
-            backgroundColor: "#fef3c7", // Bright Warm Amber
-            border: "1.5px solid #f59e0b",
-            borderRadius: "12px",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0,0,0,0.1)",
-            padding: "12px 20px",
-            zIndex: "999999",
-            maxWidth: "92vw",
-            width: "max-content",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            fontFamily: "var(--font-main, sans-serif)",
-            opacity: "0",
-            transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)"
-        });
-
-        document.body.appendChild(toast);
-
-        // Entrance Animation Trigger
-        requestAnimationFrame(() => {
-            toast.style.opacity = "1";
-            toast.style.transform = "translateX(-50%) translateY(0)";
-        });
-
-        // Close Button Handler
-        const closeBtn = toast.querySelector("button");
-        const dismissToast = () => {
-            toast.style.opacity = "0";
-            toast.style.transform = "translateX(-50%) translateY(-15px)";
-            setTimeout(() => toast.remove(), 350);
-        };
-
-        if (closeBtn) {
-            closeBtn.addEventListener("click", dismissToast);
-        }
-
-        // Auto dismiss after 5.5 seconds
-        setTimeout(dismissToast, 5500);
-    }
-
-    // Public Getters
-    get data() {
-        return this.#metroData;
-    }
-
-    get stationData() {
-        return this.#metroData?.stationData || {};
-    }
-
-    get lines() {
-        return this.#metroData?.lines || {};
-    }
-
-    get fareRules() {
-        return this.#metroData?.fareRules || {};
-    }
-
-    get currentCity() {
-        return this.#currentCity;
-    }
-
-    get currentNetwork() {
-        return this.#currentNetwork;
-    }
-
-    get stationsDetail() {
-        return this.#stationsDetailData || {};
-    }
-
-    get isLoaded() {
-        return Boolean(this.#metroData && Object.keys(this.#metroData.lines || {}).length > 0);
-    }
+	get isLoaded() {
+		return Boolean(this.#metroData && Object.keys(this.#metroData.lines || {}).length > 0);
+	}
 }
 
 export const metroDataStore = new MetroDataStore();

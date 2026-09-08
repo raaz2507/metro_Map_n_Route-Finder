@@ -107,7 +107,27 @@ export default {
 						lineChangeLabel: "Line Change",
 						stationsLabel: "Stations",
 						tokenFareLabel: "Token Fare",
-						directionText: "Towards {terminal} (Platform No. {platform})"
+						directionText: "Towards {terminal} (Platform No. {platform})",
+						distanceLabel: "Distance",
+						breakdownToggle: "View details of {count} Tickets",
+						smartCardSavings: "Save ₹{amount} using Smart Card!",
+						transferModes: {
+							crossPlatform: "Cross-Platform",
+							samePlatform: "Same Platform",
+							levelChange: "Level {level} Change",
+							escalator: "Escalator / Stairs",
+							skywalk: "Skywalk ({distance}m)",
+							corridor: "Corridor ({distance}m)",
+							freeERickshaw: "Free E-Rickshaw",
+							securityCheck: "Security Check",
+							accessible: "Wheelchair Accessible"
+						},
+						alerts: {
+							multimodalSecurity: "Multimodal Junction: Separate gate & fresh security check required",
+							ncmcCard: "RuPay NCMC / Smart Card works directly at gates",
+							walkwayNotice: "{distance}m walkway (~{minutes} min walk)",
+							sharedTrackNotice: "Shared Track: Local & express trains available on same platform"
+						}
 					},
 					shareModal: {
 						title: "Share Route",
@@ -198,10 +218,13 @@ export default {
 			map: {
 				label: "Map",
 				clearRoute: "Clear Route",
-				showRoute: "Show Route"
+				showRoute: "Show Route",
+				clearFilter: "Clear Filter",
+				viewStationInfo: "View Station Details"
 			},
 			alarmBanner: {
     			approaching: "Approaching Station",
+				trackingActive: "🛰️ Live Tracking Active",
 				interchangeAlert: "Interchange Station • Change Line Here",
 				destinationAlert: "Destination Station • Arriving Soon",
 				dismiss: "🔕 Dismiss",
@@ -250,27 +273,80 @@ export default {
 			}
 		},
 		networks: {
-			searchPlaceholder: "Search city, station, hospital, tourist place (e.g. AIIMS, India Gate, DMRC)...",
-			modeLabel: "Mode:",
-			allModes: "All Modes",
-			metro: "🚇 Metro",
-			rrts: "🚆 RRTS",
-			monorail: "🚝 Monorail",
-			metrolite: "🚋 MetroLite",
-			metroneo: "⚡ MetroNeo",
-			statusLabel: "Status:",
-			allStatus: "All Status",
-			operational: "🟢 Operational",
-			partial: "🟡 Partial",
-			underConstruction: "🚧 Under Construction",
-			sortByLabel: "Sort By:",
-			sortStatus: "🟢 Status (Default)",
-			sortCity: "🏙️ City (A → Z)",
-			sortName: "🚇 Name (A → Z)",
-			sortMode: "🚆 Mode",
-			showingCount: "Showing {count} transit networks",
-			noNetworksFound: "No transit networks found",
-			noNetworksQuery: "No networks match \"{query}\"."
+			// 1. Search Bar
+			search: {
+				placeholder: "Search city, station, hospital, tourist place (e.g. AIIMS, India Gate, DMRC)..."
+			},
+
+			// 2. Filter Bar (Mode, Status, Sort Chips)
+			filters: {
+				modeLabel: "Mode:",
+				allModes: "All Modes",
+				metro: "Metro",
+				rrts: "RRTS",
+				monorail: "Monorail",
+				metrolite: "MetroLite",
+				metroneo: "MetroNeo",
+
+				statusLabel: "Status:",
+				allStatus: "All Status",
+				operational: "Operational",
+				partial: "Partial",
+				underConstruction: "Under Construction",
+
+				sortByLabel: "Sort By:",
+				sortStatus: "Status (Default)",
+				sortCity: "City (A → Z)",
+				sortName: "Name (A → Z)",
+				sortMode: "Mode"
+			},
+
+			// 3. Stats & Empty States
+			stats: {
+				showingCount: "Showing {count} transit networks",
+				noNetworksFound: "No transit networks found",
+				noNetworksQuery: "No networks match \"{query}\"."
+			},
+
+			// 4. Section Headings
+			sections: {
+				combined: "🏙️ City-wide Combined Networks",
+				individual: "🚆 Individual Transit Lines"
+			},
+
+			// 5. Card UI Elements (Clean strings without emojis)
+			card: {
+				regionSuffix: " Region",
+				singleLineLinked: "● 1 Line Linked",
+				linesLinked: "● {count} Lines Linked",
+				officialWebsite: "Official Website",
+				allNetworksSuffix: "(All Networks)",
+				combinedSubtitle: "Combined City Data",
+				modes: {
+					metro: "Metro",
+					rrts: "RRTS",
+					monorail: "Monorail",
+					metrolite: "MetroLite",
+					metroneo: "MetroNeo"
+				},
+				status: {
+					operational: "Operational",
+					partial: "Partial Service",
+					underConstruction: "Under Construction",
+					approved: "Approved",
+					proposed: "Proposed"
+				}
+			},
+
+			// 6. Action Toasts
+			toast: {
+				underConstructionTitle: "🚧 Under Construction",
+				underConstructionMsg: "\"{name}\" is currently under construction. Route and station data are not yet operational.",
+				proposedTitle: "📋 Proposed / Approved",
+				proposedMsg: "\"{name}\" is in the planned/approved phase. Service has not yet begun.",
+				dataPendingTitle: "🛠️ Data Integration Pending",
+				dataPendingMsg: "Transit data for \"{name}\" is currently being compiled by developers. Coming soon!"
+			}
 		},
 		all_stations: {
 			searchPlaceholder: "Search station by name or code (e.g. Jhilmil, Rajiv Chowk)...",

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-58 -58 116 66" width="116" height="66" fill="none">
+  <defs>
+    <!-- Chrome Metallic Mast Gradient -->
+    <linearGradient id="pole-grad-from" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="35%" stop-color="#cbd5e1"/>
+      <stop offset="60%" stop-color="#ffffff"/>
+      <stop offset="85%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <!-- 3D Gold Spherical Finial -->
+    <radialGradient id="gold-finial-from" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="45%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </radialGradient>
+    <!-- Green 3D Ribbon Gradients -->
+    <linearGradient id="ribbon-from-face" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="ribbon-from-tail" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <filter id="ribbon-shadow-from" x="-8" y="-55" width="75" height="60" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#047857" flood-opacity="0.35"/>
+    </filter>
+    <!-- High-Contrast 3D Text Shadow -->
+    <filter id="text-depth-from" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.2" stdDeviation="0.6" flood-color="#022c22" flood-opacity="0.7"/>
+    </filter>
+
+    <style>
+      /* 1. लगातार ऊपर-नीचे तैरना (Floating / Bobbing) */
+      .pin-floating-body {
+        animation: pinBob 2.6s ease-in-out infinite;
+      }
+      @keyframes pinBob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4.5px); }
+      }
+
+      /* ज़मीन की परछाई का ऊंचाई के साथ सिकुड़ना */
+      .pin-ground-shadow {
+        animation: shadowPulse 2.6s ease-in-out infinite;
+        transform-origin: 0 0;
+      }
+      @keyframes shadowPulse {
+        0%, 100% { transform: scale(1); opacity: 0.35; }
+        50% { transform: scale(0.75); opacity: 0.18; }
+      }
+
+      /* 2. झंडे का हवा में लहराना (Cloth Wave / Wind Flutter) */
+      .pin-cloth-wave {
+        transform-origin: 1.5px -35px;
+        animation: clothWave 2.2s ease-in-out infinite alternate;
+      }
+      @keyframes clothWave {
+        0% {
+          transform: rotate(0deg) skewY(0deg) scaleX(1);
+        }
+        35% {
+          transform: rotate(2.4deg) skewY(-2deg) scaleX(0.97);
+        }
+        70% {
+          transform: rotate(-1.6deg) skewY(1.5deg) scaleX(1.02);
+        }
+        100% {
+          transform: rotate(1.2deg) skewY(-1deg) scaleX(0.98);
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Ground Contact Shadow at (0,0) -->
+  <ellipse class="pin-ground-shadow" cx="0" cy="0" rx="9" ry="3.2" fill="#000000" opacity="0.32"/>
+
+  <!-- पूरा तैरने वाला पिन यूनिट (Floating Unit) -->
+  <g class="pin-floating-body">
+    <!-- Pin Needle Point (Anchor 0,0) -->
+    <polygon points="-2,-2 2,-2 0,1" fill="#334155"/>
+
+    <!-- Chrome Metallic Mast Pole -->
+    <rect x="-1.5" y="-50" width="3" height="49" rx="1.2" fill="url(#pole-grad-from)"/>
+
+    <!-- Top 3D Golden Ball Finial -->
+    <circle cx="0" cy="-51" r="3.8" fill="url(#gold-finial-from)"/>
+    <circle cx="-1" cy="-52.2" r="1.1" fill="#ffffff" opacity="0.75"/>
+
+    <!-- हवा में लहराता हुआ 3D कपड़ा (Cloth Wave Body) -->
+    <g class="pin-cloth-wave" filter="url(#ribbon-shadow-from)">
+      <!-- Layer 3: Swallowtail V-cut Tail (Rear wing) -->
+      <polygon points="41,-46.5 54,-42 48,-33.5 54,-25 41,-24.5" fill="url(#ribbon-from-tail)"/>
+      
+      <!-- Layer 2: 3D Under-fold (Dark Shadow Connector) -->
+      <polygon points="34,-43 41,-46.5 41,-24.5 34,-21.5" fill="#064e3b"/>
+
+      <!-- Layer 1: Main Front Face -->
+      <polygon points="1.5,-49.5 34,-43 34,-21.5 1.5,-28" fill="url(#ribbon-from-face)"/>
+      <!-- Top 3D Highlight Bevel Edge -->
+      <polyline points="1.5,-49.5 34,-43" stroke="#a7f3d0" stroke-width="1" opacity="0.85"/>
+
+      <!-- 3D Perspective Text: Skewed to match Ribbon Plane -->
+      <g transform="skewY(11.5)">
+        <text x="17.5" y="-39.5" text-anchor="middle" dominant-baseline="central" font-size="9.2" font-weight="900" fill="#ffffff" font-family="'Inter', system-ui, -apple-system, sans-serif" letter-spacing="0.8" filter="url(#text-depth-from)">FROM</text>
+      </g>
+    </g>
+  </g>
+</svg>

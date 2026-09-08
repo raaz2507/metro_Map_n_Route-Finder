@@ -4,6 +4,8 @@
  */
 
 import { centerClass } from "../core/CenterClass.js";
+import { eventBus } from "../core/event-bus.js";
+import i18n from "../core/i18n.js";
 
 export class TelemetryWidget {
     #elements = {};
@@ -28,26 +30,35 @@ export class TelemetryWidget {
         };
     }
 
-    /**
-     * 📡 शुद्ध टेलीमेट्री स्ट्रीम लिसनर (Pure View Rendering)
+   /**
+     * 📡 टेलीमेट्री स्ट्रीम लिसनर (Zero Sensor Math - Pure i18n Display)
      */
     #bindTelemetryStream() {
+        const STATUS_TEXT_MAP = {
+            BLOCKED: "pages.home.telemetry.gpsBlocked",
+            NOT_ALLOWED: "pages.home.telemetry.gpsPrompt",
+            DEVICE_OFF: "pages.home.telemetry.gpsDeviceOff",
+            TUNNEL: "pages.home.telemetry.gpsTunnel",
+            ACQUIRING: "pages.home.telemetry.gpsAcquiring",
+            READY: "pages.home.telemetry.gpsReady",
+        };
         this.#unsubscribe = centerClass.bindTelemetry((data) => {
             if (!data) return;
-
             const el = this.#elements;
-
-            // 1. GPS बैज व एक्यूरेसी रेंडर
-            if (el.gpsPercentBadge && data.gps) {
-                this.#renderBadge(el.gpsPercentBadge, data.gps.badgeText, data.gps.badgeType);
+            // 1. GPS रेंडर (स्टेटस कोड से टेक्स्ट ट्रांसलेशन)
+            if (data.gps && el.gpsPercentBadge) {
+                const text = data.gps.status === "ACTIVE" 
+                    ? `${data.gps.percentage}%` 
+                    : (i18n.t(STATUS_TEXT_MAP[data.gps.status]) || data.gps.status);
+                this.#renderBadge(el.gpsPercentBadge, text, data.gps.badgeType);
+                if (el.gpsAccuracyBadge) {
+                    el.gpsAccuracyBadge.textContent = data.gps.precisionText;
+                }
             }
-            if (el.gpsAccuracyBadge && data.gps) {
-                el.gpsAccuracyBadge.textContent = data.gps.precisionText;
-            }
-
-            // 2. नेटवर्क बैज रेंडर
-            if (el.netPercentBadge && data.network) {
-                this.#renderBadge(el.netPercentBadge, data.network.badgeText, data.network.badgeType);
+            // 2. नेटवर्क रेंडर
+            if (data.network && el.netPercentBadge) {
+                const netText = data.network.status === "OFFLINE" ? "0% (Offline)" : `${data.network.percentage}%`;
+                this.#renderBadge(el.netPercentBadge, netText, data.network.badgeType);
             }
         });
     }
@@ -60,19 +71,31 @@ export class TelemetryWidget {
     #bindUserInteractions() {
         const el = this.#elements;
         const signal = this.#abortController.signal;
-
-        // 🛰️ GPS Status पंक्ति पर टैप करते ही डायलॉग बॉक्स खुलेगा
+        // 🛰️ GPS Status पंक्ति पर टैप करते ही परमिशन चेक
         el.gpsRow?.addEventListener("click", () => {
-            centerClass.requestGpsPermission();
+            centerClass.requestGpsPermission(
+                () => {},
+                (err) => {
+                    if (err?.code === 1) {
+                        eventBus.emit("SHOW_TOAST", {
+                            message: i18n.t("pages.home.gps.permissionDenied") || "📍 लोकेशन अनुमति ब्लॉक है। कृपया ब्राउज़र सेटिंग्स में Allow करें।",
+                            type: "error"
+                        });
+                    } else if (err?.code === 2) {
+                        eventBus.emit("SHOW_TOAST", {
+                            message: i18n.t("pages.home.gps.unavailable") || "📍 फ़ोन का GPS बंद है। कृपया डिवाइस लोकेशन ऑन करें।",
+                            type: "warning"
+                        });
+                    }
+                }
+            );
         }, { signal });
-
         // (?) हेल्प बटन टॉगल
         el.helpBtn?.addEventListener("click", (e) => {
             e.stopPropagation();
             const isOpen = el.card?.classList.toggle("popover-open");
             el.helpBtn.setAttribute("aria-expanded", String(isOpen));
         }, { signal });
-
         // बाहर क्लिक करने पर पॉपओवर बंद
         document.addEventListener("click", (e) => {
             if (el.card && !el.card.contains(e.target)) {
@@ -81,7 +104,6 @@ export class TelemetryWidget {
             }
         }, { signal });
     }
-
     destroy() {
         this.#unsubscribe?.();
         this.#abortController?.abort();

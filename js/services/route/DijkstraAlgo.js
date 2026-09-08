@@ -69,7 +69,7 @@ class PriorityQueue {
 export class DijkstraAlgo {
 	// Private State Fields
 	#stationData = null;
-	#lines = null;
+	#transfers = null;
 	#pathCache = new Map();
 
 	// Transfer Penalties (वर्चुअल पेनल्टी जिससे एल्गोरिद्म सही रूट चुने)
@@ -78,18 +78,19 @@ export class DijkstraAlgo {
 
 	/**
 	 * @param {Object} stationData - स्टेशनों का डेटा (पड़ोसी स्टेशनों और लाइन्स सहित)
-	 * @param {Object} lines - लाइन्स का डेटा
+	 * @param {Object} transfers - ट्रांसफर्स का डेटा
 	 */
-	constructor(stationData = {}, lines = {}) {
-		this.updateData(stationData, lines);
+	constructor(stationData = {}, transfers = {}) {
+		this.updateData(stationData, transfers);
 	}
+
 
 	/**
 	 * नया डेटा अपडेट करें और ग्राफ नेबर्स की प्री-कंपाइलेशन करें
 	 */
-	updateData(stationData, lines) {
+	updateData(stationData, transfers = {}) {
 		this.#stationData = stationData || {};
-		this.#lines = lines || {};
+		this.#transfers = transfers || {};
 		this.#pathCache.clear();
 		// 🚀 Pre-compile Keys (लूप में स्ट्रिंग एलोकेशन खत्म)
 		for (const st of Object.values(this.#stationData)) {
@@ -169,24 +170,14 @@ export class DijkstraAlgo {
 			const station = this.#stationData[curr.id];
 			if (!station || !station.neighbors) continue;
 
+			// 1. 🚂 Track Edges (ट्रेन केवल अपनी लाइन के ट्रैक पर आगे बढ़ेगी)
 			for (let i = 0; i < station.neighbors.length; i++) {
 				const neighbor = station.neighbors[i];
+				if (neighbor.line !== curr.line) continue;
+
 				const neighborId = neighbor.station;
-				const edgeLine = neighbor.line;
-				const isTransfer = curr.line !== edgeLine;
-
-				let weight = Number(neighbor.distance) || 0;
-				let transferCost = 0;
-
-				if (isTransfer) {
-					transferCost = 1;
-					weight += (routeType === "leastTransfers")
-						? DijkstraAlgo.LEAST_TRANSFER_PENALTY
-						: DijkstraAlgo.SHORT_ROUTE_TRANSFER_PENALTY;
-				}
-
-				// ⚡ Pre-computed Key Access
-				const nextKey = neighbor.targetKey || `${neighborId}-${edgeLine}`;
+				const weight = Number(neighbor.distance) || 0;
+				const nextKey = neighbor.targetKey || `${neighborId}-${curr.line}`;
 				const newDist = curr.dist + weight;
 
 				if (dists[nextKey] === undefined || newDist < dists[nextKey]) {
@@ -194,15 +185,52 @@ export class DijkstraAlgo {
 					prev[nextKey] = {
 						parentId: curr.id,
 						parentLine: curr.line,
-						edgeLine: edgeLine
+						edgeLine: curr.line,
+						isTransfer: false,
+						distance: weight
 					};
 
 					queue.push({
 						id: neighborId,
 						dist: newDist,
-						interchanges: curr.interchanges + transferCost,
-						line: edgeLine
+						interchanges: curr.interchanges,
+						line: curr.line
 					});
+				}
+			}
+
+			// 2. 🔄 Transfer Edges (प्लेटफॉर्म बदलाव या वॉकवे - 100% शुद्ध O(1) डिक्शनरी लुकअप)
+			const stationTransfers = this.#transfers?.[curr.id]?.[curr.line];
+			if (stationTransfers) {
+				for (const [targetKey, tData] of Object.entries(stationTransfers)) {
+					const [targetStationId, targetLine] = targetKey.split(":");
+					const transferDist = Number(tData.distance_meters) || 40;
+					const penalty = (routeType === "leastTransfers")
+						? DijkstraAlgo.LEAST_TRANSFER_PENALTY
+						: DijkstraAlgo.SHORT_ROUTE_TRANSFER_PENALTY;
+
+					const weight = transferDist + penalty;
+					const nextKey = `${targetStationId}-${targetLine}`;
+					const newDist = curr.dist + weight;
+
+					if (dists[nextKey] === undefined || newDist < dists[nextKey]) {
+						dists[nextKey] = newDist;
+						prev[nextKey] = {
+							parentId: curr.id,
+							parentLine: curr.line,
+							edgeLine: targetLine,
+							isTransfer: true,
+							transferData: tData,
+							distance: transferDist
+						};
+
+						queue.push({
+							id: targetStationId,
+							dist: newDist,
+							interchanges: curr.interchanges + 1,
+							line: targetLine
+						});
+					}
 				}
 			}
 		}
@@ -240,20 +268,19 @@ export class DijkstraAlgo {
 
 			const parentInfo = prev[tempState];
 			if (parentInfo) {
-				const parentStation = this.#stationData[parentInfo.parentId];
-				const edge = parentStation?.neighbors?.find(
-					(n) => n.station === stationId && n.line === parentInfo.edgeLine
-				);
-
-				const edgeDist = edge ? Number(edge.distance) || 0 : 0;
+				const edgeDist = parentInfo.distance || 0;
 				totalRealDistance += edgeDist;
-
 				linesUsedSet.add(parentInfo.edgeLine);
+
 				segments.unshift({
 					from: parentInfo.parentId,
 					to: stationId,
+					fromLine: parentInfo.parentLine,
+					toLine: parentInfo.edgeLine,
 					line: parentInfo.edgeLine,
-					distance: edgeDist
+					distance: edgeDist,
+					isTransfer: parentInfo.isTransfer,
+					transferData: parentInfo.transferData || null
 				});
 
 				tempState = `${parentInfo.parentId}-${parentInfo.parentLine}`;

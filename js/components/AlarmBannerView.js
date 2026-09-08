@@ -90,8 +90,13 @@ export class AlarmBannerView {
 		this.#currentAlarmState = alarmState.state || "INACTIVE";
 		// ⚠️ यदि फ़ॉलबैक मोड एक्टिव हुआ है, तो View Layer टोस्ट दिखाएगा
 		if (alarmState.isFallback) {
+			const fallbackKey = alarmState.fallbackReason === "PERMISSION_DENIED"
+				? "pages.home.gps.permissionDenied"
+				: (alarmState.fallbackReason === "GPS_UNAVAILABLE" 
+					? "pages.home.gps.unavailable" 
+					: "pages.home.gps.gpsFallbackWarning");
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.gps.gpsFallbackWarning") || "⚠️ GPS is off. Alarm will rely on estimated travel time.",
+				message: i18n.t(fallbackKey) || "⚠️ GPS is unavailable. Alarm will rely on estimated travel time.",
 				type: "warning"
 			});
 		}
@@ -135,42 +140,75 @@ export class AlarmBannerView {
 
 	}
 
-	/**
-	 * 🔔 फ़्लोटिंग अलार्म बटन: शुद्ध ON / OFF टॉगल
+		/**
+	 * 🔔 फ़्लोटिंग अलार्म बटन क्लिक हैंडलर (Decision Table Logic)
 	 */
-		#handleFloatingBtnClick() {
-        const isCurrentlyActive = this.#currentAlarmState === "ARMED" || this.#currentAlarmState === "RINGING";
+	#handleFloatingBtnClick() {
+		const activeRoute = appStateStore.getState("activeRoute");
+		const isCurrentlyActive = this.#currentAlarmState === "ARMED" || this.#currentAlarmState === "RINGING";
+		const isBannerVisible = this.#elements.banner?.classList.contains("active");
 
-        // 🛑 1. यदि पहले से चालू है -> अलार्म बंद करें
-        if (isCurrentlyActive) {
-            centerClass.stopLiveJourney();
-            this.#setVisualToggleState(false);
-            eventBus.emit("SHOW_TOAST", {
-                message: i18n.t("pages.home.alarmBanner.stoppedToast") || "🛑 लाइव अलार्म बंद किया गया",
-                type: "info"
-            });
-            return;
-        }
+		// 🎯 स्थिति A: यदि अलार्म पहले से ON है
+		if (isCurrentlyActive) {
+			// यदि रूट मौजूद है -> 2-Line बैनर टॉगल / शो करें (यूजर्स बैनर के Stop से अलार्म बंद कर सकेंगे)
+			if (activeRoute?.path?.length) {
+				if (isBannerVisible) {
+					this.#hideBanner();
+				} else {
+					this.#populateTargetInfoFromRoute(activeRoute);
+					this.#showBanner();
+				}
+				return;
+			}
 
-        // 🔔 2. अलार्म तुरंत चालू करें (बिना किसी रुकावट या Toast के)
-        const activeRoute = appStateStore.getState("activeRoute");
-        const savedSettings = localStorage.getItem("metro_alarm_settings");
-        const alarmSettings = savedSettings ? JSON.parse(savedSettings) : {};
+			// यदि रूट नहीं था -> सीधे अलार्म बंद करें
+			centerClass.stopLiveJourney();
+			this.#setVisualToggleState(false);
+			this.#hideBanner();
+			eventBus.emit("SHOW_TOAST", {
+				message: i18n.t("pages.home.alarmBanner.stoppedToast") || "🛑 लाइव अलार्म बंद किया गया",
+				type: "info"
+			});
+			return;
+		}
 
-        centerClass.startLiveJourney({
-            path: activeRoute?.path || [],
-            interchanges: activeRoute?.interchanges || [],
-            destinationId: activeRoute?.destination?.id || (activeRoute?.path ? activeRoute.path[activeRoute.path.length - 1] : null),
-            totalTravelTimeSeconds: activeRoute?.totalTravelTimeSeconds || 1800,
-            alarmSettings: alarmSettings
-        });
+		// 🔔 स्थिति B: यदि अलार्म OFF था -> अलार्म ON करें (Banner = 0)
+		const savedSettings = localStorage.getItem("metro_alarm_settings");
+		const alarmSettings = savedSettings ? JSON.parse(savedSettings) : {};
 
-        this.#setVisualToggleState(true);
-        eventBus.emit("SHOW_TOAST", {
-            message: i18n.t("pages.home.alarmBanner.enabledToast") || "🔔 लाइव यात्रा अलार्म सक्रिय है",
-            type: "success"
-        });
-    }
+		centerClass.startLiveJourney({
+			path: activeRoute?.path || [],
+			interchanges: activeRoute?.interchanges || [],
+			destinationId: activeRoute?.destination?.id || (activeRoute?.path ? activeRoute.path[activeRoute.path.length - 1] : null),
+			totalTravelTimeSeconds: activeRoute?.totalTravelTimeSeconds || 1800,
+			alarmSettings: alarmSettings
+		});
+
+		this.#setVisualToggleState(true);
+		eventBus.emit("SHOW_TOAST", {
+			message: i18n.t("pages.home.alarmBanner.enabledToast") || "🔔 लाइव यात्रा अलार्म सक्रिय है",
+			type: "success"
+		});
+	}
+
+	/**
+	 * रूट से टारगेट स्टेशन का नाम और सब-टेक्स्ट सेट करें
+	 */
+	#populateTargetInfoFromRoute(activeRoute) {
+		if (!activeRoute) return;
+		const el = this.#elements;
+		const lang = i18n.getLanguage || "en";
+		
+		const targetName = activeRoute.destination?.name?.[lang] 
+			|| activeRoute.destination?.name?.en 
+			|| activeRoute.destination?.id 
+			|| "Destination";
+		
+		if (el.stationName) el.stationName.textContent = targetName;
+		if (el.subtext) {
+			el.subtext.textContent = i18n.t("pages.home.alarmBanner.trackingActive") || (lang === "hi" ? "🛰️ लाइव ट्रैकिंग सक्रिय" : "🛰️ Live Tracking Active");
+		}
+	}
 
 	/**
 	 * 🎨 आइकन और बटन का विज़ुअल स्टेटस टॉगल करें

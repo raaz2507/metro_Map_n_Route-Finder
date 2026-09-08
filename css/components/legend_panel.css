@@ -171,30 +171,31 @@
 		box-shadow: var(--shadow-sm);
 	}
 
-	.legend-panel .legend-icon-circle {
-		width: var(--lg-interchange-size);
-		height: var(--lg-interchange-size);
+		.legend-panel .legend-icon-circle {
+		width: var(--lg-interchange-size, 18px);
+		height: var(--lg-interchange-size, 18px);
 		border-radius: var(--radius-full);
-		border: 2px solid var(--legend-circle-border);
-		background: var(--legend-circle-bg);
+		border: 2px solid var(--legend-circle-border, #007bff);
+		background: radial-gradient(circle, var(--legend-circle-border, #007bff) 45%, var(--card-bg, #1e293b) 50%);
 		flex-shrink: 0;
 	}
 
 	.legend-panel .legend-icon-normal {
-		width: var(--lg-normal-size);
-		height: var(--lg-normal-size);
+		width: var(--lg-normal-size, 14px);
+		height: var(--lg-normal-size, 14px);
 		border-radius: var(--radius-full);
-		border: 1.5px solid var(--legend-circle-border);
-		background: var(--legend-circle-bg);
+		border: 2px solid var(--legend-circle-border, #007bff);
+		background: var(--card-bg, #1e293b);
+		box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
 		flex-shrink: 0;
 	}
 
 	.legend-panel .legend-icon-walkway {
-		width: var(--lg-walkway-size);
-		height: var(--lg-walkway-size);
+		width: var(--lg-walkway-size, 16px);
+		height: var(--lg-walkway-size, 16px);
 		border-radius: var(--radius-full);
-		border: 2px solid var(--legend-circle-border);
-		background: var(--legend-circle-bg);
+		border: 2px dashed var(--legend-circle-border, #007bff);
+		background: radial-gradient(circle, var(--legend-circle-border, #007bff) 35%, var(--card-bg, #1e293b) 40%);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -202,11 +203,35 @@
 		flex-shrink: 0;
 	}
 
-	.legend-panel .legend-icon-walkway::after {
+	.legend-panel .legend-icon-multimodal {
+		width: 16px;
+		height: 16px;
+		border-radius: 6px;
+		border: 2px solid #c084fc;
+		background: radial-gradient(circle, #c084fc 35%, var(--card-bg, #1e293b) 40%);
+		box-shadow: 0 0 8px rgba(192, 132, 252, 0.4);
+		flex-shrink: 0;
+	}
+
+	.legend-panel .legend-icon-shared-track {
+		width: 22px;
+		height: 13px;
+		border-radius: 7px;
+		border: 2px solid #f43f5e;
+		background: var(--card-bg, #1e293b);
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 0 3px;
+		flex-shrink: 0;
+	}
+
+	.legend-panel .legend-icon-shared-track::before,
+	.legend-panel .legend-icon-shared-track::after {
 		content: '';
-		width: 6px;
-		height: 6px;
-		background: var(--legend-circle-border);
-		border-radius: var(--radius-full);
+		width: 4px;
+		height: 4px;
+		background: #f43f5e;
+		border-radius: 50%;
 	}
 }

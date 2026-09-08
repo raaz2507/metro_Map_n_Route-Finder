@@ -8,8 +8,8 @@ import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { UniversalSearchEngine } from "../services/search/UniversalSearchEngine.js";
 
-import enLang from "../../lang/en.js";
-import hiLang from "../../lang/hi.js";
+import i18n from "../core/i18n.js";
+import { appStateStore } from "../core/app-state-store.js";
 
 export class AllStationsDirectory {
 	// Private State Fields
@@ -104,9 +104,10 @@ export class AllStationsDirectory {
 	 * Initialize active language dictionary
 	 */
 	#initLocalization() {
-		this.#lang = localStorage.getItem("app-lang") || localStorage.getItem("language") || "en";
-		const dictionary = this.#lang === "hi" ? hiLang : enLang;
-		this.#t = dictionary.pages?.all_stations || dictionary.all_stations || enLang.pages?.all_stations || {};
+		this.#lang = appStateStore.getState("currentLang") || "en";
+		this.#t = new Proxy({}, {
+			get: (_, key) => i18n.t(`pages.all_stations.${key}`)
+		});
 	}
 
 	/**

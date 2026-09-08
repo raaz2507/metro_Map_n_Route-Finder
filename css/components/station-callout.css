@@ -1,0 +1,400 @@
+@layer components {
+	/* =========================================================================
+	   💬 CYBERPUNK HUD STATION MAP CALLOUT (#2 Finalized)
+	   100% base.css Tokens & Multi-Theme Reactive (Light, Dark, Cyberpunk, Vintage, Mint, Ghibli)
+	   ========================================================================= */
+	.station-map-callout {
+		position: absolute;
+		top: calc(50% - var(--space-2xl));
+		left: 50%;
+		transform: translate(-50%, -100%);
+		transform-style: preserve-3d;
+		transform-origin: 50% 100%;
+		z-index: var(--z-sidebar);
+		cursor: pointer;
+		perspective: 900px;
+		pointer-events: auto;
+		white-space: normal;
+		font-family: var(--font-main);
+		
+		/* 🌀 एंबिएंट 3D फ्लोटिंग */
+		animation: signboard3DAmbient 4.2s ease-in-out infinite;
+		
+		/* 🎨 टोकन-रिएक्टिव ड्रॉप शैडो */
+		filter: drop-shadow(0 6px 12px rgba(var(--color-bg-base-rgb), var(--op-shadow)))
+		        drop-shadow(0 2px 4px rgba(var(--color-primary-rgb), var(--op-subtle)))
+		        drop-shadow(0 0 1px rgba(var(--color-primary-rgb), var(--op-translucent)));
+		transition: filter var(--transition-smooth);
+	}
+
+	/* 🛑 माउस ले जाते ही कार्ड 100% स्थिर */
+	.station-map-callout:hover {
+		animation-play-state: paused;
+	}
+
+	/* 🌀 3D एंबिएंट मोशन कीफ्रेम्स */
+	@keyframes signboard3DAmbient {
+		0%, 100% {
+			transform: translate(-50%, -100%) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateZ(0);
+		}
+		33% {
+			transform: translate(calc(-50% - 2.5px), -100%) rotateY(-7deg) rotateX(3deg) rotateZ(-1deg) translateZ(8px);
+		}
+		66% {
+			transform: translate(calc(-50% + 2.5px), -100%) rotateY(7deg) rotateX(-2deg) rotateZ(1deg) translateZ(8px);
+		}
+	}
+
+	/* 🔻 नीचे स्टेशन पॉइंटर एरो */
+	.station-map-callout::after {
+		content: "";
+		position: absolute;
+		bottom: calc(-1 * var(--space-sm));
+		left: 50%;
+		transform: translateX(-50%);
+		width: 0;
+		height: 0;
+		border-left: var(--space-sm) solid transparent;
+		border-right: var(--space-sm) solid transparent;
+		border-top: var(--space-sm) solid rgb(var(--color-primary-rgb));
+		transition: border-top-color var(--transition-smooth);
+	}
+
+	/* 🪟 कार्ड बॉडी: 100% टोकन्स + 7-पॉइंट आर्क व 45° चैम्फर कट्स */
+	.callout-card-body {
+		min-width: 210px;
+		max-width: 230px;
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-heavy));
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		color: var(--text-primary);
+		padding: var(--space-sm) var(--space-md);
+		box-sizing: border-box;
+		clip-path: polygon(
+			0 10px, 0.4px 7.4px, 1.3px 5px, 2.9px 2.9px, 5px 1.3px, 7.4px 0.4px, 10px 0,
+			calc(100% - 11px) 0, 100% 11px,
+			100% calc(100% - 10px), calc(100% - 0.4px) calc(100% - 7.4px), calc(100% - 1.3px) calc(100% - 5px), calc(100% - 2.9px) calc(100% - 2.9px), calc(100% - 5px) calc(100% - 1.3px), calc(100% - 7.4px) calc(100% - 0.4px), calc(100% - 10px) 100%,
+			11px 100%, 0 calc(100% - 11px)
+		);
+		transition: background-color var(--transition-smooth), color var(--transition-smooth);
+	}
+
+	/* 📌 हेडर Flex Row */
+	.callout-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-sm);
+		padding-bottom: var(--space-xs);
+		border-bottom: 1px solid rgba(var(--color-primary-rgb), var(--op-subtle));
+	}
+
+	/* ✕ क्लोज बटन */
+	.callout-close-btn {
+		background: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+		color: var(--text-muted);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		cursor: pointer;
+		line-height: 1;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: color var(--transition-fast);
+	}
+
+	.callout-close-btn:hover {
+		color: var(--text-primary);
+	}
+
+	/* 🏷️ स्टेशन टाइटल (2-लाइन क्लैंप + '...' एलिप्सिस) */
+	.callout-title {
+		flex: 1;
+		min-width: 0;
+		text-align: center;
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		line-height: 1.25;
+		color: var(--text-primary);
+		padding: 0 var(--space-xs);
+		display: -webkit-box;
+		line-clamp: 2;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		word-break: break-word;
+		text-overflow: ellipsis;
+	}
+
+	/* ℹ️ स्टेशन विवरण बटन (एक्सटर्नल assets/icons/info.svg से लिंक्ड via mask-image) */
+	.callout-info-btn {
+		color: var(--text-muted);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: var(--space-lg);
+		height: var(--space-lg);
+		text-decoration: none;
+		transition: transform var(--transition-fast), color var(--transition-fast);
+	}
+
+	.callout-info-btn::after {
+		content: "";
+		display: inline-block;
+		width: var(--fs-md);
+		height: var(--fs-md);
+		background-color: currentColor;
+		-webkit-mask-image: url("../../assets/icons/info.svg");
+		mask-image: url("../../assets/icons/info.svg");
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+	}
+
+	.callout-info-btn:hover {
+		color: var(--text-primary);
+		transform: scale(1.15);
+	}
+
+	/* 🕹️ ऐक्शन बटन्स रो (FROM / TO) */
+	.callout-actions {
+		display: flex;
+		align-items: center;
+		padding-top: var(--space-xs);
+	}
+
+	.callout-divider {
+		width: 1px;
+		height: var(--space-lg);
+		background-color: rgba(var(--color-primary-rgb), var(--op-subtle));
+		margin: 0 var(--space-xs);
+		flex-shrink: 0;
+	}
+
+	.callout-btn-from,
+	.callout-btn-to {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-xs);
+		padding: var(--space-xs) 0;
+		background: transparent;
+		border: none;
+		border-radius: var(--radius-xs);
+		cursor: pointer;
+		font-family: var(--font-main);
+		transition: background-color var(--transition-fast);
+	}
+
+	.callout-btn-from:hover {
+		background-color: rgba(var(--color-success-rgb), var(--op-subtle));
+	}
+
+	.callout-btn-to:hover {
+		background-color: rgba(var(--color-danger-rgb), var(--op-subtle));
+	}
+
+	/* ▲ FROM आइकन व टेक्स्ट */
+	.icon-from {
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-black);
+		line-height: 1;
+		color: rgb(var(--color-success-rgb));
+		display: inline-block;
+		transition: transform var(--transition-spring), filter var(--transition-fast);
+	}
+
+	.text-from {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-success-rgb));
+		letter-spacing: 0.05em;
+	}
+
+	.callout-btn-from:hover .icon-from {
+		filter: drop-shadow(0 0 6px rgba(var(--color-success-rgb), 0.85));
+		transform: scale(1.3);
+	}
+
+	/* ▼ TO आइकन व टेक्स्ट */
+	.icon-to {
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-black);
+		line-height: 1;
+		color: rgb(var(--color-danger-rgb));
+		display: inline-block;
+		transition: transform var(--transition-spring), filter var(--transition-fast);
+	}
+
+	.text-to {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-danger-rgb));
+		letter-spacing: 0.05em;
+	}
+
+	.callout-btn-to:hover .icon-to {
+		filter: drop-shadow(0 0 6px rgba(var(--color-danger-rgb), 0.85));
+		transform: scale(1.3);
+	}
+
+	/* =========================================================================
+	   🗺️ IN-CALLOUT CONFIRMATION & REPLACE PROMPTS (100% Pure Tokens)
+	   ========================================================================= */
+	.callout-prompt-view {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		padding: var(--space-xs) 0;
+		text-align: center;
+		animation: promptFadeIn var(--transition-fast) ease-out both;
+	}
+
+	@keyframes promptFadeIn {
+		0% { opacity: 0; transform: scale(0.96); }
+		100% { opacity: 1; transform: scale(1); }
+	}
+
+	.prompt-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+
+	.prompt-warning-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-warning-rgb));
+	}
+
+	.prompt-route-flow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-xs);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		padding: var(--space-xs) 0;
+	}
+
+	.prompt-flow-st {
+		max-width: calc(var(--space-2xl) * 3);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.prompt-flow-from {
+		color: rgb(var(--color-success-rgb));
+	}
+
+	.prompt-flow-to {
+		color: rgb(var(--color-danger-rgb));
+	}
+
+	.prompt-flow-arrow {
+		color: var(--text-muted);
+		font-size: var(--fs-xs);
+	}
+
+	.prompt-current-info {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		padding: var(--space-xs) 0;
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin: 0 auto;
+	}
+
+	.callout-prompt-actions {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		margin-top: var(--space-xs);
+	}
+
+	.btn-prompt-no,
+	.btn-prompt-yes {
+		flex: 1;
+		padding: var(--space-xs) var(--space-sm);
+		border-radius: var(--radius-xs);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		cursor: pointer;
+		transition: transform var(--transition-fast), 
+		            background-color var(--transition-fast), 
+		            color var(--transition-fast);
+	}
+
+	.btn-prompt-no {
+		background-color: transparent;
+		color: var(--text-secondary);
+		border: 1px solid rgba(var(--color-primary-rgb), var(--op-subtle));
+	}
+
+	.btn-prompt-no:hover {
+		color: var(--text-primary);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+	}
+
+	.btn-prompt-yes {
+		background-color: rgb(var(--color-primary-rgb));
+		color: var(--btn-primary-text);
+		border: 1px solid transparent;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.btn-prompt-yes:hover {
+		background-color: var(--btn-primary-hover);
+		transform: scale(1.02);
+	}
+
+	.btn-prompt-replace {
+		background-color: rgb(var(--color-warning-rgb));
+		color: var(--btn-primary-text);
+	}
+
+	
+
+	/* 📱 Mobile Responsiveness (Pure Tokens) */
+	@media (max-width: 768px) {
+		@layer components {
+			.station-map-callout {
+				top: calc(50% - var(--space-xl));
+			}
+
+			.callout-card-body {
+				min-width: 190px;
+				max-width: 215px;
+				padding: var(--space-xs) var(--space-sm);
+			}
+
+			.callout-title {
+				font-size: var(--fs-xs);
+			}
+
+			.callout-btn-from,
+			.callout-btn-to {
+				padding: var(--space-xs) 0;
+			}
+		}
+	}
+}

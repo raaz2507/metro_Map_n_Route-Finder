@@ -63,6 +63,19 @@ class CenterClass {
 			this.#metroData = await metroDataStore.loadCity(cityKey, networkKey);
 			this.#currentCity = metroDataStore.getCurrentCity ? metroDataStore.getCurrentCity() : (cityKey || "delhi_ncr");
 
+			// ⚠️ यदि कोई अधूरा शहर लोड हुआ और फ़ॉलबैक हुआ, तो ग्लोबल Toast दिखाएं
+			if (this.#metroData?._fallback) {
+				const { requestedCity, fallbackCity } = this.#metroData._fallback;
+				const formattedReq = requestedCity.replace(/_/g, " ").toUpperCase();
+				const formattedFallback = fallbackCity.replace(/_/g, " ").toUpperCase();
+				eventBus.emit("SHOW_TOAST", {
+					title: "City Under Construction",
+					message: `Transit data for "${formattedReq}" is not yet available. Showing ${formattedFallback} map.`,
+					type: "warning",
+					duration: 6000
+				});
+			}
+
 			// 2. Routing और Pricing इंजन इनिशियलाइज़ करें
 			this.#routeFinder = new RouteFinder(this.#metroData);
 			this.#fareCalculator = new FareCalculator(this.#metroData.fareRules || {});
@@ -143,13 +156,19 @@ class CenterClass {
 		this.#mapInstance = new MetroMap({
 			mapContainerSelector: options.containerSelector || ".mapContainer",
 			metroData: this.#metroData,
-			lang: options.lang || "en",       // 👈 साफ़ पास-थ्रू
+			lang: options.lang || "en",
 			theme: options.theme || "light",
 			onClearRoute: () => {
 				if (typeof options.onClearRoute === "function") {
 					options.onClearRoute();
 				}
 				eventBus.emit("ROUTE_CLEARED");
+			},
+			onStationClick: (stationPayload) => {
+				if (typeof options.onStationClick === "function") {
+					options.onStationClick(stationPayload);
+				}
+				eventBus.emit("STATION_CLICKED", stationPayload);
 			}
 		});
 
@@ -176,6 +195,21 @@ class CenterClass {
 		}
 	}
 
+	setRoutePin(type, stationId, x = null, y = null) {
+		if (this.#mapInstance && typeof this.#mapInstance.setRoutePin === "function") {
+			this.#mapInstance.setRoutePin(type, stationId, x, y);
+		}
+	}
+	clearRoutePins() {
+		if (this.#mapInstance && typeof this.#mapInstance.clearRoutePins === "function") {
+			this.#mapInstance.clearRoutePins();
+		}
+	}
+	clearStationHighlight() {
+		if (this.#mapInstance && typeof this.#mapInstance.clearStationHighlight === "function") {
+			this.#mapInstance.clearStationHighlight();
+		}
+	}
 	// =========================================================================
 	// 🧭 ROUTE SEARCH & PRICING ORCHESTRATION
 	// =========================================================================
@@ -327,8 +361,8 @@ class CenterClass {
     /**
      * GPS परमिशन का अनुरोध करें
      */
-    requestGpsPermission() {
-        telemetryService.requestGpsPermission();
+    requestGpsPermission(onGranted = null, onDenied = null) {
+        telemetryService.requestGpsPermission(onGranted, onDenied);
     }
 
 	// =========================================================================

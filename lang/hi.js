@@ -107,7 +107,27 @@ export default {
 						lineChangeLabel: "लाइन परिवर्तन",
 						stationsLabel: "स्टेशन",
 						tokenFareLabel: "किराया",
-						directionText: "दिशा: {terminal} की ओर (प्लेटफ़ॉर्म नंबर {platform})"
+						directionText: "दिशा: {terminal} की ओर (प्लेटफ़ॉर्म नंबर {platform})",
+						distanceLabel: "दूरी",
+						breakdownToggle: "{count} टिकट्स का अलग-अलग विवरण देखें",
+						smartCardSavings: "स्मार्ट कार्ड इस्तेमाल करने पर ₹{amount} की सीधी बचत!",
+						transferModes: {
+							crossPlatform: "क्रॉस-प्लेटफ़ॉर्म",
+							samePlatform: "उसी प्लेटफ़ॉर्म पर",
+							levelChange: "लेवल {level} बदलाव",
+							escalator: "एस्केलेटर / सीढ़ियाँ",
+							skywalk: "स्काईवॉक ({distance}m)",
+							corridor: "कॉरिडोर ({distance}m)",
+							freeERickshaw: "मुफ्त ई-रिक्शा",
+							securityCheck: "सुरक्षा जांच",
+							accessible: "व्हीलचेयर सुलभ"
+						},
+						alerts: {
+							multimodalSecurity: "मल्टीमॉडल जंक्शन: अलग गेट और दोबारा सुरक्षा जांच (Security Check)",
+							ncmcCard: "RuPay NCMC / स्मार्ट कार्ड सीधे गेट पर चलेगा",
+							walkwayNotice: "{distance}m वॉकवे (~{minutes} मिनट पैदल रास्ता)",
+							sharedTrackNotice: "साझा ट्रैक: उसी प्लेटफॉर्म से लोकल व एक्सप्रेस ट्रेन उपलब्ध"
+						}
 					},
 					shareModal: {
 						title: "मार्ग साझा करें",
@@ -197,10 +217,13 @@ export default {
 			map: {
 				label: "मानचित्र",
 				clearRoute: "रूट साफ़ करें",
-				showRoute: "रूट दिखाएं"
+				showRoute: "रूट दिखाएं",
+				clearFilter: "फ़िल्टर साफ़ करें",
+				viewStationInfo: "स्टेशन विवरण देखें"
 			},
 			alarmBanner: {
 				approaching: "स्टेशन आगमन सूचना",
+				trackingActive: "🛰️ लाइव यात्रा ट्रैकिंग सक्रिय",
 				interchangeAlert: "इंटरचेंज स्टेशन • कृपया यहाँ लाइन बदलें",
 				destinationAlert: "गंतव्य स्टेशन • कुछ ही देर में आगमन",
 				dismiss: "🔕 बंद करें",
@@ -249,27 +272,74 @@ export default {
 			}
 		},
 		networks: {
-			searchPlaceholder: "शहर, स्टेशन, अस्पताल या पर्यटन स्थल खोजें (उदा: AIIMS, इंडिया गेट, DMRC)...",
-			modeLabel: "मोड:",
-			allModes: "सभी मोड",
-			metro: "🚇 मेट्रो",
-			rrts: "🚆 आरआरटीएस",
-			monorail: "🚝 मोनोरेल",
-			metrolite: "🚋 मेट्रोलाइट",
-			metroneo: "⚡ मेट्रोनियो",
-			statusLabel: "स्थिति:",
-			allStatus: "सभी स्थितियाँ",
-			operational: "🟢 संचालित",
-			partial: "🟡 आंशिक संचालित",
-			underConstruction: "🚧 निर्माणाधीन",
-			sortByLabel: "क्रमबद्ध करें:",
-			sortStatus: "🟢 स्थिति (डिफ़ॉल्ट)",
-			sortCity: "🏙️ शहर (A → Z)",
-			sortName: "🚇 नाम (A → Z)",
-			sortMode: "🚆 मोड",
-			showingCount: "{count} पारगमन नेटवर्क दिखाए जा रहे हैं",
-			noNetworksFound: "कोई पारगमन नेटवर्क नहीं मिला",
-			noNetworksQuery: "\"{query}\" से मेल खाता कोई नेटवर्क नहीं मिला।"
+			// 1. Search Bar
+			search: {
+				placeholder: "शहर, स्टेशन, अस्पताल या पर्यटन स्थल खोजें (उदा: AIIMS, इंडिया गेट, DMRC)..."
+			},
+			// 2. Filter Bar (Mode, Status, Sort Chips)
+			filters: {
+				modeLabel: "मोड:",
+				allModes: "सभी मोड",
+				metro: "मेट्रो",
+				rrts: "आरआरटीएस",
+				monorail: "मोनोरेल",
+				metrolite: "मेट्रोलाइट",
+				metroneo: "मेट्रोनियो",
+				statusLabel: "स्थिति:",
+				allStatus: "सभी स्थितियाँ",
+				operational: "संचालित",
+				partial: "आंशिक संचालित",
+				underConstruction: "निर्माणाधीन",
+				sortByLabel: "क्रमबद्ध करें:",
+				sortStatus: "स्थिति (डिफ़ॉल्ट)",
+				sortCity: "शहर (A → Z)",
+				sortName: "नाम (A → Z)",
+				sortMode: "मोड"
+			},
+			// 3. Stats & Empty States
+			stats: {
+				showingCount: "{count} पारगमन नेटवर्क दिखाए जा रहे हैं",
+				noNetworksFound: "कोई पारगमन नेटवर्क नहीं मिला",
+				noNetworksQuery: "\"{query}\" से मेल खाता कोई नेटवर्क नहीं मिला।"
+			},
+			// 4. Section Headings
+			sections: {
+				combined: "🏙️ शहर-व्यापी संयुक्त नेटवर्क",
+				individual: "🚆 व्यक्तिगत ट्रांजिट लाइन्स"
+			},
+			// 5. Card UI Elements (Clean Hindi strings without emojis)
+			card: {
+				regionSuffix: " क्षेत्र",
+				singleLineLinked: "● 1 लाइन जुड़ी है",
+				linesLinked: "● {count} लाइन्स जुड़ी हैं",
+				officialWebsite: "आधिकारिक वेबसाइट",
+				allNetworksSuffix: "(सभी नेटवर्क)",
+				combinedSubtitle: "संयुक्त शहर डेटा",
+				modes: {
+					metro: "मेट्रो",
+					rrts: "आरआरटीएस",
+					monorail: "मोनोरेल",
+					metrolite: "मेट्रोलाइट",
+					metroneo: "मेट्रोनियो"
+				},
+				status: {
+					operational: "संचालित",
+					partial: "आंशिक सेवा",
+					underConstruction: "निर्माणाधीन",
+					approved: "स्वीकृत",
+					proposed: "प्रस्तावित"
+				}
+			},
+
+			// 6. Action Toasts
+			toast: {
+				underConstructionTitle: "🚧 निर्माणाधीन",
+				underConstructionMsg: "\"{name}\" वर्तमान में निर्माणाधीन है। इसका रूट और स्टेशन डेटा अभी उपलब्ध नहीं है।",
+				proposedTitle: "📋 प्रस्तावित / स्वीकृत",
+				proposedMsg: "\"{name}\" अभी योजना/स्वीकृत चरण में है। सेवा शुरू होने पर डेटा जोड़ा जाएगा।",
+				dataPendingTitle: "🛠️ डेटा संकलन जारी",
+				dataPendingMsg: "\"{name}\" का पारगमन डेटा डेवलपर्स द्वारा जोड़ा जा रहा है। जल्द ही उपलब्ध होगा!"
+			}
 		},
 		all_stations: {
 			searchPlaceholder: "स्टेशन के नाम या कोड से खोजें (उदा: झिलमिल, राजीव चौक)...",

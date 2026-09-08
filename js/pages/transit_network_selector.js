@@ -1,11 +1,13 @@
 /**
  * Transit Network & City Selector Page Controller
  * Enterprise ES2022 OOP Class with Private Encapsulation (#)
- * Dynamically renders India's transit systems and connects to UniversalSearchEngine via plug-and-play bindUI.
+ * Dynamically renders India's transit systems with auto-generated City-wide Group Cards.
  */
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { UniversalSearchEngine } from "../services/search/UniversalSearchEngine.js";
+import { Toast } from "../components/Toast.js";
+import { appStateStore } from "../core/app-state-store.js";
 import i18n from "../core/i18n.js";
 
 export class TransitNetworkSelector {
@@ -37,9 +39,7 @@ export class TransitNetworkSelector {
 		this.#cacheDOM();
 		this.#bindEvents();
 	}
-	 /**
-	 * लाइफसाइकिल टीयरडाउन
-	 */
+	
 	destroy() {
 		if (this.#abortController) {
 			this.#abortController.abort();
@@ -50,13 +50,10 @@ export class TransitNetworkSelector {
 		}
 	}
 
-	/**
-	 * Initializes Universal Header, Footer, Registry, and Search Index
-	 */
 	async init() {
 		await HeaderComponent.render("networks");
 		FooterComponent.render();
-		// Sync initial active sort chip UI
+		
 		if (this.#dom.sortChipsWrapper) {
 			this.#dom.sortChipsWrapper.querySelectorAll(".chip-btn").forEach(btn => {
 				const isActive = btn.dataset.sort === this.#activeSort;
@@ -64,14 +61,11 @@ export class TransitNetworkSelector {
 				btn.setAttribute("aria-checked", isActive ? "true" : "false");
 			});
 		}
-		// Initialize Global Search Engine in parallel
+		
 		await this.#searchEngine.init().catch(err => console.warn("[SearchEngine] Init notice:", err));
 		await this.#fetchRegistry();
 	}
 
-	/**
-	 * Cache DOM references defensively
-	 */
 	#cacheDOM() {
 		this.#dom.container = document.getElementById("transit-selector-container");
 		this.#dom.searchInput = document.getElementById("network-search-input");
@@ -83,12 +77,9 @@ export class TransitNetworkSelector {
 		this.#dom.statsCounterText = document.getElementById("stats-counter-text");
 	}
 
-	/**
-	 * Bind all interactive events
-	 */
 	#bindEvents() {
 		const signal = this.#abortController.signal;
-		// 🔌 PLUG-AND-PLAY SEARCH ENGINE BINDING
+		
 		if (this.#dom.searchInput && this.#dom.dropdown) {
 			this.#searchEngine.bindUI({
 				inputEl: this.#dom.searchInput,
@@ -105,7 +96,7 @@ export class TransitNetworkSelector {
 				}
 			});
 		}
-		// Clear Search Button
+		
 		if (this.#dom.clearSearchBtn) {
 			this.#dom.clearSearchBtn.addEventListener("click", () => {
 				if (this.#dom.searchInput) {
@@ -118,57 +109,38 @@ export class TransitNetworkSelector {
 				this.#render();
 			}, { signal });
 		}
-		// 1. Mode Filter Chips
+		
 		if (this.#dom.modeChipsWrapper) {
 			this.#dom.modeChipsWrapper.addEventListener("click", (e) => {
 				const target = e.target.closest(".chip-btn");
 				if (!target) return;
-				const mode = target.dataset.mode || "all";
-				this.#activeModeFilter = mode;
-				this.#dom.modeChipsWrapper.querySelectorAll(".chip-btn").forEach(btn => {
-					const isActive = btn === target;
-					btn.classList.toggle("active", isActive);
-					btn.setAttribute("aria-checked", isActive ? "true" : "false");
-				});
+				this.#activeModeFilter = target.dataset.mode || "all";
+				this.#updateChipsUI(this.#dom.modeChipsWrapper, target);
 				this.#render();
 			}, { signal });
 		}
-		// 2. Status Filter Chips
+		
 		if (this.#dom.statusChipsWrapper) {
 			this.#dom.statusChipsWrapper.addEventListener("click", (e) => {
 				const target = e.target.closest(".chip-btn");
 				if (!target) return;
-				const status = target.dataset.status || "all";
-				this.#activeStatusFilter = status;
-				this.#dom.statusChipsWrapper.querySelectorAll(".chip-btn").forEach(btn => {
-					const isActive = btn === target;
-					btn.classList.toggle("active", isActive);
-					btn.setAttribute("aria-checked", isActive ? "true" : "false");
-				});
+				this.#activeStatusFilter = target.dataset.status || "all";
+				this.#updateChipsUI(this.#dom.statusChipsWrapper, target);
 				this.#render();
 			}, { signal });
 		}
-		// 3. Sort By Chips Click
+		
 		if (this.#dom.sortChipsWrapper) {
 			this.#dom.sortChipsWrapper.addEventListener("click", (e) => {
 				const target = e.target.closest(".chip-btn");
 				if (!target) return;
-				const sortValue = target.dataset.sort || "status_smart";
-				this.#activeSort = sortValue;
-				this.#dom.sortChipsWrapper.querySelectorAll(".chip-btn").forEach(btn => {
-					const isActive = btn === target;
-					btn.classList.toggle("active", isActive);
-					btn.setAttribute("aria-checked", isActive ? "true" : "false");
-				});
-				try {
-					localStorage.setItem("transit_sort_preference", this.#activeSort);
-				} catch (err) {
-					// Ignore
-				}
+				this.#activeSort = target.dataset.sort || "status_smart";
+				this.#updateChipsUI(this.#dom.sortChipsWrapper, target);
+				try { localStorage.setItem("transit_sort_preference", this.#activeSort); } catch (err) {}
 				this.#render();
 			}, { signal });
 		}
-		// Delegated Click Handler for Network Card Tiles
+		
 		if (this.#dom.container) {
 			this.#dom.container.addEventListener("click", (e) => {
 				if (e.target.closest(".official-website-link")) return;
@@ -177,23 +149,31 @@ export class TransitNetworkSelector {
 				const cityKey = card.dataset.city;
 				const networkKey = card.dataset.network;
 				const status = card.dataset.status;
-				this.#handleNetworkSelect(cityKey, networkKey, status);
+				const name = card.dataset.name;
+				this.#handleNetworkSelect(cityKey, networkKey, status, name);
 			}, { signal });
 		}
+
+		// Language change subscription: Re-render cards & headings when language toggles
+		appStateStore.subscribe("currentLang", () => {
+			this.#render();
+		});
 	}
 
-	/**
-	 * Handles Smart Suggestion Click from Autocomplete Dropdown
-	 */
+	#updateChipsUI(wrapper, activeTarget) {
+		wrapper.querySelectorAll(".chip-btn").forEach(btn => {
+			const isActive = btn === activeTarget;
+			btn.classList.toggle("active", isActive);
+			btn.setAttribute("aria-checked", isActive ? "true" : "false");
+		});
+	}
+
 	#handleSuggestionClick(item) {
 		if (!item || !item.cityKey) return;
-
 		try {
 			localStorage.setItem("active_city", item.cityKey);
 			if (item.networkKey) localStorage.setItem("active_network", item.networkKey);
-		} catch (e) {
-			// Ignore
-		}
+		} catch (e) {}
 
 		if (item.stationId) {
 			window.location.href = `index.html?city=${encodeURIComponent(item.cityKey)}&to=${encodeURIComponent(item.stationId)}`;
@@ -202,17 +182,10 @@ export class TransitNetworkSelector {
 		}
 	}
 
-	/**
-	 * Async fetch of master india_transit_registry.json
-	 */
 	async #fetchRegistry() {
 		try {
 			const response = await fetch("data/india_transit_registry.json");
-
-			if (!response.ok) {
-				throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
-			}
-
+			if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
 			this.#registryData = await response.json();
 			this.#render();
 		} catch (error) {
@@ -222,242 +195,441 @@ export class TransitNetworkSelector {
 		}
 	}
 
+	
 	/**
-	 * Pure filtering pipeline returning a flat array of matching networks
+	 * Smart Dynamic Track Silhouette Resolver (Pure UI logic - 100% Zero JSON dependency)
+	 */
+	#resolveTrackSvg(item) {
+		const trackBase = "assets/icons/tracks";
+
+		// 1. Group Cards: Strictly pick from the 5 Group tracks
+		if (item.isGroupCard) {
+			const groupTracks = [
+				"track_05.svg", // Orbital Ring Hub
+				"track_07.svg", // Trunk & Merge Junction
+				"track_10.svg", // Sweeping Arc & Spoke Hub
+				"track_12.svg", // Transfer T-Junction
+				"track_13.svg"  // Multi-Line Master Grid
+			];
+			const hash = this.#hashString(item.cityKey || "");
+			return `${trackBase}/${groupTracks[hash % groupTracks.length]}`;
+		}
+
+		// 2. Mode-specific Rules for Normal Cards
+		const mode = (item.mode || "").toLowerCase();
+		if (mode === "rrts") {
+			return `${trackBase}/track_03.svg`; // Twin Parallel strictly for RRTS
+		}
+		if (mode === "monorail" || mode === "metroneo") {
+			return `${trackBase}/track_04.svg`; // Loop Track
+		}
+		if (mode === "metrolite") {
+			return `${trackBase}/track_09.svg`; // Fork / Y-Branch
+		}
+
+		// 3. Normal Metro Corridors (Tracks 01, 02, 06, 08, 11)
+		const normalTracks = [
+			"track_01.svg", // S-Curve Classic
+			"track_02.svg", // Cross Diagonal
+			"track_06.svg", // Underground Step
+			"track_08.svg", // Express Bypass Loop
+			"track_11.svg"  // Ascending 3-Step Corridor
+		];
+		const hash = this.#hashString(item.networkKey || item.cityKey || "");
+		return `${trackBase}/${normalTracks[hash % normalTracks.length]}`;
+	}
+
+	#hashString(str) {
+		let hash = 0;
+		for (let i = 0; i < str.length; i++) {
+			hash = (hash << 5) - hash + str.charCodeAt(i);
+			hash |= 0;
+		}
+		return Math.abs(hash);
+	}
+	#getLocalized(val) {
+		if (!val) return "";
+		if (typeof val === "object") {
+			const currentLang = i18n.getLanguage || "en";
+			return val[currentLang] || val.en || Object.values(val)[0] || "";
+		}
+		return String(val);
+	}
+
+	// Helper: Search corpus across both Hindi & English
+	#getSearchCorpus(val) {
+		if (!val) return "";
+		if (typeof val === "object") {
+			return `${val.en || ""} ${val.hi || ""} ${Object.values(val).join(" ")}`.toLowerCase();
+		}
+		return String(val).toLowerCase();
+	}
+
+	/**
+	 * Data Aggregation & Segregation (Backend Logic)
 	 */
 	#getFilteredData() {
 		if (!this.#registryData || !this.#registryData.cities) {
-			return { totalNetworks: 0, matchedNetworks: [] };
+			return { totalNetworks: 0, groupNetworks: [], individualNetworks: [] };
 		}
 
 		const query = this.#searchQuery;
 		const searchWords = query.length > 0 ? query.split(/\s+/).filter(Boolean) : [];
-		const modeFilter = this.#activeModeFilter;
-		const statusFilter = this.#activeStatusFilter;
-
+		
+		const groupNetworks = [];
+		const individualNetworks = [];
 		let totalNetworks = 0;
-		const flatList = [];
 
-		for (const [cityKey, cityData] of Object.entries(this.#registryData.cities)) {
-			const cityName = cityData.name || cityKey;
-			const stateName = cityData.state || "";
+				for (const [cityKey, cityData] of Object.entries(this.#registryData.cities)) {
+			// Extract safe localized display strings
+			const cityName = this.#getLocalized(cityData.name) || cityKey;
+			const stateName = this.#getLocalized(cityData.state);
 			const networks = cityData.networks || {};
+			const networkKeys = Object.keys(networks);
 
+			// 1. Process Individual Networks
 			for (const [netKey, netData] of Object.entries(networks)) {
-				totalNetworks++;
+				if (this.#passesFilters(netData, cityData, netKey, searchWords)) {
+					const netName = this.#getLocalized(netData.name) || netKey;
+					const operatorName = this.#getLocalized(netData.operator);
 
-				const netMode = netData.mode || "Metro";
-				const netStatus = netData.status || "operational";
-				const netName = netData.name || netKey;
-				const operator = netData.operator || "";
-
-				// Mode Filter
-				if (modeFilter !== "all" && netMode.toLowerCase() !== modeFilter.toLowerCase()) {
-					continue;
+					individualNetworks.push({
+						cityKey,
+						cityName,
+						stateName,
+						networkKey: netKey,
+						name: netName,
+						operator: operatorName,
+						themeColor: cityData.themeColor || "#1E40AF",
+						mode: netData.mode || "Metro",
+						status: netData.status || "operational",
+						website: netData.website || null,
+						icon: netData.icon || null
+					});
+					totalNetworks++;
 				}
+			}
 
-				// Status Filter
-				if (statusFilter !== "all" && netStatus.toLowerCase() !== statusFilter.toLowerCase()) {
-					continue;
-				}
+			// 2. Generate Virtual Group Card for Cities with > 1 network
+			if (networkKeys.length > 1) {
+				if (this.#activeModeFilter === "all" || this.#activeModeFilter === "Combined") {
+					let searchMatches = true;
+					if (searchWords.length > 0) {
+						const cityCorpus = `${this.#getSearchCorpus(cityData.name)} ${this.#getSearchCorpus(cityData.state)} combined all networks`;
+						searchMatches = searchWords.every(word => cityCorpus.includes(word));
+					}
+					
+					if (searchMatches && (this.#activeStatusFilter === "all" || this.#activeStatusFilter === "operational")) {
+						const availableIcons = Object.values(networks).map(n => n.icon).filter(Boolean);
+						const allNetSuffix = i18n.t("pages.networks.card.allNetworksSuffix") || "(All Networks)";
+						const combinedSubtitle = i18n.t("pages.networks.card.combinedSubtitle") || "Combined City Data";
 
-				// Search Query Filter
-				if (searchWords.length > 0) {
-					const searchCorpus = `${cityName} ${stateName} ${netName} ${operator} ${netMode} ${netKey}`.toLowerCase();
-					const matchesAllWords = searchWords.every(word => searchCorpus.includes(word));
-					if (!matchesAllWords) {
-						continue;
+						groupNetworks.push({
+							isGroupCard: true,
+							cityKey: cityKey,
+							cityName: cityName,
+							stateName: stateName,
+							themeColor: cityData.themeColor || "#1E40AF",
+							networkKey: "all",
+							name: `${cityName} ${allNetSuffix}`,
+							mode: "Combined",
+							status: "operational",
+							operator: combinedSubtitle,
+							icons: availableIcons
+						});
 					}
 				}
-
-				flatList.push({
-					cityKey,
-					cityName,
-					stateName,
-					networkKey: netKey,
-					...netData
-				});
 			}
 		}
 
-		// Apply Sorting
-		flatList.sort((a, b) => this.#sortComparator(a, b));
+		// Apply Safe String Sorting (Zero Crash guarantee)
+		groupNetworks.sort((a, b) => this.#sortComparator(a, b));
+		individualNetworks.sort((a, b) => this.#sortComparator(a, b));
 
-		return { totalNetworks, matchedNetworks: flatList };
+		return { totalNetworks, groupNetworks, individualNetworks };
 	}
 
-	/**
-	 * Comparator for sorting
-	 */
+	#passesFilters(netData, cityData, netKey, searchWords) {
+		const netMode = netData.mode || "Metro";
+		const netStatus = netData.status || "operational";
+		const operator = this.#getLocalized(netData.operator);
+
+		if (this.#activeModeFilter !== "all" && netMode.toLowerCase() !== this.#activeModeFilter.toLowerCase()) return false;
+		if (this.#activeStatusFilter !== "all" && netStatus.toLowerCase() !== this.#activeStatusFilter.toLowerCase()) return false;
+
+		if (searchWords.length > 0) {
+			const searchCorpus = `${this.#getSearchCorpus(cityData.name)} ${this.#getSearchCorpus(cityData.state)} ${this.#getSearchCorpus(netData.name)} ${operator} ${netMode} ${netKey}`;
+			return searchWords.every(word => searchCorpus.includes(word));
+		}
+		return true;
+	}
+
 	#sortComparator(a, b) {
-		const sortType = this.#activeSort;
+		const nameA = String(a.name || "");
+		const nameB = String(b.name || "");
+		const cityA = String(a.cityName || "");
+		const cityB = String(b.cityName || "");
 
-		switch (sortType) {
+		switch (this.#activeSort) {
 			case "city_asc":
-				return a.cityName.localeCompare(b.cityName) || a.name.localeCompare(b.name);
-
+				return cityA.localeCompare(cityB) || nameA.localeCompare(nameB);
 			case "name_asc":
-				return a.name.localeCompare(b.name);
-
+				return nameA.localeCompare(nameB);
 			case "mode":
-				return (a.mode || "").localeCompare(b.mode || "") || a.cityName.localeCompare(b.cityName);
-
+				return (a.mode || "").localeCompare(b.mode || "") || cityA.localeCompare(cityB);
 			case "status_smart":
 			default: {
-				const statusOrder = {
-					"operational": 1,
-					"operational_partial": 2,
-					"under_construction": 3,
-					"approved": 4,
-					"proposed": 5
-				};
+				const statusOrder = { "operational": 1, "operational_partial": 2, "under_construction": 3, "approved": 4, "proposed": 5 };
 				const orderA = statusOrder[a.status] || 99;
 				const orderB = statusOrder[b.status] || 99;
-
 				if (orderA !== orderB) return orderA - orderB;
-				return a.cityName.localeCompare(b.cityName) || a.name.localeCompare(b.name);
+				return cityA.localeCompare(cityB) || nameA.localeCompare(nameB);
 			}
 		}
 	}
 
 	/**
-	 * Primary Render Method
+	 * Primary Render Method (Frontend UI Logic)
 	 */
 	#render() {
 		if (!this.#dom.container) return;
 
-		const { totalNetworks, matchedNetworks } = this.#getFilteredData();
+		const { totalNetworks, groupNetworks, individualNetworks } = this.#getFilteredData();
 
-		// 1. Update Stats Bar Text
 		if (this.#dom.statsCounterText) {
-			const count = matchedNetworks.length;
-			this.#dom.statsCounterText.textContent = i18n.t("pages.networks.showingCount", { count }) || `Showing ${count} transit networks`;
+			const count = individualNetworks.length; // Count only distinct physical networks
+			this.#dom.statsCounterText.textContent = i18n.t("pages.networks.stats.showingCount", { count }) || `Showing ${count} transit networks`;
 		}
 
-		// 2. Render Empty State if no matches
-		if (matchedNetworks.length === 0) {
-			const noMatchMsg = i18n.t("pages.networks.noNetworksQuery", { query: this.#searchQuery }) || `No networks match "${this.#escapeHTML(this.#searchQuery)}".`;
+		if (groupNetworks.length === 0 && individualNetworks.length === 0) {
+			const noMatchMsg = i18n.t("pages.networks.stats.noNetworksQuery", { query: this.#searchQuery }) || `No networks match "${this.#escapeHTML(this.#searchQuery)}".`;
 			this.#dom.container.innerHTML = `
 				<div class="empty-state">
 					<span style="font-size: 2rem;">🔍</span>
-					<h3>${this.#escapeHTML(i18n.t("pages.networks.noNetworksFound") || "No transit networks found")}</h3>
+					<h3>${this.#escapeHTML(i18n.t("pages.networks.stats.noNetworksFound") || "No transit networks found")}</h3>
 					<p>${noMatchMsg}</p>
 				</div>
 			`;
 			return;
 		}
 
-		// 3. Render Unified Compact Grid
-		const cardsHtml = matchedNetworks.map(item => this.#renderCompactCard(item)).join("");
-		this.#dom.container.innerHTML = `
-			<div class="networks-compact-grid">
-				${cardsHtml}
-			</div>
-		`;
+		let finalHtml = "";
+
+		
+		// Section 1: Group Cards
+		if (groupNetworks.length > 0) {
+			const groupTitle = i18n.t("pages.networks.sections.combined") || "🏙️ City-wide Combined Networks";
+			finalHtml += `
+				<div class="network-section-wrapper">
+					<h3 class="network-section-title">${this.#escapeHTML(groupTitle)}</h3>
+					<div class="networks-compact-grid">
+						${groupNetworks.map(item => this.#renderCompactCard(item)).join("")}
+					</div>
+				</div>
+			`;
+		}
+
+		// Section 2: Individual Cards
+		if (individualNetworks.length > 0) {
+			const indTitle = i18n.t("pages.networks.sections.individual") || "🚆 Individual Transit Lines";
+			finalHtml += `
+				<div class="network-section-wrapper">
+					<h3 class="network-section-title">${this.#escapeHTML(indTitle)}</h3>
+					<div class="networks-compact-grid">
+						${individualNetworks.map(item => this.#renderCompactCard(item)).join("")}
+					</div>
+				</div>
+			`;
+		}
+
+		this.#dom.container.innerHTML = finalHtml;
 	}
 
-	/**
-	 * Renders a Compact Network Card Tile
-	 */
 	#renderCompactCard(item) {
 		const cityKey = this.#escapeHTML(item.cityKey);
 		const cityName = this.#escapeHTML(item.cityName);
-		const netKey = this.#escapeHTML(item.networkKey);
+		const netKey = item.networkKey === "all" ? "" : this.#escapeHTML(item.networkKey);
 		const netName = this.#escapeHTML(item.name || netKey);
 		const operator = this.#escapeHTML(item.operator || "");
 		const mode = item.mode || "Metro";
 		const status = item.status || "operational";
 		const website = item.website || null;
+		const cityColor = item.themeColor || "var(--primary-color)";
+		const netIcon = item.icon || null;
+		// Dynamic Track Silhouette (Auto-generated by UI engine)
+		const trackSvg = this.#resolveTrackSvg(item);
+		
 
 		const modeIcon = this.#getModeIcon(mode);
 		const statusMeta = this.#getStatusMeta(status);
 
+		// Mode label dynamic translation (e.g. Metro -> मेट्रो)
+		const modeKey = (mode || "metro").toLowerCase();
+		const modeLabel = i18n.t("pages.networks.card.modes." + modeKey) || mode;
+
+		// 1. Top-right Header: Solo Brand Logo ya Group Multi-Avatar Cluster
+		let headRightContent = "";
+		if (item.isGroupCard && Array.isArray(item.icons) && item.icons.length > 0) {
+			const visibleIcons = item.icons.slice(0, 3);
+			const remainingCount = item.icons.length > 3 ? item.icons.length - 3 : 0;
+			headRightContent = `
+				<div class="avatar-cluster">
+					${visibleIcons.map(ic => `<img src="${this.#escapeHTML(ic)}" alt="">`).join("")}
+					${remainingCount > 0 ? `<span class="cluster-count">+${remainingCount}</span>` : ""}
+				</div>
+			`;
+		} else if (netIcon) {
+			headRightContent = `
+				<div class="brand-avatar-box">
+					<img src="${this.#escapeHTML(netIcon)}" alt="${netName}" onerror="this.parentElement.style.display='none'">
+				</div>
+			`;
+		}
+
+		// 2. Track Silhouette HTML (Direct inline mask taaki HTML root se SVG 100% load ho)
+		const trackHtml = trackSvg 
+			? `<div class="card-trace-bg" style="-webkit-mask-image: url('${this.#escapeHTML(trackSvg)}'); mask-image: url('${this.#escapeHTML(trackSvg)}');"></div>` 
+			: "";
+
+		// 3. Footer Row Content: Group Card vs Single Card
+		let footLeftContent = "";
+		let footRightContent = "";
+
+		if (item.isGroupCard) {
+			const linesCount = item.icons ? item.icons.length : 3;
+			const linkedText = linesCount === 1
+				? (i18n.t("pages.networks.card.singleLineLinked") || "● 1 Line Linked")
+				: (i18n.t("pages.networks.card.linesLinked", { count: linesCount }) || `● ${linesCount} Lines Linked`);
+			footLeftContent = `<span class="linked-lines-badge">${linkedText}</span>`;
+			footRightContent = `
+				<div class="action-group">
+					<span class="action-arrow">➔</span>
+				</div>
+			`;
+		} else {
+			footLeftContent = `
+				<div class="foot-meta-group">
+					<span class="mode-tag">${modeIcon}${this.#escapeHTML(modeLabel)}</span>
+					<span class="meta-sep">•</span>
+					<span class="status-tag ${statusMeta.cssClass}"><span class="live-status-dot"></span> ${statusMeta.label}</span>
+				</div>
+			`;
+			const websiteTitle = i18n.t("pages.networks.card.officialWebsite") || "Official Website";
+			// Globe Link:
+			footRightContent = `
+				<div class="action-group">
+					${website ? `<a href="${this.#escapeHTML(website)}" target="_blank" rel="noopener noreferrer" class="official-website-link" title="${websiteTitle}" aria-label="${websiteTitle}" onclick="event.stopPropagation()"><span class="ui-vector-icon icon-globe"></span></a>` : ""}
+					<span class="action-arrow">➔</span>
+				</div>
+			`;
+		}
+
+		const regionSuffix = item.isGroupCard ? (i18n.t("pages.networks.card.regionSuffix") || " Region") : "";
+
 		return `
-			<article 
-				class="network-card-compact" 
-				data-city="${cityKey}" 
-				data-network="${netKey}" 
-				data-status="${this.#escapeHTML(status)}"
-				tabindex="0"
-				role="button"
-				aria-label="Open ${netName} map"
-			>
-				<div class="card-top-meta">
-					<span class="city-tag">📍 ${cityName}</span>
-					<span class="badge mode-badge">${modeIcon} ${this.#escapeHTML(mode)}</span>
+			<article class="network-card-compact" style="--card-city-accent: ${cityColor};" data-city="${cityKey}" data-network="${netKey}" data-status="${this.#escapeHTML(status)}" data-name="${netName}" tabindex="0" role="button" aria-label="Open ${netName} map">
+				<!-- Metro Route Trace Silhouette (Zero hardcoding) -->
+				${trackHtml}
+
+				<!-- Top Head: City Stamp + Brand Logo / Cluster -->
+				<div class="card-top-head">
+					<span class="city-stamp"><span class="ui-vector-icon icon-leaf"></span>${cityName}${regionSuffix}</span>
+					${headRightContent}
 				</div>
 
-				<div class="card-main-info">
-					<h3 class="compact-network-name">${netName}</h3>
-					${operator ? `<p class="compact-operator">${operator}</p>` : ""}
+				<!-- Content: Network Title + Operator Subtitle -->
+				<div class="card-body">
+					<h3 class="network-title">${netName}</h3>
+					${operator ? `<p class="operator-sub">${operator}</p>` : ""}
 				</div>
 
-				<div class="card-bottom-row">
-					<span class="badge status-badge ${statusMeta.cssClass}">${statusMeta.label}</span>
-					<div class="action-indicators">
-						${website ? `
-							<a href="${this.#escapeHTML(website)}" target="_blank" rel="noopener noreferrer" class="official-website-link" title="Official Website" aria-label="Official Website">
-								🌐
-							</a>
-						` : ""}
-						<span class="arrow-indicator">➔</span>
-					</div>
+				<!-- Footer Row -->
+				<div class="card-foot">
+					${footLeftContent}
+					${footRightContent}
 				</div>
 			</article>
 		`;
 	}
 
-	/**
-	 * Handles User Clicking a Network Card Tile
-	 */
-	#handleNetworkSelect(cityKey, networkKey, status) {
+	#handleNetworkSelect(cityKey, networkKey, status, netName) {
 		if (!cityKey) return;
 
+		const displayName = netName || networkKey || cityKey;
+
+		// 1. Status Blockers Lookup Dictionary
+		const STATUS_BLOCKERS = {
+			under_construction: { type: "warning", key: "underConstruction" },
+			proposed:           { type: "info",    key: "proposed" },
+			approved:           { type: "info",    key: "proposed" }
+		};
+
+		const blocker = STATUS_BLOCKERS[status];
+		if (blocker) {
+			const title = i18n.t(`pages.networks.toast.${blocker.key}Title`);
+			const message = i18n.t(`pages.networks.toast.${blocker.key}Msg`, { name: displayName });
+			Toast[blocker.type](message, { title });
+			return;
+		}
+
+		// 2. Data Availability Check (City & Network Level)
+		const cityData = this.#registryData?.cities?.[cityKey];
+		if (!cityData?.hasData) {
+			const title = i18n.t("pages.networks.toast.dataPendingTitle") || "🛠️ Data Integration Pending";
+			const message = i18n.t("pages.networks.toast.dataPendingMsg", { name: displayName });
+			Toast.info(message, { title });
+			return;
+		}
+
+		if (networkKey && networkKey !== "all") {
+			const networkData = cityData?.networks?.[networkKey];
+			if (!networkData?.hasData) {
+				const title = i18n.t("pages.networks.toast.dataPendingTitle") || "🛠️ Data Integration Pending";
+				const message = i18n.t("pages.networks.toast.dataPendingMsg", { name: displayName });
+				Toast.info(message, { title });
+				return;
+			}
+		}
+
+		// 3. Success: Persist & Redirect
 		try {
 			localStorage.setItem("active_city", cityKey);
-			if (networkKey) {
-				localStorage.setItem("active_network", networkKey);
-			}
+			localStorage.setItem("active_network", networkKey || "");
 		} catch (e) {
 			console.warn("[TransitNetworkSelector] LocalStorage write failed:", e);
 		}
 
-		const targetUrl = `index.html?city=${encodeURIComponent(cityKey)}&network=${encodeURIComponent(networkKey || "")}`;
+		const targetUrl = `index.html?city=${encodeURIComponent(cityKey)}${networkKey ? `&network=${encodeURIComponent(networkKey)}` : ''}`;
 		window.location.href = targetUrl;
 	}
 
-	/**
-	 * Status Label & Styling Metadata Helper
-	 */
 	#getStatusMeta(status) {
-		const lang = localStorage.getItem("language") || "en";
-		const isHi = lang === "hi";
+		const STATUS_MAP = {
+			operational:          { key: "operational",       fallback: "Operational",        css: "status-operational" },
+			operational_partial:  { key: "partial",           fallback: "Partial Service",   css: "status-operational_partial" },
+			under_construction:   { key: "underConstruction",  fallback: "Under Construction",css: "status-under_construction" },
+			approved:             { key: "approved",          fallback: "Approved",          css: "status-approved" },
+			proposed:             { key: "proposed",          fallback: "Proposed",          css: "status-proposed" }
+		};
 
-		switch (status) {
-			case "operational":
-				return { label: isHi ? "🟢 संचालित" : "🟢 Operational", cssClass: "status-operational" };
-			case "operational_partial":
-				return { label: isHi ? "🟡 आंशिक" : "🟡 Partial Service", cssClass: "status-operational_partial" };
-			case "under_construction":
-				return { label: isHi ? "🚧 निर्माणाधीन" : "🚧 Construction", cssClass: "status-under_construction" };
-			case "approved":
-				return { label: isHi ? "📋 स्वीकृत" : "📋 Approved", cssClass: "status-approved" };
-			case "proposed":
-				return { label: isHi ? "💡 प्रस्तावित" : "💡 Proposed", cssClass: "status-proposed" };
-			default:
-				return { label: status, cssClass: "status-approved" };
-		}
+		const meta = STATUS_MAP[status] || STATUS_MAP.proposed;
+		return {
+			label: i18n.t(`pages.networks.card.status.${meta.key}`) || meta.fallback,
+			cssClass: meta.css
+		};
 	}
 
 	#getModeIcon(mode) {
-		switch (mode) {
-			case "Metro": return "🚇";
-			case "RRTS": return "🚆";
-			case "Monorail": return "🚝";
-			case "MetroLite": return "🚋";
-			case "MetroNeo": return "⚡";
-			default: return "🚊";
-		}
+		const MODE_ICON_MAP = {
+			metro:     "icon-metro",
+			rrts:      "icon-rrts",
+			monorail:  "icon-monorail",
+			metrolite: "icon-metrolite",
+			metroneo:  "icon-metroneo"
+		};
+
+		const iconClass = MODE_ICON_MAP[(mode || "").toLowerCase()] || "icon-metro";
+		return `<span class="ui-vector-icon ${iconClass}"></span>`;
 	}
 
 	#renderErrorState(message) {

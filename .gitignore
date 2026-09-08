@@ -1,3 +1,12 @@
-import_data/
-import_data/
+__pycache__/
+/doc2/
+*.txt
+/import_data/
+/import_data/**/*.png
+/import_data/**/*.pdf
+/import_data/**/*.svg
+/import_data/**/*.jpg
+/import_data/**/*.jpeg
+/import_data/**/media
 backup_data(dont delete).zip
+qr_engine.zip

@@ -26,9 +26,13 @@ export class MetroMap {
 	#avgLatRad = 0; // रेडियन वैल्यू स्टोर करने के लिए
 	zoomScale = 1; // Metro map zoom factor
 
-	// Route Visibility Toggle State Machine
+	// Route Visibility & Filter State Machine
 	#activeRoutePath = null;
 	#isRouteVisible = false;
+	#activeStationType = null;
+	#activeLineId = null;
+	#activeStationId = null;
+	#routePins = { layer: null, from: null, to: null };
 
 	#pan = {
 		panX: 0, // X-अक्ष पर मैप का विस्थापन (panX)
@@ -37,7 +41,7 @@ export class MetroMap {
 		startX: 0, // माउस/टच शुरू होने का X पॉइंट
 		startY: 0, // माउस/टच शुरू होने का Y पॉइंट
 	};
-
+	#panAnimFrame = null; // 👈 नया: स्मूथ एनिमेशन फ्रेम आईडी
 	#scaleMultiplier = 2.0;
 
 	// Lifecycle & Memory Management
@@ -50,11 +54,12 @@ export class MetroMap {
 	// =========================================================================
 	// 2. LIFECYCLE / CONSTRUCTOR
 	// =========================================================================
-	constructor({ mapContainerSelector = null, metroData = null, onClearRoute = null, lang = "en", theme = "light" }) {
+	constructor({ mapContainerSelector = null, metroData = null, onClearRoute = null, onStationClick = null, lang = "en", theme = "light" }) {
 		this.#elemts.mapContainer = document.querySelector(mapContainerSelector);
 		this.#metroData = metroData;
 		this.onClearRoute = onClearRoute;
-		this.#settings.currentLang = lang;   // 👈 शुद्ध इनपुट
+		this.onStationClick = onStationClick;
+		this.#settings.currentLang = lang;
 		this.#settings.currentTheme = theme;
 		this.#abortController = new AbortController();
 		this.#init();
@@ -107,6 +112,7 @@ export class MetroMap {
 		this.#drawMetroLines();
 		this.#drawStationCircles();
 		this.#drawStationLabels(this.#settings.currentLang);
+		this.#initRoutePins();
 
 		this.#set_events();
 	}
@@ -232,6 +238,10 @@ export class MetroMap {
 			const icon = document.createElement("span");
 			if (type === "walkway") {
 				icon.className = "legend-icon-walkway";
+			} else if (type === "multimodal") {
+				icon.className = "legend-icon-multimodal";
+			} else if (type === "shared_track") {
+				icon.className = "legend-icon-shared-track";
 			} else if (type === "interchange") {
 				icon.className = "legend-icon-circle";
 			} else {
@@ -316,6 +326,10 @@ export class MetroMap {
 
 		// 2. माउस पैनिंग (Mouse Panning) - 100% कर्सर के साथ सिंक
 		svgElement.addEventListener("mousedown", (e) => {
+			if (this.#panAnimFrame) {
+				cancelAnimationFrame(this.#panAnimFrame);
+				this.#panAnimFrame = null;
+			}
 			this.#pan.isPanning = true;
 			svgElement.style.cursor = "grabbing";
 
@@ -343,20 +357,21 @@ export class MetroMap {
 		}, { signal });
 
 		// 3. टच पैनिंग (Touch Panning for Mobile)
-		svgElement.addEventListener(
-			"touchstart",
-			(e) => {
-				if (e.touches.length === 1) {
-					this.#pan.isPanning = true;
-					const touch = e.touches[0];
-					const svgPt = this.#getSVGCoordinates(touch.clientX, touch.clientY);
-
-					this.#pan.startX = svgPt.x - this.#pan.panX;
-					this.#pan.startY = svgPt.y - this.#pan.panY;
+		svgElement.addEventListener("touchstart", (e) => {
+			if (e.touches.length === 1) {
+				if (this.#panAnimFrame) {
+					cancelAnimationFrame(this.#panAnimFrame);
+					this.#panAnimFrame = null;
 				}
-			},
-			{ passive: true, signal },
-		);
+				this.#pan.isPanning = true;
+					
+				const touch = e.touches[0];
+				const svgPt = this.#getSVGCoordinates(touch.clientX, touch.clientY);
+
+				this.#pan.startX = svgPt.x - this.#pan.panX;
+				this.#pan.startY = svgPt.y - this.#pan.panY;
+			}
+		},{ passive: true, signal },);
 
 		svgElement.addEventListener(
 			"touchmove",
@@ -380,6 +395,10 @@ export class MetroMap {
 		// 4. कर्सर केंद्रित ज़ूम (Scroll Wheel Zoom to Cursor) - बिल्कुल परफेक्ट मैथ
 		svgElement.addEventListener("wheel", (e) => {
 				e.preventDefault(); // ब्राउज़र का पेज स्क्रॉल रोकें
+				if (this.#panAnimFrame) {
+					cancelAnimationFrame(this.#panAnimFrame);
+					this.#panAnimFrame = null;
+				}
 
 				// कर्सर की सटीक viewBox पोजीशन प्राप्त करें
 				const mousePt = this.#getSVGCoordinates(e.clientX, e.clientY);
@@ -428,6 +447,24 @@ export class MetroMap {
 
 			mainLayer.addEventListener("mouseover", (e) => handleHover(e, true));
 			mainLayer.addEventListener("mouseout", (e) => handleHover(e, false));
+
+			// 🎯 स्टेशन क्लिक पर ID के साथ (x, y) कोऑर्डिनेट्स भी भेजें (0ms, Zero UI Pollution)
+			mainLayer.addEventListener("click", (e) => {
+				if (this.#pan.isPanning) return;
+				const target = e.target.closest("[data-station-id]");
+				if (!target) return;
+				const stationId = target.dataset.stationId;
+				if (!stationId) return;
+				this.highlightStation(stationId, true);
+				if (typeof this.onStationClick === "function") {
+					const st = this.#metroData?.stationData?.[stationId];
+					this.onStationClick({
+						stationId,
+						x: st?.xy?.x ?? 0,
+						y: st?.xy?.y ?? 0
+					});
+				}
+			});
 		}
 	}
 
@@ -449,6 +486,44 @@ export class MetroMap {
 		}
 	}
 
+	/**
+	 * 🚀 60 FPS स्मूथ पैन और ज़ूम ग्लाइड इंजन (Quartic Ease-Out)
+	 * अचानक झटके (Jerk) को रोककर मैप को स्क्रीन के केंद्र में मक्खन जैसा स्मूथ लाता है
+	 */
+	#animatePanAndZoom(targetPanX, targetPanY, targetZoom, duration = 450) {
+		if (this.#panAnimFrame) {
+			cancelAnimationFrame(this.#panAnimFrame);
+			this.#panAnimFrame = null;
+		}
+
+		const startPanX = this.#pan.panX;
+		const startPanY = this.#pan.panY;
+		const startZoom = this.zoomScale;
+		const startTime = performance.now();
+
+		// Quartic Ease-Out: तेज़ शुरुआत और बहुत ही कोमल, सहज लैंडिंग
+		const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+		const step = (currentTime) => {
+			const elapsed = currentTime - startTime;
+			const progress = Math.min(elapsed / duration, 1);
+			const ease = easeOutQuart(progress);
+
+			this.#pan.panX = startPanX + (targetPanX - startPanX) * ease;
+			this.#pan.panY = startPanY + (targetPanY - startPanY) * ease;
+			this.zoomScale = startZoom + (targetZoom - startZoom) * ease;
+
+			this.#updateZoomTransform();
+
+			if (progress < 1) {
+				this.#panAnimFrame = requestAnimationFrame(step);
+			} else {
+				this.#panAnimFrame = null;
+			}
+		};
+
+		this.#panAnimFrame = requestAnimationFrame(step);
+	}
 	// =========================================================================
 	// 5. DATA PROCESSING & COORDINATES CONVERSION
 	// =========================================================================
@@ -541,40 +616,94 @@ export class MetroMap {
 		);
 	}
 
-		#drawStationCircles() {
+	/**
+	 * स्टेशन का प्रकार (Station Type) स्वचालित रूप से निर्धारित करने वाला हेल्पर
+	 */
+	#getStationType(station) {
+		if (station.properties?.station_type) return station.properties.station_type;
+		if (station.station_type) return station.station_type;
+		const stationId = station.id;
+		const stTransfers = this.#metroData.transfers?.[stationId];
+		if (stTransfers) {
+			for (const fromLine of Object.values(stTransfers)) {
+				for (const tData of Object.values(fromLine)) {
+					if (tData.type === "walkway") return "walkway";
+					if (tData.type === "multimodal") return "multimodal";
+				}
+			}
+			return "interchange";
+		}
+		const stLines = station.lines || [];
+		if (stLines.length > 1) {
+			const hasSharedLine = stLines.some((lId) => this.#metroData.lines?.[lId]?.sharedTrack);
+			if (hasSharedLine) return "shared_track";
+			return "interchange";
+		}
+		return "normal";
+	}
+
+	#drawStationCircles() {
 		const stations_circleGroup = this.#createGroup("stationCircles");
 		const fragment = document.createDocumentFragment(); // 👈 Batch Fragment
-
 		Object.values(this.#metroData.stationData).forEach((station) => {
 			const xy = station.xy;
 			if (xy) {
 				const firstLineId = station.lines?.[0];
 				const lineInfo = this.#metroData.lines?.[firstLineId];
 				const lineColor = lineInfo?.color ?? "#333";
-
-				const stationType =
-					station.properties?.station_type ||
-					station.station_type ||
-					(station.lines.length > 1 ? "interchange" : "normal");
-
+				const stationType = this.#getStationType(station);
 				let elem;
 				if (stationType === "walkway") {
 					elem = this.#createWalkwayCircle(xy.x, xy.y, 200, "#FDFBD4", lineColor);
+				} else if (stationType === "multimodal") {
+					elem = this.#createMultimodalHub(xy.x, xy.y, 200, "#FDFBD4", lineColor);
+				} else if (stationType === "shared_track") {
+					elem = this.#createSharedTrackNode(xy.x, xy.y, 200, "#FDFBD4", lineColor);
 				} else if (stationType === "interchange") {
 					elem = this.#createInterchangeCircle(xy.x, xy.y, 200, "#FDFBD4", lineColor);
 				} else {
 					elem = this.#createCircle(xy.x, xy.y, 200, "#FDFBD4", lineColor);
 				}
-
 				elem.dataset.stationId = station.id;
 				elem.dataset.stationType = stationType;
 				fragment.appendChild(elem);
 			}
 		});
-
 		stations_circleGroup.appendChild(fragment); // 👈 1 Single Reflow
 		this.#svg.elements.stations_circleGroup = stations_circleGroup;
 		this.#svg.elements.mainGroup_layer.appendChild(stations_circleGroup);
+	}
+
+		// 📍 स्लीपर सेल: 2 परमानेंट 3D रिबन पिन मैप में पहले से जोड़ें (डिफ़ॉल्ट रूप से छिपे हुए)
+	#initRoutePins() {
+		const layer = document.createElementNS("http://www.w3.org/2000/svg", "g");
+		layer.id = "routePinsLayer";
+
+		const createPin = (type, iconFile) => {
+			const pin = document.createElementNS("http://www.w3.org/2000/svg", "g");
+			pin.id = `mapPin_${type}`;
+			pin.setAttribute("class", `route-pin-badge route-pin-${type}`);
+			pin.style.display = "none";
+			const S = 25;
+			pin.innerHTML = `
+				<g class="pin-drop-anim">
+					<image href="assets/icons/${iconFile}" 
+					       xlink:href="assets/icons/${iconFile}" 
+					       x="${-58 * S}" y="${-58 * S}" 
+					       width="${116 * S}" height="${66 * S}" 
+					       preserveAspectRatio="xMidYMid meet" />
+				</g>
+			`;
+			return pin;
+		};
+
+		const fromPin = createPin("from", "pin_route_from.svg");
+		const toPin = createPin("to", "pin_route_to.svg");
+		layer.appendChild(fromPin);
+		layer.appendChild(toPin);
+
+		this.#svg.elements.mainGroup_layer.appendChild(layer);
+		this.#routePins = { layer, from: fromPin, to: toPin };
 	}
 
 	#drawMetroLines() {
@@ -941,17 +1070,16 @@ export class MetroMap {
 		// 2. रीसेट लॉजिक: यदि कोई फ़िल्टर नहीं है तो सीधे '.map-dimmed' हटाकर तुरंत बाहर निकलें
 		if (!path && !lineId && !stationType && !stationId) {
 			svg.svg.classList.remove("map-dimmed");
-			if (this.#elemts.clearRouteBtn) {
-				this.#elemts.clearRouteBtn.classList.add("hidden");
-			}
 			if (this.#elemts.legendToggleBtn) {
 				this.#elemts.legendToggleBtn.style.display = "";
 			}
+			this.#updateRouteToggleButtonUI();
 			return;
 		}
 
 		// 3. पेरेंट SVG पर '.map-dimmed' लगाएं (GPU 1-step dimming)
 		svg.svg.classList.add("map-dimmed");
+		this.#updateRouteToggleButtonUI();
 
 		if (this.#elemts.clearRouteBtn) {
 			this.#elemts.clearRouteBtn.classList.remove("hidden");
@@ -1018,29 +1146,31 @@ export class MetroMap {
 
 	highlightStation(stationId, autoPan = true) {
 		if (!stationId) {
+			this.#activeStationId = null;
 			this.#applyMapVisualState({});
 			return;
 		}
 
+		this.#activeStationId = stationId;
+		this.#activeStationType = null;
+		this.#activeLineId = null;
+
 		// 1. सेंट्रल इंजन से टारगेट स्टेशन को पल्स और बाकी मैप को डिम करें
 		this.#applyMapVisualState({ stationId });
-
 		// 2. 180% ज़ूम के साथ स्टेशन को स्क्रीन के सटीक केंद्र में लाएँ
 		if (autoPan) {
 			const stationObj = this.#metroData?.stationData?.[stationId];
 			if (stationObj?.xy) {
 				const targetX = stationObj.xy.x;
 				const targetY = stationObj.xy.y;
-
 				const svgSize = this.#calculateSVGSize();
 				const centerX = svgSize.width / 2;
 				const centerY = svgSize.height / 2;
-
-				this.zoomScale = 2.8; // 180% आरामदायक ज़ूम ताकि स्टेशन बड़ा दिखे
-				this.#pan.panX = centerX - (targetX * this.zoomScale);
-				this.#pan.panY = centerY - (targetY * this.zoomScale);
-
-				this.#updateZoomTransform();
+				const targetZoom = 2.8; // 180% आरामदायक ज़ूम ताकि स्टेशन बड़ा दिखे
+				const targetPanX = centerX - (targetX * targetZoom);
+				const targetPanY = centerY - (targetY * targetZoom);
+				// 🏎️ झटके के बजाय 450ms का स्मूथ ग्लाइड
+				this.#animatePanAndZoom(targetPanX, targetPanY, targetZoom, 450);
 			}
 		}
 	}
@@ -1050,91 +1180,50 @@ export class MetroMap {
 	// -------------------------------------------------------------------------
 
 
+
 	/**
-	 * रूट को मैप पर हाईलाइट व ज़ूम करें
-	 * @param {Array<string>|null} path - रूट के स्टेशन IDs
-	 * @param {Object} [options={}] - ज़ूम व पैन कस्टमाइज़ेशन ऑप्शंस
-	 * @param {boolean} [options.autoPan=true] - क्या मैप को रूट पर सेंटर करना है
-	 * @param {number|null} [options.customZoom=null] - बाहर से सेट किया गया कस्टम ज़ूम (उदा: 1.8 या 2.2). यदि null हो तो स्मार्ट ऑटो-फ़िट
-	 * @param {number} [options.paddingRatio=0.65] - स्क्रीन का कितना प्रतिशत हिस्सा रूट घेरेगा (Default: 65%)
-	 */
-	highlightRoute(path, options = {}) {
-		if (!path || path.length === 0) {
-			this.#applyMapVisualState({});
-			return;
-		}
-
-		this.#applyMapVisualState({ path });
-
-		const { autoPan = true, customZoom = null, paddingRatio = 0.65 } = options;
-		if (!autoPan) return;
-
-		// 🎯 रूट के सभी स्टेशनों का Bounding Box निकालें
-		let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-		let validCount = 0;
-
-		path.forEach(stId => {
-			const stObj = this.#metroData?.stationData?.[stId];
-			if (stObj?.xy) {
-				const { x, y } = stObj.xy;
-				if (x < minX) minX = x;
-				if (x > maxX) maxX = x;
-				if (y < minY) minY = y;
-				if (y > maxY) maxY = y;
-				validCount++;
-			}
-		});
-
-		if (validCount > 0) {
-			const svgSize = this.#calculateSVGSize();
-			const centerX = svgSize.width / 2;
-			const centerY = svgSize.height / 2;
-
-			const routeWidth = maxX - minX || 100;
-			const routeHeight = maxY - minY || 100;
-			const routeCenterX = (minX + maxX) / 2;
-			const routeCenterY = (minY + maxY) / 2;
-
-			// 🎛️ ज़ूम लॉजिक: बाहर से भेजा गया customZoom इस्तेमाल करें या स्मार्ट ऑटो-कैलकुलेशन
-			if (typeof customZoom === "number" && customZoom > 0) {
-				this.zoomScale = customZoom;
-			} else {
-				const scaleX = (svgSize.width * paddingRatio) / routeWidth;
-				const scaleY = (svgSize.height * paddingRatio) / routeHeight;
-				this.zoomScale = Math.min(Math.max(Math.min(scaleX, scaleY), 1.0), 2.8);
-			}
-
-			this.#pan.panX = centerX - (routeCenterX * this.zoomScale);
-			this.#pan.panY = centerY - (routeCenterY * this.zoomScale);
-
-			this.#updateZoomTransform();
-		}
-	}
-
-	highlightLine(lineId) {
-		this.#applyMapVisualState({ lineId });
-	}
-
-	highlightStationType(stationType) {
-		this.#applyMapVisualState({ stationType });
-	}
-
-		/**
-	 * 🔄 टॉगल मेथड: रूट को मैप पर छुपाएं या दोबारा दिखाएं
+	 * 🔄 टॉगल मेथड: रूट को मैप पर छुपाएं/दिखाएं या लेजेंड फ़िल्टर साफ़ करें
 	 */
 	toggleRouteVisibility() {
+		// 1. यदि कोई लेजेंड/स्टेशन फ़िल्टर एक्टिव है, तो उसे साफ़ करें
+		if (this.#activeStationType || this.#activeLineId || this.#activeStationId) {
+			this.#activeStationType = null;
+			this.#activeLineId = null;
+			this.#activeStationId = null;
+			// यदि पहले से कोई रूट एक्टिव और विज़िबल था, तो उसे दोबारा रीस्टोर करें
+			if (this.#activeRoutePath && this.#isRouteVisible) {
+				this.#applyMapVisualState({ path: this.#activeRoutePath });
+			} else {
+				this.#applyMapVisualState({});
+			}
+			return;
+		}
+		// 2. सामान्य रूट शो/हाइड टॉगल
 		if (this.#isRouteVisible) {
-			// स्टेट 1 -> स्टेट 2: रूट को मैप से हटाएं (Show Route बटन बनाएं)
+			// रूट को मैप से हटाएं (Show Route बटन बनाएं)
 			this.#isRouteVisible = false;
 			this.#applyMapVisualState({});
-			this.#updateRouteToggleButtonUI();
 		} else if (this.#activeRoutePath) {
-			// स्टेट 2 -> स्टेट 1: उसी रूट को दोबारा हाईलाइट व फोकस करें
+			// उसी रूट को दोबारा हाईलाइट करें
 			this.#isRouteVisible = true;
 			this.#applyMapVisualState({ path: this.#activeRoutePath });
-			this.#updateRouteToggleButtonUI();
 		}
 	}
+
+
+	/**
+	 * 🔄 स्टेशन हाईलाइट हटाकर पहले से सक्रिय रूट को स्वतः रीस्टोर करें
+	 */
+	clearStationHighlight() {
+		this.#activeStationId = null;
+		if (this.#activeRoutePath && this.#isRouteVisible) {
+			this.#applyMapVisualState({ path: this.#activeRoutePath });
+		} else {
+			this.#applyMapVisualState({});
+		}
+		this.#updateRouteToggleButtonUI();
+	}
+
 
 	/**
 	 * 🎛️ बटन के आइकन, टेक्स्ट और कलर मोड को सिंक करने वाला हेल्पर
@@ -1142,15 +1231,21 @@ export class MetroMap {
 	#updateRouteToggleButtonUI(lang = this.#settings.currentLang) {
 		const btn = this.#elemts.clearRouteBtn;
 		if (!btn) return;
-
-		// यदि कोई रूट सर्च ही नहीं हुआ है तो बटन छुपाएं (F)
+		// 1. यदि कोई लेजेंड फ़िल्टर (स्टेशन टाइप, लाइन या स्टेशन) एक्टिव है:
+		if (this.#activeStationType || this.#activeLineId || this.#activeStationId) {
+			btn.classList.remove("hidden");
+			btn.classList.remove("show-mode");
+			const label = lang === "hi" ? "फ़िल्टर साफ़ करें" : "Clear Filter";
+			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearFilter">${label}</span>`;
+			return;
+		}
+		// 2. यदि कोई रूट ही एक्टिव नहीं है, तो बटन छुपाएं
 		if (!this.#activeRoutePath) {
 			btn.classList.add("hidden");
 			return;
 		}
-
+		// 3. एक्टिव रूट मौजूद है: Show/Clear रूट स्टेट्स
 		btn.classList.remove("hidden");
-
 		if (this.#isRouteVisible) {
 			// Clear Route State (Red/Rose ✕)
 			btn.classList.remove("show-mode");
@@ -1165,29 +1260,41 @@ export class MetroMap {
 	}
 
 	/**
-	 * रूट हाईलाइट व ज़ूम मेथड
+	 * रूट को मैप पर हाईलाइट व ज़ूम करें
+	 * @param {Array<string>|null} path - रूट के स्टेशन IDs
+	 * @param {Object} [options={}] - ज़ूम व पैन कस्टमाइज़ेशन ऑप्शंस
+	 * @param {boolean} [options.autoPan=true] - क्या मैप को रूट पर सेंटर करना है
+	 * @param {number|null} [options.customZoom=null] - बाहर से सेट किया गया कस्टम ज़ूम (उदा: 1.8 या 2.2). यदि null हो तो स्मार्ट ऑटो-फ़िट
+	 * @param {number} [options.paddingRatio=0.65] - स्क्रीन का कितना प्रतिशत हिस्सा रूट घेरेगा (Default: 65%)
 	 */
 	highlightRoute(path, options = {}) {
 		if (!path || path.length === 0) {
 			this.#activeRoutePath = null;
 			this.#isRouteVisible = false;
+			this.#activeStationType = null;
+			this.#activeLineId = null;
+			this.#activeStationId = null;
 			this.#applyMapVisualState({});
-			this.#updateRouteToggleButtonUI();
+			this.clearRoutePins();
 			return;
 		}
-
 		// रूट को याद रखें और विजिबल सेट करें
 		this.#activeRoutePath = path;
 		this.#isRouteVisible = true;
+		this.#activeStationType = null;
+		this.#activeLineId = null;
+		this.#activeStationId = null;
 		this.#applyMapVisualState({ path });
-		this.#updateRouteToggleButtonUI();
-
+		// 📍 दोनों सिरों के स्लीपर पिन को मैप खुद सटीक (x, y) पर एक्टिवेट करेगा
+		if (path.length >= 2) {
+			this.setRoutePin("from", path[0]);
+			this.setRoutePin("to", path[path.length - 1]);
+		}
 		const { autoPan = true, customZoom = null, paddingRatio = 0.65 } = options;
 		if (!autoPan) return;
-
+		// 🎯 रूट के सभी स्टेशनों का Bounding Box निकालें
 		let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
 		let validCount = 0;
-
 		path.forEach(stId => {
 			const stObj = this.#metroData?.stationData?.[stId];
 			if (stObj?.xy) {
@@ -1199,17 +1306,15 @@ export class MetroMap {
 				validCount++;
 			}
 		});
-
 		if (validCount > 0) {
 			const svgSize = this.#calculateSVGSize();
 			const centerX = svgSize.width / 2;
 			const centerY = svgSize.height / 2;
-
 			const routeWidth = maxX - minX || 100;
 			const routeHeight = maxY - minY || 100;
 			const routeCenterX = (minX + maxX) / 2;
 			const routeCenterY = (minY + maxY) / 2;
-
+			// 🎛️ ज़ूम लॉजिक: बाहर से भेजा गया customZoom इस्तेमाल करें या स्मार्ट ऑटो-कैलकुलेशन
 			if (typeof customZoom === "number" && customZoom > 0) {
 				this.zoomScale = customZoom;
 			} else {
@@ -1217,12 +1322,26 @@ export class MetroMap {
 				const scaleY = (svgSize.height * paddingRatio) / routeHeight;
 				this.zoomScale = Math.min(Math.max(Math.min(scaleX, scaleY), 1.0), 2.8);
 			}
-
 			this.#pan.panX = centerX - (routeCenterX * this.zoomScale);
 			this.#pan.panY = centerY - (routeCenterY * this.zoomScale);
 			this.#updateZoomTransform();
 		}
 	}
+
+	highlightLine(lineId) {
+		this.#activeLineId = lineId;
+		this.#activeStationType = null;
+		this.#activeStationId = null;
+		this.#applyMapVisualState({ lineId });
+	}
+	highlightStationType(stationType) {
+		this.#activeStationType = stationType;
+		this.#activeLineId = null;
+		this.#activeStationId = null;
+		this.#applyMapVisualState({ stationType });
+	}
+	
+
 	// =========================================================================
 	// 7. SVG Elements creator
 	// =========================================================================
@@ -1271,19 +1390,25 @@ export class MetroMap {
 		return line;
 	}
 
-	#createInterchangeCircle(x, y, radius, fillColor, strokeColor) {
+		#createInterchangeCircle(x, y, radius, fillColor, strokeColor) {
 		const group = this.#createGroup();
-		// 1. Outer concentric ring (⭕ Outer Ring)
+		// 1. आउटर कॉन्सेंट्रिक रिंग
 		const outer = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 		outer.setAttribute("cx", x);
 		outer.setAttribute("cy", y);
 		outer.setAttribute("r", radius + 60);
-		outer.setAttribute("fill", "none");
-		outer.setAttribute("stroke-width", 40);
+		outer.setAttribute("fill", fillColor);
+		outer.setAttribute("stroke-width", 38);
 		outer.setAttribute("stroke", strokeColor);
 
-		// 2. Inner main circle
-		const inner = this.#createCircle(x, y, radius, fillColor, strokeColor);
+		// 2. इनर ग्लोइंग कोर
+		const inner = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		inner.setAttribute("cx", x);
+		inner.setAttribute("cy", y);
+		inner.setAttribute("r", radius - 50);
+		inner.setAttribute("fill", strokeColor);
+		inner.setAttribute("stroke-width", 30);
+		inner.setAttribute("stroke", "#ffffff");
 
 		group.appendChild(outer);
 		group.appendChild(inner);
@@ -1292,19 +1417,128 @@ export class MetroMap {
 
 	#createWalkwayCircle(x, y, radius, fillColor, strokeColor) {
 		const group = this.#createGroup();
-		// 1. Main outer circle
-		const mainCircle = this.#createCircle(x, y, radius, fillColor, strokeColor);
+		// 1. डैशड आउटर रिंग (वॉकवे पेरीमीटर)
+		const outer = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		outer.setAttribute("cx", x);
+		outer.setAttribute("cy", y);
+		outer.setAttribute("r", radius + 20);
+		outer.setAttribute("fill", fillColor);
+		outer.setAttribute("stroke-width", 40);
+		outer.setAttribute("stroke", strokeColor);
+		outer.setAttribute("stroke-dasharray", "50,35");
 
-		// 2. Inner solid center dot (⊙ Center Dot)
+		// 2. इनर सॉलिड सेंटर पल्स डॉट
 		const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 		dot.setAttribute("cx", x);
 		dot.setAttribute("cy", y);
 		dot.setAttribute("r", 90);
 		dot.setAttribute("fill", strokeColor);
 
-		group.appendChild(mainCircle);
+		group.appendChild(outer);
 		group.appendChild(dot);
 		return group;
+	}
+
+	#createMultimodalHub(x, y, radius, fillColor, strokeColor) {
+		const group = this.#createGroup();
+		const size = 440;
+		const offset = size / 2;
+
+		// 1. पर्पल नियॉन स्क्विर्कल (Rounded Square Hub)
+		const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+		rect.setAttribute("x", x - offset);
+		rect.setAttribute("y", y - offset);
+		rect.setAttribute("width", size);
+		rect.setAttribute("height", size);
+		rect.setAttribute("rx", 120);
+		rect.setAttribute("fill", fillColor);
+		rect.setAttribute("stroke", "#c084fc");
+		rect.setAttribute("stroke-width", 45);
+
+		// 2. इनर कोर डॉट
+		const core = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		core.setAttribute("cx", x);
+		core.setAttribute("cy", y);
+		core.setAttribute("r", 95);
+		core.setAttribute("fill", "#c084fc");
+
+		group.appendChild(rect);
+		group.appendChild(core);
+		return group;
+	}
+
+	#createSharedTrackNode(x, y, radius, fillColor, strokeColor) {
+		const group = this.#createGroup();
+		const w = 500;
+		const h = 280;
+
+		// 1. कैप्सूल/स्टेडियम पिल
+		const pill = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+		pill.setAttribute("x", x - w / 2);
+		pill.setAttribute("y", y - h / 2);
+		pill.setAttribute("width", w);
+		pill.setAttribute("height", h);
+		pill.setAttribute("rx", h / 2);
+		pill.setAttribute("fill", fillColor);
+		pill.setAttribute("stroke", "#f43f5e");
+		pill.setAttribute("stroke-width", 40);
+
+		// 2. लेफ्ट टैंडम नोड
+		const leftDot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		leftDot.setAttribute("cx", x - 120);
+		leftDot.setAttribute("cy", y);
+		leftDot.setAttribute("r", 55);
+		leftDot.setAttribute("fill", "#f43f5e");
+
+		// 3. राइट टैंडम नोड
+		const rightDot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		rightDot.setAttribute("cx", x + 120);
+		rightDot.setAttribute("cy", y);
+		rightDot.setAttribute("r", 55);
+		rightDot.setAttribute("fill", "#f43f5e");
+
+		group.appendChild(pill);
+		group.appendChild(leftDot);
+		group.appendChild(rightDot);
+		return group;
+	}
+		/**
+	 * किसी एक स्टेशन पर स्लीपर पिन को विज़िबल करें
+	 */
+	setRoutePin(type, stationId, x = null, y = null) {
+		const pin = type === "from" ? this.#routePins?.from : this.#routePins?.to;
+		if (!pin) return;
+
+		if (x == null || y == null) {
+			const st = this.#metroData?.stationData?.[stationId];
+			if (st?.xy) {
+				x = st.xy.x;
+				y = st.xy.y;
+			}
+		}
+		if (x == null || isNaN(x) || y == null || isNaN(y)) {
+			pin.style.display = "none";
+			return;
+		}
+
+		pin.setAttribute("transform", `translate(${x}, ${y})`);
+		pin.style.display = "";
+
+		// 🎬 SVG के लिए getBoundingClientRect() से रिफ्लो ट्रिगर करें ताकि हर बार बाउंस दिखे
+		const animEl = pin.querySelector(".pin-drop-anim");
+		if (animEl) {
+			animEl.style.animation = "none";
+			void animEl.getBoundingClientRect(); // 👈 SVG रिफ्लो
+			animEl.style.animation = "";
+		}
+	}
+
+	/**
+	 * दोनों स्लीपर पिन को छुपाएं
+	 */
+	clearRoutePins() {
+		if (this.#routePins?.from) this.#routePins.from.style.display = "none";
+		if (this.#routePins?.to) this.#routePins.to.style.display = "none";
 	}
 
 }

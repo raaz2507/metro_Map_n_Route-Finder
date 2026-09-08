@@ -3,8 +3,6 @@
  * Enterprise ES2022 Decoupled Singleton Service Layer
  */
 
-import { eventBus } from "../../core/event-bus.js";
-import i18n from "../../core/i18n.js";
 
 class TelemetryService {
 	#subscribers = new Set();
@@ -108,104 +106,86 @@ class TelemetryService {
 		return () => this.#subscribers.delete(callback);
 	}
 
-	    /**
-     * 🛰️ ब्राउज़र का असली GPS परमिशन डायलॉग बॉक्स खोलें (Direct User Gesture)
-     */
-    requestGpsPermission(onGranted = null, onDenied = null) {
-        if (typeof navigator === "undefined" || !navigator.geolocation) {
-            eventBus.emit("SHOW_TOAST", {
-                message: i18n.t("pages.home.gps.unsupported") || "📍 आपके ब्राउज़र में लोकेशन सपोर्ट नहीं है।",
-                type: "error"
-            });
-            return;
-        }
-
-        // 🎯 बिना किसी async डिले के डायरेक्ट कॉल -> ब्राउज़र डायलॉग 100% खुलेगा!
-        navigator.geolocation.getCurrentPosition(
-            (pos) => {
-                this.#gpsPermissionState = "granted";
-                this.#lastAccuracy = Math.round(pos.coords.accuracy || 15);
-                this.#hasHardwareError = false;
-                this.#notifySubscribers();
-                if (typeof onGranted === "function") onGranted(pos);
-            },
-            (err) => {
-                if (err.code === 1) { // 1 = PERMISSION_DENIED (User clicked Block)
-                    this.#gpsPermissionState = "denied";
-                    eventBus.emit("SHOW_TOAST", {
-                        message: i18n.t("pages.home.gps.permissionDenied") || "📍 लोकेशन अनुमति ब्लॉक है। कृपया ब्राउज़र सेटिंग्स में Allow करें।",
-                        type: "error"
-                    });
-                    if (typeof onDenied === "function") onDenied(err);
-                } else if (err.code === 2) { // 2 = POSITION_UNAVAILABLE
-                    this.#hasHardwareError = true;
-                    eventBus.emit("SHOW_TOAST", {
-                        message: i18n.t("pages.home.gps.unavailable") || "📍 फ़ोन का GPS बंद है। कृपया डिवाइस लोकेशन ऑन करें।",
-                        type: "warning"
-                    });
-                }
-                this.#notifySubscribers();
-            },
-            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-        );
-    }
+	/**
+	 * 🛰️ ब्राउज़र का GPS परमिशन डायलॉग बॉक्स खोलें
+	 */
+	requestGpsPermission(onGranted = null, onDenied = null) {
+		if (typeof navigator === "undefined" || !navigator.geolocation) {
+			if (typeof onDenied === "function") onDenied({ code: 0, message: "UNSUPPORTED" });
+			return;
+		}
+		navigator.geolocation.getCurrentPosition(
+			(pos) => {
+				this.#gpsPermissionState = "granted";
+				this.#lastAccuracy = Math.round(pos.coords.accuracy || 15);
+				this.#hasHardwareError = false;
+				this.#notifySubscribers();
+				if (typeof onGranted === "function") onGranted(pos);
+			},
+			(err) => {
+				if (err.code === 1) {
+					this.#gpsPermissionState = "denied";
+				} else if (err.code === 2) {
+					this.#hasHardwareError = true;
+				}
+				this.#notifySubscribers();
+				if (typeof onDenied === "function") onDenied(err);
+			},
+			{ enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+		);
+	}
 
 	/**
-	 * 🎯 शुद्ध गणना किया हुआ टेलीमेट्री डेटा ऑब्जेक्ट
+	 * 🎯 शुद्ध डोमेन टेलीमेट्री डेटा ऑब्जेक्ट (Zero UI / Zero i18n Strings)
 	 */
 	getCurrentTelemetry() {
 		return {
-			gps: this.#computeGpsState(),
-			network: this.#computeNetworkState(),
+			gps: this.#computeGpsDomainState(),
+			network: this.#computeNetworkDomainState(),
 		};
 	}
 
-	#computeGpsState() {
+	#computeGpsDomainState() {
 		if (this.#gpsPermissionState === "denied") {
-			return { badgeText: i18n.t("pages.home.telemetry.gpsBlocked") || "🚫 Blocked", badgeType: "danger", precisionText: "--" };
+			return { status: "BLOCKED", badgeType: "danger", precisionText: "--" };
 		}
 		if (this.#gpsPermissionState === "prompt" && !this.#isTrackingActive) {
-			return { badgeText: i18n.t("pages.home.telemetry.gpsPrompt") || "⚠️ Not Allowed", badgeType: "warning", precisionText: "--" };
+			return { status: "NOT_ALLOWED", badgeType: "warning", precisionText: "--" };
 		}
 		if (this.#hasHardwareError) {
-			return { badgeText: i18n.t("pages.home.telemetry.gpsDeviceOff") || "📵 GPS Off", badgeType: "danger", precisionText: "±--m" };
+			return { status: "DEVICE_OFF", badgeType: "danger", precisionText: "±--m" };
 		}
-
 		if (this.#lastAccuracy !== null) {
 			if (this.#lastAccuracy > 100) {
-				return { badgeText: i18n.t("pages.home.telemetry.gpsTunnel") || "🚇 In Tunnel", badgeType: "danger", precisionText: `±${this.#lastAccuracy}m` };
+				return { status: "TUNNEL", badgeType: "danger", precisionText: `±${this.#lastAccuracy}m` };
 			}
 			const pct = this.#calculateGpsPercentage(this.#lastAccuracy);
 			const type = pct >= 80 ? "success" : pct >= 40 ? "warning" : "danger";
-			return { badgeText: `${pct}%`, badgeType: type, precisionText: `±${this.#lastAccuracy}m` };
+			return { status: "ACTIVE", percentage: pct, badgeType: type, precisionText: `±${this.#lastAccuracy}m` };
 		}
-
-		const readyText = this.#isTrackingActive ? i18n.t("pages.home.telemetry.gpsAcquiring") || "🛰️ Searching..." : i18n.t("pages.home.telemetry.gpsReady") || "🛰️ Ready";
-
-		return { badgeText: readyText, badgeType: "success", precisionText: "±--m" };
+		const status = this.#isTrackingActive ? "ACQUIRING" : "READY";
+		return { status, badgeType: "success", precisionText: "±--m" };
 	}
 
+	#computeNetworkDomainState() {
+		if (typeof navigator === "undefined" || !navigator.onLine) {
+			return { status: "OFFLINE", percentage: 0, badgeType: "danger" };
+		}
+		const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+		let pct = 100;
+		if (conn) {
+			if (conn.effectiveType === "4g") pct = (conn.rtt && conn.rtt <= 100) ? 98 : 85;
+			else if (conn.effectiveType === "3g") pct = 60;
+			else if (conn.effectiveType === "2g") pct = 30;
+		}
+		return { status: "ONLINE", percentage: pct, badgeType: pct >= 80 ? "success" : "warning" };
+	}
 	#calculateGpsPercentage(accuracyMeters) {
 		if (accuracyMeters <= 5) return 100;
 		if (accuracyMeters >= 100) return 0;
 		return Math.max(0, Math.min(100, Math.round(100 - ((accuracyMeters - 5) / 95) * 95)));
 	}
 
-	#computeNetworkState() {
-		if (typeof navigator === "undefined" || !navigator.onLine) {
-			return { badgeText: "0% (Offline)", badgeType: "danger" };
-		}
-
-		const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-		let pct = 100;
-		if (conn) {
-			if (conn.effectiveType === "4g") pct = conn.rtt <= 100 ? 98 : 85;
-			else if (conn.effectiveType === "3g") pct = 60;
-			else if (conn.effectiveType === "2g") pct = 30;
-		}
-
-		return { badgeText: `${pct}%`, badgeType: pct >= 80 ? "success" : "warning" };
-	}
 
 	#notifySubscribers() {
 		const payload = this.getCurrentTelemetry();
