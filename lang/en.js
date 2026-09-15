@@ -1,4 +1,5 @@
 // /lang/en.js
+import passengerSupportEn from "./pages/passenger_support.en.js";
 
 export default {
 	meta: {
@@ -29,7 +30,7 @@ export default {
 		home: "🏠 Home",
 		stations: "🚉 Stations",
 		recharge: "💳 Recharge Card",
-		others: "🗂️ Others",
+		passengerSupport: "🛡️ Passenger Support", 
 		help: "❓ Help",
 		about: "ℹ️ About"
 	},
@@ -389,5 +390,6 @@ export default {
 			divyangAccessible: "♿ Divyang Accessible",
 			standardAccess: "🚶 Standard Access"
 		}
-	}
+	},
+	passengerSupport: passengerSupportEn
 };

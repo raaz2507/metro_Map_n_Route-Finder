@@ -1,4 +1,5 @@
 // /lang/hi.js
+import passengerSupportHi from "./pages/passenger_support.hi.js";
 
 export default {
 	meta: {
@@ -30,7 +31,7 @@ export default {
 		home: "🏠 होम",
 		stations: "🚉 स्टेशन",
 		recharge: "💳 कार्ड रीचार्ज",
-		others: "🗂️ अन्य",
+		passengerSupport: "🛡️ यात्री सहायता",
 		help: "❓ सहायता",
 		about: "ℹ️ जानकारी"
 	},
@@ -382,5 +383,6 @@ export default {
 			divyangAccessible: "♿ दिव्यांग सुलभ",
 			standardAccess: "🚶 मानक पहुंच"
 		}
-	}
+	},
+	passengerSupport: passengerSupportHi
 };

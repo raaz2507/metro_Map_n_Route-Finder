@@ -63,7 +63,7 @@ export class HeaderComponent {
 						<a href="javascript:void(0)" id="nav-recharge-btn" class="${activePage === 'recharge' ? 'active' : ''}" data-i18n="nav-header.recharge">💳 Recharge Card</a>
 					</li>
 					<li class="header-nav-item">
-						<a href="other.html" class="${activePage === 'others' ? 'active' : ''}" data-i18n="nav-header.others">🗂️ Others</a>
+    					<a href="passenger_support.html" class="${activePage === 'passenger_support' ? 'active' : ''}" data-i18n="nav-header.passengerSupport">🛡️ Passenger Support</a>
 					</li>
 					<li class="header-nav-item">
 						<a href="help.html" class="${activePage === 'help' ? 'active' : ''}" data-i18n="nav-header.help">❓ Help</a>

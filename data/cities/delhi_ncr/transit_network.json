@@ -11,7 +11,7 @@
 			"dmrc": {"operator": "Delhi Metro Rail Corporation", "avgSpeedMetersPerMin": 600, "stationHaltMinutes": 0.5},
 			"nmrc": {"operator": "Noida Metro Rail Corporation", "avgSpeedMetersPerMin": 600, "stationHaltMinutes": 0.5},
 			"rapid_metro_gurugram": {"operator": "Rapid Metro Gurugram", "avgSpeedMetersPerMin": 600, "stationHaltMinutes": 0.4},
-			"delhi_meerut_rrts": {"operator": "National Capital Region Transport Corporation", "avgSpeedMetersPerMin": 1100, "stationHaltMinutes": 0.5}
+			"ncrtc": {"operator": "National Capital Region Transport Corporation", "avgSpeedMetersPerMin": 1100, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"dmrc_standard": {
