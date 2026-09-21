@@ -44,7 +44,7 @@ Base token fares for standard DMRC lines are extracted dynamically from `fareRul
 | 6 | > 32 km (null) | ₹64 |
 
 #### B. Airport Express Fare Matrix (`fareRules.policies.airport_express`)
-For journeys on the Airport Express Line, fares are looked up directly from the point-to-point station pair matrix `fareRules.policies.airport_express.fareMatrix[startId][endId]` (e.g. `new_delhi` to `igi_airport` = ₹64).
+For journeys on the Airport Express Line or NCRTC RRTS, fares are looked up from the 2D matrix using indexed station lookup: `matrix[stations.indexOf(startId)][stations.indexOf(endId)]` (e.g. `new_delhi` to `igi_airport` = ₹64).
 
 ### 2.3 4 Dynamic Fares & Discount Calculation
 `RouteFinder.#calculateFare()` reads discount policies dynamically from `data.json` and computes four fare tiers:

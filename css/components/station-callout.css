@@ -167,6 +167,31 @@
 		transform: scale(1.15);
 	}
 
+	/* 🚧 Status Badge (Under Construction / Approved) */
+	.callout-status-badge {
+		font-size: 10px;
+		font-weight: var(--fw-bold);
+		padding: 2px 8px;
+		border-radius: var(--radius-full, 9999px);
+		text-align: center;
+		margin: 2px auto 4px auto;
+		letter-spacing: 0.02em;
+		width: fit-content;
+		display: inline-block;
+	}
+
+	.callout-status-badge.under-construction {
+		background: rgba(245, 158, 11, 0.15);
+		color: #d97706;
+		border: 1px dashed rgba(245, 158, 11, 0.5);
+	}
+
+	.callout-status-badge.approved {
+		background: rgba(2, 132, 199, 0.15);
+		color: #0284c7;
+		border: 1px dotted rgba(2, 132, 199, 0.5);
+	}
+
 	/* 🕹️ ऐक्शन बटन्स रो (FROM / TO) */
 	.callout-actions {
 		display: flex;

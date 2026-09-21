@@ -79,6 +79,17 @@ export class StationCalloutView {
 		const currentCity = localStorage.getItem("active_city") || "delhi_ncr";
 		const btnText = i18n.t("pages.home.map.viewStationInfo") || "View Station Details";
 
+		const stationObj = centerClass.getStationDetails(stationId);
+		const status = stationObj?.properties?.status || "operational";
+		let statusBadgeHtml = "";
+		if (status === "under_construction") {
+			const badgeLabel = this.#currentLang === "hi" ? "🚧 निर्माणाधीन स्टेशन" : (this.#currentLang === "mr" ? "🚧 बांधकाम सुरू" : "🚧 Under Construction");
+			statusBadgeHtml = `<div class="callout-status-badge under-construction" title="${badgeLabel}">${badgeLabel}</div>`;
+		} else if (status === "approved" || status === "proposed") {
+			const badgeLabel = this.#currentLang === "hi" ? "🗓️ प्रस्तावित स्टेशन" : (this.#currentLang === "mr" ? "🗓️ नियोजित स्थानक" : "🗓️ Approved / Planned");
+			statusBadgeHtml = `<div class="callout-status-badge approved" title="${badgeLabel}">${badgeLabel}</div>`;
+		}
+
 		this.#calloutEl.innerHTML = `
 			<div class="callout-card-body">
 				<div class="callout-header">
@@ -91,6 +102,7 @@ export class StationCalloutView {
 					   title="${btnText}"
 					   aria-label="${btnText}"></a>
 				</div>
+				${statusBadgeHtml}
 				<div class="callout-actions">
 					<button type="button" class="callout-btn-from">
 						<span class="icon-from">▲</span>

@@ -362,7 +362,9 @@ class MapSettingsController {
 
 	#defaultSettings = {
 		autoCenter: true,
-		showWalkways: true
+		showWalkways: true,
+		showUnderConstruction: true,
+		showApproved: true
 	};
 
 	#settings = {};
@@ -381,7 +383,8 @@ class MapSettingsController {
 
 		this.#elements = {
 			panel,
-			
+			showUnderConstruction: document.getElementById("settingShowUnderConstruction"),
+			showApproved: document.getElementById("settingShowApproved")
 		};
 	}
 
@@ -404,12 +407,26 @@ class MapSettingsController {
 	}
 
 	#render() {
-		
+		if (this.#elements.showUnderConstruction) {
+			this.#elements.showUnderConstruction.checked = this.#settings.showUnderConstruction !== false;
+		}
+		if (this.#elements.showApproved) {
+			this.#elements.showApproved.checked = this.#settings.showApproved !== false;
+		}
 	}
 
 	#bindEvents() {
 		const signal = this.#abortController.signal;
 
+		this.#elements.showUnderConstruction?.addEventListener("change", (e) => {
+			this.#settings.showUnderConstruction = e.target.checked;
+			this.#saveSettings();
+		}, { signal });
+
+		this.#elements.showApproved?.addEventListener("change", (e) => {
+			this.#settings.showApproved = e.target.checked;
+			this.#saveSettings();
+		}, { signal });
 	}
 
 	destroy() {

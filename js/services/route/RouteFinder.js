@@ -43,9 +43,9 @@ export class RouteFinder {
 		this.#routeCache.clear();
 		this.#terminalCache.clear();
 		if (!this.#dijkstraEngine) {
-			this.#dijkstraEngine = new DijkstraAlgo(this.#stationData, this.#transfers);
+			this.#dijkstraEngine = new DijkstraAlgo(this.#stationData, this.#transfers, this.#lines);
 		} else {
-			this.#dijkstraEngine.updateData(this.#stationData, this.#transfers);
+			this.#dijkstraEngine.updateData(this.#stationData, this.#transfers, this.#lines);
 		}
 	}
 
@@ -55,32 +55,43 @@ export class RouteFinder {
 	 * @param {string} startName - शुरुआती स्टेशन का नाम (English, Hindi या ID)
 	 * @param {string} endName - अंतिम स्टेशन का नाम (English, Hindi या ID)
 	 * @param {string} [routeType="leastTransfers"] - "leastTransfers" | "shortestDistance"
+	 * @param {Object} [options={}] - अतिरिक्त ऑप्शंस (उदा: includeUnderConstruction)
 	 * @returns {Object|null}
 	 */
-	findRoute(startName, endName, routeType = "leastTransfers") {
+	findRoute(startName, endName, routeType = "leastTransfers", options = {}) {
 		const startId = this.findStationIdByName(startName);
 		const endId = this.findStationIdByName(endName);
 		if (!startId || !endId) return null;
+		const includeUnderConstruction = options.includeUnderConstruction ?? false;
 		// ⚡ Cache Check
-		const cacheKey = `${startId}:${endId}:${routeType}`;
+		const cacheKey = `${startId}:${endId}:${routeType}:${includeUnderConstruction ? 1 : 0}`;
 		if (this.#routeCache.has(cacheKey)) {
 			return this.#routeCache.get(cacheKey);
 		}
-		const dijkstraResult = this.#dijkstraEngine.findPath(startId, endId, routeType);
+		const dijkstraResult = this.#dijkstraEngine.findPath(startId, endId, routeType, options);
 		if (!dijkstraResult || !dijkstraResult.path || dijkstraResult.path.length === 0) {
 			return null;
 		}
 		const path = dijkstraResult.path;
 		const journeyData = this.#buildJourneyDetails(path, dijkstraResult.segments);
+
+		const startStatus = this.#stationData[startId]?.properties?.status || "operational";
+		const endStatus = this.#stationData[endId]?.properties?.status || "operational";
+		const hasUnderConstruction = startStatus !== "operational" || endStatus !== "operational" ||
+			(dijkstraResult.linesUsed || []).some(lId => (this.#lines?.[lId]?.status || "operational") !== "operational");
+
 		const routeResult = {
 			source: {
 				id: startId,
-				name: this.#getStationNames(startId)
+				name: this.#getStationNames(startId),
+				status: startStatus
 			},
 			destination: {
 				id: endId,
-				name: this.#getStationNames(endId)
+				name: this.#getStationNames(endId),
+				status: endStatus
 			},
+			hasUnderConstruction,
 			path: path,
 			totalStations: path.length,
 			interchangesCount: dijkstraResult.interchanges,
@@ -329,7 +340,7 @@ export class RouteFinder {
 		const platforms = station.platforms;
 		const matchingPlatforms = [];
 		for (const [platNo, platInfo] of Object.entries(platforms)) {
-			if (platInfo.line === targetLineId) {
+			if (platInfo.line === targetLineId && platInfo.is_open !== false) {
 				matchingPlatforms.push({ platNo, platInfo });
 			}
 		}

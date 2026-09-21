@@ -1,0 +1,500 @@
+@import url("../base/base.css");
+@import url("../layout/layout.css");
+@import url("../layout/header.css");
+@import url("../layout/navbar_header.css");
+@import url("../layout/footer.css");
+@import url("../components/toast.css");
+
+@layer layout, animations;
+
+@layer layout {
+	/* =========================================================================
+	   TVM DISPENSER LAYOUT (GAP REMOVED - TICKET ALIGNED DIRECTLY TO SLIT MOUTH)
+	   ========================================================================= */
+
+	/* 3. MAIN WORKSPACE 2-COLUMN GRID */
+	.kiosk-workspace {
+		width: 100%;
+		max-width: 1100px;
+		display: grid;
+		grid-template-columns: 500px 1fr;
+		gap: var(--space-2xl);
+		align-items: start;
+	}
+
+	@media (max-width: 950px) {
+		.kiosk-workspace {
+			grid-template-columns: 1fr;
+			justify-items: center;
+		}
+	}
+
+	/* 4. LEFT COLUMN: TVM HARDWARE MACHINE HOUSING */
+	.tvm-kiosk-unit {
+		width: 100%;
+		max-width: 500px;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		overflow: visible;
+	}
+
+	/* TOP HOOD (SOLID METAL CASING - GAP REDUCED AT BOTTOM) */
+	.tvm-hood {
+		padding: var(--space-xl) var(--space-xl) var(--space-sm);
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+		box-shadow: var(--shadow-md);
+		position: relative;
+		z-index: auto;
+	}
+
+	.tvm-hood-meta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: var(--space-md);
+	}
+
+	.tvm-device-id {
+		font-size: var(--fs-xs);
+		color: var(--text-muted);
+	}
+
+	.tvm-screws {
+		display: flex;
+		gap: var(--space-sm);
+	}
+
+	.screw {
+		width: 10px;
+		height: 10px;
+		border-radius: var(--radius-full);
+		background: var(--border-color);
+		border: 1px solid var(--text-muted);
+	}
+
+	.dispenser-slot-bezel {
+		background: var(--bg-app);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--space-md) var(--space-lg);
+		box-shadow: var(--shadow-sm);
+		position: relative;
+		z-index: 2;
+	}
+
+	.dispenser-slot-banner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: var(--space-sm);
+	}
+
+	.dispenser-label {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+
+	.mechanical-slit {
+		height: 14px;
+		background: var(--bg-app);
+		border-radius: var(--radius-xs);
+		border-top: 1px solid var(--border-color);
+		border-bottom: 1px solid var(--border-color);
+		position: relative;
+		overflow: visible;
+		z-index: 3;
+	}
+
+	/* TICKET FEED BAY (NO TOP PADDING GAP) */
+	.ticket-dispense-bay {
+		position: relative;
+		width: 100%;
+		padding: 0 var(--space-lg) var(--space-xl);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: var(--card-bg);
+		box-shadow: none;
+		overflow: visible;
+	}
+
+	/* TICKET PAPER WRAPPER (ALIGNED DIRECTLY AT SLIT MOUTH) */
+	.ticket-paper-wrapper {
+		width: 100%;
+		max-width: 410px;
+		position: relative;
+		transform-origin: top center;
+		background: transparent;
+		border-radius: 0;
+		box-shadow: none;
+		z-index: 4;
+		margin-top: -48px;
+	}
+
+	/* SVG VECTOR DROP-SHADOW */
+	.ticket-paper-wrapper svg {
+		width: 100%;
+		height: auto;
+		display: block;
+		filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.20));
+	}
+
+	/* BOTTOM CHASSIS & TRAY WELL */
+	.tvm-bottom-chassis {
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+		padding: var(--space-md) var(--space-lg) var(--space-lg);
+		box-shadow: var(--shadow-sm);
+		position: relative;
+		z-index: 1;
+	}
+
+	.kiosk-tray-well {
+		background: var(--bg-app);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--space-sm) var(--space-md);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.tray-instructions {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-secondary);
+	}
+
+	.chassis-feet-bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: var(--space-sm);
+		padding: 0 var(--space-xs);
+	}
+
+	.chassis-foot {
+		width: 32px;
+		height: 6px;
+		background: var(--text-muted);
+		border-radius: var(--radius-xs);
+	}
+
+	.chassis-serial {
+		font-size: var(--fs-xs);
+		color: var(--text-muted);
+	}
+
+	/* 5. RIGHT COLUMN: CONTROL PANEL & FORM GRID */
+	.kiosk-control-panel {
+		background: var(--card-bg);
+		backdrop-filter: blur(var(--backdrop-blur));
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-2xl);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.panel-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: var(--space-xl);
+		padding-bottom: var(--space-md);
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.panel-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xl);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.form-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-lg);
+		margin-bottom: var(--space-xl);
+	}
+
+	.form-group-full {
+		grid-column: 1 / -1;
+	}
+
+	.form-label {
+		display: block;
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		color: var(--text-secondary);
+		text-transform: uppercase;
+		margin-bottom: var(--space-xs);
+	}
+
+	.form-input, .form-select {
+		width: 100%;
+		background: var(--input-bg);
+		border: 1px solid var(--input-border);
+		border-radius: var(--radius-sm);
+		padding: var(--space-sm) var(--space-md);
+		color: var(--text-primary);
+		font-family: var(--font-main);
+		font-size: var(--fs-sm);
+		outline: none;
+		transition: var(--transition-fast);
+	}
+
+	.form-input:focus, .form-select:focus {
+		border-color: var(--input-focus-border);
+		box-shadow: 0 0 0 2px rgba(var(--focus-ring-rgb), var(--op-focus-shadow));
+	}
+
+	.action-row {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		margin-top: var(--space-xl);
+	}
+
+	.btn-dispense {
+		padding: var(--space-md) var(--space-lg);
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		border: none;
+		border-radius: var(--radius-sm);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-bold);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-sm);
+		cursor: pointer;
+		box-shadow: var(--shadow-md);
+		transition: var(--transition-smooth);
+	}
+
+	.btn-dispense:hover {
+		background: var(--btn-primary-hover);
+	}
+
+	.btn-secondary {
+		background: var(--btn-reset-bg);
+		color: var(--btn-reset-text);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-sm);
+		padding: var(--space-sm) var(--space-md);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-sm);
+		transition: var(--transition-fast);
+	}
+
+	.btn-secondary:hover {
+		background: var(--btn-reset-hover);
+	}
+
+	.audio-badge {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		cursor: pointer;
+		user-select: none;
+	}
+
+	.quick-tips {
+		margin-top: var(--space-xl);
+		padding: var(--space-md) var(--space-lg);
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		border-left: 3px solid rgb(var(--color-primary-rgb));
+		border-radius: var(--radius-xs);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		line-height: 1.5;
+	}
+}
+
+@layer animations {
+	/* =========================================================================
+	   MASTER ANIMATIONS & KEYFRAMES SECTION
+	   ========================================================================= */
+
+	/* 1. KIOSK STATUS LED PULSE (ONLINE BADGE) */
+	.status-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #34D399;
+		box-shadow: 0 0 10px #34D399;
+		animation: pulse-dot 1.8s infinite;
+	}
+
+	@keyframes pulse-dot {
+		0%, 100% { opacity: 1; transform: scale(1); }
+		50% { opacity: 0.4; transform: scale(0.85); }
+	}
+
+	/* 2. DISPENSER LED BLINK (ACTIVE PRINTING) */
+	.dispenser-led.active {
+		background: var(--led-green);
+		box-shadow: var(--led-glow-active);
+		animation: led-blink 0.4s infinite alternate;
+	}
+
+	@keyframes led-blink {
+		0% { opacity: 0.3; }
+		100% { opacity: 1; }
+	}
+
+	.tvm-kiosk-unit:has(.ticket-dispense-bay.state-dispensing) .screw {
+		animation: screw-print-pulse 0.45s ease-in-out infinite alternate;
+	}
+
+	.tvm-kiosk-unit:has(.ticket-dispense-bay.state-dispensing) .screw:nth-child(2) {
+		animation-delay: 0.18s;
+	}
+
+	@keyframes screw-print-pulse {
+		from {
+			background: var(--border-color);
+			box-shadow: 0 0 0 rgba(var(--color-primary-rgb), 0);
+			transform: scale(1);
+		}
+		to {
+			background: rgb(var(--color-primary-rgb));
+			box-shadow: 0 0 8px rgba(var(--color-primary-rgb), 0.8);
+			transform: scale(1.16);
+		}
+	}
+
+	/* 3. TICKET DISPENSE FEED (DARK / DEFAULT THEME) */
+	.state-dispensing .ticket-paper-wrapper {
+		animation: dispense-feed 2.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+	}
+
+	@keyframes dispense-feed {
+		0% {
+			transform: translateY(-85%);
+			opacity: 0;
+			clip-path: inset(85% -50px -50px -50px);
+		}
+		15% {
+			opacity: 1;
+		}
+		40% {
+			transform: translateY(-50%);
+			clip-path: inset(50% -50px -50px -50px);
+		}
+		70% {
+			transform: translateY(-18%);
+			clip-path: inset(18% -50px -50px -50px);
+		}
+		88% {
+			transform: translateY(3px);
+			clip-path: inset(0% -50px -50px -50px);
+		}
+		100% {
+			transform: translateY(0);
+			clip-path: inset(0% -50px -50px -50px);
+			opacity: 1;
+		}
+	}
+
+	/* 4. PAPER GRAVITY DROP & REBOUND (DARK / DEFAULT THEME) */
+	.state-dispensed .ticket-paper-wrapper {
+		transform: translateY(0px);
+		opacity: 1;
+		animation: paper-drop-settle 0.7s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+	}
+
+	@keyframes paper-drop-settle {
+		0% {
+			transform: translateY(0) rotate(0);
+		}
+		65% {
+			transform: translateY(calc(var(--ticket-drop-distance, 18px) + 18px)) rotate(0.4deg);
+		}
+		85% {
+			transform: translateY(calc(var(--ticket-drop-distance, 18px) - 5px)) rotate(-0.2deg);
+		}
+		100% {
+			transform: translateY(var(--ticket-drop-distance, 18px)) rotate(0deg);
+		}
+	}
+
+	/* 5. TICKET DISPENSE FEED (LIGHT THEME) */
+	body.light-theme .state-dispensing .ticket-paper-wrapper {
+		animation: dispense-feed-light 2.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+	}
+
+	@keyframes dispense-feed-light {
+		0% {
+			transform: translateY(-85%);
+			opacity: 0;
+			clip-path: inset(85% -50px -50px -50px);
+		}
+		15% {
+			opacity: 1;
+		}
+		40% {
+			transform: translateY(-50%);
+			clip-path: inset(50% -50px -50px -50px);
+		}
+		70% {
+			transform: translateY(-18%);
+			clip-path: inset(18% -50px -50px -50px);
+		}
+		88% {
+			transform: translateY(3px);
+			clip-path: inset(0% -50px -50px -50px);
+		}
+		100% {
+			transform: translateY(0);
+			clip-path: inset(0% -50px -50px -50px);
+			opacity: 1;
+		}
+	}
+
+	/* 6. PAPER GRAVITY DROP & REBOUND (LIGHT THEME) */
+	body.light-theme .state-dispensed .ticket-paper-wrapper {
+		transform: translateY(18px);
+		animation: paper-drop-settle-light 0.7s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+	}
+
+	@keyframes paper-drop-settle-light {
+		0% {
+			transform: translateY(0) rotate(0);
+		}
+		65% {
+			transform: translateY(calc(var(--ticket-drop-distance, 18px) + 18px)) rotate(0.4deg);
+		}
+		85% {
+			transform: translateY(calc(var(--ticket-drop-distance, 18px) - 5px)) rotate(-0.2deg);
+		}
+		100% {
+			transform: translateY(var(--ticket-drop-distance, 18px)) rotate(0deg);
+		}
+	}
+}

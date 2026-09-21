@@ -112,6 +112,8 @@
 				"en": "Maharashtra",
 				"hi": "महाराष्ट्र"
 			},
+			"hasData": true,
+			"dataPath": "data/cities/mumbai",
 			"networks": {
 				"mumbai_metro": {
 					"name": {
@@ -120,9 +122,10 @@
 					},
 					"mode": "Metro",
 					"status": "operational",
-					"operator": "MMRDA / MMRC",
+					"operator": "MMRDA / MMRC / MMOPL",
 					"website": "https://mmrcl.com",
-					"dataPath": "mumbai_metro_data",
+					"hasData": true,
+					"dataPath": "data/cities/mumbai",
 					"icon": "assets/icons/networks/mumbai_metro.svg"
 				},
 				"mumbai_monorail": {
@@ -134,7 +137,8 @@
 					"status": "operational",
 					"operator": "MMRDA",
 					"website": "https://mmrda.maharashtra.gov.in",
-					"dataPath": "mumbai_monorail_data"
+					"hasData": true,
+					"dataPath": "data/cities/mumbai"
 				},
 				"thane_metro": {
 					"name": {
@@ -156,7 +160,8 @@
 					"status": "operational",
 					"operator": "CIDCO",
 					"website": "https://cidco.maharashtra.gov.in",
-					"dataPath": "navi_mumbai_metro_data"
+					"hasData": true,
+					"dataPath": "data/cities/mumbai"
 				}
 			},
 			"themeColor": "#0284C7"

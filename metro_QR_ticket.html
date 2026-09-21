@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Open Graph / Facebook / WhatsApp / Telegram -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/" />
+	<meta property="og:title" content="Metro Map & Route Finder" />
+	<meta property="og:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily." />
+	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png" />
+
+	<!-- Twitter / X -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/" />
+	<meta name="twitter:title" content="Metro Map & Route Finder" />
+	<meta name="twitter:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily." />
+	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png" />
+
+	<title>Metro Ticket Wallet - PoC</title>
+	
+	<link rel="stylesheet" href="./css/pages/metro_QR_ticket.css">
+</head>
+<body>
+	<!-- GLOBAL DYNAMIC HEADER -->
+	<div id="app-header"></div>
+	<main class="wallet-container">
+		<!-- Card 1: WhatsApp Booking Bridge -->
+		<section class="wallet-card">
+			<div style="display:flex; flex-direction:column; gap:4px;">
+				<h2 style="font-size:var(--fs-md); font-weight:var(--fw-semibold);" data-i18n="metroTicket.cards.whatsapp.title">1. Get Real DMRC Ticket</h2>
+				<p style="font-size:var(--fs-xs); color:var(--text-secondary);" data-i18n="metroTicket.cards.whatsapp.desc">Book official QR ticket via DMRC WhatsApp Bot</p>
+			</div>
+			<a href="https://wa.me/919650855800?text=Hi" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-launcher">
+				<span>💬</span>
+				<span data-i18n="metroTicket.cards.whatsapp.btn">Open DMRC WhatsApp Bot</span>
+			</a>
+		</section>
+
+		<!-- Card 2: Ingestion Zone -->
+		<section class="wallet-card" id="ingestionCard">
+			<div style="display:flex; flex-direction:column; gap:4px;">
+				<h2 style="font-size:var(--fs-md); font-weight:var(--fw-semibold);" data-i18n="metroTicket.cards.ingestion.title">2. Save Gate Ticket</h2>
+				<p style="font-size:var(--fs-xs); color:var(--text-secondary);" data-i18n="metroTicket.cards.ingestion.desc">Drop paper ticket photo or WhatsApp screenshot here</p>
+			</div>
+
+			<div class="ingestion-zone" id="dropZone">
+				<span class="ingestion-icon">📸</span>
+				<span class="ingestion-title" data-i18n="metroTicket.cards.ingestion.dropTitle">Drop Paper Ticket or Screenshot</span>
+				<span class="ingestion-hint" data-i18n="metroTicket.cards.ingestion.dropHint">Multi-Engine Fallback: BarcodeDetector -> jsQR -> ZXing</span>
+				<input type="file" id="fileInput" accept="image/*" style="display:none;">
+				<input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none;">
+			</div>
+
+			<div class="ingestion-actions-grid">
+				<button type="button" class="btn-camera-action" id="btnCaptureCamera">
+					<span>📸</span>
+					<span data-i18n="metroTicket.cards.ingestion.btnCamera">Take Photo with Camera (Paper Ticket)</span>
+				</button>
+				<button type="button" class="btn-paste-action" id="btnPasteClipboard">
+					<span>📋</span>
+					<span data-i18n="metroTicket.cards.ingestion.btnPaste">Tap to Paste Screenshot from Clipboard</span>
+				</button>
+			</div>
+		</section>
+
+		<!-- Card 3: Active Gate Pass View -->
+		<article class="pass-card" id="passCard" aria-live="polite">
+			<div class="pass-header">
+				<div class="pass-status-pill">
+					<span class="pass-status-dot"></span>
+					<span data-i18n="metroTicket.cards.pass.statusReady">GATE READY PASS</span>
+				</div>
+				<span class="pass-timer" id="passCountdown" title="Validity Countdown">03:00:00</span>
+			</div>
+
+			<div class="qr-frame">
+				<canvas id="qrDisplayCanvas" class="qr-canvas" width="600" height="600"></canvas>
+			</div>
+
+			<div style="text-align:center;">
+				<div style="font-size:var(--fs-sm); font-weight:var(--fw-bold); color:var(--text-primary);" data-i18n="metroTicket.cards.pass.turnstileTitle">Metro Turnstile Pass</div>
+				<div style="font-size:var(--fs-xs); color:var(--text-muted);" id="passQrSubtitle" data-i18n="metroTicket.cards.pass.turnstileSubtitle">Pure Mathematical Vector QR (100% Crisp)</div>
+			</div>
+
+			<div class="pass-actions-grid">
+				<div class="pass-actions-row">
+					<button type="button" class="btn-gate-mode" id="btnOpenGateMode">
+						<span>🔆</span>
+						<span data-i18n="metroTicket.cards.pass.btnGateMode">Gate Mode</span>
+					</button>
+					<button type="button" class="btn-view-original" id="btnViewOriginal">
+						<span>🖼️</span>
+						<span data-i18n="metroTicket.cards.pass.btnOriginalPic">Original Pic</span>
+					</button>
+				</div>
+				<button type="button" class="btn-archive-active" id="btnArchiveActive">
+					<span>📥</span>
+					<span data-i18n="metroTicket.cards.pass.btnArchive">Move to History</span>
+				</button>
+				<a href="./tvm_dispenser.html" class="btn-tvm-launcher" target="_blank" rel="noopener noreferrer">
+					<span>🎟️</span>
+					<span data-i18n="metroTicket.cards.pass.btnTvm">Open TVM Dispenser</span>
+				</a>
+			</div>
+		</article>
+
+		<!-- Card 4: Ticket History & Archive List -->
+		<section class="history-card" id="historyCard">
+			<div class="history-header">
+				<div class="history-title-wrap">
+					<span class="history-title" data-i18n="metroTicket.cards.history.title">📜 Ticket History</span>
+					<span class="history-count-badge" id="historyCountBadge">0/13</span>
+				</div>
+				<button type="button" class="btn-clear-all-history" id="btnClearAllHistory" disabled data-i18n="metroTicket.cards.history.btnClearAll">
+					Clear All
+				</button>
+			</div>
+
+			<div class="history-list" id="historyListContainer">
+				<div class="history-empty-state" data-i18n="metroTicket.cards.history.empty">No tickets in history yet. Saved tickets will appear here.</div>
+			</div>
+		</section>
+
+		<!-- SECTION 1: HOW TO USE -->
+		<section class="info-guide-card">
+			<h2 class="info-guide-title">
+				<span>💡</span>
+				<span data-i18n="metroTicket.guide.title">How to Add Tickets</span>
+			</h2>
+
+			<div class="guide-steps-grid">
+				<div class="guide-step-box">
+					<span class="guide-step-icon">📸</span>
+					<div class="guide-step-content">
+						<h3 data-i18n="metroTicket.guide.step1Title">1. Direct Camera Photo</h3>
+						<p data-i18n="metroTicket.guide.step1Desc">Tap 'Take Photo with Camera' and snap the paper ticket from counter/machine — instantly turned into digital pass.</p>
+					</div>
+				</div>
+
+				<div class="guide-step-box">
+					<span class="guide-step-icon">📱</span>
+					<div class="guide-step-content">
+						<h3 data-i18n="metroTicket.guide.step2Title">2. WhatsApp Screenshot (1-Tap Paste)</h3>
+						<p data-i18n="metroTicket.guide.step2Desc">Take screenshot when WhatsApp ticket arrives, then tap 'Tap to Paste'. Loads in 1 second.</p>
+					</div>
+				</div>
+
+				<div class="guide-step-box">
+					<span class="guide-step-icon">📁</span>
+					<div class="guide-step-content">
+						<h3 data-i18n="metroTicket.guide.step3Title">3. Gallery Pick or Drag-and-Drop</h3>
+						<p data-i18n="metroTicket.guide.step3Desc">Select any saved ticket image from your device gallery in 1 tap.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="principle-banner" data-i18n="metroTicket.guide.banner">
+				Our multi-engine pipeline (BarcodeDetector + jsQR + ZXing) reads token data from your screenshot or photo and paints a 100% new Pure Vector QR code, while preserving the original image safely.
+			</div>
+		</section>
+
+		<!-- SECTION 2: WHY USE METRO PASS WALLET? -->
+		<section class="why-use-card">
+			<h2 class="info-guide-title" style="color:var(--text-primary);">
+				<span>🌟</span>
+				<span data-i18n="metroTicket.benefits.title">Why Use Metro Pass Wallet?</span>
+			</h2>
+
+			<div class="benefits-list">
+				<div class="benefit-item">
+					<span class="benefit-icon">🌧️</span>
+					<div class="benefit-text">
+						<h4 data-i18n="metroTicket.benefits.b1Title">No fear of paper tearing, getting wet or lost</h4>
+						<p data-i18n="metroTicket.benefits.b1Desc">Paper tickets in pockets crumple, get wet in rain, or get misplaced. Storing digital backup keeps ticket secure.</p>
+					</div>
+				</div>
+
+				<div class="benefit-item">
+					<span class="benefit-icon">📶</span>
+					<div class="benefit-text">
+						<h4 data-i18n="metroTicket.benefits.b2Title">Works 100% offline at underground stations</h4>
+						<p data-i18n="metroTicket.benefits.b2Desc">No internet or WhatsApp hanging at underground stations. This pass is offline-ready and opens instantly.</p>
+					</div>
+				</div>
+
+				<div class="benefit-item">
+					<span class="benefit-icon">⚡</span>
+					<div class="benefit-text">
+						<h4 data-i18n="metroTicket.benefits.b3Title">Instant gate entry in 1-tap (Gate Mode)</h4>
+						<p data-i18n="metroTicket.benefits.b3Desc">No searching through WhatsApp chats in crowds. Tap Gate Mode for high-contrast bright QR that gates read effortlessly.</p>
+					</div>
+				</div>
+
+				<div class="benefit-item">
+					<span class="benefit-icon">🔄</span>
+					<div class="benefit-text">
+						<h4 data-i18n="metroTicket.benefits.b4Title">Up to 13 tickets history & easy restore</h4>
+						<p data-i18n="metroTicket.benefits.b4Desc">Keep return journey or friends' tickets in history and restore them anytime with 1 tap.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Fullscreen Gate Scanner Modal -->
+	<div class="modal-overlay" id="gateModal" role="dialog" aria-modal="true" aria-hidden="true" style="background:#000000;">
+		<div class="modal-box" style="background:#ffffff; max-width:320px;">
+			<div class="modal-title" style="color:#0f172a;">Turnstile Gate Scan</div>
+			<canvas id="gateModalCanvas" class="gate-canvas-large" width="600" height="600"></canvas>
+			<p style="font-size:var(--fs-xs); color:#64748b;">Scan this QR directly at metro entry/exit gate</p>
+			<button type="button" class="modal-btn-confirm" id="btnCloseGateModal" style="width:100%; background:#0f172a; border-radius:var(--radius-full);">Done / Close</button>
+		</div>
+	</div>
+
+	<!-- Original Image Lightbox Modal -->
+	<div class="modal-overlay" id="originalModal" role="dialog" aria-modal="true" aria-hidden="true">
+		<div class="original-modal-box">
+			<div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+				<span style="font-weight:var(--fw-bold); font-size:var(--fs-md);">🖼️ Original Ticket Image</span>
+				<span style="font-size:var(--fs-xs); color:#94a3b8;">Original Backup</span>
+			</div>
+			<div class="original-image-preview-wrap">
+				<img src="" alt="Original Ticket" id="originalImagePreview" class="original-image-preview">
+			</div>
+			<button type="button" class="modal-btn-confirm" id="btnCloseOriginalModal" style="width:100%; border-radius:var(--radius-full);">Close Preview</button>
+		</div>
+	</div>
+
+	<!-- Confirmation Warning Modal (Active Replace & Clear All) -->
+	<div class="modal-overlay" id="confirmModal" role="dialog" aria-modal="true" aria-hidden="true">
+		<div class="modal-box">
+			<div class="modal-title" id="confirmModalTitle">Warning</div>
+			<div class="modal-desc" id="confirmModalDesc">Are you sure?</div>
+			<div class="modal-btn-row">
+				<button type="button" class="modal-btn-cancel" id="btnCancelConfirm">Cancel</button>
+				<button type="button" class="modal-btn-confirm" id="btnAcceptConfirm">Confirm</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- GLOBAL FOOTER -->
+	<div id="app-footer"></div>
+
+	<!-- Local High-Speed Offline Engines (Multi-Engine Fallback Pipeline) -->
+	<script src="./js/lib/engine_zxing.js"></script>
+	<script src="./js/lib/engine_jsqr.js"></script>
+	<script src="./js/lib/engine_vector_painter.js"></script>
+	
+	<script type="module" src="./js/pages/metro_QR_ticket.js"></script>
+	<!-- Modular Standalone Application Controller (Separated from Engines) -->
+</body>
+</html>

@@ -234,4 +234,30 @@
 		background: #f43f5e;
 		border-radius: 50%;
 	}
+
+	/* Track & Network Status Legend Indicators */
+	.legend-panel .legend-status-solid {
+		width: 26px;
+		height: 4px;
+		background: #22c55e;
+		border-radius: 2px;
+		flex-shrink: 0;
+	}
+
+	.legend-panel .legend-status-dashed {
+		width: 26px;
+		height: 4px;
+		background: repeating-linear-gradient(90deg, #f59e0b, #f59e0b 6px, transparent 6px, transparent 10px);
+		border-radius: 2px;
+		flex-shrink: 0;
+	}
+
+	.legend-panel .legend-status-dotted {
+		width: 26px;
+		height: 4px;
+		background: repeating-linear-gradient(90deg, #0284c7, #0284c7 3px, transparent 3px, transparent 6px);
+		border-radius: 2px;
+		opacity: 0.75;
+		flex-shrink: 0;
+	}
 }

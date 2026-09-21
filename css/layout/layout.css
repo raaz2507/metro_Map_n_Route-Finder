@@ -188,7 +188,9 @@
 			z-index: var(--z-modal);
 		}
 		
-		footer {
+		/* Hide footer only on interactive map view with floating bottom nav */
+		body:has(.floating-nav) footer,
+		body:has(#map) footer {
 			display: none !important;
 		}
 	   

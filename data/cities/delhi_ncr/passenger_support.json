@@ -1,25 +1,122 @@
 {
-	"network_id": "dmrc_delhi",
-	"network_name": "Delhi Metro (DMRC)",
-	"city": "Delhi NCR",
-	"helplines": {
-		"customer_care": "155370",
-		"security_cisf": "155655",
-		"women_safety": "011-23417910",
-		"police_emergency": "112"
+	"city": "delhi_ncr",
+	"city_name": "Delhi NCR",
+	"last_updated": "2026-09-19",
+	"emergency": {
+		"police_emergency": "112",
+		"women_safety": "1090",
+		"ambulance": "102"
 	},
-	"portals": {
-		"official_website": "https://delhimetrorail.com/",
-		"contact_us": "https://delhimetrorail.com/contact-us",
-		"vigilance_portal": "https://vcp.delhimetrorail.com/",
-		"lost_and_found": "https://delhimetrorail.com/lost-found",
-		"women_safety": "https://delhimetrorail.com/facilities-for-women-passengers",
-		"differently_abled": "https://delhimetrorail.com/facilities-for-differently-abled-passengers",
-		"travel_advisory": "https://delhimetrorail.com/travel-advisory",
-		"parking_facilities": "https://delhimetrorail.com/parking-facilities"
-	},
-	"facilities": {
-		"central_lost_found_office": "Kashmere Gate Metro Station (Concourse level, near Gate 1)",
-		"lost_found_operating_hours": "08:00 AM - 08:00 PM (Monday to Saturday)"
+	"networks": {
+		"dmrc": {
+			"network_name": "Delhi Metro (DMRC)",
+			"operator": "Delhi Metro Rail Corporation",
+			"helplines": {
+				"customer_care": "155370",
+				"security_cisf": "155655",
+				"women_safety": "011-23417910",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://delhimetrorail.com/",
+				"contact_us": "https://delhimetrorail.com/contact-us",
+				"vigilance_portal": "https://vcp.delhimetrorail.com/",
+				"lost_and_found": "https://delhimetrorail.com/lost-found",
+				"women_safety": "https://delhimetrorail.com/facilities-for-women-passengers",
+				"differently_abled": "https://delhimetrorail.com/facilities-for-differently-abled-passengers",
+				"travel_advisory": "https://delhimetrorail.com/travel-advisory",
+				"parking_facilities": "https://delhimetrorail.com/parking-facilities"
+			},
+			"facilities": {
+				"central_lost_found_office": "Kashmere Gate Metro Station (Concourse level, near Gate 1)",
+				"lost_found_operating_hours": "08:00 AM - 08:00 PM (Monday to Saturday)"
+			}
+		},
+		"nmrc": {
+			"network_name": "Noida Metro Rail Corporation (NMRC Aqua Line)",
+			"operator": "Noida Metro Rail Corporation",
+			"helplines": {
+				"customer_care": "1800-1800-247",
+				"security_cisf": "0120-3849001",
+				"women_safety": "1090",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://www.nmrcnoida.com/",
+				"contact_us": "https://www.nmrcnoida.com/Home/ContactUs",
+				"vigilance_portal": "https://www.nmrcnoida.com/Grievance",
+				"lost_and_found": "https://www.nmrcnoida.com/Passenger-Information/Metro-Rail/Train-Timings",
+				"women_safety": "https://www.nmrcnoida.com/Passenger-Information/Metro-Rail/Facilities",
+				"differently_abled": "https://www.nmrcnoida.com/Passenger-Information/Metro-Rail/Facilities",
+				"travel_advisory": "https://www.nmrcnoida.com/",
+				"parking_facilities": "https://www.nmrcnoida.com/Passenger-Information/Metro-Rail/Facilities"
+			},
+			"facilities": {
+				"central_lost_found_office": "Sector 51 Metro Station Customer Care Centre",
+				"lost_found_operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
+		},
+		"rapid_metro_gurugram": {
+			"network_name": "Rapid Metro Gurugram",
+			"operator": "HMRTC / DMRC",
+			"helplines": {
+				"customer_care": "0124-2800028",
+				"security_cisf": "155655",
+				"women_safety": "1091",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://delhimetrorail.com/",
+				"contact_us": "https://delhimetrorail.com/contact-us",
+				"vigilance_portal": "https://vcp.delhimetrorail.com/",
+				"lost_and_found": "https://delhimetrorail.com/lost-found",
+				"women_safety": "https://delhimetrorail.com/facilities-for-women-passengers",
+				"differently_abled": "https://delhimetrorail.com/facilities-for-differently-abled-passengers",
+				"travel_advisory": "https://delhimetrorail.com/travel-advisory",
+				"parking_facilities": "https://delhimetrorail.com/parking-facilities"
+			},
+			"facilities": {
+				"central_lost_found_office": "Sector 55-56 Station Customer Care / Kashmere Gate Central Depot",
+				"lost_found_operating_hours": "08:00 AM - 08:00 PM (Monday to Saturday)"
+			}
+		},
+		"delhi_meerut_rrts": {
+			"network_name": "Namo Bharat (NCRTC RRTS)",
+			"operator": "NCRTC",
+			"helplines": {
+				"customer_care": "080-69651515",
+				"security_cisf": "1800-202-0050",
+				"women_safety": "112",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://namobharat.ncrtc.in/",
+				"contact_us": "https://ncrtc.in/contact-us/",
+				"vigilance_portal": "https://ncrtc.in/vigilance/",
+				"lost_and_found": "https://namobharat.ncrtc.in/",
+				"women_safety": "https://namobharat.ncrtc.in/",
+				"differently_abled": "https://namobharat.ncrtc.in/",
+				"travel_advisory": "https://namobharat.ncrtc.in/",
+				"parking_facilities": "https://namobharat.ncrtc.in/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Duhai Depot Station Control Room / Ghaziabad Care",
+				"lost_found_operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
+		},
+		"delhi_alwar_rrts": {
+			"network_name": "Delhi-Alwar RRTS",
+			"operator": "NCRTC",
+			"helplines": {},
+			"portals": {},
+			"facilities": {}
+		},
+		"delhi_panipat_rrts": {
+			"network_name": "Delhi-Panipat RRTS",
+			"operator": "NCRTC",
+			"helplines": {},
+			"portals": {},
+			"facilities": {}
+		}
 	}
 }

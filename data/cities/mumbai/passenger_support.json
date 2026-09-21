@@ -1,0 +1,91 @@
+{
+	"city": "mumbai",
+	"city_name": {"en": "Mumbai", "hi": "मुंबई"},
+	"last_updated": "2026-09-20",
+	"emergency": {
+		"police_emergency": "112",
+		"women_safety": "103",
+		"ambulance": "102"
+	},
+	"networks": {
+		"mumbai_metro": {
+			"network_name": "Mumbai Metro (MMRCL / MMMOCL / MMOPL)",
+			"operator": "MMRDA / MMRC / MMOPL",
+			"helplines": {
+				"customer_care": "1800-889-0505",
+				"security_cisf": "022-30310900",
+				"women_safety": "103",
+				"police_emergency": "100"
+			},
+			"portals": {
+				"official_website": "https://mmrcl.com/",
+				"contact_us": "https://mmrcl.com/en/contact-us",
+				"vigilance_portal": "https://mmrcl.com/",
+				"lost_and_found": "https://www.reliancemumbaimetro.com/lost-found",
+				"women_safety": "https://www.mmmocl.co.in/station_facilities",
+				"differently_abled": "https://www.mmmocl.co.in/station_facilities",
+				"travel_advisory": "https://www.mmmocl.co.in/",
+				"parking_facilities": "https://www.mmmocl.co.in/station_facilities"
+			},
+			"facilities": {
+				"central_lost_found_office": "Andheri Metro Station (Line 1) & Gundavali Station (Line 7)",
+				"lost_found_operating_hours": "07:00 AM - 09:00 PM (All Days)"
+			}
+		},
+		"mumbai_monorail": {
+			"network_name": "Mumbai Monorail (MMRDA)",
+			"operator": "Maha Mumbai Metro / MMRDA",
+			"helplines": {
+				"customer_care": "022-26597500",
+				"security_cisf": "022-24029410",
+				"women_safety": "103",
+				"police_emergency": "100"
+			},
+			"portals": {
+				"official_website": "https://mmrda.maharashtra.gov.in/monorail",
+				"contact_us": "https://mmrda.maharashtra.gov.in/contact-us",
+				"vigilance_portal": "https://mmrda.maharashtra.gov.in/",
+				"lost_and_found": "https://mmrda.maharashtra.gov.in/monorail",
+				"women_safety": "https://mmrda.maharashtra.gov.in/monorail",
+				"differently_abled": "https://mmrda.maharashtra.gov.in/monorail",
+				"travel_advisory": "https://mmrda.maharashtra.gov.in/monorail",
+				"parking_facilities": "https://mmrda.maharashtra.gov.in/monorail"
+			},
+			"facilities": {
+				"central_lost_found_office": "Wadala Monorail Depot Control Station",
+				"lost_found_operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
+		},
+		"navi_mumbai_metro": {
+			"network_name": "Navi Mumbai Metro (CIDCO Line 1)",
+			"operator": "CIDCO / Maha Metro",
+			"helplines": {
+				"customer_care": "022-69022000",
+				"security_cisf": "022-27562000",
+				"women_safety": "1090",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://cidco.maharashtra.gov.in/",
+				"contact_us": "https://cidco.maharashtra.gov.in/contactus",
+				"vigilance_portal": "https://cidco.maharashtra.gov.in/vigilance",
+				"lost_and_found": "https://cidco.maharashtra.gov.in/",
+				"women_safety": "https://cidco.maharashtra.gov.in/",
+				"differently_abled": "https://cidco.maharashtra.gov.in/",
+				"travel_advisory": "https://cidco.maharashtra.gov.in/",
+				"parking_facilities": "https://cidco.maharashtra.gov.in/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Taloja Depot Metro Station Control Office",
+				"lost_found_operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
+		},
+		"thane_metro": {
+			"network_name": "Thane Metro",
+			"operator": "MMRDA",
+			"helplines": {},
+			"portals": {},
+			"facilities": {}
+		}
+	}
+}

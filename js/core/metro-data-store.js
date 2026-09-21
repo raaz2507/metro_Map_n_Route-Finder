@@ -1,7 +1,7 @@
 /**
  * Metro Data Store - Universal Dynamic Singleton Data Repository
  * Enterprise ES2022 OOP Class with Private Encapsulation (#)
- * Dynamically loads and normalizes transit data for any selected city.
+ * Dynamically loads, filters, and deep-merges transit & auto-delta data for any selected city.
  */
 import { normalizeStationCoordinates } from "./data-utils.js";
 
@@ -10,10 +10,12 @@ class MetroDataStore {
 	#rawCityData = null;
 	#metroData = null;
 	#stationsDetailData = null;
+	#stationsDetailAutoData = null;
 	#currentCity = "delhi_ncr";
 	#currentNetwork = null;
 	#registryData = null;
 	#abortController = null;
+	#detailsAbortController = null;
 	#defaultCity = "delhi_ncr";
 
 	constructor() {
@@ -46,10 +48,12 @@ class MetroDataStore {
 
 	/**
 	 * Dynamically loads and filters transit graph data for the requested city and network.
+	 * Parallel non-blocking fetch for Base + Auto graph delta with in-memory deep merge.
 	 */
 	async loadCity(cityKey = null, networkKey = null) {
 		const resolvedCity = this.#resolveCityKey(cityKey);
 		const resolvedNetwork = this.#resolveNetworkKey(networkKey);
+
 		// Prevent redundant fetch if same city is already in memory
 		if (this.#rawCityData && this.#currentCity === resolvedCity) {
 			this.#currentNetwork = resolvedNetwork;
@@ -57,18 +61,69 @@ class MetroDataStore {
 			this.#persistSelection(resolvedCity, resolvedNetwork);
 			return this.#metroData;
 		}
+
 		if (this.#abortController) {
 			this.#abortController.abort();
 		}
 		this.#abortController = new AbortController();
-				const dataPath = `data/cities/${resolvedCity}/transit_network.json`;
+		const signal = this.#abortController.signal;
+
+		const dataPath = `data/cities/${resolvedCity}/transit_network.json`;
+		const autoDataPath = `data/cities/${resolvedCity}/transit_network_auto.json`;
+
 		try {
-			console.log(`[MetroDataStore] Loading transit data for: "${resolvedCity}" from ${dataPath}...`);
-			const response = await fetch(dataPath, { signal: this.#abortController.signal });
-			if (!response.ok) {
-				throw new Error(`Data file not found for city "${resolvedCity}" (HTTP ${response.status})`);
+			console.log(`[MetroDataStore] Loading transit graph (Base + Auto) for: "${resolvedCity}"...`);
+			const [baseResult, autoResult] = await Promise.allSettled([
+				fetch(dataPath, { signal }).then(res => {
+					if (!res.ok) throw new Error(`HTTP ${res.status}`);
+					return res.json();
+				}),
+				fetch(autoDataPath, { signal }).then(res => {
+					if (!res.ok) throw new Error(`HTTP ${res.status}`);
+					return res.json();
+				})
+			]);
+
+			if (baseResult.status !== "fulfilled") {
+				if (signal.aborted) return this.#metroData;
+				throw new Error(`Data file not found for city "${resolvedCity}" (HTTP ${baseResult.reason})`);
 			}
-			const rawData = await response.json();
+
+			const rawData = baseResult.value;
+
+			// In-memory merge of auto graph delta (stations & lines)
+			if (autoResult.status === "fulfilled" && autoResult.value) {
+				const autoGraph = autoResult.value;
+				const autoStations = autoGraph.stations || {};
+				const autoLines = autoGraph.lines || {};
+
+				// 1. Merge Auto Stations
+				rawData.stationData = rawData.stationData || {};
+				for (const [stSlug, stObj] of Object.entries(autoStations)) {
+					if (rawData.stationData[stSlug]) {
+						rawData.stationData[stSlug] = {
+							...rawData.stationData[stSlug],
+							...stObj
+						};
+					} else {
+						rawData.stationData[stSlug] = { ...stObj };
+					}
+				}
+
+				// 2. Merge Auto Lines
+				rawData.lines = rawData.lines || {};
+				for (const [lineId, lineObj] of Object.entries(autoLines)) {
+					if (rawData.lines[lineId]) {
+						rawData.lines[lineId] = {
+							...rawData.lines[lineId],
+							...lineObj
+						};
+					} else {
+						rawData.lines[lineId] = { ...lineObj };
+					}
+				}
+			}
+
 			this.#rawCityData = normalizeStationCoordinates(rawData);
 			this.#currentCity = resolvedCity;
 			this.#currentNetwork = resolvedNetwork;
@@ -94,14 +149,17 @@ class MetroDataStore {
 	 */
 	#filterByNetwork(rawData, networkKey) {
 		if (!rawData) return rawData;
+
 		// अगर नेटवर्क खाली या 'all' है -> तो Combined City Data रिटर्न करें
 		if (!networkKey || networkKey === "all" || networkKey.trim() === "") {
 			return rawData;
 		}
+
 		const normalizedNetKey = networkKey.trim().toLowerCase();
 		const rawLines = rawData.lines || {};
 		const rawStations = rawData.stationData || {};
 		const rawFareRules = rawData.fareRules || {};
+
 		// 1. केवल चुने हुए नेटवर्क की लाइन्स फ़िल्टर करें
 		const filteredLines = {};
 		const activeStationIds = new Set();
@@ -114,9 +172,11 @@ class MetroDataStore {
 				}
 			}
 		}
+
 		if (Object.keys(filteredLines).length === 0) {
 			return rawData;
 		}
+
 		// 2. केवल एक्टिव लाइन्स के स्टेशन्स रखें और उनके नेबर्स को क्लीन करें
 		const filteredStationData = {};
 		for (const stId of activeStationIds) {
@@ -129,6 +189,7 @@ class MetroDataStore {
 				};
 			}
 		}
+
 		// 3. केवल संबंधित फेयर पॉलिसियां रखें
 		const filteredFareRules = {
 			version: rawFareRules.version || "1.0",
@@ -136,11 +197,13 @@ class MetroDataStore {
 			networks: {},
 			policies: {}
 		};
+
 		if (rawFareRules.networks && rawFareRules.networks[normalizedNetKey]) {
 			filteredFareRules.networks[normalizedNetKey] = rawFareRules.networks[normalizedNetKey];
 		} else {
 			filteredFareRules.networks = rawFareRules.networks || {};
 		}
+
 		if (rawFareRules.policies) {
 			for (const [pKey, pObj] of Object.entries(rawFareRules.policies)) {
 				const policyNetwork = (pObj.network || "").trim().toLowerCase();
@@ -152,7 +215,8 @@ class MetroDataStore {
 				filteredFareRules.policies = rawFareRules.policies;
 			}
 		}
-				// 4. केवल एक्टिव लाइन्स के ट्रांसफर्स रखें
+
+		// 4. केवल एक्टिव लाइन्स के ट्रांसफर्स रखें
 		const rawTransfers = rawData.transfers || {};
 		const filteredTransfers = {};
 		for (const [stId, lineMap] of Object.entries(rawTransfers)) {
@@ -199,29 +263,145 @@ class MetroDataStore {
 	}
 
 	/**
-	 * Dynamically loads detailed station facilities data (stations_data.json)
+	 * Dynamically loads detailed station facilities data (Base + Auto Overlay)
+	 * Executes parallel non-blocking fetch with in-memory deep merge and soft fallback.
 	 */
 	async loadStationsDetail(cityKey = null) {
 		const resolvedCity = this.#resolveCityKey(cityKey);
-		const dataPath = `data/cities/${resolvedCity}/station_details.json`;
+
+		// Prevent redundant fetch if already in memory for this city
+		if (this.#stationsDetailData && this.#currentCity === resolvedCity) {
+			return this.#stationsDetailData;
+		}
+
+		if (this.#detailsAbortController) {
+			this.#detailsAbortController.abort();
+		}
+		this.#detailsAbortController = new AbortController();
+		const signal = this.#detailsAbortController.signal;
+
+		const basePath = `data/cities/${resolvedCity}/station_details.json`;
+		const autoPath = `data/cities/${resolvedCity}/station_details_auto.json`;
 
 		try {
-			const response = await fetch(dataPath);
-			if (!response.ok) {
-				throw new Error(`Detailed stations file not found for "${resolvedCity}"`);
+			console.log(`[MetroDataStore] Fetching station details (Base + Auto) for "${resolvedCity}"...`);
+			
+			// Parallel non-blocking execution across Base and Auto stores
+			const [baseResult, autoResult] = await Promise.allSettled([
+				fetch(basePath, { signal }).then(res => {
+					if (!res.ok) throw new Error(`HTTP ${res.status}`);
+					return res.json();
+				}),
+				fetch(autoPath, { signal }).then(res => {
+					if (!res.ok) throw new Error(`HTTP ${res.status}`);
+					return res.json();
+				})
+			]);
+
+			// 1. Base File Handling (Mandatory with graceful fallback)
+			if (baseResult.status !== "fulfilled") {
+				if (signal.aborted) return this.#stationsDetailData;
+				console.warn(`[MetroDataStore] Base station details not found for "${resolvedCity}":`, baseResult.reason);
+				if (resolvedCity !== this.#defaultCity) {
+					return await this.loadStationsDetail(this.#defaultCity);
+				}
+				return {};
 			}
-			this.#stationsDetailData = await response.json();
+
+			const baseData = baseResult.value || {};
+
+			// 2. Auto File Handling (Soft Fallback - Silent ignore on 404/failure)
+			let autoData = null;
+			if (autoResult.status === "fulfilled" && autoResult.value && typeof autoResult.value === "object") {
+				autoData = autoResult.value;
+				this.#stationsDetailAutoData = autoData;
+				console.log(`[MetroDataStore] Live auto delta detected (${Object.keys(autoData).length} entries) for "${resolvedCity}".`);
+			} else {
+				this.#stationsDetailAutoData = null;
+			}
+
+			// 3. In-Memory Deep Merge (Base + Live Delta)
+			this.#stationsDetailData = this.#deepMergeStationDetails(baseData, autoData);
 			return this.#stationsDetailData;
+
 		} catch (error) {
-			console.warn(`[MetroDataStore] Failed to load stations detail for "${resolvedCity}":`, error);
-			if (resolvedCity !== this.#defaultCity) {
-				return await this.loadStationsDetail(this.#defaultCity);
-			}
+			if (error.name === "AbortError") return this.#stationsDetailData;
+			console.error(`[MetroDataStore] Critical error loading station details for "${resolvedCity}":`, error);
 			return {};
 		}
 	}
 
-		/**
+	/**
+	 * In-Memory Deep Merge Algorithm: Overlays auto delta over base without data loss.
+	 */
+	#deepMergeStationDetails(baseData, autoData) {
+		if (!autoData || typeof autoData !== "object" || Object.keys(autoData).length === 0) {
+			return { ...baseData };
+		}
+
+		const merged = { ...baseData };
+
+		for (const [slug, patch] of Object.entries(autoData)) {
+			// Skip root metadata headers
+			if (slug === "_meta" || !patch || typeof patch !== "object") {
+				continue;
+			}
+
+			// Case A: New station not in base -> Append directly
+			if (!merged[slug]) {
+				const cleanPatch = { ...patch };
+				delete cleanPatch._meta;
+				merged[slug] = cleanPatch;
+				continue;
+			}
+
+			// Case B: Existing station -> Selective deep merge
+			const baseStation = merged[slug];
+			const updatedStation = { ...baseStation };
+
+			for (const [field, candVal] of Object.entries(patch)) {
+				if (field === "_meta" || candVal === null || candVal === undefined) {
+					continue;
+				}
+
+				// Deep merge nested dictionaries (gates, timings, contact, facilities)
+				if (
+					typeof candVal === "object" &&
+					!Array.isArray(candVal) &&
+					baseStation[field] &&
+					typeof baseStation[field] === "object" &&
+					!Array.isArray(baseStation[field])
+				) {
+					if (field === "gates") {
+						// Gate-level fine-grained merge
+						const mergedGates = { ...(baseStation.gates || {}) };
+						for (const [gKey, gObj] of Object.entries(candVal)) {
+							if (mergedGates[gKey] && typeof gObj === "object") {
+								mergedGates[gKey] = { ...mergedGates[gKey], ...gObj };
+							} else {
+								mergedGates[gKey] = gObj;
+							}
+						}
+						updatedStation.gates = mergedGates;
+					} else {
+						updatedStation[field] = {
+							...baseStation[field],
+							...candVal
+						};
+					}
+				} else {
+					// Arrays (parkings, platforms) or primitive values override directly
+					updatedStation[field] = candVal;
+				}
+			}
+
+			merged[slug] = updatedStation;
+		}
+
+		return merged;
+	}
+
+	/**
 	 * Resolves City Key using 3-tier hierarchy
 	 */
 	#resolveCityKey(explicitCity) {
@@ -273,8 +453,6 @@ class MetroDataStore {
 		return null;
 	}
 
-	
-
 	// Public Getters
 	get data() {
 		return this.#metroData;
@@ -306,6 +484,14 @@ class MetroDataStore {
 
 	get stationsDetail() {
 		return this.#stationsDetailData || {};
+	}
+
+	get stationsDetailAuto() {
+		return this.#stationsDetailAutoData || {};
+	}
+
+	get hasLiveAutoDelta() {
+		return Boolean(this.#stationsDetailAutoData && Object.keys(this.#stationsDetailAutoData).length > 1);
 	}
 
 	get isLoaded() {

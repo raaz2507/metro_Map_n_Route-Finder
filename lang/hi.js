@@ -1,5 +1,10 @@
 // /lang/hi.js
 import passengerSupportHi from "./pages/passenger_support.hi.js";
+import helpHi from "./pages/help.hi.js";
+import aboutHi from "./pages/about.hi.js";
+import stationInfoHi from "./pages/station_info.hi.js";
+import metroQrTicketHi from "./pages/metro_QR_ticket.hi.js";
+import tvmDispenserHi from "./pages/tvm_dispenser.hi.js";
 
 export default {
 	meta: {
@@ -27,13 +32,13 @@ export default {
 	},
 
 	"nav-header": {
-		networks: "🌐 नेटवर्क",
-		home: "🏠 होम",
-		stations: "🚉 स्टेशन",
-		recharge: "💳 कार्ड रीचार्ज",
-		passengerSupport: "🛡️ यात्री सहायता",
-		help: "❓ सहायता",
-		about: "ℹ️ जानकारी"
+		networks: "नेटवर्क",
+		home: "होम",
+		stations: "स्टेशन",
+		recharge: "कार्ड रीचार्ज",
+		passengerSupport: "यात्री सहायता",
+		help: "सहायता",
+		about: "जानकारी"
 	},
 
 	"nav-sidebar": {
@@ -145,6 +150,28 @@ export default {
 					tabs: {
 						alarm: "अलार्म",
 						map: "मानचित्र"
+					},
+					map: {
+						title: "मानचित्र व प्रदर्शन सेटिंग्स",
+						sections: {
+							display: "🗺️ मानचित्र प्रदर्शन व व्यू"
+						},
+						autoCenter: {
+							label: "रूट पर ऑटो-सेंटर",
+							desc: "रूट खोजने पर मैप को अपने आप ज़ूम और केंद्रित करें।"
+						},
+						walkways: {
+							label: "इंटरचेंज वॉकवे दिखाएं",
+							desc: "इंटरचेंज स्टेशनों के बीच पैदल संपर्क पथ दिखाएं।"
+						},
+						underConstruction: {
+							label: "निर्माणाधीन लाइनें व स्टेशन",
+							desc: "मैप पर निर्माणाधीन लाइनों (डैश लाइन) और स्टेशनों को दिखाएं।"
+						},
+						approved: {
+							label: "प्रस्तावित / स्वीकृत कॉरिडोर",
+							desc: "मैप पर स्वीकृत और प्रस्तावित भविष्य के मेट्रो ट्रैक (डॉटेड लाइन) दिखाएं।"
+						}
 					},
 					alarm:{
 						title: "अलार्म एवं यात्रा सेटिंग्स",
@@ -350,39 +377,11 @@ export default {
 			stationCount: "{count} स्टेशन",
 			singleStationCount: "1 स्टेशन"
 		},
-		station_info: {
-			backBtn: "⬅️ सभी स्टेशनों पर वापस जाएं",
-			connectedLines: "🚆 जुड़ी हुई मेट्रो लाइन्स",
-			operatingHours: "⏰ स्टेशन का समय",
-			first: "प्रथम",
-			last: "अंतिम",
-			helplines: "📞 हेल्पलाइन और सहायता",
-			mobileHelpline: "स्टेशन मोबाइल हेल्पलाइन",
-			landline: "स्टेशन लैंडलाइन",
-			dmrcHelpline: "DMRC यूनिवर्सल हेल्पलाइन",
-			gates: "🚪 स्टेशन गेट और निकास",
-			facilities: "♿ स्टेशन सुविधाएं",
-			parking: "🅿️ पार्किंग विवरण",
-			transit: "🛗 लिफ्ट और एस्केलेटर",
-			nearby: "📍 आसपास के प्रमुख स्थान",
-			code: "कोड",
-			location: "स्थान",
-			placement: "प्लेसमेंट",
-			divyangFriendly: "दिव्यांग अनुकूल",
-			status: "स्थिति",
-			yes: "✔️ हाँ",
-			no: "❌ नहीं",
-			active: "सक्रिय",
-			maintenance: "रखरखाव",
-			provider: "प्रदाता",
-			car: "🚗 कार",
-			bike: "🏍️ बाइक",
-			cycle: "🚲 साइकिल",
-			lifts: "🛗 लिफ्ट",
-			escalators: "🪜 एस्केलेटर",
-			divyangAccessible: "♿ दिव्यांग सुलभ",
-			standardAccess: "🚶 मानक पहुंच"
-		}
 	},
-	passengerSupport: passengerSupportHi
+	passengerSupport: passengerSupportHi,
+	help: helpHi,
+	about: aboutHi,
+	station_info: stationInfoHi,
+	metroTicket: metroQrTicketHi,
+	tvmDispenser: tvmDispenserHi,
 };

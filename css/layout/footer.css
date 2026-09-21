@@ -1,23 +1,46 @@
 @layer components {
-	/* 1. MAIN FOOTER CONTAINER (3-Row Flex Column) */
+	/* 1. MAIN FLOATING 2.5D DOCK FOOTER (Page-Aligned to 1140px) */
 	.site-footer {
 		display: flex;
 		flex-direction: column;
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent)); /* ❌ 50% ट्रांसलूसेंट */
+		width: calc(100% - var(--space-lg) * 2);
+		max-width: 1140px;
+		margin: var(--space-xl) auto var(--space-lg) auto;
+		padding: clamp(var(--space-md), 2.5vw, var(--space-xl));
+		background: linear-gradient(180deg, rgba(var(--color-bg-base-rgb), 0.94) 0%, rgba(var(--color-bg-base-rgb), 0.88) 100%);
 		backdrop-filter: blur(var(--backdrop-blur));
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
-		border-top: 1px solid var(--border-color);
+		border: 1px solid var(--border-color);
+		border-top: 2.5px solid rgba(255, 255, 255, 0.75);
+		border-bottom: 3.5px solid rgba(0, 0, 0, 0.28);
+		border-radius: var(--radius-xl);
+		box-shadow: 
+			0 14px 28px -4px rgba(0, 0, 0, var(--op-shadow, 0.15)),
+			0 4px 10px -2px rgba(0, 0, 0, 0.06),
+			inset 0 1px 0 rgba(255, 255, 255, 0.35);
 		color: var(--text-secondary);
 		font-size: var(--fs-sm);
+		box-sizing: border-box;
 	}
 
-	/* 2. SECTION 1: TOP BRAND BAR */
-	.footer-top-brand {
+	/* 2. MAIN 2-COLUMN ROW (DESKTOP: SPACE-BETWEEN, ZERO DEAD SPACE) */
+	.footer-main-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: nowrap;
+		gap: clamp(var(--space-md), 2.5vw, var(--space-xl));
+		width: 100%;
+	}
+
+	/* 3. COLUMN 1: BRAND IDENTITY */
+	.footer-brand-col {
 		display: flex;
 		flex-direction: column;
-		align-items: flex-start;
-		text-align: left;
-		padding: var(--space-xs) var(--space-xl) 0 var(--space-xl); /* ❌ वर्टिकल पैडिंग घटाई */
+		gap: var(--space-sm);
+		flex: 1 1 auto;
+		min-width: 0;
+		flex: 0 0 auto;
 	}
 
 	.footer-logo-title {
@@ -27,213 +50,179 @@
 	}
 
 	.footer-logo {
-		width: 48px;
-		height: 48px;
+		width: 42px;
+		height: 42px;
 		object-fit: contain;
-	}
-
-	.footer-top-brand h2 {
-		font-family: var(--font-title);
-		font-size: var(--fs-md);
-		font-weight: var(--fw-bold);
-		color: var(--text-primary);
-		margin: 0;
-	}
-
-	.footer-top-brand p {
-		font-size: var(--fs-xs);
-		margin: 2px 0 0 0;
-		color: var(--text-secondary);
-	}
-
-	/* 3. SECTION 2: MIDDLE MAIN CONTENT (FLEX ROW - SPACE EVENLY) */
-	.footer-middle-content {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-evenly;
-		padding: var(--space-sm) var(--space-xl);
-		gap: var(--space-md);
-		width: 100%;
-	}
-
-	.footer-nav-list {
-		display: flex;
-		gap: var(--space-lg);
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.footer-nav-item a {
-		color: var(--text-secondary);
-		text-decoration: none;
-		font-weight: var(--fw-semibold);
-		font-size: var(--fs-sm);
-		transition: color var(--transition-fast);
-	}
-
-	.footer-nav-item a:hover {
-		color: var(--text-primary);
-	}
-
-	.footer-app-info {
-		background-color: var(--card-bg);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-lg);
-		padding: var(--space-xs) var(--space-sm);
-		display: flex;
-		gap: var(--space-md);
-		align-items: center;
-		max-width: 520px;
-	}
-
-	.qr-code {
-		background: #ffffff;
-		padding: 2px;
-		border-radius: var(--radius-md);
-		border: 1px solid var(--border-color);
 		flex-shrink: 0;
 	}
 
-	.qr-code img {
-		width: 50px;
-		height: 50px;
+	.footer-brand-col h2 {
+		font-family: var(--font-title);
+		font-size: var(--fs-lg);
+		font-weight: var(--fw-extrabold);
+		color: var(--text-primary);
+		margin: 0;
+		line-height: 1.1;
+	}
+
+	.footer-brand-tagline {
+		font-size: var(--fs-2xs);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-weight: var(--fw-bold);
+		color: var(--color-accent);
+		display: block;
+		margin-top: 2px;
+	}
+
+	.footer-desc {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	.footer-disclaimer-badge {
+		background: rgba(var(--color-warning-rgb, 245, 158, 11), 0.1);
+		border: 1px solid rgba(var(--color-warning-rgb, 245, 158, 11), 0.25);
+		border-radius: var(--radius-sm);
+		padding: var(--space-xs) var(--space-sm);
+		font-size: var(--fs-2xs);
+		color: var(--text-secondary);
+		line-height: 1.4;
+		width: fit-content;
+	}
+
+	/* 4. COLUMN 2: TACTILE 2.5D MOBILE PASS CARD */
+	.footer-pass-col {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		flex: 0 0 auto;
+		max-width: 380px;
+	}
+
+	.footer-pass-card {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-top: 1.5px solid rgba(255, 255, 255, 0.6);
+		border-bottom: 2.5px solid rgba(0, 0, 0, 0.25);
+		border-radius: var(--radius-lg);
+		padding: var(--space-md);
+		box-shadow: var(--shadow-sm);
+		box-sizing: border-box;
+		margin: 0 auto;
+	}
+
+	.footer-qr-wrapper {
+		background: #ffffff;
+		padding: 4px;
+		border-radius: var(--radius-md);
+		border: 1px solid var(--border-color);
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.footer-qr-img {
+		width: 72px;
+		height: 72px;
 		display: block;
 		object-fit: contain;
 	}
 
-	.app-details h3 {
+	.footer-pass-info {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		min-width: 0;
+	}
+
+	.footer-pass-chip {
+		align-self: flex-start;
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-extrabold);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		background: rgba(var(--color-primary-rgb), 0.12);
+		color: var(--color-accent);
+		padding: 2px 6px;
+		border-radius: var(--radius-xs);
+	}
+
+	.footer-pass-info h3 {
 		font-family: var(--font-title);
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
-		margin: 0 0 2px 0;
+		margin: 2px 0 0 0;
+		line-height: 1.2;
 	}
 
-	.app-details p {
-		margin: 0 0 4px 0;
-		font-size: 0.68rem;
+	.footer-pass-info p {
+		font-size: var(--fs-2xs);
 		color: var(--text-secondary);
-	}
-
-	.footer-feature-list {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 2px var(--space-sm);
-		list-style: none;
-		padding: 0;
+		line-height: 1.35;
 		margin: 0;
 	}
 
-	.footer-feature-item {
-		display: flex;
-		align-items: center;
-		gap: var(--space-xs);
-		font-size: 0.65rem;
-		color: var(--text-secondary);
-		white-space: nowrap;
-	}
-
-	.footer-feature-item::before {
-		content: "✓";
-		color: rgb(var(--color-success-rgb));
-		font-weight: bold;
-	}
-
-	/* 4. SECTION 3: BOTTOM STRIP (NATURAL FULL WIDTH ROW) */
+	/* 5. BOTTOM CREDIT STRIP */
 	.footer-bottom-credit {
-		background-color: rgba(0, 0, 0, 0.35);
+		margin-top: var(--space-lg);
+		padding-top: var(--space-md);
 		border-top: 1px solid var(--border-color);
-		padding: var(--space-xs) var(--space-xl);
-		width: 100%;
-		text-align: right; /* ❌ Right Aligned किया गया */
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--space-sm);
 		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		width: 100%;
 	}
+
 	.footer-bottom-credit p {
-		margin: 2px 0; 
-		line-height: 1.2;
-		color: var(--text-primary);
-		font-weight: var(--fw-semibold);
+		margin: 0;
+		line-height: 1.4;
 	}
-}
-/* =========================================================================
-   Responsive overrides for Footer internals
-   ========================================================================= */
-@media (min-width: 769px) {
-	@layer components {
-		.site-footer {
-			gap: 10px;
-			/* padding: 40px var(--space-2xl); */
-		}
-		.footer-app-info {
-			max-width: 100%;
-		}
-		.footer-nav {
-			border-bottom: none;
-			padding-bottom: 0;
-			margin-top: 10px;
-		}
-		.footer-nav-list {
-			flex-direction: column;
-			gap: var(--space-lg);
-		}
-		.footer-brand {
-			border-top: none;
-			padding-top: 0;
-			margin-top: 10px;
-		}
+
+	.footer-bottom-credit strong {
+		color: var(--text-primary);
 	}
 }
 
+/* =========================================================================
+   MOBILE / NARROW SCREENS: CLEAN STACK
+   ========================================================================= */
 @media (max-width: 768px) {
 	@layer components {
-		body[data-active-tab="about"] footer,
-		body[data-active-tab="help"] footer {
-			background: var(--bg-aside);
-			border: 1px solid var(--border-color);
-			border-radius: var(--radius-lg);
-			box-shadow: var(--shadow-lg);
-			text-align: center;
-			backdrop-filter: blur(var(--backdrop-blur));
-			animation: modalPop var(--transition-spring) both;
-			padding: var(--space-xl);
+		.site-footer {
+			width: calc(100% - var(--space-sm) * 2);
+			margin-bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
+		}
+
+		.footer-main-row {
+			flex-direction: column;
+			align-items: stretch;
 			gap: var(--space-md);
 		}
-		
-		body[data-active-tab="about"] footer .footer-nav-list,
-		body[data-active-tab="help"] footer .footer-nav-list {
-			flex-direction: column;
-			gap: var(--space-sm);
-			margin-top: var(--space-sm);
-		}
-		
-		body[data-active-tab="setting"] .toolbar,
-		body[data-active-tab="setting"] header.main-header > div {
-			background: var(--bg-aside);
-			border: 1px solid var(--border-color);
-			border-radius: var(--radius-lg);
-			box-shadow: var(--shadow-lg);
-			backdrop-filter: blur(var(--backdrop-blur));
-			animation: modalPop var(--transition-spring) both;
-			padding: var(--space-lg) var(--space-xl);
-		}
-		
-		header.main-header .toolbar,
-		header.main-header > div {
-			transition: all var(--transition-smooth);
-		}
-	}
-}
 
-@keyframes modalPop {
-	0% {
-		transform: translate(-50%, -40%) scale(0.9);
-		opacity: 0;
-	}
-	100% {
-		transform: translate(-50%, -50%) scale(1);
-		opacity: 1;
+		.footer-pass-col {
+			flex: 0 0 auto;
+			width: 100%;
+			max-width: 100%;
+			align-items: center;
+		}
+
+		.footer-bottom-credit {
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			gap: var(--space-xs);
+		}
 	}
 }

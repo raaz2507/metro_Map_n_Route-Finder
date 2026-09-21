@@ -377,10 +377,48 @@
 		box-shadow: var(--shadow-lg);
 	}
 
+	/* =========================================================================
+	   TRACK & STATION STATUS STYLING (Operational, Under Construction, Approved)
+	   ========================================================================= */
+	.mapContainer svg line.track-under-construction {
+		stroke-dasharray: 220 110;
+		stroke-linecap: round;
+	}
 
+	.mapContainer svg line.track-approved {
+		stroke-dasharray: 60 90;
+		stroke-linecap: round;
+		opacity: 0.65;
+	}
+
+	.mapContainer svg circle.station-under-construction,
+	.mapContainer svg g.station-under-construction circle {
+		stroke-dasharray: 45 25;
+	}
+
+	.mapContainer svg circle.station-approved,
+	.mapContainer svg g.station-approved circle {
+		stroke-dasharray: 20 20;
+		opacity: 0.7;
+	}
+
+	/* Hidden state controlled by Map Settings Toggles */
+	.mapContainer svg.hide-under-construction line.track-under-construction,
+	.mapContainer svg.hide-under-construction circle.station-under-construction,
+	.mapContainer svg.hide-under-construction g.station-under-construction,
+	.mapContainer svg.hide-under-construction text[data-status="under_construction"] {
+		display: none !important;
+	}
+
+	.mapContainer svg.hide-approved line.track-approved,
+	.mapContainer svg.hide-approved circle.station-approved,
+	.mapContainer svg.hide-approved g.station-approved,
+	.mapContainer svg.hide-approved text[data-status="approved"],
+	.mapContainer svg.hide-approved text[data-status="proposed"] {
+		display: none !important;
+	}
 
 	/* Mobile responsive layout for Zoom Controls - Map specific logic */
-	/* Mobile responsive layout for Zoom Controls */
 	@media (max-width: 768px) {
 		@layer components {
 			body[data-active-tab="recent"] #zoomControls,

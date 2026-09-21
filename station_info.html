@@ -1,101 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph / Facebook / WhatsApp / Telegram -->
+	<!-- Open Graph / Facebook / WhatsApp / Telegram -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
-	<meta property="og:title" content="Metro Map & Route Finder">
+	<meta property="og:title" content="Station Details - Metro Map & Route Finder">
 	<meta property="og:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily.">
 	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png"> 
 
 	<!-- Twitter / X -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
-	<meta name="twitter:title" content="Metro Map & Route Finder">
+	<meta name="twitter:title" content="Station Details - Metro Map & Route Finder">
 	<meta name="twitter:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily.">
 	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
 
-    <!-- Site Icon / Favicon -->
-    <link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
-    
-    <title>Station Details - Metro Map & Route Finder</title>
+	<!-- Site Icon / Favicon -->
+	<link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
+	
+	<title>Station Details - Metro Map & Route Finder</title>
 
-    <!-- App Stylesheet -->
-    <link rel="stylesheet" href="./css/pages/station_info.css"/>
+	<!-- App Stylesheet (Zero CDN Dependencies) -->
+	<link rel="stylesheet" href="./css/pages/station_info.css"/>
 </head>
 <body>
 
-    <!-- Universal Header Container -->
-    <div id="app-header"></div>
+	<!-- Universal Header Container -->
+	<div id="app-header"></div>
 
-    <main class="station-page-container">
+	<main class="station-page-container">
 
-        <!-- Top Navigation & Action Bar -->
-        <div class="page-action-bar">
-            <a href="all_stations.html" class="back-btn">⬅️ Back to All Stations</a>
-        </div>
+		<!-- Top Navigation & Action Bar -->
+		<div class="page-action-bar">
+			<a href="all_stations.html" class="back-btn" data-i18n="station_info.nav.backBtn">⬅️ Back to All Stations</a>
+		</div>
 
-        <!-- TOP BENTO ROW -->
-        <div class="bento-row-top">
-            
-            <!-- Left Column: Route Track Capsules + Hero Banner -->
-            <div class="bento-col-stack-sm">
-                <div class="station-track-bar" id="route-track-container"></div>
-                
-                <!-- 🌟 मेट्रो लाइन्स की जानकारी के लिए पूरी तरह अलग समर्पित डिब्बा -->
-                <section class="feature-card" id="line-info-container"></section>
-                
-                <section class="station-hero-card" id="hero-container"></section>
-            </div>
+		<!-- TOP BENTO ROW -->
+		<div class="bento-row-top">
+			
+			<!-- Left Column: Route Track Capsules + Hero Banner -->
+			<div class="bento-col-stack-sm">
+				<div class="station-track-bar" id="route-track-container"></div>
+				
+				<!-- Connected Metro Lines Section -->
+				<section class="feature-card" id="line-info-container"></section>
+				
+				<!-- Station Hero Card (Title, Code, Layout, Description, GIS & Maps) -->
+				<section class="station-hero-card" id="hero-container"></section>
+			</div>
 
-            <!-- Right Column: Timings + Contacts -->
-            <div class="bento-col-stack">
-                <div class="compact-timings-card" id="operating-hours-container"></div>
-                <section class="feature-card" id="contacts-container"></section>
-            </div>
+			<!-- Right Column: Operating Hours + Helplines -->
+			<div class="bento-col-stack">
+				<div class="compact-timings-card" id="operating-hours-container"></div>
+				<section class="feature-card" id="contacts-container"></section>
+			</div>
 
-        </div>
+		</div>
 
-        <!-- Station Gates & Exits -->
-        <!-- <div class="bento-row-twin"></div> -->
+		<!-- 1. UNIVERSAL SCHEMA: PLATFORMS & TERMINUS DIRECTIONS CARD -->
+		<section class="feature-card" id="platforms-section">
+			<h3 class="feature-card-header" data-i18n="station_info.platforms.title">🚉 Platforms &amp; Terminus Directions</h3>
+			<div class="platforms-grid" id="platforms-container"></div>
+		</section>
 
-        <section class="feature-card">
-            <h3 class="feature-card-header">🚪 Station Gates & Exits</h3>
-            <div class="gate-list" id="gates-container"></div>
-        </section>
-        <!-- Facilities & Amenities Master Card -->
-        <section class="feature-card">
-            <h3 class="feature-card-header">♿ Station Facilities & Amenities</h3>
-            <div id="facilities-container"></div>
-        </section>
+		<!-- 2. STATION GATES & EXITS CARD -->
+		<section class="feature-card" id="gates-section">
+			<h3 class="feature-card-header" data-i18n="station_info.gates.title">🚪 Station Gates &amp; Exits</h3>
+			<div class="gate-list" id="gates-container"></div>
+		</section>
 
-        <!-- Parkings & Vertical Transit Tables -->
-        <!-- <div class="bento-row-twin"></div> -->
+		<!-- 3. FACILITIES & AMENITIES MASTER CARD -->
+		<section class="feature-card" id="facilities-section">
+			<h3 class="feature-card-header" data-i18n="station_info.facilities.title">♿ Station Facilities &amp; Amenities</h3>
+			<div id="facilities-container"></div>
+		</section>
 
-        <section class="feature-card">
-            <h3 class="feature-card-header">🅿️ Parking Breakdown</h3>
-            <div id="parking-container"></div>
-        </section>
+		<!-- 4. PARKING CAPACITY & TARIFF RATE CARDS -->
+		<section class="feature-card" id="parking-section">
+			<h3 class="feature-card-header" data-i18n="station_info.parking.capacityTitle">🅿️ Parking Capacity</h3>
+			<div id="parking-container"></div>
+			<!-- Enriched Parking Tariff Card (Conditional) -->
+			<div id="parking-tariffs-container" class="mt-md"></div>
+		</section>
 
-        <section class="feature-card">
-            <h3 class="feature-card-header">🛗 Lifts & Escalators (Vertical Transit)</h3>
-            <div id="transit-container"></div>
-        </section>
-        <!-- Nearby Places -->
-        <section class="feature-card">
-            <h3 class="feature-card-header">📍 Nearby Places & Key Destinations</h3>
-            <div id="nearby-container"></div>
-        </section>
+		<!-- 5. LIFTS & ESCALATORS (VERTICAL TRANSIT) -->
+		<section class="feature-card" id="transit-section">
+			<h3 class="feature-card-header" data-i18n="station_info.verticalTransit.title">🛗 Lifts &amp; Escalators (Vertical Transit)</h3>
+			<div id="transit-container"></div>
+		</section>
 
-    </main>
+		<!-- 6. UNIVERSAL SCHEMA: FEEDER BUS & LAST-MILE CONNECTIVITY (Conditional) -->
+		<section class="feature-card hidden" id="feeder-bus-section">
+			<h3 class="feature-card-header" data-i18n="station_info.feederBus.title">🚌 Feeder Bus &amp; Last-Mile Connectivity</h3>
+			<div class="feeder-bus-grid" id="feeder-bus-container"></div>
+		</section>
 
-    <!-- Universal Footer Container -->
-    <div id="app-footer"></div>
+		<!-- 7. UNIVERSAL SCHEMA: MULTI-LEVEL FLOOR PLANS & SCHEMATICS (Conditional) -->
+		<section class="feature-card hidden" id="station-layout-section">
+			<h3 class="feature-card-header" data-i18n="station_info.stationLayout.title">🗺️ Station Multi-Level Schematics</h3>
+			<div class="layout-levels-grid" id="station-layout-container"></div>
+		</section>
 
-    <!-- ES Module Logic -->
-    <script type="module" src="./js/pages/station_info.js"></script>
+		<!-- 8. NEARBY PLACES & KEY DESTINATIONS -->
+		<section class="feature-card" id="nearby-section">
+			<h3 class="feature-card-header" data-i18n="station_info.nearby.title">📍 Nearby Places &amp; Key Destinations</h3>
+			<div id="nearby-container"></div>
+		</section>
+
+	</main>
+
+	<!-- Universal Footer Container -->
+	<div id="app-footer"></div>
+
+	<!-- ES Module Logic -->
+	<script type="module" src="./js/pages/station_info.js"></script>
 </body>
 </html>

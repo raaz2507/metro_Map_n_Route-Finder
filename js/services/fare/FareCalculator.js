@@ -20,6 +20,7 @@ export class FareCalculator {
 	#policies = null;
 	#currency = "INR";
 	#strategies = new Map();
+	#matrixIndexCache = new WeakMap();
 
 	/**
 	 * @param {Object} fareRules - data.json का fareRules ऑब्जेक्ट
@@ -36,7 +37,65 @@ export class FareCalculator {
 		this.#fareRules = fareRules || {};
 		this.#policies = this.#fareRules.policies || {};
 		this.#currency = this.#fareRules.currency || "INR";
+		this.#matrixIndexCache = new WeakMap();
 	}
+
+
+
+	/**
+	 * 📅 Resolve Policy by effectiveFrom Date
+	 * Filters out future rules, sorts historical rules, and applies the latest active rule.
+	 */
+	#resolveActivePolicy(policyEntry, targetDate = new Date()) {
+		if (!policyEntry) return null;
+
+		// A. यदि एक ही पॉलिसी में कई वर्ज़न (Array) दिए गए हों
+		if (Array.isArray(policyEntry)) {
+			const validPolicies = policyEntry
+				.filter(p => {
+					if (!p.effectiveFrom) return true;
+					const eff = new Date(p.effectiveFrom);
+					return isNaN(eff) || eff <= targetDate; // केवल वही जो आज या इससे पहले प्रभावी हो चुके हैं
+				})
+				.sort((a, b) => {
+					const dateA = a.effectiveFrom ? new Date(a.effectiveFrom).getTime() : 0;
+					const dateB = b.effectiveFrom ? new Date(b.effectiveFrom).getTime() : 0;
+					return dateB - dateA; // सबसे नई तारीख सबसे ऊपर (Latest First)
+				});
+
+			return validPolicies[0] || policyEntry[0];
+		}
+
+		// B. यदि पॉलिसी ऑब्जेक्ट के अंदर 'revisions' या 'history' लिस्ट हो
+		if (Array.isArray(policyEntry.revisions) && policyEntry.revisions.length > 0) {
+			const allCandidates = [policyEntry, ...policyEntry.revisions];
+			const validCandidates = allCandidates
+				.filter(p => {
+					if (!p.effectiveFrom) return true;
+					const eff = new Date(p.effectiveFrom);
+					return isNaN(eff) || eff <= targetDate;
+				})
+				.sort((a, b) => {
+					const dateA = a.effectiveFrom ? new Date(a.effectiveFrom).getTime() : 0;
+					const dateB = b.effectiveFrom ? new Date(b.effectiveFrom).getTime() : 0;
+					return dateB - dateA;
+				});
+
+			return validCandidates[0] || policyEntry;
+		}
+
+		// C. सिंगल पॉलिसी: यदि इसकी तारीख भविष्य (Future) की है, तो इसे अभी लागू न करें
+		if (policyEntry.effectiveFrom) {
+			const eff = new Date(policyEntry.effectiveFrom);
+			if (!isNaN(eff) && eff > targetDate) {
+				console.warn(`[FareCalculator] Policy "${policyEntry.network || 'policy'}" effectiveFrom (${policyEntry.effectiveFrom}) is in the future. Cannot apply yet.`);
+				return null;
+			}
+		}
+
+		return policyEntry;
+	}
+
 
 	/**
 	 * सभी फ़ेयर स्ट्रेटेजीज़ (Calculators) को रजिस्टर करें
@@ -75,7 +134,8 @@ export class FareCalculator {
 			segments = [],
 			coachClass = "standard",
 			isHoliday = false,
-			customTime = null
+			customTime = null,
+			journeyDate = new Date() // 👈 यात्रा की तारीख (डिफ़ॉल्ट: आज की तारीख)
 		} = options;
 		if (!this.#policies || Object.keys(this.#policies).length === 0) {
 			return this.#createDefaultResponse(0);
@@ -95,12 +155,19 @@ export class FareCalculator {
 		if (segments && segments.length > 0) {
 			const legs = this.#groupSegmentsIntoLegs(segments);
 			if (legs.length > 1) {
-				return this.#calculateMultiLegFare(legs, { coachClass, isHoliday, customTime });
+				return this.#calculateMultiLegFare(legs, { coachClass, isHoliday, customTime, journeyDate });
 			}
 		}
-		// 3. डिफ़ॉल्ट/सिंगल पॉलिसी कोड (100% पुराना टेस्टेड कोड सुरक्षित)
-		const defaultPolicyKey = this.#policies["dmrc_standard"] ? "dmrc_standard" : Object.keys(this.#policies)[0];
-		const activePolicy = this.#policies[defaultPolicyKey];
+		// 3. डिफ़ॉल्ट/सिंगल लेग पॉलिसी कोड
+		const activePolicyKey = (segments && segments[0]?.farePolicy && this.#policies[segments[0].farePolicy])
+			? segments[0].farePolicy
+			: (this.#policies["dmrc_standard"] ? "dmrc_standard" : Object.keys(this.#policies)[0]);
+
+		const rawPolicy = (segments && segments[0]?.farePolicy && this.#policies[segments[0].farePolicy])
+			? this.#policies[segments[0].farePolicy]
+			: (this.#policies["dmrc_standard"] ? this.#policies["dmrc_standard"] : Object.values(this.#policies)[0]);
+		const activePolicy = this.#resolveActivePolicy(rawPolicy, journeyDate);
+		
 		if (!activePolicy) {
 			return this.#createDefaultResponse(0);
 		}
@@ -224,7 +291,7 @@ export class FareCalculator {
 	 * 💰 5 प्रकारों के आधार पर प्रत्येक लेग का किराया व अलर्ट्स बनाना
 	 */
 	#calculateMultiLegFare(legs, options) {
-		const { coachClass = "standard", isHoliday = false, customTime = null } = options;
+		const { coachClass = "standard", isHoliday = false, customTime = null, journeyDate = new Date() } = options;
 		
 		let totalToken = 0;
 		let totalSmartCard = 0;
@@ -233,9 +300,10 @@ export class FareCalculator {
 		let totalDistanceKm = 0;
 		const evaluatedLegs = [];
 		legs.forEach((leg, index) => {
-			const policy = this.#policies[leg.policyKey] || this.#policies["dmrc_standard"];
+			const distKm = Number(((leg.distanceMeters || 0) / 1000).toFixed(2));
+			const rawPolicy = this.#policies[leg.policyKey] || this.#policies["dmrc_standard"];
+			const policy = this.#resolveActivePolicy(rawPolicy, journeyDate);
 			const strategyHandler = this.#strategies.get(policy?.fareModel) || this.#calculateDistanceBased.bind(this);
-			const distKm = Number((leg.distanceMeters / 1000).toFixed(2));
 			totalDistanceKm += distKm;
 			const legBaseFare = strategyHandler(policy, {
 				distanceKm: distKm,
@@ -334,34 +402,79 @@ export class FareCalculator {
 		};
 	}
 
-
 	/**
 	 * 2. Station-Pair / Matrix Strategy (Airport Express, Point-to-Point)
+	 * Strict 2D Matrix Standard with O(1) Index Caching & Console Error Boundaries (No Fallback)
 	 */
 	#calculateStationPair(policy, context) {
 		const { startId, endId } = context;
-		const matrix = policy.fareMatrix;
-		if (!matrix || !startId || !endId) return null;
-
-		// डायरेक्ट चेक (start -> end)
-		if (matrix[startId] && matrix[startId][endId] !== undefined) {
-			return Number(matrix[startId][endId]);
+		if (!policy || !startId || !endId) {
+			console.error(`[FareCalculator] Missing required parameters in station_pair calculation: policy=${Boolean(policy)}, startId="${startId}", endId="${endId}"`);
+			return null;
 		}
 
-		// रिवर्स चेक (end -> start) यदि मैट्रिक्स सममित (symmetric) हो
-		if (matrix[endId] && matrix[endId][startId] !== undefined) {
-			return Number(matrix[endId][startId]);
+		// 1. Strict Schema Validation (Both 'stations' and 'fareMatrix' must be arrays)
+		if (!Array.isArray(policy.stations) || !Array.isArray(policy.fareMatrix)) {
+			console.error(`[FareCalculator] Invalid station_pair schema for policy "${policy.network || 'unknown'}": 'stations' and 'fareMatrix' must both be arrays.`);
+			return null;
 		}
 
-		return null;
+		// 2. Matrix Dimension Validation (Row count must match stations count)
+		if (policy.fareMatrix.length !== policy.stations.length) {
+			console.error(`[FareCalculator] Matrix dimension mismatch for policy "${policy.network || 'unknown'}": stations length (${policy.stations.length}) does not match fareMatrix row count (${policy.fareMatrix.length}).`);
+			return null;
+		}
+
+		// 3. Fast O(1) Index Map Cache (Using WeakMap)
+		let indexMap = this.#matrixIndexCache.get(policy);
+		if (!indexMap) {
+			indexMap = new Map();
+			policy.stations.forEach((id, idx) => indexMap.set(id, idx));
+			this.#matrixIndexCache.set(policy, indexMap);
+		}
+
+		// 4. Station Lookup Validation
+		const startIdx = indexMap.get(startId);
+		const endIdx = indexMap.get(endId);
+
+		if (startIdx === undefined) {
+			console.error(`[FareCalculator] startId "${startId}" not found in policy.stations for network "${policy.network || 'unknown'}".`);
+			return null;
+		}
+		if (endIdx === undefined) {
+			console.error(`[FareCalculator] endId "${endId}" not found in policy.stations for network "${policy.network || 'unknown'}".`);
+			return null;
+		}
+
+		// 5. Row & Column Boundary Validation
+		const row = policy.fareMatrix[startIdx];
+		if (!Array.isArray(row) || endIdx >= row.length) {
+			console.error(`[FareCalculator] fareMatrix row at index ${startIdx} is invalid or length (${row ? row.length : 0}) is smaller than endIdx (${endIdx}).`);
+			return null;
+		}
+
+		// 6. Value Extraction & Number Parsing
+		const fare = row[endIdx];
+		if (fare === undefined || fare === null || isNaN(Number(fare))) {
+			console.error(`[FareCalculator] Invalid or missing fare value at matrix[${startIdx}][${endIdx}] for "${startId}" -> "${endId}". Value:`, fare);
+			return null;
+		}
+
+		return Number(fare);
 	}
 
 	/**
-	 * 3. Station-Count Strategy (Kolkata, Mumbai Suburban hop count)
+	 * 3. Station-Count Strategy (NMRC Noida, Kolkata, etc.)
 	 */
 	#calculateStationCountBased(policy, context) {
-		const { stationsCount = 0 } = context;
-		const slabs = policy.stationSlabs || policy.slabs || [];
+		const { stationsCount = 0, isHoliday = false } = context;
+		const fareTables = policy.fareTables || {};
+		
+		// 🌟 पहले fareTables (weekday/holiday) चेक करें, फिर पुराने stationSlabs पर फॉलबैक करें
+		const slabs = (isHoliday && fareTables.holiday)
+			? fareTables.holiday
+			: (fareTables.weekday || policy.stationSlabs || policy.slabs || []);
+
 		if (!slabs.length) return 0;
 
 		let matchedFare = slabs[slabs.length - 1].fare;

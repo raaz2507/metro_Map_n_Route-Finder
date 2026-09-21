@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Metro TVM • Automatic Ticket Dispenser</title>
+	<link rel="stylesheet" href="./css/pages/tvm_dispenser.css">
+</head>
+<body>
+	<!-- GLOBAL DYNAMIC HEADER -->
+	<div id="app-header"></div>
+
+	<!-- Main Workspace -->
+	<main class="kiosk-workspace">
+
+		<!-- LEFT: HARDWARE KIOSK TICKET DISPENSER HOUSING -->
+		<section class="tvm-kiosk-unit" id="kiosk-unit">
+			<!-- Top Metal Hood with Screws & Device Label -->
+			<div class="tvm-hood">
+				<div class="tvm-hood-meta">
+					<span class="tvm-device-id">TVM TERMINAL #204</span>
+					<div class="tvm-screws">
+						<div class="screw"></div>
+						<div class="screw"></div>
+					</div>
+				</div>
+
+				<!-- Machine Mouth / Bezel -->
+				<div class="dispenser-slot-bezel">
+					<div class="dispenser-slot-banner">
+						<div class="dispenser-label">
+							<span>▼</span>
+							<span data-i18n="tvmDispenser.machine.dispenserLabel">TICKET DISPENSER</span>
+							<span>▼</span>
+						</div>
+						<div class="dispenser-led" id="dispenser-led"></div>
+					</div>
+					<!-- Mechanical Slit -->
+					<div class="mechanical-slit">
+						<div class="roller-shadow"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Ticket Feed Bay (Paper rolls out from here) -->
+			<div class="ticket-dispense-bay state-dispensed" id="dispense-bay">
+				<div class="ticket-paper-wrapper" id="ticket-paper">
+					<!-- SVG ticket loaded dynamically via JS -->
+					<div id="ticket-mount-point" style="width:100%;"></div>
+				</div>
+			</div>
+
+			<!-- Bottom Chassis & Tray Well -->
+			<div class="tvm-bottom-chassis">
+				<div class="kiosk-tray-well">
+					<div class="tray-instructions">
+						<span>⬇</span>
+						<span data-i18n="tvmDispenser.machine.trayLabel">COLLECT TICKET FROM TRAY</span>
+						<span>⬇</span>
+					</div>
+					<div class="tray-finger-recess"></div>
+				</div>
+				<div class="chassis-feet-bar">
+					<div class="chassis-foot"></div>
+					<span class="chassis-serial">DMRC-TVM-DISPENSER • STAGE-04</span>
+					<div class="chassis-foot"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- RIGHT: TOUCHSCREEN OPERATOR CONTROL PANEL -->
+		<div class="right-panel-column">
+			<section class="kiosk-control-panel">
+				<div class="panel-header">
+					<h2 class="panel-title">
+						<span>⚙️</span>
+						<span data-i18n="tvmDispenser.panel.title">TICKET ISSUANCE PANEL</span>
+					</h2>
+					<label class="audio-badge">
+						<input type="checkbox" id="sound-toggle" checked>
+						<span data-i18n="tvmDispenser.panel.soundLabel">Printer Sound</span>
+					</label>
+				</div>
+
+				<form id="ticket-form">
+					<div class="form-grid">
+						<!-- Passenger Name -->
+						<div class="form-group form-group-full">
+							<label class="form-label" for="input-passenger" data-i18n="tvmDispenser.form.labelPassenger">Passenger Name</label>
+							<input type="text" id="input-passenger" class="form-input" value="NEHA KHAN" placeholder="Enter passenger name" required>
+						</div>
+
+						<!-- From Station -->
+						<div class="form-group">
+							<label class="form-label" for="input-from" data-i18n="tvmDispenser.form.labelFrom">Origin (From)</label>
+							<select id="input-from" class="form-select">
+								<option value="KASHMERE GATE" selected>KASHMERE GATE</option>
+								<option value="RAJIV CHOWK">RAJIV CHOWK</option>
+								<option value="NEW DELHI">NEW DELHI</option>
+								<option value="HAUZ KHAS">HAUZ KHAS</option>
+								<option value="AIRPORT T3">AIRPORT T3</option>
+								<option value="CHANDNI CHOWK">CHANDNI CHOWK</option>
+							</select>
+						</div>
+
+						<!-- To Station -->
+						<div class="form-group">
+							<label class="form-label" for="input-to" data-i18n="tvmDispenser.form.labelTo">Destination (To)</label>
+							<select id="input-to" class="form-select">
+								<option value="RAJIV CHOWK">RAJIV CHOWK</option>
+								<option value="MILLENNIUM CITY" selected>MILLENNIUM CITY</option>
+								<option value="NOIDA SEC 18">NOIDA SEC 18</option>
+								<option value="HUDA CITY CENTRE">HUDA CITY CENTRE</option>
+								<option value="BOTANICAL GARDEN">BOTANICAL GARDEN</option>
+								<option value="DWARKA SEC 21">DWARKA SEC 21</option>
+							</select>
+						</div>
+
+						<!-- Fare Price -->
+						<div class="form-group">
+							<label class="form-label" for="input-price" data-i18n="tvmDispenser.form.labelFare">Fare (Price)</label>
+							<input type="text" id="input-price" class="form-input" value="₹ 40.00">
+						</div>
+
+						<!-- Ticket Serial -->
+						<div class="form-group">
+							<label class="form-label" for="input-ticket-num" data-i18n="tvmDispenser.form.labelTicketNum">Ticket Number / ID</label>
+							<input type="text" id="input-ticket-num" class="form-input" value="T1 0123456789-A" placeholder="Leave empty for default">
+						</div>
+
+						<!-- Status -->
+						<div class="form-group">
+							<label class="form-label" for="input-status" data-i18n="tvmDispenser.form.labelStatus">Status Color</label>
+							<select id="input-status" class="form-select">
+								<option value="valid" selected data-i18n="tvmDispenser.form.statusValid">VALID (Green Text)</option>
+								<option value="expired" data-i18n="tvmDispenser.form.statusExpired">EXPIRED (Red Text)</option>
+							</select>
+						</div>
+
+						<!-- Validity Duration -->
+						<div class="form-group">
+							<label class="form-label" for="input-duration" data-i18n="tvmDispenser.form.labelDuration">Validity Time</label>
+							<select id="input-duration" class="form-select">
+								<option value="45" data-i18n="tvmDispenser.form.dur45">45 Minutes</option>
+								<option value="90" selected data-i18n="tvmDispenser.form.dur90">90 Minutes</option>
+								<option value="180" data-i18n="tvmDispenser.form.dur180">3 Hours</option>
+								<option value="1440" data-i18n="tvmDispenser.form.dur1440">Full Day Pass</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="action-row">
+						<button type="submit" class="btn-dispense" id="btn-print">
+							<span>🖨️</span>
+							<span data-i18n="tvmDispenser.panel.btnPrint">PRINT &amp; DISPENSE TICKET</span>
+						</button>
+						<button type="button" class="btn-secondary" id="btn-open-svg">
+							<span>↗</span>
+							<span data-i18n="tvmDispenser.panel.btnOpenSvg">Open Standalone SVG File</span>
+						</button>
+					</div>
+				</form>
+
+				<div class="quick-tips">
+					<strong>💡 <span data-i18n="tvmDispenser.panel.tipsTitle">TVM Simulation Feature:</span></strong>
+					<span data-i18n="tvmDispenser.panel.tipsDesc">Press "Print & Dispense Ticket" — the ticket will roll out from the dispenser slot with thermal printer sound, and your form details will update live on the ticket!</span>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<!-- GLOBAL FOOTER -->
+	<div id="app-footer"></div>
+
+	<script type="module" src="./js/pages/tvm_dispenser.js"></script>
+</body>
+</html>

@@ -1,5 +1,10 @@
 // /lang/en.js
 import passengerSupportEn from "./pages/passenger_support.en.js";
+import helpEn from "./pages/help.en.js";
+import aboutEn from "./pages/about.en.js";
+import stationInfoEn from "./pages/station_info.en.js";
+import metroQrTicketEn from "./pages/metro_QR_ticket.en.js";
+import tvmDispenserEn from "./pages/tvm_dispenser.en.js";
 
 export default {
 	meta: {
@@ -9,10 +14,10 @@ export default {
 		twitterTitle: "Maps • Routes • Fares • Journey Assistance",
 		twitterDescription: "Find the best metro routes, ticket fares, travel time, and intermediate stations easily."
 	},
-    header: {
+	header: {
 		appName: "YatraMarg",
 		tagLine : "Maps • Routes • Fares • Journey Assistance",
-        language: "Lang:",
+		language: "Lang:",
 		
 		themes: {
 			label: "Theme:",
@@ -23,16 +28,16 @@ export default {
 			mint: "Forest Mint",
 			ghibli: "Ghibli Nostalgia"
 		}
-    },
+	},
 
 	"nav-header": {
-		networks: "🌐 Networks",
-		home: "🏠 Home",
-		stations: "🚉 Stations",
-		recharge: "💳 Recharge Card",
-		passengerSupport: "🛡️ Passenger Support", 
-		help: "❓ Help",
-		about: "ℹ️ About"
+		networks: "Networks",
+		home: "Home",
+		stations: "Stations",
+		recharge: "Recharge Card",
+		passengerSupport: "Passenger Support", 
+		help: "Help",
+		about: "About"
 	},
 
 	"nav-sidebar": {
@@ -158,6 +163,14 @@ export default {
 						walkways: {
 							label: "Show Interchange Walkways",
 							desc: "Draw dashed connecting footpaths between interchange stations."
+						},
+						underConstruction: {
+							label: "Show Under Construction",
+							desc: "Display upcoming and under-construction lines (dashed) and stations on the map."
+						},
+						approved: {
+							label: "Show Approved & Planned",
+							desc: "Display approved and proposed future transit corridors (dotted) on the map."
 						}
 					},
 					alarm:{
@@ -224,7 +237,7 @@ export default {
 				viewStationInfo: "View Station Details"
 			},
 			alarmBanner: {
-    			approaching: "Approaching Station",
+				approaching: "Approaching Station",
 				trackingActive: "🛰️ Live Tracking Active",
 				interchangeAlert: "Interchange Station • Change Line Here",
 				destinationAlert: "Destination Station • Arriving Soon",
@@ -357,39 +370,12 @@ export default {
 			stationCount: "{count} Stations",
 			singleStationCount: "1 Station"
 		},
-		station_info: {
-			backBtn: "⬅️ Back to All Stations",
-			connectedLines: "🚆 Connected Metro Lines",
-			operatingHours: "⏰ Station Hours",
-			first: "First",
-			last: "Last",
-			helplines: "📞 Helplines & Support",
-			mobileHelpline: "Station Mobile Helpline",
-			landline: "Station Landline",
-			dmrcHelpline: "Universal Helpline",
-			gates: "🚪 Station Gates & Exits",
-			facilities: "♿ Station Facilities & Amenities",
-			parking: "🅿️ Parking Breakdown",
-			transit: "🛗 Lifts & Escalators (Vertical Transit)",
-			nearby: "📍 Nearby Places & Key Destinations",
-			code: "Code",
-			location: "Location",
-			placement: "Placement",
-			divyangFriendly: "Divyang Friendly",
-			status: "Status",
-			yes: "✔️ Yes",
-			no: "❌ No",
-			active: "Active",
-			maintenance: "Maintenance",
-			provider: "Provider",
-			car: "🚗 Car",
-			bike: "🏍️ Bike",
-			cycle: "🚲 Cycle",
-			lifts: "🛗 Lifts",
-			escalators: "🪜 Escalators",
-			divyangAccessible: "♿ Divyang Accessible",
-			standardAccess: "🚶 Standard Access"
-		}
+		
 	},
-	passengerSupport: passengerSupportEn
+	passengerSupport: passengerSupportEn,
+	help: helpEn,
+	about: aboutEn,
+	station_info: stationInfoEn,
+	metroTicket: metroQrTicketEn,
+	tvmDispenser: tvmDispenserEn,
 };

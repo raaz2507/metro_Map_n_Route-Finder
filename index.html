@@ -239,6 +239,28 @@
 							<div id="panel-setting-map" class="settings-tab-panel" data-panel="map" role="tabpanel" aria-labelledby="tab-map">
 								<fieldset class="settings-fieldset">
 									<legend class="settings-legend" data-i18n="pages.home.sidebar.appSettings.map.sections.display">🗺️ Map Display & View</legend>
+									<!-- Under Construction Toggle -->
+									<div class="settings-form-row">
+										<div class="settings-label-wrapper">
+											<label for="settingShowUnderConstruction" class="settings-label" data-i18n="pages.home.sidebar.appSettings.map.underConstruction.label">Show Under Construction</label>
+											<span class="settings-desc" data-i18n="pages.home.sidebar.appSettings.map.underConstruction.desc">Display upcoming and under-construction lines (dashed) and stations on the map.</span>
+										</div>
+										<label class="switch-toggle" for="settingShowUnderConstruction">
+											<input type="checkbox" id="settingShowUnderConstruction" checked />
+											<span class="switch-slider" aria-hidden="true"></span>
+										</label>
+									</div>
+									<!-- Approved & Planned Toggle -->
+									<div class="settings-form-row">
+										<div class="settings-label-wrapper">
+											<label for="settingShowApproved" class="settings-label" data-i18n="pages.home.sidebar.appSettings.map.approved.label">Show Approved & Planned</label>
+											<span class="settings-desc" data-i18n="pages.home.sidebar.appSettings.map.approved.desc">Display approved and proposed future transit corridors (dotted) on the map.</span>
+										</div>
+										<label class="switch-toggle" for="settingShowApproved">
+											<input type="checkbox" id="settingShowApproved" checked />
+											<span class="switch-slider" aria-hidden="true"></span>
+										</label>
+									</div>
 								</fieldset>
 							</div>
 						</div>
@@ -560,8 +582,8 @@
 										<span class="text" data-i18n="nav-floating.alarm">Alarm</span>
 								</a>
 						</li>
-						<li class="floating-nav-item active">
-							<a href="#">
+						<li class="floating-nav-item active" id="floatingTicketNav" data-tab="ticket">
+							<a href="metro_QR_ticket.html" aria-label="Metro QR Ticket Wallet">
 								<span class="icon ticket-iocn"></span>
 								<span class="text" data-i18n="nav-floating.ticket">🎟️ Ticket</span>
 							</a>

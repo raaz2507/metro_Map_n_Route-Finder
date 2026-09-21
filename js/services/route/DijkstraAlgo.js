@@ -70,6 +70,7 @@ export class DijkstraAlgo {
 	// Private State Fields
 	#stationData = null;
 	#transfers = null;
+	#lines = null;
 	#pathCache = new Map();
 
 	// Transfer Penalties (वर्चुअल पेनल्टी जिससे एल्गोरिद्म सही रूट चुने)
@@ -79,18 +80,20 @@ export class DijkstraAlgo {
 	/**
 	 * @param {Object} stationData - स्टेशनों का डेटा (पड़ोसी स्टेशनों और लाइन्स सहित)
 	 * @param {Object} transfers - ट्रांसफर्स का डेटा
+	 * @param {Object} lines - लाइन्स का डेटा (स्टेटस चेक करने हेतु)
 	 */
-	constructor(stationData = {}, transfers = {}) {
-		this.updateData(stationData, transfers);
+	constructor(stationData = {}, transfers = {}, lines = {}) {
+		this.updateData(stationData, transfers, lines);
 	}
 
 
 	/**
 	 * नया डेटा अपडेट करें और ग्राफ नेबर्स की प्री-कंपाइलेशन करें
 	 */
-	updateData(stationData, transfers = {}) {
+	updateData(stationData, transfers = {}, lines = {}) {
 		this.#stationData = stationData || {};
 		this.#transfers = transfers || {};
+		this.#lines = lines || {};
 		this.#pathCache.clear();
 		// 🚀 Pre-compile Keys (लूप में स्ट्रिंग एलोकेशन खत्म)
 		for (const st of Object.values(this.#stationData)) {
@@ -109,15 +112,18 @@ export class DijkstraAlgo {
 	 * @param {string} startStationId - शुरुआती स्टेशन ID
 	 * @param {string} endStationId - अंतिम स्टेशन ID
 	 * @param {string} routeType - "leastTransfers" | "shortestDistance"
+	 * @param {Object} [options={}] - अतिरिक्त ऑप्शंस (उदा: includeUnderConstruction)
 	 * @returns {Object|null} पाथ, दूरी, इंटरचेंज और उपयोग की गई लाइन्स
 	 */
-		findPath(startStationId, endStationId, routeType = "leastTransfers") {
+	findPath(startStationId, endStationId, routeType = "leastTransfers", options = {}) {
 		if (!startStationId || !endStationId || !this.#stationData[startStationId] || !this.#stationData[endStationId]) {
 			return null;
 		}
 
+		const includeUnderConstruction = options.includeUnderConstruction ?? false;
+
 		// ⚡ 1. Cache Check
-		const cacheKey = `${startStationId}:${endStationId}:${routeType}`;
+		const cacheKey = `${startStationId}:${endStationId}:${routeType}:${includeUnderConstruction ? 1 : 0}`;
 		if (this.#pathCache.has(cacheKey)) {
 			return this.#pathCache.get(cacheKey);
 		}
@@ -143,6 +149,10 @@ export class DijkstraAlgo {
 
 		const startLines = this.#stationData[startStationId].lines || [];
 		startLines.forEach((line) => {
+			if (!includeUnderConstruction) {
+				const lineStatus = this.#lines?.[line]?.status || "operational";
+				if (lineStatus !== "operational") return;
+			}
 			const startKey = `${startStationId}-${line}`;
 			dists[startKey] = 0;
 			queue.push({
@@ -152,6 +162,20 @@ export class DijkstraAlgo {
 				line: line
 			});
 		});
+
+		// Fallback: If all lines of start station are under-construction, allow them if user explicitly selected this station
+		if (queue.isEmpty() && startLines.length > 0) {
+			startLines.forEach((line) => {
+				const startKey = `${startStationId}-${line}`;
+				dists[startKey] = 0;
+				queue.push({
+					id: startStationId,
+					dist: 0,
+					interchanges: 0,
+					line: line
+				});
+			});
+		}
 
 		let endNodeReached = null;
 
@@ -174,6 +198,12 @@ export class DijkstraAlgo {
 			for (let i = 0; i < station.neighbors.length; i++) {
 				const neighbor = station.neighbors[i];
 				if (neighbor.line !== curr.line) continue;
+
+				if (!includeUnderConstruction) {
+					const lineStatus = this.#lines?.[neighbor.line]?.status || "operational";
+					const destStationStatus = this.#stationData[neighbor.station]?.properties?.status || "operational";
+					if (lineStatus !== "operational" || destStationStatus !== "operational") continue;
+				}
 
 				const neighborId = neighbor.station;
 				const weight = Number(neighbor.distance) || 0;

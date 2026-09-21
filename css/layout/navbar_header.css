@@ -1,15 +1,13 @@
 @layer components {
-	/* Header Navigation Container styling - Styling & transitions only */
+	/* ==========================================================================
+	   HEADER NAVIGATION: 2.5D FLOATING GLASS BOGIE (100% PURE BASE.CSS TOKENS)
+	   - Features: Blueprint Stroke Draw + Animated Coupler Draw + 2.5D Bevel Depth
+	   - Fully Adaptive across All 6 Themes
+	   ========================================================================== */
 	.header-nav {
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
-		backdrop-filter: blur(var(--backdrop-blur));
-		-webkit-backdrop-filter: blur(var(--backdrop-blur));
-		border-bottom: 1px solid var(--border-color);
-		transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
-		padding: 5px ;
+		padding: var(--space-xs) var(--space-sm);
 	}
 
-	/* List element styling using flexible wrapping */
 	.header-nav-list {
 		display: flex;
 		align-items: center;
@@ -21,55 +19,374 @@
 		padding: 0;
 	}
 
-	/* Navigation Links - Global Pill/Chip Styling for Desktop & Mobile */
-	.header-nav-item a {
+	.header-nav-item {
+		display: inline-flex;
+		position: relative;
+		animation: trainBogieRollIn 0.5s var(--transition-spring) both;
+	}
+
+	.header-nav-item:nth-child(1) { animation-delay: 0.04s; }
+	.header-nav-item:nth-child(2) { animation-delay: 0.08s; }
+	.header-nav-item:nth-child(3) { animation-delay: 0.12s; }
+	.header-nav-item:nth-child(4) { animation-delay: 0.16s; }
+	.header-nav-item:nth-child(5) { animation-delay: 0.20s; }
+	.header-nav-item:nth-child(6) { animation-delay: 0.24s; }
+	.header-nav-item:nth-child(7) { animation-delay: 0.28s; }
+
+	@keyframes trainBogieRollIn {
+		0% {
+			opacity: 0;
+			transform: translateY(-10px) scale(0.92);
+		}
+		60% {
+			opacity: 1;
+			transform: translateY(2px) scale(1.02);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	/* Semantic Route Color Mapping from base.css Tokens (100% Theme Adaptive) */
+	.header-nav-item[data-target="networks"],
+	.header-nav-item .nav-link[data-target="networks"],
+	.header-nav-item:nth-child(1) { --item-rgb: var(--color-info-rgb); }
+
+	.header-nav-item[data-target="home"],
+	.header-nav-item[data-target="fare"],
+	.header-nav-item .nav-link[data-target="home"],
+	.header-nav-item .nav-link[data-target="fare"],
+	.header-nav-item:nth-child(2) { --item-rgb: var(--color-success-rgb); }
+
+	.header-nav-item[data-target="stations"],
+	.header-nav-item[data-target="map"],
+	.header-nav-item .nav-link[data-target="stations"],
+	.header-nav-item .nav-link[data-target="map"],
+	.header-nav-item:nth-child(3) { --item-rgb: var(--color-warning-rgb); }
+
+	/* Recharge Card: अब 100% टोकन पर आधारित (नो हार्डकोडेड पर्पल) */
+	.header-nav-item[data-target="recharge"],
+	.header-nav-item[data-target="schedule"],
+	.header-nav-item .nav-link[data-target="recharge"],
+	.header-nav-item .nav-link[data-target="schedule"],
+	.header-nav-item:nth-child(4) { --item-rgb: var(--color-accent-rgb); }
+
+	.header-nav-item[data-target="support"],
+	.header-nav-item .nav-link[data-target="support"],
+	.header-nav-item:nth-child(5) { --item-rgb: var(--color-info-rgb); }
+
+	.header-nav-item[data-target="help"],
+	.header-nav-item .nav-link[data-target="help"],
+	.header-nav-item:nth-child(6) { --item-rgb: var(--color-danger-rgb); }
+
+	.header-nav-item[data-target="about"],
+	.header-nav-item .nav-link[data-target="about"],
+	.header-nav-item:nth-child(7) { --item-rgb: var(--color-primary-rgb); }
+
+	/* Individual 2.5D Bogie / Link */
+	.header-nav-item .nav-link {
+		position: relative;
 		display: inline-flex;
 		align-items: center;
-		gap: var(--space-xs);
+		gap: var(--space-sm);
+		padding: var(--space-sm) var(--space-md);
+		border-radius: var(--radius-xs);
 		text-decoration: none;
-		color: var(--text-secondary);
-		font-size: var(--fs-sm); /* 14px */
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
-		padding: var(--space-xs) var(--space-lg);
-		background: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-full);            /* गोल पिल/चिप शेप */
-		box-shadow: var(--shadow-sm);
+		cursor: pointer;
+		user-select: none;
 		white-space: nowrap;
-		transition: all var(--transition-fast);
-	}
 
-	 /* Hover State */
-	.header-nav-item a:hover {
+		/* Base.css Theme-Adaptive Glass Background */
+		background: rgba(var(--color-bg-base-rgb), var(--op-glass));
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+
+		/* 2.5D Bevel: Top Light Rim Highlight + Route-Colored Dashed Border */
+		border: 1.5px dashed rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-translucent));
+		border-top: 1.8px solid rgba(var(--color-primary-rgb), var(--op-glass));
+		border-bottom: 1.8px solid var(--border-color);
+
+		/* Theme-Adaptive Text Color */
 		color: var(--text-primary);
-		background-color: rgba(var(--color-primary-rgb), var(--op-glow));
-		border-color: var(--input-focus-border);
-		transform: translateY(-1px);
+
+		/* 2.5D Floating Ambient & Depth Shadows from base.css */
+		box-shadow: var(--shadow-md), 0 var(--space-sm) 20px -3px rgba(0, 0, 0, var(--op-shadow));
+
+		/* Smooth 60fps GPU acceleration */
+		transform: translateY(0) rotate(0deg);
+		transform-origin: center center;
+		transition: transform var(--transition-spring),
+		            box-shadow var(--transition-smooth),
+		            background var(--transition-fast),
+		            border-color var(--transition-fast),
+		            color var(--transition-fast);
 	}
 
-	/* Active State */
-	.header-nav-item a.active {
-		color: var(--btn-primary-text);
-		background: var(--btn-primary-bg);
-		border-color: var(--btn-primary-bg);
-		box-shadow: 0 0 12px rgba(var(--color-primary-rgb), var(--op-shadow));
+	/* Semicircular Bogie Coupler Sockets (Left & Right) */
+	.header-nav-item .nav-link::before,
+	.header-nav-item .nav-link::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 6px;
+		height: 6px;
+		background: var(--card-bg);
+		border-radius: var(--radius-full);
+		border: 1.5px solid rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-glass));
+		box-shadow: inset 1px 1px 2px rgba(0, 0, 0, var(--op-shadow));
+		z-index: 3;
+		transition: border-color var(--transition-fast), background var(--transition-fast);
+	}
+	.header-nav-item .nav-link::before { left: calc(-1 * var(--space-xs)); border-left-color: transparent; }
+	.header-nav-item .nav-link::after { right: calc(-1 * var(--space-xs)); border-right-color: transparent; }
+
+	/* 2.5D Sleek Metallic Coupler Link Bar connecting bogies */
+	.header-nav-item:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		right: -10px;
+		top: 50%;
+		width: 10px;
+		height: 3px;
+		background: var(--border-color);
+		border-top: 1px solid rgba(var(--color-primary-rgb), var(--op-translucent));
+		border-bottom: 1px solid rgba(0, 0, 0, var(--op-shadow));
+		border-radius: var(--radius-xs);
+		box-shadow: 0 2px 4px rgba(0, 0, 0, var(--op-shadow));
+		z-index: 2;
+		transform: translateY(-50%) scaleX(1);
+		transform-origin: left center;
+		transition: transform var(--transition-spring),
+		            background var(--transition-fast),
+		            box-shadow var(--transition-fast);
 	}
 
-	/* Focus outline for accessibility */
-	.header-nav-item a:focus-visible {
-		outline: 2px solid var(--focus-ring-color);
-		outline-offset: 2px;
-	}
-
-	/* मोबाइल पर केवल लिस्ट को सेंटर करने का नियम */
-	@media (max-width: 768px) {
-		.header-nav-list {
-			justify-content: center;
-			gap: var(--space-xs);
+	/* Coupler Draw & Spring Stretch (Triggered on Hover) */
+	@keyframes couplerDrawAndStretch {
+		0% {
+			transform: translateY(-50%) scaleX(0.2);
+			opacity: var(--op-translucent);
 		}
-		.header-nav-item a {
-			padding: var(--space-xs) var(--space-md); /* लिंक की पैडिंग कम की */
-			font-size: var(--fs-xs);                 /* फॉन्ट 12px किया */
+		40% {
+			transform: translateY(-50%) scaleX(1.45) rotate(-4deg);
+			opacity: var(--op-solid);
+		}
+		75% {
+			transform: translateY(-50%) scaleX(1.22) rotate(-2deg);
+		}
+		100% {
+			transform: translateY(-50%) scaleX(1.3) rotate(-3deg);
+			opacity: var(--op-solid);
+		}
+	}
+
+	@keyframes couplerDrawAndStretchReverse {
+		0% {
+			transform: translateY(-50%) scaleX(0.2);
+			opacity: var(--op-translucent);
+		}
+		40% {
+			transform: translateY(-50%) scaleX(1.45) rotate(4deg);
+			opacity: var(--op-solid);
+		}
+		75% {
+			transform: translateY(-50%) scaleX(1.22) rotate(2deg);
+		}
+		100% {
+			transform: translateY(-50%) scaleX(1.3) rotate(3deg);
+			opacity: var(--op-solid);
+		}
+	}
+
+	.header-nav-item:hover::after {
+		animation: couplerDrawAndStretch 0.55s var(--transition-spring) forwards;
+		background: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		box-shadow: 0 0 var(--space-sm) rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-translucent));
+	}
+
+	.header-nav-item:has(+ .header-nav-item:hover)::after {
+		animation: couplerDrawAndStretchReverse 0.55s var(--transition-spring) forwards;
+		background: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		box-shadow: 0 0 var(--space-sm) rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-translucent));
+	}
+
+	/* SVG Icon Container & Styling */
+	.header-nav-item .nav-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: var(--badge-height);
+		height: var(--badge-height);
+		flex-shrink: 0;
+		color: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		transition: transform var(--transition-smooth), filter var(--transition-smooth);
+	}
+
+	.header-nav-item .nav-icon svg {
+		width: 100%;
+		height: 100%;
+		stroke: currentColor;
+		fill: none;
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-dasharray: 80;
+		stroke-dashoffset: 0;
+		transition: stroke var(--transition-fast);
+	}
+
+	.header-nav-item .nav-label {
+		line-height: 1.2;
+	}
+
+	/* Blueprint SVG Line-Draw Keyframe (Triggered ONLY on Hover) */
+	@keyframes drawStroke80 {
+		0% {
+			stroke-dashoffset: 80;
+			opacity: var(--op-muted);
+		}
+		50% {
+			opacity: var(--op-solid);
+		}
+		100% {
+			stroke-dashoffset: 0;
+			opacity: var(--op-solid);
+		}
+	}
+
+	/* ==========================================================================
+	   HOVER & ACTIVE STATES (100% THEME COMPATIBLE & HIGH CONTRAST READABILITY)
+	   ========================================================================== */
+	.header-nav-item .nav-link:hover {
+		transform: rotate(-2.5deg) translateY(-4px) scale(1.03);
+		/* Solid card base retained - NEVER goes transparent on hover */
+		background: linear-gradient(rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-glow)), rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-glow))), var(--card-bg);
+		border-color: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		border-top-color: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		color: var(--text-primary);
+		font-weight: var(--fw-bold);
+		box-shadow: var(--shadow-lg), 0 0 16px rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-muted));
+	}
+
+	.header-nav-item .nav-link:active {
+		transform: rotate(0deg) translateY(0px) scale(0.98);
+		transition-duration: 0.1s;
+	}
+
+	.header-nav-item .nav-link:hover .nav-icon {
+		transform: scale(1.18);
+		filter: drop-shadow(0 0 var(--space-sm) rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-translucent)));
+	}
+
+	.header-nav-item .nav-link:hover .nav-icon svg,
+	.header-nav-item .nav-link:hover .nav-icon svg * {
+		animation: drawStroke80 0.65s var(--transition-smooth) forwards;
+	}
+
+	/* Active State: Theme Adaptive Color & Contrast */
+	.header-nav-item .nav-link.active {
+		background: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		color: var(--text-on-accent, #ffffff);
+		border-style: solid;
+		border-color: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		box-shadow: var(--shadow-md), 0 6px 20px rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-translucent));
+		text-shadow: 0 1px 2px rgba(0, 0, 0, var(--op-shadow));
+		animation: activeBogiePulse 3s ease-in-out infinite;
+	}
+
+	@keyframes activeBogiePulse {
+		0%, 100% {
+			box-shadow: var(--shadow-md), 0 var(--space-xs) 16px rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-translucent));
+			transform: translateY(0);
+		}
+		50% {
+			box-shadow: var(--shadow-lg), 0 var(--space-sm) 24px rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-glass));
+			transform: translateY(-2px);
+		}
+	}
+
+	@keyframes navIconBounce {
+		0%, 100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.22);
+		}
+	}
+
+	.header-nav-item .nav-link.active .nav-icon {
+		color: var(--text-on-accent, #ffffff);
+		filter: drop-shadow(0 1px 2px rgba(0, 0, 0, var(--op-shadow)));
+		animation: navIconBounce 2.4s ease-in-out infinite;
+	}
+
+	.header-nav-item .nav-link.active .nav-icon svg,
+	.header-nav-item .nav-link.active .nav-icon svg * {
+		stroke: var(--text-on-accent, #ffffff);
+	}
+
+	/* Ticket Punch Sockets on Active Solid Card */
+	.header-nav-item .nav-link.active::before,
+	.header-nav-item .nav-link.active::after {
+		background: rgba(0, 0, 0, var(--op-shadow));
+		border-color: var(--text-on-accent, #ffffff);
+	}
+
+	/* Active Coupler Connection */
+	.header-nav-item:has(> .nav-link.active)::after {
+		background: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		box-shadow: 0 0 var(--space-sm) rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-translucent));
+	}
+
+	/* Active Hover State (Slight Tilt + Route Glow Boost) */
+	.header-nav-item .nav-link.active:hover {
+		transform: rotate(-2.5deg) translateY(-4px) scale(1.03);
+		background: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		border-color: rgb(var(--item-rgb, var(--color-primary-rgb)));
+		color: var(--text-on-accent, #ffffff);
+		box-shadow: var(--shadow-lg), 0 var(--space-sm) 24px rgba(var(--item-rgb, var(--color-primary-rgb)), var(--op-translucent));
+	}
+
+	.header-nav-item .nav-link.active:hover .nav-icon svg,
+	.header-nav-item .nav-link.active:hover .nav-icon svg * {
+		stroke: var(--text-on-accent, #ffffff);
+		animation: drawStroke80 0.65s var(--transition-smooth) forwards;
+	}
+
+	/* Accessibility Focus */
+	.header-nav-item .nav-link:focus-visible {
+		outline: 2px solid rgb(var(--color-primary-rgb));
+		outline-offset: 3px;
+	}
+
+	/* Responsive: Mobile Multi-Line Wrap */
+	@media (max-width: 768px) {
+		.header-nav {
+			width: 100%;
+			overflow: visible;
+			padding: var(--space-xs);
+		}
+		.header-nav-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			padding: 0;
+			gap: var(--space-sm);
+			width: 100%;
+		}
+		/* लाइन टूटने पर हवा में लटकने वाले ट्रेन कपलर बार को छुपाएं */
+		.header-nav-item:not(:last-child)::after {
+			display: none;
+		}
+		.header-nav-item .nav-icon {
+			width: 16px;
+			height: 16px;
 		}
 	}
 }

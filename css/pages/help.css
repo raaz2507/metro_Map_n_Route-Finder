@@ -1,7 +1,670 @@
 @import url("../base/base.css");
 @import url("../layout/layout.css");
-
 @import url("../layout/header.css");
 @import url("../layout/navbar_header.css");
-
 @import url("../layout/footer.css");
+@import url("../components/universal_search.css");
+
+/* ==========================================================================
+   HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
+   ========================================================================== */
+
+@layer components {
+
+	/* -------------------------------------------------------------------------
+	   1. Universal Mask Icon Engine (Zero inline SVG clutter)
+	   ------------------------------------------------------------------------- */
+	.help-ico {
+		display: inline-block;
+		width: 18px;
+		height: 18px;
+		background-color: currentColor;
+		-webkit-mask: var(--ico-url) no-repeat center / contain;
+		mask: var(--ico-url) no-repeat center / contain;
+		flex-shrink: 0;
+	}
+
+	.ico-sm {
+		width: 14px;
+		height: 14px;
+	}
+
+	.ico-lg {
+		width: 40px;
+		height: 40px;
+	}
+
+	/* CSS Mask Icon Definitions (Linked to assets/icons/) */
+	.ico-help        { --ico-url: url("../../assets/icons/help.svg"); }
+	.ico-search      { --ico-url: url("../../assets/icons/ui/search.svg"); }
+	.ico-index       { --ico-url: url("../../assets/icons/list-solid-full.svg"); }
+	.ico-routes      { --ico-url: url("../../assets/icons/ui/search.svg"); }
+	.ico-activity    { --ico-url: url("../../assets/icons/ui/activity.svg"); }
+	.ico-transfer    { --ico-url: url("../../assets/icons/ui/transfer.svg"); }
+	.ico-alarm       { --ico-url: url("../../assets/icons/bell-solid-full.svg"); }
+	.ico-compass     { --ico-url: url("../../assets/icons/ui/compass.svg"); }
+	.ico-card        { --ico-url: url("../../assets/icons/ticket-solid-full.svg"); }
+	.ico-calculator  { --ico-url: url("../../assets/icons/ui/calculator.svg"); }
+	.ico-clock       { --ico-url: url("../../assets/icons/clock.svg"); }
+	.ico-luggage     { --ico-url: url("../../assets/icons/ui/luggage.svg"); }
+	.ico-wifi        { --ico-url: url("../../assets/icons/ui/wifi.svg"); }
+	.ico-trash       { --ico-url: url("../../assets/icons/trash-can-solid-full.svg"); }
+	.ico-pin         { --ico-url: url("../../assets/icons/ui/pin.svg"); }
+	.ico-refresh     { --ico-url: url("../../assets/icons/ui/refresh.svg"); }
+
+	/* Accordion Chevron Icon */
+	.card-chevron {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		background-color: currentColor;
+		-webkit-mask: url("../../assets/icons/ui/chevron_down.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/chevron_down.svg") no-repeat center / contain;
+		color: var(--text-secondary);
+		flex-shrink: 0;
+		transition: transform var(--transition-smooth);
+	}
+
+	.help-card-item.collapsed .card-chevron {
+		transform: rotate(-90deg);
+	}
+
+	.help-card-item:not(.collapsed) .card-chevron {
+		transform: rotate(0deg);
+	}
+
+	/* -------------------------------------------------------------------------
+	   2. Main Container
+	   ------------------------------------------------------------------------- */
+	main.help-main-container {
+		display: flex;
+		flex-direction: column;
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: var(--space-xl) var(--space-lg) calc(var(--space-3xl) + 60px);
+		width: 100%;
+		gap: var(--space-2xl);
+	}
+
+	/* -------------------------------------------------------------------------
+	   3. Hero Section (Search & Filter Hub)
+	   ------------------------------------------------------------------------- */
+	.help-hero {
+		width: 100%;
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-2xl) var(--space-xl);
+		box-shadow: var(--shadow-sm);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: var(--space-md);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.help-hero::before {
+		content: "";
+		position: absolute;
+		top: -50px;
+		right: -50px;
+		width: 180px;
+		height: 180px;
+		background: radial-gradient(circle, rgba(var(--color-primary-rgb), 0.12) 0%, transparent 70%);
+		border-radius: var(--radius-full);
+		pointer-events: none;
+	}
+
+	.help-hero-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-family: var(--font-title);
+		font-size: 11px;
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.6px;
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.1);
+		padding: 4px 12px;
+		border-radius: var(--radius-full);
+		border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+	}
+
+	.help-hero-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-3xl);
+		font-weight: var(--fw-extrabold);
+		color: var(--text-primary);
+		margin: 0;
+		line-height: 1.25;
+	}
+
+	.help-hero-desc {
+		font-family: var(--font-main);
+		font-size: var(--fs-sm);
+		color: var(--text-secondary);
+		max-width: 620px;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	/* Search Box Width Override in Hero */
+	.help-search-box {
+		width: 100%;
+		max-width: 580px;
+		margin-top: var(--space-xs);
+		background: var(--card-bg);
+		box-shadow: var(--shadow-xs);
+	}
+
+	.help-search-box .search-icon {
+		display: grid;
+		place-items: center;
+		color: var(--text-secondary);
+	}
+
+	.help-search-box input {
+		font-size: var(--fs-sm);
+	}
+
+	/* Search Stats Badge */
+	.help-search-stats {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.08);
+		padding: 4px 12px;
+		border-radius: var(--radius-full);
+		border: 1px solid rgba(var(--color-primary-rgb), 0.15);
+		margin-top: -4px;
+	}
+
+	/* Filter Chips */
+	.help-filter-chips {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--space-sm);
+		margin-top: var(--space-xs);
+	}
+
+	.chip-btn {
+		background: transparent;
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-full);
+		padding: 6px 14px;
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-secondary);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+		outline: none;
+	}
+
+	.chip-btn:hover {
+		color: var(--text-primary);
+		border-color: rgba(var(--color-primary-rgb), 0.4);
+		background: rgba(var(--color-primary-rgb), 0.05);
+	}
+
+	.chip-btn.active {
+		background: rgb(var(--color-primary-rgb));
+		color: #ffffff;
+		border-color: rgb(var(--color-primary-rgb));
+		box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.3);
+	}
+
+	/* -------------------------------------------------------------------------
+	   4. 2-Column Responsive Layout Grid (Below Hero)
+	   ------------------------------------------------------------------------- */
+	.help-layout-grid {
+		width: 100%;
+		min-width: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xl);
+		align-items: start;
+	}
+	.help-sidebar {
+		position: sticky;
+		top: 80px;
+		flex: 1 1 260px;
+		min-width: 0;
+	}
+	.sidebar-sticky-box {
+		width: 100%;
+		min-width: 0;
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-lg);
+		box-shadow: var(--shadow-xs);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+	}
+	.help-content-area {
+		flex: 999 1 320px;
+		min-width: 0;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xl);
+	}
+
+	.sidebar-heading-badge {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-family: var(--font-title);
+		font-size: 11px;
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.8px;
+		color: var(--text-secondary);
+		padding-bottom: var(--space-md);
+		border-bottom: 1px solid var(--border-color);
+		margin-bottom: var(--space-sm);
+	}
+
+	.help-sidebar-nav {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.sidebar-nav-item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 8px 12px;
+		border-radius: var(--radius-md);
+		text-decoration: none;
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-secondary);
+		transition: all var(--transition-fast);
+	}
+
+	.sidebar-nav-item:hover {
+		background: rgba(var(--color-primary-rgb), 0.06);
+		color: var(--text-primary);
+	}
+
+	.sidebar-nav-item.active {
+		background: rgba(var(--color-primary-rgb), 0.12);
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-semibold);
+	}
+
+	.nav-step-pill {
+		display: grid;
+		place-items: center;
+		width: 20px;
+		height: 20px;
+		border-radius: var(--radius-full);
+		background: rgba(var(--color-primary-rgb), 0.1);
+		color: rgb(var(--color-primary-rgb));
+		font-size: 11px;
+		font-weight: var(--fw-bold);
+		flex-shrink: 0;
+	}
+
+	.sidebar-nav-item.active .nav-step-pill {
+		background: rgb(var(--color-primary-rgb));
+		color: #ffffff;
+	}
+
+	.nav-label {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	/* -------------------------------------------------------------------------
+	   5. Content Area & Section Groups
+	   ------------------------------------------------------------------------- */
+	.help-content-area {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xl);
+		min-width: 0;
+	}
+
+	.help-section-group {
+		scroll-margin-top: 90px;
+	}
+
+	.section-badge-header {
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-lg);
+		padding: var(--space-md) var(--space-lg);
+		box-shadow: var(--shadow-xs);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: var(--space-md);
+	}
+
+	.section-title-wrap {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.section-num-tag {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-extrabold);
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.12);
+		padding: 3px 9px;
+		border-radius: var(--radius-sm);
+		border: 1px solid rgba(var(--color-primary-rgb), 0.25);
+	}
+
+	.section-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		margin: 0;
+		line-height: 1.25;
+	}
+
+	.section-sub {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	/* -------------------------------------------------------------------------
+	   6. Unified Knowledge-Base Accordion Container (Solution 1)
+	   ------------------------------------------------------------------------- */
+	.help-card-list {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-sm);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		overflow: hidden;
+	}
+
+	.help-card-item {
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid var(--border-color);
+		border-radius: 0;
+		box-shadow: none;
+		overflow: hidden;
+		transition: background var(--transition-fast);
+	}
+
+	.help-card-item:last-child {
+		border-bottom: none;
+	}
+
+	.help-card-item:hover {
+		box-shadow: none;
+	}
+
+	.help-card-item.search-match {
+		background: rgba(var(--color-primary-rgb), 0.05);
+	}
+
+	.card-summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--space-md) var(--space-xl);
+		cursor: pointer;
+		user-select: none;
+		outline: none;
+		gap: var(--space-sm);
+		transition: background var(--transition-fast);
+	}
+
+	.card-summary:hover {
+		background: rgba(var(--color-primary-rgb), 0.05);
+	}
+
+	.help-card-item:not(.collapsed) .card-summary {
+		background: rgba(var(--color-primary-rgb), 0.03);
+	}
+
+	.card-summary-left {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		min-width: 0;
+	}
+
+	/* Bullet Icon Variances */
+	.card-bullet-icon {
+		width: 36px;
+		height: 36px;
+		border-radius: var(--radius-md);
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		transition: transform var(--transition-fast);
+	}
+
+	.card-summary:hover .card-bullet-icon {
+		transform: scale(1.05);
+	}
+
+	.icon-blue    { background: rgba(59, 130, 246, 0.12); color: #3b82f6; }
+	.icon-indigo  { background: rgba(99, 102, 241, 0.12); color: #6366f1; }
+	.icon-purple  { background: rgba(168, 85, 247, 0.12); color: #a855f7; }
+	.icon-rose    { background: rgba(244, 63, 94, 0.12);  color: #f43f5e; }
+	.icon-amber   { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+	.icon-emerald { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+	.icon-teal    { background: rgba(20, 184, 166, 0.12); color: #14b8a6; }
+	.icon-cyan    { background: rgba(6, 182, 212, 0.12);  color: #06b6d4; }
+
+	.card-heading-texts {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		min-width: 0;
+	}
+
+	.card-heading-texts h4 {
+		font-family: var(--font-title);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-semibold);
+		color: var(--text-primary);
+		margin: 0;
+		line-height: 1.35;
+	}
+
+	.card-heading-texts span {
+		font-family: var(--font-main);
+		font-size: 11px;
+		color: var(--text-secondary);
+		line-height: 1.3;
+	}
+
+	/* Accordion Drawer Content */
+	.card-drawer {
+		padding: var(--space-md) var(--space-xl) var(--space-lg);
+		border-top: 1px solid var(--border-color);
+		background: rgba(var(--color-bg-base-rgb), 0.45);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.help-card-item.collapsed .card-drawer {
+		display: none;
+	}
+
+	.drawer-desc {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-primary);
+		line-height: 1.55;
+		margin: 0;
+	}
+
+	.drawer-facts {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.drawer-facts li {
+		position: relative;
+		padding-left: 18px;
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-primary);
+		line-height: 1.55;
+	}
+
+	.drawer-facts li::before {
+		content: "•";
+		position: absolute;
+		left: 4px;
+		top: -1px;
+		color: rgb(var(--color-primary-rgb));
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+	/* -------------------------------------------------------------------------
+	   7. Highlight Match in Search Results
+	   ------------------------------------------------------------------------- */
+	mark.search-highlight {
+		background: rgba(245, 158, 11, 0.3);
+		color: var(--text-primary);
+		padding: 1px 3px;
+		border-radius: 3px;
+	}
+
+	/* -------------------------------------------------------------------------
+	   8. Empty State Card
+	   ------------------------------------------------------------------------- */
+	.help-empty-state {
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-3xl) var(--space-xl);
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-sm);
+		box-shadow: var(--shadow-xs);
+	}
+
+	.empty-icon-wrap {
+		width: 64px;
+		height: 64px;
+		border-radius: var(--radius-full);
+		background: rgba(var(--color-primary-rgb), 0.08);
+		display: grid;
+		place-items: center;
+		color: rgb(var(--color-primary-rgb));
+		margin-bottom: var(--space-xs);
+	}
+
+	.help-empty-state h3 {
+		font-family: var(--font-title);
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	.help-empty-state p {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		max-width: 420px;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	.help-btn-reset {
+		margin-top: var(--space-xs);
+		background: rgb(var(--color-primary-rgb));
+		color: #ffffff;
+		border: none;
+		border-radius: var(--radius-full);
+		padding: 8px 18px;
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+		transition: opacity var(--transition-fast);
+	}
+
+	.help-btn-reset:hover {
+		opacity: 0.9;
+	}
+
+	/* -------------------------------------------------------------------------
+	   9. MOBILE-FIRST RESPONSIVE MEDIA QUERIES (INSIDE @layer components)
+	   ------------------------------------------------------------------------- */
+	@media (max-width: 768px) {
+		.help-sidebar {
+			position: static;
+			top: auto;
+		}
+
+		.sidebar-sticky-box {
+			padding: var(--space-sm) var(--space-md);
+		}
+
+		.sidebar-heading-badge {
+			display: none;
+		}
+
+		/* Pure Flex Wrap: कोई स्क्रॉल नहीं, सारे टैब्स खुलकर सामने रैप होंगे */
+		.help-sidebar-nav {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: var(--space-xs);
+			justify-content: space-evenly;
+			overflow: visible;
+			align-items: center;
+		}
+
+		.sidebar-nav-item {
+			flex: 0 1 auto;
+			padding: 6px 12px;
+		}
+	}
+}
+
+/* ==========================================================================
+   UTILITIES LAYER (@layer utilities)
+   ========================================================================== */
+@layer utilities {
+	.hidden {
+		display: none !important;
+	}
+}

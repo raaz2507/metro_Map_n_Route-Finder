@@ -1,5 +1,6 @@
 
 import { createDOMFromMap } from "./dom-builder.js";
+import { eventBus } from "../core/event-bus.js";
 
 const earthScale = 111320; // Meters per degree
 
@@ -30,6 +31,7 @@ export class MetroMap {
 	#activeRoutePath = null;
 	#isRouteVisible = false;
 	#activeStationType = null;
+	#activeStatus = null;
 	#activeLineId = null;
 	#activeStationId = null;
 	#routePins = { layer: null, from: null, to: null };
@@ -109,6 +111,8 @@ export class MetroMap {
 
 		//svg rendering
 		this.#create_svg();
+		this.#loadInitialDisplaySettings();
+		this.#listenToMapSettings();
 		this.#drawMetroLines();
 		this.#drawStationCircles();
 		this.#drawStationLabels(this.#settings.currentLang);
@@ -148,13 +152,18 @@ export class MetroMap {
 				// 3. Section: Station Type
 				stationSection: { type: "div", cls: "legend-section", parent: "legendPanel" },
 				stationHeader: { type: "h3", html_con: "Station Type", parent: "stationSection" },
-				station_type_legend: { type: "ul", id: "station_type_legend", parent: "stationSection" }
+				station_type_legend: { type: "ul", id: "station_type_legend", parent: "stationSection" },
+				// 4. Section: Track & Station Status
+				statusSection: { type: "div", cls: "legend-section", parent: "legendPanel" },
+				statusHeader: { type: "h3", html_con: "Track & Station Status", parent: "statusSection" },
+				status_legend: { type: "ul", id: "status_legend", parent: "statusSection" }
 			};
 
 			const legendPanelElemts = createDOMFromMap(legendPanelElemtMap, this.#elemts.mapContainer);
 			this.#elemts.legendToggleBtn = legendPanelElemts.legendToggleBtn;
 			this.#elemts.track_line_legend = legendPanelElemts.track_line_legend;
 			this.#elemts.station_type_legend = legendPanelElemts.station_type_legend;
+			this.#elemts.status_legend = legendPanelElemts.status_legend;
 			this.#elemts.legendPanel = legendPanelElemts.legendPanel;
 			this.#elemts.clearRouteBtn = legendPanelElemts.clearRouteBtn;
 
@@ -266,6 +275,57 @@ export class MetroMap {
 
 			station_type_legend.appendChild(li);
 		});
+
+		// 3. ट्रैक व स्टेशन स्थिति (Operational, Under Construction, Approved)
+		const { status_legend } = this.#elemts;
+		if (status_legend) {
+			status_legend.innerHTML = "";
+
+			const statusList = [
+				{
+					status: "operational",
+					iconClass: "legend-status-solid",
+					label: { en: "Operational Track", hi: "चालू / सक्रिय ट्रैक", mr: "सुरू / कार्यरत मार्ग" }
+				},
+				{
+					status: "under_construction",
+					iconClass: "legend-status-dashed",
+					label: { en: "Under Construction", hi: "निर्माणाधीन (डैश लाइन)", mr: "बांधकाम सुरू (डॅश मार्ग)" }
+				},
+				{
+					status: "approved",
+					iconClass: "legend-status-dotted",
+					label: { en: "Approved / Planned", hi: "प्रस्तावित / स्वीकृत (डॉटेड)", mr: "मंजूर / नियोजित (डॉटेड)" }
+				}
+			];
+
+			statusList.forEach((item) => {
+				const li = document.createElement("li");
+				li.className = "legend_item";
+				li.style.cursor = "pointer";
+				li.dataset.status = item.status;
+
+				const bar = document.createElement("span");
+				bar.className = item.iconClass;
+
+				const text = document.createElement("span");
+				text.textContent = item.label[lang] || item.label.en;
+
+				li.appendChild(bar);
+				li.appendChild(text);
+
+				li.addEventListener("click", (e) => {
+					e.stopPropagation();
+					this.highlightStatus(item.status);
+					if (this.#elemts.legendPanel) {
+						this.#elemts.legendPanel.classList.remove("active");
+						if (this.#elemts.legendToggleBtn) this.#elemts.legendToggleBtn.style.display = "";
+					}
+				});
+
+				status_legend.appendChild(li);
+			});
+		}
 	}
 
 	#set_events() {
@@ -664,8 +724,16 @@ export class MetroMap {
 				} else {
 					elem = this.#createCircle(xy.x, xy.y, 200, "#FDFBD4", lineColor);
 				}
+				const stationStatus = station.properties?.status || "operational";
 				elem.dataset.stationId = station.id;
 				elem.dataset.stationType = stationType;
+				elem.dataset.status = stationStatus;
+
+				if (stationStatus === "under_construction") {
+					elem.classList.add("station-under-construction");
+				} else if (stationStatus === "approved" || stationStatus === "proposed") {
+					elem.classList.add("station-approved");
+				}
 				fragment.appendChild(elem);
 			}
 		});
@@ -722,6 +790,16 @@ export class MetroMap {
 
 				const lineInfo = this.#metroData.lines?.[neighbor.line];
 				const lineColor = lineInfo?.color ?? "#333";
+				const lineStatus = lineInfo?.status || "operational";
+				const st1Status = station.properties?.status || "operational";
+				const st2Status = nextStation.properties?.status || "operational";
+
+				let effectiveStatus = lineStatus;
+				if (lineStatus === "under_construction" || st1Status === "under_construction" || st2Status === "under_construction") {
+					effectiveStatus = "under_construction";
+				} else if (lineStatus === "approved" || lineStatus === "proposed" || st1Status === "approved" || st2Status === "approved" || st1Status === "proposed" || st2Status === "proposed") {
+					effectiveStatus = "approved";
+				}
 
 				const line = this.#createLine(
 					station.xy.x,
@@ -730,9 +808,11 @@ export class MetroMap {
 					nextStation.xy.y,
 					lineColor,
 					100,
+					effectiveStatus
 				);
 				line.dataset.edgeId = key;
 				line.dataset.lineId = neighbor.line;
+				line.dataset.status = effectiveStatus;
 				fragment.appendChild(line);
 			});
 		});
@@ -1028,6 +1108,7 @@ export class MetroMap {
 			text.setAttribute("dominant-baseline", dominantBaseline);
 			text.setAttribute("style", "user-select: none;");
 			text.dataset.stationId = station.id;
+			text.dataset.status = station.properties?.status || "operational";
 
 			if (lines.length === 1) {
 				text.textContent = lines[0];
@@ -1137,12 +1218,78 @@ export class MetroMap {
 				const textNode = svg.labelGroup.querySelector(`text[data-station-id="${stId}"]`);
 				if (textNode) textNode.classList.add("highlighted-text");
 			});
+			return;
+		}
+
+		// 🚦 Case E: स्थिति / Status (operational / under_construction / approved)
+		if (status) {
+			const statusQuery = (status === "approved")
+				? '[data-status="approved"], [data-status="proposed"]'
+				: `[data-status="${status}"]`;
+
+			svg.stations_circleGroup.querySelectorAll(statusQuery).forEach(circleNode => {
+				circleNode.classList.add("highlighted");
+				const stId = circleNode.dataset.stationId;
+				const textNode = svg.labelGroup.querySelector(`text[data-station-id="${stId}"]`);
+				if (textNode) textNode.classList.add("highlighted-text");
+			});
+
+			svg.tracks_lineGroup.querySelectorAll(statusQuery).forEach(l => {
+				l.classList.add("highlighted-line");
+			});
+			return;
 		}
 	}
 
 	// -------------------------------------------------------------------------
 	// Public Methods API (Centralized & 0ms Instant)
 	// -------------------------------------------------------------------------
+
+	highlightStatus(status) {
+		this.#activeStatus = status;
+		this.#activeLineId = null;
+		this.#activeStationType = null;
+		this.#activeStationId = null;
+		this.#applyMapVisualState({ status });
+	}
+
+	#loadInitialDisplaySettings() {
+		try {
+			const saved = localStorage.getItem("metro_map_settings");
+			if (saved) {
+				const settings = JSON.parse(saved);
+				this.updateDisplaySettings(settings);
+			}
+		} catch (e) {}
+	}
+
+	#listenToMapSettings() {
+		const unsub = eventBus.on("MAP_SETTINGS_UPDATED", (settings) => {
+			this.updateDisplaySettings(settings);
+		});
+		if (this.#abortController?.signal) {
+			this.#abortController.signal.addEventListener("abort", () => {
+				unsub();
+			});
+		}
+	}
+
+	updateDisplaySettings(settings = {}) {
+		const svgEl = this.#svg?.elements?.svg;
+		if (!svgEl) return;
+
+		if (settings.showUnderConstruction === false) {
+			svgEl.classList.add("hide-under-construction");
+		} else {
+			svgEl.classList.remove("hide-under-construction");
+		}
+
+		if (settings.showApproved === false) {
+			svgEl.classList.add("hide-approved");
+		} else {
+			svgEl.classList.remove("hide-approved");
+		}
+	}
 
 	highlightStation(stationId, autoPan = true) {
 		if (!stationId) {
@@ -1153,6 +1300,7 @@ export class MetroMap {
 
 		this.#activeStationId = stationId;
 		this.#activeStationType = null;
+		this.#activeStatus = null;
 		this.#activeLineId = null;
 
 		// 1. सेंट्रल इंजन से टारगेट स्टेशन को पल्स और बाकी मैप को डिम करें
@@ -1186,10 +1334,11 @@ export class MetroMap {
 	 */
 	toggleRouteVisibility() {
 		// 1. यदि कोई लेजेंड/स्टेशन फ़िल्टर एक्टिव है, तो उसे साफ़ करें
-		if (this.#activeStationType || this.#activeLineId || this.#activeStationId) {
+		if (this.#activeStationType || this.#activeLineId || this.#activeStationId || this.#activeStatus) {
 			this.#activeStationType = null;
 			this.#activeLineId = null;
 			this.#activeStationId = null;
+			this.#activeStatus = null;
 			// यदि पहले से कोई रूट एक्टिव और विज़िबल था, तो उसे दोबारा रीस्टोर करें
 			if (this.#activeRoutePath && this.#isRouteVisible) {
 				this.#applyMapVisualState({ path: this.#activeRoutePath });
@@ -1231,8 +1380,8 @@ export class MetroMap {
 	#updateRouteToggleButtonUI(lang = this.#settings.currentLang) {
 		const btn = this.#elemts.clearRouteBtn;
 		if (!btn) return;
-		// 1. यदि कोई लेजेंड फ़िल्टर (स्टेशन टाइप, लाइन या स्टेशन) एक्टिव है:
-		if (this.#activeStationType || this.#activeLineId || this.#activeStationId) {
+		// 1. यदि कोई लेजेंड फ़िल्टर (स्टेशन टाइप, लाइन, स्टेटस या स्टेशन) एक्टिव है:
+		if (this.#activeStationType || this.#activeLineId || this.#activeStationId || this.#activeStatus) {
 			btn.classList.remove("hidden");
 			btn.classList.remove("show-mode");
 			const label = lang === "hi" ? "फ़िल्टर साफ़ करें" : "Clear Filter";
@@ -1379,7 +1528,7 @@ export class MetroMap {
 		return circle;
 	}
 
-	#createLine(x1, y1, x2, y2, strokeColor, strokeWidth = 50) {
+	#createLine(x1, y1, x2, y2, strokeColor, strokeWidth = 50, status = "operational") {
 		const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
 		line.setAttribute("x1", x1);
 		line.setAttribute("y1", y1);
@@ -1387,6 +1536,13 @@ export class MetroMap {
 		line.setAttribute("y2", y2);
 		line.setAttribute("stroke", strokeColor);
 		line.setAttribute("stroke-width", strokeWidth);
+		line.dataset.status = status;
+
+		if (status === "under_construction") {
+			line.classList.add("track-under-construction");
+		} else if (status === "approved" || status === "proposed") {
+			line.classList.add("track-approved");
+		}
 		return line;
 	}
 
