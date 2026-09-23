@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Metro Transit Data Pipeline - Architecture &amp; Manual Guide</title>
+	<!-- Pure Modular CSS Architecture (Zero CDN Dependencies) -->
+	<link rel="stylesheet" href="./css/pages/help.css">
+</head>
+<body class="app-body">
+
+	<!-- GLOBAL DYNAMIC HEADER (WITH 2-ROW NAV, THEMES, FONT & LANG) -->
+	<header id="globalHeader"></header>
+	
+	<!-- MOBILE BACKDROP -->
+	<div id="sidebarBackdrop" class="mobile-backdrop hidden"></div>
+
+	<!-- MAIN LAYOUT: SIDEBAR NAVIGATION + CONTENT SECTIONS -->
+	<div class="layout-wrapper">
+		<!-- SIDEBAR INDEX NAVIGATION (DESKTOP + MOBILE OFF-CANVAS) -->
+		<aside id="sidebar" class="sidebar-panel">
+			<div class="sidebar-top-section">
+				<div class="flex-align gap-sm">
+					<img src="./assets/icons/ui/matrix.svg" class="icon-xs icon-indigo" alt="Index">
+					<span class="font-bold text-xs" data-i18n="help.index_title">Table of Contents</span>
+				</div>
+			</div>
+			<nav id="docSidebarNav" class="sidebar-scroll-area custom-scrollbar stack-xs">
+				<a href="#pipeline-overview" class="sidebar-doc-link active">
+					<span data-i18n="help.nav_1">1. 4-Stage Pipeline Model</span>
+				</a>
+				<a href="#stage-1-raw" class="sidebar-doc-link">
+					<span data-i18n="help.nav_2">2. Stage 1: Raw Intake</span>
+				</a>
+				<a href="#stage-2-cleaned" class="sidebar-doc-link">
+					<span data-i18n="help.nav_3">3. Stage 2: Cleaning &amp; Filter</span>
+				</a>
+				<a href="#delta-staging" class="sidebar-doc-link">
+					<span data-i18n="help.nav_4">4. Delta Review (Clean vs Master)</span>
+				</a>
+				<a href="#indicator-logic" class="sidebar-doc-link">
+					<span data-i18n="help.nav_5">5. [ +New | Total ] Pill Indicators</span>
+				</a>
+				<a href="#stage-3-master" class="sidebar-doc-link">
+					<span data-i18n="help.nav_6">6. Stage 3: Master Supervision</span>
+				</a>
+				<a href="#universal-scraper" class="sidebar-doc-link">
+					<span data-i18n="help.nav_7">7. Universal Scraper CLI</span>
+				</a>
+				<a href="#admin-console" class="sidebar-doc-link">
+					<span data-i18n="help.nav_8">8. Terminal &amp; SSE Logs</span>
+				</a>
+			</nav>
+		</aside>
+
+		<!-- MAIN DOCUMENTATION ARTICLE BODY -->
+		<main class="content-body doc-container custom-scrollbar">
+
+			<!-- 1. PIPELINE OVERVIEW -->
+			<section id="pipeline-overview" class="doc-card">
+				<div class="doc-card-header">
+					<div class="step-num-badge">1</div>
+					<div>
+						<h2 class="doc-section-heading" data-i18n="help.sec1_title">4-Stage Greedy Data Pipeline Architecture</h2>
+						<p class="doc-section-sub" data-i18n="help.sec1_sub">Zero Data Loss &amp; Guaranteed Schema Integrity</p>
+					</div>
+				</div>
+
+				<p class="doc-paragraph" data-i18n="help.sec1_p1">
+					Our system enforces a strict 4-tier greedy pipeline to ensure no authentic data from official sources (DMRC, NMRC, NCRTC, etc.) is lost.
+				</p>
+
+				<div class="pipeline-diagram-box font-mono">
+					<div>🔴 <strong>STAGE 1: RAW GREEDY SCRAPING (*_raw.json)</strong><br>&nbsp;&nbsp;&nbsp;100% authentic raw data captured without any truncation.</div>
+					<div class="diagram-arrow">&darr;</div>
+					<div>🟡 <strong>STAGE 2: BASIC CLEANED (*_cleaned.json)</strong><br>&nbsp;&nbsp;&nbsp;Whitespace, syntax &amp; duplicate cleanup. 0% structural mutation.</div>
+					<div class="diagram-arrow">&darr;</div>
+					<div>🟢 <strong>STAGE 3: MASTER STRUCTURED (*_master.json)</strong><br>&nbsp;&nbsp;&nbsp;Final canonical schema verified strictly under developer supervision.</div>
+					<div class="diagram-arrow">&darr;</div>
+					<div>❄️ <strong>STAGE 4: PRODUCTION CORE (data.json) [FROZEN]</strong><br>&nbsp;&nbsp;&nbsp;100% frozen, protected and client-ready.</div>
+				</div>
+			</section>
+
+			<!-- 2. STAGE 1: RAW INTAKE -->
+			<section id="stage-1-raw" class="doc-card">
+				<div class="doc-card-header">
+					<div class="step-num-badge badge-rose">2</div>
+					<div>
+						<h2 class="doc-section-heading" data-i18n="help.sec2_title">Stage 1: Raw Intake (Greedy Scraping)</h2>
+						<p class="doc-section-sub" data-i18n="help.sec2_sub">Complete authentic raw data harvesting from official sources</p>
+					</div>
+				</div>
+				<p class="doc-paragraph" data-i18n="help.sec2_p1">
+					In this phase, <code>universal_scraper.py</code> captures 100% of payloads via HTML tables or REST APIs without deleting any field.
+				</p>
+			</section>
+
+			<!-- 3. STAGE 2: CLEANED -->
+			<section id="stage-2-cleaned" class="doc-card">
+				<div class="doc-card-header">
+					<div class="step-num-badge badge-amber">3</div>
+					<div>
+						<h2 class="doc-section-heading" data-i18n="help.sec3_title">Stage 2: Cleaning &amp; Filter (Hygiene Only)</h2>
+						<p class="doc-section-sub" data-i18n="help.sec3_sub">Strict 0% Structural Mutation Contract</p>
+					</div>
+				</div>
+				<p class="doc-paragraph" data-i18n="help.sec3_p1">
+					<code>universal_cleaner.py</code> trims strings, uppercases station codes, and deduplicates without inventing synthetic fields.
+				</p>
+			</section>
+
+			<!-- 4. DELTA STAGING REVIEW -->
+			<section id="delta-staging" class="doc-card">
+				<div class="doc-card-header">
+					<div class="step-num-badge badge-cyan">4</div>
+					<div>
+						<h2 class="doc-section-heading" data-i18n="help.sec4_title">Delta Staging Review Mechanism (Cleaned vs Master)</h2>
+						<p class="doc-section-sub" data-i18n="help.sec4_sub">Automatic detection of newly commissioned stations</p>
+					</div>
+				</div>
+
+				<div class="delta-formula-box">
+					<div class="formula-text font-mono" data-i18n="help.sec4_formula">
+						Delta Difference (New Staging) = Cleaned Keys − Master Keys
+					</div>
+					<p class="doc-paragraph" data-i18n="help.sec4_p1">
+						Dashboard Section 1 calculates this difference at runtime. Newly detected stations appear as Cyan cards for audit review.
+					</p>
+				</div>
+			</section>
+
+			<!-- 5. PILL INDICATORS -->
+			<section id="indicator-logic" class="doc-card">
+				<div class="doc-card-header">
+					<div class="step-num-badge">5</div>
+					<div>
+						<h2 class="doc-section-heading" data-i18n="help.sec5_title">Sidebar [ +New | Total ] Pill Indicators</h2>
+						<p class="doc-section-sub" data-i18n="help.sec5_sub">Live Audit Scope and Real-Time Counts</p>
+					</div>
+				</div>
+				<ul class="doc-list">
+					<li data-i18n="help.sec5_item1"><strong>+N (Cyan)</strong>: Newly detected stations awaiting master entry.</li>
+					<li data-i18n="help.sec5_item2"><strong>Total</strong>: Total active operational stations count.</li>
+					<li data-i18n="help.sec5_item3"><strong>Missing (Rose)</strong>: Transit raw data pending intake.</li>
+				</ul>
+			</section>
+
+			<!-- 6. STAGE 3: MASTER -->
+			<section id="stage-3-master" class="doc-card">
+				<div class="doc-card-header">
+					<div class="step-num-badge badge-emerald">6</div>
+					<div>
+						<h2 class="doc-section-heading" data-i18n="help.sec6_title">Stage 3: Master Supervision (Supervised Schema)</h2>
+						<p class="doc-section-sub" data-i18n="help.sec6_sub">Final canonical schema verified by developer</p>
+					</div>
+				</div>
+				<p class="doc-paragraph" data-i18n="help.sec6_p1">
+					Once station amenities, gates, parking, and interchanges are verified, they are committed into <code>*_master.json</code>.
+				</p>
+			</section>
+
+			<!-- 7. UNIVERSAL SCRAPER CLI -->
+			<section id="universal-scraper" class="doc-card">
+				<div class="doc-card-header">
+					<div class="step-num-badge">7</div>
+					<div>
+						<h2 class="doc-section-heading" data-i18n="help.sec7_title">Universal Scraper CLI Commands</h2>
+						<p class="doc-section-sub" data-i18n="help.sec7_sub">Direct command-line execution and data extraction</p>
+					</div>
+				</div>
+				<div class="code-terminal-box font-mono">
+					<code>python import_data_new/universal_scraper.py nmrc_noida</code><br>
+					<code>python import_data_new/universal_cleaner.py nmrc_noida</code>
+				</div>
+			</section>
+
+			<!-- 8. TERMINAL CONSOLE -->
+			<section id="admin-console" class="doc-card">
+				<div class="doc-card-header">
+					<div class="step-num-badge">8</div>
+					<div>
+						<h2 class="doc-section-heading" data-i18n="help.sec8_title">Live Terminal &amp; Server-Sent Events (SSE)</h2>
+						<p class="doc-section-sub" data-i18n="help.sec8_sub">Real-time execution log streaming in browser</p>
+					</div>
+				</div>
+				<p class="doc-paragraph" data-i18n="help.sec8_p1">
+					<code>server.py</code> streams subprocess logs directly to browser consoles without WebSocket overhead.
+				</p>
+			</section>
+
+		</main>
+	</div>
+
+	<!-- GLOBAL FOOTER & PAGE CONTROLLER SCRIPT -->
+	<footer id="globalFooter"></footer>
+	<script type="module" src="./js/pages/help.js"></script>
+</body>
+</html>

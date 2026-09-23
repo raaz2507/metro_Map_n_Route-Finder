@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Production Bridge | Metro Audit Hub</title>
+	<link rel="stylesheet" href="./css/pages/production_bridge.css">
+</head>
+<body class="app-body">
+	<header id="globalHeader"></header>
+
+	<div class="layout-wrapper">
+		<!-- LEFT SIDEBAR: TARGET CITIES SELECTOR ONLY -->
+		<aside id="sidebar" class="sidebar-panel">
+			<div class="sidebar-top-section">
+				<div class="bridge-badge font-mono" data-i18n="bridge.badge">STAGE 4 AUTHORITY</div>
+				<h2 class="bridge-main-title" data-i18n="bridge.title">Production Bridge</h2>
+				<p class="bridge-subtitle" data-i18n="bridge.subtitle">City Porting &amp; Smart CRUD Engine</p>
+			</div>
+
+			<!-- TARGET CITIES LIST -->
+			<div class="sidebar-scroll-area custom-scrollbar">
+				<div class="networks-list-header">
+					<span data-i18n="bridge.target_city">Target Cities</span>
+					<span class="active-count-label">2 Active</span>
+				</div>
+				
+				<div class="network-items-container" id="bridgeCityList">
+					<div class="network-item active" data-city="delhi_ncr">
+						<div class="network-item-info">
+							<span class="network-icon">🏛️</span>
+							<div class="network-text">
+								<div class="network-name">Delhi NCR</div>
+								<div class="network-city">delhi_ncr</div>
+							</div>
+						</div>
+						<div class="network-badges">
+							<span class="status-indicator-dot dot-emerald"></span>
+							<span class="badge-stage font-mono">Stage 4</span>
+						</div>
+					</div>
+
+					<div class="network-item" data-city="mumbai">
+						<div class="network-item-info">
+							<span class="network-icon">🌊</span>
+							<div class="network-text">
+								<div class="network-name">Mumbai</div>
+								<div class="network-city">mumbai</div>
+							</div>
+						</div>
+						<div class="network-badges">
+							<span class="status-indicator-dot dot-amber"></span>
+							<span class="badge-stage font-mono">Stage 4</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+		<!-- MAIN VIEWPORT -->
+		<div class="main-viewport">
+			<!-- VIEWPORT HEADER (ROW 1: TITLE + ROW 2: ACTIONS + ROW 3: DIAGNOSTICS) -->
+			<div class="viewport-header">
+				<!-- ROW 1: CITY TITLE + REFRESH -->
+				<div class="network-title-bar">
+					<div class="title-meta-group">
+						<h2 class="active-network-title">
+							<span id="headerCityIcon">🏛️</span>
+							<span id="headerCityName">Delhi NCR (delhi_ncr)</span>
+						</h2>
+						<p class="active-network-subtitle">Stage 4 Production Bridge &amp; Dual-Pane Schema Inspector</p>
+					</div>
+
+					<button id="btnRefreshBridge" class="btn-pipeline-action" title="Refresh diagnostics">
+						<img src="./assets/icons/ui/sync.svg" class="icon-xs" alt="Refresh">
+						<span data-i18n="bridge.refresh">Refresh Diagnostics</span>
+					</button>
+				</div>
+
+				<!-- ROW 2: WORKFLOW ACTIONS BAR (MOVED TO TOP HEADER) -->
+				<div class="bridge-action-bar">
+					<div class="action-capsule-group">
+						<span class="action-bar-label font-mono" data-i18n="bridge.workflow_label">EXECUTION ACTIONS:</span>
+						
+						<button id="btnPrepareTemp" class="btn-workflow btn-workflow-amber" title="Stage Delta Buffer into Temp">
+							<img src="./assets/icons/ui/broom.svg" class="icon-xs" alt="Temp">
+							<span data-i18n="bridge.btn_prepare_temp">1. Prepare Staging Temp</span>
+						</button>
+
+						<button id="btnInspectDiff" class="btn-workflow btn-workflow-cyan" title="Preview Candidate Delta &amp; Base Diff">
+							<img src="./assets/icons/ui/search.svg" class="icon-xs" alt="Inspect">
+							<span data-i18n="bridge.btn_preview">2. Preview &amp; Validate</span>
+						</button>
+
+						<button id="btnDeployProduction" class="btn-workflow btn-workflow-emerald" title="Atomically Port Delta to Production">
+							<img src="./assets/icons/ui/sync.svg" class="icon-xs" alt="Deploy">
+							<span data-i18n="bridge.btn_deploy">3. Port to Production</span>
+						</button>
+
+						<button id="btnPromoteAll" class="btn-workflow btn-workflow-indigo" title="Bake Staging Buffer into Base File &amp; Reset">
+							<img src="./assets/icons/ui/shield-database.svg" class="icon-xs" alt="Promote">
+							<span data-i18n="bridge.btn_promote">4. Promote All (Bake &amp; Reset)</span>
+						</button>
+					</div>
+				</div>
+
+				<!-- ROW 3: 3 TARGET DIAGNOSTIC CARDS -->
+				<div class="diagnostic-grid-header">
+					<div class="diag-card" id="cardTransitAuto">
+						<div class="diag-card-header">
+							<div class="diag-title font-mono">transit_network_auto.json</div>
+							<span class="status-indicator-dot dot-emerald" id="dotTransitAuto"></span>
+						</div>
+						<p class="diag-desc" data-i18n="bridge.transit_desc">Routes, lines, colors &amp; station sequence.</p>
+						<div class="diag-meta-row">
+							<span class="diag-meta-label" data-i18n="bridge.status_label">Status:</span>
+							<span class="diag-meta-val text-emerald font-mono" id="statusTransitAuto">Checking...</span>
+						</div>
+					</div>
+
+					<div class="diag-card" id="cardDetailsAuto">
+						<div class="diag-card-header">
+							<div class="diag-title font-mono">station_details_auto.json</div>
+							<span class="status-indicator-dot dot-emerald" id="dotDetailsAuto"></span>
+						</div>
+						<p class="diag-desc" data-i18n="bridge.details_desc">Gates, platforms, lifts, feeder &amp; contacts.</p>
+						<div class="diag-meta-row">
+							<span class="diag-meta-label" data-i18n="bridge.status_label">Status:</span>
+							<span class="diag-meta-val text-emerald font-mono" id="statusDetailsAuto">Checking...</span>
+						</div>
+					</div>
+
+					<div class="diag-card diag-card-security">
+						<div class="diag-card-header">
+							<div class="diag-title text-cyan" data-i18n="bridge.security_title">Zero-Overwrite Protection</div>
+							<span class="badge-cyan font-mono" data-i18n="bridge.security_badge">LOCKED</span>
+						</div>
+						<p class="diag-desc" data-i18n="bridge.security_desc">Manual master files are strictly write-protected.</p>
+						<div class="diag-meta-row">
+							<span class="diag-meta-label" data-i18n="bridge.target_root_label">Target:</span>
+							<span class="diag-meta-val font-mono truncate" id="targetRootPath">main_project/data/cities/delhi_ncr/</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- DUAL PANE VIEWPORT (STRICT 50/50 SPLIT) -->
+			<main class="content-body inspector-main-body">
+				<!-- STATION-WISE FILTER & SELECTIVE MERGE BAR -->
+				<div class="station-filter-toolbar">
+					<div class="filter-left-cluster">
+						<span class="filter-label font-mono">STATION FILTER:</span>
+						<div class="station-search-wrap">
+							<input type="text" id="stationFilterInput" class="station-search-input" placeholder="🔍 Search station name or slug...">
+						</div>
+						<select id="stationSelectDropdown" class="station-picker-select">
+							<option value="__all__">📂 All Stations (Full JSON Overview)</option>
+						</select>
+						<span id="stationFilterCount" class="station-count-pill font-mono">0 stations</span>
+					</div>
+
+					<div class="filter-right-cluster">
+						<button id="btnMergeSingleStation" class="btn-workflow btn-workflow-emerald hidden" title="Merge only this station into base station_details.json">
+							<img src="./assets/icons/ui/check.svg" class="icon-xs" alt="Merge">
+							<span id="mergeSingleBtnText">Merge Station to Base</span>
+						</button>
+					</div>
+				</div>
+
+				<div class="inspector-dual-pane">
+					<div id="masterInspector" class="inspector-pane-mount"></div>
+					<div id="targetInspector" class="inspector-pane-mount"></div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<!-- TERMINAL MODAL -->
+	<div id="bridgeModal" role="dialog" aria-modal="true" class="modal-backdrop hidden">
+		<div class="modal-card modal-lg">
+			<div class="modal-header-bar">
+				<div class="modal-header-meta">
+					<div class="terminal-icon-box"><img src="./assets/icons/ui/terminal.svg" class="icon-sm icon-indigo" alt="Console"></div>
+					<div>
+						<h3 class="modal-title flex-align">
+							<span data-i18n="bridge.terminal_title">Stage 4 Pipeline Execution</span>
+							<span id="bridgeConsoleBadge" class="terminal-status-badge">READY</span>
+						</h3>
+						<p class="modal-desc" data-i18n="bridge.terminal_sub">Real-time production porting and validation stream.</p>
+					</div>
+				</div>
+				<button id="closeBridgeModalBtn" class="modal-close-icon" aria-label="Close">&times;</button>
+			</div>
+			<div id="bridgeTerminalBody" class="terminal-output-viewport font-mono custom-scrollbar"></div>
+			<div class="terminal-footer-bar">
+				<button id="bridgeModalOkBtn" class="btn-modal-primary" data-i18n="terminal.ack_close">Close Console</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="toastContainer" class="toast-stack-container"></div>
+	<footer id="globalFooter"></footer>
+	<script type="module" src="./js/pages/production_bridge.js"></script>
+</body>
+</html>

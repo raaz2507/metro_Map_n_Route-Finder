@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Metro Network Audit & Admin Dashboard</title>
+	<link rel="stylesheet" href="./css/pages/admin.css">
+</head>
+<body class="app-body">
+
+	<!-- GLOBAL DYNAMIC HEADER (WITH INTEGRATED NAV, THEMES, FONT & LANG) -->
+	<header id="globalHeader"></header>
+
+	<!-- SUB-LAYOUT WRAPPER (SIDEBAR + MAIN CONTENT) -->
+	<div class="layout-wrapper">
+
+		<!-- LEFT SIDEBAR NAVIGATION -->
+		<aside id="sidebar" class="sidebar-panel">
+			
+			<div class="sidebar-top-section">
+				<button id="globalSyncBtn" class="btn-sync-all">
+					<img src="./assets/icons/ui/sync.svg" id="globalSyncIcon" class="icon-xs icon-white" alt="Sync">
+					<span id="globalSyncText" data-i18n="sidebar.sync_all_btn">Sync All Networks</span>
+				</button>
+
+				<div class="stage-metric-summary-grid">
+					<div class="summary-tile tile-stage-3" title="Stage 3: Master Structured (Supervised)">
+						<div class="tile-header">
+							<span class="status-indicator-dot dot-emerald"></span>
+							<span class="tile-tag">Stage 3</span>
+							<a href="./help.html#stage-3-master" target="_blank" class="help-circle-xs" title="Stage 3 Help & Docs">?</a>
+						</div>
+						<div id="countStage3Nets" class="tile-count font-mono">— Nets</div>
+						<div id="countStage3Stns" class="tile-sub font-mono">— Stns</div>
+					</div>
+
+					<div class="summary-tile tile-stage-2" title="Stage 2: Basic Cleaned (Awaiting Supervision)">
+						<div class="tile-header">
+							<span class="status-indicator-dot dot-amber"></span>
+							<span class="tile-tag">Stage 2</span>
+							<a href="./help.html#stage-2-cleaned" target="_blank" class="help-circle-xs" title="Stage 2 Help & Docs">?</a>
+						</div>
+						<div id="countStage2Nets" class="tile-count font-mono">— Nets</div>
+						<div id="countStage2Stns" class="tile-sub font-mono">— Stns</div>
+					</div>
+
+					<div class="summary-tile tile-stage-1" title="Stage 1: Pending Raw Scraping / Missing">
+						<div class="tile-header">
+							<span class="status-indicator-dot dot-rose"></span>
+							<span class="tile-tag">Stage 1</span>
+							<a href="./help.html#stage-1-raw" target="_blank" class="help-circle-xs" title="Stage 1 Help & Docs">?</a>
+						</div>
+						<div id="countStage1Nets" class="tile-count font-mono">— Nets</div>
+						<div id="countStage1Stns" class="tile-sub font-mono">— Stns</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sidebar-scroll-area custom-scrollbar">
+				<div class="networks-list-header">
+					<div class="header-label-group">
+						<span data-i18n="sidebar.networks_title">Transit Networks</span>
+						<a href="./help.html#indicator-logic" target="_blank" class="help-circle-xs" title="Network Indicator & Sync Help">?</a>
+					</div>
+					<span id="sidebarNetworkCount" class="active-count-label">— Active</span>
+				</div>
+				
+				<div id="networkNavList" class="network-items-container"></div>
+			</div>
+
+			<div class="sidebar-bottom-section">
+				<div class="scope-total-card">
+					<div class="scope-label-group">
+						<div class="pulse-dot-indigo"></div>
+						<span data-i18n="sidebar.scope_total">Audit Scope Total</span>
+					</div>
+					<span id="sidebarTotalStationSum" class="scope-sum-val font-mono">— Stations</span>
+				</div>
+
+				<div class="legend-card">
+					<div class="legend-card-header">
+						<span data-i18n="sidebar.legend_title">Count Indicators</span>
+						<a href="./help.html#indicator-logic" target="_blank" class="help-circle-xs" title="View Documentation">?</a>
+					</div>
+					<div class="legend-row"><span>• <strong class="text-cyan">+N</strong> : <span data-i18n="sidebar.legend_new_staging">New Staging Detected</span></span></div>
+					<div class="legend-row"><span>• <strong>Total</strong> : <span data-i18n="sidebar.legend_active_stations">Active Stations</span></span></div>
+					<div class="legend-row"><span>• <strong class="text-rose">Missing</strong> : <span data-i18n="sidebar.legend_missing_file">File Pending Intake</span></span></div>
+				</div>
+
+				<div class="stage-definitions-container">
+					<div class="stage-def-card">
+						<div class="def-header"><span class="status-indicator-dot dot-emerald"></span><span class="text-emerald" data-i18n="sidebar.stage_3_title">Stage 3: Master Structured</span></div>
+						<p class="def-desc" data-i18n="sidebar.stage_3_desc">Supervised verified schema ({net}_master.json).</p>
+					</div>
+					<div class="stage-def-card">
+						<div class="def-header"><span class="status-indicator-dot dot-amber"></span><span class="text-amber" data-i18n="sidebar.stage_2_title">Stage 2: Basic Cleaned</span></div>
+						<p class="def-desc" data-i18n="sidebar.stage_2_desc">Scraped & deduplicated ({net}_cleaned.json).</p>
+					</div>
+					<div class="stage-def-card">
+						<div class="def-header"><span class="status-indicator-dot dot-rose"></span><span class="text-rose" data-i18n="sidebar.stage_1_title">Stage 1: Raw Intake</span></div>
+						<p class="def-desc" data-i18n="sidebar.stage_1_desc">Greedy scraped raw data ({net}_raw.json).</p>
+					</div>
+				</div>
+
+				<div class="sidebar-sync-timestamp" id="sidebarSyncTime">Sync: Just now</div>
+			</div>
+		</aside>
+
+		<!-- MAIN CONTENT VIEWPORT -->
+		<div class="main-viewport">
+
+			<!-- TOP METRICS STATS HEADER (CLEAN & STREAMLINED) -->
+			<div class="viewport-header">
+				<!-- ROW 1: NETWORK TITLE & BADGES + OFFICIAL SITE -->
+				<div class="network-title-bar">
+					<div class="title-meta-group">
+						<h2 class="active-network-title">
+							<span id="headerNetworkIcon">🚄</span>
+							<span id="headerNetworkName">Transit Network</span>
+						</h2>
+						<p class="active-network-subtitle" id="headerNetworkSub">Mass Rapid Transit System</p>
+						<div class="stage-meta-badges">
+							<div class="state-label font-mono" id="headerStateLabel">Transit Network</div>
+							<div>
+								<span id="headerPipelineStageBadge" class="pipeline-status-badge">
+									Loading Pipeline Stage...
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<a id="headerSourceLink" href="#" target="_blank" class="official-site-btn">
+						<img src="./assets/icons/ui/external-link.svg" class="icon-xs" alt="External">
+						<span data-i18n="controls.official_site">Official Site</span>
+					</a>
+				</div>
+
+				<!-- ROW 2: PIPELINE STAGE TABS & ACTION BUTTONS -->
+				<div class="pipeline-control-bar">
+					
+					<!-- Left: Viewing Stage Capsule -->
+					<div class="capsule-box">
+						<div class="capsule-heading">
+							<span data-i18n="controls.viewing_stage">Viewing Stage:</span>
+							<a href="./help.html#stage-1-raw" target="_blank" class="help-circle-xs" title="Stages Guide">?</a>
+						</div>
+						
+						<button data-view-stage="raw" class="stage-view-tab">
+							<span class="status-indicator-dot dot-rose"></span>
+							<span data-i18n="controls.stage_raw">1. Raw</span>
+							<span id="tabRawCount" class="tab-count-pill font-mono">0</span>
+						</button>
+
+						<button data-view-stage="cleaned" class="stage-view-tab">
+							<span class="status-indicator-dot dot-amber"></span>
+							<span data-i18n="controls.stage_cleaned">2. Cleaned</span>
+							<span id="tabCleanedCount" class="tab-count-pill font-mono">0</span>
+						</button>
+
+						<button data-view-stage="master" class="stage-view-tab">
+							<span class="status-indicator-dot dot-emerald"></span>
+							<span data-i18n="controls.stage_master">3. Master</span>
+							<span id="tabMasterCount" class="tab-count-pill font-mono">0</span>
+						</button>
+					</div>
+
+					<!-- Right: Pipeline Actions Capsule -->
+					<div class="capsule-box">
+						<div class="capsule-heading">
+							<span data-i18n="actions.pipeline_label">Pipeline Actions:</span>
+							<a href="./help.html#universal-scraper" target="_blank" class="help-circle-xs" title="Scraper Docs">?</a>
+						</div>
+
+						<button id="btnActionFetchRaw" class="btn-pipeline-action" title="Trigger fast raw scraper">
+							<img src="./assets/icons/ui/download.svg" class="icon-xs" alt="Download">
+							<span data-i18n="actions.fetch_raw">Fetch Raw</span>
+						</button>
+
+						<button id="btnActionFetchRawMedia" class="btn-pipeline-action" title="Fetch Raw + Media Assets">
+							<img src="./assets/icons/ui/media.svg" class="icon-xs" alt="Media">
+							<span data-i18n="actions.fetch_raw_media">Fetch + Media</span>
+						</button>
+
+						<button id="btnActionFetchFare" class="btn-pipeline-action" title="Fetch live official fare slabs from network">
+							<img src="./assets/icons/ui/matrix.svg" class="icon-xs" alt="Fare">
+							<span data-i18n="actions.fetch_fare">Fetch Fare</span>
+						</button>
+
+						<button id="btnActionClean" class="btn-pipeline-action" title="Filter raw JSON into cleaned dataset">
+							<img src="./assets/icons/ui/broom.svg" class="icon-xs" alt="Clean">
+							<span data-i18n="actions.clean_process">Process Clean</span>
+						</button>
+
+						<button id="btnActionMaster" class="btn-pipeline-action btn-action-master" title="Supervised master schema generation">
+							<img src="./assets/icons/ui/shield-database.svg" class="icon-xs" alt="Master">
+							<span data-i18n="actions.generate_master">Generate Master</span>
+						</button>
+
+						<a href="./production_bridge.html" class="btn-pipeline-action btn-action-bridge" title="Open Stage 4 Production Bridge Workspace">
+							<img src="./assets/icons/ui/sync.svg" class="icon-xs" alt="Bridge">
+							<span data-i18n="actions.open_bridge">Production Bridge ➔</span>
+						</a>
+
+						<button id="btnOpenConsole" class="btn-pipeline-action" title="Inspect Terminal Logs">
+							<img src="./assets/icons/ui/terminal.svg" class="icon-xs" alt="Terminal">
+							<span data-i18n="actions.logs_console">Logs & Terminal</span>
+						</button>
+					</div>
+				</div>
+
+						
+
+				<!-- ROW 3: 4 METRIC TILES -->
+				<div class="kpi-metric-grid">
+					<div class="kpi-card">
+						<div class="kpi-title" data-i18n="metrics.total_stations">Total Stations (Active View)</div>
+						<div class="kpi-val" id="metricTotalStations">0</div>
+					</div>
+					<div class="kpi-card card-cyan">
+						<div class="kpi-title text-cyan" data-i18n="metrics.new_staging">New Staging</div>
+						<div class="kpi-val text-cyan" id="metricNewStations">0</div>
+					</div>
+					<div class="kpi-card">
+						<div class="kpi-title" data-i18n="metrics.pipeline_stage">Active Pipeline Stage</div>
+						<div class="kpi-sub-text truncate" id="metricPipelineStage">Loading...</div>
+					</div>
+					<div class="kpi-card">
+						<div class="kpi-title" data-i18n="metrics.audit_status">Audit Status</div>
+						<div class="kpi-sub-text flex-align" id="metricAuditStatusContainer">
+							<span id="metricAuditStatusDot" class="status-indicator-dot dot-emerald hidden"></span>
+							<img src="./assets/icons/ui/sync.svg" id="metricAuditStatusSpinner" class="icon-xs icon-spin" alt="Checking">
+							<span id="metricAuditStatus">Checking...</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- ROW 4: SEARCH BAR -->
+				<div class="search-bar-wrapper">
+					<img src="./assets/icons/ui/search.svg" class="search-icon-inside" alt="Search">
+					<input type="text" id="stationSearchInput" placeholder="Search stations by name, code, slug..." class="station-search-input">
+					<button id="clearSearchBtn" class="search-clear-btn hidden" aria-label="Clear Search">
+						<span>&times;</span>
+					</button>
+				</div>
+
+			</div>
+
+			<!-- MAIN CONTENT SECTIONS -->
+			<main class="content-body">
+				<section class="review-section">
+					<div class="section-banner-header">
+						<div class="section-title-group">
+							<div class="pulse-dot-cyan"></div>
+							<h3 class="section-heading" data-i18n="sections.staging_review_title">Section 1: Newly Detected Stations (Staging Review)</h3>
+							<a href="./help.html#delta-staging" target="_blank" class="help-circle-xs" title="Staging Help">?</a>
+						</div>
+						<span id="stagingBadgeCount" class="badge-cyan">0 Pending</span>
+					</div>
+					<div id="stagingStationsContainer" class="cards-grid"></div>
+				</section>
+
+				<section class="dataset-section">
+					<div class="section-banner-header">
+						<div class="section-title-group">
+							<img src="./assets/icons/ui/matrix.svg" class="icon-sm" alt="Layer">
+							<h3 class="section-heading" id="prodSectionTitle" data-i18n="sections.active_dataset_title">Section 2: Active Station Dataset</h3>
+							<a href="./help.html#stage-2-cleaned" target="_blank" class="help-circle-xs" title="Dataset Guide">?</a>
+						</div>
+						<span id="prodBadgeCount" class="badge-muted">Showing 0 Stations</span>
+					</div>
+					<div id="prodStationsContainer" class="cards-grid"></div>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<!-- CONFIRMATION DIALOG MODAL -->
+	<div id="confirmSyncModal" role="dialog" aria-modal="true" class="modal-backdrop hidden">
+		<div class="modal-card">
+			<div class="modal-body-padding">
+				<div class="modal-content-split">
+					<div class="modal-alert-icon-box box-amber"><img src="./assets/icons/ui/warning.svg" class="icon-md" alt="Warning"></div>
+					<div class="modal-text-group">
+						<h3 class="modal-title">Confirm Multi-Network Synchronization</h3>
+						<p class="modal-desc">This action will scan live manifests and trigger automated audit diff checks across all registered transit networks.</p>
+					</div>
+					<button id="closeSyncModalBtn" class="modal-close-icon" aria-label="Close">&times;</button>
+				</div>
+			</div>
+			<div class="modal-action-footer">
+				<button id="cancelSyncBtn" class="btn-modal-cancel">Cancel</button>
+				<button id="executeSyncBtn" class="btn-modal-primary"><img src="./assets/icons/ui/sync.svg" class="icon-xs icon-white" alt="Sync"><span>Yes, Sync All Networks</span></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- TERMINAL MODAL -->
+	<div id="actionModal" role="dialog" aria-modal="true" class="modal-backdrop hidden">
+		<div class="modal-card modal-lg">
+			<div class="modal-header-bar">
+				<div class="modal-header-meta">
+					<div id="actionModalIcon" class="terminal-icon-box"><img src="./assets/icons/ui/terminal.svg" class="icon-sm icon-indigo" alt="Console"></div>
+					<div>
+						<h3 id="actionModalTitle" class="modal-title flex-align">
+							<span data-i18n="terminal.title">Pipeline Execution Console</span>
+							<span id="pipelineConsoleBadge" class="terminal-status-badge">READY</span>
+							<a href="./help.html#admin-console" target="_blank" class="help-circle-xs" title="Terminal Help">?</a>
+						</h3>
+						<p id="actionModalDesc" class="modal-desc" data-i18n="terminal.subtitle">Real-time script output and execution diagnostics.</p>
+					</div>
+				</div>
+				<button id="closeActionModalBtn" class="modal-close-icon" aria-label="Close">&times;</button>
+			</div>
+
+			<div class="terminal-progress-section">
+				<div class="progress-status-row">
+					<span id="pipelineProgressStatus" class="progress-label flex-align">
+						<img src="./assets/icons/ui/sync.svg" id="pipelineProgressSpinner" class="icon-xs icon-spin" alt="Spinner">
+						<span>Initializing pipeline subprocess...</span>
+					</span>
+					<span id="pipelineProgressPercent" class="font-mono text-indigo font-bold">0%</span>
+				</div>
+				<div class="progress-track"><div id="pipelineProgressBar" class="progress-fill"></div></div>
+			</div>
+
+			<div class="terminal-console-wrapper">
+				<div class="console-controls-bar">
+					<div class="flex-align"><span class="status-indicator-dot dot-emerald"></span><span class="console-header-label">Live Stream Logs</span></div>
+					<div class="flex-align gap-sm">
+						<label class="autoscroll-label"><input type="checkbox" id="autoScrollLogsCheckbox" checked><span data-i18n="terminal.autoscroll">Auto-scroll</span></label>
+						<button id="copyLogsBtn" class="btn-console-tool" data-i18n="terminal.copy">Copy</button>
+						<button id="clearLogsBtn" class="btn-console-tool" data-i18n="terminal.clear">Clear</button>
+					</div>
+				</div>
+				<div id="pipelineTerminalBody" class="terminal-output-viewport font-mono custom-scrollbar"><div class="terminal-ready-text">[Console ready. Output will stream here...]</div></div>
+			</div>
+
+			<div class="terminal-footer-bar">
+				<div class="terminal-script-label font-mono" id="pipelineScriptLabel">Script: idle</div>
+				<button id="actionModalOkBtn" class="btn-modal-primary" data-i18n="terminal.ack_close">Acknowledge & Close</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="toastContainer" class="toast-stack-container"></div>
+	<footer id="globalFooter"></footer>
+	<script type="module" src="./js/pages/admin.js"></script>
+</body>
+</html>

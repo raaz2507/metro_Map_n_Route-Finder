@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Station Deep Inspector & Audit Details</title>
+	<!-- Pure Modular CSS Architecture (Zero CDN Dependencies) -->
+	<link rel="stylesheet" href="./css/pages/station_detail.css">
+</head>
+<body class="app-body">
+		<!-- 1. COMMON GLOBAL HEADER (100% IDENTICAL ACROSS ALL PAGES) -->
+	<header id="globalHeader"></header>
+
+	<!-- 2. STATION INSPECTOR SUB-BAR (HEADER KE BAHAR) -->
+	<div class="station-sub-bar">
+		<div class="sub-bar-left">
+			<a href="admin.html" class="nav-pill-btn" title="Back to Dashboard">
+				<span>&larr;</span>
+				<span>Dashboard</span>
+			</a>
+
+			<div class="breadcrumbs-trail">
+				<span>Audit Hub</span>
+				<span>&rsaquo;</span>
+				<span id="breadcrumbNetwork">Transit Network</span>
+				<span>&rsaquo;</span>
+				<span id="breadcrumbStation" class="active-crumb">Station Details</span>
+			</div>
+		</div>
+
+		<div class="sub-bar-right">
+			<!-- 3-STAGE SWITCHER TABS -->
+			<div class="capsule-box" title="Switch Stage Payload">
+				<button data-detail-stage="raw" class="stage-view-tab">
+					<span class="status-indicator-dot dot-rose"></span>
+					<span>Raw</span>
+				</button>
+				<button data-detail-stage="cleaned" class="stage-view-tab">
+					<span class="status-indicator-dot dot-amber"></span>
+					<span>Cleaned</span>
+				</button>
+				<button data-detail-stage="master" class="stage-view-tab">
+					<span class="status-indicator-dot dot-emerald"></span>
+					<span>Master</span>
+				</button>
+			</div>
+
+			<span id="headerPipelineStageBadge" class="pipeline-status-badge">STAGE: CLEANED</span>
+		</div>
+	</div>
+
+	<!-- MAIN 50-50 SPLIT SCREEN CONTAINER -->
+	<main class="detail-split-layout">
+		
+		<div class="split-columns-wrapper">
+
+			<!-- LEFT SECTION: VISUAL DOMAIN CARDS -->
+			<div id="visualColumn" class="detail-visual-column">
+
+				<!-- HERO STATION SUMMARY CARD -->
+				<section id="heroCard" class="station-hero-card">
+					<div class="hero-content-stack">
+						<div class="flex-align gap-sm">
+							<span id="heroLayoutBadge" class="badge-indigo">Elevated</span>
+							<span id="heroTypeBadge" class="badge-muted">Normal</span>
+							<span id="heroStageBadge" class="badge-muted">Loading Stage...</span>
+						</div>
+
+						<div>
+							<h1 class="hero-station-title">
+								<span id="heroNameEn">Station Name</span>
+								<span id="heroNameHi" class="hero-name-hindi"></span>
+							</h1>
+							<p class="hero-slug-meta font-mono" id="heroSlug">
+								slug • Code: <strong id="heroCode" class="text-indigo">STD</strong>
+							</p>
+						</div>
+
+						<div class="hero-quick-stats-grid">
+							<div class="quick-stat-box">
+								<div class="quick-stat-label">Coordinates</div>
+								<div class="quick-stat-val font-mono truncate" id="heroCoords">N/A</div>
+							</div>
+							<div class="quick-stat-box">
+								<div class="quick-stat-label">Timings</div>
+								<div class="quick-stat-val" id="heroTimings">06:00 - 22:00</div>
+							</div>
+							<div class="quick-stat-box">
+								<div class="quick-stat-label">Control Room</div>
+								<div class="quick-stat-val font-mono" id="heroContact">N/A</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 1. GATES & LANDMARKS SECTION -->
+				<section class="detail-domain-card">
+					<div class="domain-card-header">
+						<img src="./assets/icons/ui/book-help.svg" class="icon-xs icon-indigo" alt="Gates">
+						<h3 class="domain-heading">Gates & Landmarks</h3>
+					</div>
+					<div id="gatesGrid" class="cards-grid grid-2col"></div>
+				</section>
+
+				<!-- 2. STATE-AWARE PARKING CHARGES MATRIX -->
+				<section class="detail-domain-card">
+					<div class="domain-card-header justify-between">
+						<div class="flex-align gap-sm">
+							<img src="./assets/icons/ui/shield-database.svg" class="icon-xs icon-emerald" alt="Parking">
+							<h3 class="domain-heading">Parking Charges</h3>
+						</div>
+						<span id="parkingStateBadge" class="badge-muted">INR (₹)</span>
+					</div>
+					<div id="parkingContainer" class="stack-md"></div>
+				</section>
+
+				<!-- 3. FACILITIES & ACCESSIBILITY -->
+				<section class="detail-domain-card">
+					<div class="domain-card-header">
+						<img src="./assets/icons/ui/matrix.svg" class="icon-xs icon-amber" alt="Facilities">
+						<h3 class="domain-heading">Station Facilities</h3>
+					</div>
+					<div id="facilitiesGrid" class="cards-grid grid-2col"></div>
+				</section>
+
+				<!-- 4. VERTICAL TRANSIT (LIFTS & ESCALATORS) -->
+				<section class="detail-domain-card">
+					<div class="domain-card-header">
+						<img src="./assets/icons/ui/download.svg" class="icon-xs icon-cyan" alt="Transit">
+						<h3 class="domain-heading">Vertical Transit</h3>
+					</div>
+					<div class="grid-2col gap-md">
+						<div class="capsule-box stack-sm">
+							<h4 class="subdomain-heading flex-align justify-between">
+								<span>Lifts (<span id="liftsCount">0</span>)</span>
+							</h4>
+							<div id="liftsList" class="transit-items-list custom-scrollbar"></div>
+						</div>
+						<div class="capsule-box stack-sm">
+							<h4 class="subdomain-heading flex-align justify-between">
+								<span>Escalators (<span id="escalatorsCount">0</span>)</span>
+							</h4>
+							<div id="escalatorsList" class="transit-items-list custom-scrollbar"></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 5. STATION LAYOUT FILES & FEEDER BUSES -->
+				<div class="grid-2col gap-md">
+					<section class="detail-domain-card">
+						<div class="domain-card-header">
+							<img src="./assets/icons/ui/matrix.svg" class="icon-xs icon-indigo" alt="Layout">
+							<h3 class="domain-heading">Layout Files</h3>
+						</div>
+						<div id="layoutsContainer" class="stack-sm"></div>
+					</section>
+
+					<section class="detail-domain-card">
+						<div class="domain-card-header">
+							<img src="./assets/icons/ui/matrix.svg" class="icon-xs icon-indigo" alt="Buses">
+							<h3 class="domain-heading">Feeder Buses</h3>
+						</div>
+						<div id="feederBusesContainer" class="stack-sm"></div>
+					</section>
+				</div>
+
+				<!-- 6. NEIGHBORING ROUTE GRAPH -->
+				<section class="detail-domain-card">
+					<div class="domain-card-header">
+						<img src="./assets/icons/ui/matrix.svg" class="icon-xs icon-indigo" alt="Routes">
+						<h3 class="domain-heading">Adjacent Route Links</h3>
+					</div>
+					<div id="neighborsGrid" class="cards-grid grid-2col"></div>
+				</section>
+
+			</div>
+
+			<!-- RIGHT SECTION: AUTONOMOUS JSON TREE INSPECTOR -->
+			<div id="jsonColumn" class="detail-json-column">
+				<div id="stationJsonInspector" class="inspector-pane-mount"></div>
+			</div>
+
+		</div>
+
+	</main>
+
+	<!-- TOAST NOTIFICATIONS -->
+	<div id="toastContainer" class="toast-stack-container"></div>
+	<footer id="globalFooter"></footer>
+	<script type="module" src="./js/pages/station_detail.js"></script>
+</body>
+</html>

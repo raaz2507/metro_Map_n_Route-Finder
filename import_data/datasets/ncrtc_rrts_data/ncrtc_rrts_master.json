@@ -1,0 +1,3422 @@
+{
+	"sarai_kale_khan": {
+		"id": "sarai_kale_khan",
+		"name": {"en": "Sarai Kale Khan"},
+		"code": "Z00",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.5882474, "lon": 77.2556673}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:00:00", "closing": "22:00:00"},
+		"contact": {"mobile": "9289928744"},
+		"description": {
+			"en": "1. Sarai Kale Khan Station is the first station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat coridor. This is an elevated station. 2. Sarai Kale Khan station is in Delhi is close to Hazrat Nizamuddin Railway station and DMRC's Sarai Kale Khan station. 3. Sarai Kale Khan station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "new_ashok_nagar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 5290, "travel_time_sec": 360}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": false, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"3": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"4": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"5": {"line": "ncrtc.delhi_meerut_rrts", "is_open": false, "lounge": false},
+			"6": {"line": "ncrtc.delhi_meerut_rrts", "is_open": false, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"3": {"code": "GA3", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"4": {"code": "GA4", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}},
+			"5": {"code": "GA5", "divyang": false, "status": "closed", "landmark": {"en": "On road going to Delhi"}},
+			"6": {"code": "GA6", "divyang": false, "status": "closed", "landmark": {"en": "Yet to Open"}}
+		},
+		"parkingCharges": {
+			"state": "Delhi",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 50},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 80},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 90},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}, "tariff_b": {"timing": "24/7", "fare": 3000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 20},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 30},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 40},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 50}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}, "tariff_b": {"timing": "24/7", "fare": 1000}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C2-L2 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C2-L4 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C2-L6 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C2-L8 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"5": {
+					"code": "LIFT_5",
+					"name": "G1-L1 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"6": {"code": "LIFT_6", "name": "G2-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"7": {"code": "LIFT_7", "name": "G3-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"8": {"code": "LIFT_8", "name": "G4-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"9": {"code": "LIFT_9", "name": "G5-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": false}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C2-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "C2-E3", "location": "", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "C2-E4", "location": "", "status": true, "direction": "Down"},
+				"4": {"code": "ESC_4", "name": "C2-E5", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C2-E6", "location": "", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "C2-E7", "location": "", "status": true, "direction": "Up"},
+				"7": {"code": "ESC_7", "name": "C2-E8", "location": "", "status": true, "direction": "Up"},
+				"8": {"code": "ESC_8", "name": "C2-E9", "location": "", "status": true, "direction": "Up"},
+				"9": {"code": "ESC_9", "name": "C2-E10", "location": "", "status": true, "direction": "Up"},
+				"10": {"code": "ESC_10", "name": "C2-E11", "location": "", "status": true, "direction": "Up"},
+				"11": {"code": "ESC_11", "name": "C2-E12", "location": "", "status": true, "direction": "Up"},
+				"12": {"code": "ESC_12", "name": "G1-E1", "location": "", "status": true, "direction": "Down"},
+				"13": {"code": "ESC_13", "name": "G2-E1", "location": "", "status": true, "direction": "Down"},
+				"14": {"code": "ESC_14", "name": "G3-E1", "location": "", "status": true, "direction": "Down"},
+				"15": {"code": "ESC_15", "name": "C2-E2", "location": "", "status": true, "direction": "Up"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SKK_PLATFORM_min_4bfad71526/SKK_PLATFORM_min_4bfad71526.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Platform_Skk_df0279a7dc/Platform_Skk_df0279a7dc.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 24
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SKK_CONCOURSE_35f03d2613/SKK_CONCOURSE_35f03d2613.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SKK_Concourse_5d903721e5/SKK_Concourse_5d903721e5.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 25
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SKK_f8854d1638/SKK_f8854d1638.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/skk_1_45c38067a3/skk_1_45c38067a3.png"},
+		"infoLink": "https://maps.app.goo.gl/mX3dSwXDJrknBR2j6"
+	},
+	"new_ashok_nagar": {
+		"id": "new_ashok_nagar",
+		"name": {"en": "New Ashok Nagar"},
+		"code": "A01",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.5912, "lon": 77.3025}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:18:30", "closing": "22:59:30"},
+		"contact": {"mobile": "9289928745"},
+		"description": {
+			"en": "1. New Ashok Nagar is the second Namo Bharat station and a terminal station from Delhi end on the presently operational section of New Ashok Nagar to Meerut South. New Ashok Nagar is an elevated station. 2. Namo Bharat New Ashok Nagar Station serves areas like New Ashok Nagar, Vasundhara Enclave, Mayur Vihar Phase 1 Extension, Chilla Village, and commercial hubs such as Noida's Sector 15 and Noida Film City in East Delhi. It also caters to commuters from nearby Noida, including Sector 15. The station provides excellent connectivity for residential and commercial hubs, supported by last-mile transport options like e-rickshaws and autos, making it a key transit point near the Delhi-Noida border. 3. NH-24 (Delhi-Meerut Expressway) is accessible via connecting roads. 4. New Ashok Nagar is a Divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "sarai_kale_khan", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 5290, "travel_time_sec": 360},
+			{"station": "anand_vihar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 7124, "travel_time_sec": 330}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going towards New Ashok Nagar Market side"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going towards DMRC"}}
+		},
+		"parkingCharges": {
+			"state": "Delhi",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 50},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 80},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 90},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}, "tariff_b": {"timing": "24/7", "fare": 3000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 20},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 30},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 40},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 50}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}, "tariff_b": {"timing": "24/7", "fare": 1000}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Centre of concourse level"}],
+			"Washroom": [{"location": "Inside paid concourse, at Centre of concourse level"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "G1-L1",
+					"location": "From Ground to Concourse, near Gate 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "G2-L1",
+					"location": "From Ground to PD, near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "D1-L1",
+					"location": "From PD to Concourse, near Gate 2 & 3",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C2-L2",
+					"location": "From Concourse to Platform 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"5": {
+					"code": "LIFT_5",
+					"name": "C2-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "From Ground to PD, at Gate 1", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "From Ground to PD, at Gate 2", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "D1-E1", "location": "From PD to Concourse, near Gate 2 & 3", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C2-E3", "location": "From Concourse to Platform 2 (Delhi End)", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C2-E1", "location": "From Concourse to Platform 1 (Delhi End)", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "C2-E4", "location": "From Concourse to Platform 2 (Meerut End)", "status": true, "direction": "Down"},
+				"7": {"code": "ESC_7", "name": "C2-E2", "location": "From Concourse to Platform 1 (Meerut End)", "status": true, "direction": "Down"},
+				"8": {"code": "ESC_8", "name": "D3 - E1", "location": "From PD to Concourse, near Gate 1", "status": true, "direction": "Up"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/New_Ashaok_Nagarlayout_4835bc2af9/New_Ashaok_Nagarlayout_4835bc2af9.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/New_Ashaok_Nagarlayout_2b36d9ae4d/New_Ashaok_Nagarlayout_2b36d9ae4d.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 18
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/New_Ashaok_Nagarlayout_017cd66e4a/New_Ashaok_Nagarlayout_017cd66e4a.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/New_Ashaok_Nagarlayout_9a5e49127a/New_Ashaok_Nagarlayout_9a5e49127a.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 21
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No.", "value": "D 035"}, {"key": "Frequency", "value": "20 min"}],
+				"routeName": "D 035 - Anand Vihar ISBT To Ashok Nagar Border"
+			},
+			{
+				"infoList": [{"key": "Route No.", "value": "D 055"}, {"key": "Frequency", "value": "20 min"}],
+				"routeName": "D 055 - New Ashok Nagar Namo Bharat Station To Jheel Terminal"
+			},
+			{
+				"infoList": [{"key": "Route No.", "value": "D 039"}, {"key": "Frequency", "value": "20 min"}],
+				"routeName": "D 039 - Anand Vihar ISBT To Ashok Nagar Namo Bharat Station"
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/ashoknagar_ec0645aa48/ashoknagar_ec0645aa48.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/ashoknagarbanner_e29cef86f0/ashoknagarbanner_e29cef86f0.png"},
+		"infoLink": "https://maps.app.goo.gl/pCNdBsbE8y46DSvv5"
+	},
+	"anand_vihar": {
+		"id": "anand_vihar",
+		"name": {"en": "Anand Vihar"},
+		"code": "A02",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.6481, "lon": 77.3171}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:13:00", "closing": "22:54:00"},
+		"contact": {"mobile": "9289928746"},
+		"description": {
+			"en": "1. Anand Vihar is the second Namo Bharat station from Delhi end on the presently operational section of New Ashok Nagar to Meerut South. Anand Vihar is an underground Namo Bharat station. 2. The station is located in East Delhi and is well-connected to the NH-9 (Delhi-Meerut Expressway) and the Ghaziabad Link Road, facilitating travel toward Ghaziabad and other parts of East Delhi. 3. Anand Vihar Namo Bharat station is situated near Anand Vihar Delhi Metro Station (Blue Line and Pink Line), the Anand Vihar ISBT (Inter-State Bus Terminal) and the Anand Vihar Railway Station. 4. Anand Vihar Namo Bharat station also connects to key spots like Pacific Mall, a popular shopping and entertainment destination. It also links to nearby areas like Vivek Vihar, Karkardooma, and Shreshtha Vihar. With its proximity to NH-9 and robust transport facilities, the station is a vital transit hub in East Delhi. 5. Anand Vihar is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "new_ashok_nagar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 7124, "travel_time_sec": 330},
+			{"station": "sahibabad", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 6131, "travel_time_sec": 300}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Chaudhary Charan Singh Marg"}},
+			"2": {
+				"code": "GA2",
+				"divyang": false,
+				"status": "open",
+				"landmark": {"en": "On road going towards Anand Vihar Terminal Railway station"}
+			},
+			"3": {"code": "GA3", "divyang": false, "status": "open", "landmark": {"en": "Connected to FOB towards DMRC and Anand Vihar ISBT"}}
+		},
+		"parkingCharges": {
+			"state": "Delhi",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 50},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 80},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 90},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}, "tariff_b": {"timing": "24/7", "fare": 3000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 20},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 30},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 40},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 50}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}, "tariff_b": {"timing": "24/7", "fare": 1000}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, near Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, near Station Control Room"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "From Concourse to First Floor, near Delhi End",
+					"location": "L1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "From Concourse to Platform 1 & 2, near Meerut End",
+					"location": "L2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "From Concourse to First floor (Delhi End)", "location": "C1-E1", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "From Concourse to First floor (Delhi End)", "location": "C1-E2", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "From Concourse to Platform 1 & 2", "location": "C2-E1", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "From Concourse to Platform 1 & 2", "location": "C2-E2", "status": true, "direction": "Down"},
+				"5": {"code": "ESC_5", "name": "From Concourse to Platform 1 & 2", "location": "C2-E3", "status": true, "direction": "Up"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Anand_Vihar_Platform_11caa3b48c/Anand_Vihar_Platform_11caa3b48c.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Anand_Vihar_Platform_2c398657bb/Anand_Vihar_Platform_2c398657bb.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 20
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Anand_Vihar_Concourse_b265e9e642/Anand_Vihar_Concourse_b265e9e642.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Anand_Vihar_Concourse_0a95d93994/Anand_Vihar_Concourse_0a95d93994.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 19
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No.", "value": "D 035"}, {"key": "Frequency", "value": "20 min"}],
+				"routeName": "D 035 - Anand Vihar ISBT To Ashok Nagar Border"
+			},
+			{
+				"infoList": [{"key": "Route No.", "value": "D 039"}, {"key": "Frequency", "value": "20 min"}],
+				"routeName": "D 039 - Anand Vihar ISBT To Ashok Nagar Namo Bharat Station"
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/anandvihar_783638e971/anandvihar_783638e971.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/anandvihar_Banner_53ea6c19ba/anandvihar_Banner_53ea6c19ba.png"},
+		"infoLink": "https://maps.app.goo.gl/pDTFyfiRmPeSFADfA"
+	},
+	"sahibabad": {
+		"id": "sahibabad",
+		"name": {"en": "Sahibabad"},
+		"code": "A03",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.66758, "lon": 77.368109}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "6:08:00", "closing": "22:49:00"},
+		"contact": {"mobile": "9289928704"},
+		"description": {
+			"en": "1. Sahibabad is an elevated station on the operational corridor of Namo Bharat between New Ashok Nagar and Meerut South stations. 2. The station is located on Madan Mohan Malviya Marg and caters to Vasundhara Sectors 1–18, Sahibabad Village, Sahibabad Industrial Area, and the Naveen Fruits and Vegetable Market. 3. Sahibabad Namo Bharat Station is well connected to nearby transit points, with Sahibabad Railway Station (approx. 1.3 km), Shyam Park Metro Station (approx. 2.5 km), and Vaishali Metro Station (approx. 3.3 km) in close proximity. 4. Sahibabad is a divyangjan-friendly station, ensuring accessible facilities for all passengers."
+		},
+		"neighbors": [
+			{"station": "anand_vihar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 6131, "travel_time_sec": 300},
+			{"station": "ghaziabad", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 5052, "travel_time_sec": 240}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": true, "status": "open", "landmark": {"en": "Towards Delhi end on road going to Mohan Nagar"}},
+			"2": {"code": "GA2", "divyang": true, "status": "open", "landmark": {"en": "Towards Meerut end on road going to Mohan Nagar"}},
+			"3": {
+				"code": "GA3",
+				"divyang": true,
+				"status": "open",
+				"landmark": {"en": "Towards Delhi end on road going to Delhi, near Shri Digambar Jain Mandir"}
+			}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, near Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, near Station Control Room"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C2-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C2-L4",
+					"location": "From Concourse to Platform 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "G1-L1",
+					"location": "From Ground to Concourse, near Gate 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "G3-L1",
+					"location": "From Ground to Concourse, near Gate 3",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"5": {
+					"code": "LIFT_5",
+					"name": "G2-L1",
+					"location": "From Ground to Concourse, near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C2-E1", "location": "From Concourse to Platform 1", "status": true, "direction": "Down"},
+				"2": {"code": "ESC_2", "name": "C2-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "C2-E3", "location": "From Concourse to Platform 2", "status": true, "direction": "Unknown"},
+				"4": {"code": "ESC_4", "name": "C2-E4", "location": "From Concourse to Platform 2", "status": true, "direction": "Unknown"},
+				"5": {"code": "ESC_5", "name": "G1-E1", "location": "From Ground to Concourse, at Gate 1", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "G3-E1", "location": "From Ground to Concourse, at Gate 3", "status": true, "direction": "Up"},
+				"7": {"code": "ESC_7", "name": "G2-E1", "location": "From Ground to Concourse, at Gate 2", "status": true, "direction": "Unknown"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Shahibabad_Platform_35492351cc/Shahibabad_Platform_35492351cc.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Shahibabad_Platform_1_6812d87143/Shahibabad_Platform_1_6812d87143.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 7
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Shahibabad_concourse_2f144ecca5/Shahibabad_concourse_2f144ecca5.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Sahibabad_Concourse_1_bf080b2d53/Sahibabad_Concourse_1_bf080b2d53.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 8
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No.", "value": "GHE042"}, {"key": "Frequency", "value": "30 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURI"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE09"}, {"key": "Frequency", "value": "30 min"}],
+				"routeName": "KAUSHAMBI TO KANOJA GAON"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE072"}, {"key": "Frequency", "value": "30 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURAM"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE-073A"}, {"key": "Frequency", "value": "30 min"}],
+				"routeName": "KAUSHAMBI TO SANJAY NAGAR/ ALT"
+			}
+		],
+		"images": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SAHIBABAD_1_1ce82f55bf/SAHIBABAD_1_1ce82f55bf.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SAHIBABAD_2ceab3c1f4/SAHIBABAD_2ceab3c1f4.png"
+		},
+		"banner": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SAHIBABAD_af1800440f/SAHIBABAD_af1800440f.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SAHIBABAD_0df42d2c8f/SAHIBABAD_0df42d2c8f.png"
+		},
+		"infoLink": "https://maps.app.goo.gl/Na2cuDYF3cp8AZDY8"
+	},
+	"ghaziabad": {
+		"id": "ghaziabad",
+		"name": {"en": "Ghaziabad"},
+		"code": "A04",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.672128, "lon": 77.413192}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:10:00", "closing": "22:21:20"},
+		"contact": {"mobile": "9289928705"},
+		"description": {
+			"en": "1. Ghaziabad is second station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Ghaziabad is an elevated station. 2. Ghaziabad Namo Bharat Station is located at Meerut trisection in the city of Ghaziabad and serves Arya Nagar, Seva Nagar, Bhim Nagar & Patel Nagar. 3. Ghaziabad Railway Station (approx. 3 KM) and Shaheed Sthal New Bus Adda Metro Station (approx. 250 M) are in the proximity of Ghaziabad Namo Bharat Station. 4. Ghaziabad is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "sahibabad", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 5052, "travel_time_sec": 240},
+			{"station": "guldhar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 4340, "travel_time_sec": 210}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"3": {"line": "ncrtc.delhi_meerut_rrts", "is_open": false, "lounge": true}
+		},
+		"gates": {
+			"1": {
+				"code": "GA1",
+				"divyang": false,
+				"status": "open",
+				"landmark": {"en": "Towards Delhi end on road going to Meerut, near Traffic Police Training Centre"}
+			},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "Towards Meerut end on road going to Meerut"}},
+			"3": {
+				"code": "GA3",
+				"divyang": false,
+				"status": "open",
+				"landmark": {"en": "Towards Meerut end, near DMRC Saheed Sthal Metro Station/Meerut Mod Gol Chakkar"}
+			},
+			"4": {"code": "GA4", "divyang": false, "status": "open", "landmark": {"en": "Towards Delhi end, near Mahamaya Stadium"}},
+			"5": {"code": "GA5", "divyang": false, "status": "open", "landmark": {"en": "Towards Meerut end"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Meerut end"}],
+			"Washroom": [{"location": "Inside paid concourse, at Meerut end"}],
+			"HelpDesk": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Lost & Found Room": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C1-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C1-L2",
+					"location": "From Concourse to Platform 2 & 3",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L3",
+					"location": "From Concourse to Platform 4",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": false
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "G4-E1",
+					"location": "From Ground, Lower PD, Upper PD to Concourse, near Gate 4",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"5": {
+					"code": "LIFT_5",
+					"name": "G4-E2",
+					"location": "From Ground, Lower PD, Upper PD to Concourse, near Gate 4",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"6": {
+					"code": "LIFT_6",
+					"name": "U2-E2",
+					"location": "From Upper PD to Concourse, near Gate 4",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C1-E1", "location": "From Concourse to Platform 4", "status": false, "direction": "Unknown"},
+				"2": {"code": "ESC_2", "name": "C1-E2", "location": "From Concourse to Platform 2 & 3", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "C1-E3", "location": "From Concourse to Platform 1", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E4", "location": "From Concourse to Platform 1", "status": true, "direction": "Down"},
+				"5": {"code": "ESC_5", "name": "C1-E5", "location": "From Concourse to Platform 2 & 3", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C1-E6", "location": "From Concourse to Platform No. 4", "status": false, "direction": "Unknown"},
+				"7": {"code": "ESC_7", "name": "G4-E1", "location": "From Ground to Lower PD, at Gate 4", "status": true, "direction": "Up"},
+				"8": {"code": "ESC_8", "name": "G4-E2", "location": "From Ground to Lower PD, at Gate 4", "status": true, "direction": "Down"},
+				"9": {"code": "ESC_9", "name": "L1-E1", "location": "From Lower PD to Upper PD, at Gate 4", "status": true, "direction": "Up"},
+				"10": {"code": "ESC_10", "name": "L1-E2", "location": "From Lower PD to Upper PD, at Gate 4", "status": true, "direction": "Down"},
+				"11": {"code": "ESC_11", "name": "U2-E1", "location": "From Upper PD to Concourse, at Gate 4", "status": true, "direction": "Up"},
+				"12": {"code": "ESC_12", "name": "U2-E2", "location": "From Upper PD to Concourse, at Gate 4", "status": true, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Guldhar_Platform_e778e37a85/Guldhar_Platform_e778e37a85.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Ghaziabad_platform_1_1d85ea19c2/Ghaziabad_platform_1_1d85ea19c2.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 1
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Guldhar_concourse_02a1936671/Guldhar_concourse_02a1936671.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Ghaziabad_concourse_1_51c9845ec5/Ghaziabad_concourse_1_51c9845ec5.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 2
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No", "value": "GHE-073A"}, {"key": "Frequency", "value": "30 min"}],
+				"routeName": "KAUSHAMBI TO SANJAY NAGAR/ ALT"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE03"}, {"key": "Frequency", "value": "40 min"}],
+				"routeName": "DILSHAD GARDEN TO MASSURI"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE072"}, {"key": "Frequency", "value": "30 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURAM"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE-02"}, {"key": "Frequency", "value": "15 min"}],
+				"routeName": "LONI TO PURANA BUS ADDA"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE042"}, {"key": "Frequency", "value": "40 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURI"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE-09"}, {"key": "Frequency", "value": "60 min"}],
+				"routeName": "PURANA BUS ADDA TO MONDOLA"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE09"}, {"key": "Frequency", "value": "60 min"}],
+				"routeName": "KAUSHAMBI TO KANOJA GAON"
+			}
+		],
+		"images": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/GHAZIABAD_e6d82a6914/GHAZIABAD_e6d82a6914.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/GHAZIABAD_fbe8a6c7af/GHAZIABAD_fbe8a6c7af.png"
+		},
+		"banner": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/GHAZIABAD_65b1b8c86b/GHAZIABAD_65b1b8c86b.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/GHAZIABAD_d94c8a7b4a/GHAZIABAD_d94c8a7b4a.png"
+		},
+		"infoLink": "https://maps.app.goo.gl/PdXgBSSMd9L4vUra9"
+	},
+	"guldhar": {
+		"id": "guldhar",
+		"name": {"en": "Guldhar"},
+		"code": "A05",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.699461, "lon": 77.445686}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:14:00", "closing": "22:25:20"},
+		"contact": {"mobile": "9289928706"},
+		"description": {
+			"en": "1. Guldhar is third station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Guldhar is an elevated station. 2. Guldhar Namo Bharat Station is located on Delhi -Meerut road and it serves Raj Nagar, Raj Nagar Extension, Sanjay Nagar and Guldhar Village of Ghaziabad. 3. Guldhar Railway Station (approx. 1.3 KM) is in the proximity of Guldhar Namo Bharat Station. 4. Guldhar is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "ghaziabad", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 4340, "travel_time_sec": 210},
+			{"station": "duhai", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 3970, "travel_time_sec": 210}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {
+				"code": "GA1",
+				"divyang": false,
+				"status": "open",
+				"landmark": {"en": "Towards Meerut end on road going to Meerut, near Raj Kumar Goel Institute of Technology"}
+			},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "Towards Delhi end on road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Meerut end"}],
+			"Washroom": [{"location": "Inside paid concourse, at Meerut end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C3-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C3-L2",
+					"location": "From Concourse to Platform 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C1-L2",
+					"location": "From Concourse to Platform 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"5": {
+					"code": "LIFT_5",
+					"name": "G1-L1",
+					"location": "From Ground to Concourse, near Gate 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"6": {
+					"code": "LIFT_6",
+					"name": "G2-L1",
+					"location": "From Ground to Concourse, near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C3-E1", "location": "From Concourse to Platform 1", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "C3-E3", "location": "From Concourse to Platform 2", "status": true, "direction": "Down"},
+				"3": {"code": "ESC_3", "name": "C3-E4", "location": "From Concourse to Platform 2", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C3-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Down"},
+				"5": {"code": "ESC_5", "name": "G1 -E1", "location": "From Ground to Concourse, at Gate 1", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "G2-E1", "location": "From Ground to Concourse, at Gate 2", "status": true, "direction": "Up"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Guldhar_Platform_58b8dec1ac/Guldhar_Platform_58b8dec1ac.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Guldhar_Platform_1_c036b3c080/Guldhar_Platform_1_c036b3c080.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 3
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Guldhar_concourse_f1dc3ad7b2/Guldhar_concourse_f1dc3ad7b2.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Guldhar_concourse_1_f32cf69203/Guldhar_concourse_1_f32cf69203.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 4
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No", "value": "GHE042"}, {"key": "Frequency", "value": "40 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURI"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE09"}, {"key": "Frequency", "value": "60 min"}],
+				"routeName": "KAUSHAMBI TO KANOJA GAON"
+			}
+		],
+		"images": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/GULDHAR_1_a01162d29f/GULDHAR_1_a01162d29f.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/GULDHAR_37fc6e0681/GULDHAR_37fc6e0681.png"
+		},
+		"banner": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/GULDHAR_000956d729/GULDHAR_000956d729.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/GULDHAR_453e18ea2c/GULDHAR_453e18ea2c.png"
+		},
+		"infoLink": "https://maps.app.goo.gl/SpYno9XQu5yUMWTK6"
+	},
+	"duhai": {
+		"id": "duhai",
+		"name": {"en": "Duhai"},
+		"code": "A06",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.726539, "lon": 77.471137}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "05:50:00", "closing": "22:29:20"},
+		"contact": {"mobile": "9289928707"},
+		"description": {
+			"en": "1. Duhai is fourth station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Duhai is an elevated station. 2. Duhai Namo Bharat Station is located on Delhi -Meerut road and serves Duhai and Morta village of Ghaziabad. 3. Eastern Peripheral Expressway (EPE) is in the close proximity of the station. 4. Duhai is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "guldhar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 3970, "travel_time_sec": 210},
+			{"station": "murad_nagar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 4028, "travel_time_sec": 270}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"3": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {
+				"code": "GA1",
+				"divyang": false,
+				"status": "open",
+				"landmark": {"en": "Towards Delhi end on road going to Meerut, near Drizzling Land Water Park"}
+			},
+			"2": {
+				"code": "GA2",
+				"divyang": false,
+				"status": "open",
+				"landmark": {"en": "Towards Meerut end on road going to Meerut, near Babu Banarasi Das Institute of Technology"}
+			},
+			"3": {
+				"code": "GA3",
+				"divyang": false,
+				"status": "open",
+				"landmark": {"en": "Towards Meerut end on road going to Delhi, near IAMR Group of Institution's"}
+			},
+			"4": {"code": "GA4", "divyang": false, "status": "open", "landmark": {"en": "Towards Delhi end on road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C2-L1",
+					"location": "From Concourse to Platform 1 & 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C1-L2",
+					"location": "From Concourse to Platform 3",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C3-L1",
+					"location": "From Concourse to Platform 1 & 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C3 -L2",
+					"location": "From Concourse to Platform 3",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"5": {
+					"code": "LIFT_5",
+					"name": "G1-L1",
+					"location": "From Ground to Concourse, near Gate 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"6": {
+					"code": "LIFT_6",
+					"name": "G2-L1",
+					"location": "From Ground to Concourse, near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"7": {
+					"code": "LIFT_7",
+					"name": "G3-L1",
+					"location": "From Ground to Concourse, near Gate 3",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"8": {
+					"code": "LIFT_8",
+					"name": "G4-L1",
+					"location": "From Ground to Concourse, near Gate 4",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C1-E1", "location": "From Concourse to Platform 3", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "C1-E2", "location": "From Concourse to Platform 1 & 2", "status": true, "direction": "Down"},
+				"3": {"code": "ESC_3", "name": "C3-E1", "location": "From Concourse to Platform 3", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C3-E2", "location": "From Concourse to Platform 1 & 2", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "G1-E1", "location": "From Ground to Concourse, at Gate 1", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "G2-E1", "location": "From Ground to Concourse, at Gate 2", "status": true, "direction": "Unknown"},
+				"7": {"code": "ESC_7", "name": "G3-E1", "location": "From Ground to Concourse, at Gate 3", "status": true, "direction": "Up"},
+				"8": {"code": "ESC_8", "name": "G4-E1", "location": "From Ground to Concourse, at Gate 4", "status": true, "direction": "Up"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Duhai_Platform_7c0caee063/Duhai_Platform_7c0caee063.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Duhai_Platform_1_98d37404e2/Duhai_Platform_1_98d37404e2.png"
+				},
+				"level": "Platform",
+				"displayName": "Plateform Level",
+				"id": 5
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Duahi_Station_00994313f7/Duahi_Station_00994313f7.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Duahi_Station_1_2b3b14071d/Duahi_Station_1_2b3b14071d.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 6
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No", "value": "GHE042"}, {"key": "Frequency", "value": "40 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURI"
+			},
+			{
+				"infoList": [{"key": "Route No", "value": "GHE09"}, {"key": "Frequency", "value": "60 min"}],
+				"routeName": "KAUSHAMBI TO KANOJA GAON"
+			}
+		],
+		"images": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DUHAI_1_9f0e253e3a/DUHAI_1_9f0e253e3a.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DUHAI_3c8177218d/DUHAI_3c8177218d.png"
+		},
+		"banner": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DUHAI_a8e52d3af5/DUHAI_a8e52d3af5.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DUHAI_e63b389c89/DUHAI_e63b389c89.png"
+		},
+		"infoLink": "https://maps.app.goo.gl/f6ND4MXooXBWcZ1J6"
+	},
+	"duhai_depot": {
+		"id": "duhai_depot",
+		"name": {"en": "Duhai Depot"},
+		"code": "AS2",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.741175, "lon": 77.467261}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "6:00:00", "closing": "22:00:00"},
+		"contact": {"mobile": "9289928708"},
+		"description": {
+			"en": "1. Duhai Depot station is on Spur Line between Duhai and Duhai Depot on the presently operational section of Sahibabad to Modinagar North. Duhai Depot is an at grade station. 2. Duhai Depot Namo Bharat station is located on the Duhai-Bhikanpur Road and serves Duhai depot, Bhikanpur Village and nearby areas. 3. Duhai Depot is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "duhai", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2130, "travel_time_sec": 260}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "Towards the Eastern Peripheral Highway (EPE)"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "Towards the Eastern Peripheral Highway (EPE)"}},
+			"3": {"code": "GA3", "divyang": false, "status": "open", "landmark": {"en": "Towards Duhai Depot and Village Bhikanpur."}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, middle of Platform 2"}],
+			"Washroom": [{"location": "Inside paid concourse, middle of Platform 2"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "G2-L1",
+					"location": "From Ground to Foot Over Bridge (FOB), near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "G3-L1",
+					"location": "From Ground to Foot Over Bridge (FOB), near Gate 3",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Duhai_Depot_6af2537a3a/Duhai_Depot_6af2537a3a.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Duhai_Depot_New_1_d4e6e1a584/Duhai_Depot_New_1_d4e6e1a584.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform level",
+				"id": 9
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Duhai_Depot_748dd56a58/Duhai_Depot_748dd56a58.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Duhai_Depot_New_1_46edb1dfe6/Duhai_Depot_New_1_46edb1dfe6.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 10
+			}
+		],
+		"images": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DUHAI_DEPOT_1_970d724397/DUHAI_DEPOT_1_970d724397.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DUHAI_DEPOT_4c5b7e3ce4/DUHAI_DEPOT_4c5b7e3ce4.png"
+		},
+		"banner": {
+			"svg": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DUHAI_DEPOT_59fc4a8e98/DUHAI_DEPOT_59fc4a8e98.svg",
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DUHAI_DEPOT_a7dae960f2/DUHAI_DEPOT_a7dae960f2.png"
+		},
+		"infoLink": "https://maps.app.goo.gl/MsRoAEcoSuYUsboM8"
+	},
+	"murad_nagar": {
+		"id": "murad_nagar",
+		"name": {"en": "Murad Nagar"},
+		"code": "A07",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.77034, "lon": 77.51071}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "05:54:30", "closing": "22:33:50"},
+		"contact": {"mobile": "9311040541"},
+		"description": {
+			"en": "1. Muradnagar is fifth station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Murad Nagar is an elevated station. 2. Murad Nagar Namo Bharat station is located on Delhi-Meerut Road and serves the town of Murad Nagar. 3.Murad Nagar Railway Station (1.6 KM) and Ordinance Factory complex (1.6 KM) are in the close proximity of the station. 4. Murad Nagar is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "duhai", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 4028, "travel_time_sec": 270},
+			{"station": "modi_nagar_south", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 6818, "travel_time_sec": 270}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "Towards Meerut end on road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "Towards Delhi end on road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C1-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C1-L2",
+					"location": "From Concourse to Platform 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "G1-L1",
+					"location": "From Ground to Concourse, near Gate 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "G2-L1",
+					"location": "From Ground to Concourse, near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "From Ground to Concourse, at Gate 1", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E2", "location": "From Ground to Concourse, at Gate 2", "status": true, "direction": "Unknown"},
+				"3": {"code": "ESC_3", "name": "C1-E1", "location": "From Concourse to Platform 2", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C3-E1", "location": "From Concourse to Platform 2", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C3-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Muradnagar_platform_1012777643/Muradnagar_platform_1012777643.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Muradnagar_platform_1_2eabbe660a/Muradnagar_platform_1_2eabbe660a.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 11
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Muradnagar_concourse_2653093e73/Muradnagar_concourse_2653093e73.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Muradnagar_concourse_1_ef58da4e18/Muradnagar_concourse_1_ef58da4e18.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 12
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No", "value": "GHE042"}, {"key": "Frequency", "value": "40 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURI"
+			}
+		],
+		"images": {
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Muradnagar_Station_1_baec111e6a/Muradnagar_Station_1_baec111e6a.png"
+		},
+		"banner": {
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Muradnagar_Station_3_b2022ff6bb/Muradnagar_Station_3_b2022ff6bb.png"
+		},
+		"infoLink": "https://maps.app.goo.gl/PMNBbCnRrpgjjMDM7"
+	},
+	"modi_nagar_south": {
+		"id": "modi_nagar_south",
+		"name": {"en": "Modi Nagar South"},
+		"code": "A08",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.81699, "lon": 77.5559}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "05:59:30", "closing": "22:38:50"},
+		"contact": {"mobile": "9289928722"},
+		"description": {
+			"en": "1. Modinagar South is sixth station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Modinagar South is an elevated station. 2. Modinagar South Namo Bharat station is located on Delhi-Meerut road and serves the town of Modinagar. 3. Modinagar Railway Station (2.1 KM), Modi Sugar mill (1.5 KM) and SRM University (2.8 KM) are in the close proximity of the station. 4. Modinagar South is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "murad_nagar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 6818, "travel_time_sec": 270},
+			{"station": "modi_nagar_north", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 3998, "travel_time_sec": 210}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "Towards Meerut end on road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "Towards Delhi end on road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, near SCR at Meerut end"}],
+			"Washroom": [{"location": "Inside paid concourse, near SCR at Meerut end."}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C1-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C1-L2",
+					"location": "From Concourse to Platform 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "G1-L1",
+					"location": "From Ground to Concourse, near Gate 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "G2-L1",
+					"location": "From Ground to Concourse, near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "From Ground to Concourse, at Gate 1", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "From Ground to Concourse, at Gate 2", "status": true, "direction": "Unknown"},
+				"3": {"code": "ESC_3", "name": "C1-E1", "location": "From Concourse to Platform 2", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C3-E1", "location": "From Concourse to Platform 2", "status": false, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C3-E2", "location": "From Concourse to Platform 1", "status": false, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_south_platform_14b2758083/Modinagar_south_platform_14b2758083.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_south_platform_1_b0cace5c7e/Modinagar_south_platform_1_b0cace5c7e.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 13
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_south_concourse_598c4d7140/Modinagar_south_concourse_598c4d7140.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_south_concourse_1_cbf3d0d765/Modinagar_south_concourse_1_cbf3d0d765.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 14
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No", "value": "GHE042"}, {"key": "Frequency", "value": "40 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURI"
+			}
+		],
+		"images": {
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_South_Stattion_1_06ce930dc2/Modinagar_South_Stattion_1_06ce930dc2.png"
+		},
+		"banner": {
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_South_Stattion_3_7c404050ff/Modinagar_South_Stattion_3_7c404050ff.png"
+		},
+		"infoLink": "https://maps.app.goo.gl/nqwha9N8QdFoJXQR9"
+	},
+	"modi_nagar_north": {
+		"id": "modi_nagar_north",
+		"name": {"en": "Modi Nagar North"},
+		"code": "A09",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.84363, "lon": 77.58334}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "6:03:00", "closing": "22:42:20"},
+		"contact": {"mobile": "7428389170"},
+		"description": {
+			"en": "1. Modinagar North is seventh station from Delhi end and terminal station from Meerut end on the presently operational section of Sahibabad to Modinagar North. Modinagar North is an elevated station. 2. Modinagar North Namo Bharat station is located on Delhi-Meerut road and serves the town of Modinagar. 3. Modinagar Railway Station (2 KM), Multanimal Modi College Modinagar (1 KM) and Modi Sugar mill (2.2 KM) are in the close proximity of the station. 4. Modinagar North is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "modi_nagar_south", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 3998, "travel_time_sec": 210},
+			{"station": "meerut_south", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 8313, "travel_time_sec": 330}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "Towards Meerut end on road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "Towards Delhi end on road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C1-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C1-L2",
+					"location": "From Concourse to Platform 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "G1-L1",
+					"location": "From Ground to Concourse, near Gate 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "G2-L1",
+					"location": "From Ground to Concourse, near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": false
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "From Ground to Concourse, at Gate 1", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "From Ground to Concourse, at Gate 2", "status": false, "direction": "Unknown"},
+				"3": {"code": "ESC_3", "name": "C1-E1", "location": "From Concourse to Platform 2", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C3-E1", "location": "From Concourse to Platform 2", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C3-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_north_platform_478482a495/Modinagar_north_platform_478482a495.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_north_platform_1_4b5998179a/Modinagar_north_platform_1_4b5998179a.png"
+				},
+				"level": "Platform",
+				"displayName": "Plateform Level",
+				"id": 15
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinaga_Northr_concourse_ca257e651e/Modinaga_Northr_concourse_ca257e651e.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinaga_Northr_concourse_1_0d7bfc7ba8/Modinaga_Northr_concourse_1_0d7bfc7ba8.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 16
+			}
+		],
+		"feederBusRouteInfo": [
+			{
+				"infoList": [{"key": "Route No", "value": "GHE042"}, {"key": "Frequency", "value": "40 min"}],
+				"routeName": "KAUSHAMBI TO GOVINDPURI"
+			}
+		],
+		"images": {
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_North_Station_1_e87f146c57/Modinagar_North_Station_1_e87f146c57.png"
+		},
+		"banner": {
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modinagar_North_Station_3_e5cc66d933/Modinagar_North_Station_3_e5cc66d933.png"
+		},
+		"infoLink": "https://maps.app.goo.gl/bCgcy9SR5R73NBDD7"
+	},
+	"meerut_south": {
+		"id": "meerut_south",
+		"name": {"en": "Meerut South"},
+		"code": "A10",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.90437, "lon": 77.63245}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "6:00:00", "closing": "22:47:50"},
+		"contact": {"mobile": "7428307121"},
+		"description": {
+			"en": "1. Meerut South is eighth station from Delhi end and terminal station from Meerut end on the presently operational section of Sahibabad to Meerut South. Meerut South is an elevated station. 2. The station is located on Delhi-Meerut road and is in the outskirts City of Meerut at its southern end. 3. The starting point of Delhi-Meerut Expressway and Meerut By-pass road is in the close proximity of the station. 4. Meerut South is a divyangjan friendly station."
+		},
+		"neighbors": [
+			{"station": "modi_nagar_north", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 8313, "travel_time_sec": 330},
+			{"station": "partapur", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2637, "travel_time_sec": 120}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
+			"3": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Meerut end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Meerut end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "G1-L1",
+					"location": "From Ground to Concourse, near Gate 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "G2-L1",
+					"location": "From Ground to Concourse, near Gate 2",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C3-L1",
+					"location": "From Concourse to Platform 1",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C3-L2",
+					"location": "From Concourse to Platform 2 & 3",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"5": {
+					"code": "LIFT_5",
+					"name": "C1-L1",
+					"location": "From Concourse to Platform 1, near Meerut End",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"6": {
+					"code": "LIFT_6",
+					"name": "C1-L2",
+					"location": "From Concourse to Platform 2 & 3, near Meerut End",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "From Ground to PD, at Gate 1", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "From Ground to PD, at Gate 2", "status": true, "direction": "Unknown"},
+				"3": {"code": "ESC_3", "name": "PD2-E1", "location": "From PD to Concourse, at Gate 1", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "PD2-E3", "location": "From PD to Concourse, at Gate 2", "status": true, "direction": "Unknown"},
+				"5": {"code": "ESC_5", "name": "C1-E1", "location": "From Concourse to Platform 1 (Delhi End)", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "C1-E2", "location": "From Concourse to Platform 2 &3 (Delhi End)", "status": true, "direction": "Up"},
+				"7": {"code": "ESC_7", "name": "C3-E1", "location": "From Concourse to Platform 1 (Meerut End)", "status": true, "direction": "Down"},
+				"8": {"code": "ESC_8", "name": "C3-E2", "location": "From Concourse to Platform 2&3 (Meerut End)", "status": true, "direction": "Down"}
+			}
+		},
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Meerut_South_a92d19f99e/Meerut_South_a92d19f99e.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/meeruth_South_web_b98a4b93de/meeruth_South_web_b98a4b93de.png"},
+		"infoLink": "https://maps.app.goo.gl/Qwtz2B2pinxURKfU8"
+	},
+	"partapur": {
+		"id": "partapur",
+		"name": {"en": "Partapur"},
+		"code": "A11",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.9220478, "lon": 77.6479607}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:34:30", "closing": "22:34:30"},
+		"contact": {"mobile": "9289269609"},
+		"description": {
+			"en": "1. Partapur Station is the thirteenth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. Partapur is an elevated Meerut metro station. 2. Partapur station is on the outskirts City of Meerut. 3. The starting point of the Delhi-Meerut Expressway and Meerut by-pass road is near the station. 4. Partapur is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "meerut_south", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2637, "travel_time_sec": 120},
+			{"station": "rithani", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1478, "travel_time_sec": 90}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "G1-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {"code": "LIFT_2", "name": "G2-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C1-L2 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "", "status": true, "direction": "Up"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/PART_Complete_0c6aad3cf7/PART_Complete_0c6aad3cf7.pdf"},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 32
+			},
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/PART_Complete_14a1864662/PART_Complete_14a1864662.pdf"},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 33
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/partapur_6123e195c3/partapur_6123e195c3.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/partapur_1_e520df003e/partapur_1_e520df003e.png"},
+		"infoLink": "https://maps.app.goo.gl/oerNNASVne28dPqB8"
+	},
+	"rithani": {
+		"id": "rithani",
+		"name": {"en": "Rithani"},
+		"code": "A12",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.9344098, "lon": 77.6605114}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:32:10", "closing": "22:32:10"},
+		"contact": {"mobile": "9289269610"},
+		"description": {
+			"en": "1. Rithani Station is the fourteenth station from Jangpura Station, on Delhi-Ghaziabad Meerut Namo Bharat corridor. Rithani is an elevated Meerut Metro station. 2. Rithani station is on the outskirts City of Meerut. 3. This station is close to Meerut city and Metro Estate society. 4. Rithani station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "partapur", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1478, "travel_time_sec": 90},
+			{"station": "shatabdi_nagar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2125, "travel_time_sec": 140}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {"code": "LIFT_1", "name": "G1-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"2": {
+					"code": "LIFT_2",
+					"name": "G2-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C1-L2 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "C1-E2", "location": "", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "C1-E3", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E4", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "G2-E1", "location": "", "status": true, "direction": "Up"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/RITH_Complete_e575e67950/RITH_Complete_e575e67950.pdf"},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 34
+			},
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/RITH_Complete_1_8afc5c00ed/RITH_Complete_1_8afc5c00ed.pdf"},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 35
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/04_Rithani_Station_7c4dce20b1/04_Rithani_Station_7c4dce20b1.png"},
+		"infoLink": "https://maps.app.goo.gl/aRF9yRhZr6gMzock7"
+	},
+	"shatabdi_nagar": {
+		"id": "shatabdi_nagar",
+		"name": {"en": "Shatabdi Nagar"},
+		"code": "A13",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.9474292, "lon": 77.6709983}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:29:20", "closing": "22:29:20"},
+		"contact": {"mobile": "9289269611"},
+		"description": {
+			"en": "1. Shatabdi Nagar Station is the fifteenth station from Jangpura Station on Delhi Ghaziabad-Meerut Namo Bharat corridor. This is an elevated Namo Bharat and Meerut Metro station. 2. Shatabdi Nagar station is in the Meerut city on the NH 58 highway. This is close to Dainik Jagran, Shopprix mall. 3. Shatabdi Nagar station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "rithani", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2125, "travel_time_sec": 140},
+			{"station": "brahampuri", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1835, "travel_time_sec": 90}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"3": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"4": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "G1-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {"code": "LIFT_2", "name": "G2-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": false
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C1-L2 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "", "status": true, "direction": "Down"},
+				"3": {"code": "ESC_3", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E2", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C3-E1", "location": "", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C3-E2", "location": "", "status": true, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SHAN_Complete_dc0fb34241/SHAN_Complete_dc0fb34241.pdf"},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 36
+			},
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/SHAN_Complete_254b038e36/SHAN_Complete_254b038e36.pdf"},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 37
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Shatabdi_nagar_b2e5f3b22a/Shatabdi_nagar_b2e5f3b22a.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Shatabdi_Nagar_1_bcf178e0bf/Shatabdi_Nagar_1_bcf178e0bf.png"},
+		"infoLink": "https://maps.app.goo.gl/mrVVLRoBBdAUxUWB7"
+	},
+	"brahampuri": {
+		"id": "brahampuri",
+		"name": {"en": "Brahampuri"},
+		"code": "A14",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.9506041, "lon": 77.586652}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:22:40", "closing": "22:14:40"},
+		"contact": {"mobile": "9211355251"},
+		"description": {
+			"en": "1. Brahampuri Station is the seventeenth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is a Meerut metro elevated station. 2. Brahampuri station is in the Meerut city on the NH 58 highway near Transport Nagar and Naveen Sabzi Mandi. 3. Brahampuri station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "shatabdi_nagar", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1835, "travel_time_sec": 90},
+			{"station": "meerut_central", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1343, "travel_time_sec": 120}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {"code": "LIFT_1", "name": "G1-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"2": {
+					"code": "LIFT_2",
+					"name": "G2-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C1-L2 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "", "status": true, "direction": "Down"},
+				"3": {"code": "ESC_3", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E2", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C1-E4", "location": "", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C1-E3", "location": "", "status": true, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/BRAM_Complete_dd168b103e/BRAM_Complete_dd168b103e.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/BRAM_Complete_1_335e11f569/BRAM_Complete_1_335e11f569.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 38
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/BRAM_Complete3_2ec1744d12/BRAM_Complete3_2ec1744d12.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/BRAM_Complete3_943dd3a063/BRAM_Complete3_943dd3a063.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 39
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Brahampuri_04a8c3fbb5/Brahampuri_04a8c3fbb5.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Brahampuri_1_129a466008/Brahampuri_1_129a466008.png"},
+		"infoLink": "https://maps.app.goo.gl/C1CLmyu7JKwD2qMe7"
+	},
+	"meerut_central": {
+		"id": "meerut_central",
+		"name": {"en": "Meerut Central"},
+		"code": "A15",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.9508543, "lon": 77.5866517}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:25:30", "closing": "22:17:30"},
+		"contact": {"mobile": "9211355252"},
+		"description": {
+			"en": "1. Meerut Central Station is the eighteenth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor.This is a Meerut metro underground station. 2. Meerut Central station is in the Meerut city on the NH 58 highway near Metro Plaza. 3. Meerut Central station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "brahampuri", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1343, "travel_time_sec": 120},
+			{"station": "bhaisali", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2097, "travel_time_sec": 90}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C2-L1(stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {"code": "LIFT_2", "name": "C3-L3", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L2 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C2-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "C2-E2", "location": "", "status": true, "direction": "Down"},
+				"3": {"code": "ESC_3", "name": "C3-E5", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C3-E6", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C1-E3", "location": "", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C1-E4", "location": "", "status": true, "direction": "Down"}
+			}
+		},
+		"images": {
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/07_Meerut_Central_Station_5b3fdf9d0d/07_Meerut_Central_Station_5b3fdf9d0d.png"
+		},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Meerut_Central_4bfb131b03/Meerut_Central_4bfb131b03.png"},
+		"infoLink": "https://maps.app.goo.gl/cHxiQhTQARJFkTim7"
+	},
+	"bhaisali": {
+		"id": "bhaisali",
+		"name": {"en": "Bhaisali"},
+		"code": "A16",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.9878968, "lon": 77.6970234}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:21:10", "closing": "22:21:10"},
+		"contact": {"mobile": "9211355253"},
+		"description": {
+			"en": "1. Bhaisali Station is the nineteenth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is Meerut metro underground station. 2. Bhaisali station is in the Meerut city on the NH 58 highway near Bhaisali Bus stand. 3. Bhaisali station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "meerut_central", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2097, "travel_time_sec": 90},
+			{"station": "begumpul", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1223, "travel_time_sec": 100}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}},
+			"3": {"code": "GA3", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C2-L1 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C2-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "C2-E2", "location": "", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "C1-E5", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E6", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C3-E7", "location": "", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "C3-E8", "location": "", "status": true, "direction": "Up"}
+			}
+		},
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Bhaisali_45484ac6f2/Bhaisali_45484ac6f2.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Bhaisali_1_ca18995075/Bhaisali_1_ca18995075.png"},
+		"infoLink": "https://maps.app.goo.gl/7hzDnYZtRr3KkiKVA"
+	},
+	"begumpul": {
+		"id": "begumpul",
+		"name": {"en": "Begumpul"},
+		"code": "A17",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 28.9966026, "lon": 77.7031526}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:32:00", "closing": "22:24:00"},
+		"contact": {"mobile": "9211355254"},
+		"description": {
+			"en": "1. Begumpul Station is the twentieth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is an underground NamoBharat/Meerut metro station. 2. Begumpul station is in the Meerut city on the NH 58 highway near Begum Bridge and Shiv Chowk. 3. Begumpul station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "bhaisali", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1223, "travel_time_sec": 100},
+			{"station": "mes_colony", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2081, "travel_time_sec": 90}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}},
+			"3": {"code": "GA3", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}},
+			"4": {"code": "GA4", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "LIFT_1",
+					"name": "C2-L1 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C1-L1 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {"code": "LIFT_3", "name": "C4-L2", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "C2-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "C2-E2", "location": "", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "C2-E3", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C2-E4", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
+				"6": {"code": "ESC_6", "name": "C1-E4", "location": "", "status": true, "direction": "Up"},
+				"7": {"code": "ESC_7", "name": "I1-E1", "location": "", "status": true, "direction": "Up"},
+				"8": {"code": "ESC_8", "name": "C4-E3", "location": "", "status": true, "direction": "Up"},
+				"9": {"code": "ESC_9", "name": "C4-E4", "location": "", "status": true, "direction": "Up"}
+			}
+		},
+		"images": {
+			"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/09_Begumpul_Namo_Bharat_Station_278f4f4990/09_Begumpul_Namo_Bharat_Station_278f4f4990.png"
+		}
+	},
+	"mes_colony": {
+		"id": "mes_colony",
+		"name": {"en": "MES Colony"},
+		"code": "A18",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 29.0066066, "lon": 77.7017383}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:16:40", "closing": "22:16:40"},
+		"contact": {"mobile": "9211355257"},
+		"description": {
+			"en": "1. MES Colony Station is the twenty-first station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is an elevated Meerut Metro station. 2. MES Colony station is in the Meerut city on the Roorkee road, near Company Garden (Gandhi Bagh). 3. MES Colony station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "begumpul", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2081, "travel_time_sec": 90},
+			{"station": "daurli", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2816, "travel_time_sec": 90}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {"code": "LIFT_1", "name": "G1-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"2": {
+					"code": "LIFT_2",
+					"name": "G2-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C1-L2 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": false,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "", "status": true, "direction": "Down"},
+				"3": {"code": "ESC_3", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E2", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C3-E1", "location": "", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C3-E2", "location": "", "status": true, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MEES_Complete_5a18138ca8/MEES_Complete_5a18138ca8.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MEES_Complete_2_5f0197a22e/MEES_Complete_2_5f0197a22e.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 30
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MEES_Complete_dfabe5ae84/MEES_Complete_dfabe5ae84.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MEES_Complete_1_a9149d060a/MEES_Complete_1_a9149d060a.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 31
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MES_Colony_eeba7c8dec/MES_Colony_eeba7c8dec.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MES_Colony_1_a752fd45ef/MES_Colony_1_a752fd45ef.png"},
+		"infoLink": "https://maps.app.goo.gl/8hyn5J2yywrdRySe6"
+	},
+	"daurli": {
+		"id": "daurli",
+		"name": {"en": "Daurli"},
+		"code": "A19",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 29.0068247, "lon": 77.5472216}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:12:10", "closing": "22:12:10"},
+		"contact": {"mobile": "9211355256"},
+		"description": {
+			"en": "1. Daurli Station is the twenty-second station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is an elevated meerut metro station. 2. Daurli station is in the Meerut city on the Roorkee road near Indian Oil Petrol Pump. 3. Daurli station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "mes_colony", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2816, "travel_time_sec": 90},
+			{"station": "meerut_north", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1406, "travel_time_sec": 90}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": true, "status": "closed", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {"code": "LIFT_1", "name": "G2-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C1-L1 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {"code": "LIFT_3", "name": "C1-L2", "location": "", "divyang_friendly": true, "is_stretcher_lift": true, "status": true}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G2-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "C1-E2", "location": "", "status": true, "direction": "Up"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DAUR_Complete_7d4d5b853e/DAUR_Complete_7d4d5b853e.pdf"},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 28
+			},
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/DAUR_Complete_a57e4502e0/DAUR_Complete_a57e4502e0.pdf"},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 29
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Daurli_209ac22008/Daurli_209ac22008.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Daurli_1_09a9235f35/Daurli_1_09a9235f35.png"},
+		"infoLink": "https://maps.app.goo.gl/WgEKkPitSX8JYyko6"
+	},
+	"meerut_north": {
+		"id": "meerut_north",
+		"name": {"en": "Meerut North"},
+		"code": "A20",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 29.0534402, "lon": 77.7055358}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:09:20", "closing": "22:09:20"},
+		"contact": {"mobile": "9211355255"},
+		"description": {
+			"en": "1. Meerut North Station is the twenty-third station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is an elevated Meerut metro station. 2. Meerut North station is in the Meerut city on the National Highway 58 near Pallavpuram Phase 1 3. Meerut North station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "daurli", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 1406, "travel_time_sec": 90},
+			{"station": "modipuram", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2098, "travel_time_sec": 90}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {"code": "LIFT_1", "name": "G1-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"2": {
+					"code": "LIFT_2",
+					"name": "G2-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {
+					"code": "LIFT_3",
+					"name": "C1-L1 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"4": {
+					"code": "LIFT_4",
+					"name": "C1-L2 (stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "", "status": true, "direction": "Up"},
+				"3": {"code": "ESC_3", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E2", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C3-E1", "location": "", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C3-E2", "location": "", "status": true, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MEEN_Complete_ec66c74c60/MEEN_Complete_ec66c74c60.pdf"},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 26
+			},
+			{
+				"layout": {"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MEEN_Complete_1_c8e248c942/MEEN_Complete_1_c8e248c942.pdf"},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 27
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Meerut_North_37d7c74b1c/Meerut_North_37d7c74b1c.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Meerut_North_1_0393792a8a/Meerut_North_1_0393792a8a.png"},
+		"infoLink": "https://maps.app.goo.gl/Fj4TcHKMRKXguzWL6"
+	},
+	"modipuram": {
+		"id": "modipuram",
+		"name": {"en": "Modipuram"},
+		"code": "A21",
+		"lines": ["ncrtc.delhi_meerut_rrts"],
+		"location": {"decimal": {"lat": 29.0628785, "lon": 77.6981822}},
+		"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+		"timings": {"opening": "06:06:00", "closing": "22:06:00"},
+		"contact": {"mobile": "9211355258"},
+		"description": {
+			"en": "1. Modipuram Station is the twenty-fourth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat (RRTS/MRTS) corridor. Modipuram Station is for both RRTS & MRTS station. This is an elevated station. This is the terminal station for both MRTS & RRTS. 2. Modipuram station is in the Meerut city on the National Highway 58 near Panditji Dhaba and Shobhit University. 3. Modipuram station is a divyangjan-friendly station."
+		},
+		"neighbors": [
+			{"station": "meerut_north", "line": "ncrtc.delhi_meerut_rrts", "distance_m": 2098, "travel_time_sec": 90}
+		],
+		"platforms": {
+			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
+			"3": {"line": "ncrtc.delhi_meerut_rrts", "is_open": false, "lounge": false},
+			"4": {"line": "ncrtc.delhi_meerut_rrts", "is_open": false, "lounge": false}
+		},
+		"gates": {
+			"1": {"code": "GA1", "divyang": false, "status": "open", "landmark": {"en": "On road going to Meerut"}},
+			"2": {"code": "GA2", "divyang": false, "status": "open", "landmark": {"en": "On road going to Delhi"}}
+		},
+		"parkingCharges": {
+			"state": "Uttar Pradesh",
+			"currency": "INR",
+			"symbol": "₹",
+			"rates": {
+				"four_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 30},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 60},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 80},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 100}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 200}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 2000}}
+				},
+				"two_wheeler": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 10},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 25},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 30},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 30}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 60}
+					],
+					"monthly_passes": {"tariff_a": {"timing": "05:00 - 23:00", "fare": 600}}
+				},
+				"helmet": [
+					{"min_minutes": 0, "max_minutes": 720, "tag": "Up to 12 Hours", "fare": 5},
+					{"min_minutes": 720, "max_minutes": 1440, "tag": "12 to 24 Hours", "fare": 10}
+				],
+				"bicycle": {
+					"day_charges": [
+						{"min_minutes": 0, "max_minutes": 10, "tag": "Pick-up / Drop Off", "fare": 0},
+						{"min_minutes": 10, "max_minutes": 360, "fare": 5},
+						{"min_minutes": 360, "max_minutes": 720, "fare": 5},
+						{"min_minutes": 720, "max_minutes": 960, "fare": 10},
+						{"min_minutes": 960, "max_minutes": 1440, "tag": "Station Operations", "fare": 10}
+					],
+					"night_charges": [
+						{"min_minutes": 0, "max_minutes": 300, "tag": "Night Parking (00:00 - 05:00)", "fare": 20}
+					]
+				}
+			}
+		},
+		"facilities": {
+			"First Aid": [{"location": "Station Control Room"}],
+			"Washroom": [{"location": "Inside paid concourse, at Delhi end"}],
+			"Drinking Water": [{"location": "Inside paid concourse, at Delhi end"}]
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {"code": "LIFT_1", "name": "C1-L2", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"2": {
+					"code": "LIFT_2",
+					"name": "C3-L1 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				},
+				"3": {"code": "LIFT_3", "name": "G1-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"4": {"code": "LIFT_4", "name": "C1-L1", "location": "", "divyang_friendly": true, "is_stretcher_lift": false, "status": true},
+				"5": {
+					"code": "LIFT_5",
+					"name": "C3-L2 (Stretcher Lift)",
+					"location": "",
+					"divyang_friendly": true,
+					"is_stretcher_lift": true,
+					"status": true
+				}
+			},
+			"escalators": {
+				"1": {"code": "ESC_1", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
+				"2": {"code": "ESC_2", "name": "G2-E1", "location": "", "status": true, "direction": "Down"},
+				"3": {"code": "ESC_3", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
+				"4": {"code": "ESC_4", "name": "C1-E2", "location": "", "status": true, "direction": "Up"},
+				"5": {"code": "ESC_5", "name": "C3-E1", "location": "", "status": true, "direction": "Down"},
+				"6": {"code": "ESC_6", "name": "C3-E2", "location": "", "status": true, "direction": "Down"}
+			}
+		},
+		"stationLayout": [
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MODI_Complete_1_2d1f38bfed/MODI_Complete_1_2d1f38bfed.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MODI_Platform_Level_1_dcebbfd8d0/MODI_Platform_Level_1_dcebbfd8d0.png"
+				},
+				"level": "Platform",
+				"displayName": "Platform Level",
+				"id": 22
+			},
+			{
+				"layout": {
+					"pdf": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MODI_Complete_1_331cd211bf/MODI_Complete_1_331cd211bf.pdf",
+					"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/MODI_Concourse_Level_f4622b08dd/MODI_Concourse_Level_f4622b08dd.png"
+				},
+				"level": "Concourse",
+				"displayName": "Concourse Level",
+				"id": 23
+			}
+		],
+		"images": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modipuram_4e271ed570/Modipuram_4e271ed570.png"},
+		"banner": {"png": "https://storage.googleapis.com/rapidx-cms/rapidx-cms/Modipuram_38d2091ad4/Modipuram_38d2091ad4.png"},
+		"infoLink": "https://maps.app.goo.gl/Hicc1epyfXURWPgJ7"
+	}
+}

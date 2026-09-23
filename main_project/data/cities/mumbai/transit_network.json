@@ -1,0 +1,1865 @@
+{
+	"defaults": {
+		"defaultPlusCodePrefix": "7JFJ",
+		"stationType": "normal",
+		"layout": "elevated"
+	},
+	"fareRules": {
+		"currency": "INR",
+		"last_updated": "2026-09-20",
+		"networks": {
+			"mmopl": {"operator": "Mumbai Metro One Private Limited (Reliance / MMRDA)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
+			"mmmocl": {"operator": "Maha Mumbai Metro Operation Corporation Limited", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
+			"mmrcl": {"operator": "Mumbai Metro Rail Corporation Limited", "avgSpeedMetersPerMin": 600, "stationHaltMinutes": 0.5},
+			"cidco": {"operator": "City and Industrial Development Corporation / Maha Metro", "avgSpeedMetersPerMin": 500, "stationHaltMinutes": 0.5},
+			"mmrda_monorail": {"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)", "avgSpeedMetersPerMin": 350, "stationHaltMinutes": 0.75, "status": "suspended"}
+		},
+		"policies": {
+			"mmopl_line1": {
+				"network": "mmopl",
+				"effectiveFrom": "2024-01-01",
+				"fareModel": "distance_based",
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"fareTables": {
+					"standard": [
+						{"minKm": 0, "maxKm": 3, "fare": 10},
+						{"minKm": 3, "maxKm": 8, "fare": 20},
+						{"minKm": 8, "maxKm": 12, "fare": 30},
+						{"minKm": 12, "maxKm": null, "fare": 40}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {"en": "Token / QR Ticket", "hi": "टोकन / क्यूआर टिकट", "mr": "टोकन / क्यूआर तिकीट"}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"label": {"en": "Metro Smart Card (10% Off)", "hi": "स्मार्ट कार्ड (10% छूट)", "mr": "स्मार्ट कार्ड (१०% सवलत)"}
+					}
+				}
+			},
+			"mmmocl_standard": {
+				"network": "mmmocl",
+				"effectiveFrom": "2023-01-19",
+				"fareModel": "distance_based",
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"fareTables": {
+					"standard": [
+						{"minKm": 0, "maxKm": 3, "fare": 10},
+						{"minKm": 3, "maxKm": 12, "fare": 20},
+						{"minKm": 12, "maxKm": 18, "fare": 30},
+						{"minKm": 18, "maxKm": 24, "fare": 40},
+						{"minKm": 24, "maxKm": 30, "fare": 50},
+						{"minKm": 30, "maxKm": 36, "fare": 60},
+						{"minKm": 36, "maxKm": null, "fare": 70}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {"en": "Paper QR Ticket", "hi": "पेपर क्यूआर टिकट", "mr": "पेपर क्यूआर तिकीट"}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"label": {"en": "Mumbai 1 / NCMC Card (10% Off)", "hi": "मुंबई 1 / एनसीएमसी कार्ड (10% छूट)", "mr": "मुंबई १ / NCMC कार्ड (१०% सवलत)"}
+					}
+				}
+			},
+			"mmrcl_line3": {
+				"network": "mmrcl",
+				"effectiveFrom": "2024-10-07",
+				"fareModel": "distance_based",
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"fareTables": {
+					"standard": [
+						{"minKm": 0, "maxKm": 3, "fare": 10},
+						{"minKm": 3, "maxKm": 12, "fare": 20},
+						{"minKm": 12, "maxKm": 18, "fare": 30},
+						{"minKm": 18, "maxKm": 24, "fare": 40},
+						{"minKm": 24, "maxKm": 30, "fare": 50},
+						{"minKm": 30, "maxKm": 36, "fare": 60},
+						{"minKm": 36, "maxKm": null, "fare": 70}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {"en": "Metro QR Ticket", "hi": "मेट्रो क्यूआर टिकट", "mr": "मेट्रो क्यूआर तिकीट"}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"label": {"en": "NCMC Smart Card (10% Off)", "hi": "एनसीएमसी स्मार्ट कार्ड (10% छूट)", "mr": "NCMC स्मार्ट कार्ड (१०% सवलत)"}
+					}
+				}
+			},
+			"cidco_navi_mumbai": {
+				"network": "cidco",
+				"effectiveFrom": "2024-09-07",
+				"fareModel": "distance_based",
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"fareTables": {
+					"standard": [
+						{"minKm": 0, "maxKm": 4, "fare": 10},
+						{"minKm": 4, "maxKm": 8, "fare": 20},
+						{"minKm": 8, "maxKm": null, "fare": 30}
+					]
+				},
+				"products": {
+					"token": {"type": "base", "label": {"en": "Standard QR Ticket", "hi": "स्टैंडर्ड क्यूआर टिकट", "mr": "स्टँडर्ड क्यूआर तिकीट"}},
+					"smart_card": {"type": "discount", "baseProduct": "token", "discountPercent": 10, "label": {"en": "Mumbai 1 / NCMC Card (10% Off)", "hi": "मुंबई 1 / NCMC कार्ड (10% छूट)", "mr": "मुंबई १ / NCMC कार्ड (१०% सवलत)"}}
+				}
+			},
+			"mmrda_monorail_standard": {
+				"network": "mmrda_monorail",
+				"status": "suspended",
+				"effectiveFrom": "2018-01-01",
+				"effectiveTo": "2025-09-20",
+				"fareModel": "distance_based",
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"fareTables": {
+					"standard": [
+						{"minKm": 0, "maxKm": 3, "fare": 10},
+						{"minKm": 3, "maxKm": 12, "fare": 20},
+						{"minKm": 12, "maxKm": 18, "fare": 30},
+						{"minKm": 18, "maxKm": null, "fare": 40}
+					]
+				},
+				"products": {
+					"token": {"type": "base", "label": {"en": "Single Journey Token", "hi": "सिंगल जर्नी टोकन", "mr": "सिंगल जर्नी टोकन"}}
+				}
+			}
+		}
+	},
+	"station_types": {
+		"normal": {"en": "Normal Station", "hi": "साधारण स्टेशन", "mr": "सामान्य स्थानक"},
+		"interchange": {"en": "Interchange Station", "hi": "इंटरचेंज स्टेशन", "mr": "इंटरचेंज स्थानक"},
+		"walkway": {"en": "Interchange via Walkway", "hi": "वॉकवे द्वारा इंटरचेंज", "mr": "वॉकवे द्वारे इंटरचेंज"}
+	},
+		"lines": {
+		"mumbai.blue": {
+			"id": "mumbai.blue",
+			"network": "mmopl",
+			"operator": "MMOPL",
+			"farePolicy": "mmopl_line1",
+			"name": {"en": "Line 1 (Blue Line)", "mr": "मेट्रो मार्ग १ (ब्लू लाइन)", "hi": "मेट्रो लाइन १ (ब्लू लाइन)"},
+			"color": "#0072CE",
+			"status": "operational",
+			"stations": ["mmopl_1_versova", "mmopl_1_dnnagar", "mmopl_1_azadnagar", "mmopl_1_andheri", "mmopl_1_westernexpresshighway", "mmopl_1_chakala", "mmopl_1_airportroad", "marol_naka", "mmopl_1_sakinaka", "mmopl_1_asalpha", "mmopl_1_jagrutinagar", "mmopl_1_ghatkopar"]
+		},
+		"mumbai.yellow": {
+			"id": "mumbai.yellow",
+			"network": "mmmocl",
+			"operator": "MMMOCL",
+			"farePolicy": "mmmocl_standard",
+			"name": {"en": "Line 2A (Yellow Line)", "mr": "मेट्रो मार्ग २A (यलो लाइन)", "hi": "मेट्रो लाइन २A (यलो लाइन)"},
+			"color": "#FFD100",
+			"status": "operational",
+			"stations": ["mmmocl_2a_dahisareast", "mmmocl_2a_anandnagar", "mmmocl_2a_kandarpada", "mmmocl_2a_mandapeshwariccolony", "mmmocl_2a_eksar", "mmmocl_2a_borivaliwest", "mmmocl_2a_shimpoli", "mmmocl_2a_kandivaliwest", "mmmocl_2a_dahanukarwadi", "mmmocl_2a_valnaimeethchowky", "mmmocl_2a_maladwest", "mmmocl_2a_lowermalad", "mmmocl_2a_bangurnagar", "mmmocl_2a_goregaonwest", "mmmocl_2a_oshiwara", "mmmocl_2a_loweroshiwara", "mmmocl_2a_andheriwest"]
+		},
+		"mumbai.red": {
+			"id": "mumbai.red",
+			"network": "mmmocl",
+			"operator": "MMMOCL",
+			"farePolicy": "mmmocl_standard",
+			"name": {"en": "Line 7 (Red Line)", "mr": "मेट्रो मार्ग ७ (रेड लाइन)", "hi": "मेट्रो लाइन ७ (रेड लाइन)"},
+			"color": "#ED1C24",
+			"status": "operational",
+			"stations": ["mmmocl_2a_dahisareast", "mmmocl_7_ovaripada", "mmmocl_7_nationalpark", "mmmocl_7_devipada", "mmmocl_7_magathane", "mmmocl_7_poisar", "mmmocl_7_akurli", "mmmocl_7_kurar", "mmmocl_7_dindoshi", "mmmocl_7_aarey", "mmmocl_7_goregaoneast", "mmmocl_7_jogeshwarieast", "mmmocl_7_mogra", "mmmocl_7_gundavali"]
+		},
+		"mumbai.aqua": {
+			"id": "mumbai.aqua",
+			"network": "mmrcl",
+			"operator": "MMRCL",
+			"farePolicy": "mmrcl_line3",
+			"name": {"en": "Line 3 (Aqua Line)", "mr": "मेट्रो मार्ग ३ (अक्वा लाइन)", "hi": "मेट्रो लाइन ३ (एक्वा लाइन)"},
+			"color": "#00A3AD",
+			"status": "operational",
+			"stations": ["aarey_jvlr", "seepz", "midc_andheri", "marol_naka", "csmi_airport_t2", "sahar_road", "csmi_airport_t1", "santacruz_metro", "bandra_colony", "bandra_kurla_complex", "dharavi", "shitala_devi_mandir", "dadar_metro", "siddhivinayak", "worli", "acharya_atre_chowk", "science_centre", "mahalaxmi_metro", "jagannath_shankar_sheth_metro", "grant_road_metro", "girgaon", "kalbadevi", "chhatrapati_shivaji_maharaj_terminus_metro", "hutatma_chowk", "churchgate_metro", "vidhan_bhavan", "cuffe_parade"]
+		},
+		"mumbai.navi_mumbai_1": {
+			"id": "mumbai.navi_mumbai_1",
+			"network": "cidco",
+			"operator": "CIDCO / Maha Metro",
+			"farePolicy": "cidco_navi_mumbai",
+			"name": {"en": "Navi Mumbai Metro Line 1", "mr": "नवी मुंबई मेट्रो मार्ग १", "hi": "नवी मुंबई मेट्रो लाइन १"},
+			"color": "#00A4E4",
+			"status": "operational",
+			"stations": ["nmm_1_belapur", "nmm_1_sector7", "nmm_1_sciencepark", "nmm_1_utsavchowk", "nmm_1_sector11", "nmm_1_sector14", "nmm_1_centralpark", "nmm_1_pethpada", "nmm_1_sector34", "nmm_1_panchanand", "nmm_1_pendhar"]
+		},
+		"mumbai.monorail": {
+			"id": "mumbai.monorail",
+			"network": "mmrda_monorail",
+			"operator": "MMRDA",
+			"farePolicy": "mmrda_monorail_standard",
+			"name": {"en": "Monorail Line 1 (Green Line)", "mr": "मोनोरेल मार्ग १ (हिरवी लाइन)", "hi": "मोनोरेल लाइन १ (ग्रीन लाइन)"},
+			"color": "#78BE20",
+			"status": "suspended",
+			"stations": ["mm_mono_chembur", "mm_mono_vnp_rcmarg", "mm_mono_fertiliser", "mm_mono_bharat_petroleum", "mm_mono_mysore_colony", "mm_mono_bhakti_park", "mm_mono_wadala_depot", "mm_mono_gtb_nagar", "mm_mono_antop_hill", "mm_mono_acharya_atre", "mm_mono_wadala_bridge", "mm_mono_dadar_east", "mm_mono_naigaon", "mm_mono_ambedkar_nagar", "mm_mono_mint_colony", "mm_mono_lower_parel", "mm_mono_jacob_circle"]
+		}
+	},
+	"transfers": {
+		"marol_naka": {
+			"mumbai.blue": {
+				"marol_naka:mumbai.aqua": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
+			},
+			"mumbai.aqua": {
+				"marol_naka:mumbai.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
+			}
+		},
+		"mmmocl_7_gundavali": {
+			"mumbai.red": {
+				"mmopl_1_westernexpresshighway:mumbai.blue": {"type": "walkway", "transfer_mode": "skywalk", "distance_meters": 95}
+			}
+		},
+		"mmopl_1_westernexpresshighway": {
+			"mumbai.blue": {
+				"mmmocl_7_gundavali:mumbai.red": {"type": "walkway", "transfer_mode": "skywalk", "distance_meters": 95}
+			}
+		},
+		"mmopl_1_dnnagar": {
+			"mumbai.blue": {
+				"mmmocl_2a_andheriwest:mumbai.yellow": {"type": "walkway", "transfer_mode": "skywalk", "distance_meters": 120}
+			}
+		},
+		"mmmocl_2a_andheriwest": {
+			"mumbai.yellow": {
+				"mmopl_1_dnnagar:mumbai.blue": {"type": "walkway", "transfer_mode": "skywalk", "distance_meters": 120}
+			}
+		},
+		"mmmocl_2a_dahisareast": {
+			"mumbai.yellow": {
+				"mmmocl_2a_dahisareast:mumbai.red": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 30}
+			},
+			"mumbai.red": {
+				"mmmocl_2a_dahisareast:mumbai.yellow": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 30}
+			}
+		}
+	},
+	"stationData": {
+		"aarey_jvlr": {
+			"id": "aarey_jvlr",
+			"name": {"en": "Aarey JVLR", "mr": "आरे जे.वी.एल.आर", "hi": "आरे जे.वी.एल.आर"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.13101, "lon": 72.884255}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [{"station": "seepz", "line": "mumbai.aqua", "distance": 1339}],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"seepz": {
+			"id": "seepz",
+			"name": {"en": "SEEPZ", "mr": "सीप्झ", "hi": "सीप्झ"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.12578, "lon": 72.873447}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "aarey_jvlr", "line": "mumbai.aqua", "distance": 1339},
+				{"station": "midc_andheri", "line": "mumbai.aqua", "distance": 991}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"midc_andheri": {
+			"id": "midc_andheri",
+			"name": {"en": "Midc-andheri", "mr": "एम.आय.डी.सी-अंधेरी", "hi": "एम.आय.डी.सी-अंधेरी"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.117303, "lon": 72.87382}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [{"station": "seepz", "line": "mumbai.aqua", "distance": 991}, {"station": "marol_naka", "line": "mumbai.aqua", "distance": 1161}],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"marol_naka": {
+			"id": "marol_naka",
+			"name": {"en": "Marol Naka", "mr": "मरोळ नाका", "hi": "मरोल नाका"},
+			"lines": ["mumbai.blue", "mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.108436, "lon": 72.878579}
+			},
+			"properties": {"status": "operational", "station_type": "interchange", "layout": "underground"},
+			"neighbors": [
+				{"station": "mmopl_1_airportroad", "line": "mumbai.blue", "distance": 519},
+				{"station": "mmopl_1_sakinaka", "line": "mumbai.blue", "distance": 1186},
+				{"station": "midc_andheri", "line": "mumbai.aqua", "distance": 1161},
+				{"station": "csmi_airport_t2", "line": "mumbai.aqua", "distance": 854}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
+				"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"},
+				"3": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"4": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"csmi_airport_t2": {
+			"id": "csmi_airport_t2",
+			"name": {"en": "Csmi-airport - T2", "mr": "सी. एस. एम. आय विमानतळ - T2", "hi": "सी. एस. एम. आय विमानतळ - T2"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.102274, "lon": 72.874413}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "marol_naka", "line": "mumbai.aqua", "distance": 854},
+				{"station": "sahar_road", "line": "mumbai.aqua", "distance": 1006}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"sahar_road": {
+			"id": "sahar_road",
+			"name": {"en": "Sahar Road", "mr": "सहार रोड", "hi": "सहार रोड"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.102196, "lon": 72.865299}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "csmi_airport_t2", "line": "mumbai.aqua", "distance": 1006},
+				{"station": "csmi_airport_t1", "line": "mumbai.aqua", "distance": 1625}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"csmi_airport_t1": {
+			"id": "csmi_airport_t1",
+			"name": {"en": "CSMI Airport-t1", "mr": "सी. एस. एम. आय विमानतळ - T1", "hi": "सी. एस. एम. आय विमानतळ - T1"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.093926, "lon": 72.853447}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "sahar_road", "line": "mumbai.aqua", "distance": 1625},
+				{"station": "santacruz_metro", "line": "mumbai.aqua", "distance": 1926}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"santacruz_metro": {
+			"id": "santacruz_metro",
+			"name": {"en": "Santacruz Metro", "mr": "सांताक्रूझ मेट्रो", "hi": "सांताक्रूझ मेट्रो"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.078528, "lon": 72.847181}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "csmi_airport_t1", "line": "mumbai.aqua", "distance": 1926},
+				{"station": "bandra_colony", "line": "mumbai.aqua", "distance": 1010}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"bandra_colony": {
+			"id": "bandra_colony",
+			"name": {"en": "Bandra Colony", "mr": "वांद्रे कॉलनी", "hi": "वांद्रे कॉलनी"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.070103, "lon": 72.849266}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "santacruz_metro", "line": "mumbai.aqua", "distance": 1010},
+				{"station": "bandra_kurla_complex", "line": "mumbai.aqua", "distance": 1314}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"bandra_kurla_complex": {
+			"id": "bandra_kurla_complex",
+			"name": {"en": "Bandra-kurla Complex", "mr": "वांद्रे-कुर्ला कॉम्प्लेक्स", "hi": "वांद्रे-कुर्ला कॉम्प्लेक्स"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.060216, "lon": 72.854956}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "bandra_colony", "line": "mumbai.aqua", "distance": 1314},
+				{"station": "dharavi", "line": "mumbai.aqua", "distance": 766}
+			],
+			"platforms": {
+				"1": {"destination": "aarey_jvlr"},
+				"3": {"destination": "cuffe_parade"},
+				"2B": {"destination": "aarey_jvlr"},
+				"2A": {"destination": "aarey_jvlr"}
+			}
+		},
+		"dharavi": {
+			"id": "dharavi",
+			"name": {"en": "Dharavi", "mr": "धारावी", "hi": "धारावी"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.053896, "lon": 72.853093}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "bandra_kurla_complex", "line": "mumbai.aqua", "distance": 766},
+				{"station": "shitala_devi_mandir", "line": "mumbai.aqua", "distance": 2534}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"shitala_devi_mandir": {
+			"id": "shitala_devi_mandir",
+			"name": {"en": "Shitala Devi Mandir", "mr": "शीतला देवी मंदिर", "hi": "शीतला देवी मंदिर"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.034509, "lon": 72.842777}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "dharavi", "line": "mumbai.aqua", "distance": 2534},
+				{"station": "dadar_metro", "line": "mumbai.aqua", "distance": 1323}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"dadar_metro": {
+			"id": "dadar_metro",
+			"name": {"en": "Dadar Metro", "mr": "दादर मेट्रो", "hi": "दादर मेट्रो"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.023667, "lon": 72.8393}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "shitala_devi_mandir", "line": "mumbai.aqua", "distance": 1323},
+				{"station": "siddhivinayak", "line": "mumbai.aqua", "distance": 1312}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"siddhivinayak": {
+			"id": "siddhivinayak",
+			"name": {"en": "Siddhivinayak", "mr": "सिध्दिविनायक", "hi": "सिध्दिविनायक"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.015876, "lon": 72.830735}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "dadar_metro", "line": "mumbai.aqua", "distance": 1312},
+				{"station": "worli", "line": "mumbai.aqua", "distance": 1501}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"worli": {
+			"id": "worli",
+			"name": {"en": "Worli", "mr": "वरळी", "hi": "वरळी"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 19.00878, "lon": 72.819401}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "siddhivinayak", "line": "mumbai.aqua", "distance": 1501},
+				{"station": "acharya_atre_chowk", "line": "mumbai.aqua", "distance": 1497}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"acharya_atre_chowk": {
+			"id": "acharya_atre_chowk",
+			"name": {"en": "Acharya Atre Chowk", "mr": "आचार्य अत्रे चौक", "hi": "आचार्य अत्रे चौक"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.995963, "lon": 72.819777}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "worli", "line": "mumbai.aqua", "distance": 1497},
+				{"station": "science_centre", "line": "mumbai.aqua", "distance": 730}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"science_centre": {
+			"id": "science_centre",
+			"name": {"en": "Science Centre", "mr": "सायन्स सेंटर", "hi": "साइंस सेंटर"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.990425, "lon": 72.822838}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "acharya_atre_chowk", "line": "mumbai.aqua", "distance": 730},
+				{"station": "mahalaxmi_metro", "line": "mumbai.aqua", "distance": 1306}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"mahalaxmi_metro": {
+			"id": "mahalaxmi_metro",
+			"name": {"en": "Mahalaxmi Metro", "mr": "महालक्ष्मी मेट्रो", "hi": "महालक्ष्मी मेट्रो"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.979485, "lon": 72.825295}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "science_centre", "line": "mumbai.aqua", "distance": 1306},
+				{"station": "jagannath_shankar_sheth_metro", "line": "mumbai.aqua", "distance": 1123}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"jagannath_shankar_sheth_metro": {
+			"id": "jagannath_shankar_sheth_metro",
+			"name": {"en": "Jagannath Shankar Sheth Metro", "mr": "जेएसएस मेट्रो", "hi": "जेएसएस मेट्रो"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.970603, "lon": 72.821382}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "mahalaxmi_metro", "line": "mumbai.aqua", "distance": 1123},
+				{"station": "grant_road_metro", "line": "mumbai.aqua", "distance": 971}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"grant_road_metro": {
+			"id": "grant_road_metro",
+			"name": {"en": "Grant Road Metro", "mr": "ग्रँट रोड मेट्रो", "hi": "ग्रँट रोड मेट्रो"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.962924, "lon": 72.817997}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "jagannath_shankar_sheth_metro", "line": "mumbai.aqua", "distance": 971},
+				{"station": "girgaon", "line": "mumbai.aqua", "distance": 1381}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"girgaon": {
+			"id": "girgaon",
+			"name": {"en": "Girgaon", "mr": "गिरगाव", "hi": "गिरगाव"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.951929, "lon": 72.822606}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "grant_road_metro", "line": "mumbai.aqua", "distance": 1381},
+				{"station": "kalbadevi", "line": "mumbai.aqua", "distance": 758}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"kalbadevi": {
+			"id": "kalbadevi",
+			"name": {"en": "Kalbadevi", "mr": "काळबादेवी", "hi": "काळबादेवी"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.946899, "lon": 72.826943}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "girgaon", "line": "mumbai.aqua", "distance": 758},
+				{"station": "chhatrapati_shivaji_maharaj_terminus_metro", "line": "mumbai.aqua", "distance": 929}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"chhatrapati_shivaji_maharaj_terminus_metro": {
+			"id": "chhatrapati_shivaji_maharaj_terminus_metro",
+			"name": {"en": "Chhatrapati Shivaji Maharaj Terminus Metro", "mr": "सीएसएमटी मेट्रो", "hi": "सीएसएमटी मेट्रो"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.940664, "lon": 72.83217}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "kalbadevi", "line": "mumbai.aqua", "distance": 929},
+				{"station": "hutatma_chowk", "line": "mumbai.aqua", "distance": 714}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"hutatma_chowk": {
+			"id": "hutatma_chowk",
+			"name": {"en": "Hutatma Chowk", "mr": "हुतात्मा चौक", "hi": "हुतात्मा चौक"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.934579, "lon": 72.832826}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "chhatrapati_shivaji_maharaj_terminus_metro", "line": "mumbai.aqua", "distance": 714},
+				{"station": "churchgate_metro", "line": "mumbai.aqua", "distance": 866}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"churchgate_metro": {
+			"id": "churchgate_metro",
+			"name": {"en": "Churchgate Metro", "mr": "चर्चगेट मेट्रो", "hi": "चर्चगेट मेट्रो"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.930663, "lon": 72.826163}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "hutatma_chowk", "line": "mumbai.aqua", "distance": 866},
+				{"station": "vidhan_bhavan", "line": "mumbai.aqua", "distance": 699}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"vidhan_bhavan": {
+			"id": "vidhan_bhavan",
+			"name": {"en": "Vidhan Bhavan", "mr": "विधान भवन", "hi": "विधान भवन"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.924696, "lon": 72.825616}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [
+				{"station": "churchgate_metro", "line": "mumbai.aqua", "distance": 699},
+				{"station": "cuffe_parade", "line": "mumbai.aqua", "distance": 1496}
+			],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"cuffe_parade": {
+			"id": "cuffe_parade",
+			"name": {"en": "Cuffe Parade", "mr": "कफ परेड", "hi": "कफ परेड"},
+			"lines": ["mumbai.aqua"],
+			"location": {
+				"decimal": {"lat": 18.912955, "lon": 72.820196}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "underground"},
+			"neighbors": [{"station": "vidhan_bhavan", "line": "mumbai.aqua", "distance": 1496}],
+			"platforms": {
+				"1": {"destination": "cuffe_parade"},
+				"2": {"destination": "aarey_jvlr"}
+			}
+		},
+		"mmmocl_2a_dahisareast": {
+			"id": "mmmocl_2a_dahisareast",
+			"name": {"en": "Dahisar East", "mr": "Dahisar East", "hi": "Dahisar East"},
+			"lines": ["mumbai.yellow", "mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.25117, "lon": 72.86703}
+			},
+			"properties": {"status": "operational", "station_type": "interchange", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_anandnagar", "line": "mumbai.yellow", "distance": 730},
+				{"station": "mmmocl_7_ovaripada", "line": "mumbai.red", "transfer": true, "distance": 1024}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"3": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"}
+			}
+		},
+		"mmmocl_2a_anandnagar": {
+			"id": "mmmocl_2a_anandnagar",
+			"name": {"en": "Anand Nagar", "mr": "Anand Nagar", "hi": "Anand Nagar"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.25729, "lon": 72.86568}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_dahisareast", "line": "mumbai.yellow", "distance": 730},
+				{"station": "mmmocl_2a_kandarpada", "line": "mumbai.yellow", "distance": 1641}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_kandarpada": {
+			"id": "mmmocl_2a_kandarpada",
+			"name": {"en": "Kandarpada", "mr": "Kandarpada", "hi": "Kandarpada"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.25683, "lon": 72.8508}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_anandnagar", "line": "mumbai.yellow", "distance": 1641},
+				{"station": "mmmocl_2a_mandapeshwariccolony", "line": "mumbai.yellow", "distance": 1002}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_mandapeshwariccolony": {
+			"id": "mmmocl_2a_mandapeshwariccolony",
+			"name": {"en": "Mandapeshwar (ic Colony)", "mr": "Mandapeshwar (IC Colony)", "hi": "Mandapeshwar (IC Colony)"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.2497, "lon": 72.84574}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_kandarpada", "line": "mumbai.yellow", "distance": 1002},
+				{"station": "mmmocl_2a_eksar", "line": "mumbai.yellow", "distance": 1058}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_eksar": {
+			"id": "mmmocl_2a_eksar",
+			"name": {"en": "Eksar", "mr": "Eksar", "hi": "Eksar"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.24082, "lon": 72.84384}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_mandapeshwariccolony", "line": "mumbai.yellow", "distance": 1058},
+				{"station": "mmmocl_2a_borivaliwest", "line": "mumbai.yellow", "distance": 1191}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_borivaliwest": {
+			"id": "mmmocl_2a_borivaliwest",
+			"name": {"en": "Borivali (west)", "mr": "Borivali (West)", "hi": "Borivali (West)"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.23103, "lon": 72.8408}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_eksar", "line": "mumbai.yellow", "distance": 1191},
+				{"station": "mmmocl_2a_shimpoli", "line": "mumbai.yellow", "distance": 949}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_shimpoli": {
+			"id": "mmmocl_2a_shimpoli",
+			"name": {"en": "Shimpoli", "mr": "Shimpoli", "hi": "Shimpoli"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.2229, "lon": 72.84083}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_borivaliwest", "line": "mumbai.yellow", "distance": 949},
+				{"station": "mmmocl_2a_kandivaliwest", "line": "mumbai.yellow", "distance": 1057}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_kandivaliwest": {
+			"id": "mmmocl_2a_kandivaliwest",
+			"name": {"en": "Kandivali West", "mr": "Kandivali West", "hi": "Kandivali West"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.21438, "lon": 72.83758}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_shimpoli", "line": "mumbai.yellow", "distance": 1057},
+				{"station": "mmmocl_2a_dahanukarwadi", "line": "mumbai.yellow", "distance": 709}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_dahanukarwadi": {
+			"id": "mmmocl_2a_dahanukarwadi",
+			"name": {"en": "Dahanukarwadi", "mr": "Dahanukarwadi", "hi": "Dahanukarwadi"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.2088, "lon": 72.83505}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_kandivaliwest", "line": "mumbai.yellow", "distance": 709},
+				{"station": "mmmocl_2a_valnaimeethchowky", "line": "mumbai.yellow", "distance": 1390}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_valnaimeethchowky": {
+			"id": "mmmocl_2a_valnaimeethchowky",
+			"name": {"en": "Valnai-meeth Chowky", "mr": "Valnai-Meeth Chowky", "hi": "Valnai-Meeth Chowky"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.19696, "lon": 72.83372}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_dahanukarwadi", "line": "mumbai.yellow", "distance": 1390},
+				{"station": "mmmocl_2a_maladwest", "line": "mumbai.yellow", "distance": 1456}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_maladwest": {
+			"id": "mmmocl_2a_maladwest",
+			"name": {"en": "Malad West", "mr": "Malad West", "hi": "Malad West"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.18464, "lon": 72.83579}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_valnaimeethchowky", "line": "mumbai.yellow", "distance": 1456},
+				{"station": "mmmocl_2a_lowermalad", "line": "mumbai.yellow", "distance": 1364}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_lowermalad": {
+			"id": "mmmocl_2a_lowermalad",
+			"name": {"en": "Lower Malad", "mr": "Lower Malad", "hi": "Lower Malad"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.17297, "lon": 72.8363}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_maladwest", "line": "mumbai.yellow", "distance": 1364},
+				{"station": "mmmocl_2a_bangurnagar", "line": "mumbai.yellow", "distance": 991}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_bangurnagar": {
+			"id": "mmmocl_2a_bangurnagar",
+			"name": {"en": "Bangur Nagar", "mr": "Bangur Nagar", "hi": "Bangur Nagar"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.16459, "lon": 72.83488}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_lowermalad", "line": "mumbai.yellow", "distance": 991},
+				{"station": "mmmocl_2a_goregaonwest", "line": "mumbai.yellow", "distance": 1372}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_goregaonwest": {
+			"id": "mmmocl_2a_goregaonwest",
+			"name": {"en": "Goregaon West", "mr": "Goregaon West", "hi": "Goregaon West"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.15286, "lon": 72.83567}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_bangurnagar", "line": "mumbai.yellow", "distance": 1372},
+				{"station": "mmmocl_2a_oshiwara", "line": "mumbai.yellow", "distance": 815}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_oshiwara": {
+			"id": "mmmocl_2a_oshiwara",
+			"name": {"en": "Oshiwara", "mr": "Oshiwara", "hi": "Oshiwara"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.14605, "lon": 72.83406}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_goregaonwest", "line": "mumbai.yellow", "distance": 815},
+				{"station": "mmmocl_2a_loweroshiwara", "line": "mumbai.yellow", "distance": 686}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_loweroshiwara": {
+			"id": "mmmocl_2a_loweroshiwara",
+			"name": {"en": "Lower Oshiwara", "mr": "Lower Oshiwara", "hi": "Lower Oshiwara"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.14064, "lon": 72.83164}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_oshiwara", "line": "mumbai.yellow", "distance": 686},
+				{"station": "mmmocl_2a_andheriwest", "line": "mumbai.yellow", "distance": 507}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_2a_andheriwest": {
+			"id": "mmmocl_2a_andheriwest",
+			"name": {"en": "Andheri West", "mr": "Andheri West", "hi": "Andheri West"},
+			"lines": ["mumbai.yellow"],
+			"location": {
+				"decimal": {"lat": 19.14065, "lon": 72.82704}
+			},
+			"properties": {"status": "operational", "station_type": "walkway", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_2a_loweroshiwara", "line": "mumbai.yellow", "distance": 507},
+				{"station": "mmopl_1_dnnagar", "line": "mumbai.blue", "transfer": true, "distance": 1507}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"},
+				"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_gundavali": {
+			"id": "mmmocl_7_gundavali",
+			"name": {"en": "Gundavali", "mr": "Gundavali", "hi": "Gundavali"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.12054, "lon": 72.85596}
+			},
+			"properties": {"status": "operational", "station_type": "walkway", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_mogra", "line": "mumbai.red", "distance": 946},
+				{"station": "mmopl_1_westernexpresshighway", "line": "mumbai.blue", "transfer": true, "distance": 556}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_mogra": {
+			"id": "mmmocl_7_mogra",
+			"name": {"en": "Mogra", "mr": "Mogra", "hi": "Mogra"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.12862, "lon": 72.85531}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_gundavali", "line": "mumbai.red", "distance": 946},
+				{"station": "mmmocl_7_jogeshwarieast", "line": "mumbai.red", "distance": 1573}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_jogeshwarieast": {
+			"id": "mmmocl_7_jogeshwarieast",
+			"name": {"en": "Jogeshwari East", "mr": "Jogeshwari East", "hi": "Jogeshwari East"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.14208, "lon": 72.85476}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_mogra", "line": "mumbai.red", "distance": 1573},
+				{"station": "mmmocl_7_goregaoneast", "line": "mumbai.red", "distance": 1136}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_goregaoneast": {
+			"id": "mmmocl_7_goregaoneast",
+			"name": {"en": "Goregaon East", "mr": "Goregaon East", "hi": "Goregaon East"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.1517, "lon": 72.85631}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_jogeshwarieast", "line": "mumbai.red", "distance": 1136},
+				{"station": "mmmocl_7_aarey", "line": "mumbai.red", "distance": 2079}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_aarey": {
+			"id": "mmmocl_7_aarey",
+			"name": {"en": "Aarey", "mr": "Aarey", "hi": "Aarey"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.16936, "lon": 72.8587}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_goregaoneast", "line": "mumbai.red", "distance": 2079},
+				{"station": "mmmocl_7_dindoshi", "line": "mumbai.red", "distance": 1220}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_dindoshi": {
+			"id": "mmmocl_7_dindoshi",
+			"name": {"en": "Dindoshi", "mr": "Dindoshi", "hi": "Dindoshi"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.1798, "lon": 72.85823}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_aarey", "line": "mumbai.red", "distance": 1220},
+				{"station": "mmmocl_7_kurar", "line": "mumbai.red", "distance": 897}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_kurar": {
+			"id": "mmmocl_7_kurar",
+			"name": {"en": "Kurar", "mr": "Kurar", "hi": "Kurar"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.18748, "lon": 72.85842}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_dindoshi", "line": "mumbai.red", "distance": 897},
+				{"station": "mmmocl_7_akurli", "line": "mumbai.red", "distance": 1328}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_akurli": {
+			"id": "mmmocl_7_akurli",
+			"name": {"en": "Akurli", "mr": "Akurli", "hi": "Akurli"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.19865, "lon": 72.86067}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_kurar", "line": "mumbai.red", "distance": 1328},
+				{"station": "mmmocl_7_poisar", "line": "mumbai.red", "distance": 678}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_poisar": {
+			"id": "mmmocl_7_poisar",
+			"name": {"en": "Poisar", "mr": "Poisar", "hi": "Poisar"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.20385, "lon": 72.86341}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_akurli", "line": "mumbai.red", "distance": 678},
+				{"station": "mmmocl_7_magathane", "line": "mumbai.red", "distance": 1563}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_magathane": {
+			"id": "mmmocl_7_magathane",
+			"name": {"en": "Magathane", "mr": "Magathane", "hi": "Magathane"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.21685, "lon": 72.86679}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_poisar", "line": "mumbai.red", "distance": 1563},
+				{"station": "mmmocl_7_devipada", "line": "mumbai.red", "distance": 924}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_devipada": {
+			"id": "mmmocl_7_devipada",
+			"name": {"en": "Devipada", "mr": "Devipada", "hi": "Devipada"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.22436, "lon": 72.86414}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_magathane", "line": "mumbai.red", "distance": 924},
+				{"station": "mmmocl_7_nationalpark", "line": "mumbai.red", "distance": 1222}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_nationalpark": {
+			"id": "mmmocl_7_nationalpark",
+			"name": {"en": "National Park", "mr": "National Park", "hi": "National Park"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.23478, "lon": 72.86307}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_devipada", "line": "mumbai.red", "distance": 1222},
+				{"station": "mmmocl_7_ovaripada", "line": "mumbai.red", "distance": 948}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmmocl_7_ovaripada": {
+			"id": "mmmocl_7_ovaripada",
+			"name": {"en": "Ovaripada", "mr": "Ovaripada", "hi": "Ovaripada"},
+			"lines": ["mumbai.red"],
+			"location": {
+				"decimal": {"lat": 19.24284, "lon": 72.86411}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmmocl_7_nationalpark", "line": "mumbai.red", "distance": 948},
+				{"station": "mmmocl_2a_dahisareast", "line": "mumbai.yellow", "transfer": true, "distance": 1024}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+				"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+			}
+		},
+		"mmopl_1_versova": {
+			"id": "mmopl_1_versova",
+			"name": {"en": "Versova", "mr": "Versova", "hi": "Versova"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.13032, "lon": 72.8214}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [{"station": "mmopl_1_dnnagar", "line": "mumbai.blue", "distance": 1044}],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}
+			}
+		},
+		"mmopl_1_dnnagar": {
+			"id": "mmopl_1_dnnagar",
+			"name": {"en": "DN Nagar", "mr": "DN Nagar", "hi": "DN Nagar"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.12819, "lon": 72.83059}
+			},
+			"properties": {"status": "operational", "station_type": "walkway", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmopl_1_versova", "line": "mumbai.blue", "distance": 1044},
+				{"station": "mmopl_1_azadnagar", "line": "mumbai.blue", "distance": 531},
+				{"station": "mmmocl_2a_andheriwest", "line": "mumbai.yellow", "transfer": true, "distance": 1507}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_azadnagar": {
+			"id": "mmopl_1_azadnagar",
+			"name": {"en": "Azad Nagar", "mr": "Azad Nagar", "hi": "Azad Nagar"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.12719, "lon": 72.83529}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmopl_1_dnnagar", "line": "mumbai.blue", "distance": 531},
+				{"station": "mmopl_1_andheri", "line": "mumbai.blue", "distance": 1611}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_andheri": {
+			"id": "mmopl_1_andheri",
+			"name": {"en": "Andheri", "mr": "Andheri", "hi": "Andheri"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.12083, "lon": 72.84825}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmopl_1_azadnagar", "line": "mumbai.blue", "distance": 1611},
+				{"station": "mmopl_1_westernexpresshighway", "line": "mumbai.blue", "distance": 1074}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_westernexpresshighway": {
+			"id": "mmopl_1_westernexpresshighway",
+			"name": {"en": "Western Express Highway", "mr": "Western Express Highway", "hi": "Western Express Highway"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.1158, "lon": 72.8564}
+			},
+			"properties": {"status": "operational", "station_type": "walkway", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmopl_1_andheri", "line": "mumbai.blue", "distance": 1074},
+				{"station": "mmopl_1_chakala", "line": "mumbai.blue", "distance": 1291},
+				{"station": "mmmocl_7_gundavali", "line": "mumbai.red", "transfer": true, "distance": 556}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_chakala": {
+			"id": "mmopl_1_chakala",
+			"name": {"en": "Chakala", "mr": "Chakala", "hi": "Chakala"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.11231, "lon": 72.8675}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmopl_1_westernexpresshighway", "line": "mumbai.blue", "distance": 1291},
+				{"station": "mmopl_1_airportroad", "line": "mumbai.blue", "distance": 784}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_airportroad": {
+			"id": "mmopl_1_airportroad",
+			"name": {"en": "Airport Road", "mr": "Airport Road", "hi": "Airport Road"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.11014, "lon": 72.87423}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmopl_1_chakala", "line": "mumbai.blue", "distance": 784},
+				{"station": "marol_naka", "line": "mumbai.blue", "distance": 519}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_sakinaka": {
+			"id": "mmopl_1_sakinaka",
+			"name": {"en": "Saki Naka", "mr": "Saki Naka", "hi": "Saki Naka"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.10348, "lon": 72.88796}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "marol_naka", "line": "mumbai.blue", "distance": 1186},
+				{"station": "mmopl_1_asalpha", "line": "mumbai.blue", "distance": 1130}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_asalpha": {
+			"id": "mmopl_1_asalpha",
+			"name": {"en": "Asalpha", "mr": "Asalpha", "hi": "Asalpha"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.09634, "lon": 72.89487}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmopl_1_sakinaka", "line": "mumbai.blue", "distance": 1130},
+				{"station": "mmopl_1_jagrutinagar", "line": "mumbai.blue", "distance": 894}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_jagrutinagar": {
+			"id": "mmopl_1_jagrutinagar",
+			"name": {"en": "Jagruti Nagar", "mr": "Jagruti Nagar", "hi": "Jagruti Nagar"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.09247, "lon": 72.90186}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mmopl_1_asalpha", "line": "mumbai.blue", "distance": 894},
+				{"station": "mmopl_1_ghatkopar", "line": "mumbai.blue", "distance": 965}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"mmopl_1_ghatkopar": {
+			"id": "mmopl_1_ghatkopar",
+			"name": {"en": "Ghatkopar", "mr": "Ghatkopar", "hi": "Ghatkopar"},
+			"lines": ["mumbai.blue"],
+			"location": {
+				"decimal": {"lat": 19.08666, "lon": 72.90808}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [{"station": "mmopl_1_jagrutinagar", "line": "mumbai.blue", "distance": 965}],
+			"platforms": {
+				"1": {"line": "mumbai.blue", "destination": "mmopl_1_versova"},
+				"2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+			}
+		},
+		"nmm_1_belapur": {
+			"id": "nmm_1_belapur",
+			"name": {"en": "CBD Belapur", "mr": "सी.बी.डी. बेलापूर", "hi": "सी.बी.डी. बेलापूर"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0195, "lon": 73.0396}
+			},
+			"properties": {"status": "operational", "station_type": "terminal", "layout": "elevated"},
+			"neighbors": [{"station": "nmm_1_sector7", "line": "mumbai.navi_mumbai_1", "distance": 1132}],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"}
+			}
+		},
+		"nmm_1_sector7": {
+			"id": "nmm_1_sector7",
+			"name": {"en": "Sector 7 (Belapur)", "mr": "सेक्टर ७ (बेलापूर)", "hi": "सेक्टर ७ (बेलापूर)"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0268, "lon": 73.0471}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_belapur", "line": "mumbai.navi_mumbai_1", "distance": 1132},
+				{"station": "nmm_1_sciencepark", "line": "mumbai.navi_mumbai_1", "distance": 1268}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_sciencepark": {
+			"id": "nmm_1_sciencepark",
+			"name": {"en": "CIDCO Science Park", "mr": "सिडको सायन्स पार्क", "hi": "सिडको साइंस पार्क"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0345, "lon": 73.056}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_sector7", "line": "mumbai.navi_mumbai_1", "distance": 1268},
+				{"station": "nmm_1_utsavchowk", "line": "mumbai.navi_mumbai_1", "distance": 1342}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_utsavchowk": {
+			"id": "nmm_1_utsavchowk",
+			"name": {"en": "Utsav Chowk (Kharghar)", "mr": "उत्सव चौक (खारघर)", "hi": "उत्सव चौक (खारघर)"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0435, "lon": 73.0645}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_sciencepark", "line": "mumbai.navi_mumbai_1", "distance": 1342},
+				{"station": "nmm_1_sector11", "line": "mumbai.navi_mumbai_1", "distance": 782}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_sector11": {
+			"id": "nmm_1_sector11",
+			"name": {"en": "Sector 11 (Kharghar)", "mr": "सेक्टर ११ (खारघर)", "hi": "सेक्टर ११ (खारघर)"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0498, "lon": 73.0678}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_utsavchowk", "line": "mumbai.navi_mumbai_1", "distance": 782},
+				{"station": "nmm_1_sector14", "line": "mumbai.navi_mumbai_1", "distance": 766}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_sector14": {
+			"id": "nmm_1_sector14",
+			"name": {"en": "Sector 14 (Kharghar)", "mr": "सेक्टर १४ (खारघर)", "hi": "सेक्टर १४ (खारघर)"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0562, "lon": 73.0705}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_sector11", "line": "mumbai.navi_mumbai_1", "distance": 766},
+				{"station": "nmm_1_centralpark", "line": "mumbai.navi_mumbai_1", "distance": 799}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_centralpark": {
+			"id": "nmm_1_centralpark",
+			"name": {"en": "Central Park (Kharghar)", "mr": "सेंट्रल पार्क (खारघर)", "hi": "सेंट्रल पार्क (खारघर)"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0632, "lon": 73.0722}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_sector14", "line": "mumbai.navi_mumbai_1", "distance": 799},
+				{"station": "nmm_1_pethpada", "line": "mumbai.navi_mumbai_1", "distance": 746}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_pethpada": {
+			"id": "nmm_1_pethpada",
+			"name": {"en": "Pethpada", "mr": "पेठपाडा", "hi": "पेठपाड़ा"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0698, "lon": 73.0735}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_centralpark", "line": "mumbai.navi_mumbai_1", "distance": 746},
+				{"station": "nmm_1_sector34", "line": "mumbai.navi_mumbai_1", "distance": 691}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_sector34": {
+			"id": "nmm_1_sector34",
+			"name": {"en": "Sector 34 (Kharghar)", "mr": "सेक्टर ३४ (खारघर)", "hi": "सेक्टर ३४ (खारघर)"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.076, "lon": 73.074}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_pethpada", "line": "mumbai.navi_mumbai_1", "distance": 691},
+				{"station": "nmm_1_panchanand", "line": "mumbai.navi_mumbai_1", "distance": 802}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_panchanand": {
+			"id": "nmm_1_panchanand",
+			"name": {"en": "Panchanand", "mr": "पंचानंद", "hi": "पंचानंद"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0832, "lon": 73.0745}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "nmm_1_sector34", "line": "mumbai.navi_mumbai_1", "distance": 802},
+				{"station": "nmm_1_pendhar", "line": "mumbai.navi_mumbai_1", "distance": 924}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_pendhar"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"nmm_1_pendhar": {
+			"id": "nmm_1_pendhar",
+			"name": {"en": "Pendhar", "mr": "पेंधर", "hi": "पेंधर"},
+			"lines": ["mumbai.navi_mumbai_1"],
+			"location": {
+				"decimal": {"lat": 19.0915, "lon": 73.075}
+			},
+			"properties": {"status": "operational", "station_type": "terminal", "layout": "elevated"},
+			"neighbors": [{"station": "nmm_1_panchanand", "line": "mumbai.navi_mumbai_1", "distance": 924}],
+			"platforms": {
+				"1": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"},
+				"2": {"line": "mumbai.navi_mumbai_1", "destination": "nmm_1_belapur"}
+			}
+		},
+		"mm_mono_chembur": {
+			"id": "mm_mono_chembur",
+			"name": {"en": "Chembur", "mr": "चेंबूर", "hi": "चेंबूर"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0625, "lon": 72.8988}
+			},
+			"properties": {"status": "operational", "station_type": "terminal", "layout": "elevated"},
+			"neighbors": [{"station": "mm_mono_vnp_rcmarg", "line": "mumbai.monorail", "distance": 1100}],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"}
+			}
+		},
+		"mm_mono_vnp_rcmarg": {
+			"id": "mm_mono_vnp_rcmarg",
+			"name": {"en": "V.N. Purav Marg (RC Marg)", "mr": "व्ही. एन. पुरव मार्ग", "hi": "वी. एन. पुरव मार्ग"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0542, "lon": 72.8931}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_chembur", "line": "mumbai.monorail", "distance": 1100},
+				{"station": "mm_mono_fertiliser", "line": "mumbai.monorail", "distance": 906}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_fertiliser": {
+			"id": "mm_mono_fertiliser",
+			"name": {"en": "Fertiliser Township", "mr": "फर्टिलायझर टाउनशिप", "hi": "फर्टिलाइजर टाउनशिप"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0468, "lon": 72.8895}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_vnp_rcmarg", "line": "mumbai.monorail", "distance": 906},
+				{"station": "mm_mono_bharat_petroleum", "line": "mumbai.monorail", "distance": 860}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_bharat_petroleum": {
+			"id": "mm_mono_bharat_petroleum",
+			"name": {"en": "Bharat Petroleum", "mr": "भारत पेट्रोलियम", "hi": "भारत पेट्रोलियम"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0392, "lon": 72.888}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_fertiliser", "line": "mumbai.monorail", "distance": 860},
+				{"station": "mm_mono_mysore_colony", "line": "mumbai.monorail", "distance": 750}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_mysore_colony": {
+			"id": "mm_mono_mysore_colony",
+			"name": {"en": "Mysore Colony", "mr": "म्हैसूर कॉलनी", "hi": "मैसूर कॉलोनी"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0325, "lon": 72.8872}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_bharat_petroleum", "line": "mumbai.monorail", "distance": 750},
+				{"station": "mm_mono_bhakti_park", "line": "mumbai.monorail", "distance": 857}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_bhakti_park": {
+			"id": "mm_mono_bhakti_park",
+			"name": {"en": "Bhakti Park", "mr": "भक्ती पार्क", "hi": "भक्ति पार्क"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0262, "lon": 72.8825}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_mysore_colony", "line": "mumbai.monorail", "distance": 857},
+				{"station": "mm_mono_wadala_depot", "line": "mumbai.monorail", "distance": 1255}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_wadala_depot": {
+			"id": "mm_mono_wadala_depot",
+			"name": {"en": "Wadala Depot", "mr": "वडाळा आगार", "hi": "वडाला डिपो"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0205, "lon": 72.8722}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_bhakti_park", "line": "mumbai.monorail", "distance": 1255},
+				{"station": "mm_mono_gtb_nagar", "line": "mumbai.monorail", "distance": 1641}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_gtb_nagar": {
+			"id": "mm_mono_gtb_nagar",
+			"name": {"en": "GTB Nagar", "mr": "जी.टी.बी. नगर", "hi": "जी.टी.बी. नगर"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0315, "lon": 72.8618}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_wadala_depot", "line": "mumbai.monorail", "distance": 1641},
+				{"station": "mm_mono_antop_hill", "line": "mumbai.monorail", "distance": 867}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_antop_hill": {
+			"id": "mm_mono_antop_hill",
+			"name": {"en": "Antop Hill", "mr": "अंटॉप हिल", "hi": "अंटॉप हिल"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0238, "lon": 72.8605}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_gtb_nagar", "line": "mumbai.monorail", "distance": 867},
+				{"station": "mm_mono_acharya_atre", "line": "mumbai.monorail", "distance": 986}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_acharya_atre": {
+			"id": "mm_mono_acharya_atre",
+			"name": {"en": "Acharya Atre Nagar", "mr": "आचार्य अत्रे नगर", "hi": "आचार्य अत्रे नगर"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0152, "lon": 72.8582}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_antop_hill", "line": "mumbai.monorail", "distance": 986},
+				{"station": "mm_mono_wadala_bridge", "line": "mumbai.monorail", "distance": 695}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_wadala_bridge": {
+			"id": "mm_mono_wadala_bridge",
+			"name": {"en": "Wadala Bridge", "mr": "वडाळा ब्रिज", "hi": "वडाला ब्रिज"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0108, "lon": 72.8535}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_acharya_atre", "line": "mumbai.monorail", "distance": 695},
+				{"station": "mm_mono_dadar_east", "line": "mumbai.monorail", "distance": 1008}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_dadar_east": {
+			"id": "mm_mono_dadar_east",
+			"name": {"en": "Dadar East", "mr": "दादर पूर्व", "hi": "दादर पूर्व"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.015, "lon": 72.845}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_wadala_bridge", "line": "mumbai.monorail", "distance": 1008},
+				{"station": "mm_mono_naigaon", "line": "mumbai.monorail", "distance": 728}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_naigaon": {
+			"id": "mm_mono_naigaon",
+			"name": {"en": "Naigaon", "mr": "नायगाव", "hi": "नायगांव"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0085, "lon": 72.8442}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_dadar_east", "line": "mumbai.monorail", "distance": 728},
+				{"station": "mm_mono_ambedkar_nagar", "line": "mumbai.monorail", "distance": 723}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_ambedkar_nagar": {
+			"id": "mm_mono_ambedkar_nagar",
+			"name": {"en": "Ambedkar Nagar", "mr": "आंबेडकर नगर", "hi": "आंबेडकर नगर"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 19.0035, "lon": 72.8398}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_naigaon", "line": "mumbai.monorail", "distance": 723},
+				{"station": "mm_mono_mint_colony", "line": "mumbai.monorail", "distance": 605}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_mint_colony": {
+			"id": "mm_mono_mint_colony",
+			"name": {"en": "Mint Colony", "mr": "मिंट कॉलनी", "hi": "मिंट कॉलोनी"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 18.9982, "lon": 72.8385}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_ambedkar_nagar", "line": "mumbai.monorail", "distance": 605},
+				{"station": "mm_mono_lower_parel", "line": "mumbai.monorail", "distance": 817}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_lower_parel": {
+			"id": "mm_mono_lower_parel",
+			"name": {"en": "Lower Parel", "mr": "लोअर परळ", "hi": "लोअर परेल"},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 18.995, "lon": 72.8315}
+			},
+			"properties": {"status": "operational", "station_type": "normal", "layout": "elevated"},
+			"neighbors": [
+				{"station": "mm_mono_mint_colony", "line": "mumbai.monorail", "distance": 817},
+				{"station": "mm_mono_jacob_circle", "line": "mumbai.monorail", "distance": 949}
+			],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_jacob_circle"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		},
+		"mm_mono_jacob_circle": {
+			"id": "mm_mono_jacob_circle",
+			"name": {
+				"en": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+				"mr": "संत गाडगे महाराज चौक (जेकब सर्कल)",
+				"hi": "संत गाडगे महाराज चौक (जैकब सर्कल)"
+			},
+			"lines": ["mumbai.monorail"],
+			"location": {
+				"decimal": {"lat": 18.9875, "lon": 72.8272}
+			},
+			"properties": {"status": "operational", "station_type": "terminal", "layout": "elevated"},
+			"neighbors": [{"station": "mm_mono_lower_parel", "line": "mumbai.monorail", "distance": 949}],
+			"platforms": {
+				"1": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"},
+				"2": {"line": "mumbai.monorail", "destination": "mm_mono_chembur"}
+			}
+		}
+	}
+}

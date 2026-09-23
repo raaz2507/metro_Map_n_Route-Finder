@@ -1,0 +1,2161 @@
+{
+	"nmm_1_belapur": {
+		"id": "nmm_1_belapur",
+		"name": {
+			"en": "CBD Belapur",
+			"mr": "सी.बी.डी. बेलापूर",
+			"hi": "सी.बी.डी. बेलापूर"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0195,
+				"lon": 73.0396
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "terminal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_sector7",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 1132
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Sion-Panvel Expressway, Belapur Railway Station FOB Link"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Sector 11 & Sakal Bhavan Road, CBD Belapur"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "CBD Belapur",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "CBD Belapur",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "CBD Belapur",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "CBD Belapur",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "CBD Belapur",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "CBD Belapur",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Terminal Station",
+			"Harbour Line Railway Connection",
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Southern terminal elevated multimodal hub of Navi Mumbai Metro Line 1, directly connected to CBD Belapur Suburban Railway Station on Harbour Line.",
+			"mr": "हार्बर मार्गावरील सी.बी.डी. बेलापूर उपनगरीय रेल्वे स्थानकाशी जोडलेले नवी मुंबई मेट्रो मार्ग १ चे दक्षिण टोकावरील टर्मिनल स्थानक.",
+			"hi": "हार्बर लाइन के सी.बी.डी. बेलापूर रेलवे स्टेशन से सीधे जुड़ा हुआ नवी मुंबई मेट्रो लाइन १ का दक्षिणी टर्मिनल स्टेशन।"
+		},
+		"nearby_places": {
+			"Transit": [
+				{
+					"name": "CBD Belapur Suburban Railway Station",
+					"walking_min": 2
+				}
+			],
+			"Commercial": [
+				{
+					"name": "Sakal Bhavan Corporate Area",
+					"walking_min": 4
+				},
+				{
+					"name": "CIDCO Bhavan",
+					"walking_min": 8
+				}
+			]
+		}
+	},
+	"nmm_1_centralpark": {
+		"id": "nmm_1_centralpark",
+		"name": {
+			"en": "Central Park (Kharghar)",
+			"mr": "सेंट्रल पार्क (खारघर)",
+			"hi": "सेंट्रल पार्क (खारघर)"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0632,
+				"lon": 73.0722
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_sector14",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 799
+			},
+			{
+				"station": "nmm_1_pethpada",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 746
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Central Park Main Public Entrance"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "ISKCON Temple Kharghar & Golf Course Road"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Central Park (Kharghar)",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Central Park (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Central Park (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Central Park (Kharghar)",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Central Park (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Central Park (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Major Tourist & Spiritual Hub",
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Premier tourist and recreation gateway situated directly at Navi Mumbai Central Park (one of Asia's largest urban parks) and the grand ISKCON Temple.",
+			"mr": "आशियातील सर्वात मोठ्या उद्यानांपैकी एक असलेल्या सेंट्रल पार्क आणि इस्कॉन मंदिराचे मुख्य मेट्रो स्थानक.",
+			"hi": "एशिया के विशालतम सेंट्रल पार्क और भव्य इस्कॉन मंदिर के सामने स्थित प्रमुख पर्यटन व मनोरंजक स्टेशन।"
+		},
+		"nearby_places": {
+			"Parks & Leisure": [
+				{
+					"name": "Navi Mumbai Central Park",
+					"walking_min": 2
+				}
+			],
+			"Spiritual": [
+				{
+					"name": "ISKCON Temple Kharghar",
+					"walking_min": 6
+				}
+			]
+		}
+	},
+	"nmm_1_panchanand": {
+		"id": "nmm_1_panchanand",
+		"name": {
+			"en": "Panchanand",
+			"mr": "पंचानंद",
+			"hi": "पंचानंद"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0832,
+				"lon": 73.0745
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_sector34",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 802
+			},
+			{
+				"station": "nmm_1_pendhar",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 924
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Panchanand Colony, Taloja Link Road"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Sector 35 Kharghar Border"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Panchanand",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Panchanand",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Panchanand",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Panchanand",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Panchanand",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Panchanand",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Station located near Panchanand village connecting northern Kharghar with the industrial and logistics belt of Taloja.",
+			"mr": "उत्तर खारघर आणि तळोजा एमआयडीसी परिसराच्या सीमेवरील पंचानंद मेट्रो स्थानक.",
+			"hi": "उत्तर खारघर और तलोजा एमआईडीसी सीमा पर स्थित पंचानंद मेट्रो स्टेशन।"
+		},
+		"nearby_places": {
+			"Civic": [
+				{
+					"name": "Panchanand Municipal School",
+					"walking_min": 5
+				}
+			]
+		}
+	},
+	"nmm_1_pendhar": {
+		"id": "nmm_1_pendhar",
+		"name": {
+			"en": "Pendhar",
+			"mr": "पेंधर",
+			"hi": "पेंधर"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0915,
+				"lon": 73.075
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "terminal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_panchanand",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 924
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Pendhar Village & Taloja Industrial MIDC Road"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Taloja Metro Car Depot Entrance"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Pendhar",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Pendhar",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Pendhar",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Pendhar",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Pendhar",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Pendhar",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Terminal Station",
+			"Taloja Depot Hub",
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Northern terminal elevated station of Line 1, located at Pendhar adjacent to the main Taloja Metro Car Depot and Taloja MIDC industrial corridor.",
+			"mr": "नवी मुंबई मेट्रो मार्ग १ चा उत्तर टोकावरील टर्मिनल, जो तळोजा मेट्रो कार डेपो आणि औद्योगिक पट्ट्याला जोडतो.",
+			"hi": "नवी मुंबई मेट्रो लाइन १ का उत्तरी टर्मिनल स्टेशन, जो मुख्य तलोजा मेट्रो कार डिपो और तलोजा औद्योगिक कॉरिडोर से जुड़ा है।"
+		},
+		"nearby_places": {
+			"Transit": [
+				{
+					"name": "Taloja Metro Maintenance Depot",
+					"walking_min": 2
+				}
+			],
+			"Industrial": [
+				{
+					"name": "Taloja MIDC Phase 1",
+					"walking_min": 6
+				}
+			]
+		}
+	},
+	"nmm_1_pethpada": {
+		"id": "nmm_1_pethpada",
+		"name": {
+			"en": "Pethpada",
+			"mr": "पेठपाडा",
+			"hi": "पेठपाड़ा"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0698,
+				"lon": 73.0735
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_centralpark",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 746
+			},
+			{
+				"station": "nmm_1_sector34",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 691
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Pethpada Village & Sector 30, Kharghar"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Kharghar Valley Hills Approach"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Pethpada",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Pethpada",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Pethpada",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Pethpada",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Pethpada",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Pethpada",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Elevated station serving Pethpada, educational campuses of Saraswati College of Engineering, and valley view residential townships.",
+			"mr": "पेठपाडा आणि सरस्वती कॉलेज ऑफ इंजिनिअरिंग परिसराला जोडणारे मेट्रो स्थानक.",
+			"hi": "पेठपाड़ा और सरस्वती इंजीनियरिंग कॉलेज कैंपस को सेवा प्रदान करने वाला मेट्रो स्टेशन।"
+		},
+		"nearby_places": {
+			"Education": [
+				{
+					"name": "Saraswati College of Engineering",
+					"walking_min": 6
+				}
+			],
+			"Nature": [
+				{
+					"name": "Kharghar Hills View Point",
+					"walking_min": 10
+				}
+			]
+		}
+	},
+	"nmm_1_sciencepark": {
+		"id": "nmm_1_sciencepark",
+		"name": {
+			"en": "CIDCO Science Park",
+			"mr": "सिडको सायन्स पार्क",
+			"hi": "सिडको साइंस पार्क"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0345,
+				"lon": 73.056
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_sector7",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 1268
+			},
+			{
+				"station": "nmm_1_utsavchowk",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 1342
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "CIDCO Science Park Campus Entrance"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Utsav Chowk Approach Road, Kharghar Border"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "CIDCO Science Park",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "CIDCO Science Park",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "CIDCO Science Park",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "CIDCO Science Park",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "CIDCO Science Park",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "CIDCO Science Park",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Science & Education Hub",
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Elevated station situated right at the upcoming CIDCO Science Park exhibition centre and green recreation zones on the Belapur-Kharghar border.",
+			"mr": "सिडको सायन्स पार्क संकुल आणि खारघर सीमाभागाला सेवा देणारे आधुनिक उन्नत स्थानक.",
+			"hi": "सिडको साइंस पार्क और खारघर सीमा क्षेत्र के पास स्थित प्रमुख शैक्षणिक व पर्यटन मेट्रो स्टेशन।"
+		},
+		"nearby_places": {
+			"Education": [
+				{
+					"name": "CIDCO Science Park Centre",
+					"walking_min": 2
+				}
+			],
+			"Parks": [
+				{
+					"name": "Kharghar Valley Golf Course Access",
+					"walking_min": 12
+				}
+			]
+		}
+	},
+	"nmm_1_sector11": {
+		"id": "nmm_1_sector11",
+		"name": {
+			"en": "Sector 11 (Kharghar)",
+			"mr": "सेक्टर ११ (खारघर)",
+			"hi": "सेक्टर ११ (खारघर)"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0498,
+				"lon": 73.0678
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_utsavchowk",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 782
+			},
+			{
+				"station": "nmm_1_sector14",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 766
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Sector 11 Market Road, Kharghar"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Shilp Chowk Approach & Sector 12"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Sector 11 (Kharghar)",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Sector 11 (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Sector 11 (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Sector 11 (Kharghar)",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Sector 11 (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Sector 11 (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Elevated station on Kharghar spine road serving Sector 11, Shilp Chowk market, and educational institutes.",
+			"mr": "खारघर सेक्टर ११ मधील मुख्य बाजारपेठ आणि शिल्प चौकाला सेवा देणारे मेट्रो स्थानक.",
+			"hi": "खारघर सेक्टर ११ के मुख्य बाजार और शिल्प चौक क्षेत्र को जोड़ने वाला स्टेशन।"
+		},
+		"nearby_places": {
+			"Commercial": [
+				{
+					"name": "Shilp Chowk Market",
+					"walking_min": 4
+				}
+			],
+			"Education": [
+				{
+					"name": "NIFT Mumbai Campus",
+					"walking_min": 10
+				}
+			]
+		}
+	},
+	"nmm_1_sector14": {
+		"id": "nmm_1_sector14",
+		"name": {
+			"en": "Sector 14 (Kharghar)",
+			"mr": "सेक्टर १४ (खारघर)",
+			"hi": "सेक्टर १४ (खारघर)"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0562,
+				"lon": 73.0705
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_sector11",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 766
+			},
+			{
+				"station": "nmm_1_centralpark",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 799
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Sector 14 Main Avenue, Kharghar"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Kendriya Vihar & Jalvayu Vihar Access"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Sector 14 (Kharghar)",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Sector 14 (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Sector 14 (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Sector 14 (Kharghar)",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Sector 14 (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Sector 14 (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Serving major cooperative housing societies including Kendriya Vihar, Jalvayu Vihar, and surrounding schools in Kharghar.",
+			"mr": "केंद्रीय विहार आणि जलवायू विहार या मोठ्या निवासी वसाहतींना सेवा पुरवणारे मेट्रो स्थानक.",
+			"hi": "केंद्रीय विहार और जलवायु विहार जैसी प्रमुख आवासीय टाउनशिप्स को सेवा देने वाला एलिवेटेड स्टेशन।"
+		},
+		"nearby_places": {
+			"Residential": [
+				{
+					"name": "Kendriya Vihar Complex",
+					"walking_min": 3
+				},
+				{
+					"name": "Jalvayu Vihar",
+					"walking_min": 5
+				}
+			]
+		}
+	},
+	"nmm_1_sector34": {
+		"id": "nmm_1_sector34",
+		"name": {
+			"en": "Sector 34 (Kharghar)",
+			"mr": "सेक्टर ३४ (खारघर)",
+			"hi": "सेक्टर ३४ (खारघर)"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.076,
+				"lon": 73.074
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_pethpada",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 691
+			},
+			{
+				"station": "nmm_1_panchanand",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 802
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Sector 34 Main Road, Kharghar"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Valley Shilp Housing Project"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Sector 34 (Kharghar)",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Sector 34 (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Sector 34 (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Sector 34 (Kharghar)",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Sector 34 (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Sector 34 (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Serving the newly developed residential clusters of Sector 34, Valley Shilp, and Swapnapurti housing schemes.",
+			"mr": "व्हॅली शिल्प आणि स्वप्नपूर्ती गृहप्रकल्पांना सेवा देणारे खारघर सेक्टर ३४ मधील मेट्रो स्थानक.",
+			"hi": "वैली शिल्प और स्वप्नपूर्ति आवासीय योजनाओं को सेवा देने वाला खारघर सेक्टर ३४ का स्टेशन।"
+		},
+		"nearby_places": {
+			"Residential": [
+				{
+					"name": "Valley Shilp CIDCO Housing",
+					"walking_min": 4
+				},
+				{
+					"name": "Swapnapurti Township",
+					"walking_min": 8
+				}
+			]
+		}
+	},
+	"nmm_1_sector7": {
+		"id": "nmm_1_sector7",
+		"name": {
+			"en": "Sector 7 (Belapur)",
+			"mr": "सेक्टर ७ (बेलापूर)",
+			"hi": "सेक्टर ७ (बेलापूर)"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0268,
+				"lon": 73.0471
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_belapur",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 1132
+			},
+			{
+				"station": "nmm_1_sciencepark",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 1268
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Sector 7 Main Road, Belapur"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Kala Bhavan Road & Sector 8 Access"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Sector 7 (Belapur)",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Sector 7 (Belapur)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Sector 7 (Belapur)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Sector 7 (Belapur)",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Sector 7 (Belapur)",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Sector 7 (Belapur)",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Elevated station serving Sector 7 and Sector 8 commercial offices, Kala Bhavan cultural centre, and residential sectors of Belapur.",
+			"mr": "बेलापूर येथील सेक्टर ७ आणि ८ मधील कला भवन व व्यावसायिक आस्थापनांना जोडणारे मेट्रो स्थानक.",
+			"hi": "बेलापूर के सेक्टर ७ और ८ क्षेत्र, कला भवन और रिहायशी परिसरों को सेवा देने वाला एलिवेटेड स्टेशन।"
+		},
+		"nearby_places": {
+			"Culture": [
+				{
+					"name": "Navi Mumbai Kala Bhavan",
+					"walking_min": 4
+				}
+			],
+			"Civic": [
+				{
+					"name": "Belapur Police Station",
+					"walking_min": 6
+				}
+			]
+		}
+	},
+	"nmm_1_utsavchowk": {
+		"id": "nmm_1_utsavchowk",
+		"name": {
+			"en": "Utsav Chowk (Kharghar)",
+			"mr": "उत्सव चौक (खारघर)",
+			"hi": "उत्सव चौक (खारघर)"
+		},
+		"lines": [
+			"mumbai.navi_mumbai_1"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0435,
+				"lon": 73.0645
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "nmm_1_sciencepark",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 1342
+			},
+			{
+				"station": "nmm_1_sector11",
+				"line": "mumbai.navi_mumbai_1",
+				"distance": 782
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_pendhar"
+			},
+			"2": {
+				"line": "mumbai.navi_mumbai_1",
+				"destination": "nmm_1_belapur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Utsav Chowk Iconic Roundabout & Pravesh Marg"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Hiranandani Complex Road, Kharghar Sector 4"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Utsav Chowk (Kharghar)",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Utsav Chowk (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Utsav Chowk (Kharghar)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Utsav Chowk (Kharghar)",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Utsav Chowk (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Utsav Chowk (Kharghar)",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Assistance",
+					"location": "Station Customer Care"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Guiding Pathway Tiles",
+					"location": "Concourse and Platform"
+				},
+				{
+					"name": "Wide Automatic AFC Gates for Wheelchairs",
+					"location": "Fare Control Gate"
+				},
+				{
+					"name": "Separate Accessible Toilets (Divyangjan)",
+					"location": "Concourse Level"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Automatic Ticket Vending Machines (ATVM)",
+					"location": "Unpaid Concourse Area"
+				},
+				{
+					"name": "National Common Mobility Card (NCMC) Counters",
+					"location": "Station Ticket Office"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Passenger Help Desk & Customer Care",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Retrieval Cell",
+					"location": "Taloja Depot Central Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "RO Drinking Water Facility",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Public Washrooms (Male / Female)",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "CCTV Surveillance 24x7",
+					"location": "Entire Station Premises"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Dedicated Women Passenger Assistance Cell",
+					"location": "Station Control Room"
+				},
+				{
+					"name": "Female Security Personnel for Screening",
+					"location": "Concourse Frisking Enclosure"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-69022000"
+		},
+		"amenity_badges": [
+			"Major Landmark",
+			"Commercial Hub",
+			"Lift/Escalator Available",
+			"Differently Abled Friendly"
+		],
+		"description": {
+			"en": "Prominent landmark station at the iconic Roman-architectured Utsav Chowk circle, connecting Hiranandani Complex and central Kharghar.",
+			"mr": "खारघरचे प्रसिद्ध प्रतीक असलेल्या उत्सव चौकातील अत्यंत गजबजलेले आणि महत्त्वाचे मेट्रो स्थानक.",
+			"hi": "खारघर के ऐतिहासिक व प्रसिद्ध उत्सव चौक चौराहे पर स्थित प्रमुख वाणिज्यिक व आवासीय मेट्रो स्टेशन।"
+		},
+		"nearby_places": {
+			"Landmarks": [
+				{
+					"name": "Iconic Utsav Chowk Circle",
+					"walking_min": 1
+				}
+			],
+			"Commercial": [
+				{
+					"name": "Hiranandani Kharghar Shopping Plaza",
+					"walking_min": 5
+				}
+			]
+		}
+	}
+}

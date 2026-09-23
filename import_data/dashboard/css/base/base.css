@@ -1,0 +1,286 @@
+@layer reset, tokens, base;
+
+@layer tokens {
+	:root, [data-theme="dark"] {
+		/* Typography */
+		--font-title: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		--font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		--font-mono: 'Share Tech Mono', monospace;
+
+
+		/* Fluid & Minimalist 3-Level Typography System (Zero Over-Engineering) */
+		--base-font-size: 14px;
+		--text-sm: 0.8rem;   /* Badges, line numbers, captions */
+		--text-base: 1rem;   /* Normal body text, tables, buttons, inputs */
+		--text-lg: 1.25rem;  /* Headings, titles, banners */
+
+		
+
+		/* Font Weights */
+		--fw-regular: 400;
+		--fw-medium: 500;
+		--fw-semibold: 600;
+		--fw-bold: 700;
+		--fw-extrabold: 800;
+		--fw-black: 900;
+
+		/* Spacing System */
+		--space-2xs: 2px;
+		--space-xs: 4px;
+		--space-sm: 8px;
+		--space-md: 12px;
+		--space-lg: 16px;
+		--space-xl: 24px;
+		--space-2xl: 32px;
+		--space-3xl: 48px;
+
+		/* Micro Semantic Opacities */
+		--glass-subtle: rgba(255, 255, 255, 0.08);
+
+		/* Elevation & Border Tokens */
+		--border-thin: 1px;
+		--border-thick: 2px;
+		--leading-normal: 1.5;
+		--leading-relaxed: 1.6;
+		--shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+
+		/* Border Radius */
+		--radius-xs: 6px;
+		--radius-sm: 8px;
+		--radius-md: 12px;
+		--radius-lg: 16px;
+		--radius-xl: 24px;
+		--radius-full: 9999px;
+
+		/* Shadows & Elevation System (Pure Variables) */
+		--shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+		--shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
+		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+		--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.12), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+
+		--backdrop-bg: rgba(0, 0, 0, 0.75);
+		
+		/* Dark Theme Colors */
+		--bg-app: #090d16;
+		--bg-sidebar: #0f172a;
+		--bg-header: rgba(15, 23, 42, 0.9);
+		--card-bg: #0f172a;
+		--border-color: #1e293b;
+		--text-primary: #f8fafc;
+		--text-secondary: #94a3b8;
+		--text-muted: #64748b;
+		--input-bg: #020617;
+		--input-border: #334155;
+
+		/* Specific Dashboard Accent Colors */
+		--accent-cyan: #22d3ee;
+		--accent-cyan-bg: rgba(34, 211, 238, 0.12);
+		--accent-cyan-border: rgba(34, 211, 238, 0.35);
+
+		--accent-rose: #f43f5e;
+		--accent-rose-bg: rgba(244, 63, 94, 0.12);
+		--accent-rose-border: rgba(244, 63, 94, 0.35);
+
+		--accent-emerald: #10b981;
+		--accent-emerald-bg: rgba(16, 185, 129, 0.12);
+		--accent-emerald-border: rgba(16, 185, 129, 0.35);
+
+		--accent-amber: #f59e0b;
+		--accent-amber-bg: rgba(245, 158, 11, 0.12);
+		--accent-amber-border: rgba(245, 158, 11, 0.35);
+
+		--accent-indigo: #6366f1;
+		--accent-indigo-bg: rgba(99, 102, 241, 0.12);
+		--accent-indigo-border: rgba(99, 102, 241, 0.35);
+
+		--sidebar-width: 330px;
+		--header-height: 60px;
+
+		/* Transitions & Z-Index */
+		--transition-fast: 0.15s ease;
+		--transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		--z-header: 100;
+		--z-sidebar: 200;
+		--z-modal: 1000;
+		--z-toast: 9999;
+
+
+		/* ======================================================================
+		   JSON TREE / CODE VIEWPORT TOKENS (Dark Theme)
+		   ====================================================================== */
+		--json-viewport-bg: var(--input-bg);
+		--json-viewport-color: var(--text-primary);
+		--json-line-border: rgba(255, 255, 255, 0.08);
+		--json-tree-guide: rgba(99, 102, 241, 0.35);
+		--json-hover-bg: rgba(255, 255, 255, 0.04);
+		--json-key: var(--accent-cyan);
+		--json-str: var(--accent-emerald);
+		--json-num: var(--accent-amber);
+		--json-bool: #c084fc;
+		--json-null: var(--accent-rose);
+		--json-bracket: var(--accent-amber);
+		--json-colon: var(--text-muted);
+	}
+
+	[data-theme="light"] {
+		--bg-app: #f1f5f9;
+		--bg-sidebar: #ffffff;
+		--bg-header: rgba(255, 255, 255, 0.95);
+		--card-bg: #ffffff;
+		--border-color: #cbd5e1;
+		--text-primary: #0f172a;
+		--text-secondary: #475569;
+		--text-muted: #94a3b8;
+		--input-bg: #ffffff;
+		--input-border: #cbd5e1;
+
+		/* Shadows & Elevation System (Pure Variables) */
+		--shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+		--shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
+		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+		--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.12), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+
+		/* ======================================================================
+		   JSON TREE / CODE VIEWPORT TOKENS (Light Theme)
+		   ====================================================================== */
+		--json-viewport-bg: var(--bg-app);
+		--json-viewport-color: var(--text-primary);
+		--json-line-border: var(--border-color);
+		--json-tree-guide: rgba(99, 102, 241, 0.25);
+		--json-hover-bg: rgba(0, 0, 0, 0.04);
+		--json-key: #0284c7;
+		--json-str: #059669;
+		--json-num: #d97706;
+		--json-bool: #7c3aed;
+		--json-null: #e11d48;
+		--json-bracket: #b45309;
+		--json-colon: var(--text-muted);
+	}
+
+	[data-theme="spa"] {
+		--bg-app: #f0fdf4;
+		--bg-sidebar: #e8fced;
+		--bg-header: rgba(232, 252, 237, 0.95);
+		--card-bg: #ffffff;
+		--border-color: #bbf7d0;
+		--text-primary: #14532d;
+		--text-secondary: #166534;
+		--text-muted: #86efac;
+		--input-bg: #ffffff;
+		--input-border: #a7f3d0;
+
+		/* ======================================================================
+		   JSON TREE / CODE VIEWPORT TOKENS (Spa Theme)
+		   ====================================================================== */
+		--json-viewport-bg: var(--bg-app);
+		--json-viewport-color: var(--text-primary);
+		--json-line-border: var(--border-color);
+		--json-tree-guide: rgba(22, 101, 52, 0.3);
+		--json-hover-bg: rgba(34, 197, 94, 0.08);
+		--json-key: #0d9488;
+		--json-str: #16a34a;
+		--json-num: #d97706;
+		--json-bool: #9333ea;
+		--json-null: #e11d48;
+		--json-bracket: #ca8a04;
+		--json-colon: var(--text-muted);
+	}
+
+	[data-theme="bw"] {
+		--bg-app: #000000;
+		--bg-sidebar: #0a0a0a;
+		--bg-header: rgba(10, 10, 10, 0.95);
+		--card-bg: #141414;
+		--border-color: #333333;
+		--text-primary: #ffffff;
+		--text-secondary: #a3a3a3;
+		--text-muted: #737373;
+		--input-bg: #000000;
+		--input-border: #404040;
+
+		/* ======================================================================
+		   JSON TREE / CODE VIEWPORT TOKENS (B/W Theme)
+		   ====================================================================== */
+		--json-viewport-bg: var(--bg-app);
+		--json-viewport-color: var(--text-primary);
+		--json-line-border: var(--border-color);
+		--json-tree-guide: rgba(255, 255, 255, 0.2);
+		--json-hover-bg: rgba(255, 255, 255, 0.08);
+		--json-key: #e5e5e5;
+		--json-str: #a3a3a3;
+		--json-num: #ffffff;
+		--json-bool: #d4d4d4;
+		--json-null: #737373;
+		--json-bracket: #ffffff;
+		--json-colon: var(--text-muted);
+	}
+}
+
+@layer base {
+	html {
+		font-size: var(--base-font-size, 14px);
+	}
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	body, .app-body {
+		font-family: var(--font-main);
+		background-color: var(--bg-app);
+		background-image: url("../../assets/ui/background.svg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		color: var(--text-primary);
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+		width: 100vw;
+	}
+
+	/* Custom Native Scrollbar */
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+	.custom-scrollbar::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: var(--border-color);
+		border-radius: var(--radius-full);
+	}
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+		background: var(--text-muted);
+	}
+
+	/* Micro Icon Utilities */
+	.icon-xs { width: 14px; height: 14px; vertical-align: middle; }
+	.icon-sm { width: 18px; height: 18px; vertical-align: middle; }
+	.icon-md { width: 24px; height: 24px; vertical-align: middle; }
+	.icon-white { filter: brightness(0) invert(1); }
+	.icon-indigo { filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(218deg) brightness(98%) contrast(92%); }
+	.icon-emerald { filter: invert(56%) sepia(74%) saturate(541%) hue-rotate(114deg) brightness(94%) contrast(89%); }
+	.icon-cyan { filter: invert(72%) sepia(87%) saturate(748%) hue-rotate(152deg) brightness(99%) contrast(93%); }
+	.icon-rose { filter: invert(45%) sepia(82%) saturate(3019%) hue-rotate(324deg) brightness(101%) contrast(93%); }
+	.icon-amber { filter: invert(68%) sepia(61%) saturate(1478%) hue-rotate(359deg) brightness(102%) contrast(93%); }
+
+	.icon-spin {
+		animation: spin 1s linear infinite;
+	}
+	@keyframes spin { 100% { transform: rotate(360deg); } }
+
+	/* General Flex Alignment Helpers */
+	.flex-align { display: flex; align-items: center; }
+	.gap-xs { gap: var(--space-xs); }
+	.gap-sm { gap: var(--space-sm); }
+	.gap-md { gap: var(--space-md); }
+	.justify-between { justify-content: space-between; }
+	.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	.font-mono { font-family: 'Share Tech Mono', monospace, monospace; }
+	.hidden { display: none !important; }
+}

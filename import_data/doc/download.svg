@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1111.5196666666666 1111.9550000000002" width="1111.5196666666666" height="1111.9550000000002" style="--bg:#1F1F1F;--fg:#CCCCCC;--line:#CCCCCC;--accent:#0078D4;--muted:#CCCCCCCC;--surface:#181818;--border:#CCCCCC;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="UI_VIEW" data-label="🖥️ Section 2: Active Station Dataset (निचला हिस्सा)">
+  <rect x="387.87566666666663" y="640.9000000000001" width="683.6439999999999" height="431.05500000000006" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="387.87566666666663" y="640.9000000000001" width="683.6439999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="399.87566666666663" y="654.9000000000001" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">🖥️ Section 2: Active Station Dataset (निचला हिस्सा)</text>
+</g>
+<polyline class="edge" data-from="SITE" data-to="SCRAPER" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Click: 'Fetch Raw'" points="821.7911666666665,76.9 821.7911666666665,187.0500000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SCRAPER" data-to="RAW_FILE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="821.7911666666665,223.95000000000013 821.7911666666665,278.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RAW_FILE" data-to="CLEANER" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Click: 'Process Clean'" points="795.5334999999998,331.90000000000003 795.5334999999998,367.90000000000003 769.9946666666665,367.90000000000003 769.9946666666666,448.20000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CLEANER" data-to="CLEAN_FILE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="769.9946666666666,485.1 769.9946666666666,535.5500000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CLEAN_FILE" data-to="DIFF_CHECK" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="769.9946666666666,589.3500000000001 769.9946666666666,606.1250000000002 242.05616666666663,606.1250000000002 242.05616666666663,622.9000000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MASTER_FILE" data-to="DIFF_CHECK" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="331.65749999999997,589.3500000000001 331.65749999999997,606.1250000000002 242.05616666666663,606.1250000000002 242.05616666666663,622.9000000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="DIFF_CHECK" data-to="SEC1_PENDING" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="अगर अंतर मिला (+N नए स्टेशन)" points="183.14641666666662,681.8097500000001 183.14641666666662,610.9000000000002 115.5,610.9000000000002 115.5,542.6000000000003 166.1990833333333,542.6000000000003 166.1990833333333,257.7500000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="DIFF_CHECK" data-to="SEC1_SYNC" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="अगर कोई अंतर नहीं (0 अंतर)" points="242.05616666666663,858.5390000000002 242.05616666666663,974.8390000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="SEC1_PENDING" data-to="MASTER_GEN" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="समीक्षा / 'Generate Master'" points="280.9584166666666,257.7500000000001 280.9584166666666,287.6000000000002 331.65749999999997,287.6000000000002 331.65749999999997,367.9000000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MASTER_GEN" data-to="MASTER_FILE" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="नए स्टेशन मास्टर में जुड़ गए" points="331.65749999999997,404.8000000000002 331.65749999999997,535.5500000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RAW_FILE" data-to="TAB_SELECT" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="821.7911666666665,331.90000000000003 821.7911666666665,637.1250000000001 741.5536666666666,637.1250000000001 741.5536666666666,684.9000000000001" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CLEAN_FILE" data-to="TAB_SELECT" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="769.9946666666666,589.3500000000001 769.9946666666666,637.1250000000001 741.5536666666666,637.1250000000001 741.5536666666666,684.9000000000001" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="MASTER_FILE" data-to="TAB_SELECT" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="331.65749999999997,589.3500000000001 331.65749999999997,637.1250000000001 741.5536666666666,637.1250000000001 741.5536666666666,684.9000000000001" fill="none" stroke="var(--_line)" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="TAB_SELECT" data-to="SHOW_RAW" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Tab 1: Raw" points="796.0174166666666,848.2912500000001 796.0174166666666,914.7550000000001 963.0381666666665,914.7550000000001 963.0381666666665,1019.0550000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="TAB_SELECT" data-to="SHOW_CLEAN" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Tab 2: Cleaned" points="687.0899166666666,848.2912500000001 687.0899166666666,914.7550000000001 508.2131666666666,914.7550000000001 508.2131666666666,1019.0550000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="TAB_SELECT" data-to="SHOW_MASTER" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Tab 3: Master" points="741.5536666666666,902.7550000000001 741.5536666666666,1019.0550000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="SITE" data-to="SCRAPER" data-label="Click: 'Fetch Raw'">
+  <rect x="771.7911666666665" y="119.9" width="99.62200000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="821.6021666666666" y="135.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Click: &#39;Fetch Raw&#39;</text>
+</g>
+<g class="edge-label" data-from="RAW_FILE" data-to="CLEANER" data-label="Click: 'Process Clean'">
+  <rect x="708.9946666666665" y="374.90000000000003" width="121.006" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="769.4976666666665" y="390.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Click: &#39;Process Clean&#39;</text>
+</g>
+<g class="edge-label" data-from="DIFF_CHECK" data-to="SEC1_PENDING" data-label="अगर अंतर मिला (+N नए स्टेशन)">
+  <rect x="36" y="549.6000000000003" width="158.428" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="115.214" y="564.7500000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">अगर अंतर मिला (+N नए स्टेशन)</text>
+</g>
+<g class="edge-label" data-from="DIFF_CHECK" data-to="SEC1_SYNC" data-label="अगर कोई अंतर नहीं (0 अंतर)">
+  <rect x="169.05616666666663" y="901.5390000000002" width="145.36" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="241.73616666666663" y="916.6890000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">अगर कोई अंतर नहीं (0 अंतर)</text>
+</g>
+<g class="edge-label" data-from="SEC1_PENDING" data-to="MASTER_GEN" data-label="समीक्षा / 'Generate Master'">
+  <rect x="256.15749999999997" y="294.6000000000002" width="150.112" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="331.21349999999995" y="309.75000000000017" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">समीक्षा / &#39;Generate Master&#39;</text>
+</g>
+<g class="edge-label" data-from="MASTER_GEN" data-to="MASTER_FILE" data-label="नए स्टेशन मास्टर में जुड़ गए">
+  <rect x="249.65749999999997" y="447.8000000000002" width="163.18000000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="331.2475" y="462.95000000000016" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">नए स्टेशन मास्टर में जुड़ गए</text>
+</g>
+<g class="edge-label" data-from="TAB_SELECT" data-to="SHOW_RAW" data-label="Tab 1: Raw">
+  <rect x="930.0381666666665" y="945.7550000000001" width="65.17" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="962.6231666666665" y="960.9050000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Tab 1: Raw</text>
+</g>
+<g class="edge-label" data-from="TAB_SELECT" data-to="SHOW_CLEAN" data-label="Tab 2: Cleaned">
+  <rect x="464.21316666666667" y="945.7550000000001" width="87.74200000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="508.08416666666665" y="960.9050000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Tab 2: Cleaned</text>
+</g>
+<g class="edge-label" data-from="TAB_SELECT" data-to="SHOW_MASTER" data-label="Tab 3: Master">
+  <rect x="700.0536666666666" y="945.7550000000001" width="82.39600000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="741.2516666666666" y="960.9050000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Tab 3: Master</text>
+</g>
+<g class="node" data-id="SITE" data-label="🌐 Official Portal / API" data-shape="rectangle">
+  <rect x="739.6836666666666" y="40" width="164.21499999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="821.7911666666665" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">🌐 Official Portal / API</text>
+</g>
+<g class="node" data-id="SCRAPER" data-label="universal_scraper.py" data-shape="rectangle">
+  <rect x="735.6081666666665" y="187.0500000000001" width="172.36599999999999" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="821.7911666666665" y="205.5000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">universal_scraper.py</text>
+</g>
+<g class="node" data-id="RAW_FILE" data-label="📄 1. &lt;net&gt;_raw.json
+(कच्चा डेटा)" data-shape="rectangle">
+  <rect x="743.0181666666665" y="278.1" width="157.546" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="821.7911666666665" y="305" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="821.7911666666665" dy="-3.9000000000000012">📄 1. &lt;net&gt;_raw.json</tspan><tspan x="821.7911666666665" dy="16.900000000000002">(कच्चा डेटा)</tspan></text>
+</g>
+<g class="node" data-id="CLEANER" data-label="universal_cleaner.py" data-shape="rectangle">
+  <rect x="685.2936666666666" y="448.20000000000005" width="169.402" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="769.9946666666666" y="466.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">universal_cleaner.py</text>
+</g>
+<g class="node" data-id="CLEAN_FILE" data-label="📄 2. &lt;net&gt;_cleaned.json
+(ताज़ा क्लीन डेटा)" data-shape="rectangle">
+  <rect x="676.4016666666666" y="535.5500000000002" width="187.18599999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="769.9946666666666" y="562.4500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="769.9946666666666" dy="-3.9000000000000012">📄 2. &lt;net&gt;_cleaned.json</tspan><tspan x="769.9946666666666" dy="16.900000000000002">(ताज़ा क्लीन डेटा)</tspan></text>
+</g>
+<g class="node" data-id="DIFF_CHECK" data-label="तुलना (Clean vs Master)
+Cleaned Keys − Master Keys" data-shape="diamond">
+  <polygon points="242.05616666666663,622.9000000000001 359.87566666666663,740.7195000000002 242.05616666666663,858.5390000000002 124.23666666666662,740.7195000000002" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="242.05616666666663" y="740.7195000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="242.05616666666663" dy="-3.9000000000000012">तुलना (Clean vs Master)</tspan><tspan x="242.05616666666663" dy="16.900000000000002">Cleaned Keys − Master Keys</tspan></text>
+</g>
+<g class="node" data-id="MASTER_FILE" data-label="📄 3. &lt;net&gt;_master.json
+(स्वीकृत मास्टर डेटा)" data-shape="rectangle">
+  <rect x="241.7695" y="535.5500000000002" width="179.77599999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="331.65749999999997" y="562.4500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="331.65749999999997" dy="-3.9000000000000012">📄 3. &lt;net&gt;_master.json</tspan><tspan x="331.65749999999997" dy="16.900000000000002">(स्वीकृत मास्टर डेटा)</tspan></text>
+</g>
+<g class="node" data-id="SEC1_PENDING" data-label="🚨 Section 1: STAGING REVIEW
+• +N नए स्टेशन सियान (Cyan) कार्ड्स में दिखेंगे
+• साइडबार में '+N' बैज चमकेगा" data-shape="rectangle">
+  <rect x="51.43975" y="187.0500000000001" width="344.27799999999996" height="70.7" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="223.57874999999999" y="222.4000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="223.57874999999999" dy="-12.350000000000001">🚨 Section 1: STAGING REVIEW</tspan><tspan x="223.57874999999999" dy="16.900000000000002">• +N नए स्टेशन सियान (Cyan) कार्ड्स में दिखेंगे</tspan><tspan x="223.57874999999999" dy="16.900000000000002">• साइडबार में &#39;+N&#39; बैज चमकेगा</tspan></text>
+</g>
+<g class="node" data-id="SEC1_SYNC" data-label="✅ Section 1: ALL SYNCHRONIZED
+• '0 Pending Review' दिखेगा" data-shape="rectangle">
+  <rect x="120.30516666666665" y="974.8390000000002" width="243.50199999999992" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="242.05616666666663" y="1001.7390000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="242.05616666666663" dy="-3.9000000000000012">✅ Section 1: ALL SYNCHRONIZED</tspan><tspan x="242.05616666666663" dy="16.900000000000002">• &#39;0 Pending Review&#39; दिखेगा</tspan></text>
+</g>
+<g class="node" data-id="MASTER_GEN" data-label="universal_master.py / Approval" data-shape="rectangle">
+  <rect x="218.428" y="367.9000000000002" width="226.459" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="331.6575" y="386.3500000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">universal_master.py / Approval</text>
+</g>
+<g class="node" data-id="class" data-label="class" data-shape="rectangle">
+  <rect x="931.8986666666665" y="535.5500000000002" width="74.554" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="969.1756666666665" y="554.0000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">class</text>
+</g>
+<g class="node" data-id="TAB_SELECT" data-label="यूजर ने कौन सा टैब चुना?" data-shape="diamond">
+  <polygon points="741.5536666666666,684.9000000000001 850.4811666666666,793.8275000000001 741.5536666666666,902.7550000000001 632.6261666666666,793.8275000000001" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="741.5536666666666" y="793.8275000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">यूजर ने कौन सा टैब चुना?</text>
+</g>
+<g class="node" data-id="SHOW_RAW" data-label="Raw के स्टेशन्स दिखाओ" data-shape="rectangle">
+  <rect x="870.5566666666666" y="1019.0550000000001" width="184.96299999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="963.0381666666666" y="1037.505" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Raw के स्टेशन्स दिखाओ</text>
+</g>
+<g class="node" data-id="SHOW_CLEAN" data-label="Cleaned के स्टेशन्स दिखाओ" data-shape="rectangle">
+  <rect x="403.87566666666663" y="1019.0550000000001" width="208.67499999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="508.2131666666666" y="1037.505" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Cleaned के स्टेशन्स दिखाओ</text>
+</g>
+<g class="node" data-id="SHOW_MASTER" data-label="Master के स्टेशन्स दिखाओ" data-shape="rectangle">
+  <rect x="640.5506666666665" y="1019.0550000000001" width="202.00599999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="741.5536666666665" y="1037.505" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Master के स्टेशन्स दिखाओ</text>
+</g>
+</svg>

@@ -1,0 +1,44 @@
+@layer components {
+	/* Search Bar Component */
+	.search-bar-wrapper {
+		position: relative;
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	.search-icon-inside {
+		position: absolute;
+		left: var(--space-md);
+		width: var(--space-lg);
+		height: var(--space-lg);
+		pointer-events: none;
+		opacity: 0.6;
+	}
+
+	.station-search-input {
+		width: 100%;
+		background: var(--card-bg);
+		border: var(--border-thin) solid var(--border-color);
+		color: var(--text-primary);
+		font-size: var(--text-sm);
+		border-radius: var(--radius-lg);
+		padding: var(--space-sm) var(--space-2xl) var(--space-sm) var(--space-2xl);
+		outline: none;
+		transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+	}
+	.station-search-input:focus {
+		border-color: var(--accent-indigo);
+		box-shadow: 0 0 0 3px var(--accent-indigo-bg);
+	}
+
+	.search-clear-btn {
+		position: absolute;
+		right: var(--space-md);
+		background: transparent;
+		border: none;
+		color: var(--text-muted);
+		cursor: pointer;
+		font-size: var(--text-base);
+	}
+}

@@ -1,0 +1,239 @@
+{
+  "noida_sector_51": {
+	"id": "noida_sector_51",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {
+	  "1": { "code": "Gate 1", "divyang": true, "status": "open", "landmark": { "en": "Towards Sector 52 DMRC Walkway", "hi": "सेक्टर 52 डीएमआरसी वॉकवे की ओर" } },
+	  "2": { "code": "Gate 2", "divyang": true, "status": "open", "landmark": { "en": "Towards Captain Shashi Kant Marg", "hi": "कैप्टन शशिकांत मार्ग की ओर" } }
+	},
+	"parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": {
+	  "Toilet": [{ "name": "Public / Divyang Restroom", "location": "Concourse Level" }],
+	  "Drinking Water": [{ "name": "RO Filtered Water Kiosk", "location": "Concourse Level" }]
+	},
+	"nearby_places": {
+	  "Transport Hub": [{ "name": "DMRC Sector-52 Metro Station", "connected": true }]
+	},
+	"vertical_transit": {}
+  },
+  "noida_sector_50": {
+	"id": "noida_sector_50",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Tourist": [{ "name": "Meghdootam Park", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "noida_sector_76": {
+	"id": "noida_sector_76",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Tourist": [{ "name": "Ved Van Park", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "noida_sector_101": {
+	"id": "noida_sector_101",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Tourist": [{ "name": "Ved Van Park", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "noida_sector_81": {
+	"id": "noida_sector_81",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "nsez": {
+	"id": "nsez",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Commercial": [{ "name": "Noida Special Economic Zone (NSEZ)", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "noida_sector_83": {
+	"id": "noida_sector_83",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "noida_sector_137": {
+	"id": "noida_sector_137",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Tourist": [{ "name": "Biodiversity Park", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "noida_sector_142": {
+	"id": "noida_sector_142",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "noida_sector_143": {
+	"id": "noida_sector_143",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "noida_sector_144": {
+	"id": "noida_sector_144",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "noida_sector_145": {
+	"id": "noida_sector_145",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "noida_sector_146": {
+	"id": "noida_sector_146",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Government Office": [{ "name": "Dedicated Freight Corridor Corporation of India Limited (DFCCIL)", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "noida_sector_147": {
+	"id": "noida_sector_147",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "noida_sector_148": {
+	"id": "noida_sector_148",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Government Office": [{ "name": "Central Govt. GST Office", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "knowledge_park_ii": {
+	"id": "knowledge_park_ii",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {
+      "Commercial": [{ "name": "India Expo Centre and Park", "connected": false }],
+      "Educational": [{ "name": "Pt. Deen Dayal Upadhyaya Institute of Archaeology", "connected": false }]
+    },
+	"vertical_transit": {}
+  },
+  "pari_chowk": {
+	"id": "pari_chowk",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {
+	  "1": { "code": "Gate 1", "divyang": true, "status": "open", "landmark": { "en": "Towards Ansal Plaza & Stellar Children Museum", "hi": "अंसल प्लाजा और स्टेलर चिल्ड्रन्स म्यूजियम की ओर" } },
+	  "2": { "code": "Gate 2", "divyang": true, "status": "open", "landmark": { "en": "Towards City Park & Pari Chowk Roundabout", "hi": "सिटी पार्क और परी चौक गोलचक्कर की ओर" } }
+	},
+	"parkings": [{ "provider": "NMRC Authorised Park & Ride", "location": "Station Perimeter" }],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Commercial": [{ "name": "Ansal Plaza Greater Noida", "connected": false }], "Tourist": [{ "name": "City Park Greater Noida", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "alpha_1": {
+	"id": "alpha_1",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "delta_1": {
+	"id": "delta_1",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {}, "vertical_transit": {}
+  },
+  "gnida_office": {
+	"id": "gnida_office",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": { "Government Office": [{ "name": "Greater Noida Industrial Development Authority (GNIDA)", "connected": false }] },
+	"vertical_transit": {}
+  },
+  "depot_station": {
+	"id": "depot_station",
+	"contact": { "landline": "0120-2459700", "police_cisf": "112", "customer_care": "1800-180-3901" },
+	"gates": {}, "parkings": [],
+	"facilities": { "Toilet": [{ "name": "Public Restroom", "location": "Concourse Level" }], "Drinking Water": [{ "name": "RO Water Kiosk", "location": "Concourse Level" }] },
+	"nearby_places": {
+      "Transport Hub": [{ "name": "NMRC Depot", "connected": false }]
+    },
+    "vertical_transit": {}
+  },
+
+  "noida_sector_122": {
+	"id": "noida_sector_122",
+	"gates": {}, "parkings": [], "facilities": {}, "nearby_places": {}, "vertical_transit": {},
+	"stationLayout": [
+	  {
+		"level": "concourse",
+		"name": "General Alignment Plan (Chainage 1300m - 2500m)",
+		"drawing_no": "NMRC/SECTOR-51 TO SECTOR-2/TENDAR/2020",
+		"sheet_no": "2/8",
+		"scale": "1:1000",
+		"date": "2020-03"
+	  }
+	]
+  },
+  "noida_sector_123": {
+	"id": "noida_sector_123",
+	"gates": {}, "parkings": [], "facilities": {}, "vertical_transit": {},
+	"nearby_places": {
+	  "Transport Hub": [{ "name": "Hindon River Viaduct Bridge Crossing (Chainage 4700m - 4950m)", "connected": false }]
+	},
+	"stationLayout": [
+	  {
+		"level": "concourse",
+		"name": "General Alignment Plan (Chainage 5100m - 6300m)",
+		"drawing_no": "NMRC/SECTOR-51 TO SECTOR-2/TENDAR/2020",
+		"sheet_no": "5/8",
+		"scale": "1:1000",
+		"date": "2020-03"
+	  }
+	]
+  },
+  "greater_noida_sector_4": {
+	"id": "greater_noida_sector_4",
+	"gates": {}, "parkings": [], "facilities": {}, "nearby_places": {}, "vertical_transit": {},
+	"stationLayout": [
+	  {
+		"level": "concourse",
+		"name": "General Alignment Plan (Chainage 7600m - 8800m)",
+		"drawing_no": "NMRC/SECTOR-51 TO SECTOR-2/TENDAR/2020",
+		"sheet_no": "7/8",
+		"scale": "1:1000",
+		"date": "2020-03"
+	  }
+	]
+  },
+  "greater_noida_sector_2": {
+	"id": "greater_noida_sector_2",
+	"gates": {}, "parkings": [], "facilities": {}, "nearby_places": {}, "vertical_transit": {},
+	"stationLayout": [
+	  {
+		"level": "concourse",
+		"name": "Terminus Station & Reversing Track (Chainage 8900m - 10100m)",
+		"drawing_no": "NMRC/SECTOR-51 TO SECTOR-2/TENDAR/2020",
+		"sheet_no": "8/8",
+		"scale": "1:1000",
+		"date": "2020-03"
+	  }
+	]
+  }
+}

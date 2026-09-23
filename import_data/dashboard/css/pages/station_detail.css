@@ -1,0 +1,120 @@
+@layer reset, tokens, base, layout, components;
+
+/* 1. Base Framework & Layout Architecture */
+@import url("../base/base.css");
+@import url("../layout/layout.css");
+
+/* 2. Isolated Components */
+@import url("../components/buttons.css");
+@import url("../components/cards.css");
+@import url("../components/json_tree.css");
+
+/* 3. Page Layout Overrides (No Hardcoded Overrides) */
+@layer layout {
+	.detail-layout-wrapper {
+		display: flex;
+		flex: 1;
+		min-height: 0;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.detail-split-viewport {
+		flex: 1;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-md);
+		padding: var(--space-sm) clamp(var(--space-md), 2vw, var(--space-2xl)) var(--space-lg);
+		min-height: 0;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	.detail-cards-column {
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		padding-right: var(--space-xs);
+	}
+
+	.detail-json-column {
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+}
+
+@layer components {
+	/* Station Inspector Sub-Bar (Header ke bahar top action bar) */
+	.station-sub-bar, .station-detail-topbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--space-xs) clamp(var(--space-md), 2vw, var(--space-2xl));
+		background: var(--card-bg);
+		border-bottom: var(--border-thin) solid var(--border-color);
+		flex-wrap: wrap;
+		gap: var(--space-sm);
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.sub-bar-left, .sub-bar-right {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		flex-wrap: wrap;
+	}
+
+	.breadcrumbs-trail {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		font-size: var(--text-sm);
+		color: var(--text-muted);
+		white-space: nowrap;
+	}
+
+	.breadcrumbs-trail .active-crumb {
+		color: var(--accent-indigo);
+		font-weight: var(--fw-bold);
+	}
+
+	.pipeline-status-badge {
+		font-size: var(--text-sm);
+		font-weight: var(--fw-bold);
+		font-family: var(--font-mono);
+		padding: var(--space-2xs) var(--space-sm);
+		border-radius: var(--radius-full);
+		background-color: var(--accent-emerald-bg);
+		color: var(--accent-emerald);
+		border: var(--border-thin) solid var(--accent-emerald-border);
+		display: inline-block;
+	}
+
+	.detail-domain-card {
+		background: var(--card-bg);
+		border: var(--border-thin) solid var(--border-color);
+		border-radius: var(--radius-lg);
+		padding: var(--space-md);
+		box-shadow: var(--shadow-xs);
+	}
+
+	.domain-card-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		margin-bottom: var(--space-sm);
+		border-bottom: var(--border-thin) solid var(--border-color);
+		padding-bottom: var(--space-xs);
+	}
+
+	.domain-heading {
+		margin: 0;
+		font-size: var(--text-base);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+}

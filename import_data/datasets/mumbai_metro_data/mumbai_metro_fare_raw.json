@@ -1,0 +1,183 @@
+{
+	"metadata": {
+		"network_id": "mumbai_metro",
+		"network_name": "Mumbai Metro (MMRC / MMRDA)",
+		"scraped_at": "2026-09-17T21:02:20.948358+00:00",
+		"currency": "INR",
+		"operators_included": [
+			"line2a_line7_mmmocl",
+			"line3_mmrcl",
+			"line1_mmopl"
+		]
+	},
+	"operators": {
+		"line2a_line7_mmmocl": {
+			"operator": "MMMOCL",
+			"line_name": "Line 2A & Line 7",
+			"source_url": "https://www.mmmocl.co.in/fare_table",
+			"fare_type": "station_pair",
+			"total_stations_available": 39,
+			"fares": [
+				{
+					"from_station": "Gundavali",
+					"to_station": "Mogra",
+					"fare_inr": 10.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Jogeshwari (East)",
+					"fare_inr": 20.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Goregaon ( East)",
+					"fare_inr": 20.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Aarey",
+					"fare_inr": 20.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Dindoshi",
+					"fare_inr": 20.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Akurli",
+					"fare_inr": 20.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Poisar",
+					"fare_inr": 20.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Magathane ",
+					"fare_inr": 20.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Devipada",
+					"fare_inr": 30.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Rashtriya Udyan",
+					"fare_inr": 30.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Ovaripada",
+					"fare_inr": 30.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Dahisar (East)",
+					"fare_inr": 30.0
+				},
+				{
+					"from_station": "Gundavali",
+					"to_station": "Anand Nagar ",
+					"fare_inr": 30.0
+				}
+			]
+		},
+		"line3_mmrcl": {
+			"operator": "MMRCL",
+			"line_name": "Line 3 (Aqua Line)",
+			"source_endpoint": "https://portal.mmrcl.com/en/api/v2/fare-calculator/",
+			"fare_type": "station_pair",
+			"total_stations_in_catalog": 27,
+			"fares": [
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "SEPZ",
+					"to_station_name": "SEEPZ",
+					"fare_inr": 10.0,
+					"distance_km": "1.482 km"
+				},
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "MIDC",
+					"to_station_name": "MIDC-Andheri",
+					"fare_inr": 20.0,
+					"distance_km": "2.726 km"
+				},
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "MNK",
+					"to_station_name": "Marol Naka",
+					"fare_inr": 20.0,
+					"distance_km": "3.951 km"
+				},
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "CSIA",
+					"to_station_name": "CSMI-Airport - T2",
+					"fare_inr": 30.0,
+					"distance_km": "5.065 km"
+				},
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "SHRR",
+					"to_station_name": "Sahar Road",
+					"fare_inr": 30.0,
+					"distance_km": "6.017 km"
+				},
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "CIAD",
+					"to_station_name": "CSMI Airport-T1",
+					"fare_inr": 30.0,
+					"distance_km": "7.74 km"
+				},
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "STZM",
+					"to_station_name": "Santacruz Metro",
+					"fare_inr": 40.0,
+					"distance_km": "10.013 km"
+				},
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "VIDN",
+					"to_station_name": "Bandra Colony",
+					"fare_inr": 40.0,
+					"distance_km": "11.013 km"
+				},
+				{
+					"from_station_code": "ARYJ",
+					"from_station_name": "Aarey JVLR",
+					"to_station_code": "BDRM",
+					"to_station_name": "Bandra-Kurla Complex",
+					"fare_inr": 50.0,
+					"distance_km": "12.264 km"
+				}
+			]
+		},
+		"line1_mmopl": {
+			"operator": "MMOPL (Reliance)",
+			"line_name": "Line 1 (Blue Line)",
+			"source_url": "https://www.reliancemumbaimetro.com/ticket-fares.aspx",
+			"fare_type": "official_asset_catalog",
+			"live_asset": {
+				"fare_chart_image_url": "https://www.reliancemumbaimetro.com/images/Tickets_Fares_Map.jpg",
+				"http_status": 200,
+				"last_modified": "Tue, 23 Sep 2025 06:55:38 GMT",
+				"etag": "\"b66d7811572cdc1:0\""
+			}
+		}
+	},
+	"total_pairs_scraped": 22
+}

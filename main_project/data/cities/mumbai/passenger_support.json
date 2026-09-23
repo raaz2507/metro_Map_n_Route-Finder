@@ -1,0 +1,60 @@
+{
+	"city": "mumbai",
+	"city_name": {
+		"en": "Mumbai",
+		"hi": "मुंबई"
+	},
+	"last_updated": "2026-09-23",
+	"emergency": {
+		"police_emergency": "112",
+		"women_safety": "1090",
+		"ambulance": "102"
+	},
+	"networks": {
+		"mumbai_metro": {
+			"network_name": "Mumbai Metro (MMRCL / MMMOCL / MMOPL)",
+			"operator": "MMRDA / MMRC / MMOPL",
+			"helplines": {
+				"customer_care": "1800-889-0505",
+				"security_cisf": "022-30310900",
+				"women_safety": "103",
+				"police_emergency": "100"
+			},
+			"portals": {
+				"official_website": "https://mmrcl.com/",
+				"contact_us": "https://mmrcl.com/en/contact-us",
+				"vigilance_portal": "https://mmrcl.com/",
+				"lost_and_found": "https://www.reliancemumbaimetro.com/lost-found",
+				"women_safety": "https://www.mmmocl.co.in/station_facilities",
+				"differently_abled": "https://www.mmmocl.co.in/station_facilities",
+				"travel_advisory": "https://www.mmmocl.co.in/",
+				"parking_facilities": "https://www.mmmocl.co.in/station_facilities"
+			},
+			"facilities": {
+				"central_lost_found_office": "Andheri Metro Station (Line 1) & Gundavali Station (Line 7)",
+				"lost_found_operating_hours": "07:00 AM - 09:00 PM (All Days)"
+			}
+		},
+		"mumbai_monorail": {
+			"network_name": "Mumbai Monorail",
+			"operator": "MMRDA",
+			"helplines": {},
+			"portals": {},
+			"facilities": {}
+		},
+		"thane_metro": {
+			"network_name": "Thane Metro",
+			"operator": "MMRDA",
+			"helplines": {},
+			"portals": {},
+			"facilities": {}
+		},
+		"navi_mumbai_metro": {
+			"network_name": "Navi Mumbai Metro",
+			"operator": "CIDCO",
+			"helplines": {},
+			"portals": {},
+			"facilities": {}
+		}
+	}
+}

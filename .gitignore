@@ -1,12 +1,44 @@
+# ==============================================================================
+# 1. PYTHON ARTIFACTS & CACHE (पायथन की फालतू कैशे फाइलें)
+# ==============================================================================
 __pycache__/
-/doc2/
-*.txt
-/import_data/
+*.py[cod]
+*$py.class
+*.tmp
+.staging_temp/
+import_data/.staging_temp/
+import_data/**/__pycache__/
+
+# ==============================================================================
+# 2. HEAVY MEDIA & SCAPED IMAGES (100MB+ मीडिया फाइल्स को गिट से बाहर रखना)
+# ==============================================================================
+/import_data/**/media/
 /import_data/**/*.png
-/import_data/**/*.pdf
-/import_data/**/*.svg
 /import_data/**/*.jpg
 /import_data/**/*.jpeg
-/import_data/**/media
+/import_data/**/*.pdf
+/import_data/**/*.webp
+
+# ==============================================================================
+# 3. LOCAL BACKUPS & ARCHIVES (भारी ज़िप फाइलें)
+# ==============================================================================
+*.zip
 backup_data(dont delete).zip
 qr_engine.zip
+
+# ==============================================================================
+# 4. CAPACITOR, NODE & ANDROID ARTIFACTS (मोबाइल बिल्ड फाइल्स)
+# ==============================================================================
+node_modules/
+/main_project/node_modules/
+/main_project/android/build/
+/main_project/android/app/build/
+/main_project/android/.gradle/
+
+# ==============================================================================
+# 5. OS & EDITOR TRASH
+# ==============================================================================
+.DS_Store
+Thumbs.db
+/doc2/
+*.txt

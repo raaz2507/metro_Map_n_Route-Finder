@@ -1,0 +1,51 @@
+@layer layout {
+	/* ==========================================================================
+	   UNIVERSAL GLOBAL FOOTER COMPONENT (Pure Tokens Driven)
+	   ========================================================================== */
+	.global-footer {
+		height: 2.25rem;
+		min-height: 2.25rem;
+		background: var(--card-bg);
+		border-top: var(--border-thin) solid var(--border-color);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 var(--space-lg);
+		font-size: var(--text-sm);
+		color: var(--text-muted);
+		z-index: var(--z-header);
+		flex-shrink: 0;
+		box-sizing: border-box;
+	}
+
+	.footer-left,
+	.footer-right {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.footer-brand {
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+
+	.footer-sep {
+		opacity: 0.35;
+	}
+
+	.footer-link {
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color var(--transition-fast);
+	}
+
+	.footer-link:hover {
+		color: var(--accent-indigo);
+		text-decoration: underline;
+	}
+
+	.footer-copy {
+		color: var(--text-muted);
+	}
+}

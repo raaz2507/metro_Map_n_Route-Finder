@@ -1,0 +1,217 @@
+{
+	"total_networks_registered": 7,
+	"networks": {
+		"ncrtc_rrts": {
+			"id": "ncrtc_rrts",
+			"name": "Namo Bharat (NCRTC RRTS)",
+			"icon": "🚄",
+			"city": "Delhi-NCR / Meerut",
+			"state": "Delhi-NCR",
+			"state_note": "Delhi & UP",
+			"subtitle": "Delhi-NCR to Meerut Semi-High Speed Regional Rapid Transit System",
+			"source_url": "https://namobharat.ncrtc.in/",
+			"data_sources": {
+				"stations": {
+					"protocol": "rest_api",
+					"url": "https://namobharat.ncrtc.in/commons/journey/stations"
+				},
+				"station_details": {
+					"protocol": "rest_api",
+					"url": "https://namobharat.ncrtc.in/commons/journey/stations/v2/{station_id}/details"
+				},
+				"fare_table": {
+					"protocol": "rest_api",
+					"url": "https://namobharat.ncrtc.in/commons/journey/fare-details?jc={jc_id}",
+					"journey_classes": [
+					{"id": 1, "name": "Standard"},
+					{"id": 2, "name": "Premium"}
+					]
+				}
+			},
+			"pipeline": {
+				"stage": "stage_3_structured",
+				"status": "up_to_date",
+				"supervised_by_developer": true
+				
+			}
+		},
+		"dmrc_delhi": {
+			"id": "dmrc_delhi",
+			"name": "Delhi Metro (DMRC)",
+			"icon": "🚇",
+			"city": "Delhi NCR",
+			"state": "Delhi-NCR",
+			"state_note": "Delhi, Haryana, UP",
+			"subtitle": "Mass Rapid Transit Network serving National Capital Region",
+			"source_url": "https://delhimetrorail.com/",
+			"media_base_url": "https://backend.delhimetrorail.com",
+			"data_sources": {
+				"stations": {
+					"protocol": "rest_api",
+					"url": "https://backend.delhimetrorail.com/api/v2/en/station_list"
+				},
+				"station_details": {
+					"protocol": "rest_api",
+					"url": "https://backend.delhimetrorail.com/api/v2/{lang}/station/{code}",
+					"languages": ["en", "hi"]
+				},
+				"fare_table": {
+					"protocol": "rest_api",
+					"url": "https://backend.delhimetrorail.com/api/v2/en/new_fare_with_route/{from_code}/{to_code}/least-distance/",
+					"distance_buckets": [
+						{"slab_id": 1, "min_km": 0, "max_km": 2, "probe": ["RCK", "NDI"]},
+						{"slab_id": 2, "min_km": 2, "max_km": 5, "probe": ["KG", "RCK"]},
+						{"slab_id": 3, "min_km": 5, "max_km": 12, "probe": ["KG", "CTST"]},
+						{"slab_id": 4, "min_km": 12, "max_km": 21, "probe": ["AHNR", "AIIMS"]},
+						{"slab_id": 5, "min_km": 21, "max_km": 32, "probe": ["RCK", "HCC"]},
+						{"slab_id": 6, "min_km": 32, "max_km": null, "probe": ["KG", "HCC"]}
+					],
+					"airport_express_stations": [
+						{"code": "NDI", "name": "New Delhi"},
+						{"code": "SJSU", "name": "Shivaji Stadium"},
+						{"code": "DKV", "name": "Dhaula Kuan"},
+						{"code": "DACY", "name": "Delhi Aerocity"},
+						{"code": "APOT", "name": "Airport (T-3)"},
+						{"code": "DW21", "name": "Dwarka Sector 21"},
+						{"code": "ECC25", "name": "Yashobhoomi Dwarka Sector 25"}
+					]
+				}
+			},
+			"pipeline": {
+				"stage": "stage_2_cleaned",
+				"status": "up_to_date",
+				"supervised_by_developer": false
+			}
+		},
+		"nmrc_noida": {
+			"id": "nmrc_noida",
+			"name": "Noida Aqua Line (NMRC)",
+			"icon": "🚅",
+			"city": "Noida / Greater Noida",
+			"state": "Uttar Pradesh",
+			"state_note": "Noida-Gr. Noida",
+			"subtitle": "Rapid Transit System connecting Noida to Greater Noida Sector Delta",
+			"source_url": "https://www.nmrcnoida.com/",
+			"data_sources": {
+				"stations_timetable": {
+					"url": "https://www.nmrcnoida.com/Passenger-Information/Metro-Rail/Train-Timings"
+				},
+				"parking_facilities": {
+					"url": "https://www.nmrcnoida.com/Passenger-Information/Metro-Rail/Parking-Bicycle-Facilities"
+				},
+				"contacts": {
+					"url": "https://www.nmrcnoida.com/Contact"
+				},
+				"fare_table": {
+					"protocol": "html_table",
+					"url": "https://www.nmrcnoida.com/Passenger-Information/Metro-Rail/Fare-Table"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_3_structured",
+				"status": "up_to_date",
+				"supervised_by_developer": true
+			}
+		},
+		"rapid_metro_gurugram": {
+			"id": "rapid_metro_gurugram",
+			"name": "Rapid Metro Gurugram",
+			"use_shared_dataset_from": "dmrc_delhi",
+			"icon": "🚈",
+			"city": "Gurugram",
+			"state": "Haryana",
+			"state_note": "Gurugram",
+			"subtitle": "Light Metro Transit serving DLF Cybercity & Golf Course Road Gurugram",
+			"source_url": "https://delhimetrorail.com/",
+			"media_base_url": "https://backend.delhimetrorail.com",
+			"data_sources": {
+				"stations": {
+					"protocol": "rest_api",
+					"url": "https://backend.delhimetrorail.com/api/v2/en/station_list"
+				},
+				"station_details": {
+					"protocol": "rest_api",
+					"url": "https://backend.delhimetrorail.com/api/v2/{lang}/station/{code}",
+					"languages": ["en", "hi"]
+				}
+			},
+			"pipeline": {
+				"stage": "stage_2_cleaned",
+				"status": "up_to_date",
+				"supervised_by_developer": false
+			}
+		},
+		"mumbai_metro": {
+			"id": "mumbai_metro",
+			"name": "Mumbai Metro (MMRC / MMRDA)",
+			"icon": "🚇",
+			"city": "Mumbai",
+			"state": "Maharashtra",
+			"state_note": "Mumbai MMR",
+			"subtitle": "Rapid Transit System serving Mumbai Metropolitan Region",
+			"source_url": "https://mmrcl.com/",
+			"data_sources": {
+				"line3_mmrcl": {
+					"operator": "MMRCL",
+					"line_name": "Line 3 (Aqua Line)",
+					"protocol": "rest_api",
+					"stations_url": "https://portal.mmrcl.com/en/api/v2/station-by-keyword/all/",
+					"station_details_url": "https://portal.mmrcl.com/{lang}/api/v2/station-detail/{code}/",
+					"fare_calculator_url": "https://portal.mmrcl.com/en/api/v2/fare-calculator/",
+					"languages": ["en", "mr"]
+				},
+				"line2a_line7_mmmocl": {
+					"operator": "MMMOCL",
+					"line_name": "Line 2A & Line 7",
+					"protocol": "html_form_post",
+					"fare_table_url": "https://www.mmmocl.co.in/fare_table",
+					"map_asset_url": "https://www.mmmocl.co.in/assets/js/locationMap.js"
+				},
+				"line1_mmopl": {
+					"operator": "MMOPL (Reliance)",
+					"line_name": "Line 1 (Blue Line)",
+					"protocol": "web_page",
+					"fare_calculator_url": "https://www.reliancemumbaimetro.com/ticket-fares.aspx",
+					"map_asset_url": "https://www.mmmocl.co.in/assets/js/locationMap.js"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_2_cleaned",
+				"status": "up_to_date",
+				"supervised_by_developer": false
+			}
+		},
+		"navi_mumbai_metro": {
+			"id": "navi_mumbai_metro",
+			"name": "Navi Mumbai Metro (CIDCO / Maha Metro)",
+			"icon": "🚆",
+			"city": "Navi Mumbai",
+			"state": "Maharashtra",
+			"state_note": "Mumbai MMR",
+			"subtitle": "Rapid Transit System serving Navi Mumbai",
+			"source_url": "https://cidco.maharashtra.gov.in/",
+			"data_sources": {},
+			"pipeline": {
+				"stage": "stage_3_structured",
+				"status": "manual_entry",
+				"supervised_by_developer": true
+			}
+			},
+			"mumbai_monorail": {
+			"id": "mumbai_monorail",
+			"name": "Mumbai Monorail (MMRDA)",
+			"icon": "🚝",
+			"city": "Mumbai",
+			"state": "Maharashtra",
+			"state_note": "Mumbai MMR",
+			"subtitle": "Monorail System serving Mumbai",
+			"source_url": "https://mmrda.maharashtra.gov.in/",
+			"data_sources": {},
+			"pipeline": {
+				"stage": "stage_3_structured",
+				"status": "manual_entry",
+				"supervised_by_developer": true
+			}
+		}
+	}
+}

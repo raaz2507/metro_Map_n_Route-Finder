@@ -1,0 +1,107 @@
+{
+	"version": "1.0",
+	"currency": "INR",
+	"networks": {
+		"nmrc": {
+			"operator": "Noida Aqua Line (NMRC)",
+			"avgSpeedMetersPerMin": 600,
+			"stationHaltMinutes": 0.5
+		}
+	},
+	"policies": {
+		"nmrc_standard": {
+			"network": "nmrc",
+			"effectiveFrom": "2025-01-01",
+			"fareModel": "station_count_based",
+			"source_url": "https://www.nmrcnoida.com/Passenger-Information/Metro-Rail/Fare-Table",
+			"calculation": {
+				"distanceUnit": "stations",
+				"rounding": "exact"
+			},
+			"fareTables": {
+				"weekday": [
+					{
+						"minStations": 1,
+						"maxStations": 1,
+						"fare": 10
+					},
+					{
+						"minStations": 2,
+						"maxStations": 2,
+						"fare": 15
+					},
+					{
+						"minStations": 3,
+						"maxStations": 6,
+						"fare": 20
+					},
+					{
+						"minStations": 7,
+						"maxStations": 9,
+						"fare": 30
+					},
+					{
+						"minStations": 10,
+						"maxStations": 16,
+						"fare": 40
+					},
+					{
+						"minStations": 17,
+						"maxStations": null,
+						"fare": 50
+					}
+				],
+				"holiday": [
+					{
+						"minStations": 1,
+						"maxStations": 1,
+						"fare": 10
+					},
+					{
+						"minStations": 2,
+						"maxStations": 2,
+						"fare": 10
+					},
+					{
+						"minStations": 3,
+						"maxStations": 6,
+						"fare": 15
+					},
+					{
+						"minStations": 7,
+						"maxStations": 9,
+						"fare": 20
+					},
+					{
+						"minStations": 10,
+						"maxStations": 16,
+						"fare": 30
+					},
+					{
+						"minStations": 17,
+						"maxStations": null,
+						"fare": 40
+					}
+				]
+			},
+			"products": {
+				"token": {
+					"type": "base",
+					"label": {
+						"en": "QR Ticket",
+						"hi": "क्यूआर टिकट"
+					}
+				},
+				"smart_card": {
+					"type": "discount",
+					"baseProduct": "token",
+					"discountPercent": 10,
+					"label": {
+						"en": "CITY1 Smart Card",
+						"hi": "सिटी1 स्मार्ट कार्ड"
+					}
+				}
+			}
+		}
+	}
+}

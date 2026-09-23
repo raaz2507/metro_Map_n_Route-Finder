@@ -1,0 +1,440 @@
+{
+	"defaults": {
+		"defaultPlusCodePrefix": "7JFJ",
+		"stationType": "normal",
+		"layout": "elevated"
+	},
+	"station_types": {
+		"normal": {
+			"en": "Normal Station",
+			"hi": "साधारण स्टेशन",
+			"mr": "सामान्य स्थानक"
+		},
+		"interchange": {
+			"en": "Interchange Station",
+			"hi": "इंटरचेंज स्टेशन",
+			"mr": "इंटरचेंज स्थानक"
+		},
+		"walkway": {
+			"en": "Interchange via Walkway",
+			"hi": "वॉकवे द्वारा इंटरचेंज",
+			"mr": "वॉकवे द्वारे इंटरचेंज"
+		}
+	},
+	"lines": {
+		"mumbai.blue": {
+			"id": "mumbai.blue",
+			"network": "mmopl",
+			"operator": "MMOPL",
+			"farePolicy": "mmopl_line1",
+			"name": {
+				"en": "Line 1 (Blue Line)",
+				"mr": "मेट्रो मार्ग १ (ब्लू लाइन)",
+				"hi": "मेट्रो लाइन १ (ब्लू लाइन)"
+			},
+			"color": "#0072CE",
+			"status": "operational",
+			"stations": [
+				"mmopl_1_versova",
+				"mmopl_1_dnnagar",
+				"mmopl_1_azadnagar",
+				"mmopl_1_andheri",
+				"mmopl_1_westernexpresshighway",
+				"mmopl_1_chakala",
+				"mmopl_1_airportroad",
+				"marol_naka",
+				"mmopl_1_sakinaka",
+				"mmopl_1_asalpha",
+				"mmopl_1_jagrutinagar",
+				"mmopl_1_ghatkopar"
+			]
+		},
+		"mumbai.yellow": {
+			"id": "mumbai.yellow",
+			"network": "mmmocl",
+			"operator": "MMMOCL",
+			"farePolicy": "mmmocl_standard",
+			"name": {
+				"en": "Line 2A (Yellow Line)",
+				"mr": "मेट्रो मार्ग २A (यलो लाइन)",
+				"hi": "मेट्रो लाइन २A (यलो लाइन)"
+			},
+			"color": "#FFD100",
+			"status": "operational",
+			"stations": [
+				"mmmocl_2a_dahisareast",
+				"mmmocl_2a_anandnagar",
+				"mmmocl_2a_kandarpada",
+				"mmmocl_2a_mandapeshwariccolony",
+				"mmmocl_2a_eksar",
+				"mmmocl_2a_borivaliwest",
+				"mmmocl_2a_shimpoli",
+				"mmmocl_2a_kandivaliwest",
+				"mmmocl_2a_dahanukarwadi",
+				"mmmocl_2a_valnaimeethchowky",
+				"mmmocl_2a_maladwest",
+				"mmmocl_2a_lowermalad",
+				"mmmocl_2a_bangurnagar",
+				"mmmocl_2a_goregaonwest",
+				"mmmocl_2a_oshiwara",
+				"mmmocl_2a_loweroshiwara",
+				"mmmocl_2a_andheriwest"
+			]
+		},
+		"mumbai.red": {
+			"id": "mumbai.red",
+			"network": "mmmocl",
+			"operator": "MMMOCL",
+			"farePolicy": "mmmocl_standard",
+			"name": {
+				"en": "Line 7 (Red Line)",
+				"mr": "मेट्रो मार्ग ७ (रेड लाइन)",
+				"hi": "मेट्रो लाइन ७ (रेड लाइन)"
+			},
+			"color": "#ED1C24",
+			"status": "operational",
+			"stations": [
+				"mmmocl_2a_dahisareast",
+				"mmmocl_7_ovaripada",
+				"mmmocl_7_nationalpark",
+				"mmmocl_7_devipada",
+				"mmmocl_7_magathane",
+				"mmmocl_7_poisar",
+				"mmmocl_7_akurli",
+				"mmmocl_7_kurar",
+				"mmmocl_7_dindoshi",
+				"mmmocl_7_aarey",
+				"mmmocl_7_goregaoneast",
+				"mmmocl_7_jogeshwarieast",
+				"mmmocl_7_mogra",
+				"mmmocl_7_gundavali"
+			]
+		},
+		"mumbai.aqua": {
+			"id": "mumbai.aqua",
+			"network": "mmrcl",
+			"operator": "MMRCL",
+			"farePolicy": "mmrcl_line3",
+			"name": {
+				"en": "Line 3 (Aqua Line)",
+				"mr": "मेट्रो मार्ग ३ (अक्वा लाइन)",
+				"hi": "मेट्रो लाइन ३ (एक्वा लाइन)"
+			},
+			"color": "#00A3AD",
+			"status": "operational",
+			"stations": [
+				"aarey_jvlr",
+				"seepz",
+				"midc_andheri",
+				"marol_naka",
+				"csmi_airport_t2",
+				"sahar_road",
+				"csmi_airport_t1",
+				"santacruz_metro",
+				"bandra_colony",
+				"bandra_kurla_complex",
+				"dharavi",
+				"shitala_devi_mandir",
+				"dadar_metro",
+				"siddhivinayak",
+				"worli",
+				"acharya_atre_chowk",
+				"science_centre",
+				"mahalaxmi_metro",
+				"jagannath_shankar_sheth_metro",
+				"grant_road_metro",
+				"girgaon",
+				"kalbadevi",
+				"chhatrapati_shivaji_maharaj_terminus_metro",
+				"hutatma_chowk",
+				"churchgate_metro",
+				"vidhan_bhavan",
+				"cuffe_parade"
+			]
+		}
+	},
+	"transfers": {
+		"marol_naka": {
+			"mumbai.blue": {
+				"marol_naka:mumbai.aqua": {
+					"type": "interchange",
+					"transfer_mode": "vertical",
+					"distance_meters": 50,
+					"levels": 1
+				}
+			},
+			"mumbai.aqua": {
+				"marol_naka:mumbai.blue": {
+					"type": "interchange",
+					"transfer_mode": "vertical",
+					"distance_meters": 50,
+					"levels": 1
+				}
+			}
+		},
+		"mmmocl_7_gundavali": {
+			"mumbai.red": {
+				"mmopl_1_westernexpresshighway:mumbai.blue": {
+					"type": "walkway",
+					"transfer_mode": "skywalk",
+					"distance_meters": 95
+				}
+			}
+		},
+		"mmopl_1_westernexpresshighway": {
+			"mumbai.blue": {
+				"mmmocl_7_gundavali:mumbai.red": {
+					"type": "walkway",
+					"transfer_mode": "skywalk",
+					"distance_meters": 95
+				}
+			}
+		},
+		"mmopl_1_dnnagar": {
+			"mumbai.blue": {
+				"mmmocl_2a_andheriwest:mumbai.yellow": {
+					"type": "walkway",
+					"transfer_mode": "skywalk",
+					"distance_meters": 120
+				}
+			}
+		},
+		"mmmocl_2a_andheriwest": {
+			"mumbai.yellow": {
+				"mmopl_1_dnnagar:mumbai.blue": {
+					"type": "walkway",
+					"transfer_mode": "skywalk",
+					"distance_meters": 120
+				}
+			}
+		},
+		"mmmocl_2a_dahisareast": {
+			"mumbai.yellow": {
+				"mmmocl_2a_dahisareast:mumbai.red": {
+					"type": "interchange",
+					"transfer_mode": "cross_platform",
+					"distance_meters": 30
+				}
+			},
+			"mumbai.red": {
+				"mmmocl_2a_dahisareast:mumbai.yellow": {
+					"type": "interchange",
+					"transfer_mode": "cross_platform",
+					"distance_meters": 30
+				}
+			}
+		}
+	},
+	"fareRules": {
+		"currency": "INR",
+		"last_updated": "2026-09-20",
+		"networks": {
+			"mmopl": {
+				"operator": "Mumbai Metro One Private Limited (Reliance / MMRDA)",
+				"avgSpeedMetersPerMin": 550,
+				"stationHaltMinutes": 0.5
+			},
+			"mmmocl": {
+				"operator": "Maha Mumbai Metro Operation Corporation Limited",
+				"avgSpeedMetersPerMin": 550,
+				"stationHaltMinutes": 0.5
+			},
+			"mmrcl": {
+				"operator": "Mumbai Metro Rail Corporation Limited",
+				"avgSpeedMetersPerMin": 600,
+				"stationHaltMinutes": 0.5
+			}
+		},
+		"policies": {
+			"mmopl_line1": {
+				"network": "mmopl",
+				"effectiveFrom": "2024-01-01",
+				"fareModel": "distance_based",
+				"calculation": {
+					"distanceUnit": "km",
+					"rounding": "nearest"
+				},
+				"fareTables": {
+					"standard": [
+						{
+							"minKm": 0,
+							"maxKm": 3,
+							"fare": 10
+						},
+						{
+							"minKm": 3,
+							"maxKm": 8,
+							"fare": 20
+						},
+						{
+							"minKm": 8,
+							"maxKm": 12,
+							"fare": 30
+						},
+						{
+							"minKm": 12,
+							"maxKm": null,
+							"fare": 40
+						}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {
+							"en": "Token / QR Ticket",
+							"hi": "टोकन / क्यूआर टिकट",
+							"mr": "टोकन / क्यूआर तिकीट"
+						}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"label": {
+							"en": "Metro Smart Card (10% Off)",
+							"hi": "स्मार्ट कार्ड (10% छूट)",
+							"mr": "स्मार्ट कार्ड (१०% सवलत)"
+						}
+					}
+				}
+			},
+			"mmmocl_standard": {
+				"network": "mmmocl",
+				"effectiveFrom": "2023-01-19",
+				"fareModel": "distance_based",
+				"calculation": {
+					"distanceUnit": "km",
+					"rounding": "nearest"
+				},
+				"fareTables": {
+					"standard": [
+						{
+							"minKm": 0,
+							"maxKm": 3,
+							"fare": 10
+						},
+						{
+							"minKm": 3,
+							"maxKm": 12,
+							"fare": 20
+						},
+						{
+							"minKm": 12,
+							"maxKm": 18,
+							"fare": 30
+						},
+						{
+							"minKm": 18,
+							"maxKm": 24,
+							"fare": 40
+						},
+						{
+							"minKm": 24,
+							"maxKm": 30,
+							"fare": 50
+						},
+						{
+							"minKm": 30,
+							"maxKm": 36,
+							"fare": 60
+						},
+						{
+							"minKm": 36,
+							"maxKm": null,
+							"fare": 70
+						}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {
+							"en": "Paper QR Ticket",
+							"hi": "पेपर क्यूआर टिकट",
+							"mr": "पेपर क्यूआर तिकीट"
+						}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"label": {
+							"en": "Mumbai 1 / NCMC Card (10% Off)",
+							"hi": "मुंबई 1 / एनसीएमसी कार्ड (10% छूट)",
+							"mr": "मुंबई १ / NCMC कार्ड (१०% सवलत)"
+						}
+					}
+				}
+			},
+			"mmrcl_line3": {
+				"network": "mmrcl",
+				"effectiveFrom": "2024-10-07",
+				"fareModel": "distance_based",
+				"calculation": {
+					"distanceUnit": "km",
+					"rounding": "nearest"
+				},
+				"fareTables": {
+					"standard": [
+						{
+							"minKm": 0,
+							"maxKm": 3,
+							"fare": 10
+						},
+						{
+							"minKm": 3,
+							"maxKm": 12,
+							"fare": 20
+						},
+						{
+							"minKm": 12,
+							"maxKm": 18,
+							"fare": 30
+						},
+						{
+							"minKm": 18,
+							"maxKm": 24,
+							"fare": 40
+						},
+						{
+							"minKm": 24,
+							"maxKm": 30,
+							"fare": 50
+						},
+						{
+							"minKm": 30,
+							"maxKm": 36,
+							"fare": 60
+						},
+						{
+							"minKm": 36,
+							"maxKm": null,
+							"fare": 70
+						}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {
+							"en": "Metro QR Ticket",
+							"hi": "मेट्रो क्यूआर टिकट",
+							"mr": "मेट्रो क्यूआर तिकीट"
+						}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"label": {
+							"en": "NCMC Smart Card (10% Off)",
+							"hi": "एनसीएमसी स्मार्ट कार्ड (10% छूट)",
+							"mr": "NCMC स्मार्ट कार्ड (१०% सवलत)"
+						}
+					}
+				}
+			}
+		}
+	}
+}

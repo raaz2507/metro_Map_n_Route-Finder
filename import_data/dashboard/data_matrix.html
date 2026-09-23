@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Metro Data Coverage & Feature Matrix | Metro Audit Hub</title>
+	<!-- Pure Modular CSS Architecture (Zero CDN Dependencies) -->
+	<link rel="stylesheet" href="./css/pages/data_matrix.css">
+</head>
+<body class="app-body">
+
+	
+	<!-- TOP STICKY HEADER (UNIFIED HEADER COMPONENT) -->
+	<header id="globalHeader"></header>
+	<main class="main-viewport custom-scrollbar">
+		<!-- METRICS OVERVIEW BAR -->
+		<div class="matrix-metrics-bar">
+			<div class="matrix-metrics-grid">
+				<div class="kpi-card flex-align gap-md">
+					<div class="metric-icon-box bg-indigo-subtle">
+						<img src="./assets/icons/ui/matrix.svg" class="icon-sm icon-indigo" alt="States">
+					</div>
+					<div>
+						<div class="kpi-title" data-i18n="matrix.kpi_states">States Audited</div>
+						<div id="metricStates" class="kpi-val text-indigo">Loading...</div>
+					</div>
+				</div>
+
+				<div class="kpi-card flex-align gap-md">
+					<div class="metric-icon-box bg-emerald-subtle">
+						<img src="./assets/icons/ui/shield-database.svg" class="icon-sm icon-emerald" alt="Operators">
+					</div>
+					<div>
+						<div class="kpi-title" data-i18n="matrix.kpi_operators">Transit Operators</div>
+						<div id="metricOperators" class="kpi-val text-emerald">Loading...</div>
+					</div>
+				</div>
+
+				<div class="kpi-card flex-align gap-md">
+					<div class="metric-icon-box bg-cyan-subtle">
+						<img src="./assets/icons/ui/download.svg" class="icon-sm icon-cyan" alt="Stations">
+					</div>
+					<div>
+						<div class="kpi-title" data-i18n="matrix.kpi_stations">Live Stations</div>
+						<div id="metricStations" class="kpi-val text-cyan">Loading...</div>
+					</div>
+				</div>
+
+				<div class="kpi-card flex-align gap-md">
+					<div class="metric-icon-box bg-amber-subtle">
+						<img src="./assets/icons/ui/matrix.svg" class="icon-sm icon-amber" alt="Fare">
+					</div>
+					<div>
+						<div class="kpi-title" data-i18n="matrix.kpi_fare">Fare Coverage</div>
+						<div id="metricFare" class="kpi-val text-amber">Loading...</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- MAIN SCROLLABLE MATRIX CONTAINER -->
+		<div class="content-body">
+			<div class="matrix-table-card">
+				<table class="matrix-table">
+					<thead>
+						<!-- TIER 1: MAIN SUPER HEADERS -->
+						<tr>
+							<th rowspan="2" class="col-w-state text-center" data-i18n="matrix.col_state">State / Region</th>
+							<th rowspan="2" class="col-w-network text-left" data-i18n="matrix.col_network">Network & Line</th>
+							
+							<!-- SUPER HEADER 1: STATION INFO (Colspan 6) -->
+							<th colspan="6" class="text-center th-super-station" data-i18n="matrix.col_station_info">
+								Station Information (Sub-Fields)
+							</th>
+
+							<!-- SUPER HEADER 2: FARE & PRICING ENGINE (Colspan 3) -->
+							<th colspan="3" class="text-center th-super-fare" data-i18n="matrix.col_fare_engine">
+								Fare, Smart Cards & Pricing Engine
+							</th>
+
+							<th rowspan="2" class="col-w-timing text-center" data-i18n="matrix.col_timing">Train Timing</th>
+							<th rowspan="2" class="col-w-interchange text-center" data-i18n="matrix.col_interchange">Interchanges</th>
+						</tr>
+
+						<!-- TIER 2: SUB-COLUMNS -->
+						<tr>
+							<!-- Station Info Sub-Columns -->
+							<th class="th-subcol" data-i18n="matrix.sub_geo">1. Geo Location</th>
+							<th class="th-subcol" data-i18n="matrix.sub_gates">2. Gates & Exits</th>
+							<th class="th-subcol" data-i18n="matrix.sub_lifts">3. Lifts & Esc.</th>
+							<th class="th-subcol" data-i18n="matrix.sub_parking">4. Parking</th>
+							<th class="th-subcol" data-i18n="matrix.sub_facilities">5. Facilities</th>
+							<th class="th-subcol" data-i18n="matrix.sub_contact">6. Emergency Contact</th>
+
+							<!-- Fare Sub-Columns -->
+							<th class="th-subcol th-fare-col" data-i18n="matrix.sub_pricing_model">1. Pricing Model</th>
+							<th class="th-subcol th-fare-col" data-i18n="matrix.sub_smart_cards">2. Smart Cards & Passes</th>
+							<th class="th-subcol th-fare-col" data-i18n="matrix.sub_sync">3. Freshness & Sync</th>
+						</tr>
+					</thead>
+					<tbody id="matrixTableBody">
+						<tr>
+							<td colspan="13" class="loading-cell text-center">
+								<img src="./assets/icons/ui/sync.svg" class="icon-sm icon-spin" alt="Loading">
+								<span>Loading live audit matrix from master manifest...</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- DEDICATED PASSENGER SAFETY & SUPPORT AUDIT TABLE -->
+			<section class="support-audit-section">
+				<div class="section-banner-header">
+					<div class="section-title-group">
+						<div class="support-icon-badge">
+							<img src="./assets/icons/ui/shield-database.svg" class="icon-sm icon-rose" alt="Shield">
+						</div>
+						<div>
+							<h2 class="section-heading">
+								<span>Passenger Safety, Helplines & Assistance Directory</span>
+								<span class="support-header-badge">5 Networks Audited</span>
+							</h2>
+							<p class="section-subtext">
+								Live Customer Care, CISF Security, Central Lost & Found Depots, and Official Portals
+							</p>
+						</div>
+					</div>
+
+					<button id="btnAuditSupport" class="btn-audit-support">
+						<img src="./assets/icons/ui/sync.svg" id="auditSupportIcon" class="icon-xs icon-white" alt="Lightning">
+						<span id="auditSupportText">Audit Portal Health</span>
+					</button>
+				</div>
+
+				<div id="supportAuditBanner" class="support-banner hidden"></div>
+
+				<div class="support-table-wrapper custom-scrollbar">
+					<table class="matrix-table support-matrix-table">
+						<thead>
+							<tr>
+								<th class="col-sup-net text-left">Transit Network</th>
+								<th class="col-sup-care text-center">Customer Care</th>
+								<th class="col-sup-sec text-center">Security / CISF</th>
+								<th class="col-sup-sos text-center">Women & Emergency</th>
+								<th class="col-sup-depot text-left">Central Lost & Found Depot</th>
+								<th class="col-sup-portals text-left">Official Portals & Grievance</th>
+							</tr>
+						</thead>
+						<tbody id="supportTableBody">
+							<!-- Data rows will render here -->
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+	</main>
+	<!-- GLOBAL FOOTER & PAGE CONTROLLER SCRIPT -->
+	<footer id="globalFooter"></footer>
+	
+	<!-- GLOBAL TOAST CONTAINER -->
+	<div id="toastContainer" class="toast-stack-container"></div>
+
+	<script type="module" src="./js/pages/data_matrix.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+@layer components {
+	/* Smooth Scroll & Doc Container */
+	html {
+		scroll-behavior: smooth;
+	}
+
+	.doc-container {
+		flex: 1;
+		min-height: 0;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+		max-width: 60rem;
+		margin: 0 auto;
+		width: 100%;
+		padding: var(--space-xl) var(--space-md) var(--space-3xl);
+	}
+
+	/* Documentation Card */
+	.doc-card {
+		background: var(--card-bg);
+		border: var(--border-thin) solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: clamp(var(--space-md), 3vw, var(--space-2xl));
+		box-shadow: var(--shadow-sm);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		scroll-margin-top: 3.75rem;
+	}
+
+	.doc-card-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		border-bottom: var(--border-thin) solid var(--border-color);
+		padding-bottom: var(--space-md);
+	}
+
+	/* Numbered Step Badges */
+	.step-num-badge {
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: var(--radius-md);
+		background: var(--accent-indigo-bg);
+		border: var(--border-thin) solid var(--accent-indigo-border);
+		color: var(--accent-indigo);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: var(--text-base);
+		font-weight: var(--fw-black);
+		flex-shrink: 0;
+		font-family: var(--font-mono);
+	}
+
+	.step-num-badge.badge-rose {
+		background: var(--accent-rose-bg);
+		border-color: var(--accent-rose-border);
+		color: var(--accent-rose);
+	}
+	.step-num-badge.badge-amber {
+		background: var(--accent-amber-bg);
+		border-color: var(--accent-amber-border);
+		color: var(--accent-amber);
+	}
+	.step-num-badge.badge-cyan {
+		background: var(--accent-cyan-bg);
+		border-color: var(--accent-cyan-border);
+		color: var(--accent-cyan);
+	}
+	.step-num-badge.badge-emerald {
+		background: var(--accent-emerald-bg);
+		border-color: var(--accent-emerald-border);
+		color: var(--accent-emerald);
+	}
+
+	/* Headings & Text */
+	.doc-section-heading {
+		font-size: clamp(1rem, 2vw, 1.25rem);
+		font-weight: var(--fw-black);
+		margin: 0;
+		color: var(--text-primary);
+		line-height: var(--leading-normal);
+	}
+	.doc-section-sub {
+		font-size: var(--text-sm);
+		color: var(--text-muted);
+		margin: var(--space-2xs) 0 0 0;
+	}
+
+	.doc-paragraph {
+		font-size: var(--text-base);
+		line-height: var(--leading-relaxed);
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.doc-paragraph code {
+		background: var(--bg-app);
+		border: var(--border-thin) solid var(--border-color);
+		padding: var(--space-2xs) var(--space-xs);
+		border-radius: var(--radius-xs);
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		color: var(--accent-indigo);
+	}
+
+	/* Pipeline Flow Diagram Box */
+	.pipeline-diagram-box {
+		background: var(--bg-app);
+		border: var(--border-thin) solid var(--border-color);
+		border-radius: var(--radius-lg);
+		padding: var(--space-lg);
+		font-size: var(--text-sm);
+		line-height: var(--leading-relaxed);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.diagram-arrow {
+		color: var(--accent-indigo);
+		font-weight: var(--fw-bold);
+		padding-left: var(--space-lg);
+		font-size: var(--text-base);
+	}
+
+	/* Delta Formula Box */
+	.delta-formula-box {
+		background: var(--accent-cyan-bg);
+		border: var(--border-thin) solid var(--accent-cyan-border);
+		border-radius: var(--radius-lg);
+		padding: var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+	.formula-text {
+		font-size: var(--text-base);
+		font-weight: var(--fw-extrabold);
+		color: var(--accent-cyan);
+		text-align: center;
+		padding: var(--space-xs);
+		background: var(--glass-subtle);
+		border-radius: var(--radius-sm);
+	}
+
+	/* Terminal CLI Code Box */
+	.code-terminal-box {
+		background: var(--input-bg);
+		border: var(--border-thin) solid var(--border-color);
+		border-left: var(--space-xs) solid var(--accent-indigo);
+		border-radius: var(--radius-md);
+		padding: var(--space-md) var(--space-lg);
+		font-size: var(--text-sm);
+		line-height: var(--leading-relaxed);
+		color: var(--accent-cyan);
+		font-family: var(--font-mono);
+	}
+
+	/* Documentation Bullet Lists */
+	.doc-list {
+		padding-left: var(--space-lg);
+		margin: 0;
+		font-size: var(--text-base);
+		line-height: var(--leading-relaxed);
+		color: var(--text-secondary);
+	}
+	.doc-list li {
+		margin-bottom: var(--space-xs);
+	}
+
+	/* Sidebar Index Links */
+	.sidebar-doc-link {
+		display: flex;
+		align-items: center;
+		padding: var(--space-sm) var(--space-md);
+		border-radius: var(--radius-md);
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: var(--text-sm);
+		font-weight: var(--fw-semibold);
+		border-left: var(--border-thick) solid transparent;
+		transition: all var(--transition-fast);
+	}
+	.sidebar-doc-link:hover {
+		background: var(--bg-app);
+		color: var(--text-primary);
+	}
+	.sidebar-doc-link.active {
+		background: var(--accent-indigo-bg);
+		color: var(--accent-indigo);
+		border-left-color: var(--accent-indigo);
+		font-weight: var(--fw-bold);
+	}
+}

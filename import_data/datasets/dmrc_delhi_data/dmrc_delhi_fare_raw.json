@@ -1,0 +1,188 @@
+{
+	"metadata": {
+		"network_id": "rapid_metro_gurugram",
+		"network_name": "Rapid Metro Gurugram",
+		"scraped_at": "2026-09-17T20:48:02.567490+00:00",
+		"currency": "INR",
+		"source_endpoint": "https://backend.delhimetrorail.com/api/v2/en/new_fare_with_route/{from_code}/{to_code}/least-distance/",
+		"corridors": [
+			"standard_network",
+			"airport_express_line"
+		],
+		"shared_from": "dmrc_delhi",
+		"shared_note": "Fares and ticketing shared with parent transit system"
+	},
+	"standard_network": {
+		"fare_model": "distance_based",
+		"description": "Applies across all regular lines (Red, Yellow, Blue, Green, Violet, Pink, Magenta, Grey)",
+		"distance_slabs": [
+			{
+				"slab_id": 1,
+				"min_km": 0,
+				"max_km": 2,
+				"token_weekday_fare_inr": 11,
+				"token_weekend_fare_inr": 11,
+				"smart_card_normal_fare_inr": 9.9,
+				"smart_card_non_peak_fare_inr": 8.8,
+				"live_probe_verified": "RCK->NDI"
+			},
+			{
+				"slab_id": 2,
+				"min_km": 2,
+				"max_km": 5,
+				"token_weekday_fare_inr": 21,
+				"token_weekend_fare_inr": 11,
+				"smart_card_normal_fare_inr": 18.9,
+				"smart_card_non_peak_fare_inr": 16.8,
+				"live_probe_verified": "KG->RCK"
+			},
+			{
+				"slab_id": 3,
+				"min_km": 5,
+				"max_km": 12,
+				"token_weekday_fare_inr": 32,
+				"token_weekend_fare_inr": 21,
+				"smart_card_normal_fare_inr": 28.8,
+				"smart_card_non_peak_fare_inr": 25.6,
+				"live_probe_verified": "KG->CTST"
+			},
+			{
+				"slab_id": 4,
+				"min_km": 12,
+				"max_km": 21,
+				"token_weekday_fare_inr": 43,
+				"token_weekend_fare_inr": 32,
+				"smart_card_normal_fare_inr": 38.7,
+				"smart_card_non_peak_fare_inr": 34.4,
+				"live_probe_verified": "AHNR->AIIMS"
+			},
+			{
+				"slab_id": 5,
+				"min_km": 21,
+				"max_km": 32,
+				"token_weekday_fare_inr": 54,
+				"token_weekend_fare_inr": 43,
+				"smart_card_normal_fare_inr": 48.6,
+				"smart_card_non_peak_fare_inr": 43.2,
+				"live_probe_verified": "RCK->HCC"
+			},
+			{
+				"slab_id": 6,
+				"min_km": 32,
+				"max_km": null,
+				"token_weekday_fare_inr": 64,
+				"token_weekend_fare_inr": 54,
+				"smart_card_normal_fare_inr": 57.6,
+				"smart_card_non_peak_fare_inr": 51.2,
+				"live_probe_verified": "KG->HCC"
+			}
+		],
+		"discounts": {
+			"smart_card_peak_discount_percent": 10,
+			"smart_card_non_peak_discount_percent": 20,
+			"non_peak_hours": [
+				"start_of_revenue_service - 08:00",
+				"12:00 - 17:00",
+				"21:00 - end_of_revenue_service"
+			]
+		}
+	},
+	"airport_express_line": {
+		"fare_model": "station_pair",
+		"description": "Dedicated premium tariff for Orange Line (New Delhi to Yashobhoomi Dwarka Sec 25)",
+		"stations_count": 7,
+		"point_to_point_fares": [
+			{
+				"from_station_code": "NDI",
+				"from_station_name": "New Delhi",
+				"to_station_code": "SJSU",
+				"to_station_name": "Shivaji Stadium",
+				"weekday_fare_inr": 21,
+				"weekend_fare_inr": 21,
+				"travel_time": "0:02:46"
+			},
+			{
+				"from_station_code": "NDI",
+				"from_station_name": "New Delhi",
+				"to_station_code": "DKV",
+				"to_station_name": "Dhaula Kuan",
+				"weekday_fare_inr": 43,
+				"weekend_fare_inr": 43,
+				"travel_time": "0:07:45"
+			},
+			{
+				"from_station_code": "NDI",
+				"from_station_name": "New Delhi",
+				"to_station_code": "DACY",
+				"to_station_name": "Delhi Aerocity",
+				"weekday_fare_inr": 54,
+				"weekend_fare_inr": 54,
+				"travel_time": "0:12:46"
+			},
+			{
+				"from_station_code": "NDI",
+				"from_station_name": "New Delhi",
+				"to_station_code": "APOT",
+				"to_station_name": "Airport (T-3)",
+				"weekday_fare_inr": 64,
+				"weekend_fare_inr": 64,
+				"travel_time": "0:16:18"
+			},
+			{
+				"from_station_code": "SJSU",
+				"from_station_name": "Shivaji Stadium",
+				"to_station_code": "DKV",
+				"to_station_name": "Dhaula Kuan",
+				"weekday_fare_inr": 21,
+				"weekend_fare_inr": 21,
+				"travel_time": "0:04:59"
+			},
+			{
+				"from_station_code": "SJSU",
+				"from_station_name": "Shivaji Stadium",
+				"to_station_code": "DACY",
+				"to_station_name": "Delhi Aerocity",
+				"weekday_fare_inr": 32,
+				"weekend_fare_inr": 32,
+				"travel_time": "0:10:00"
+			},
+			{
+				"from_station_code": "SJSU",
+				"from_station_name": "Shivaji Stadium",
+				"to_station_code": "APOT",
+				"to_station_name": "Airport (T-3)",
+				"weekday_fare_inr": 54,
+				"weekend_fare_inr": 54,
+				"travel_time": "0:13:32"
+			},
+			{
+				"from_station_code": "DKV",
+				"from_station_name": "Dhaula Kuan",
+				"to_station_code": "DACY",
+				"to_station_name": "Delhi Aerocity",
+				"weekday_fare_inr": 21,
+				"weekend_fare_inr": 21,
+				"travel_time": "0:05:01"
+			},
+			{
+				"from_station_code": "DKV",
+				"from_station_name": "Dhaula Kuan",
+				"to_station_code": "APOT",
+				"to_station_name": "Airport (T-3)",
+				"weekday_fare_inr": 32,
+				"weekend_fare_inr": 32,
+				"travel_time": "0:08:33"
+			},
+			{
+				"from_station_code": "DACY",
+				"from_station_name": "Delhi Aerocity",
+				"to_station_code": "APOT",
+				"to_station_name": "Airport (T-3)",
+				"weekday_fare_inr": 21,
+				"weekend_fare_inr": 21,
+				"travel_time": "0:03:32"
+			}
+		],
+		"total_pairs_scraped": 10
+	}
+}

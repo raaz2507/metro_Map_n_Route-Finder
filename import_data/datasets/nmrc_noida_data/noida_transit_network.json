@@ -1,0 +1,279 @@
+{
+"defaults": {
+	"defaultPlusCodePrefix": "7JWV",
+	"stationType": "normal",
+	"layout": "elevated"
+},
+
+"fareRules": {
+	"version": "1.0",
+	"currency": "INR",
+	"networks": {
+		"nmrc": {
+			"operator": "Noida Metro Rail Corporation",
+			"avgSpeedMetersPerMin": 600,
+			"stationHaltMinutes": 0.5
+		}
+	},
+	"policies": {
+		"nmrc_standard": {
+			"network": "nmrc",
+			"fareModel": "station_count_based",
+			"fareTables": {
+				"weekday": [
+					{ "minStations": 1, "maxStations": 1, "fare": 10 },
+					{ "minStations": 2, "maxStations": 2, "fare": 15 },
+					{ "minStations": 3, "maxStations": 6, "fare": 20 },
+					{ "minStations": 7, "maxStations": 9, "fare": 30 },
+					{ "minStations": 10, "maxStations": 16, "fare": 40 },
+					{ "minStations": 17, "maxStations": 21, "fare": 50 }
+				],
+				"holiday": [
+					{ "minStations": 1, "maxStations": 2, "fare": 10 },
+					{ "minStations": 3, "maxStations": 6, "fare": 15 },
+					{ "minStations": 7, "maxStations": 9, "fare": 20 },
+					{ "minStations": 10, "maxStations": 16, "fare": 30 },
+					{ "minStations": 17, "maxStations": 21, "fare": 40 }
+				]
+			},
+			"products": {
+				"smart_card": {
+					"type": "discount",
+					"discountPercent": 10,
+					"label": {
+						"en": "City1 Smart Card (10% Discount)",
+						"hi": "सिटी1 स्मार्ट कार्ड (10% छूट)"
+					}
+				}
+			}
+		}
+	}
+},
+"lines": {
+	"nmrc.aqua": {
+	"id": "nmrc.aqua",
+	"network": "nmrc",
+	"operator": "Noida Metro Rail Corporation",
+	"farePolicy": "nmrc_standard",
+	"label": "Aqua",
+	"short_name": { "en": "Aqua Line", "hi": "एक्वा लाइन" },
+	"color": "#00BFFF",
+	"color_name": "aqua",
+	"style": "solid",
+	"route": { "from": "noida_sector_51", "to": "depot_station" },
+	"stations": [
+		"noida_sector_51", "noida_sector_50", "noida_sector_76", "noida_sector_101",
+		"noida_sector_81", "nsez", "noida_sector_83", "noida_sector_137",
+		"noida_sector_142", "noida_sector_143", "noida_sector_144", "noida_sector_145",
+		"noida_sector_146", "noida_sector_147", "noida_sector_148", "knowledge_park_ii",
+		"pari_chowk", "alpha_1", "delta_1", "gnida_office", "depot_station"
+	]
+	},
+	"nmrc.aqua_extension": {
+	"id": "nmrc.aqua_extension",
+	"network": "nmrc",
+	"operator": "Noida Metro Rail Corporation",
+	"farePolicy": "nmrc_standard",
+	"label": "Aqua Ext",
+	"short_name": { "en": "Aqua Line Extension", "hi": "एक्वा लाइन विस्तार" },
+	"color": "#00BFFF",
+	"color_name": "aqua",
+	"style": "dashed",
+	"route": { "from": "noida_sector_51", "to": "greater_noida_sector_2" },
+	"stations": [
+		"noida_sector_51", "noida_sector_122", "noida_sector_123",
+		"greater_noida_sector_4", "greater_noida_sector_2"
+	]
+	}
+},
+"stationData": {
+	"noida_sector_51": {
+	"id": "noida_sector_51", "code": "AQUA_01", "order": 1, "is_terminal": false,
+	"name": { "en": "Noida Sector 51", "hi": "नोएडा सेक्टर 51" },
+	"lines": ["nmrc.aqua", "nmrc.aqua_extension"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "interchange" },
+	"neighbors": [{ "station": "noida_sector_122", "line": "nmrc.aqua_extension", "distance": 1800 }],
+	"train_schedule": { "first_train": "06:00", "last_train": "22:00", "sunday_first_train": "08:00", "sunday_last_train": "22:00" }
+	},
+	"noida_sector_50": {
+	"id": "noida_sector_50", "code": "AQUA_02", "order": 2, "is_terminal": false,
+	"name": { "en": "Noida Sector 50", "hi": "नोएडा सेक्टर 50" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:02", "last_train": "22:45", "sunday_first_train": "08:02", "sunday_last_train": "22:45" }
+	},
+	"noida_sector_76": {
+	"id": "noida_sector_76", "code": "AQUA_03", "order": 3, "is_terminal": false,
+	"name": { "en": "Noida Sector 76", "hi": "नोएडा सेक्टर 76" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:04", "last_train": "22:43", "sunday_first_train": "08:04", "sunday_last_train": "22:43" }
+	},
+	"noida_sector_101": {
+	"id": "noida_sector_101", "code": "AQUA_04", "order": 4, "is_terminal": false,
+	"name": { "en": "Noida Sector 101", "hi": "नोएडा सेक्टर 101" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:07", "last_train": "22:41", "sunday_first_train": "08:07", "sunday_last_train": "22:41" }
+	},
+	"noida_sector_81": {
+	"id": "noida_sector_81", "code": "AQUA_05", "order": 5, "is_terminal": false,
+	"name": { "en": "Noida Sector 81", "hi": "नोएडा सेक्टर 81" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:09", "last_train": "22:39", "sunday_first_train": "08:09", "sunday_last_train": "22:39" }
+	},
+	"nsez": {
+	"id": "nsez", "code": "AQUA_06", "order": 6, "is_terminal": false,
+	"name": { "en": "NSEZ", "hi": "एनएसईजेड" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:12", "last_train": "22:35", "sunday_first_train": "08:12", "sunday_last_train": "22:35" }
+	},
+	"noida_sector_83": {
+	"id": "noida_sector_83", "code": "AQUA_07", "order": 7, "is_terminal": false,
+	"name": { "en": "Noida Sector 83", "hi": "नोएडा सेक्टर 83" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:11", "last_train": "22:33", "sunday_first_train": "08:11", "sunday_last_train": "22:33" }
+	},
+	"noida_sector_137": {
+	"id": "noida_sector_137", "code": "AQUA_08", "order": 8, "is_terminal": false,
+	"name": { "en": "Noida Sector 137", "hi": "नोएडा सेक्टर 137" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:08", "last_train": "22:31", "sunday_first_train": "08:08", "sunday_last_train": "22:31" }
+	},
+	"noida_sector_142": {
+	"id": "noida_sector_142", "code": "AQUA_09", "order": 9, "is_terminal": false,
+	"name": { "en": "Noida Sector 142", "hi": "नोएडा सेक्टर 142" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:00", "last_train": "22:28", "sunday_first_train": "08:00", "sunday_last_train": "22:28" }
+	},
+	"noida_sector_143": {
+	"id": "noida_sector_143", "code": "AQUA_10", "order": 10, "is_terminal": false,
+	"name": { "en": "Noida Sector 143", "hi": "नोएडा सेक्टर 143" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:02", "last_train": "22:26", "sunday_first_train": "08:02", "sunday_last_train": "22:26" }
+	},
+	"noida_sector_144": {
+	"id": "noida_sector_144", "code": "AQUA_11", "order": 11, "is_terminal": false,
+	"name": { "en": "Noida Sector 144", "hi": "नोएडा सेक्टर 144" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:00", "last_train": "22:24", "sunday_first_train": "08:00", "sunday_last_train": "22:24" }
+	},
+	"noida_sector_145": {
+	"id": "noida_sector_145", "code": "AQUA_12", "order": 12, "is_terminal": false,
+	"name": { "en": "Noida Sector 145", "hi": "नोएडा सेक्टर 145" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:08", "last_train": "22:24", "sunday_first_train": "08:08", "sunday_last_train": "22:24" }
+	},
+	"noida_sector_146": {
+	"id": "noida_sector_146", "code": "AQUA_13", "order": 13, "is_terminal": false,
+	"name": { "en": "Noida Sector 146", "hi": "नोएडा सेक्टर 146" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:12", "last_train": "22:27", "sunday_first_train": "08:12", "sunday_last_train": "22:27" }
+	},
+	"noida_sector_147": {
+	"id": "noida_sector_147", "code": "AQUA_14", "order": 14, "is_terminal": false,
+	"name": { "en": "Noida Sector 147", "hi": "नोएडा सेक्टर 147" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:14", "last_train": "22:29", "sunday_first_train": "08:14", "sunday_last_train": "22:29" }
+	},
+	"noida_sector_148": {
+	"id": "noida_sector_148", "code": "AQUA_15", "order": 15, "is_terminal": false,
+	"name": { "en": "Noida Sector 148", "hi": "नोएडा सेक्टर 148" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:17", "last_train": "22:31", "sunday_first_train": "08:17", "sunday_last_train": "22:31" }
+	},
+	"knowledge_park_ii": {
+	"id": "knowledge_park_ii", "code": "AQUA_16", "order": 16, "is_terminal": false,
+	"name": { "en": "Knowledge Park II", "hi": "नॉलेज पार्क II" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:13", "last_train": "22:35", "sunday_first_train": "08:13", "sunday_last_train": "22:35" }
+	},
+	"pari_chowk": {
+	"id": "pari_chowk", "code": "AQUA_17", "order": 17, "is_terminal": false,
+	"name": { "en": "Pari Chowk", "hi": "परी चौक" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:10", "last_train": "22:37", "sunday_first_train": "08:10", "sunday_last_train": "22:37" }
+	},
+	"alpha_1": {
+	"id": "alpha_1", "code": "AQUA_18", "order": 18, "is_terminal": false,
+	"name": { "en": "Alpha 1", "hi": "अल्फा 1" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:07", "last_train": "22:39", "sunday_first_train": "08:07", "sunday_last_train": "22:39" }
+	},
+	"delta_1": {
+	"id": "delta_1", "code": "AQUA_19", "order": 19, "is_terminal": false,
+	"name": { "en": "Delta 1", "hi": "डेल्टा 1" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:04", "last_train": "22:42", "sunday_first_train": "08:04", "sunday_last_train": "22:42" }
+	},
+	"gnida_office": {
+	"id": "gnida_office", "code": "AQUA_20", "order": 20, "is_terminal": false,
+	"name": { "en": "GNIDA Office", "hi": "जीएनआईडीए ऑफिस" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:02", "last_train": "22:44", "sunday_first_train": "08:02", "sunday_last_train": "22:44" }
+	},
+	"depot_station": {
+	"id": "depot_station", "code": "AQUA_21", "order": 21, "is_terminal": true,
+	"name": { "en": "Depot Station", "hi": "डिपो स्टेशन" },
+	"lines": ["nmrc.aqua"],
+	"properties": { "layout": "elevated", "status": "operational", "station_type": "normal" },
+	"train_schedule": { "first_train": "06:00", "last_train": "22:00", "sunday_first_train": "08:00", "sunday_last_train": "22:00" }
+	},
+
+	"noida_sector_122": {
+	"id": "noida_sector_122", "code": "AQUA_EXT_01", "order": 22, "is_terminal": false,
+	"name": { "en": "Noida Sector 122", "hi": "नोएडा सेक्टर 122" },
+	"lines": ["nmrc.aqua_extension"],
+	"properties": { "layout": "elevated", "status": "under_construction", "station_type": "normal" },
+	"neighbors": [
+		{ "station": "noida_sector_51", "line": "nmrc.aqua_extension", "distance": 1800 },
+		{ "station": "noida_sector_123", "line": "nmrc.aqua_extension", "distance": 3720 }
+	]
+	},
+	"noida_sector_123": {
+	"id": "noida_sector_123", "code": "AQUA_EXT_02", "order": 23, "is_terminal": false,
+	"name": { "en": "Noida Sector 123", "hi": "नोएडा सेक्टर 123" },
+	"lines": ["nmrc.aqua_extension"],
+	"properties": { "layout": "elevated", "status": "under_construction", "station_type": "normal" },
+	"neighbors": [
+		{ "station": "noida_sector_122", "line": "nmrc.aqua_extension", "distance": 3720 },
+		{ "station": "greater_noida_sector_4", "line": "nmrc.aqua_extension", "distance": 2360 }
+	]
+	},
+	"greater_noida_sector_4": {
+	"id": "greater_noida_sector_4", "code": "AQUA_EXT_03", "order": 24, "is_terminal": false,
+	"name": { "en": "Greater Noida Sector 4", "hi": "ग्रेटर नोएडा सेक्टर 4" },
+	"lines": ["nmrc.aqua_extension"],
+	"properties": { "layout": "elevated", "status": "under_construction", "station_type": "normal" },
+	"neighbors": [
+		{ "station": "noida_sector_123", "line": "nmrc.aqua_extension", "distance": 2360 },
+		{ "station": "greater_noida_sector_2", "line": "nmrc.aqua_extension", "distance": 1340 }
+	]
+	},
+	"greater_noida_sector_2": {
+	"id": "greater_noida_sector_2", "code": "AQUA_EXT_04", "order": 25, "is_terminal": true,
+	"name": { "en": "Greater Noida Sector 2", "hi": "ग्रेटर नोएडा सेक्टर 2" },
+	"lines": ["nmrc.aqua_extension"],
+	"properties": { "layout": "elevated", "status": "under_construction", "station_type": "normal" },
+	"neighbors": [
+		{ "station": "greater_noida_sector_4", "line": "nmrc.aqua_extension", "distance": 1340 }
+	]
+	}
+}
+}

@@ -1,0 +1,3167 @@
+{
+	"mm_mono_acharya_atre": {
+		"id": "mm_mono_acharya_atre",
+		"name": {
+			"en": "Acharya Atre Nagar",
+			"mr": "आचार्य अत्रे नगर",
+			"hi": "आचार्य अत्रे नगर"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0152,
+				"lon": 72.8582
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_antop_hill",
+				"line": "mumbai.monorail",
+				"distance": 986
+			},
+			{
+				"station": "mm_mono_wadala_bridge",
+				"line": "mumbai.monorail",
+				"distance": 695
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Acharya Atre Nagar Main Road, Wadala East"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Wadala Church Approach"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Acharya Atre Nagar",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Acharya Atre Nagar",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Acharya Atre Nagar",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Acharya Atre Nagar",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Acharya Atre Nagar",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Acharya Atre Nagar",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Elevated station in central Wadala serving residential societies around Acharya Atre Nagar and educational institutions.",
+			"mr": "वडाळा पूर्व येथील आचार्य अत्रे नगर आणि स्थानिक शाळा-कॉलेजांना जोडणारे स्थानक.",
+			"hi": "वडाला पूर्व में आचार्य अत्रे नगर और आवासीय कॉलोनियों को सेवा देने वाला स्टेशन।"
+		},
+		"nearby_places": {
+			"Community": [
+				{
+					"name": "Acharya Atre Ground",
+					"walking_min": 4
+				}
+			]
+		}
+	},
+	"mm_mono_ambedkar_nagar": {
+		"id": "mm_mono_ambedkar_nagar",
+		"name": {
+			"en": "Ambedkar Nagar",
+			"mr": "आंबेडकर नगर",
+			"hi": "आंबेडकर नगर"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0035,
+				"lon": 72.8398
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_naigaon",
+				"line": "mumbai.monorail",
+				"distance": 723
+			},
+			{
+				"station": "mm_mono_mint_colony",
+				"line": "mumbai.monorail",
+				"distance": 605
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "G.D. Ambekar Marg, Parel East"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Bhoiwada Police Station Road"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Ambedkar Nagar",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Ambedkar Nagar",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Ambedkar Nagar",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Ambedkar Nagar",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Ambedkar Nagar",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Ambedkar Nagar",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Healthcare & Hospital Hub",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Positioned near the medical hub of Parel, serving KEM Hospital, Tata Memorial Hospital approach, and Bhoiwada.",
+			"mr": "परळ येथील केईएम रुग्णालय आणि टाटा मेमोरियल कर्करोग रुग्णालयाच्या जवळ असलेले मोनोरेल स्थानक.",
+			"hi": "परेल के प्रमुख चिकित्सा केंद्र (केईएम अस्पताल, टाटा मेमोरियल अस्पताल) के समीप स्थित स्टेशन।"
+		},
+		"nearby_places": {
+			"Health": [
+				{
+					"name": "KEM Municipal Hospital Parel",
+					"walking_min": 8
+				},
+				{
+					"name": "Tata Memorial Cancer Hospital",
+					"walking_min": 10
+				}
+			]
+		}
+	},
+	"mm_mono_antop_hill": {
+		"id": "mm_mono_antop_hill",
+		"name": {
+			"en": "Antop Hill",
+			"mr": "अंटॉप हिल",
+			"hi": "अंटॉप हिल"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0238,
+				"lon": 72.8605
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_gtb_nagar",
+				"line": "mumbai.monorail",
+				"distance": 867
+			},
+			{
+				"station": "mm_mono_acharya_atre",
+				"line": "mumbai.monorail",
+				"distance": 986
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Antop Hill Warehousing Complex & Post Office"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Barkat Ali Dargah Road, Wadala"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Antop Hill",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Antop Hill",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Antop Hill",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Antop Hill",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Antop Hill",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Antop Hill",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Station serving the historic Antop Hill, government housing colonies, customs quarters, and local logistics depots.",
+			"mr": "अंटॉप हिल, सरकारी कर्मचारी वसाहती आणि गोदामांना सेवा देणारे मोनोरेल स्थानक.",
+			"hi": "अंटॉप हिल, सरकारी आवास और कस्टम्स क्वार्टर्स को सेवा प्रदान करने वाला स्टेशन।"
+		},
+		"nearby_places": {
+			"Civic": [
+				{
+					"name": "Antop Hill Post Office",
+					"walking_min": 3
+				},
+				{
+					"name": "Barkat Ali Dargah",
+					"walking_min": 5
+				}
+			]
+		}
+	},
+	"mm_mono_bhakti_park": {
+		"id": "mm_mono_bhakti_park",
+		"name": {
+			"en": "Bhakti Park",
+			"mr": "भक्ती पार्क",
+			"hi": "भक्ति पार्क"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0262,
+				"lon": 72.8825
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_mysore_colony",
+				"line": "mumbai.monorail",
+				"distance": 857
+			},
+			{
+				"station": "mm_mono_wadala_depot",
+				"line": "mumbai.monorail",
+				"distance": 1255
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Bhakti Park Complex & IMAX Dome Theatre"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Eastern Freeway Feeder Road, Wadala East"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Bhakti Park",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Bhakti Park",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Bhakti Park",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Bhakti Park",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Bhakti Park",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Bhakti Park",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"IMAX Entertainment",
+			"Freeway Gateway",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Located near the iconic IMAX Wadala dome cinema and the expansive Bhakti Park residential high-rise complex, connected to Eastern Freeway.",
+			"mr": "आयमॅक्स वडाळा सिनेमा आणि भक्ती पार्क निवासी संकुलाजवळ असलेले मोनोरेल स्थानक.",
+			"hi": "आईमैक्स वडाला सिनेमा और भक्ति पार्क हाई-राइज कॉम्प्लेक्स के निकट स्थित स्टेशन।"
+		},
+		"nearby_places": {
+			"Entertainment": [
+				{
+					"name": "IMAX Dome Theatre Wadala",
+					"walking_min": 4
+				}
+			],
+			"Transit": [
+				{
+					"name": "Eastern Freeway Wadala Ramp",
+					"walking_min": 6
+				}
+			]
+		}
+	},
+	"mm_mono_bharat_petroleum": {
+		"id": "mm_mono_bharat_petroleum",
+		"name": {
+			"en": "Bharat Petroleum",
+			"mr": "भारत पेट्रोलियम",
+			"hi": "भारत पेट्रोलियम"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0392,
+				"lon": 72.888
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_fertiliser",
+				"line": "mumbai.monorail",
+				"distance": 860
+			},
+			{
+				"station": "mm_mono_mysore_colony",
+				"line": "mumbai.monorail",
+				"distance": 750
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "BPCL Refinery Main Entrance Gate"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Mahul Village Road"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Bharat Petroleum",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Bharat Petroleum",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Bharat Petroleum",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Bharat Petroleum",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Bharat Petroleum",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Bharat Petroleum",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Industrial Hub",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Monorail station situated near the Bharat Petroleum Corporation Limited (BPCL) industrial refinery complex and Mahul industrial area.",
+			"mr": "भारत पेट्रोलियम (बीपीसीएल) रिफायनरी आणि माहुल औद्योगिक परिसरातील स्थानक.",
+			"hi": "भारत पेट्रोलियम (बीपीसीएल) रिफाइनरी कॉम्प्लेक्स और माहुल क्षेत्र के समीप स्थित मोनोरेल स्टेशन।"
+		},
+		"nearby_places": {
+			"Industrial": [
+				{
+					"name": "BPCL Mumbai Refinery",
+					"walking_min": 4
+				}
+			]
+		}
+	},
+	"mm_mono_chembur": {
+		"id": "mm_mono_chembur",
+		"name": {
+			"en": "Chembur",
+			"mr": "चेंबूर",
+			"hi": "चेंबूर"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0625,
+				"lon": 72.8988
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "terminal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_vnp_rcmarg",
+				"line": "mumbai.monorail",
+				"distance": 1100
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Direct Concourse Walkway to Chembur Harbour Line Railway Station"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Station Road & Chembur Market, VN Purav Marg"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Chembur",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Chembur",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Chembur",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Chembur",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Chembur",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Chembur",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Terminal Station",
+			"Harbour Line Railway Connection",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Eastern terminal station of Mumbai Monorail, directly connected to Chembur Suburban Railway Station (Harbour Line) via a dedicated foot overbridge.",
+			"mr": "हार्बर रेल्वेच्या चेंबूर स्थानकाशी थेट जोडलेला मुंबई मोनोरेलचा पूर्व टोकावरील प्रमुख टर्मिनल.",
+			"hi": "हार्बर लाइन के चेंबूर रेलवे स्टेशन से सीधे जुड़ा हुआ मुंबई मोनोरेल का पूर्वी टर्मिनल स्टेशन।"
+		},
+		"nearby_places": {
+			"Transit": [
+				{
+					"name": "Chembur Suburban Railway Station",
+					"walking_min": 1
+				}
+			],
+			"Commercial": [
+				{
+					"name": "Chembur Station Market",
+					"walking_min": 2
+				}
+			]
+		}
+	},
+	"mm_mono_dadar_east": {
+		"id": "mm_mono_dadar_east",
+		"name": {
+			"en": "Dadar East",
+			"mr": "दादर पूर्व",
+			"hi": "दादर पूर्व"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.015,
+				"lon": 72.845
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_wadala_bridge",
+				"line": "mumbai.monorail",
+				"distance": 1008
+			},
+			{
+				"station": "mm_mono_naigaon",
+				"line": "mumbai.monorail",
+				"distance": 728
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Dadasaheb Phalke Road, Dadar East"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Towards Chitra Cinema & Dr. Ambedkar Road"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Dadar East",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Dadar East",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Dadar East",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Dadar East",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Dadar East",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Dadar East",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Major Cultural Hub",
+			"Dadar Vicinity",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Serving the historic heart of Dadar East, Dadasaheb Phalke Road (cradle of Indian cinema), Chitra Cinema, and Swami Narayan Temple.",
+			"mr": "दादर पूर्व येथील दादासाहेब फाळके मार्ग आणि ऐतिहासिक चित्रपट वारसा परिसराला जोडणारे स्थानक.",
+			"hi": "दादर पूर्व में दादासाहेब फाल्के रोड, चित्रा सिनेमा और स्वामी नारायण मंदिर क्षेत्र को सेवा देने वाला स्टेशन।"
+		},
+		"nearby_places": {
+			"Cinema & Heritage": [
+				{
+					"name": "Historic Chitra Cinema",
+					"walking_min": 4
+				}
+			],
+			"Transit": [
+				{
+					"name": "Dadar Central Railway Station East Link",
+					"walking_min": 12
+				}
+			]
+		}
+	},
+	"mm_mono_fertiliser": {
+		"id": "mm_mono_fertiliser",
+		"name": {
+			"en": "Fertiliser Township",
+			"mr": "फर्टिलायझर टाउनशिप",
+			"hi": "फर्टिलाइजर टाउनशिप"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0468,
+				"lon": 72.8895
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_vnp_rcmarg",
+				"line": "mumbai.monorail",
+				"distance": 906
+			},
+			{
+				"station": "mm_mono_bharat_petroleum",
+				"line": "mumbai.monorail",
+				"distance": 860
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "RCF Colony Main Gate, Chembur East"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Mahul Road Approach"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Fertiliser Township",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Fertiliser Township",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Fertiliser Township",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Fertiliser Township",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Fertiliser Township",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Fertiliser Township",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Elevated monorail station serving the residential township and colonies of Rashtriya Chemicals and Fertilizers (RCF) in Chembur.",
+			"mr": "राष्ट्रीय केमिकल्स अँड फर्टिलायझर्स (आरसीएफ) टाउनशिप परिसराला सेवा देणारे स्थानक.",
+			"hi": "राष्ट्रीय केमिकल्स एंड फर्टिलाइजर्स (आरसीएफ) आवासीय टाउनशिप को कनेक्टिविटी देने वाला स्टेशन।"
+		},
+		"nearby_places": {
+			"Industrial Township": [
+				{
+					"name": "RCF Police Colony & Township",
+					"walking_min": 3
+				}
+			]
+		}
+	},
+	"mm_mono_gtb_nagar": {
+		"id": "mm_mono_gtb_nagar",
+		"name": {
+			"en": "GTB Nagar",
+			"mr": "जी.टी.बी. नगर",
+			"hi": "जी.टी.बी. नगर"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0315,
+				"lon": 72.8618
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_wadala_depot",
+				"line": "mumbai.monorail",
+				"distance": 1641
+			},
+			{
+				"station": "mm_mono_antop_hill",
+				"line": "mumbai.monorail",
+				"distance": 867
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Guru Tegh Bahadur Nagar Road, Sion Koliwada"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Harbour Line GTB Nagar Railway Station Approach"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "GTB Nagar",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "GTB Nagar",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "GTB Nagar",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "GTB Nagar",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "GTB Nagar",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "GTB Nagar",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Suburban Railway Link",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Elevated monorail station in Sion Koliwada providing pedestrian connection to the Harbour Line GTB Nagar Suburban Railway Station.",
+			"mr": "शीव (सायन) कोळीवाडा आणि हार्बर रेल्वेच्या जीटीबी नगर रेल्वे स्थानकाला जोडणारे मोनोरेल स्थानक.",
+			"hi": "सायन कोलीवाड़ा और हार्बर लाइन के जी.टी.बी. नगर रेलवे स्टेशन को जोड़ने वाला स्टेशन।"
+		},
+		"nearby_places": {
+			"Transit": [
+				{
+					"name": "GTB Nagar Harbour Line Railway Station",
+					"walking_min": 6
+				}
+			],
+			"Landmarks": [
+				{
+					"name": "Sion Koliwada Market",
+					"walking_min": 4
+				}
+			]
+		}
+	},
+	"mm_mono_jacob_circle": {
+		"id": "mm_mono_jacob_circle",
+		"name": {
+			"en": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+			"mr": "संत गाडगे महाराज चौक (जेकब सर्कल)",
+			"hi": "संत गाडगे महाराज चौक (जैकब सर्कल)"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 18.9875,
+				"lon": 72.8272
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "terminal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_lower_parel",
+				"line": "mumbai.monorail",
+				"distance": 949
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Jacob Circle Roundabout, Saat Rasta Junction"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Towards Mahalaxmi Railway Station & Racecourse"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Terminal Station",
+			"Mahalaxmi Connection",
+			"Saat Rasta Hub",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Southern terminal station of Mumbai Monorail situated at the famous Saat Rasta junction, connecting to Western Railway Mahalaxmi Station and Mahalaxmi Racecourse.",
+			"mr": "सात रस्ता (जेकब सर्कल) येथील मुंबई मोनोरेलचा दक्षिण टोकावरील टर्मिनल, जे महालक्ष्मी रेल्वे स्थानकाशी जोडलेले आहे.",
+			"hi": "सात रास्ता (जैकब सर्कल) पर स्थित मुंबई मोनोरेल का दक्षिणी टर्मिनल स्टेशन, जो महालक्ष्मी रेलवे स्टेशन और रेसकोर्स को जोड़ता है।"
+		},
+		"nearby_places": {
+			"Transit": [
+				{
+					"name": "Mahalaxmi Western Railway Station",
+					"walking_min": 6
+				}
+			],
+			"Landmarks": [
+				{
+					"name": "Mahalaxmi Racecourse",
+					"walking_min": 8
+				},
+				{
+					"name": "Dhobi Ghat Historical Landmark",
+					"walking_min": 7
+				}
+			]
+		}
+	},
+	"mm_mono_lower_parel": {
+		"id": "mm_mono_lower_parel",
+		"name": {
+			"en": "Lower Parel",
+			"mr": "लोअर परळ",
+			"hi": "लोअर परेल"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 18.995,
+				"lon": 72.8315
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_mint_colony",
+				"line": "mumbai.monorail",
+				"distance": 817
+			},
+			{
+				"station": "mm_mono_jacob_circle",
+				"line": "mumbai.monorail",
+				"distance": 949
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "N.M. Joshi Marg, Lower Parel West"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "High Street Phoenix & Palladium Mall Approach"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Lower Parel",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Lower Parel",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Lower Parel",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Lower Parel",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Lower Parel",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Lower Parel",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Corporate Hub",
+			"Luxury Retail",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Major corporate, luxury lifestyle and financial destination on the monorail, serving High Street Phoenix, Palladium, and Peninsula Corporate Park.",
+			"mr": "हाय स्ट्रीट फिनिक्स, पॅलॅडियम आणि कॉर्पोरेट पार्क्सना जोडणारे लोअर परळमधील गजबजलेले मोनोरेल स्थानक.",
+			"hi": "हाई स्ट्रीट फीनिक्स मॉल, पैलेडियम और कॉर्पोरेट पार्कों को कनेक्टिविटी प्रदान करने वाला लोअर परेल का प्रमुख स्टेशन।"
+		},
+		"nearby_places": {
+			"Shopping & Corporate": [
+				{
+					"name": "High Street Phoenix & Palladium Mall",
+					"walking_min": 4
+				},
+				{
+					"name": "Peninsula Corporate Park",
+					"walking_min": 6
+				}
+			],
+			"Transit": [
+				{
+					"name": "Lower Parel Western Railway Station",
+					"walking_min": 8
+				}
+			]
+		}
+	},
+	"mm_mono_mint_colony": {
+		"id": "mm_mono_mint_colony",
+		"name": {
+			"en": "Mint Colony",
+			"mr": "मिंट कॉलनी",
+			"hi": "मिंट कॉलोनी"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 18.9982,
+				"lon": 72.8385
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_ambedkar_nagar",
+				"line": "mumbai.monorail",
+				"distance": 605
+			},
+			{
+				"station": "mm_mono_lower_parel",
+				"line": "mumbai.monorail",
+				"distance": 817
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "India Government Mint Quarters Road, Parel"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Currey Road Suburban Station Approach"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Mint Colony",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Mint Colony",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Mint Colony",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Mint Colony",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Mint Colony",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Mint Colony",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Railway Transfer Link",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Station located near the India Government Mint staff quarters and Currey Road Suburban Railway Station (Central Line).",
+			"mr": "भारत सरकार मिंट कॉलनी आणि मध्य रेल्वेच्या करी रोड स्थानकाजवळ असलेले मोनोरेल स्थानक.",
+			"hi": "भारत सरकार मिंट कॉलोनी और सेंट्रल लाइन के करी रोड स्टेशन के निकट स्थित स्टेशन।"
+		},
+		"nearby_places": {
+			"Transit": [
+				{
+					"name": "Currey Road Central Railway Station",
+					"walking_min": 7
+				}
+			],
+			"Heritage": [
+				{
+					"name": "India Government Mint Estate",
+					"walking_min": 3
+				}
+			]
+		}
+	},
+	"mm_mono_mysore_colony": {
+		"id": "mm_mono_mysore_colony",
+		"name": {
+			"en": "Mysore Colony",
+			"mr": "म्हैसूर कॉलनी",
+			"hi": "मैसूर कॉलोनी"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0325,
+				"lon": 72.8872
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_bharat_petroleum",
+				"line": "mumbai.monorail",
+				"distance": 750
+			},
+			{
+				"station": "mm_mono_bhakti_park",
+				"line": "mumbai.monorail",
+				"distance": 857
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Mysore Colony Road, Chembur South"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "HPCL Green Belt & Residential Quarters"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Mysore Colony",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Mysore Colony",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Mysore Colony",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Mysore Colony",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Mysore Colony",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Mysore Colony",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Serving the quiet residential colonies of Mysore Colony and petroleum public sector quarters along the Chembur-Wadala route.",
+			"mr": "म्हैसूर कॉलनी आणि एचपीसीएल वसाहतींना सेवा पुरवणारे मोनोरेल स्थानक.",
+			"hi": "मैसूर कॉलोनी और एचपीसीएल आवासीय क्वार्टर्स को सेवा प्रदान करने वाला स्टेशन।"
+		},
+		"nearby_places": {
+			"Residential": [
+				{
+					"name": "Mysore Colony Garden",
+					"walking_min": 3
+				}
+			]
+		}
+	},
+	"mm_mono_naigaon": {
+		"id": "mm_mono_naigaon",
+		"name": {
+			"en": "Naigaon",
+			"mr": "नायगाव",
+			"hi": "नायगांव"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0085,
+				"lon": 72.8442
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_dadar_east",
+				"line": "mumbai.monorail",
+				"distance": 728
+			},
+			{
+				"station": "mm_mono_ambedkar_nagar",
+				"line": "mumbai.monorail",
+				"distance": 723
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Spring Mills Road, Naigaon BDD Chawls"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Mumbai Police Armed Ground, Naigaon"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Naigaon",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Naigaon",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Naigaon",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Naigaon",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Naigaon",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Naigaon",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Station serving Naigaon, Mumbai Police headquarters ground, Spring Mills, and local residential communities.",
+			"mr": "नायगाव पोलिस मुख्यालय मैदान आणि स्प्रिंग मिल्स परिसराला जोडणारे स्थानक.",
+			"hi": "नायगांव पुलिस मुख्यालय ग्राउंड और स्प्रिंग मिल्स क्षेत्र को सेवा देने वाला स्टेशन।"
+		},
+		"nearby_places": {
+			"Civic": [
+				{
+					"name": "Naigaon Police Training Ground",
+					"walking_min": 3
+				}
+			]
+		}
+	},
+	"mm_mono_vnp_rcmarg": {
+		"id": "mm_mono_vnp_rcmarg",
+		"name": {
+			"en": "V.N. Purav Marg (RC Marg)",
+			"mr": "व्ही. एन. पुरव मार्ग",
+			"hi": "वी. एन. पुरव मार्ग"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0542,
+				"lon": 72.8931
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_chembur",
+				"line": "mumbai.monorail",
+				"distance": 1100
+			},
+			{
+				"station": "mm_mono_fertiliser",
+				"line": "mumbai.monorail",
+				"distance": 906
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "RC Marg Junction & VN Purav Marg, Chembur"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Towards Tata Institute of Social Sciences (TISS)"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "V.N. Purav Marg (RC Marg)",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "V.N. Purav Marg (RC Marg)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "V.N. Purav Marg (RC Marg)",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "V.N. Purav Marg (RC Marg)",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "V.N. Purav Marg (RC Marg)",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "V.N. Purav Marg (RC Marg)",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Located at the intersection of V.N. Purav Marg and RC Marg, serving dense residential colonies and educational institutions like TISS.",
+			"mr": "व्ही.एन. पुरव मार्ग आणि आर.सी. मार्ग चौकातील मोनोरेल स्थानक, जे टीस (TISS) परिसराला जोडते.",
+			"hi": "वी.एन. पुरव मार्ग और आर.सी. मार्ग जंक्शन पर स्थित स्टेशन, जो टीस (TISS) संस्थान को सेवा देता है।"
+		},
+		"nearby_places": {
+			"Education": [
+				{
+					"name": "Tata Institute of Social Sciences (TISS)",
+					"walking_min": 8
+				}
+			]
+		}
+	},
+	"mm_mono_wadala_bridge": {
+		"id": "mm_mono_wadala_bridge",
+		"name": {
+			"en": "Wadala Bridge",
+			"mr": "वडाळा ब्रिज",
+			"hi": "वडाला ब्रिज"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0108,
+				"lon": 72.8535
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_acharya_atre",
+				"line": "mumbai.monorail",
+				"distance": 695
+			},
+			{
+				"station": "mm_mono_dadar_east",
+				"line": "mumbai.monorail",
+				"distance": 1008
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "Wadala Railway Overbridge (ROB), Wadala West Link"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Towards Wadala Suburban Railway Station East"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Wadala Bridge",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Wadala Bridge",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Wadala Bridge",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Wadala Bridge",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Wadala Bridge",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Wadala Bridge",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Suburban Railway Link",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "Positioned at the vital Wadala road overbridge, offering close transfer access to Wadala Suburban Railway Station on the Harbour Line.",
+			"mr": "वडाळा रेल्वे स्थानक (हार्बर लाईन) जवळ असलेल्या मुख्य उड्डाणपुलावरील मोनोरेल स्थानक.",
+			"hi": "वडाला रेलवे ओवरब्रिज पर स्थित स्टेशन, जो हार्बर लाइन के वडाला उपनगरीय स्टेशन को कनेक्टिविटी देता है।"
+		},
+		"nearby_places": {
+			"Transit": [
+				{
+					"name": "Wadala Suburban Railway Station East",
+					"walking_min": 5
+				}
+			]
+		}
+	},
+	"mm_mono_wadala_depot": {
+		"id": "mm_mono_wadala_depot",
+		"name": {
+			"en": "Wadala Depot",
+			"mr": "वडाळा आगार",
+			"hi": "वडाला डिपो"
+		},
+		"lines": [
+			"mumbai.monorail"
+		],
+		"location": {
+			"decimal": {
+				"lat": 19.0205,
+				"lon": 72.8722
+			}
+		},
+		"properties": {
+			"status": "operational",
+			"station_type": "normal",
+			"layout": "elevated"
+		},
+		"neighbors": [
+			{
+				"station": "mm_mono_bhakti_park",
+				"line": "mumbai.monorail",
+				"distance": 1255
+			},
+			{
+				"station": "mm_mono_gtb_nagar",
+				"line": "mumbai.monorail",
+				"distance": 1641
+			}
+		],
+		"platforms": {
+			"1": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_jacob_circle"
+			},
+			"2": {
+				"line": "mumbai.monorail",
+				"destination": "mm_mono_chembur"
+			}
+		},
+		"gates": {
+			"1": {
+				"name": "Gate 1",
+				"location": "MMRDA Monorail Central Car Depot & Headquarters"
+			},
+			"2": {
+				"name": "Gate 2",
+				"location": "Pratiksha Nagar & Wadala Truck Terminal Access"
+			}
+		},
+		"vertical_transit": {
+			"lifts": {
+				"1": {
+					"code": "L1",
+					"name": "Wadala Depot",
+					"status": true,
+					"location": "GROUND TO CONCOURSE",
+					"placement": "Street Level",
+					"divyang_friendly": true
+				},
+				"2": {
+					"code": "L2",
+					"name": "Wadala Depot",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 1",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				},
+				"3": {
+					"code": "L3",
+					"name": "Wadala Depot",
+					"status": true,
+					"location": "CONCOURSE TO PLATFORM 2",
+					"placement": "Paid Area",
+					"divyang_friendly": true
+				}
+			},
+			"escalators": {
+				"1": {
+					"code": "E1",
+					"name": "Wadala Depot",
+					"status": true,
+					"location": "Street to Concourse",
+					"placement": "Entrance"
+				},
+				"2": {
+					"code": "E2",
+					"name": "Wadala Depot",
+					"status": true,
+					"location": "Concourse to Platform 1",
+					"placement": "Paid Concourse"
+				},
+				"3": {
+					"code": "E3",
+					"name": "Wadala Depot",
+					"status": true,
+					"location": "Concourse to Platform 2",
+					"placement": "Paid Concourse"
+				}
+			}
+		},
+		"facilities": {
+			"Medical Needs": [
+				{
+					"name": "First Aid Medical Box",
+					"location": "Station Control Room"
+				}
+			],
+			"Facilities for Differently Abled": [
+				{
+					"name": "Tactile Paving for Visually Impaired",
+					"location": "Platform Edge"
+				},
+				{
+					"name": "Ramp and Lift Access for Wheelchairs",
+					"location": "Concourse Entry"
+				}
+			],
+			"Ticket Facilities": [
+				{
+					"name": "Token Vending Counters & Smart Card Facility",
+					"location": "Ticket Counter"
+				}
+			],
+			"Customer Services": [
+				{
+					"name": "Station Master Office & Helpdesk",
+					"location": "Concourse Level"
+				},
+				{
+					"name": "Lost and Found Cell",
+					"location": "Wadala Depot Station Control Room"
+				}
+			],
+			"Basic Facilities": [
+				{
+					"name": "Drinking Water Fountain",
+					"location": "Concourse Area"
+				},
+				{
+					"name": "Passenger Washrooms",
+					"location": "Station Concourse"
+				},
+				{
+					"name": "Security & CCTV Monitoring",
+					"location": "Platform and Concourse"
+				}
+			],
+			"Women Facilities": [
+				{
+					"name": "Reserved Seating in Coaches",
+					"location": "Train Compartments"
+				},
+				{
+					"name": "Women Passenger Assistance helpline",
+					"location": "Station Helpdesk"
+				}
+			]
+		},
+		"contact": {
+			"landline": "022-26597500"
+		},
+		"amenity_badges": [
+			"Central Monorail Depot Hub",
+			"Lift/Escalator Available"
+		],
+		"description": {
+			"en": "The operational nerve-centre and central maintenance car depot of the entire Mumbai Monorail network, serving Pratiksha Nagar.",
+			"mr": "मुंबई मोनोरेलचे मुख्य नियंत्रण केंद्र, मध्यवर्ती कार आगार आणि कार्यशाळा स्थानक.",
+			"hi": "मुंबई मोनोरेल का मुख्य परिचालन मुख्यालय, सेंट्रल कार डिपो और वर्कशॉप स्टेशन।"
+		},
+		"nearby_places": {
+			"Transit HQ": [
+				{
+					"name": "MMRDA Monorail Central Car Depot",
+					"walking_min": 1
+				}
+			],
+			"Residential": [
+				{
+					"name": "Pratiksha Nagar Housing Colony",
+					"walking_min": 5
+				}
+			]
+		}
+	}
+}
