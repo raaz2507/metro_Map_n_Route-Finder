@@ -1,43 +1,38 @@
 name: Deploy Metro App to GitHub Pages
 
 on:
-	# जब भी main ब्रांच में कोड या डेटा पुश हो, तब डिप्लॉय करें
-	push:
-		branches:
-			- main
-	# GitHub Actions टैब से मैनुअल 1-क्लिक रन करने के लिए
-	workflow_dispatch:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-# GitHub Pages डिप्लॉयमेंट के लिए आवश्यक परमिशन्स
 permissions:
-	contents: read
-	pages: write
-	id-token: write
+  contents: read
+  pages: write
+  id-token: write
 
-# एक समय में एक ही डिप्लॉयमेंट प्रोसेस करने के लिए कॉनकरेंसी लॉक
 concurrency:
-	group: "pages"
-	cancel-in-progress: false
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-	deploy:
-		environment:
-			name: github-pages
-			url: ${{ steps.deployment.outputs.page_url }}
-		runs-on: ubuntu-latest
-		steps:
-			- name: Checkout Repository
-				uses: actions/checkout@v4
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-			- name: Setup GitHub Pages
-				uses: actions/configure-pages@v5
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
 
-			- name: Upload Main Project Artifact
-				uses: actions/upload-pages-artifact@v3
-				with:
-					# पूरे रिपॉजिटरी के बजाय केवल main_project सबफोल्डर को रूट के रूप में अपलोड करें
-					path: './main_project'
+      - name: Upload Main Project Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './main_project'
 
-			- name: Deploy to GitHub Pages
-				id: deployment
-				uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
