@@ -81,7 +81,7 @@ class CenterClass {
 			this.#fareCalculator = new FareCalculator(this.#metroData.fareRules || {});
 
 			// 3. Search और History सर्विसेज़
-			this.#recentSearchService = new RecentSearchService(this.#metroData);
+			this.#recentSearchService = new RecentSearchService(this.#metroData, this.#currentCity);
 			this.#stationSearchEngine = new StationSearchEngine(this.#metroData);
 			
 			await this.#searchEngine.init();

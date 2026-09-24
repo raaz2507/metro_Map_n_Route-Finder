@@ -4,115 +4,165 @@
  * backward compatibility station ID migration, single item deletion, and clearing all.
  */
 export class RecentSearchService {
-    #storageKey = "metro-recent-searches";
-    #maxLimit = 13;
-    #metroData;
+	#baseStorageKey = "metro-recent-searches";
+	#maxLimit = 13;
+	#metroData;
+	#cityKey;
+	#stationNameIndex = null; // 🚀 O(1) Lookup Cache for Memory Optimization
 
-    constructor(metroData) {
-        this.#metroData = metroData;
-    }
+	constructor(metroData, cityKey = "delhi_ncr") {
+		this.#metroData = metroData;
+		this.#cityKey = cityKey;
+	}
 
-    /**
-     * नाम (Hindi/English/ID) से स्टेशन ढूँढने का हेल्पर
-     */
-    findStationByName(name) {
-        if (!name || !this.#metroData?.stationData) return null;
-        const normalized = name.trim().toLowerCase();
-        return Object.values(this.#metroData.stationData).find((s) => {
-            if (!s) return false;
-            const enName = s.name?.en || "";
-            const hiName = s.name?.hi || "";
-            return (
-                enName.toLowerCase() === normalized ||
-                hiName.toLowerCase() === normalized ||
-                s.id.toLowerCase() === normalized
-            );
-        });
-    }
+	get #storageKey() {
+		return `${this.#baseStorageKey}-${this.#cityKey}`;
+	}
 
-    /**
-     * हाल की खोजों को LocalStorage से फेच करें और ID माइग्रेट करें
-     * @returns {Array<Object>}
-     */
-    getSearches() {
-        let searches = [];
-        try {
-            const stored = localStorage.getItem(this.#storageKey);
-            if (stored) {
-                searches = JSON.parse(stored);
-            }
-        } catch (e) {
-            console.error("Error loading recent searches", e);
-        }
+	/**
+	 * 🏗️ वन-टाइम इंडेक्स बिल्डर (Garbage Collection Churn रोकने के लिए)
+	 */
+	#buildIndex() {
+		this.#stationNameIndex = new Map();
+		if (!this.#metroData?.stationData) return;
+		
+		for (const [id, st] of Object.entries(this.#metroData.stationData)) {
+			if (!st) continue;
+			this.#stationNameIndex.set(id.toLowerCase(), st);
+			if (st.name?.en) this.#stationNameIndex.set(st.name.en.toLowerCase().trim(), st);
+			if (st.name?.hi) this.#stationNameIndex.set(st.name.hi.toLowerCase().trim(), st);
+		}
+	}
 
-        // पुराने फॉर्मेट को ID आधारित फॉर्मेट में माइग्रेट करना (Backward Compatibility)
-        return searches
-            .map((item) => {
-                if (item.fromId && item.toId) return item;
-                const startObj = this.findStationByName(item.from);
-                const endObj = this.findStationByName(item.to);
-                return {
-                    fromId: startObj ? startObj.id : null,
-                    toId: endObj ? endObj.id : null,
-                    count: item.count || 1,
-                    timestamp: item.timestamp || Date.now(),
-                };
-            })
-            .filter((item) => item.fromId && item.toId);
-    }
+	/**
+	 * ⚡ नाम (Hindi/English/ID) से स्टेशन ढूँढने का O(1) हेल्पर
+	 */
+	findStationByName(name) {
+		if (!name || !this.#metroData?.stationData) return null;
+		
+		// अगर इंडेक्स अभी तक नहीं बना है, तो सिर्फ पहली बार बनाएँ
+		if (!this.#stationNameIndex) {
+			this.#buildIndex();
+		}
+		
+		const normalized = name.trim().toLowerCase();
+		return this.#stationNameIndex.get(normalized) || null;
+	}
 
-    /**
-     * नया रूट सहेजें (Deduplication + 13 Record Limit)
-     */
-    saveSearch(fromVal, toVal) {
-        if (!fromVal || !toVal) return;
+	/**
+	 * हाल की खोजों को LocalStorage से फेच करें और ID माइग्रेट करें
+	 * @returns {Array<Object>}
+	 */
+	getSearches() {
+		let searches = [];
+		try {
+			const scopedKey = this.#storageKey;
+			let stored = localStorage.getItem(scopedKey);
+			
+			if (stored) {
+				searches = JSON.parse(stored);
+			} else {
+				const legacyStored = localStorage.getItem(this.#baseStorageKey);
+				if (legacyStored) {
+					const legacySearches = JSON.parse(legacyStored);
+					searches = legacySearches.filter(item => {
+						const startObj = this.findStationByName(item.fromId || item.from);
+						const endObj = this.findStationByName(item.toId || item.to);
+						return startObj && endObj;
+					});
+					if (searches.length > 0) {
+						localStorage.setItem(scopedKey, JSON.stringify(searches));
+					}
+				}
+			}
+		} catch (e) {
+			console.error("Error loading recent searches", e);
+		}
 
-        const startStation = this.findStationByName(fromVal);
-        const endStation = this.findStationByName(toVal);
-        if (!startStation || !endStation) return;
+		return searches
+			.map((item) => {
+				let startObj, endObj;
+				if (item.fromId && item.toId) {
+					startObj = this.#metroData?.stationData?.[item.fromId];
+					endObj = this.#metroData?.stationData?.[item.toId];
+				} else {
+					startObj = this.findStationByName(item.from);
+					endObj = this.findStationByName(item.to);
+				}
+				
+				return {
+					fromId: startObj ? startObj.id : null,
+					toId: endObj ? endObj.id : null,
+					count: item.count || 1,
+					timestamp: item.timestamp || Date.now(),
+				};
+			})
+			.filter((item) => item.fromId && item.toId);
+	}
 
-        let searches = this.getSearches();
+	/**
+	 * नया रूट सहेजें (Deduplication + 13 Record Limit)
+	 */
+	saveSearch(fromVal, toVal) {
+		if (!fromVal || !toVal) return;
 
-        const existingIndex = searches.findIndex(
-            (item) => item.fromId === startStation.id && item.toId === endStation.id
-        );
+		const startStation = this.findStationByName(fromVal);
+		const endStation = this.findStationByName(toVal);
+		if (!startStation || !endStation) return;
 
-        if (existingIndex > -1) {
-            searches[existingIndex].count = (searches[existingIndex].count || 1) + 1;
-            searches[existingIndex].timestamp = Date.now();
-            const item = searches.splice(existingIndex, 1)[0];
-            searches.unshift(item);
-        } else {
-            searches.unshift({
-                fromId: startStation.id,
-                toId: endStation.id,
-                count: 1,
-                timestamp: Date.now(),
-            });
-        }
+		// 🐛 BUG FIX: UI वाली फ़िल्टर्ड लिस्ट के बजाय सीधे localStorage से रॉ डेटा (Raw Data) पढ़ें
+		let searches = [];
+		try {
+			const stored = localStorage.getItem(this.#storageKey);
+			if (stored) searches = JSON.parse(stored);
+		} catch (e) {}
 
-        if (searches.length > this.#maxLimit) {
-            searches = searches.slice(0, this.#maxLimit);
-        }
+		const existingIndex = searches.findIndex(
+			(item) => item.fromId === startStation.id && item.toId === endStation.id
+		);
 
-        localStorage.setItem(this.#storageKey, JSON.stringify(searches));
-    }
+		if (existingIndex > -1) {
+			searches[existingIndex].count = (searches[existingIndex].count || 1) + 1;
+			searches[existingIndex].timestamp = Date.now();
+			const item = searches.splice(existingIndex, 1)[0];
+			searches.unshift(item);
+		} else {
+			searches.unshift({
+				fromId: startStation.id,
+				toId: endStation.id,
+				count: 1,
+				timestamp: Date.now(),
+			});
+		}
 
-    /**
-     * एक विशिष्ट रूट हटाएं
-     */
-    deleteSearch(fromId, toId) {
-        let searches = this.getSearches();
-        searches = searches.filter(
-            (item) => !(item.fromId === fromId && item.toId === toId)
-        );
-        localStorage.setItem(this.#storageKey, JSON.stringify(searches));
-    }
+		if (searches.length > this.#maxLimit) {
+			searches = searches.slice(0, this.#maxLimit);
+		}
 
-    /**
-     * पूरी हिस्ट्री साफ़ करें
-     */
-    clearAll() {
-        localStorage.removeItem(this.#storageKey);
-    }
+		localStorage.setItem(this.#storageKey, JSON.stringify(searches));
+	}
+
+	/**
+	 * एक विशिष्ट रूट हटाएं
+	 */
+	deleteSearch(fromId, toId) {
+		// 🐛 BUG FIX: डिलीट करते समय भी रॉ डेटा (Raw Data) ही पढ़ें ताकि दूसरे नेटवर्क का डेटा न उड़े
+		let searches = [];
+		try {
+			const stored = localStorage.getItem(this.#storageKey);
+			if (stored) searches = JSON.parse(stored);
+		} catch (e) {}
+		
+		searches = searches.filter(
+			(item) => !(item.fromId === fromId && item.toId === toId)
+		);
+		localStorage.setItem(this.#storageKey, JSON.stringify(searches));
+	}
+
+	/**
+	 * पूरी हिस्ट्री साफ़ करें
+	 */
+	clearAll() {
+		localStorage.removeItem(this.#storageKey);
+	}
 }

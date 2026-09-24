@@ -84,6 +84,7 @@ export default {
 					noRecentJourney: "No recent journeys found"
 				},
 				findroute: {
+					noRouteFound: "No route found between these stations.",
 					routeFinder: "Route Finder",
 					startStation: "From",
 					endStation: "To",
@@ -149,7 +150,16 @@ export default {
 					heding : "App Settings",
 					 tabs: {
 						alarm: "Alarm",
-						map: "Map"
+						map: "Map",
+						backup: "Backup / Restore"
+					},
+					backup: {
+						sections: {
+							data: "💾 Backup & Restore Data"
+						},
+						desc: "Manage your saved routes, alarms, and preferences.",
+						export: "Export Data",
+						import: "Import Data"
 					},
 					map: {
 						title: "Map & Display Settings",

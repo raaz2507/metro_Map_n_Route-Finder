@@ -110,7 +110,9 @@ class MumbaiMetroAdapter(BaseTransitAdapter):
 				"en_raw": en_data,
 				"mr_raw": mr_data
 			}
-			time.sleep(0.05)
+			import random
+			# Human-like micro delay (Jitter) to prevent WAF burst detection
+			time.sleep(random.uniform(0.15, 0.35))
 
 		return dataset
 

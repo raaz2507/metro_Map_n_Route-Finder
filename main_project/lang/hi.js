@@ -84,6 +84,7 @@ export default {
 					noRecentJourney: "कोई हालिया यात्रा नहीं मिली"
 				},
 				findroute: {
+					noRouteFound: "इन दोनों स्टेशनों के बीच कोई मार्ग नहीं मिला।",
 					routeFinder: "मार्ग खोजक",
 					startStation: "से",
 					endStation: "तक",
@@ -149,7 +150,16 @@ export default {
 					heding : "ऐप सेटिंग्स",
 					tabs: {
 						alarm: "अलार्म",
-						map: "मानचित्र"
+						map: "मानचित्र",
+						backup: "बैकअप / रीस्टोर"
+					},
+					backup: {
+						sections: {
+							data: "💾 डेटा बैकअप एवं रीस्टोर"
+						},
+						desc: "अपने सेव किए गए रूट्स, अलार्म और ऐप प्राथमिकताओं को सुरक्षित रखें।",
+						export: "डेटा एक्सपोर्ट करें",
+						import: "डेटा इम्पोर्ट करें"
 					},
 					map: {
 						title: "मानचित्र व प्रदर्शन सेटिंग्स",

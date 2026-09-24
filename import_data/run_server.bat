@@ -11,7 +11,7 @@ echo ====================================================================
 echo          🚇 METRO AUDIT HUB - REAL-TIME PIPELINE SERVER
 echo ====================================================================
 echo.
-echo [1/3] Checking Python environment...
+echo [1/3] Setting up Python Environment...
 python --version >nul 2>&1
 if errorlevel 1 (
     echo [ERROR] Python is not found in system PATH!
@@ -19,6 +19,17 @@ if errorlevel 1 (
     echo.
     pause
     exit /b 1
+)
+
+IF NOT EXIST "venv\Scripts\activate.bat" (
+    echo [INFO] First time setup: Creating Virtual Environment...
+    python -m venv venv
+    echo [INFO] Activating and installing dependencies from requirements.txt...
+    call venv\Scripts\activate.bat
+    pip install -r requirements.txt
+) ELSE (
+    echo [INFO] Virtual Environment found. Activating...
+    call venv\Scripts\activate.bat
 )
 
 echo [2/3] Launching Web Dashboard in browser (http://localhost:8080)...

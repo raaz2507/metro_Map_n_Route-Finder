@@ -446,6 +446,7 @@ export class SettingsView {
 	constructor() {
 		this.#controllers.set("alarm", new AlarmSettingsController());
 		this.#controllers.set("map", new MapSettingsController());
+		this.#controllers.set("backup", new BackupSettingsController());
 	}
 
 	/**
@@ -523,6 +524,218 @@ export class SettingsView {
 		for (const controller of this.#controllers.values()) {
 			controller.destroy();
 		}
+		this.#abortController?.abort();
+	}
+}
+
+
+
+// =============================================================================
+// 3. 💾 BACKUP & RESTORE SUB-CONTROLLER (PRO VERSION)
+// =============================================================================
+class BackupSettingsController {
+	#elements = {};
+	#abortController = null;
+
+	init() {
+		this.#abortController = new AbortController();
+		this.#queryElements();
+		this.#bindEvents();
+	}
+
+	#queryElements() {
+		this.#elements = {
+			btnExport: document.getElementById("btnExportBackup"),
+			fileInput: document.getElementById("backupFileInput")
+		};
+	}
+
+	#bindEvents() {
+		const signal = this.#abortController.signal;
+		this.#elements.btnExport?.addEventListener("click", () => this.#exportData(), { signal });
+		this.#elements.fileInput?.addEventListener("change", (e) => this.#importData(e), { signal });
+	}
+
+	// -------------------------------------------------------------------------
+	// 📤 EXPORT LOGIC
+	// -------------------------------------------------------------------------
+	#exportData() {
+		const exportPayload = {
+			appName: "YatraMarg_Metro_App",
+			version: "1.0",
+			timestamp: new Date().toISOString(),
+			data: {}
+		};
+
+		for (let i = 0; i < localStorage.length; i++) {
+			const key = localStorage.key(i);
+			if (key && (key.startsWith("metro_") || key.startsWith("metro-") || key === "language")) {
+				exportPayload.data[key] = localStorage.getItem(key);
+			}
+		}
+
+		const dataStr = JSON.stringify(exportPayload, null, 2);
+		const blob = new Blob([dataStr], { type: "application/json" });
+		const url = URL.createObjectURL(blob);
+		
+		const a = document.createElement("a");
+		a.href = url;
+		const dateStr = new Date().toLocaleDateString("en-GB").replace(/\//g, "-");
+		a.download = `YatraMarg_Backup_${dateStr}.json`;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+
+		eventBus.emit("SHOW_TOAST", { message: "✅ Backup exported successfully!", type: "success" });
+	}
+
+	// -------------------------------------------------------------------------
+	// 🖼️ CUSTOM UI MODAL PROMPT (No HTML/CSS changes needed)
+	// -------------------------------------------------------------------------
+	#showRestoreModal() {
+		return new Promise((resolve) => {
+			const backdrop = document.createElement("div");
+			backdrop.className = "share-modal-backdrop";
+			backdrop.style.zIndex = "99999";
+			backdrop.style.display = "flex";
+			backdrop.style.opacity = "1";
+			backdrop.style.pointerEvents = "auto";
+			
+			// आपके मौजूदा Share Modal वाले डिज़ाइन को री-यूज़ किया गया है
+			backdrop.innerHTML = `
+				<div class="share-modal-card" role="dialog" style="max-width: 420px;">
+					<header class="share-modal-header">
+						<h3>💾 Backup Detected</h3>
+						<button type="button" class="close-modal-btn" id="btnCancelRestoreTop">
+							<span class="icon close-icon">✕</span>
+						</button>
+					</header>
+					<div class="share-modal-body" style="padding: 20px;">
+						<p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary); line-height: 1.5;">
+							How would you like to handle your existing recent searches and preferences?
+						</p>
+						<div style="display: flex; flex-direction: column; gap: 12px;">
+							<button type="button" class="btn-settings-action" id="btnSmartMerge" style="background: var(--tab-backup-accent, #6366f1); color: white; border: none; padding: 12px; font-size: 14px; justify-content: center;">
+								✅ Smart Merge (Recommended)
+							</button>
+							<button type="button" class="btn-settings-action" id="btnStrictOverwrite" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 12px; font-size: 14px; justify-content: center;">
+								⚠️ Strict Overwrite (Replace All)
+							</button>
+							<button type="button" class="btn-settings-action" id="btnCancelRestore" style="background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); padding: 12px; font-size: 14px; justify-content: center;">
+								❌ Cancel
+							</button>
+						</div>
+					</div>
+				</div>
+			`;
+			
+			document.body.appendChild(backdrop);
+			
+			const close = (action) => {
+				document.body.removeChild(backdrop);
+				resolve(action);
+			};
+			
+			backdrop.querySelector("#btnSmartMerge").addEventListener("click", () => close("MERGE"));
+			backdrop.querySelector("#btnStrictOverwrite").addEventListener("click", () => close("OVERWRITE"));
+			backdrop.querySelector("#btnCancelRestore").addEventListener("click", () => close("CANCEL"));
+			backdrop.querySelector("#btnCancelRestoreTop").addEventListener("click", () => close("CANCEL"));
+		});
+	}
+
+		// -------------------------------------------------------------------------
+	// 📥 IMPORT & SECURITY LOGIC (100% Logical Accuracy)
+	// -------------------------------------------------------------------------
+	async #importData(event) {
+		const file = event.target.files?.[0];
+		if (!file) return;
+
+		if (file.size > 1024 * 1024) {
+			eventBus.emit("SHOW_TOAST", { message: "❌ Backup must be under 1MB.", type: "error" });
+			event.target.value = "";
+			return;
+		}
+
+		try {
+			const text = await file.text();
+			const payload = JSON.parse(text);
+
+			if (payload.appName !== "YatraMarg_Metro_App" || !payload.data) {
+				throw new Error("INVALID_SIGNATURE");
+			}
+
+			const userAction = await this.#showRestoreModal();
+			
+			if (userAction === "CANCEL") {
+				event.target.value = "";
+				return;
+			}
+
+			const isSmartMerge = (userAction === "MERGE");
+
+			// 🚀 OPTIMIZATION & BUG FIX: "Strict Overwrite" के लिए पहले मौजूदा डेटा साफ़ करें
+			if (!isSmartMerge) {
+				const keysToRemove = [];
+				for (let i = 0; i < localStorage.length; i++) {
+					const key = localStorage.key(i);
+					if (key && (key.startsWith("metro_") || key.startsWith("metro-") || key === "language")) {
+						keysToRemove.push(key);
+					}
+				}
+				// सुरक्षित रूप से पुरानी सेटिंग्स डिलीट करें
+				keysToRemove.forEach(k => localStorage.removeItem(k));
+			}
+
+			// अब बैकअप डेटा को रिस्टोर/मर्ज करें
+			for (const [key, rawValue] of Object.entries(payload.data)) {
+				if (key.startsWith("metro_") || key.startsWith("metro-") || key === "language") {
+					
+					// Basic XSS Escape
+					let safeValue = typeof rawValue === "string" 
+						? rawValue.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+								  .replace(/[<>]/g, "") 
+						: rawValue;
+
+					// मर्ज लॉजिक (अगर Smart Merge चुना गया हो)
+					if (isSmartMerge && key.startsWith("metro-recent-searches")) {
+						safeValue = this.#mergeRecentSearches(key, safeValue);
+					}
+					
+					localStorage.setItem(key, safeValue);
+				}
+			}
+
+			eventBus.emit("SHOW_TOAST", { message: "✅ Backup restored successfully! Reloading...", type: "success" });
+			setTimeout(() => window.location.reload(), 1500);
+
+		} catch (error) {
+			eventBus.emit("SHOW_TOAST", { message: "❌ Invalid or corrupted backup file.", type: "error" });
+		} finally {
+			event.target.value = "";
+		}
+	}
+
+	
+	#mergeRecentSearches(key, importedValueStr) {
+		try {
+			const existingStr = localStorage.getItem(key);
+			if (!existingStr) return importedValueStr;
+
+			const existingArr = JSON.parse(existingStr);
+			const importedArr = JSON.parse(importedValueStr);
+
+			if (Array.isArray(existingArr) && Array.isArray(importedArr)) {
+				const combined = [...existingArr, ...importedArr];
+				const uniqueSet = new Set(combined.map(item => JSON.stringify(item)));
+				const mergedArr = Array.from(uniqueSet).map(str => JSON.parse(str));
+				return JSON.stringify(mergedArr);
+			}
+		} catch (e) {}
+		return importedValueStr;
+	}
+
+	destroy() {
 		this.#abortController?.abort();
 	}
 }

@@ -11,6 +11,15 @@ Environment  : Python 3.8+ (Zero external mandatory dependencies; uses standard 
 --------------------------------------------------------------------------------
 ARCHITECTURE FLOW DIAGRAM (MULTI-PROTOCOL WATERFALL)
 --------------------------------------------------------------------------------
+[!] ARCHITECTURAL NOTE ON CONCURRENCY & ANTI-BOT PROTECTION:
+This pipeline intentionally uses 'requests' with 'time.sleep()' jitter and a 
+limited ThreadPoolExecutor (max_workers=3) rather than high-speed async 
+libraries like 'aiohttp'. 
+Reason: This is a stealth background cron job. Speed is secondary. If we blast 
+the DMRC/MMRCL servers with 100+ concurrent aiohttp requests, their WAF 
+(Web Application Firewall) will instantly flag the IP as a DDoS/Bot attack 
+and permanently ban it. Polite delays ensure 100% successful ingestion.
+--------------------------------------------------------------------------------
 
  [ TRIGGER: python universal_scraper.py <network_id> [--download-media] ]
 								   │

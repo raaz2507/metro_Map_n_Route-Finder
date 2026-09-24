@@ -1,0 +1,109 @@
+/* =========================================================================
+   PWA INSTALL BANNER STYLES
+   Strictly using base.css design tokens for Theme Compatibility
+   ========================================================================= */
+
+@layer components {
+	.pwa-install-banner {
+		position: fixed;
+		bottom: var(--space-xl);
+		left: 50%;
+		transform: translateX(-50%);
+		
+		/* Semantic Background & Border */
+		background-color: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		
+		padding: var(--space-md) var(--space-lg);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-xl);
+		
+		/* Z-Index & Shadow using Base System */
+		box-shadow: var(--shadow-lg);
+		z-index: var(--z-toast);
+		
+		width: 90%;
+		max-width: 400px;
+		animation: slideUp var(--transition-spring) forwards;
+	}
+
+	.pwa-banner-content {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.pwa-app-icon {
+		width: var(--logo-size-md);
+		height: var(--logo-size-md);
+		border-radius: var(--radius-sm);
+	}
+
+	.pwa-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.pwa-text strong {
+		color: var(--text-primary);
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+	}
+
+	.pwa-text span {
+		color: var(--text-secondary);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+	}
+
+	.pwa-actions {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.pwa-btn-primary {
+		background-color: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		border: none;
+		padding: 6px var(--space-md);
+		border-radius: var(--radius-xs);
+		font-family: var(--font-main);
+		font-weight: var(--fw-semibold);
+		font-size: var(--fs-sm);
+		cursor: pointer;
+		transition: background-color var(--transition-fast);
+	}
+
+	.pwa-btn-primary:hover {
+		background-color: var(--btn-primary-hover);
+	}
+
+	.pwa-btn-secondary {
+		background: transparent;
+		color: var(--text-muted);
+		border: none;
+		font-size: var(--fs-lg);
+		cursor: pointer;
+		padding: var(--space-xs);
+		transition: color var(--transition-fast);
+	}
+
+	.pwa-btn-secondary:hover {
+		color: var(--text-primary);
+	}
+
+	@keyframes slideUp {
+		from {
+			transform: translate(-50%, 100%);
+			opacity: 0;
+		}
+		to {
+			transform: translate(-50%, 0);
+			opacity: 1;
+		}
+	}
+}

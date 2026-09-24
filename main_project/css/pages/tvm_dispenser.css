@@ -8,28 +8,50 @@
 @layer layout, animations;
 
 @layer layout {
-	/* =========================================================================
-	   TVM DISPENSER LAYOUT (GAP REMOVED - TICKET ALIGNED DIRECTLY TO SLIT MOUTH)
-	   ========================================================================= */
 
-	/* 3. MAIN WORKSPACE 2-COLUMN GRID */
+	/* =========================================================================
+	   1. MAIN PAGE LAYOUT & TVM HEADER TIPS
+	   ========================================================================= */
 	.kiosk-workspace {
 		width: 100%;
-		max-width: 1100px;
-		display: grid;
-		grid-template-columns: 500px 1fr;
-		gap: var(--space-2xl);
-		align-items: start;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		padding-top: var(--space-xl);
 	}
 
-	@media (max-width: 950px) {
-		.kiosk-workspace {
-			grid-template-columns: 1fr;
-			justify-items: center;
-		}
+	.tvm-header-tips {
+		max-width: 500px;
+		margin: var(--space-xl) auto 0 auto;
+		padding: 0 var(--space-md);
 	}
 
-	/* 4. LEFT COLUMN: TVM HARDWARE MACHINE HOUSING */
+		.tvm-header-tips .quick-tips {
+		margin-top: 0;
+		padding: var(--space-md) var(--space-lg);
+		
+		/* 100% Variable-Based Glassmorphism */
+		background: rgba(var(--color-bg-base-rgb), var(--op-translucent)); 
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		
+		border-left: 4px solid rgb(var(--color-primary-rgb));
+		border-radius: var(--radius-md);
+		
+		font-size: var(--fs-sm);
+		
+		/* डार्क और क्रिस्प टेक्स्ट (थीम के अनुसार) */
+		color: var(--text-primary); 
+		font-weight: var(--fw-semibold); 
+		line-height: 1.6;
+		
+		/* थीम के अनुसार शैडो */
+		box-shadow: var(--shadow-md);
+	}
+
+	/* =========================================================================
+	   2. TVM HARDWARE HOUSING (LEFT COLUMN)
+	   ========================================================================= */
 	.tvm-kiosk-unit {
 		width: 100%;
 		max-width: 500px;
@@ -40,9 +62,29 @@
 		border: none;
 		box-shadow: none;
 		overflow: visible;
+
+		animation: tvm-float 5s ease-in-out infinite;
+		transition: transform 0.3s ease-out;
+
 	}
 
-	/* TOP HOOD (SOLID METAL CASING - GAP REDUCED AT BOTTOM) */
+	/* जब माउस Hover हो या मोबाइल पर टच किया जाए, तो फ्लोट होना रुक जाए (Still) */
+	.tvm-kiosk-unit:hover,
+	.tvm-kiosk-unit:active {
+		animation-play-state: paused;
+	}
+
+	/* मशीन के हवा में तैरने का स्मूद एनिमेशन */
+	@keyframes tvm-float {
+		0%, 100% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-12px); /* 12 पिक्सल ऊपर जाएगी */
+		}
+	}
+
+	/* Top Metal Hood & Screws */
 	.tvm-hood {
 		padding: var(--space-xl) var(--space-xl) var(--space-sm);
 		background: var(--card-bg);
@@ -78,6 +120,98 @@
 		border: 1px solid var(--text-muted);
 	}
 
+	/* Hood Buttons (3D Settings, Print, Gate Mode) */
+	.tvm-hood-actions {
+		display: flex;
+		gap: var(--space-lg);
+		margin-bottom: var(--space-lg);
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.hood-buttons-group {
+		display: flex;
+		gap: var(--space-md);
+		align-items: center;
+	}
+
+	.tvm-round-btn {
+		background: linear-gradient(to bottom, #ffffff, var(--input-bg));
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-full);
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		box-shadow: 0 var(--space-xs) 0 var(--border-color), 0 5px 10px rgba(0, 0, 0, 0.15);
+		transition: all var(--transition-fast);
+		position: relative;
+		top: 0;
+	}
+
+	.tvm-round-btn:active {
+		top: var(--space-xs);
+		box-shadow: 0 0px 0 var(--border-color), 0 2px 5px rgba(0, 0, 0, 0.15);
+	}
+
+	.tvm-round-btn span {
+		font-size: var(--fs-xl);
+		filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 1));
+		transition: opacity var(--transition-fast);
+	}
+
+	.tvm-round-btn img {
+		width: var(--space-xl);
+		height: var(--space-xl);
+	}
+
+	.tvm-action-btn {
+		margin: 0;
+		height: 44px;
+		padding: 0 var(--space-xl);
+		border-radius: var(--radius-sm);
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		background: var(--color-primary, #3b82f6);
+		color: white;
+		border: 1px solid var(--color-primary-dark, #2563eb);
+		font-family: var(--font-title);
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		cursor: pointer;
+		box-shadow: 0 var(--space-xs) 0 var(--color-primary-dark, #1d4ed8), 0 5px 10px rgba(0, 0, 0, 0.2);
+		transition: all var(--transition-fast);
+		position: relative;
+		top: 0;
+	}
+
+	.tvm-action-btn:active {
+		top: var(--space-xs);
+		box-shadow: 0 0px 0 var(--color-primary-dark, #1d4ed8), 0 2px 5px rgba(0, 0, 0, 0.2);
+	}
+
+	.hood-gate-btn {
+		background: var(--bg-dark, #0f172a);
+		border-color: var(--border-color, #020617);
+		box-shadow: 0 var(--space-xs) 0 var(--border-color, #020617), 0 5px 10px rgba(0, 0, 0, 0.2);
+	}
+
+	.hood-gate-btn:active {
+		box-shadow: 0 0px 0 var(--border-color, #020617), 0 2px 5px rgba(0, 0, 0, 0.2);
+	}
+
+	.hood-gate-btn .print-btn-text {
+		font-size: var(--fs-sm);
+	}
+
+	.hood-gate-btn.hidden {
+		display: none !important;
+	}
+
+	/* Ticket Dispenser Slot (Mouth) */
 	.dispenser-slot-bezel {
 		background: var(--bg-app);
 		border: 2px solid var(--border-color);
@@ -115,41 +249,7 @@
 		z-index: 3;
 	}
 
-	/* TICKET FEED BAY (NO TOP PADDING GAP) */
-	.ticket-dispense-bay {
-		position: relative;
-		width: 100%;
-		padding: 0 var(--space-lg) var(--space-xl);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background: var(--card-bg);
-		box-shadow: none;
-		overflow: visible;
-	}
-
-	/* TICKET PAPER WRAPPER (ALIGNED DIRECTLY AT SLIT MOUTH) */
-	.ticket-paper-wrapper {
-		width: 100%;
-		max-width: 410px;
-		position: relative;
-		transform-origin: top center;
-		background: transparent;
-		border-radius: 0;
-		box-shadow: none;
-		z-index: 4;
-		margin-top: -48px;
-	}
-
-	/* SVG VECTOR DROP-SHADOW */
-	.ticket-paper-wrapper svg {
-		width: 100%;
-		height: auto;
-		display: block;
-		filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.20));
-	}
-
-	/* BOTTOM CHASSIS & TRAY WELL */
+	/* Bottom Chassis & Tray */
 	.tvm-bottom-chassis {
 		background: var(--card-bg);
 		border: 2px solid var(--border-color);
@@ -199,7 +299,76 @@
 		color: var(--text-muted);
 	}
 
-	/* 5. RIGHT COLUMN: CONTROL PANEL & FORM GRID */
+
+	/* =========================================================================
+	   3. TICKET PAPER & DISPENSE BAY
+	   ========================================================================= */
+	.ticket-dispense-bay {
+		position: relative;
+		width: 100%;
+		padding: 0 var(--space-lg) var(--space-xl);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: var(--card-bg);
+		box-shadow: none;
+		overflow: visible;
+	}
+
+	.ticket-paper-wrapper {
+		width: 100%;
+		max-width: 410px;
+		position: relative;
+		transform-origin: top center;
+		background: transparent;
+		border-radius: 0;
+		box-shadow: none;
+		z-index: 4;
+		margin-top: -32px;
+	}
+
+	.ticket-paper-wrapper svg {
+		width: 100%;
+		height: auto;
+		display: block;
+		filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+		transition: filter 0.5s ease;
+	}
+
+	/* Prevent hard shadow line at the slit during print */
+	.state-dispensing .ticket-paper-wrapper svg {
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+	}
+
+	#ticket-mount-point {
+		width: 100%;
+	}
+
+
+	/* =========================================================================
+	   4. TICKET ISSUANCE FORM PANEL (MODAL)
+	   ========================================================================= */
+	.right-panel-column {
+		display: none;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0.95);
+		z-index: 1000;
+		width: 90%;
+		max-width: 550px;
+		max-height: 90vh;
+		overflow-y: auto;
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+		border-radius: var(--radius-xl);
+		opacity: 0;
+	}
+
+	.right-panel-column.active {
+		display: block;
+		animation: popup-zoom-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+	}
+
 	.kiosk-control-panel {
 		background: var(--card-bg);
 		backdrop-filter: blur(var(--backdrop-blur));
@@ -228,6 +397,20 @@
 		gap: var(--space-sm);
 	}
 
+	.btn-close-modal {
+		background: transparent;
+		border: none;
+		font-size: 18px;
+		color: var(--text-secondary);
+		cursor: pointer;
+		padding: 5px;
+		transition: color 0.2s;
+	}
+
+	.btn-close-modal:hover {
+		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+	}
+
 	.form-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -248,7 +431,8 @@
 		margin-bottom: var(--space-xs);
 	}
 
-	.form-input, .form-select {
+	.form-input,
+	.form-select {
 		width: 100%;
 		background: var(--input-bg);
 		border: 1px solid var(--input-border);
@@ -261,7 +445,8 @@
 		transition: var(--transition-fast);
 	}
 
-	.form-input:focus, .form-select:focus {
+	.form-input:focus,
+	.form-select:focus {
 		border-color: var(--input-focus-border);
 		box-shadow: 0 0 0 2px rgba(var(--focus-ring-rgb), var(--op-focus-shadow));
 	}
@@ -273,25 +458,29 @@
 		margin-top: var(--space-xl);
 	}
 
-	.btn-dispense {
-		padding: var(--space-md) var(--space-lg);
-		background: var(--btn-primary-bg);
-		color: var(--btn-primary-text);
+	.action-row.form-actions {
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+
+	.btn-primary {
+		background: var(--color-primary, #3b82f6);
+		color: white;
 		border: none;
 		border-radius: var(--radius-sm);
+		padding: var(--space-sm) var(--space-lg);
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-bold);
+		cursor: pointer;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: var(--space-sm);
-		cursor: pointer;
-		box-shadow: var(--shadow-md);
-		transition: var(--transition-smooth);
+		transition: var(--transition-fast);
 	}
 
-	.btn-dispense:hover {
-		background: var(--btn-primary-hover);
+	.btn-primary:hover {
+		background: var(--color-primary-dark, #2563eb);
 	}
 
 	.btn-secondary {
@@ -299,7 +488,7 @@
 		color: var(--btn-reset-text);
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius-sm);
-		padding: var(--space-sm) var(--space-md);
+		padding: var(--space-sm) var(--space-lg);
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-semibold);
 		cursor: pointer;
@@ -314,25 +503,70 @@
 		background: var(--btn-reset-hover);
 	}
 
-	.audio-badge {
-		display: flex;
-		align-items: center;
-		gap: var(--space-xs);
-		font-size: var(--fs-xs);
-		color: var(--text-secondary);
-		cursor: pointer;
-		user-select: none;
+
+	/* =========================================================================
+	   5. OVERLAYS & FULLSCREEN GATE SCAN MODAL
+	   ========================================================================= */
+	.tvm-modal-overlay {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.6);
+		backdrop-filter: blur(5px);
+		z-index: 999;
+		animation: fade-in 0.2s ease-out forwards;
 	}
 
-	.quick-tips {
-		margin-top: var(--space-xl);
-		padding: var(--space-md) var(--space-lg);
-		background: rgba(var(--color-primary-rgb), var(--op-subtle));
-		border-left: 3px solid rgb(var(--color-primary-rgb));
-		border-radius: var(--radius-xs);
+	.tvm-modal-overlay.active {
+		display: block;
+	}
+
+	.tvm-modal-overlay.gate-modal {
+		background: rgba(0, 0, 0, 0.9);
+		z-index: 9999;
+	}
+
+	.gate-modal-box {
+		background: var(--card-bg);
+		max-width: 320px;
+		padding: var(--space-xl);
+		border-radius: var(--radius-lg);
+		text-align: center;
+		margin: 15vh auto auto;
+	}
+
+	.gate-modal-box .modal-title {
+		color: var(--text-primary);
+		font-size: var(--fs-lg);
+		font-weight: var(--fw-bold);
+		margin-bottom: var(--space-md);
+	}
+
+	.gate-canvas-large {
+		width: 100%;
+		height: auto;
+		border-radius: var(--radius-sm);
+	}
+
+	.gate-modal-hint {
 		font-size: var(--fs-xs);
 		color: var(--text-secondary);
-		line-height: 1.5;
+		margin: var(--space-md) 0;
+	}
+
+	.gate-modal-box .modal-btn-confirm {
+		width: 100%;
+		background: var(--bg-dark, #0f172a);
+		color: white;
+		border: none;
+		padding: var(--space-md);
+		border-radius: var(--radius-full);
+		cursor: pointer;
+		font-weight: var(--fw-bold);
+		font-family: var(--font-title);
 	}
 }
 
@@ -341,13 +575,25 @@
 	   MASTER ANIMATIONS & KEYFRAMES SECTION
 	   ========================================================================= */
 
-	/* 1. KIOSK STATUS LED PULSE (ONLINE BADGE) */
+	/* 1. MODAL / OVERLAY FADE IN */
+	@keyframes popup-zoom-in {
+		to {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+
+	@keyframes fade-in {
+		to { opacity: 1; }
+	}
+
+	/* 2. KIOSK STATUS LED PULSE (ONLINE BADGE) */
 	.status-dot {
 		width: 8px;
 		height: 8px;
 		border-radius: 50%;
-		background: #34D399;
-		box-shadow: 0 0 10px #34D399;
+		background: #34d399;
+		box-shadow: 0 0 10px #34d399;
 		animation: pulse-dot 1.8s infinite;
 	}
 
@@ -356,7 +602,7 @@
 		50% { opacity: 0.4; transform: scale(0.85); }
 	}
 
-	/* 2. DISPENSER LED BLINK (ACTIVE PRINTING) */
+	/* 3. DISPENSER LED BLINK (ACTIVE PRINTING) */
 	.dispenser-led.active {
 		background: var(--led-green);
 		box-shadow: var(--led-glow-active);
@@ -389,7 +635,7 @@
 		}
 	}
 
-	/* 3. TICKET DISPENSE FEED (DARK / DEFAULT THEME) */
+	/* 4. TICKET DISPENSE FEED (DARK / DEFAULT THEME) */
 	.state-dispensing .ticket-paper-wrapper {
 		animation: dispense-feed 2.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
 	}
@@ -400,9 +646,7 @@
 			opacity: 0;
 			clip-path: inset(85% -50px -50px -50px);
 		}
-		15% {
-			opacity: 1;
-		}
+		15% { opacity: 1; }
 		40% {
 			transform: translateY(-50%);
 			clip-path: inset(50% -50px -50px -50px);
@@ -422,7 +666,7 @@
 		}
 	}
 
-	/* 4. PAPER GRAVITY DROP & REBOUND (DARK / DEFAULT THEME) */
+	/* 5. PAPER GRAVITY DROP & REBOUND (DARK / DEFAULT THEME) */
 	.state-dispensed .ticket-paper-wrapper {
 		transform: translateY(0px);
 		opacity: 1;
@@ -430,21 +674,13 @@
 	}
 
 	@keyframes paper-drop-settle {
-		0% {
-			transform: translateY(0) rotate(0);
-		}
-		65% {
-			transform: translateY(calc(var(--ticket-drop-distance, 18px) + 18px)) rotate(0.4deg);
-		}
-		85% {
-			transform: translateY(calc(var(--ticket-drop-distance, 18px) - 5px)) rotate(-0.2deg);
-		}
-		100% {
-			transform: translateY(var(--ticket-drop-distance, 18px)) rotate(0deg);
-		}
+		0% { transform: translateY(0) rotate(0); }
+		65% { transform: translateY(calc(var(--ticket-drop-distance, 18px) + 18px)) rotate(0.4deg); }
+		85% { transform: translateY(calc(var(--ticket-drop-distance, 18px) - 5px)) rotate(-0.2deg); }
+		100% { transform: translateY(var(--ticket-drop-distance, 18px)) rotate(0deg); }
 	}
 
-	/* 5. TICKET DISPENSE FEED (LIGHT THEME) */
+	/* 6. TICKET DISPENSE FEED (LIGHT THEME) */
 	body.light-theme .state-dispensing .ticket-paper-wrapper {
 		animation: dispense-feed-light 2.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
 	}
@@ -455,9 +691,7 @@
 			opacity: 0;
 			clip-path: inset(85% -50px -50px -50px);
 		}
-		15% {
-			opacity: 1;
-		}
+		15% { opacity: 1; }
 		40% {
 			transform: translateY(-50%);
 			clip-path: inset(50% -50px -50px -50px);
@@ -477,24 +711,16 @@
 		}
 	}
 
-	/* 6. PAPER GRAVITY DROP & REBOUND (LIGHT THEME) */
+	/* 7. PAPER GRAVITY DROP & REBOUND (LIGHT THEME) */
 	body.light-theme .state-dispensed .ticket-paper-wrapper {
 		transform: translateY(18px);
 		animation: paper-drop-settle-light 0.7s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
 	}
 
 	@keyframes paper-drop-settle-light {
-		0% {
-			transform: translateY(0) rotate(0);
-		}
-		65% {
-			transform: translateY(calc(var(--ticket-drop-distance, 18px) + 18px)) rotate(0.4deg);
-		}
-		85% {
-			transform: translateY(calc(var(--ticket-drop-distance, 18px) - 5px)) rotate(-0.2deg);
-		}
-		100% {
-			transform: translateY(var(--ticket-drop-distance, 18px)) rotate(0deg);
-		}
+		0% { transform: translateY(0) rotate(0); }
+		65% { transform: translateY(calc(var(--ticket-drop-distance, 18px) + 18px)) rotate(0.4deg); }
+		85% { transform: translateY(calc(var(--ticket-drop-distance, 18px) - 5px)) rotate(-0.2deg); }
+		100% { transform: translateY(var(--ticket-drop-distance, 18px)) rotate(0deg); }
 	}
 }

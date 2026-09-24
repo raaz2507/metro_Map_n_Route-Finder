@@ -1,53 +1,42 @@
 // /lang/pages/tvm_dispenser.hi.js
 export default {
 	meta: {
-		title: 'मेट्रो TVM • टिकट डिस्पेंसर | यात्रामार्ग',
-		desc: 'मेट्रो ऑटोमेटिक टिकट वेंडिंग मशीन सिम्युलेट करें। यात्री विवरण भरें और लाइव SVG थर्मल टिकट निकालें।'
+		title: 'Metro TVM • टिकट मशीन | YatraMarg',
+		desc: 'मेट्रो टिकट मशीन का 3D सिमुलेशन। यात्री की जानकारी भरें और लाइव SVG टिकट जनरेट करें।'
 	},
-	machine: {
-		dispenserLabel: 'टिकट डिस्पेंसर',
-		trayLabel: 'ट्रे से टिकट लें'
+	headerTips: {
+		title: 'TVM सिमुलेशन (Fun Mode):',
+		desc: 'यह 3D मशीन सिर्फ सिमुलेशन और मनोरंजन के लिए है—यहाँ से निकला टिकट असली नहीं है! असली इस्तेमाल: अगर आपने टिकट वॉलेट में असली टिकट जनरेट किया है, तो मेट्रो गेट पर असली QR स्कैन करने के लिए "Gate Mode (🔆)" बटन का उपयोग करें।'
 	},
-	panel: {
-		title: 'टिकट जारी पैनल',
-		soundLabel: 'प्रिंटर साउंड',
-		btnPrint: 'प्रिंट करें और टिकट निकालें',
-		btnOpenSvg: 'स्टैंडअलोन SVG फ़ाइल खोलें',
-		tipsTitle: 'TVM सिमुलेशन फीचर:',
-		tipsDesc: '"प्रिंट करें और टिकट निकालें" दबाएं — थर्मल प्रिंटर साउंड के साथ टिकट डिस्पेंसर स्लॉट से रोल आउट होगी, और आपकी फॉर्म डिटेल्स लाइव टिकट में अपडेट हो जाएंगी!'
+	kiosk: {
+		btnGateMode: 'गेट मोड',
+		btnPrint: 'प्रिंट करें',
+		dispenserLabel: 'टिकट मशीन',
+		trayLabel: 'यहाँ से टिकट प्राप्त करें'
 	},
-	form: {
-		labelPassenger: 'यात्री का नाम',
-		labelFrom: 'प्रस्थान स्टेशन (From)',
-		labelTo: 'गंतव्य स्टेशन (To)',
-		labelFare: 'किराया (Price)',
-		labelTicketNum: 'टिकट नंबर / ID',
-		labelStatus: 'स्टेटस रंग',
-		statusValid: 'वैध (हरा टेक्स्ट)',
-		statusExpired: 'एक्सपायर्ड (लाल टेक्स्ट)',
-		labelDuration: 'वैधता समय',
-		dur45: '45 मिनट',
-		dur90: '90 मिनट',
-		dur180: '3 घंटे',
-		dur1440: 'फुल डे पास'
+	settingsModal: {
+		title: 'टिकट सेटिंग्स पैनल',
+		btnCancel: 'कैंसिल',
+		btnSave: 'सेटिंग्स सेव करें',
+		form: {
+			labelPassenger: 'यात्री का नाम',
+			labelFrom: 'कहाँ से (Origin)',
+			labelTo: 'कहाँ तक (Destination)',
+			labelFare: 'किराया (Price)',
+			labelTicketNum: 'टिकट नंबर / ID',
+			labelStatus: 'स्टेटस कलर',
+			statusValid: 'वैलिड (हरा टेक्स्ट)',
+			statusExpired: 'एक्सपायर (लाल टेक्स्ट)',
+			labelDuration: 'वैलिडिटी का समय',
+			dur45: '45 मिनट',
+			dur90: '90 मिनट',
+			dur180: '3 घंटे',
+			dur1440: 'पूरे दिन का पास'
+		}
 	},
-	studio: {
-		title: 'गोल्डन शाइन और रिफ्लेक्शन लैब',
-		badge: 'स्वीट स्पॉट फाइंडर',
-		modeAmbient: '🌿 नेचुरल एम्बियंट ग्लो',
-		modeBeam: '⚡ 35° डायगोनल गोल्ड बीम',
-		presetsLabel: 'प्रीसेट:',
-		preset8: 'सटल 8%',
-		preset18: 'नेचुरल 18%',
-		preset28: 'वाइब्रेंट 28%',
-		preset42: 'रिच 42%',
-		labelIntensity: 'शाइन पीक इंटेंसिटी (ओपेसिटी)',
-		labelSpread: 'ग्लो स्प्रेड / कवरेज चौड़ाई',
-		labelDuration: 'स्वे ड्यूरेशन / स्पीड',
-		colorCenter: 'सेंटर हाइलाइट',
-		colorEdge: 'वार्म गोल्ड एज',
-		codeTitle: '📄 लाइव जेनरेटेड SVG शाइन कोड',
-		btnCopy: 'कोड कॉपी करें',
-		btnCopied: 'कॉपी हो गया!'
+	gateModal: {
+		title: 'टर्नस्टाइल गेट स्कैन',
+		hint: 'इस QR कोड को सीधा मेट्रो गेट पर स्कैन करें',
+		btnClose: 'बंद करें'
 	}
 };

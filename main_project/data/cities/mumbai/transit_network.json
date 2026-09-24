@@ -12,7 +12,12 @@
 			"mmmocl": {"operator": "Maha Mumbai Metro Operation Corporation Limited", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
 			"mmrcl": {"operator": "Mumbai Metro Rail Corporation Limited", "avgSpeedMetersPerMin": 600, "stationHaltMinutes": 0.5},
 			"cidco": {"operator": "City and Industrial Development Corporation / Maha Metro", "avgSpeedMetersPerMin": 500, "stationHaltMinutes": 0.5},
-			"mmrda_monorail": {"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)", "avgSpeedMetersPerMin": 350, "stationHaltMinutes": 0.75, "status": "suspended"}
+			"mmrda_monorail": {
+				"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+				"avgSpeedMetersPerMin": 350,
+				"stationHaltMinutes": 0.75,
+				"status": "suspended"
+			}
 		},
 		"policies": {
 			"mmopl_line1": {
@@ -105,15 +110,19 @@
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
 				"fareTables": {
-					"standard": [
-						{"minKm": 0, "maxKm": 4, "fare": 10},
-						{"minKm": 4, "maxKm": 8, "fare": 20},
-						{"minKm": 8, "maxKm": null, "fare": 30}
-					]
+					"standard": [{"minKm": 0, "maxKm": 4, "fare": 10}, {"minKm": 4, "maxKm": 8, "fare": 20}, {"minKm": 8, "maxKm": null, "fare": 30}]
 				},
 				"products": {
-					"token": {"type": "base", "label": {"en": "Standard QR Ticket", "hi": "स्टैंडर्ड क्यूआर टिकट", "mr": "स्टँडर्ड क्यूआर तिकीट"}},
-					"smart_card": {"type": "discount", "baseProduct": "token", "discountPercent": 10, "label": {"en": "Mumbai 1 / NCMC Card (10% Off)", "hi": "मुंबई 1 / NCMC कार्ड (10% छूट)", "mr": "मुंबई १ / NCMC कार्ड (१०% सवलत)"}}
+					"token": {
+						"type": "base",
+						"label": {"en": "Standard QR Ticket", "hi": "स्टैंडर्ड क्यूआर टिकट", "mr": "स्टँडर्ड क्यूआर तिकीट"}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"label": {"en": "Mumbai 1 / NCMC Card (10% Off)", "hi": "मुंबई 1 / NCMC कार्ड (10% छूट)", "mr": "मुंबई १ / NCMC कार्ड (१०% सवलत)"}
+					}
 				}
 			},
 			"mmrda_monorail_standard": {
@@ -132,7 +141,10 @@
 					]
 				},
 				"products": {
-					"token": {"type": "base", "label": {"en": "Single Journey Token", "hi": "सिंगल जर्नी टोकन", "mr": "सिंगल जर्नी टोकन"}}
+					"token": {
+						"type": "base",
+						"label": {"en": "Single Journey Token", "hi": "सिंगल जर्नी टोकन", "mr": "सिंगल जर्नी टोकन"}
+					}
 				}
 			}
 		}
@@ -142,7 +154,7 @@
 		"interchange": {"en": "Interchange Station", "hi": "इंटरचेंज स्टेशन", "mr": "इंटरचेंज स्थानक"},
 		"walkway": {"en": "Interchange via Walkway", "hi": "वॉकवे द्वारा इंटरचेंज", "mr": "वॉकवे द्वारे इंटरचेंज"}
 	},
-		"lines": {
+	"lines": {
 		"mumbai.blue": {
 			"id": "mumbai.blue",
 			"network": "mmopl",

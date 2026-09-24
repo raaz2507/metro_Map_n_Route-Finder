@@ -65,6 +65,7 @@ class NCRTCEcosystemAdapter(BaseTransitAdapter):
 
 			if idx % 5 == 0 or idx == len(stations_list):
 				UniversalPipelineLogger.log("CRAWL", f"[{idx}/{len(stations_list)}] Scraped: {st_name} ({st_code})")
-			time.sleep(0.04)
+			import random
+			time.sleep(random.uniform(0.15, 0.35))
 
 		return deep_dataset

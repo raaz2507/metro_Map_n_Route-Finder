@@ -331,23 +331,22 @@ class MetroDataStore {
 		}
 	}
 
-	/**
-	 * In-Memory Deep Merge Algorithm: Overlays auto delta over base without data loss.
+		/**
+	 * 🚀 Optimized In-Memory Deep Merge Algorithm using native structuredClone
 	 */
 	#deepMergeStationDetails(baseData, autoData) {
 		if (!autoData || typeof autoData !== "object" || Object.keys(autoData).length === 0) {
-			return { ...baseData };
+			// Native C++ level deep copy (Fast & Memory Safe)
+			return typeof structuredClone === "function" ? structuredClone(baseData) : JSON.parse(JSON.stringify(baseData));
 		}
 
-		const merged = { ...baseData };
+		// 1. Create a complete, safe deep clone of the base data
+		const merged = typeof structuredClone === "function" ? structuredClone(baseData) : JSON.parse(JSON.stringify(baseData));
 
+		// 2. Overlay the Auto Delta changes
 		for (const [slug, patch] of Object.entries(autoData)) {
-			// Skip root metadata headers
-			if (slug === "_meta" || !patch || typeof patch !== "object") {
-				continue;
-			}
+			if (slug === "_meta" || !patch || typeof patch !== "object") continue;
 
-			// Case A: New station not in base -> Append directly
 			if (!merged[slug]) {
 				const cleanPatch = { ...patch };
 				delete cleanPatch._meta;
@@ -355,47 +354,24 @@ class MetroDataStore {
 				continue;
 			}
 
-			// Case B: Existing station -> Selective deep merge
-			const baseStation = merged[slug];
-			const updatedStation = { ...baseStation };
+			const stationRef = merged[slug];
 
 			for (const [field, candVal] of Object.entries(patch)) {
-				if (field === "_meta" || candVal === null || candVal === undefined) {
-					continue;
-				}
+				if (field === "_meta" || candVal === null || candVal === undefined) continue;
 
-				// Deep merge nested dictionaries (gates, timings, contact, facilities)
-				if (
-					typeof candVal === "object" &&
-					!Array.isArray(candVal) &&
-					baseStation[field] &&
-					typeof baseStation[field] === "object" &&
-					!Array.isArray(baseStation[field])
-				) {
+				if (typeof candVal === "object" && !Array.isArray(candVal) && stationRef[field] && typeof stationRef[field] === "object" && !Array.isArray(stationRef[field])) {
 					if (field === "gates") {
-						// Gate-level fine-grained merge
-						const mergedGates = { ...(baseStation.gates || {}) };
+						stationRef.gates = stationRef.gates || {};
 						for (const [gKey, gObj] of Object.entries(candVal)) {
-							if (mergedGates[gKey] && typeof gObj === "object") {
-								mergedGates[gKey] = { ...mergedGates[gKey], ...gObj };
-							} else {
-								mergedGates[gKey] = gObj;
-							}
+							stationRef.gates[gKey] = { ...(stationRef.gates[gKey] || {}), ...gObj };
 						}
-						updatedStation.gates = mergedGates;
 					} else {
-						updatedStation[field] = {
-							...baseStation[field],
-							...candVal
-						};
+						stationRef[field] = { ...stationRef[field], ...candVal };
 					}
 				} else {
-					// Arrays (parkings, platforms) or primitive values override directly
-					updatedStation[field] = candVal;
+					stationRef[field] = candVal;
 				}
 			}
-
-			merged[slug] = updatedStation;
 		}
 
 		return merged;

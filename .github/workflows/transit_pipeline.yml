@@ -1,0 +1,53 @@
+name: Transit Data Pipeline Automation
+
+on:
+  # हर रविवार सुबह 02:00 AM UTC (07:30 AM IST) पर ऑटोमैटिक रन
+  schedule:
+    - cron: '0 2 * * 0'
+  # GitHub Actions टैब से 1-क्लिक मैन्युअल रन
+  workflow_dispatch:
+
+# रिपॉजिटरी में अपडेटेड JSON कमिट और पुश करने की अनुमति
+permissions:
+  contents: write
+
+jobs:
+  run-pipeline:
+    name: Execute Multi-City Data Pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests urllib3 beautifulsoup4
+
+      - name: Run Transit Data Pipeline Orchestrator
+        run: |
+          python import_data/run_pipeline_all.py
+
+      - name: Commit & Push Changes (if data updated)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # केवल डेटा फाइल्स को स्टेज करें
+          git add main_project/data/ import_data/datasets/
+          
+          # यदि फाइल्स में वास्तविक बदलाव हुआ है तभी कमिट और पुश करें
+          if git diff --staged --quiet; then
+            echo "No data changes detected. Skipping commit."
+          else
+            echo "Data updates detected! Committing changes..."
+            git commit -m "chore(data): automated weekly transit pipeline sync"
+            git push origin main
+          fi

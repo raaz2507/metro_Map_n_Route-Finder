@@ -83,6 +83,11 @@ export class HeaderComponent {
 						<img src="./assets/icons/ui/book-help.svg" class="icon-xs" alt="Help">
 						<span data-i18n="header.help_docs">Help & Docs</span>
 					</a>
+
+					<!-- NEW API DOCS LINK -->
+					<a href="http://localhost:8080/docs" target="_blank" class="nav-tab-item">
+						<span style="color: #10b981; font-weight: bold;">⚡ API Docs</span>
+					</a>
 				</nav>
 			</div>
 		`;

@@ -19,8 +19,16 @@ import { StationCalloutView } from "../components/StationCalloutView.js";
 import { AlarmBannerView } from "../components/AlarmBannerView.js";
 import { SpeedometerWidget } from "../components/WidgetSpeedometer.js";
 import { TelemetryWidget } from "../components/WidgetTelemetry.js";
+import { PwaManager } from '../core/PwaManager.js';
+
+
 
 document.addEventListener("DOMContentLoaded", async () => {
+
+	// PWA मैनेजर इनिशियलाइज़ करें
+	const pwaManager = new PwaManager();
+	pwaManager.init();
+
     await HeaderComponent.render('home');
     FooterComponent.render();
     new HomePageController();
@@ -80,64 +88,104 @@ class HomePageController {
 			if (element) this.#elemts[key] = element;
 		}
 	}
+		/**
+	 * 🚀 Main Initialization
+	 */
 	async #init() {
 		try {
 			this.#settings.currentLang = appStateStore.getState("currentLang");
 			this.#settings.currentTheme = appStateStore.getState("currentTheme");
+			
 			await centerClass.init();
-			this.#mapObj = centerClass.getMapEngine({ 
-				containerSelector: ".mapContainer",
-				lang: this.#settings.currentLang,
-				theme: this.#settings.currentTheme
-			});
-			this.#journeyDetailsView = new JourneyDetailsView("#journeyDetails .route-overview", this.#mapObj);
-			this.#recentSearchesView = new RecentSearchesView({
-				onSelectRoute: (from, to) => {
-					if (this.#elemts.startStation) this.#elemts.startStation.value = from;
-					if (this.#elemts.endStation) this.#elemts.endStation.value = to;
-					const routeFinderTab = document.querySelector('.sidebar-link[data-target="route-finder"]');
-					if (routeFinderTab) routeFinderTab.click();
-					document.querySelector(".routeFinder")?.requestSubmit();
-				}
-			});
-			// 📍 नया अलग स्टेशन कॉलआउट कंपोनेंट
-			this.#stationCalloutView = new StationCalloutView({
-				containerSelector: ".mapContainer",
-				lang: this.#settings.currentLang,
-				getActiveRoute: () => this.#currentRouteInfo,
-				onRouteConfirm: (startName, endName) => {
-					if (this.#elemts.startStation) this.#elemts.startStation.value = startName;
-					if (this.#elemts.endStation) this.#elemts.endStation.value = endName;
-					this.#executeRouteSearch(startName, endName);
-				}
-			});
-			this.#shareModalComponent = new ShareModalComponent();
-			new FloatingNav();
-			// 🔌 स्टेशन ऑटो-कम्पलीट
-			const stationSearchEngine = centerClass.getStationSearchEngine();
-			if (stationSearchEngine) {
-				stationSearchEngine.bindUI({
-					inputEl: this.#elemts.startStation,
-					dropdownEl: this.#elemts.startStationDropdown,
-					onSelect: (station) => {
-						this.#elemts.startStation.value = centerClass.getStationName(station.id, this.#settings.currentLang);
-						this.#elemts.startStation.focus();
-					}
-				});
-				stationSearchEngine.bindUI({
-					inputEl: this.#elemts.endStation,
-					dropdownEl: this.#elemts.endStationDropdown,
-					onSelect: (station) => {
-						this.#elemts.endStation.value = centerClass.getStationName(station.id, this.#settings.currentLang);
-						this.#elemts.endStation.focus();
-					}
-				});
-			}
+
+			this.#autoFillLastSearch();
+			this.#initUIComponents();
+			this.#initAutocomplete();
+
 			this.#recentSearchesView.render(this.#settings.currentLang);
 			this.#handleUrlParams();
 		} catch (error) {
 			console.error("[Dashboard] Initialization failed:", error);
 		}
+	}
+
+	/**
+	 * 🎯 SMART AUTO-FILL: Network-Aware Last Search Pre-filling
+	 */
+	#autoFillLastSearch() {
+		const recentSearches = centerClass.getRecentSearches();
+		if (recentSearches && recentSearches.length > 0) {
+			const lastSearch = recentSearches[0];
+			if (this.#elemts.startStation) {
+				this.#elemts.startStation.value = centerClass.getStationName(lastSearch.fromId, this.#settings.currentLang);
+			}
+			if (this.#elemts.endStation) {
+				this.#elemts.endStation.value = centerClass.getStationName(lastSearch.toId, this.#settings.currentLang);
+			}
+		}
+	}
+
+	/**
+	 * 🧩 UI Components Setup
+	 */
+	#initUIComponents() {
+		this.#mapObj = centerClass.getMapEngine({ 
+			containerSelector: ".mapContainer",
+			lang: this.#settings.currentLang,
+			theme: this.#settings.currentTheme
+		});
+
+		this.#journeyDetailsView = new JourneyDetailsView("#journeyDetails .route-overview", this.#mapObj);
+		
+		this.#recentSearchesView = new RecentSearchesView({
+			onSelectRoute: (from, to) => {
+				if (this.#elemts.startStation) this.#elemts.startStation.value = from;
+				if (this.#elemts.endStation) this.#elemts.endStation.value = to;
+				const routeFinderTab = document.querySelector('.sidebar-link[data-target="route-finder"]');
+				if (routeFinderTab) routeFinderTab.click();
+				document.querySelector(".routeFinder")?.requestSubmit();
+			}
+		});
+
+		this.#stationCalloutView = new StationCalloutView({
+			containerSelector: ".mapContainer",
+			lang: this.#settings.currentLang,
+			getActiveRoute: () => this.#currentRouteInfo,
+			onRouteConfirm: (startName, endName) => {
+				if (this.#elemts.startStation) this.#elemts.startStation.value = startName;
+				if (this.#elemts.endStation) this.#elemts.endStation.value = endName;
+				this.#executeRouteSearch(startName, endName);
+			}
+		});
+
+		this.#shareModalComponent = new ShareModalComponent();
+		new FloatingNav();
+	}
+
+	/**
+	 * 🔌 Search & Autocomplete Binding
+	 */
+	#initAutocomplete() {
+		const stationSearchEngine = centerClass.getStationSearchEngine();
+		if (!stationSearchEngine) return;
+
+		stationSearchEngine.bindUI({
+			inputEl: this.#elemts.startStation,
+			dropdownEl: this.#elemts.startStationDropdown,
+			onSelect: (station) => {
+				this.#elemts.startStation.value = centerClass.getStationName(station.id, this.#settings.currentLang);
+				this.#elemts.startStation.focus();
+			}
+		});
+
+		stationSearchEngine.bindUI({
+			inputEl: this.#elemts.endStation,
+			dropdownEl: this.#elemts.endStationDropdown,
+			onSelect: (station) => {
+				this.#elemts.endStation.value = centerClass.getStationName(station.id, this.#settings.currentLang);
+				this.#elemts.endStation.focus();
+			}
+		});
 	}
 	#set_events() {
 		const signal = this.#abortController.signal;
@@ -177,7 +225,7 @@ class HomePageController {
 		const routeInfo = centerClass.searchRoute(startVal, endVal, { routeType });
 		if (!routeInfo) {
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.routeFinder.noRouteFound"),
+				message: i18n.t("pages.home.sidebar.findroute.noRouteFound"),
 				type: "error"
 			});
 			return;

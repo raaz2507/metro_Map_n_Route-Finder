@@ -22,15 +22,42 @@
 
 	.wallet-container {
 		width: 100%;
-		max-width: 520px;
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-lg);
+		max-width: 1200px;
+		
+		/* Grid की जगह Block और Column-width का जादू! */
+		display: block; 
+		column-width: 400px; /* बिना Media Query के ऑटोमैटिक रेस्पॉन्सिव कॉलम्स */
+		column-gap: var(--space-xl);
+		
 		margin: 0 auto;
 		padding: var(--space-xl) var(--space-md) var(--space-3xl);
-		flex: 1 0 auto;
 	}
 
+	/* हर एक कार्ड के लिए फिक्स */
+	.wallet-container > * {
+		break-inside: avoid; /* कार्ड को बीच से कटने नहीं देगा */
+		margin-bottom: var(--space-xl);
+		display: inline-block; /* मैसोनरी इफ़ेक्ट के लिए ज़रूरी */
+		width: 100%; 
+	}
+
+	/* =========================================================================
+   🌟 UNIFIED TRANSLUCENT GLASS CARDS
+   ========================================================================= */
+	.wallet-card, 
+	.pass-card, 
+	.history-card, 
+	.info-guide-card, 
+	.why-use-card {
+		/* base.css के वैरिएबल्स का इस्तेमाल करके Translucent बैकग्राउंड */
+		background: rgba(var(--color-bg-base-rgb), var(--op-glass, 0.85));
+		backdrop-filter: blur(var(--backdrop-blur, 16px));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur, 16px));
+		
+		/* थीम के अनुसार बॉर्डर और टेक्स्ट */
+		border: 1px solid var(--border-color);
+		color: var(--text-primary);
+	}
 	/* 2. Unified Wallet Card */
 	.wallet-card {
 		background: var(--card-bg);
@@ -626,14 +653,12 @@
 	}
 
 	.why-use-card {
-		background: linear-gradient(145deg, rgba(var(--color-primary-rgb), var(--op-glow)), rgba(var(--color-success-rgb), var(--op-glow)));
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-lg);
-		padding: var(--space-lg);
+		/* background, backdrop-filter और color: #ffffff यहाँ से हटा दें */
+		border-radius: var(--radius-xl);
+		padding: var(--space-2xl);
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-md);
-		box-shadow: var(--shadow-md);
+		gap: var(--space-xl);
 	}
 
 	.benefits-list {

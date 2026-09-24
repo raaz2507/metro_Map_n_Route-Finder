@@ -1,0 +1,18 @@
+{
+	"name": "Metro Map & Route Finder",
+	"short_name": "MetroRoute",
+	"description": "Find the best metro routes, ticket fares, travel time, and intermediate stations easily.",
+	"start_url": "./index.html",
+	"display": "standalone",
+	"background_color": "#0f172a",
+	"theme_color": "#0f172a",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "./assets/images/site_icon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any maskable"
+		}
+	]
+}

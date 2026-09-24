@@ -21,12 +21,36 @@
 		<!-- Site Icon / Favicon -->
 		<link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg" />
 		<title data-i18n-title-tag="meta.title">Metro Map Generator</title>
+
+
+		<!-- ================== PWA MANIFEST ================== -->
+		<link rel="manifest" href="./manifest.webmanifest" />
+		<meta name="theme-color" content="#0f172a" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+
 		<link rel="stylesheet" href="./css/pages/index.css" />
 	</head>
 
 	<body>
-		<div id="app-header"></div>
 
+		<!-- ================== PWA INSTALL BANNER ================== -->
+		<div id="pwa-install-banner" class="pwa-install-banner" style="display: none;" aria-live="polite">
+			<div class="pwa-banner-content">
+				<img src="./assets/images/site_icon.svg" alt="App Icon" class="pwa-app-icon" />
+				<div class="pwa-text">
+					<strong>Install Metro App</strong>
+					<span>Faster access & offline support</span>
+				</div>
+			</div>
+			<div class="pwa-actions">
+				<button id="pwa-install-btn" class="pwa-btn-primary">Install</button>
+				<button id="pwa-dismiss-btn" class="pwa-btn-secondary" aria-label="Dismiss">✕</button>
+			</div>
+		</div>
+		<div id="app-header"></div>
 		<main>
 			<div class="sidebar-wrapper">
 				<nav class="sidebar-nav" id="sidebar-nav" aria-label="Sidebar Navigation">
@@ -77,6 +101,11 @@
 							<button type="button" class="folder-tab" data-tab="map" role="tab" aria-selected="false" aria-controls="panel-setting-map">
 								<span class="tab-icon" aria-hidden="true">🗺️</span>
 								<span class="tab-label" data-i18n="pages.home.sidebar.appSettings.tabs.map">Map</span>
+							</button>
+							<!-- 💾 Backup / Restore Tab -->
+							<button type="button" class="folder-tab" data-tab="backup" role="tab" aria-selected="false" aria-controls="panel-setting-backup">
+								<span class="tab-icon" aria-hidden="true">💾</span>
+								<span class="tab-label" data-i18n="pages.home.sidebar.appSettings.tabs.backup">Backup / Restore</span>
 							</button>
 						</div>
 
@@ -263,9 +292,34 @@
 									</div>
 								</fieldset>
 							</div>
+							
+							<!-- 💾 Panel 3: Backup & Restore Settings -->
+							<div id="panel-setting-backup" class="settings-tab-panel" data-panel="backup" role="tabpanel" aria-labelledby="tab-backup">
+								<fieldset class="settings-fieldset">
+									<legend class="settings-legend" data-i18n="pages.home.sidebar.appSettings.backup.sections.data">💾 Backup & Restore Data</legend>
+									<div class="settings-form-group">
+										<p class="settings-desc" data-i18n="pages.home.sidebar.appSettings.backup.desc">Manage your saved routes, alarms, and preferences.</p>
+									</div>
+									<div class="settings-action-row" style="justify-content: flex-start; gap: 10px;">
+										<button type="button" id="btnExportBackup" class="btn-settings-action">
+											<span class="btn-icon" aria-hidden="true">📤</span>
+											<span data-i18n="pages.home.sidebar.appSettings.backup.export">Export Data</span>
+										</button>
+										<label for="backupFileInput" id="btnImportBackup" class="btn-settings-action" style="cursor: pointer; margin: 0;">
+											<span class="btn-icon" aria-hidden="true">📥</span>
+											<span data-i18n="pages.home.sidebar.appSettings.backup.import">Import Data</span>
+											<input type="file" id="backupFileInput" accept=".json" style="display: none;" />
+										</label>
+									</div>
+								</fieldset>
+							</div>
+
 						</div>
 						<!-- 👆 पूरा फोल्डर (.settings-folder-content) अब यहाँ बंद होगा -->
 					</section>
+
+
+
 					<section id="recent-searches" aria-labelledby="recent-searches-heading" class="sidebar-section">
 						<!-- Header -->
 						<header class="section-header recent-header">
@@ -312,7 +366,7 @@
 											id="startStation"
 											data-i18n-placeholder="pages.home.sidebar.findroute.startPlaceholder"
 											placeholder="Enter start station"
-											value="Badarpur Border"
+											
 											autocomplete="off"
 											required
 										/>
@@ -334,7 +388,7 @@
 											id="endStation"
 											data-i18n-placeholder="pages.home.sidebar.findroute.endPlaceholder"
 											placeholder="Enter end station"
-											value="Anand Vihar"
+											
 											autocomplete="off"
 											required
 										/>

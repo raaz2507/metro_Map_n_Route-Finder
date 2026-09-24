@@ -2,52 +2,41 @@
 export default {
 	meta: {
 		title: 'Metro TVM • Ticket Dispenser | YatraMarg',
-		desc: 'Simulate a metro Automatic Ticket Vending Machine. Fill passenger details and dispense a live SVG thermal ticket with golden shine effects.'
+		desc: 'Simulate a metro Automatic Ticket Vending Machine. Fill passenger details and dispense a live SVG thermal ticket.'
 	},
-	machine: {
+	headerTips: {
+		title: 'TVM Simulation (Fun Mode):',
+		desc: 'This 3D machine is for playful simulation and entertainment only—the printed ticket is not official! REAL USE CASE: If you generated a valid ticket in the Wallet, use the "Gate Mode (🔆)" button to scan your genuine QR at the metro turnstiles.'
+	},
+	kiosk: {
+		btnGateMode: 'GATE MODE',
+		btnPrint: 'PRINT',
 		dispenserLabel: 'TICKET DISPENSER',
 		trayLabel: 'COLLECT TICKET FROM TRAY'
 	},
-	panel: {
+	settingsModal: {
 		title: 'TICKET ISSUANCE PANEL',
-		soundLabel: 'Printer Sound',
-		btnPrint: 'PRINT & DISPENSE TICKET',
-		btnOpenSvg: 'Open Standalone SVG File',
-		tipsTitle: 'TVM Simulation Feature:',
-		tipsDesc: 'Press "Print & Dispense Ticket" — the ticket will roll out from the dispenser slot with thermal printer sound, and your form details will update live on the ticket!'
+		btnCancel: 'Cancel',
+		btnSave: 'Save Settings',
+		form: {
+			labelPassenger: 'Passenger Name',
+			labelFrom: 'Origin (From)',
+			labelTo: 'Destination (To)',
+			labelFare: 'Fare (Price)',
+			labelTicketNum: 'Ticket Number / ID',
+			labelStatus: 'Status Color',
+			statusValid: 'VALID (Green Text)',
+			statusExpired: 'EXPIRED (Red Text)',
+			labelDuration: 'Validity Time',
+			dur45: '45 Minutes',
+			dur90: '90 Minutes',
+			dur180: '3 Hours',
+			dur1440: 'Full Day Pass'
+		}
 	},
-	form: {
-		labelPassenger: 'Passenger Name',
-		labelFrom: 'Origin (From)',
-		labelTo: 'Destination (To)',
-		labelFare: 'Fare (Price)',
-		labelTicketNum: 'Ticket Number / ID',
-		labelStatus: 'Status Color',
-		statusValid: 'VALID (Green Text)',
-		statusExpired: 'EXPIRED (Red Text)',
-		labelDuration: 'Validity Time',
-		dur45: '45 Minutes',
-		dur90: '90 Minutes',
-		dur180: '3 Hours',
-		dur1440: 'Full Day Pass'
-	},
-	studio: {
-		title: 'GOLDEN SHINE & REFLECTION LAB',
-		badge: 'SWEET SPOT FINDER',
-		modeAmbient: '🌿 Natural Ambient Glow',
-		modeBeam: '⚡ 35° Diagonal Gold Beam',
-		presetsLabel: 'Presets:',
-		preset8: 'Subtle 8%',
-		preset18: 'Natural 18%',
-		preset28: 'Vibrant 28%',
-		preset42: 'Rich 42%',
-		labelIntensity: 'Shine Peak Intensity (Opacity)',
-		labelSpread: 'Glow Spread / Coverage Width',
-		labelDuration: 'Sway Duration / Speed',
-		colorCenter: 'Center Highlight',
-		colorEdge: 'Warm Gold Edge',
-		codeTitle: '📄 LIVE GENERATED SVG SHINE CODE',
-		btnCopy: 'Copy Code',
-		btnCopied: 'Copied!'
+	gateModal: {
+		title: 'Turnstile Gate Scan',
+		hint: 'Scan this QR directly at metro entry/exit gate',
+		btnClose: 'Done / Close'
 	}
 };
