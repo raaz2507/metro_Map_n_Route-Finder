@@ -132,7 +132,7 @@
 
 	/* जब भी ड्रॉपडाउन खुला हो, कार्ड से बाहर ओवरफ्लो होने दे (No Clipping) */
 	#route-finder:has(.station-autocomplete-dropdown:not([hidden])) {
-		overflow: visible !important;
+		overflow: visible ;
 	}
 
 	/* Sidebar Sections Show/Hide */
@@ -142,7 +142,7 @@
 
 	/* ऑटो-हाइड नियम: जब कोई भी सेक्शन एक्टिव नहीं होगा, तो पूरा aside कंटेनर छुप जाएगा */
 	aside:not(:has(.sidebar-section.active)) {
-		display: none !important;
+		display: none ;
 	}
 	
 
@@ -153,7 +153,7 @@
 			gap: var(--space-sm);
 			flex: 1;
 			width: 100%;
-			max-width: 100% !important; /* 👈 380px ki limit hata di */
+			max-width: 100% ; /* 👈 380px ki limit hata di */
 			height: 100%;
 		}
 
@@ -161,8 +161,8 @@
 				/* Mobile height overrides */
 		#recent-searches,
 		.sidebar-section {
-			width: 100% !important;
-			max-width: 100% !important;
+			width: 100% ;
+			max-width: 100% ;
 			min-width: 0;
 			height: 100%;
 			flex: 1 1 auto;
@@ -185,11 +185,11 @@
 
 		/* Mobile Tab Toggles */
 		body[data-active-tab="map"] aside {
-			display: none !important;
+			display: none ;
 		}
 		
 		body[data-active-tab="recent"] aside {
-			display: flex !important;
+			display: flex ;
 		}
 	}
 }

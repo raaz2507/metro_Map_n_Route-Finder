@@ -32,6 +32,10 @@ class TicketWalletApp {
 	};
 
 	#dom = {};
+	#cameraStream = null;
+	#cameraFacingMode = 'environment';
+	#isScanningLive = false;
+	#liveScanAnimationId = null;
 
 	constructor() {}
 
@@ -61,11 +65,12 @@ class TicketWalletApp {
 	 */
 	#initDomHandles() {
 		const elementIds = [
-			'ingestionCard', 'dropZone', 'fileInput', 'cameraInput',
-			'btnCaptureCamera', 'btnPasteClipboard', 'passCard',
+			'ingestionCard', 'dropZone', 'fileInput',
+			'btnCaptureCamera', 'btnBrowseFile', 'btnPasteClipboard', 'passCard',
 			'passCountdown', 'passQrSubtitle', 'qrDisplayCanvas',
 			'btnOpenGateMode', 'btnViewOriginal', 'btnArchiveActive',
 			'historyCountBadge', 'btnClearAllHistory', 'historyListContainer',
+			'cameraModal', 'cameraVideo', 'btnSwitchCamera', 'btnCloseCameraModal',
 			'gateModal', 'gateModalCanvas', 'btnCloseGateModal',
 			'originalModal', 'originalImagePreview', 'btnCloseOriginalModal',
 			'confirmModal', 'confirmModalTitle', 'confirmModalDesc',
@@ -94,18 +99,19 @@ class TicketWalletApp {
 	}
 
 	#bindEvents() {
-		// Direct Camera Capture
-		this.#dom.btnCaptureCamera.addEventListener('click', () => this.#dom.cameraInput.click());
-		this.#dom.cameraInput.addEventListener('change', (e) => this.#handleFileInputChange(e));
+		// 1. Live Camera Ingestion
+		this.#dom.btnCaptureCamera?.addEventListener('click', () => this.#handleCameraCapture());
+		this.#dom.btnSwitchCamera?.addEventListener('click', () => this.#toggleCameraFacing());
+		this.#dom.btnCloseCameraModal?.addEventListener('click', () => this.#closeCameraModal());
 
-		// 1-Tap Paste from Clipboard
-		this.#dom.btnPasteClipboard.addEventListener('click', () => this.#handleClipboardPaste());
-
-		// File Drop & Click Select
-		this.#dom.dropZone.addEventListener('click', () => this.#dom.fileInput.click());
+		// 2. File Pick & Drag-and-Drop (Crash-Safe Native & Web Handler)
+		this.#dom.dropZone.addEventListener('click', (e) => {
+			if (e.target === this.#dom.fileInput) return;
+			this.#handleGallerySelection();
+		});
 		this.#dom.fileInput.addEventListener('change', (e) => this.#handleFileInputChange(e));
+		this.#dom.btnBrowseFile?.addEventListener('click', () => this.#handleGallerySelection());
 
-		// Drag & Drop
 		this.#dom.dropZone.addEventListener('dragover', (e) => {
 			e.preventDefault();
 			this.#dom.dropZone.classList.add('dragover');
@@ -119,24 +125,25 @@ class TicketWalletApp {
 			}
 		});
 
-		// Document Level Paste Event (Ctrl+V)
+		// 3. 1-Tap Paste from Clipboard
+		this.#dom.btnPasteClipboard.addEventListener('click', () => this.#handleClipboardPaste());
 		document.addEventListener('paste', (e) => this.#handleWindowPaste(e));
 
-		// Gate Mode Modal Controls
+		// 4. Gate Mode Modal Controls
 		this.#dom.btnOpenGateMode.addEventListener('click', () => this.#openGateModal());
 		this.#dom.btnCloseGateModal.addEventListener('click', () => this.#closeGateModal());
 
-		// Original Image Modal Controls
+		// 5. Original Image Modal Controls
 		this.#dom.btnViewOriginal.addEventListener('click', () => this.#openOriginalModal());
 		this.#dom.btnCloseOriginalModal.addEventListener('click', () => this.#closeOriginalModal());
 
-		// Move Active Ticket to History
+		// 6. Move Active Ticket to History
 		this.#dom.btnArchiveActive.addEventListener('click', () => this.#archiveActiveTicket());
 
-		// Clear All History Button
+		// 7. Clear All History Button
 		this.#dom.btnClearAllHistory.addEventListener('click', () => this.#promptClearAllHistory());
 
-		// Confirmation Modal Actions
+		// 8. Confirmation Modal Actions
 		this.#dom.btnCancelConfirm.addEventListener('click', () => this.#closeConfirmModal());
 		this.#dom.btnAcceptConfirm.addEventListener('click', () => {
 			if (typeof this.#state.pendingConfirmCallback === 'function') {
@@ -145,12 +152,13 @@ class TicketWalletApp {
 			this.#closeConfirmModal();
 		});
 
-		// Keyboard Accessibility (Escape to close modals)
+		// 9. Keyboard Accessibility (Escape to close all modals)
 		document.addEventListener('keydown', (e) => {
 			if (e.key === 'Escape') {
-				if (this.#dom.confirmModal.classList.contains('active')) this.#closeConfirmModal();
-				if (this.#dom.gateModal.classList.contains('active')) this.#closeGateModal();
-				if (this.#dom.originalModal.classList.contains('active')) this.#closeOriginalModal();
+				if (this.#dom.cameraModal?.classList.contains('active')) this.#closeCameraModal();
+				if (this.#dom.confirmModal?.classList.contains('active')) this.#closeConfirmModal();
+				if (this.#dom.gateModal?.classList.contains('active')) this.#closeGateModal();
+				if (this.#dom.originalModal?.classList.contains('active')) this.#closeOriginalModal();
 			}
 		});
 	}
@@ -205,398 +213,793 @@ class TicketWalletApp {
 		}
 	}
 
+	async #handleCameraCapture() {
+		if (window.Capacitor && window.Capacitor.isNativePlatform() && window.Capacitor.Plugins?.Camera) {
+			try {
+				const image = await window.Capacitor.Plugins.Camera.getPhoto({
+					quality: 100,
+					allowEditing: false,
+					resultType: 'uri',
+					source: 'CAMERA'
+				});
+				if (image?.webPath) {
+					const res = await fetch(image.webPath);
+					const blob = await res.blob();
+					await this.#processImageFile(blob);
+				}
+			} catch (e) {
+				console.warn('Native camera cancelled', e);
+			}
+		} else {
+			await this.#openLiveCameraModal();
+		}
+	}
+
+	async #handleGallerySelection() {
+		if (window.Capacitor && window.Capacitor.isNativePlatform() && window.Capacitor.Plugins?.Camera) {
+			try {
+				const image = await window.Capacitor.Plugins.Camera.getPhoto({
+					quality: 100,
+					allowEditing: false,
+					resultType: 'dataUrl',
+					source: 'PHOTOS'
+				});
+				console.log('[QR_DIAG] Native Photo Picked. DataURL Length:', image?.dataUrl?.length || 0);
+				if (image?.dataUrl) {
+					this.#processNativeImage(image.dataUrl);
+				} else if (image?.webPath) {
+					const res = await fetch(image.webPath);
+					const blob = await res.blob();
+					console.log('[QR_DIAG] Fetched Blob Size:', blob.size, 'Type:', blob.type);
+					await this.#processImageFile(blob);
+				}
+			} catch (e) {
+				console.error('[QR_DIAG] Native gallery error:', e);
+				this.#showToast('Gallery error: ' + (e.message || e), 'error');
+			}
+		} else {
+			this.#dom.fileInput.click();
+		}
+	}
+
+	async #openLiveCameraModal() {
+		if (!navigator.mediaDevices?.getUserMedia) {
+			this.#showToast(i18n.t('metroTicket.toast.cameraError'), 'error');
+			this.#dom.fileInput.click();
+			return;
+		}
+
+		this.#dom.cameraModal.classList.add('active');
+		this.#dom.cameraModal.setAttribute('aria-hidden', 'false');
+		await this.#startLiveCameraStream();
+	}
+
+	async #startLiveCameraStream() {
+		this.#stopLiveCameraStream();
+
+		const constraints = {
+			video: {
+				facingMode: this.#cameraFacingMode,
+				width: { ideal: 1280 },
+				height: { ideal: 720 }
+			},
+			audio: false
+		};
+
+		try {
+			this.#cameraStream = await navigator.mediaDevices.getUserMedia(constraints);
+			this.#dom.cameraVideo.srcObject = this.#cameraStream;
+			await this.#dom.cameraVideo.play();
+			this.#isScanningLive = true;
+			this.#startLiveScanLoop();
+		} catch (err) {
+			console.error('Camera stream error:', err);
+			this.#closeCameraModal();
+			this.#showToast(i18n.t('metroTicket.toast.cameraPermissionDenied'), 'error');
+		}
+	}
+
+	
+
+
+	async #toggleCameraFacing() {
+		this.#cameraFacingMode = (this.#cameraFacingMode === 'environment') ? 'user' : 'environment';
+		await this.#startLiveCameraStream();
+	}
+
+	#startLiveScanLoop() {
+		const canvas = document.createElement('canvas');
+		const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+		const scanLoop = async () => {
+			if (!this.#isScanningLive || !this.#dom.cameraVideo?.videoWidth) {
+				if (this.#isScanningLive) {
+					this.#liveScanAnimationId = requestAnimationFrame(scanLoop);
+				}
+				return;
+			}
+
+			canvas.width = this.#dom.cameraVideo.videoWidth;
+			canvas.height = this.#dom.cameraVideo.videoHeight;
+			ctx.drawImage(this.#dom.cameraVideo, 0, 0, canvas.width, canvas.height);
+
+			try {
+				let rawText = null;
+				// 1. Native BarcodeDetector (Hardware-accelerated)
+				if ('BarcodeDetector' in window) {
+					try {
+						const detector = new window.BarcodeDetector({ formats: ['qr_code'] });
+						const barcodes = await detector.detect(canvas);
+						if (barcodes?.length > 0 && barcodes[0].rawValue) {
+							rawText = barcodes[0].rawValue;
+						}
+					} catch (_) {}
+				}
+
+				// 2. jsQR Engine
+				if (!rawText && typeof window.jsQR === 'function') {
+					const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+					const qr = window.jsQR(imgData.data, imgData.width, imgData.height, { inversionAttempts: "dontInvert" });
+					if (qr?.data) {
+						rawText = qr.data;
+					}
+				}
+
+				// 3. ZXing Engine
+				if (!rawText) {
+					const zxText = this.#scanCanvasWithZXing(canvas);
+					if (zxText) rawText = zxText;
+				}
+
+				if (rawText) {
+					if (navigator.vibrate) navigator.vibrate([100]);
+					const capturedDataUrl = this.#getOptimizedDataURL(canvas);
+					this.#closeCameraModal();
+					this.#finalizeGeneratedTicket(rawText, 'Live Camera', capturedDataUrl);
+					return;
+				}
+			} catch (e) {
+				console.warn('Live scan loop tick error:', e);
+			}
+
+			if (this.#isScanningLive) {
+				this.#liveScanAnimationId = requestAnimationFrame(scanLoop);
+			}
+		};
+
+		this.#liveScanAnimationId = requestAnimationFrame(scanLoop);
+	}
+
+	#stopLiveCameraStream() {
+		this.#isScanningLive = false;
+		if (this.#liveScanAnimationId) {
+			cancelAnimationFrame(this.#liveScanAnimationId);
+			this.#liveScanAnimationId = null;
+		}
+		if (this.#cameraStream) {
+			this.#cameraStream.getTracks().forEach(track => track.stop());
+			this.#cameraStream = null;
+		}
+		if (this.#dom.cameraVideo) {
+			this.#dom.cameraVideo.srcObject = null;
+		}
+	}
+
+	#closeCameraModal() {
+		this.#stopLiveCameraStream();
+		if (this.#dom.cameraModal) {
+			this.#dom.cameraModal.classList.remove('active');
+			this.#dom.cameraModal.setAttribute('aria-hidden', 'true');
+		}
+	}
+
+
 	async #processImageFile(fileOrBlob) {
 		this.#showToast(i18n.t('metroTicket.toast.scanning'));
-
 		const img = new Image();
 		const objectUrl = URL.createObjectURL(fileOrBlob);
 
 		img.onload = async () => {
 			try {
-				await this.#executeMultiEngineScan(img);
+				await this.#downscaleAndScan(img);
 			} finally {
 				URL.revokeObjectURL(objectUrl);
 			}
 		};
-
 		img.onerror = () => {
 			URL.revokeObjectURL(objectUrl);
 			this.#showToast(i18n.t('metroTicket.toast.errorLoading'), 'error');
 		};
-
 		img.src = objectUrl;
 	}
-
-	async #executeMultiEngineScan(img) {
-		const rawCanvas = document.createElement('canvas');
-		const rawCtx = rawCanvas.getContext('2d', { willReadFrequently: true });
-		rawCanvas.width = img.naturalWidth || img.width;
-		rawCanvas.height = img.naturalHeight || img.height;
-		rawCtx.drawImage(img, 0, 0);
-
-		const originalDataUrl = this.#getOptimizedDataURL(rawCanvas);
-		let tokenResult = null;
-
-		// 1. Stage 1: Native BarcodeDetector (Hardware-accelerated)
-		if ('BarcodeDetector' in window) {
-			try {
-				const detector = new window.BarcodeDetector({ formats: ['qr_code'] });
-				const barcodes = await detector.detect(rawCanvas);
-				if (barcodes && barcodes.length > 0) {
-					tokenResult = {
-						text: barcodes[0].rawValue,
-						engine: 'Native BarcodeDetector'
-					};
-				}
-			} catch (e) {
-				// Fallback to software decoders
-			}
-		}
-
-		// 2. Stage 2: jsQR Engine (Fastest pure JS)
-		if (!tokenResult && typeof window.jsQR === 'function') {
-			try {
-				const imgData = rawCtx.getImageData(0, 0, rawCanvas.width, rawCanvas.height);
-				const code = window.jsQR(imgData.data, imgData.width, imgData.height, {
-					inversionAttempts: 'attemptBoth'
-				});
-				if (code && (code.data || code.binaryData)) {
-					tokenResult = {
-						text: code.data,
-						binary: code.binaryData,
-						engine: 'jsQR (Engine 1)'
-					};
-				}
-			} catch (e) {
-				console.warn('jsQR scan pass error:', e);
-			}
-		}
-
-		// 3. Stage 3: ZXing Global Engine
-		if (!tokenResult && window.ZXing) {
-			try {
-				const imgData = rawCtx.getImageData(0, 0, rawCanvas.width, rawCanvas.height);
-				tokenResult = this.#scanWithZXing(imgData);
-			} catch (e) {
-				console.warn('ZXing scan pass error:', e);
-			}
-		}
-
-		// 4. Stage 4: High-Contrast Binarization Fallback
-		if (!tokenResult) {
-			try {
-				const contrastCanvas = this.#createBinarizedCanvas(rawCanvas);
-				const contrastCtx = contrastCanvas.getContext('2d', { willReadFrequently: true });
-				const contrastImgData = contrastCtx.getImageData(0, 0, contrastCanvas.width, contrastCanvas.height);
-
-				if (typeof window.jsQR === 'function') {
-					const code = window.jsQR(contrastImgData.data, contrastImgData.width, contrastImgData.height, {
-						inversionAttempts: 'attemptBoth'
-					});
-					if (code && (code.data || code.binaryData)) {
-						tokenResult = {
-							text: code.data,
-							binary: code.binaryData,
-							engine: 'jsQR (High-Contrast Pass)'
-						};
-					}
-				}
-
-				if (!tokenResult && window.ZXing) {
-					tokenResult = this.#scanWithZXing(contrastImgData);
-					if (tokenResult) tokenResult.engine = 'ZXing (High-Contrast Pass)';
-				}
-			} catch (e) {
-				console.warn('High contrast pass error:', e);
-			}
-		}
-
-		// 5. Stage 5: Padded Margin Fallback (Tight crop recovery)
-		if (!tokenResult) {
-			try {
-				const paddedCanvas = this.#createPaddedCanvas(rawCanvas, 40);
-				const paddedCtx = paddedCanvas.getContext('2d', { willReadFrequently: true });
-				const paddedImgData = paddedCtx.getImageData(0, 0, paddedCanvas.width, paddedCanvas.height);
-
-				if (typeof window.jsQR === 'function') {
-					const code = window.jsQR(paddedImgData.data, paddedImgData.width, paddedImgData.height, {
-						inversionAttempts: 'attemptBoth'
-					});
-					if (code && (code.data || code.binaryData)) {
-						tokenResult = {
-							text: code.data,
-							binary: code.binaryData,
-							engine: 'jsQR (Padded Pass)'
-						};
-					}
-				}
-
-				if (!tokenResult && window.ZXing) {
-					tokenResult = this.#scanWithZXing(paddedImgData);
-					if (tokenResult) tokenResult.engine = 'ZXing (Padded Pass)';
-				}
-			} catch (e) {
-				console.warn('Padded pass error:', e);
-			}
-		}
-
-		// SUCCESS: Render Pure Mathematical Vector QR
-		if (tokenResult && (tokenResult.text || tokenResult.binary)) {
-			try {
-				this.#renderPureVectorQR(tokenResult);
-				const cleanQrDataUrl = this.#getOptimizedDataURL(this.#dom.qrDisplayCanvas);
-
-				this.#createNewTicketRecord({
-					tokenPayload: tokenResult.text || (tokenResult.binary ? '[Binary Token ' + tokenResult.binary.length + ' bytes]' : null),
-					cleanQrDataUrl: cleanQrDataUrl,
-					originalDataUrl: originalDataUrl,
-					isPureVector: true,
-					isError: false
-				});
-
-				this.#showToast(i18n.t('metroTicket.toast.qrGenerated', { engine: tokenResult.engine }), 'success');
-				return;
-			} catch (err) {
-				console.error('Vector rendering error:', err);
-			}
-		}
-
-		// FAILURE CASE: Clear Error Screen with instruction
-		this.#renderErrorCanvas();
-		const errorCanvasDataUrl = this.#getOptimizedDataURL(this.#dom.qrDisplayCanvas);
-
-		this.#createNewTicketRecord({
-			tokenPayload: null,
-			cleanQrDataUrl: errorCanvasDataUrl,
-			originalDataUrl: originalDataUrl,
-			isPureVector: false,
-			isError: true
-		});
-
-		this.#showToast(i18n.t('metroTicket.toast.qrNotDetected'), 'warning');
+	
+	async #processNativeImage(webPath) {
+		this.#showToast(i18n.t('metroTicket.toast.scanning'));
+		const img = new Image();
+		img.onload = async () => {
+			await this.#downscaleAndScan(img);
+		};
+		img.onerror = () => this.#showToast(i18n.t('metroTicket.toast.errorLoading'), 'error');
+		img.src = webPath;
 	}
 
-	#scanWithZXing(imageData) {
+	async #downscaleAndScan(img) {
+		const origW = img.naturalWidth || img.width;
+		const origH = img.naturalHeight || img.height;
+		console.log(`[QR_DIAG] Image Loaded: ${origW}x${origH}px`);
+
+		if (!origW || !origH) {
+			this.#showToast(`Error: Image has 0px dimensions!`, 'error');
+			return;
+		}
+
+		const MAX_DIM = 2000;
+		let width = origW;
+		let height = origH;
+
+		if (width > MAX_DIM || height > MAX_DIM) {
+			const ratio = Math.min(MAX_DIM / width, MAX_DIM / height);
+			width = Math.round(width * ratio);
+			height = Math.round(height * ratio);
+		}
+
+		const canvas = document.createElement('canvas');
+		canvas.width = width;
+		canvas.height = height;
+		const ctx = canvas.getContext('2d', { willReadFrequently: true });
+		ctx.imageSmoothingEnabled = true;
+		ctx.imageSmoothingQuality = 'high';
+		ctx.drawImage(img, 0, 0, width, height);
+
+		console.log(`[QR_DIAG] Scan Canvas Prepared: ${width}x${height}px`);
+		await this.#executeMultiEngineScan(canvas, img);
+	}
+
+	#scanCanvasWithZXing(canvas) {
+		if (typeof window.ZXing === 'undefined') return null;
 		try {
-			const w = imageData.width;
-			const h = imageData.height;
-			const luminances = new Uint8ClampedArray(w * h);
-			for (let i = 0; i < w * h; i++) {
-				luminances[i] = Math.round(0.299 * imageData.data[i * 4] + 0.587 * imageData.data[i * 4 + 1] + 0.114 * imageData.data[i * 4 + 2]);
-			}
-			const source = new ZXing.RGBLuminanceSource(luminances, w, h);
-			const bitmap = new ZXing.BinaryBitmap(new ZXing.HybridBinarizer(source));
+			const lumSource = new window.ZXing.HTMLCanvasElementLuminanceSource(canvas);
+			const binarizer = new window.ZXing.HybridBinarizer(lumSource);
+			const bitmap = new window.ZXing.BinaryBitmap(binarizer);
+
 			const hints = new Map();
-			hints.set(ZXing.DecodeHintType.POSSIBLE_FORMATS, [ZXing.BarcodeFormat.QR_CODE]);
-			hints.set(ZXing.DecodeHintType.TRY_HARDER, true);
-
-			const reader = new ZXing.MultiFormatReader();
-			const result = reader.decode(bitmap, hints);
-
-			if (result) {
-				return {
-					text: result.getText(),
-					engine: 'ZXing (Engine 2)'
-				};
+			if (window.ZXing.DecodeHintType && window.ZXing.DecodeHintType.TRY_HARDER) {
+				hints.set(window.ZXing.DecodeHintType.TRY_HARDER, true);
 			}
-		} catch (e) {
-			// Expected when code is not found
+
+			// A. Dedicated QRCodeReader with HybridBinarizer
+			try {
+				const qrReader = new window.ZXing.QRCodeReader();
+				const result = qrReader.decode(bitmap, hints);
+				if (result && result.getText()) return result.getText();
+			} catch (_) {}
+
+			// B. MultiFormatReader Fallback
+			try {
+				const multiReader = new window.ZXing.MultiFormatReader();
+				const result = multiReader.decode(bitmap, hints);
+				if (result && result.getText()) return result.getText();
+			} catch (_) {}
+
+			// C. Inverted Luminance (for dark mode/inverted ticket QR)
+			try {
+				if (window.ZXing.InvertedLuminanceSource) {
+					const invLum = new window.ZXing.InvertedLuminanceSource(lumSource);
+					const invBitmap = new window.ZXing.BinaryBitmap(new window.ZXing.HybridBinarizer(invLum));
+					const qrReader = new window.ZXing.QRCodeReader();
+					const result = qrReader.decode(invBitmap, hints);
+					if (result && result.getText()) return result.getText();
+				}
+			} catch (_) {}
+		} catch (err) {
+			console.warn('[QR_DIAG] ZXing Canvas Error:', err);
 		}
 		return null;
 	}
 
-	#createBinarizedCanvas(srcCanvas) {
-		const canvas = document.createElement('canvas');
-		canvas.width = srcCanvas.width;
-		canvas.height = srcCanvas.height;
-		const ctx = canvas.getContext('2d', { willReadFrequently: true });
-		ctx.drawImage(srcCanvas, 0, 0);
+	async #executeMultiEngineScan(canvas, rawImg = null) {
+		const originalDataUrl = this.#getOptimizedDataURL(canvas);
+		let tokenResult = null;
 
-		const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-		const data = imgData.data;
-		for (let i = 0; i < data.length; i += 4) {
-			const gray = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
-			const val = gray > 128 ? 255 : 0;
-			data[i] = val;
-			data[i + 1] = val;
-			data[i + 2] = val;
+		// 1. Stage 1: Native ZXing HybridBinarizer Canvas Scan
+		const zxText = this.#scanCanvasWithZXing(canvas);
+		if (zxText) {
+			console.log('[QR_DIAG] SUCCESS: ZXing Native decoded token:', zxText);
+			tokenResult = { text: zxText, engine: 'ZXing Hybrid Engine' };
 		}
-		ctx.putImageData(imgData, 0, 0);
-		return canvas;
-	}
 
-	#createPaddedCanvas(srcCanvas, padding) {
-		const canvas = document.createElement('canvas');
-		canvas.width = srcCanvas.width + (padding * 2);
-		canvas.height = srcCanvas.height + (padding * 2);
-		const ctx = canvas.getContext('2d');
-		ctx.fillStyle = '#FFFFFF';
-		ctx.fillRect(0, 0, canvas.width, canvas.height);
-		ctx.drawImage(srcCanvas, padding, padding);
-		return canvas;
-	}
-
-	#renderPureVectorQR(tokenResult) {
-		const canvas = this.#dom.qrDisplayCanvas;
-		const ctx = canvas.getContext('2d');
-		const size = 600;
-		canvas.width = size;
-		canvas.height = size;
-
-		ctx.fillStyle = '#FFFFFF';
-		ctx.fillRect(0, 0, size, size);
-
-		if (typeof window.qrcode === 'function') {
-			let qr = null;
-			for (let type = 1; type <= 40; type++) {
-				try {
-					qr = window.qrcode(type, 'M');
-					if (tokenResult.binary && tokenResult.binary.length > 0) {
-						qr.addData(new window.QR8BitByte(tokenResult.binary));
-					} else {
-						qr.addData(tokenResult.text);
-					}
-					qr.make();
-					break;
-				} catch (e) {
-					qr = null;
+		// 2. Stage 2: Direct Image Element with BrowserQRCodeReader
+		if (!tokenResult && rawImg && typeof window.ZXing !== 'undefined' && window.ZXing.BrowserQRCodeReader) {
+			try {
+				console.log('[QR_DIAG] Running BrowserQRCodeReader on direct Image Element...');
+				const browserReader = new window.ZXing.BrowserQRCodeReader();
+				const bRes = await browserReader.decodeFromImageElement(rawImg);
+				if (bRes && bRes.getText()) {
+					console.log('[QR_DIAG] SUCCESS: BrowserQRCodeReader decoded token:', bRes.getText());
+					tokenResult = { text: bRes.getText(), engine: 'ZXing Image Engine' };
 				}
+			} catch (err) {
+				console.log('[QR_DIAG] BrowserQRCodeReader NotFound:', err.message || err);
+			}
+		}
+
+		// 3. Stage 3: jsQR Engine
+		if (!tokenResult && typeof window.jsQR === 'function') {
+			try {
+				const ctx = canvas.getContext('2d', { willReadFrequently: true });
+				const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+				console.log(`[QR_DIAG] Running jsQR on ${canvas.width}x${canvas.height} buffer...`);
+				const code = window.jsQR(imgData.data, imgData.width, imgData.height, {
+					inversionAttempts: "attemptBoth"
+				});
+				if (code && code.data) {
+					console.log('[QR_DIAG] SUCCESS: jsQR decoded token:', code.data);
+					tokenResult = { text: code.data, engine: 'jsQR Engine' };
+				}
+			} catch (err) {
+				console.error('[QR_DIAG] jsQR exception:', err);
+			}
+		}
+
+		// 4. Stage 4: Multi-Scale Sub-Region Scan (Centered Crops for Screenshots)
+		if (!tokenResult && canvas.height > canvas.width * 1.3) {
+			console.log('[QR_DIAG] Tall screenshot detected. Running sub-region crop scans...');
+			tokenResult = await this.#runSubRegionScans(canvas);
+		}
+
+		// 5. Stage 5: Adaptive Contrast & Padded Fallback
+		if (!tokenResult) {
+			console.log('[QR_DIAG] Running Stage 5 (Adaptive Contrast & Padding)...');
+			tokenResult = await this.#runPaddedContrastScan(canvas);
+		}
+
+		// Final Decision & Notification
+		if (tokenResult && tokenResult.text) {
+			this.#showToast(`✅ QR Found (${tokenResult.engine})`, 'success');
+			this.#finalizeGeneratedTicket(tokenResult.text, tokenResult.engine, originalDataUrl);
+		} else {
+			this.#showToast(`⚠️ QR Not Detected on ${canvas.width}x${canvas.height}px image`, 'warning');
+			this.#finalizeRawImagePass(originalDataUrl);
+		}
+	}
+
+	async #runSubRegionScans(canvas) {
+		// Crop Middle 60% and Bottom 60% where tickets usually have QR
+		const regions = [
+			{ y: 0.15, h: 0.70, name: 'Center' },
+			{ y: 0.35, h: 0.65, name: 'Lower-Half' }
+		];
+
+		for (const reg of regions) {
+			const cropCanvas = document.createElement('canvas');
+			cropCanvas.width = canvas.width;
+			cropCanvas.height = Math.round(canvas.height * reg.h);
+			const cCtx = cropCanvas.getContext('2d', { willReadFrequently: true });
+			cCtx.drawImage(
+				canvas,
+				0, Math.round(canvas.height * reg.y), canvas.width, cropCanvas.height,
+				0, 0, cropCanvas.width, cropCanvas.height
+			);
+
+			const zxText = this.#scanCanvasWithZXing(cropCanvas);
+			if (zxText) {
+				return { text: zxText, engine: `ZXing Sub-Region (${reg.name})` };
 			}
 
-			if (qr) {
-				const moduleCount = qr.getModuleCount();
-				const margin = 36;
-				const activeSize = size - (margin * 2);
-				const cellSize = activeSize / moduleCount;
+			if (typeof window.jsQR === 'function') {
+				const imgData = cCtx.getImageData(0, 0, cropCanvas.width, cropCanvas.height);
+				const code = window.jsQR(imgData.data, imgData.width, imgData.height, { inversionAttempts: "attemptBoth" });
+				if (code && code.data) {
+					return { text: code.data, engine: `jsQR Sub-Region (${reg.name})` };
+				}
+			}
+		}
+		return null;
+	}
 
+	async #runPaddedContrastScan(canvas) {
+		const paddedCanvas = document.createElement('canvas');
+		const pad = 40;
+		paddedCanvas.width = canvas.width + (pad * 2);
+		paddedCanvas.height = canvas.height + (pad * 2);
+		const pCtx = paddedCanvas.getContext('2d', { willReadFrequently: true });
+
+		pCtx.fillStyle = '#FFFFFF';
+		pCtx.fillRect(0, 0, paddedCanvas.width, paddedCanvas.height);
+		pCtx.drawImage(canvas, pad, pad);
+
+		const zxRes = this.#scanCanvasWithZXing(paddedCanvas);
+		if (zxRes) {
+			return { text: zxRes, engine: 'ZXing Padded' };
+		}
+
+		if (typeof window.jsQR === 'function') {
+			const imgData = pCtx.getImageData(0, 0, paddedCanvas.width, paddedCanvas.height);
+			const code = window.jsQR(imgData.data, imgData.width, imgData.height, {
+				inversionAttempts: "attemptBoth"
+			});
+			if (code && code.data) {
+				return { text: code.data, engine: 'jsQR Padded' };
+			}
+		}
+
+		// Adaptive Mean-Luminance Binarization
+		const imgData = pCtx.getImageData(0, 0, paddedCanvas.width, paddedCanvas.height);
+		const d = imgData.data;
+		let sum = 0;
+		const total = d.length / 4;
+		for (let i = 0; i < d.length; i += 4) {
+			sum += (0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2]);
+		}
+		const avgLuma = sum / total;
+		const threshold = Math.max(80, Math.min(avgLuma * 0.90, 180));
+
+		for (let i = 0; i < d.length; i += 4) {
+			const gray = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+			const binary = gray > threshold ? 255 : 0;
+			d[i] = binary;
+			d[i + 1] = binary;
+			d[i + 2] = binary;
+		}
+		pCtx.putImageData(imgData, 0, 0);
+
+		const zxContrastRes = this.#scanCanvasWithZXing(paddedCanvas);
+		if (zxContrastRes) {
+			return { text: zxContrastRes, engine: 'ZXing Contrast' };
+		}
+
+		if (typeof window.jsQR === 'function') {
+			const bCode = window.jsQR(imgData.data, imgData.width, imgData.height, {
+				inversionAttempts: "attemptBoth"
+			});
+			if (bCode && bCode.data) {
+				return { text: bCode.data, engine: 'jsQR Adaptive-Contrast' };
+			}
+		}
+
+		return null;
+	}
+
+	#finalizeGeneratedTicket(tokenText, engineName, originalDataUrl) {
+		const ticketId = 't_' + Date.now();
+		const now = Date.now();
+		const expiresAt = now + (TicketWalletApp.#DMRC_VALIDITY_MINUTES * 60 * 1000);
+
+		// TVM Dispenser के लिए केवल शुद्ध 100% वेक्टर QR कैनवस बनाना (No Screenshots)
+		const cleanCanvas = document.createElement('canvas');
+		cleanCanvas.width = 400;
+		cleanCanvas.height = 400;
+		this.#renderVectorQrToCanvas(cleanCanvas, tokenText);
+		const cleanQrDataUrl = cleanCanvas.toDataURL('image/png');
+
+		const newTicket = {
+			id: ticketId,
+			type: 'VECTOR_QR',
+			tokenText: tokenText,
+			cleanQrDataUrl: cleanQrDataUrl, // 👈 सिर्फ प्योर QR कोड
+			engine: engineName,
+			originalImage: originalDataUrl,
+			createdAt: now,
+			expiresAt: expiresAt,
+			isExpired: false
+		};
+
+		this.#addNewTicketToWallet(newTicket);
+		this.#showToast(i18n.t('metroTicket.toast.qrGenerated', { engine: engineName }));
+	}
+
+	#finalizeRawImagePass(originalDataUrl) {
+		const ticketId = 't_' + Date.now();
+		const now = Date.now();
+		const expiresAt = now + (TicketWalletApp.#DMRC_VALIDITY_MINUTES * 60 * 1000);
+
+		const newTicket = {
+			id: ticketId,
+			type: 'RAW_IMAGE',
+			tokenText: null,
+			cleanQrDataUrl: null, // यदि QR डिकोड नहीं हुआ तो TVM में स्क्रीनशॉट नहीं भेजा जाएगा
+			engine: 'Direct Screenshot Mode',
+			originalImage: originalDataUrl,
+			createdAt: now,
+			expiresAt: expiresAt,
+			isExpired: false
+		};
+
+		this.#addNewTicketToWallet(newTicket);
+		this.#showToast(i18n.t('metroTicket.toast.qrNotDetected'), 'warning');
+	}
+
+	#addNewTicketToWallet(newTicket) {
+		// If there is already an active ticket, demote it to archived
+		if (this.#state.activeTicketId) {
+			const currentActive = this.#state.history.find(t => t.id === this.#state.activeTicketId);
+			if (currentActive) {
+				// Retain in history
+			}
+		}
+
+		// Insert new ticket at the top of history
+		this.#state.history.unshift(newTicket);
+
+		// Limit history to MAX_HISTORY_ITEMS (13)
+		if (this.#state.history.length > TicketWalletApp.#MAX_HISTORY_ITEMS) {
+			this.#state.history = this.#state.history.slice(0, TicketWalletApp.#MAX_HISTORY_ITEMS);
+		}
+
+		this.#state.activeTicketId = newTicket.id;
+		this.#persistStore();
+		this.#renderActivePassCard();
+		this.#renderHistoryList();
+	}
+
+	#renderActivePassCard() {
+		// स्थिति 1: जब कोई एक्टिव टिकट नहीं है -> Pass Card छुपाएं और Ingestion Card दिखाएं
+		if (!this.#state.activeTicketId) {
+			this.#dom.passCard.classList.remove('active');
+			this.#dom.passCard.style.display = 'none';
+			if (this.#dom.ingestionCard) this.#dom.ingestionCard.style.display = '';
+
+			if (this.#state.timerIntervalId) {
+				clearInterval(this.#state.timerIntervalId);
+				this.#state.timerIntervalId = null;
+			}
+			return;
+		}
+
+		const ticket = this.#state.history.find(t => t.id === this.#state.activeTicketId);
+		if (!ticket || (!ticket.tokenText && !ticket.originalImage)) {
+			this.#state.activeTicketId = null;
+			this.#dom.passCard.classList.remove('active');
+			this.#dom.passCard.style.display = 'none';
+			if (this.#dom.ingestionCard) this.#dom.ingestionCard.style.display = '';
+			return;
+		}
+
+		// स्थिति 2: जब एक्टिव टिकट मौजूद है -> Pass Card दिखाएं और Ingestion Card छुपाएं
+		this.#dom.passCard.style.display = '';
+		this.#dom.passCard.classList.add('active');
+		if (this.#dom.ingestionCard) this.#dom.ingestionCard.style.display = 'none';
+
+		if (ticket.type === 'VECTOR_QR' && ticket.tokenText) {
+			this.#dom.passQrSubtitle.textContent = i18n.t('metroTicket.cards.pass.turnstileSubtitle');
+			this.#renderVectorQrToCanvas(this.#dom.qrDisplayCanvas, ticket.tokenText);
+			// स्क्रीन पर रेंडर हुआ QR कोड सीधे TVM के लिए सेव करें
+			ticket.cleanQrDataUrl = this.#dom.qrDisplayCanvas.toDataURL('image/png');
+			this.#persistStore();
+		} else if (ticket.originalImage) {
+			this.#dom.passQrSubtitle.textContent = 'Rendered from Original Pic';
+			this.#renderImageToCanvas(this.#dom.qrDisplayCanvas, ticket.originalImage);
+		}
+
+		this.#startCountdownTimer(ticket.expiresAt);
+	}
+
+	#renderVectorQrToCanvas(canvas, text) {
+		try {
+			// engine_vector_painter.js (Kazuhiko Arase QR Engine: Type 0 Auto, Error Correction 'M')
+			const qrFactory = typeof window.qrcode === 'function' ? window.qrcode : (typeof qrcode === 'function' ? qrcode : null);
+			if (qrFactory) {
+				const qr = qrFactory(0, 'M');
+				qr.addData(text);
+				qr.make();
+
+				const moduleCount = qr.getModuleCount();
+				const ctx = canvas.getContext('2d');
+				const size = canvas.width;
+				const cellSize = size / (moduleCount + 2); // 1-module quiet zone margin
+				const margin = cellSize;
+
+				// High-Contrast White Background for Turnstile Gate Optical Scanners
+				ctx.fillStyle = '#FFFFFF';
+				ctx.fillRect(0, 0, size, size);
+
+				// Crisp High-Precision Black Modules
 				ctx.fillStyle = '#000000';
-				for (let r = 0; r < moduleCount; r++) {
-					for (let c = 0; c < moduleCount; c++) {
-						if (qr.isDark(r, c)) {
-							const x = margin + (c * cellSize);
-							const y = margin + (r * cellSize);
-							ctx.fillRect(Math.floor(x), Math.floor(y), Math.ceil(cellSize), Math.ceil(cellSize));
+				for (let row = 0; row < moduleCount; row++) {
+					for (let col = 0; col < moduleCount; col++) {
+						if (qr.isDark(row, col)) {
+							ctx.fillRect(
+								Math.round(margin + col * cellSize),
+								Math.round(margin + row * cellSize),
+								Math.ceil(cellSize),
+								Math.ceil(cellSize)
+							);
 						}
 					}
 				}
 				return;
 			}
+		} catch (err) {
+			console.error('Vector QR rendering error:', err);
+		}
+	}
+
+	#renderImageToCanvas(canvas, dataUrl) {
+		const ctx = canvas.getContext('2d');
+		const img = new Image();
+		img.onload = () => {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+		};
+		img.src = dataUrl;
+	}
+
+	#startCountdownTimer(expiresAt) {
+		if (this.#state.timerIntervalId) {
+			clearInterval(this.#state.timerIntervalId);
 		}
 
-		// Fallback renderer
-		ctx.fillStyle = '#0f172a';
-		ctx.font = 'bold 20px Inter, sans-serif';
-		ctx.textAlign = 'center';
-		ctx.fillText('QR Token Detected', size / 2, size / 2 - 20);
-		ctx.font = '14px Inter, sans-serif';
-		ctx.fillText(tokenResult.engine, size / 2, size / 2 + 20);
-	}
+		const updateTimer = () => {
+			const remainingMs = expiresAt - Date.now();
+			if (remainingMs <= 0) {
+				this.#dom.passCountdown.textContent = i18n.t('metroTicket.cards.history.statusExpired');
+				this.#dom.passCountdown.classList.add('expired');
+				clearInterval(this.#state.timerIntervalId);
+				this.#state.timerIntervalId = null;
+				this.#renderHistoryList();
+				return;
+			}
 
-	#renderErrorCanvas() {
-		const canvas = this.#dom.qrDisplayCanvas;
-		const ctx = canvas.getContext('2d');
-		const size = 600;
-		canvas.width = size;
-		canvas.height = size;
+			const totalSeconds = Math.floor(remainingMs / 1000);
+			const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+			const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+			const seconds = String(totalSeconds % 60).padStart(2, '0');
 
-		ctx.fillStyle = '#f8fafc';
-		ctx.fillRect(0, 0, size, size);
-
-		ctx.fillStyle = '#ef4444';
-		ctx.font = 'bold 50px sans-serif';
-		ctx.textAlign = 'center';
-		ctx.fillText('⚠️', size / 2, size / 2 - 50);
-
-		ctx.fillStyle = '#0f172a';
-		ctx.font = 'bold 22px Outfit, sans-serif';
-		ctx.fillText('QR Code Not Readable', size / 2, size / 2 + 10);
-
-		ctx.fillStyle = '#64748b';
-		ctx.font = '15px Inter, sans-serif';
-		ctx.fillText('Tap "Original Pic" button below to', size / 2, size / 2 + 45);
-		ctx.fillText('view and scan your original ticket at gate', size / 2, size / 2 + 70);
-	}
-
-	#createNewTicketRecord({ tokenPayload, cleanQrDataUrl, originalDataUrl, isPureVector, isError }) {
-		const now = Date.now();
-		const validityMs = TicketWalletApp.#DMRC_VALIDITY_MINUTES * 60 * 1000;
-		const expiresAt = now + validityMs;
-
-		const newTicket = {
-			id: 'ticket_' + now + '_' + Math.random().toString(36).substring(2, 6),
-			createdAt: now,
-			expiresAt: expiresAt,
-			status: 'active',
-			tokenPayload: tokenPayload,
-			cleanQrDataUrl: cleanQrDataUrl,
-			originalDataUrl: originalDataUrl,
-			isPureVector: isPureVector,
-			isError: isError
+			this.#dom.passCountdown.textContent = `${hours}:${minutes}:${seconds}`;
+			this.#dom.passCountdown.classList.remove('expired');
 		};
 
-		// Demote previously active ticket
-		if (this.#state.activeTicketId) {
-			const prev = this.#state.history.find(t => t.id === this.#state.activeTicketId);
-			if (prev) {
-				prev.status = (prev.expiresAt <= now) ? 'expired' : 'archived';
-			}
-		}
-
-		this.#state.history.unshift(newTicket);
-		this.#state.activeTicketId = newTicket.id;
-		this.#enforceMaxLimit();
-
-		this.#persistStore();
-		this.#renderActiveTicket();
-		this.#renderHistoryList();
-
-		// Emit Global EventBus Notification
-		eventBus.emit('TICKET_ACTIVATED', newTicket);
+		updateTimer();
+		this.#state.timerIntervalId = setInterval(updateTimer, 1000);
 	}
 
-	#enforceMaxLimit() {
-		if (this.#state.history.length > TicketWalletApp.#MAX_HISTORY_ITEMS) {
-			this.#state.history = this.#state.history.slice(0, TicketWalletApp.#MAX_HISTORY_ITEMS);
-		}
-	}
+	#renderHistoryList() {
+		const total = this.#state.history.length;
+		this.#dom.historyCountBadge.textContent = `${total}/${TicketWalletApp.#MAX_HISTORY_ITEMS}`;
+		this.#dom.btnClearAllHistory.disabled = total === 0;
 
-	#renderActiveTicket() {
-		if (!this.#state.activeTicketId) {
-			this.#dom.passCard.classList.remove('active');
-			this.#dom.ingestionCard.style.display = 'flex';
-			if (this.#state.timerIntervalId) clearInterval(this.#state.timerIntervalId);
+		if (total === 0) {
+			this.#dom.historyListContainer.innerHTML = `
+				<div class="history-empty-state" data-i18n="metroTicket.cards.history.empty">
+					${i18n.t('metroTicket.cards.history.empty')}
+				</div>
+			`;
 			return;
 		}
 
-		const activeRecord = this.#state.history.find(t => t.id === this.#state.activeTicketId);
-		if (!activeRecord) return;
+		this.#dom.historyListContainer.innerHTML = this.#state.history.map(item => {
+			const isActive = item.id === this.#state.activeTicketId;
+			const isExpired = item.expiresAt <= Date.now();
+			const dateStr = new Date(item.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-		const img = new Image();
-		img.onload = () => {
-			const ctx = this.#dom.qrDisplayCanvas.getContext('2d');
-			ctx.clearRect(0, 0, this.#dom.qrDisplayCanvas.width, this.#dom.qrDisplayCanvas.height);
-			ctx.drawImage(img, 0, 0, this.#dom.qrDisplayCanvas.width, this.#dom.qrDisplayCanvas.height);
+			let statusPill = '';
+			if (isActive) {
+				statusPill = `<span class="history-status-pill active">● ${i18n.t('metroTicket.cards.history.statusActive')}</span>`;
+			} else if (isExpired) {
+				statusPill = `<span class="history-status-pill expired">${i18n.t('metroTicket.cards.history.statusExpired')}</span>`;
+			} else {
+				statusPill = `<span class="history-status-pill archived">${i18n.t('metroTicket.cards.history.statusArchived')}</span>`;
+			}
 
-			const modalCtx = this.#dom.gateModalCanvas.getContext('2d');
-			modalCtx.fillStyle = '#ffffff';
-			modalCtx.fillRect(0, 0, this.#dom.gateModalCanvas.width, this.#dom.gateModalCanvas.height);
-			modalCtx.drawImage(img, 0, 0, this.#dom.gateModalCanvas.width, this.#dom.gateModalCanvas.height);
+			return `
+				<div class="history-item ${isActive ? 'active' : ''}" data-ticket-id="${item.id}">
+					<div class="history-thumb-wrap">
+						<img src="${item.originalImage}" alt="Thumb" class="history-thumb" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect width=%22100%22 height=%22100%22 fill=%22%23cbd5e1%22/></svg>'">
+					</div>
+					<div class="history-meta">
+						<div class="history-meta-top">
+							<span class="history-engine-name">${this.#escapeHtml(item.engine || 'QR Pass')}</span>
+							${statusPill}
+						</div>
+						<span class="history-time">${dateStr}</span>
+					</div>
+					<div class="history-item-actions">
+						${!isActive ? `
+							<button type="button" class="btn-restore-ticket" data-restore-id="${item.id}">
+								${i18n.t('metroTicket.cards.history.btnRestore')}
+							</button>
+						` : ''}
+						<button type="button" class="btn-delete-history-item" data-delete-id="${item.id}" title="Delete" aria-label="Delete">
+							🗑️
+						</button>
+					</div>
+				</div>
+			`;
+		}).join('');
 
-			this.#dom.passCard.classList.add('active');
-			this.#dom.ingestionCard.style.display = 'none';
-			this.#startTimer(activeRecord);
-		};
-		img.src = activeRecord.cleanQrDataUrl;
+		// Bind Dynamic History Item Event Listeners
+		this.#dom.historyListContainer.querySelectorAll('.btn-restore-ticket').forEach(btn => {
+			btn.addEventListener('click', (e) => {
+				const id = e.currentTarget.getAttribute('data-restore-id');
+				this.#restoreTicketToActive(id);
+			});
+		});
+
+		this.#dom.historyListContainer.querySelectorAll('.btn-delete-history-item').forEach(btn => {
+			btn.addEventListener('click', (e) => {
+				const id = e.currentTarget.getAttribute('data-delete-id');
+				this.#deleteTicketFromHistory(id);
+			});
+		});
+	}
+
+	#restoreTicketToActive(ticketId) {
+		const target = this.#state.history.find(t => t.id === ticketId);
+		if (!target) return;
+
+		this.#state.activeTicketId = ticketId;
+		this.#persistStore();
+		this.#renderActivePassCard();
+		this.#renderHistoryList();
+
+		this.#dom.passCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		this.#showToast(i18n.t('metroTicket.toast.restoredToGatePass'));
+	}
+
+	#deleteTicketFromHistory(ticketId) {
+		this.#state.history = this.#state.history.filter(t => t.id !== ticketId);
+		if (this.#state.activeTicketId === ticketId) {
+			this.#state.activeTicketId = this.#state.history.length > 0 ? this.#state.history[0].id : null;
+		}
+		this.#persistStore();
+		this.#renderActivePassCard();
+		this.#renderHistoryList();
+		this.#showToast(i18n.t('metroTicket.toast.deletedFromHistory'));
+	}
+
+	#archiveActiveTicket() {
+		if (!this.#state.activeTicketId) return;
+		this.#state.activeTicketId = null;
+		this.#persistStore();
+		this.#renderActivePassCard();
+		this.#renderHistoryList();
+		this.#showToast(i18n.t('metroTicket.toast.movedToHistory'));
+	}
+
+	#promptClearAllHistory() {
+		this.#openConfirmModal(
+			i18n.t('metroTicket.modals.confirm.title'),
+			i18n.t('metroTicket.modals.confirm.clearAllDesc'),
+			() => {
+				this.#state.history = [];
+				this.#state.activeTicketId = null;
+				this.#persistStore();
+				this.#renderActivePassCard();
+				this.#renderHistoryList();
+				this.#showToast(i18n.t('metroTicket.toast.allCleared'));
+			}
+		);
+	}
+
+	#openGateModal() {
+		if (!this.#state.activeTicketId) return;
+		const active = this.#state.history.find(t => t.id === this.#state.activeTicketId);
+		if (!active) return;
+
+		if (active.type === 'VECTOR_QR' && active.tokenText) {
+			this.#renderVectorQrToCanvas(this.#dom.gateModalCanvas, active.tokenText);
+		} else {
+			this.#renderImageToCanvas(this.#dom.gateModalCanvas, active.originalImage);
+		}
+
+		this.#dom.gateModal.classList.add('active');
+		this.#dom.gateModal.setAttribute('aria-hidden', 'false');
+	}
+
+	#closeGateModal() {
+		this.#dom.gateModal.classList.remove('active');
+		this.#dom.gateModal.setAttribute('aria-hidden', 'true');
 	}
 
 	#openOriginalModal() {
-		const activeRecord = this.#state.history.find(t => t.id === this.#state.activeTicketId);
-		if (!activeRecord || !activeRecord.originalDataUrl) {
-			this.#showToast(i18n.t('metroTicket.toast.noOriginalImage'), 'warning');
+		if (!this.#state.activeTicketId) return;
+		const active = this.#state.history.find(t => t.id === this.#state.activeTicketId);
+		if (!active?.originalImage) {
+			this.#showToast(i18n.t('metroTicket.toast.noOriginalImage'));
 			return;
 		}
 
-		this.#dom.originalImagePreview.src = activeRecord.originalDataUrl;
+		this.#dom.originalImagePreview.src = active.originalImage;
 		this.#dom.originalModal.classList.add('active');
 		this.#dom.originalModal.setAttribute('aria-hidden', 'false');
 	}
@@ -606,219 +1009,9 @@ class TicketWalletApp {
 		this.#dom.originalModal.setAttribute('aria-hidden', 'true');
 	}
 
-	#startTimer(ticketRecord) {
-		if (this.#state.timerIntervalId) clearInterval(this.#state.timerIntervalId);
-
-		const updateCountdown = () => {
-			const remainingMs = ticketRecord.expiresAt - Date.now();
-
-			if (remainingMs <= 0) {
-				clearInterval(this.#state.timerIntervalId);
-				this.#dom.passCountdown.textContent = i18n.t('metroTicket.cards.history.statusExpired');
-				ticketRecord.status = 'expired';
-				this.#persistStore();
-				this.#renderHistoryList();
-
-				// Emit EventBus Notification
-				eventBus.emit('TICKET_EXPIRED', ticketRecord);
-				return;
-			}
-
-			const totalSecs = Math.floor(remainingMs / 1000);
-			const hrs = String(Math.floor(totalSecs / 3600)).padStart(2, '0');
-			const mins = String(Math.floor((totalSecs % 3600) / 60)).padStart(2, '0');
-			const secs = String(totalSecs % 60).padStart(2, '0');
-			this.#dom.passCountdown.textContent = hrs + ':' + mins + ':' + secs;
-		};
-
-		updateCountdown();
-		this.#state.timerIntervalId = setInterval(updateCountdown, 1000);
-	}
-
-	#archiveActiveTicket() {
-		if (!this.#state.activeTicketId) return;
-
-		const activeRecord = this.#state.history.find(t => t.id === this.#state.activeTicketId);
-		if (activeRecord) {
-			activeRecord.status = (activeRecord.expiresAt <= Date.now()) ? 'expired' : 'archived';
-			eventBus.emit('TICKET_ARCHIVED', activeRecord);
-		}
-
-		this.#state.activeTicketId = null;
-		if (this.#state.timerIntervalId) clearInterval(this.#state.timerIntervalId);
-
-		this.#dom.passCard.classList.remove('active');
-		this.#dom.ingestionCard.style.display = 'flex';
-
-		this.#persistStore();
-		this.#renderHistoryList();
-		this.#showToast(i18n.t('metroTicket.toast.movedToHistory'), 'success');
-	}
-
-	#requestRestoreTicket(ticketId) {
-		const targetTicket = this.#state.history.find(t => t.id === ticketId);
-		if (!targetTicket) return;
-
-		if (this.#state.activeTicketId && this.#state.activeTicketId !== ticketId) {
-			this.#openConfirmModal(
-				i18n.t('metroTicket.modals.confirm.title'),
-				i18n.t('metroTicket.modals.confirm.replaceActiveDesc'),
-				() => this.#executeRestoreTicket(ticketId),
-				i18n.t('metroTicket.modals.confirm.confirm'),
-				false
-			);
-			return;
-		}
-
-		this.#executeRestoreTicket(ticketId);
-	}
-
-	#executeRestoreTicket(ticketId) {
-		const targetTicket = this.#state.history.find(t => t.id === ticketId);
-		if (!targetTicket) return;
-
-		if (this.#state.activeTicketId) {
-			const prev = this.#state.history.find(t => t.id === this.#state.activeTicketId);
-			if (prev) prev.status = (prev.expiresAt <= Date.now()) ? 'expired' : 'archived';
-		}
-
-		targetTicket.status = (targetTicket.expiresAt <= Date.now()) ? 'expired' : 'active';
-		this.#state.activeTicketId = ticketId;
-
-		this.#persistStore();
-		this.#renderActiveTicket();
-		this.#renderHistoryList();
-		this.#showToast(i18n.t('metroTicket.toast.restoredToGatePass'), 'success');
-
-		eventBus.emit('TICKET_ACTIVATED', targetTicket);
-	}
-
-	#deleteHistoryItem(ticketId) {
-		const index = this.#state.history.findIndex(t => t.id === ticketId);
-		if (index === -1) return;
-
-		const isCurrentActive = (this.#state.activeTicketId === ticketId);
-		this.#state.history.splice(index, 1);
-
-		if (isCurrentActive) {
-			this.#state.activeTicketId = null;
-			this.#dom.passCard.classList.remove('active');
-			this.#dom.ingestionCard.style.display = 'flex';
-			if (this.#state.timerIntervalId) clearInterval(this.#state.timerIntervalId);
-		}
-
-		this.#persistStore();
-		this.#renderHistoryList();
-		this.#showToast(i18n.t('metroTicket.toast.deletedFromHistory'));
-
-		eventBus.emit('TICKET_DELETED', { id: ticketId });
-	}
-
-	#promptClearAllHistory() {
-		if (this.#state.history.length === 0) return;
-
-		this.#openConfirmModal(
-			i18n.t('metroTicket.modals.confirm.title'),
-			i18n.t('metroTicket.modals.confirm.clearAllDesc'),
-			() => this.#executeClearAllHistory(),
-			i18n.t('metroTicket.cards.history.btnClearAll'),
-			true
-		);
-	}
-
-	#executeClearAllHistory() {
-		this.#state.history = [];
-		this.#state.activeTicketId = null;
-		if (this.#state.timerIntervalId) clearInterval(this.#state.timerIntervalId);
-
-		this.#dom.passCard.classList.remove('active');
-		this.#dom.ingestionCard.style.display = 'flex';
-
-		this.#persistStore();
-		this.#renderHistoryList();
-		this.#showToast(i18n.t('metroTicket.toast.allCleared'));
-
-		eventBus.emit('TICKETS_CLEARED');
-	}
-
-	#renderHistoryList() {
-		const container = this.#dom.historyListContainer;
-		container.innerHTML = '';
-
-		const count = this.#state.history.length;
-		this.#dom.historyCountBadge.textContent = count + '/' + TicketWalletApp.#MAX_HISTORY_ITEMS;
-		this.#dom.btnClearAllHistory.disabled = (count === 0);
-
-		if (count === 0) {
-			container.innerHTML = `<div class="history-empty-state">${i18n.t('metroTicket.cards.history.empty')}</div>`;
-			return;
-		}
-
-		const currentLang = appStateStore.getState('currentLang') || 'en';
-		const locale = currentLang === 'hi' ? 'hi-IN' : 'en-IN';
-
-		this.#state.history.forEach((ticket) => {
-			const isActive = (this.#state.activeTicketId === ticket.id);
-			const isExpired = (ticket.expiresAt <= Date.now());
-			const status = isActive ? 'active' : (isExpired ? 'expired' : 'archived');
-
-			const itemEl = document.createElement('div');
-			itemEl.className = 'history-item ' + (isActive ? 'is-active' : '');
-
-			const d = new Date(ticket.createdAt);
-			const dateStr = d.toLocaleDateString(locale, { day: '2-digit', month: 'short' });
-			const timeStr = d.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' });
-
-			const thumbSrc = ticket.cleanQrDataUrl || ticket.originalDataUrl;
-
-			const statusText = status === 'active'
-				? `● ${i18n.t('metroTicket.cards.history.statusActive')}`
-				: (status === 'expired'
-					? `✕ ${i18n.t('metroTicket.cards.history.statusExpired')}`
-					: `◷ ${i18n.t('metroTicket.cards.history.statusArchived')}`);
-
-			itemEl.innerHTML = `
-				<div class="history-thumb-wrap">
-					<img src="${thumbSrc}" class="history-thumb" alt="QR Thumb">
-				</div>
-				<div class="history-meta">
-					<span class="history-date">${dateStr}, ${timeStr}</span>
-					<span class="history-status-pill ${status}">
-						${statusText}
-					</span>
-				</div>
-				<div class="history-item-actions">
-					${!isActive ? `<button type="button" class="btn-restore-ticket" data-id="${ticket.id}" title="${i18n.t('metroTicket.cards.history.btnRestore')}"><span>🔄</span> ${i18n.t('metroTicket.cards.history.btnRestore')}</button>` : ''}
-					<button type="button" class="btn-delete-history-item" data-id="${ticket.id}" title="Delete Permanently">🗑️</button>
-				</div>
-			`;
-
-			const restoreBtn = itemEl.querySelector('.btn-restore-ticket');
-			if (restoreBtn) {
-				restoreBtn.addEventListener('click', () => this.#requestRestoreTicket(ticket.id));
-			}
-
-			const deleteBtn = itemEl.querySelector('.btn-delete-history-item');
-			if (deleteBtn) {
-				deleteBtn.addEventListener('click', () => this.#deleteHistoryItem(ticket.id));
-			}
-
-			container.appendChild(itemEl);
-		});
-	}
-
-	#openConfirmModal(title, desc, onConfirm, confirmText = 'Confirm', isDanger = false) {
+	#openConfirmModal(title, desc, onConfirm) {
 		this.#dom.confirmModalTitle.textContent = title;
 		this.#dom.confirmModalDesc.textContent = desc;
-		this.#dom.btnAcceptConfirm.textContent = confirmText;
-		this.#dom.btnCancelConfirm.textContent = i18n.t('metroTicket.modals.confirm.cancel');
-
-		if (isDanger) {
-			this.#dom.btnAcceptConfirm.classList.add('danger');
-		} else {
-			this.#dom.btnAcceptConfirm.classList.remove('danger');
-		}
-
 		this.#state.pendingConfirmCallback = onConfirm;
 		this.#dom.confirmModal.classList.add('active');
 		this.#dom.confirmModal.setAttribute('aria-hidden', 'false');
@@ -830,68 +1023,68 @@ class TicketWalletApp {
 		this.#state.pendingConfirmCallback = null;
 	}
 
-	#openGateModal() {
-		this.#dom.gateModal.classList.add('active');
-		this.#dom.gateModal.setAttribute('aria-hidden', 'false');
-	}
+	#loadPersistedStore() {
+		try {
+			const saved = localStorage.getItem(TicketWalletApp.#STORAGE_KEY) || localStorage.getItem(TicketWalletApp.#LEGACY_STORAGE_KEY);
+			if (saved) {
+				const parsed = JSON.parse(saved);
+				this.#state.history = Array.isArray(parsed.history) ? parsed.history : [];
+				// केवल तभी एक्टिव टिकट सेट करें जब वह हिस्ट्री में मौजूद हो और अभी एक्सपायर न हुआ हो
+				if (parsed.activeTicketId) {
+					const active = this.#state.history.find(t => t.id === parsed.activeTicketId);
+					if (active && active.expiresAt > Date.now()) {
+						this.#state.activeTicketId = parsed.activeTicketId;
+					} else {
+						this.#state.activeTicketId = null;
+					}
+				} else {
+					this.#state.activeTicketId = null;
+				}
+			}
+		} catch (e) {
+			console.warn('Failed to parse persisted wallet store:', e);
+			this.#state.history = [];
+			this.#state.activeTicketId = null;
+		}
 
-	#closeGateModal() {
-		this.#dom.gateModal.classList.remove('active');
-		this.#dom.gateModal.setAttribute('aria-hidden', 'true');
+		this.#renderActivePassCard();
+		this.#renderHistoryList();
 	}
 
 	#persistStore() {
-		const store = {
-			activeTicketId: this.#state.activeTicketId,
-			history: this.#state.history
-		};
 		try {
-			localStorage.setItem(TicketWalletApp.#STORAGE_KEY, JSON.stringify(store));
+			const payload = {
+				activeTicketId: this.#state.activeTicketId,
+				history: this.#state.history
+			};
+			localStorage.setItem(TicketWalletApp.#STORAGE_KEY, JSON.stringify(payload));
 		} catch (e) {
-			if (this.#state.history.length > 2) {
-				this.#state.history.pop();
-				this.#persistStore();
-			}
-		}
-	}
-
-	#loadPersistedStore() {
-		try {
-			let raw = localStorage.getItem(TicketWalletApp.#STORAGE_KEY);
-			// Backward compatibility with prototype storage
-			if (!raw) {
-				raw = localStorage.getItem(TicketWalletApp.#LEGACY_STORAGE_KEY);
-			}
-
-			if (!raw) {
-				this.#renderHistoryList();
-				return;
-			}
-
-			const store = JSON.parse(raw);
-			if (store && Array.isArray(store.history)) {
-				this.#state.history = store.history;
-				this.#state.activeTicketId = store.activeTicketId;
-				this.#enforceMaxLimit();
-				this.#renderActiveTicket();
-				this.#renderHistoryList();
-			}
-		} catch (e) {
-			this.#state.history = [];
-			this.#state.activeTicketId = null;
-			this.#renderHistoryList();
+			console.warn('Failed to persist wallet store (Storage Quota):', e);
 		}
 	}
 
 	#getOptimizedDataURL(canvas) {
 		try {
 			return canvas.toDataURL('image/jpeg', 0.82);
-		} catch (e) {
-			return canvas.toDataURL('image/png');
+		} catch (_) {
+			return canvas.toDataURL();
 		}
 	}
 
-	#showToast(message, type = "info") {
-		Toast.show(message, { type, duration: 3200 });
+	#showToast(message, type = 'info') {
+		if (typeof Toast?.show === 'function') {
+			Toast.show(message, type);
+		}
+	}
+
+	#escapeHtml(str) {
+		if (typeof str !== 'string') return '';
+		return str.replace(/[&<>'"]/g, tag => ({
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			"'": '&#39;',
+			'"': '&quot;'
+		}[tag] || tag));
 	}
 }

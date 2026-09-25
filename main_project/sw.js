@@ -8,8 +8,8 @@
  * ==============================================================================
  */
 
-const CACHE_NAME = 'metro-pwa-cache-v1';
-const DATA_CACHE_NAME = 'metro-data-cache-v1';
+const CACHE_NAME = 'metro-pwa-cache-v3';
+const DATA_CACHE_NAME = 'metro-data-cache-v3';
 
 // कोर एसेट्स जो इंस्टॉल होते ही 100% कैशे हो जाने चाहिए (ऑफ़लाइन ऐप स्टार्ट के लिए)
 const CORE_ASSETS = [
@@ -54,50 +54,31 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
 	const requestUrl = new URL(event.request.url);
 
-	// 1. JSON Data Files (cities/ folder) -> Stale-While-Revalidate
-	if (requestUrl.pathname.endsWith('.json')) {
-		event.respondWith(
-			caches.open(DATA_CACHE_NAME).then((cache) => {
-				return cache.match(event.request).then((cachedResponse) => {
-					const fetchPromise = fetch(event.request).then((networkResponse) => {
-						cache.put(event.request, networkResponse.clone());
-						return networkResponse;
-					}).catch(() => {
-						// इंटरनेट नहीं है और कैशे भी नहीं है
-					});
-					
-					return cachedResponse || fetchPromise;
-				});
-			})
-		);
-		return;
-	}
+	// ONLY USE GET REQUESTS
+	if (event.request.method !== 'GET') return;
 
-	// 2. Static Assets (CSS, JS, SVG, HTML) -> Cache-First, Fallback to Network
-	if (event.request.method === 'GET') {
-		event.respondWith(
-			caches.match(event.request).then((cachedResponse) => {
-				if (cachedResponse) {
-					return cachedResponse; // 0ms लोड
-				}
-				// यदि कैशे में नहीं है, तो नेटवर्क से लाएं और कैशे कर लें
-				return fetch(event.request).then((networkResponse) => {
-					// 3rd party URLs या अमान्य रिस्पॉन्स को कैशे न करें
-					if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-						return networkResponse;
+	// Stale-While-Revalidate Strategy for EVERYTHING (JSON, CSS, JS, HTML)
+	// This gives 0ms instant loading from cache, but always updates the cache in the background!
+	// You will NEVER need to manually bump the version (v1 to v2) ever again!
+	event.respondWith(
+		caches.open(CACHE_NAME).then((cache) => {
+			return cache.match(event.request).then((cachedResponse) => {
+				const fetchPromise = fetch(event.request).then((networkResponse) => {
+					// Update cache in the background if successful
+					if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+						cache.put(event.request, networkResponse.clone());
 					}
-					const responseToCache = networkResponse.clone();
-					caches.open(CACHE_NAME).then((cache) => {
-						cache.put(event.request, responseToCache);
-					});
 					return networkResponse;
 				}).catch(() => {
-					// यदि HTML पेज फेल हो जाए और इंटरनेट न हो, तो index.html दें
+					// Offline fallback for HTML
 					if (event.request.headers.get('accept').includes('text/html')) {
 						return caches.match('./index.html');
 					}
 				});
-			})
-		);
-	}
+				
+				// Return cached response instantly (0ms), or wait for network if not in cache
+				return cachedResponse || fetchPromise;
+			});
+		})
+	);
 });

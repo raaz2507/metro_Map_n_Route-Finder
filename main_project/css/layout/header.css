@@ -8,6 +8,7 @@
 		header.main-header {
 		display: flex;
 		flex-direction: column;
+		flex-shrink: 0;
 		width: calc(100% - var(--space-md));
 		max-width: 1200px;
 		margin: var(--space-xs) auto;
@@ -102,6 +103,7 @@
 	header.main-header .brand-text-group {
 		display: flex;
 		flex-direction: column;
+		flex-shrink: 0;
 		justify-content: center;
 	}
 

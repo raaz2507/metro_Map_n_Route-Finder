@@ -90,7 +90,7 @@
 		font-family: var(--font-main);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-medium);
-		padding: 4px 8px;                       /* पैडिंग कम की ताकि "Most Used" न टूटे */
+		padding: 8px 16px;                       /* पैडिंग कम की ताकि "Most Used" न टूटे */
 		border-radius: var(--radius-full);
 		cursor: pointer;
 		white-space: nowrap;                    /* टेक्स्ट दो लाइनों में टूटने से रोका */
@@ -162,7 +162,7 @@
 		align-items: center;
 		justify-content: flex-start;
 		gap: var(--space-xs);
-		padding: 6px 10px;                       /* पिल की पैडिंग कम की */
+		padding: 10px 14px;                       /* पिल की पैडिंग कम की */
 		background: var(--input-bg);
 		border: 1px solid var(--input-border);
 		border-radius: var(--radius-md);

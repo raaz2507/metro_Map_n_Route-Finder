@@ -1,24 +1,33 @@
 @layer base {
-	/* HTML & Body Natural Page Scroll Layout */
-	html, body {
-		/* overflow: hidden; ❌ (Removed to allow natural page scrolling) */
-		width: 100%;
-	}
-
+	/* 1. Default Layout for ALL Pages (Natural Scroll) */
+	html,
 	body {
+		width: 100%;
+		min-height: 100dvh;
+		overflow-x: hidden; /* Prevent horizontal scroll globally */
+	}
+	/* 2. Utility Class ONLY for Fixed Pages (like index.html) */
+	html:has(.lock-viewport),
+	body.lock-viewport {
+		overflow: hidden !important;
+		height: 100dvh !important;
+	}
+	body {
+		padding-top: max(12px, env(safe-area-inset-top, 12px));
+		padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+		box-sizing: border-box;
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		/* min-height: 100vh; */
 	}
 
 	/* Main Page Content Area */
 	main {
-		flex: 1 0 auto;
+		flex: 1 1 auto;
 		display: flex;
 		position: relative;
 		width: 100%;
-        min-height: 40vh;
+		/* min-height: 40vh; (रहने दे सकते हैं या हटा दें) */
 	}
 }
 
@@ -56,13 +65,11 @@
 		pointer-events: auto;
 	}
 	/* main's direct child: map section */
-   .map-section {
+	.map-section {
 		position: relative;
-		flex: 1;
-        min-height: 480px;  /* ⬅️ 1. इससे छोटा कभी नहीं होगा (No Squishing) */
-        max-height: 720px;  /* ⬅️ 2. इससे बड़ा कभी नहीं होगा (No Over-expansion) */
-        height: 68vh;  
-		margin: 12px;                            /* चारो तरफ (Top, Right, Bottom, Left) 12px मार्जिन */
+		flex: 1 1 auto;
+		min-height: 0;
+		margin: 12px;
 		z-index: var(--z-map);
 	}
 
@@ -71,7 +78,7 @@
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
-		z-index: var(--z-modal); 
+		z-index: var(--z-modal);
 	}
 
 	/* site-footer parent layout */
@@ -89,41 +96,26 @@
 /* Desktop Layout (min-width: 769px) */
 @media (min-width: 769px) {
 	@layer base {
-		html, body {
-			overflow-y: auto ;
-			overflow-x: hidden;
-			height: auto;
-			min-height: 100vh;
+		html,
+		body {
+			width: 100%;
 		}
 		body {
 			display: flex;
 			flex-direction: column;
 		}
-		main {
-			/* height: calc(100vh - 80px); */
-			/* flex: none; */
-		}
 	}
-	
+
 	@layer components {
-		header.main-header {
-		}
-		
-		.header-nav {
-		}
-
 		.floating-nav-wrapper:has(.floating-nav) {
-            position: absolute;
-            top: auto;
-            bottom: 2.75rem; /* 👈 बॉर्डर से पर्याप्त ऊपर फ्लोट कराने के लिए */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: var(--z-modal, 1000);
-        }
-
-		footer {
+			position: absolute;
+			top: auto;
+			bottom: 2.75rem; /* 👈 बॉर्डर से पर्याप्त ऊपर फ्लोट कराने के लिए */
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: var(--z-modal, 1000);
 		}
-		
+
 		.site-footer {
 			display: grid;
 			grid-template-columns: 2fr 1fr 1.5fr;
@@ -135,27 +127,21 @@
 /* Tablet & Mobile Layout (max-width: 768px) */
 @media (max-width: 768px) {
 	@layer base {
-        html, body {
-            overflow-y: auto !important;
-            overflow-x: hidden !important;
-            height: auto !important;
-            min-height: 100vh;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-        main {
-            flex: 1 0 auto;
-            position: relative;
-            overflow: visible !important;
-        }
-    }
+		html,
+		body {
+			width: 100%;
+		}
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+		main {
+			flex: 1 1 auto;
+			position: relative;
+		}
+	}
 
 	@layer components {
-		header.main-header {
-		}
-
 		/* Mobile sidebar-wrapper adjustments */
 		.sidebar-wrapper {
 			top: var(--space-sm);
@@ -168,17 +154,17 @@
 			justify-content: flex-start;
 			align-items: flex-start;
 		}
-        .map-section {
-            min-height: calc(100vh - 180px);         /* 👈 हेडर और नेविगेशन बार छोड़कर पूरी मोबाइल स्क्रीन भरेगा */
-            height: calc(100vh - 180px);
-        }
+		.map-section {
+			min-height: 0;
+			
+			flex: 1 1 auto;
+		}
 		aside {
 			flex: 1;
 			width: 100%;
-			max-width: 100% !important; /* 👈 320px ki limit hata di */
-			height: 100%;
+			max-width: 100%; /* 👈 320px ki limit hata di */
 		}
-		
+
 		/* Mobile floating nav fixed to bottom (Safe Floating Elevation) */
 		.floating-nav-wrapper:has(.floating-nav) {
 			position: fixed;
@@ -187,13 +173,12 @@
 			transform: translateX(-50%);
 			z-index: var(--z-modal);
 		}
-		
+
 		/* Hide footer only on interactive map view with floating bottom nav */
 		body:has(.floating-nav) footer,
 		body:has(#map) footer {
-			display: none !important;
+			display: none;
 		}
-	   
 	}
 }
 

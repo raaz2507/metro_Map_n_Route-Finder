@@ -7,63 +7,40 @@
 
 /* =========================================================================
    METRO PASS WALLET & QR TICKET COMPONENT STYLES
-   Pure @layer components Architecture & 100% base.css Multi-Theme Reactive
+   100% base.css Design Tokens & Zero-Redundancy Architecture
    ========================================================================= */
 
 @layer components {
-
-	/* 1. Page Main Container */
-	body {
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-		overflow-x: hidden;
-	}
-
+	/* 1. Main Masonry Container & Glass Cards */
 	.wallet-container {
 		width: 100%;
 		max-width: 1200px;
-		
-		/* Grid की जगह Block और Column-width का जादू! */
-		display: block; 
-		column-width: 400px; /* बिना Media Query के ऑटोमैटिक रेस्पॉन्सिव कॉलम्स */
+		display: block;
+		column-width: 400px;
 		column-gap: var(--space-xl);
-		
 		margin: 0 auto;
 		padding: var(--space-xl) var(--space-md) var(--space-3xl);
 	}
 
-	/* हर एक कार्ड के लिए फिक्स */
 	.wallet-container > * {
-		break-inside: avoid; /* कार्ड को बीच से कटने नहीं देगा */
+		break-inside: avoid;
 		margin-bottom: var(--space-xl);
-		display: inline-block; /* मैसोनरी इफ़ेक्ट के लिए ज़रूरी */
-		width: 100%; 
+		display: inline-block;
+		width: 100%;
 	}
 
-	/* =========================================================================
-   🌟 UNIFIED TRANSLUCENT GLASS CARDS
-   ========================================================================= */
-	.wallet-card, 
-	.pass-card, 
-	.history-card, 
-	.info-guide-card, 
+	.wallet-card,
+	.pass-card,
+	.history-card,
+	.info-guide-card,
 	.why-use-card {
-		/* base.css के वैरिएबल्स का इस्तेमाल करके Translucent बैकग्राउंड */
 		background: rgba(var(--color-bg-base-rgb), var(--op-glass, 0.85));
 		backdrop-filter: blur(var(--backdrop-blur, 16px));
 		-webkit-backdrop-filter: blur(var(--backdrop-blur, 16px));
-		
-		/* थीम के अनुसार बॉर्डर और टेक्स्ट */
 		border: 1px solid var(--border-color);
-		color: var(--text-primary);
-	}
-	/* 2. Unified Wallet Card */
-	.wallet-card {
-		background: var(--card-bg);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-lg);
+		border-radius: var(--radius-xl);
 		padding: var(--space-lg);
+		color: var(--text-primary);
 		box-shadow: var(--shadow-md);
 		display: flex;
 		flex-direction: column;
@@ -71,34 +48,98 @@
 		transition: border-color var(--transition-smooth), background-color var(--transition-smooth);
 	}
 
-	/* 3. WhatsApp Quick Launcher */
-	.btn-whatsapp-launcher {
+	/* Card Typography */
+	.card-header-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs, 4px);
+	}
+	.card-title {
+		font-size: var(--fs-md);
+		font-weight: var(--fw-semibold);
+		color: var(--text-primary);
+	}
+	.card-desc {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+	}
+
+	/* 2. Universal Action Buttons (DRY Shared Styles) */
+	.btn-whatsapp-launcher,
+	.btn-paste-action,
+	.btn-camera-action,
+	.btn-browse-action,
+	.btn-tvm-launcher,
+	.btn-gate-mode,
+	.btn-view-original,
+	.btn-archive-active,
+	.btn-modal-full-close {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: var(--space-sm);
-		background: #25d366;
-		color: #ffffff;
-		border: none;
-		border-radius: var(--radius-md);
-		padding: var(--space-md) var(--space-lg);
-		font-size: var(--fs-md);
+		gap: var(--space-xs);
+		padding: var(--space-sm) var(--space-lg);
+		font-size: var(--fs-sm);
 		font-weight: var(--fw-semibold);
 		font-family: var(--font-main);
+		border-radius: var(--radius-md);
 		cursor: pointer;
+		width: 100%;
 		text-decoration: none;
-		transition: opacity var(--transition-fast), transform var(--transition-fast);
+		transition: all var(--transition-fast);
 	}
 
+	.btn-whatsapp-launcher {
+		background: #25d366;
+		color: var(--card-bg);
+		border: none;
+		padding: var(--space-md) var(--space-lg);
+	}
 	.btn-whatsapp-launcher:hover {
 		opacity: 0.92;
+		transform: scale(0.99);
+	}
+	.btn-paste-action {
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		border: none;
+	}
+	.btn-paste-action:hover {
+		filter: brightness(1.08);
+	}
+	.btn-camera-action,
+	.btn-browse-action {
+		background: var(--card-bg);
+		color: var(--text-primary);
+		border: 1px solid var(--border-color);
+	}
+	.btn-camera-action:hover,
+	.btn-browse-action:hover {
+		border-color: var(--btn-primary-bg);
+		color: var(--btn-primary-bg);
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+	}
+	.btn-tvm-launcher {
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		color: var(--btn-primary-bg);
+		border: 1px solid rgba(var(--color-primary-rgb), var(--op-shadow));
+	}
+	.btn-tvm-launcher:hover {
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+	}
+	.btn-archive-active,
+	.btn-modal-full-close {
+		background: var(--btn-reset-bg);
+		color: var(--btn-reset-text);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-full);
+	}
+	.btn-archive-active:hover,
+	.btn-modal-full-close:hover {
+		background: var(--btn-reset-hover);
 	}
 
-	.btn-whatsapp-launcher:active {
-		transform: scale(0.98);
-	}
-
-	/* 4. Ingestion Dropzone & Action Buttons */
+	/* 3. Ingestion Dropzone */
 	.ingestion-zone {
 		border: 2px dashed var(--input-border);
 		border-radius: var(--radius-md);
@@ -112,128 +153,44 @@
 		transition: all var(--transition-smooth);
 		cursor: pointer;
 	}
-
 	.ingestion-zone.dragover {
 		border-color: var(--btn-primary-bg);
 		background: rgba(var(--color-primary-rgb), var(--op-subtle));
 	}
-
 	.ingestion-icon {
 		font-size: 2rem;
 		line-height: 1;
 	}
-
 	.ingestion-title {
 		font-weight: var(--fw-semibold);
 		font-size: var(--fs-md);
 		color: var(--text-primary);
 	}
-
 	.ingestion-hint {
 		color: var(--text-secondary);
 		font-size: var(--fs-xs);
 	}
-
+	.visually-hidden-file-input {
+		display: none;
+	}
 	.ingestion-actions-grid {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-sm);
 	}
 
-	.btn-paste-action {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--space-xs);
-		background: var(--btn-primary-bg);
-		color: var(--btn-primary-text);
-		border: none;
-		border-radius: var(--radius-md);
-		padding: var(--space-sm) var(--space-lg);
-		font-size: var(--fs-sm);
-		font-weight: var(--fw-semibold);
-		font-family: var(--font-main);
-		cursor: pointer;
-		width: 100%;
-		transition: filter var(--transition-fast);
-	}
-
-	.btn-paste-action:hover {
-		filter: brightness(1.08);
-	}
-
-	.btn-camera-action {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--space-xs);
-		background: var(--btn-reset-bg);
-		color: var(--text-primary);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-md);
-		padding: var(--space-sm) var(--space-lg);
-		font-size: var(--fs-sm);
-		font-weight: var(--fw-semibold);
-		font-family: var(--font-main);
-		cursor: pointer;
-		width: 100%;
-		transition: all var(--transition-fast);
-	}
-
-	.btn-camera-action:hover {
-		border-color: var(--btn-primary-bg);
-		color: var(--btn-primary-bg);
-		background: rgba(var(--color-primary-rgb), var(--op-glow));
-	}
-
-	/* TVM Dispenser Launcher Button */
-	.btn-tvm-launcher {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--space-xs);
-		background: rgba(var(--color-primary-rgb), var(--op-glow));
-		color: var(--btn-primary-bg);
-		border: 1px solid rgba(var(--color-primary-rgb), var(--op-shadow));
-		border-radius: var(--radius-md);
-		padding: var(--space-sm);
-		font-size: var(--fs-sm);
-		font-weight: var(--fw-semibold);
-		font-family: var(--font-main);
-		text-decoration: none;
-		cursor: pointer;
-		transition: all var(--transition-fast);
-	}
-
-	.btn-tvm-launcher:hover {
-		background: rgba(var(--color-primary-rgb), var(--op-subtle));
-		filter: brightness(1.06);
-	}
-
-
-	/* 5. Active Ticket Pass Card */
+	/* 4. Active Gate Pass Card & Turnstile QR */
 	.pass-card {
 		display: none;
-		background: var(--card-bg);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-xl);
-		padding: var(--space-lg);
-		box-shadow: var(--shadow-lg);
-		flex-direction: column;
 		align-items: center;
-		gap: var(--space-md);
 		position: relative;
 		overflow: hidden;
-		transition: background-color var(--transition-smooth);
 	}
-
 	.pass-card.active {
 		display: flex;
 	}
-
 	.pass-card::before {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -241,7 +198,6 @@
 		height: 4px;
 		background: linear-gradient(90deg, rgb(var(--color-success-rgb)), rgb(var(--color-primary-rgb)));
 	}
-
 	.pass-header {
 		width: 100%;
 		display: flex;
@@ -250,7 +206,6 @@
 		border-bottom: 1px dashed var(--border-color);
 		padding-bottom: var(--space-sm);
 	}
-
 	.pass-status-pill {
 		display: flex;
 		align-items: center;
@@ -259,7 +214,6 @@
 		font-weight: var(--fw-bold);
 		color: rgb(var(--color-success-rgb));
 	}
-
 	.pass-status-dot {
 		width: 8px;
 		height: 8px;
@@ -267,14 +221,19 @@
 		border-radius: var(--radius-full);
 		animation: pulseDot 1.5s infinite;
 	}
-
 	@keyframes pulseDot {
-		0%, 100% { opacity: 1; transform: scale(1); }
-		50% { opacity: 0.4; transform: scale(0.8); }
+		0%,
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.4;
+			transform: scale(0.8);
+		}
 	}
-
 	.pass-timer {
-		font-family: var(--font-mono, 'Share Tech Mono', monospace);
+		font-family: var(--font-mono, monospace);
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-bold);
 		color: var(--text-secondary);
@@ -283,10 +242,12 @@
 		border-radius: var(--radius-xs);
 		border: 1px solid var(--border-color);
 	}
+	.pass-timer.expired {
+		color: rgb(var(--color-danger-rgb));
+	}
 
-	/* 6. QR Canvas Frame */
 	.qr-frame {
-		background: #ffffff; /* QR reading requires high-contrast white backing */
+		background: var(--card-bg);
 		padding: var(--space-md);
 		border-radius: var(--radius-md);
 		box-shadow: var(--shadow-md);
@@ -297,104 +258,57 @@
 		height: 250px;
 		border: 1px solid var(--border-color);
 	}
-
 	.qr-canvas {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
-		border-radius: var(--radius-xs);
 	}
-
-	/* 7. Pass Action Buttons Grid */
+	.pass-subtitle-wrap {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+	.pass-turnstile-title {
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+	.pass-turnstile-subtitle {
+		font-size: var(--fs-xs);
+		color: var(--text-muted);
+	}
 	.pass-actions-grid {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-sm);
-		margin-top: var(--space-xs);
 	}
-
 	.pass-actions-row {
 		display: flex;
 		gap: var(--space-sm);
 		width: 100%;
 	}
-
 	.btn-gate-mode {
 		flex: 1.5;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--space-xs);
 		background: var(--text-primary);
 		color: var(--card-bg);
 		border: none;
-		border-radius: var(--radius-md);
-		padding: var(--space-sm) var(--space-md);
-		font-size: var(--fs-sm);
-		font-weight: var(--fw-semibold);
-		cursor: pointer;
-		transition: filter var(--transition-fast);
 	}
-
 	.btn-gate-mode:hover {
 		filter: brightness(1.15);
 	}
-
 	.btn-view-original {
 		flex: 1;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--space-xs);
 		background: rgba(var(--color-primary-rgb), var(--op-glow));
 		color: var(--btn-primary-bg);
 		border: 1px solid rgba(var(--color-primary-rgb), var(--op-shadow));
-		border-radius: var(--radius-md);
-		padding: var(--space-sm);
-		font-size: var(--fs-sm);
-		font-weight: var(--fw-semibold);
-		cursor: pointer;
-		transition: all var(--transition-fast);
 	}
-
 	.btn-view-original:hover {
 		background: rgba(var(--color-primary-rgb), var(--op-subtle));
 	}
 
-	.btn-archive-active {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--space-xs);
-		background: var(--btn-reset-bg);
-		color: var(--btn-reset-text);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-md);
-		padding: var(--space-sm);
-		font-size: var(--fs-sm);
-		font-weight: var(--fw-semibold);
-		cursor: pointer;
-		transition: background var(--transition-fast);
-	}
-
-	.btn-archive-active:hover {
-		background: var(--btn-reset-hover);
-	}
-
-	/* 8. History Section & Cards */
-	.history-card {
-		background: var(--card-bg);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-lg);
-		padding: var(--space-lg);
-		box-shadow: var(--shadow-md);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-	}
-
+	/* 5. History Section */
 	.history-header {
 		display: flex;
 		justify-content: space-between;
@@ -402,19 +316,16 @@
 		border-bottom: 1px solid var(--border-color);
 		padding-bottom: var(--space-sm);
 	}
-
 	.history-title-wrap {
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
 	}
-
 	.history-title {
 		font-size: var(--fs-md);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
 	}
-
 	.history-count-badge {
 		font-size: var(--fs-xs);
 		background: var(--btn-reset-bg);
@@ -423,7 +334,6 @@
 		border-radius: var(--radius-full);
 		font-weight: var(--fw-semibold);
 	}
-
 	.btn-clear-all-history {
 		background: transparent;
 		border: 1px solid rgba(var(--color-danger-rgb), 0.35);
@@ -435,11 +345,9 @@
 		cursor: pointer;
 		transition: background var(--transition-fast);
 	}
-
 	.btn-clear-all-history:hover {
 		background: rgba(var(--color-danger-rgb), var(--op-glow));
 	}
-
 	.btn-clear-all-history:disabled {
 		opacity: 0.4;
 		cursor: not-allowed;
@@ -453,7 +361,6 @@
 		overflow-y: auto;
 		padding-right: 2px;
 	}
-
 	.history-item {
 		display: flex;
 		align-items: center;
@@ -465,17 +372,15 @@
 		background: var(--bg-app);
 		transition: border-color var(--transition-fast), background var(--transition-fast);
 	}
-
-	.history-item.is-active {
+	.history-item.active {
 		border-color: rgb(var(--color-success-rgb));
 		background: rgba(var(--color-success-rgb), 0.08);
 	}
-
 	.history-thumb-wrap {
 		width: 44px;
 		height: 44px;
 		min-width: 44px;
-		background: #ffffff;
+		background: var(--card-bg);
 		border-radius: var(--radius-xs);
 		border: 1px solid var(--border-color);
 		padding: 2px;
@@ -483,14 +388,12 @@
 		align-items: center;
 		justify-content: center;
 	}
-
 	.history-thumb {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
 		border-radius: var(--radius-xs);
 	}
-
 	.history-meta {
 		flex: 1;
 		display: flex;
@@ -498,48 +401,43 @@
 		gap: 2px;
 		min-width: 0;
 	}
-
-	.history-date {
+	.history-meta-top {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+	}
+	.history-engine-name {
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
 		color: var(--text-primary);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
-
+	.history-time {
+		font-size: var(--fs-2xs);
+		color: var(--text-muted);
+	}
 	.history-status-pill {
-		display: inline-flex;
-		align-items: center;
-		gap: 4px;
 		font-size: var(--fs-2xs);
 		font-weight: var(--fw-bold);
-		width: fit-content;
 		padding: 1px var(--space-xs);
 		border-radius: var(--radius-full);
 	}
-
 	.history-status-pill.active {
 		background: rgba(var(--color-success-rgb), 0.15);
 		color: rgb(var(--color-success-rgb));
 	}
-
 	.history-status-pill.archived {
 		background: var(--btn-reset-bg);
 		color: var(--text-secondary);
 	}
-
 	.history-status-pill.expired {
 		background: rgba(var(--color-warning-rgb), 0.15);
 		color: rgb(var(--color-warning-rgb));
 	}
-
 	.history-item-actions {
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
 	}
-
 	.btn-restore-ticket {
 		background: var(--btn-primary-bg);
 		color: var(--btn-primary-text);
@@ -549,16 +447,11 @@
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
 		cursor: pointer;
-		display: flex;
-		align-items: center;
-		gap: 4px;
 		transition: filter var(--transition-fast);
 	}
-
 	.btn-restore-ticket:hover {
 		filter: brightness(1.1);
 	}
-
 	.btn-delete-history-item {
 		background: transparent;
 		border: 1px solid var(--border-color);
@@ -569,13 +462,11 @@
 		cursor: pointer;
 		transition: all var(--transition-fast);
 	}
-
 	.btn-delete-history-item:hover {
 		color: rgb(var(--color-danger-rgb));
 		border-color: rgba(var(--color-danger-rgb), 0.4);
 		background: rgba(var(--color-danger-rgb), var(--op-glow));
 	}
-
 	.history-empty-state {
 		text-align: center;
 		padding: var(--space-xl) var(--space-md);
@@ -583,18 +474,7 @@
 		font-size: var(--fs-sm);
 	}
 
-	/* 9. User Guide & Information Cards */
-	.info-guide-card {
-		background: var(--card-bg);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-lg);
-		padding: var(--space-lg);
-		box-shadow: var(--shadow-md);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-	}
-
+	/* 6. Guide & Benefits Sections */
 	.info-guide-title {
 		font-size: var(--fs-md);
 		font-weight: var(--fw-bold);
@@ -603,14 +483,14 @@
 		gap: var(--space-xs);
 		color: var(--text-primary);
 	}
-
-	.guide-steps-grid {
+	.guide-steps-grid,
+	.benefits-list {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-sm);
 	}
-
-	.guide-step-box {
+	.guide-step-box,
+	.benefit-item {
 		background: var(--bg-app);
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius-md);
@@ -619,29 +499,28 @@
 		gap: var(--space-sm);
 		align-items: flex-start;
 	}
-
-	.guide-step-icon {
-		font-size: 1.4rem;
+	.guide-step-icon,
+	.benefit-icon {
+		font-size: 1.3rem;
 		line-height: 1;
 		background: rgba(var(--color-primary-rgb), var(--op-glow));
 		padding: var(--space-sm);
 		border-radius: var(--radius-md);
 		color: var(--btn-primary-bg);
 	}
-
-	.guide-step-content h3 {
+	.guide-step-content h3,
+	.benefit-text h4 {
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-bold);
-		margin-bottom: 3px;
 		color: var(--text-primary);
+		margin-bottom: 2px;
 	}
-
-	.guide-step-content p {
+	.guide-step-content p,
+	.benefit-text p {
 		font-size: var(--fs-xs);
 		color: var(--text-secondary);
 		line-height: 1.45;
 	}
-
 	.principle-banner {
 		background: rgba(var(--color-primary-rgb), var(--op-glow));
 		border-left: 3px solid var(--btn-primary-bg);
@@ -652,70 +531,30 @@
 		line-height: 1.45;
 	}
 
-	.why-use-card {
-		/* background, backdrop-filter और color: #ffffff यहाँ से हटा दें */
-		border-radius: var(--radius-xl);
-		padding: var(--space-2xl);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-xl);
-	}
-
-	.benefits-list {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-sm);
-	}
-
-	.benefit-item {
-		display: flex;
-		align-items: flex-start;
-		gap: var(--space-sm);
-		background: var(--card-bg);
-		padding: var(--space-sm) var(--space-md);
-		border-radius: var(--radius-md);
-		border: 1px solid var(--border-color);
-	}
-
-	.benefit-icon {
-		font-size: 1.25rem;
-		line-height: 1;
-		padding-top: 2px;
-	}
-
-	.benefit-text h4 {
-		font-size: var(--fs-sm);
-		font-weight: var(--fw-bold);
-		color: var(--text-primary);
-		margin-bottom: 2px;
-	}
-
-	.benefit-text p {
-		font-size: var(--fs-xs);
-		color: var(--text-secondary);
-		line-height: 1.4;
-	}
-
-	/* 10. Modals: Gate View, Lightbox & Confirmation */
+	/* 7. Master Modals System */
 	.modal-overlay {
 		display: none;
 		position: fixed;
 		inset: 0;
 		background: rgba(0, 0, 0, var(--op-glass, 0.75));
-		backdrop-filter: blur(var(--backdrop-blur));
-		-webkit-backdrop-filter: blur(var(--backdrop-blur));
-		z-index: var(--z-modal);
+		backdrop-filter: blur(var(--backdrop-blur, 16px));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur, 16px));
+		z-index: var(--z-modal, 1000);
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		padding: var(--space-lg);
 	}
-
 	.modal-overlay.active {
 		display: flex;
 	}
+	.modal-overlay-dark {
+		background: rgba(0, 0, 0, 0.95);
+	}
 
-	.modal-box {
+	.modal-box,
+	.camera-modal-box,
+	.original-modal-box {
 		background: var(--card-bg);
 		color: var(--text-primary);
 		border-radius: var(--radius-xl);
@@ -724,32 +563,64 @@
 		flex-direction: column;
 		align-items: center;
 		gap: var(--space-md);
-		max-width: 360px;
+		max-width: 420px;
 		width: 100%;
 		text-align: center;
 		box-shadow: var(--shadow-lg);
 		border: 1px solid var(--border-color);
 	}
+	.modal-box-gate {
+		background: var(--card-bg);
+		color: var(--text-primary);
+		max-width: 320px;
+	}
+	.gate-modal-title {
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+	.gate-canvas-large {
+		width: 250px;
+		height: 250px;
+		object-fit: contain;
+		background: var(--card-bg);
+		border-radius: var(--radius-md);
+		border: 1px solid var(--border-color);
+	}
+	.gate-modal-hint {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+	}
+	.btn-gate-modal-done {
+		width: 100%;
+		background: var(--text-primary);
+		color: var(--card-bg);
+		border: none;
+		border-radius: var(--radius-full);
+		padding: var(--space-sm);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+	}
 
-	.modal-title {
+	.modal-title,
+	.camera-modal-title,
+	.original-modal-title {
 		font-size: var(--fs-lg);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
 	}
-
 	.modal-desc {
 		font-size: var(--fs-sm);
 		color: var(--text-secondary);
 		line-height: 1.4;
 	}
-
 	.modal-btn-row {
 		display: flex;
 		gap: var(--space-sm);
 		width: 100%;
 		margin-top: var(--space-xs);
 	}
-
 	.modal-btn-cancel {
 		flex: 1;
 		background: var(--btn-reset-bg);
@@ -759,13 +630,7 @@
 		padding: var(--space-sm);
 		font-weight: var(--fw-semibold);
 		cursor: pointer;
-		transition: background var(--transition-fast);
 	}
-
-	.modal-btn-cancel:hover {
-		background: var(--btn-reset-hover);
-	}
-
 	.modal-btn-confirm {
 		flex: 1.2;
 		background: var(--btn-primary-bg);
@@ -775,47 +640,21 @@
 		padding: var(--space-sm);
 		font-weight: var(--fw-semibold);
 		cursor: pointer;
-		transition: filter var(--transition-fast);
 	}
 
-	.modal-btn-confirm:hover {
-		filter: brightness(1.08);
-	}
-
-	.modal-btn-confirm.danger {
-		background: rgb(var(--color-danger-rgb));
-	}
-
-	/* Gate Modal Specific */
-	.gate-canvas-large {
-		width: 250px;
-		height: 250px;
-		object-fit: contain;
-		background: #ffffff;
-		border-radius: var(--radius-md);
-		border: 1px solid var(--border-color);
-	}
-
-	/* Original Image Lightbox Modal */
-	.original-modal-box {
-		background: var(--card-bg);
-		color: var(--text-primary);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-xl);
-		padding: var(--space-lg);
+	.original-modal-header {
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--space-md);
-		max-width: 420px;
+		justify-content: space-between;
 		width: 100%;
-		max-height: 90vh;
-		box-shadow: var(--shadow-lg);
+		align-items: center;
 	}
-
+	.original-modal-badge {
+		font-size: var(--fs-xs);
+		color: var(--text-muted);
+	}
 	.original-image-preview-wrap {
 		width: 100%;
-		max-height: 65vh;
+		max-height: 60vh;
 		overflow-y: auto;
 		background: var(--bg-app);
 		border: 1px solid var(--border-color);
@@ -825,11 +664,110 @@
 		align-items: center;
 		justify-content: center;
 	}
-
 	.original-image-preview {
 		max-width: 100%;
 		height: auto;
 		border-radius: var(--radius-xs);
-		box-shadow: var(--shadow-md);
+	}
+
+	/* 8. Live Camera Scanner Modal */
+	.camera-modal-header {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.btn-switch-camera {
+		background: var(--btn-reset-bg);
+		border: 1px solid var(--border-color);
+		color: var(--text-primary);
+		border-radius: var(--radius-full);
+		width: 36px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		font-size: var(--fs-sm);
+	}
+	.camera-viewport-wrap {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		max-width: 300px;
+		background: #000000;
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.camera-video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.camera-viewfinder-overlay {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		pointer-events: none;
+	}
+	.camera-viewfinder-reticle {
+		width: 75%;
+		height: 75%;
+		border: 2px solid rgba(255, 255, 255, 0.85);
+		border-radius: var(--radius-md);
+		position: relative;
+		box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+	}
+	.camera-viewfinder-reticle::before,
+	.camera-viewfinder-reticle::after {
+		content: "";
+		position: absolute;
+		width: 16px;
+		height: 16px;
+		border-color: rgb(var(--color-primary-rgb));
+		border-style: solid;
+	}
+	.camera-viewfinder-reticle::before {
+		top: -2px;
+		left: -2px;
+		border-width: 4px 0 0 4px;
+		border-top-left-radius: var(--radius-sm);
+	}
+	.camera-viewfinder-reticle::after {
+		bottom: -2px;
+		right: -2px;
+		border-width: 0 4px 4px 0;
+		border-bottom-right-radius: var(--radius-sm);
+	}
+	.camera-scan-laser {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: rgb(var(--color-primary-rgb));
+		box-shadow: 0 0 8px rgb(var(--color-primary-rgb));
+		animation: cameraScanAnim 2s infinite ease-in-out;
+	}
+	@keyframes cameraScanAnim {
+		0%,
+		100% {
+			top: 5%;
+			opacity: 0.2;
+		}
+		50% {
+			top: 95%;
+			opacity: 1;
+		}
+	}
+	.camera-modal-hint {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		text-align: center;
 	}
 }

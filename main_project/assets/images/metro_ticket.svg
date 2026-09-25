@@ -621,8 +621,9 @@
 		</g>
 
 		<!-- Header Title: METRO TICKET -->
-		<text id="ticket-header-title-val" transform="matrix(1 0 0 1 54 52)" style="fill:#B88D4B; font-family:'LeagueGothic-Regular', 'RobotoCondensed-Bold', sans-serif; font-size:42px; letter-spacing:2.5px;">METRO TICKET</text>
-		
+		<text id="ticket-header-title-val" transform="matrix(1 0 0 1 54 52)" style="fill:#B88D4B; font-family:'LeagueGothic-Regular', 'RobotoCondensed-Bold', sans-serif; font-size:32px; letter-spacing:1.5px;">VIRTUAL METRO PASS</text>
+
+
 		<!-- Elegant Subtle Gold Divider Line -->
 		<line x1="16" y1="66" x2="435" y2="66" style="stroke:#B88D4B; stroke-width:1; opacity:0.35;"/>
 
@@ -909,8 +910,8 @@
 	<line x1="-45" y1="46" x2="45" y2="46" style="stroke:#B88D4B; stroke-width:1; opacity:0.65;"/>
 	<circle cx="0" cy="46" r="2.2" style="fill:#B88D4B;"/>
 
-	<!-- Official Pass Subtitle -->
-	<text text-anchor="middle" y="59" style="fill:#B88D4B; font-family:'RobotoCondensed-Bold', sans-serif; font-size:10px; letter-spacing:2px;">OFFICIAL METRO PASS</text>
+		<!-- Virtual Pass Subtitle -->
+	<text text-anchor="middle" y="59" style="fill:#B88D4B; font-family:'RobotoCondensed-Bold', sans-serif; font-size:9.5px; letter-spacing:1.5px;">VIRTUAL METRO PASS</text>
 </g>
 
 <!-- =========================================================================

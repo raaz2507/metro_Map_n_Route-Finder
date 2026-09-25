@@ -1,0 +1,12 @@
+{
+  "appId": "com.raaz.metroroutefinder",
+  "appName": "Metro Route Finder",
+  "webDir": "main_project",
+  "plugins": {
+    "StatusBar": {
+      "overlaysWebView": true,
+      "style": "LIGHT",
+      "backgroundColor": "#00000000"
+    }
+  }
+}

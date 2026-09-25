@@ -1,0 +1,113 @@
+flowchart TB
+    %% ==========================================================
+    %% LAYER 1: SOURCE LAYER
+    %% ==========================================================
+    subgraph SOURCELAYER ["1. SOURCE LAYER (Official Metro Portals & APIs)"]
+        direction LR
+        S_DMRC["DMRC Portal"]
+        S_NMRC["NMRC Portal"]
+        S_NCRTC["NCRTC Namo Bharat"]
+        subgraph S_MUMBAI ["Mumbai Metro (3 Operators)"]
+            direction TB
+            S_MUM_L1["MMOPL (Line 1)"]
+            S_MUM_L27["MMMOCL (Line 2A/7)"]
+            S_MUM_L3["MMRCL (Line 3)"]
+        end
+    end
+
+    %% ==========================================================
+    %% LAYER 2: ENGINE LAYER
+    %% ==========================================================
+    subgraph ENGINELAYER ["2. ENGINE LAYER (import_data_new)"]
+        direction TB
+
+        subgraph STAGE1 ["Stage 1: Ingestion & Harvest"]
+            direction LR
+            SCRAPER["universal_scraper.py<br/>(Orchestrator)"]
+            ADAPTERS["pipeline_core/base_adapter.py<br/>+ adapters/*.py"]
+            HARVESTER["media_harvester.py"]
+            SCRAPER <--> ADAPTERS
+            SCRAPER -.-> HARVESTER
+        end
+
+        subgraph STAGE2 ["Stage 2: Normalization"]
+            direction LR
+            CLEANER["universal_cleaner.py<br/>(Orchestrator)"]
+            CLEAN_RULES["cleaners/*.py"]
+            CLEANER <--> CLEAN_RULES
+        end
+
+        subgraph STAGE3 ["Stage 3: Structure Supervision & Master"]
+            direction LR
+            STRUCTURE["master_structure.py<br/>(Structure Supervision & Schema Definition)"]
+            MASTER["universal_master.py<br/>(Master Builder)"]
+            AUDIT["master_audit.py<br/>(Manifest & Pipeline Auditor)"]
+            
+            STRUCTURE --> MASTER
+            AUDIT -. Audit Only .-> MASTER
+        end
+    end
+
+    %% ==========================================================
+    %% LAYER 3: DATA LAYER
+    %% ==========================================================
+    subgraph DATALAYER ["3. DATA LAYER (File System Storage)"]
+        direction LR
+        RAW_DATA[("<net>_raw.json")]
+        MEDIA_STORE[("media/")]
+        CLEANED_DATA[("<net>_cleaned.json")]
+        MASTER_DATA[("<net>_master.json")]
+    end
+
+    %% ==========================================================
+    %% LAYER 4: GATEWAY & DELTA CALCULATION
+    %% ==========================================================
+    subgraph GATEWAY ["4. GATEWAY & DELTA ENGINE"]
+        DELTA["Delta Calculator<br/>Delta = Cleaned - Master"]
+    end
+
+    %% ==========================================================
+    %% LAYER 5: UI & CONTROL LAYER
+    %% ==========================================================
+    subgraph UILAYER ["5. UI & CONTROL LAYER"]
+        direction TB
+        SERVER["server.py (SSE Stream)"]
+        ADMIN_JS["admin.js / Dashboard"]
+        SEC1["Section 1: Staging Review"]
+        SEC2["Section 2: Active Station Dataset"]
+
+        SERVER <--> ADMIN_JS
+        ADMIN_JS --> SEC1
+        ADMIN_JS --> SEC2
+    end
+
+    %% ==========================================================
+    %% LAYER 6: PRODUCTION LAYER
+    %% ==========================================================
+    subgraph PRODLAYER ["6. PRODUCTION LAYER (Client Facing)"]
+        direction LR
+        PROD_DATA[("data.json")]
+        PROD_STATIONS[("stations_data.json")]
+    end
+
+    %% ==========================================================
+    %% CONNECTIONS ACROSS LAYERS
+    %% ==========================================================
+    SOURCELAYER --> STAGE1
+    STAGE1 --> RAW_DATA
+    HARVESTER --> MEDIA_STORE
+
+    RAW_DATA --> STAGE2
+    STAGE2 --> CLEANED_DATA
+
+    CLEANED_DATA --> STAGE3
+    STAGE3 --> MASTER_DATA
+
+    CLEANED_DATA --> DELTA
+    MASTER_DATA --> DELTA
+
+    DELTA --> SERVER
+    SERVER -. Trigger Pipeline .-> ENGINELAYER
+
+    SEC1 -- "Approve / Merge Delta" --> MASTER_DATA
+    MASTER_DATA -- "Publish Release" --> PRODLAYER

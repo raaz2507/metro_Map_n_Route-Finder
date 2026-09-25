@@ -132,38 +132,36 @@ class TvmKioskApp {
 			}
 		}
 	}
+
+
 	/* -------------------------------------------------------------------------
 	   5. DATA SYNC (WALLET & FORM & LOCAL STORAGE)
-	   ------------------------------------------------------------------------- */
+	------------------------------------------------------------------------- */
 	#loadTicketFromWallet() {
 		try {
 			const rawData = localStorage.getItem('metro_ticket_wallet_store');
 			if (rawData) {
 				const store = JSON.parse(rawData);
-				
 				if (store?.activeTicketId && Array.isArray(store.history)) {
 					const activeRecord = store.history.find(t => t.id === store.activeTicketId);
-					
 					if (activeRecord?.cleanQrDataUrl) {
-						this.#applyFormDataToTicket();
-						
 						if (this.#ticketCtrl) {
 							this.#ticketCtrl.setQrCode(activeRecord.cleanQrDataUrl);
 							this.#activeQrUrl = activeRecord.cleanQrDataUrl;
 							this.#dom.btnTvmGateMode?.classList.remove('hidden');
 						}
-						
-						setTimeout(() => this.#triggerDispense(), 1000);
+						setTimeout(() => this.#triggerDispense(), 800);
 						return;
 					}
 				}
 			}
 		} catch (e) {
-			console.warn("Wallet data not found or parse error:", e);
+			console.warn("Wallet data not found:", e);
 		}
-		
 		this.#applyFormDataToTicket();
 	}
+
+
 	#applyFormDataToTicket() {
 		const d = this.#dom;
 		

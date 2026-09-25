@@ -1157,7 +1157,7 @@
 		#app-footer,
 		footer,
 		.site-footer {
-			display: flex !important;
+			display: flex ;
 		}
 
 		.about-hero,
@@ -1218,6 +1218,6 @@
 /* Utilities Layer */
 @layer utilities {
 	.hidden {
-		display: none !important;
+		display: none ;
 	}
 }

@@ -16,6 +16,7 @@ export default {
 			dropTitle: "Drop Paper Ticket or Screenshot",
 			dropHint: "Multi-Engine Fallback: BarcodeDetector -> jsQR -> ZXing",
 			btnCamera: "Take Photo with Camera (Paper Ticket)",
+			btnBrowse: "Browse File from Device / Gallery",
 			btnPaste: "Tap to Paste Screenshot from Clipboard"
 		},
 		pass: {
@@ -69,6 +70,12 @@ export default {
 			sub: "Original Backup",
 			btnClose: "Close Preview"
 		},
+		camera: {
+			title: "Live Camera Ticket Scanner",
+			hint: "Align paper ticket QR inside frame to scan",
+			switchCamera: "Switch Camera",
+			btnClose: "Cancel / Close"
+		},
 		confirm: {
 			title: "Warning",
 			cancel: "Cancel",
@@ -89,6 +96,8 @@ export default {
 		movedToHistory: "Active ticket moved to History.",
 		restoredToGatePass: "Ticket restored to Gate Pass!",
 		deletedFromHistory: "Ticket deleted from History.",
-		allCleared: "All ticket history cleared."
+		allCleared: "All ticket history cleared.",
+		cameraPermissionDenied: "Camera permission denied or camera not available.",
+		cameraError: "Unable to start camera. Please upload ticket image instead."
 	}
 };

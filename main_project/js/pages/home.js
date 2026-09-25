@@ -104,6 +104,9 @@ class HomePageController {
 
 			this.#recentSearchesView.render(this.#settings.currentLang);
 			this.#handleUrlParams();
+
+			// 🔗 Native Android Deep Link Listener
+			this.#initDeepLinkListener();
 		} catch (error) {
 			console.error("[Dashboard] Initialization failed:", error);
 		}
@@ -277,8 +280,8 @@ class HomePageController {
 		}
 		this.#shareModalComponent?.shareRoute(this.#currentRouteInfo, this.#settings.currentLang);
 	}
-	#handleUrlParams() {
-		const urlParams = new URLSearchParams(window.location.search);
+	#handleUrlParams(customParams = null) {
+		const urlParams = customParams || new URLSearchParams(window.location.search);
 		const fromId = urlParams.get("from");
 		const toId = urlParams.get("to") || urlParams.get("station");
 		const priority = urlParams.get("priority");
@@ -320,6 +323,43 @@ class HomePageController {
 			}
 		}
 	}
+
+
+	#initDeepLinkListener() {
+		if (window.Capacitor && window.Capacitor.isNativePlatform() && window.Capacitor.Plugins?.App) {
+			const App = window.Capacitor.Plugins.App;
+
+			// 1. Cold Start (App band thi aur user ne link par click kiya)
+			App.getLaunchUrl().then(ret => {
+				if (ret?.url) {
+					this.#processIncomingUrl(ret.url);
+				}
+			}).catch(() => {});
+
+			// 2. Warm Start (App background me thi aur user ne link click kiya)
+			App.addListener('appUrlOpen', (data) => {
+				console.log('[DeepLink] App opened with URL:', data.url);
+				if (data?.url) {
+					this.#processIncomingUrl(data.url);
+				}
+			});
+		}
+	}
+
+	#processIncomingUrl(rawUrl) {
+		try {
+			let urlObj;
+			if (rawUrl.startsWith('metroapp://')) {
+				urlObj = new URL(rawUrl.replace('metroapp://', 'https://dummy.app/'));
+			} else {
+				urlObj = new URL(rawUrl);
+			}
+			this.#handleUrlParams(urlObj.searchParams);
+		} catch (e) {
+			console.warn('[DeepLink] Failed to parse URL:', e);
+		}
+	}
+	
 	#sidebarNav_event(signal) {
 		const sidebarLinks = document.querySelectorAll(".sidebar-link");
 		const sections = document.querySelectorAll(".sidebar-section");

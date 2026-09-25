@@ -4,6 +4,7 @@
  * Social Media share links (WhatsApp, Telegram, SMS), Clipboard copy, and Toast notifications.
  */
 import { centerClass } from "../core/CenterClass.js";
+import { APP_CONFIG } from "../core/app-config.js";
 
 export class ShareModalComponent {
 	#elements = {};
@@ -80,7 +81,7 @@ export class ShareModalComponent {
 		const totalMin = Math.round(routeInfo.totalTravelTimeSeconds / 60);
 		const fare = routeInfo.fare?.totalFare || 0;
 
-		const shareUrl = `${window.location.origin}${window.location.pathname}?from=${encodeURIComponent(startId)}&to=${encodeURIComponent(endId)}`;
+				const shareUrl = `${APP_CONFIG.getBaseUrl()}?from=${encodeURIComponent(startId)}&to=${encodeURIComponent(endId)}`;
 		const shareText = `🚇 Metro Route: ${startName} → ${endName}\n⏱️ Time: ~${totalMin} min | 📏 Distance: ${distKm} km | 💰 Fare: ₹${fare}\n🔗 Details: ${shareUrl}`;
 
 		this.#share({

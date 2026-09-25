@@ -418,38 +418,60 @@ export class MetroMap {
 
 		// 3. टच पैनिंग (Touch Panning for Mobile)
 		svgElement.addEventListener("touchstart", (e) => {
+			if (this.#panAnimFrame) {
+				cancelAnimationFrame(this.#panAnimFrame);
+				this.#panAnimFrame = null;
+			}
 			if (e.touches.length === 1) {
-				if (this.#panAnimFrame) {
-					cancelAnimationFrame(this.#panAnimFrame);
-					this.#panAnimFrame = null;
-				}
 				this.#pan.isPanning = true;
-					
 				const touch = e.touches[0];
 				const svgPt = this.#getSVGCoordinates(touch.clientX, touch.clientY);
-
 				this.#pan.startX = svgPt.x - this.#pan.panX;
 				this.#pan.startY = svgPt.y - this.#pan.panY;
+			} else if (e.touches.length === 2) {
+				this.#pan.isPanning = false;
+				const dx = e.touches[0].clientX - e.touches[1].clientX;
+				const dy = e.touches[0].clientY - e.touches[1].clientY;
+				this.#pan.initialPinchDist = Math.hypot(dx, dy);
+				this.#pan.initialZoom = this.zoomScale;
+				const cx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+				const cy = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+				const svgPt = this.#getSVGCoordinates(cx, cy);
+				this.#pan.pinchCx = svgPt.x;
+				this.#pan.pinchCy = svgPt.y;
 			}
-		},{ passive: true, signal },);
+		},{ passive: false, signal });
 
-		svgElement.addEventListener(
-			"touchmove",
-			(e) => {
-				if (!this.#pan.isPanning || e.touches.length !== 1) return;
+		svgElement.addEventListener("touchmove", (e) => {
+			if (e.touches.length === 1 && this.#pan.isPanning) {
 				const touch = e.touches[0];
 				const svgPt = this.#getSVGCoordinates(touch.clientX, touch.clientY);
-
 				this.#pan.panX = svgPt.x - this.#pan.startX;
 				this.#pan.panY = svgPt.y - this.#pan.startY;
-
 				this.#updateZoomTransform();
-			},
-			{ passive: true, signal },
-		);
+			} else if (e.touches.length === 2 && this.#pan.initialPinchDist) {
+				e.preventDefault(); 
+				const dx = e.touches[0].clientX - e.touches[1].clientX;
+				const dy = e.touches[0].clientY - e.touches[1].clientY;
+				const dist = Math.hypot(dx, dy);
+				const scale = dist / this.#pan.initialPinchDist;
+				let newZoom = this.#pan.initialZoom * scale;
+				newZoom = Math.max(0.1, Math.min(newZoom, 30.0));
+				
+				this.#pan.panX = this.#pan.pinchCx - (this.#pan.pinchCx - this.#pan.panX) * (newZoom / this.zoomScale);
+				this.#pan.panY = this.#pan.pinchCy - (this.#pan.pinchCy - this.#pan.panY) * (newZoom / this.zoomScale);
+				this.zoomScale = newZoom;
+				this.#updateZoomTransform();
+			}
+		}, { passive: false, signal });
 
-		svgElement.addEventListener("touchend", () => {
-			this.#pan.isPanning = false;
+		svgElement.addEventListener("touchend", (e) => {
+			if (e.touches.length < 2) {
+				this.#pan.initialPinchDist = null;
+			}
+			if (e.touches.length === 0) {
+				this.#pan.isPanning = false;
+			}
 		}, { signal });
 
 		// 4. कर्सर केंद्रित ज़ूम (Scroll Wheel Zoom to Cursor) - बिल्कुल परफेक्ट मैथ

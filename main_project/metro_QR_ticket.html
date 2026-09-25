@@ -28,9 +28,9 @@
 	<main class="wallet-container">
 		<!-- Card 1: WhatsApp Booking Bridge -->
 		<section class="wallet-card">
-			<div style="display:flex; flex-direction:column; gap:4px;">
-				<h2 style="font-size:var(--fs-md); font-weight:var(--fw-semibold);" data-i18n="metroTicket.cards.whatsapp.title">1. Get Real DMRC Ticket</h2>
-				<p style="font-size:var(--fs-xs); color:var(--text-secondary);" data-i18n="metroTicket.cards.whatsapp.desc">Book official QR ticket via DMRC WhatsApp Bot</p>
+			<div class="card-header-wrap">
+				<h2 class="card-title" data-i18n="metroTicket.cards.whatsapp.title">1. Get Real DMRC Ticket</h2>
+				<p class="card-desc" data-i18n="metroTicket.cards.whatsapp.desc">Book official QR ticket via DMRC WhatsApp Bot</p>
 			</div>
 			<a href="https://wa.me/919650855800?text=Hi" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-launcher">
 				<span>💬</span>
@@ -40,23 +40,26 @@
 
 		<!-- Card 2: Ingestion Zone -->
 		<section class="wallet-card" id="ingestionCard">
-			<div style="display:flex; flex-direction:column; gap:4px;">
-				<h2 style="font-size:var(--fs-md); font-weight:var(--fw-semibold);" data-i18n="metroTicket.cards.ingestion.title">2. Save Gate Ticket</h2>
-				<p style="font-size:var(--fs-xs); color:var(--text-secondary);" data-i18n="metroTicket.cards.ingestion.desc">Drop paper ticket photo or WhatsApp screenshot here</p>
+			<div class="card-header-wrap">
+				<h2 class="card-title" data-i18n="metroTicket.cards.ingestion.title">2. Save Gate Ticket</h2>
+				<p class="card-desc" data-i18n="metroTicket.cards.ingestion.desc">Drop paper ticket photo or WhatsApp screenshot here</p>
 			</div>
 
 			<div class="ingestion-zone" id="dropZone">
 				<span class="ingestion-icon">📸</span>
 				<span class="ingestion-title" data-i18n="metroTicket.cards.ingestion.dropTitle">Drop Paper Ticket or Screenshot</span>
 				<span class="ingestion-hint" data-i18n="metroTicket.cards.ingestion.dropHint">Multi-Engine Fallback: BarcodeDetector -> jsQR -> ZXing</span>
-				<input type="file" id="fileInput" accept="image/*" style="display:none;">
-				<input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none;">
+				<input type="file" id="fileInput" accept="image/*" class="visually-hidden-file-input">
 			</div>
 
 			<div class="ingestion-actions-grid">
 				<button type="button" class="btn-camera-action" id="btnCaptureCamera">
 					<span>📸</span>
 					<span data-i18n="metroTicket.cards.ingestion.btnCamera">Take Photo with Camera (Paper Ticket)</span>
+				</button>
+				<button type="button" class="btn-browse-action" id="btnBrowseFile">
+					<span>📁</span>
+					<span data-i18n="metroTicket.cards.ingestion.btnBrowse">Browse File from Device / Gallery</span>
 				</button>
 				<button type="button" class="btn-paste-action" id="btnPasteClipboard">
 					<span>📋</span>
@@ -79,9 +82,9 @@
 				<canvas id="qrDisplayCanvas" class="qr-canvas" width="600" height="600"></canvas>
 			</div>
 
-			<div style="text-align:center;">
-				<div style="font-size:var(--fs-sm); font-weight:var(--fw-bold); color:var(--text-primary);" data-i18n="metroTicket.cards.pass.turnstileTitle">Metro Turnstile Pass</div>
-				<div style="font-size:var(--fs-xs); color:var(--text-muted);" id="passQrSubtitle" data-i18n="metroTicket.cards.pass.turnstileSubtitle">Pure Mathematical Vector QR (100% Crisp)</div>
+			<div class="pass-subtitle-wrap">
+				<div class="pass-turnstile-title" data-i18n="metroTicket.cards.pass.turnstileTitle">Metro Turnstile Pass</div>
+				<div class="pass-turnstile-subtitle" id="passQrSubtitle" data-i18n="metroTicket.cards.pass.turnstileSubtitle">Pure Mathematical Vector QR (100% Crisp)</div>
 			</div>
 
 			<div class="pass-actions-grid">
@@ -163,7 +166,7 @@
 
 		<!-- SECTION 2: WHY USE METRO PASS WALLET? -->
 		<section class="why-use-card">
-			<h2 class="info-guide-title" style="color:var(--text-primary);">
+			<h2 class="info-guide-title">
 				<span>🌟</span>
 				<span data-i18n="metroTicket.benefits.title">Why Use Metro Pass Wallet?</span>
 			</h2>
@@ -204,38 +207,58 @@
 		</section>
 	</main>
 
+	<!-- Live Camera Ticket Scanner Modal -->
+	<div class="modal-overlay" id="cameraModal" role="dialog" aria-modal="true" aria-hidden="true">
+		<div class="camera-modal-box">
+			<div class="camera-modal-header">
+				<span class="camera-modal-title" data-i18n="metroTicket.modals.camera.title">Live Camera Ticket Scanner</span>
+				<button type="button" class="btn-switch-camera" id="btnSwitchCamera" title="Switch Camera" aria-label="Switch Camera">🔄</button>
+			</div>
+			<div class="camera-viewport-wrap">
+				<video id="cameraVideo" playsinline autoplay muted class="camera-video"></video>
+				<div class="camera-viewfinder-overlay">
+					<div class="camera-viewfinder-reticle">
+						<div class="camera-scan-laser"></div>
+					</div>
+				</div>
+			</div>
+			<p class="camera-modal-hint" data-i18n="metroTicket.modals.camera.hint">Align paper ticket QR inside frame to scan</p>
+			<button type="button" class="btn-modal-full-close" id="btnCloseCameraModal" data-i18n="metroTicket.modals.camera.btnClose">Cancel / Close</button>
+		</div>
+	</div>
+
 	<!-- Fullscreen Gate Scanner Modal -->
-	<div class="modal-overlay" id="gateModal" role="dialog" aria-modal="true" aria-hidden="true" style="background:#000000;">
-		<div class="modal-box" style="background:#ffffff; max-width:320px;">
-			<div class="modal-title" style="color:#0f172a;">Turnstile Gate Scan</div>
+	<div class="modal-overlay modal-overlay-dark" id="gateModal" role="dialog" aria-modal="true" aria-hidden="true">
+		<div class="modal-box modal-box-gate">
+			<div class="gate-modal-title" data-i18n="metroTicket.modals.gate.title">Turnstile Gate Scan</div>
 			<canvas id="gateModalCanvas" class="gate-canvas-large" width="600" height="600"></canvas>
-			<p style="font-size:var(--fs-xs); color:#64748b;">Scan this QR directly at metro entry/exit gate</p>
-			<button type="button" class="modal-btn-confirm" id="btnCloseGateModal" style="width:100%; background:#0f172a; border-radius:var(--radius-full);">Done / Close</button>
+			<p class="gate-modal-hint" data-i18n="metroTicket.modals.gate.hint">Scan this QR directly at metro entry/exit gate</p>
+			<button type="button" class="btn-gate-modal-done" id="btnCloseGateModal" data-i18n="metroTicket.modals.gate.btnDone">Done / Close</button>
 		</div>
 	</div>
 
 	<!-- Original Image Lightbox Modal -->
 	<div class="modal-overlay" id="originalModal" role="dialog" aria-modal="true" aria-hidden="true">
 		<div class="original-modal-box">
-			<div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
-				<span style="font-weight:var(--fw-bold); font-size:var(--fs-md);">🖼️ Original Ticket Image</span>
-				<span style="font-size:var(--fs-xs); color:#94a3b8;">Original Backup</span>
+			<div class="original-modal-header">
+				<span class="original-modal-title" data-i18n="metroTicket.modals.original.title">🖼️ Original Ticket Image</span>
+				<span class="original-modal-badge" data-i18n="metroTicket.modals.original.sub">Original Backup</span>
 			</div>
 			<div class="original-image-preview-wrap">
 				<img src="" alt="Original Ticket" id="originalImagePreview" class="original-image-preview">
 			</div>
-			<button type="button" class="modal-btn-confirm" id="btnCloseOriginalModal" style="width:100%; border-radius:var(--radius-full);">Close Preview</button>
+			<button type="button" class="btn-modal-full-close" id="btnCloseOriginalModal" data-i18n="metroTicket.modals.original.btnClose">Close Preview</button>
 		</div>
 	</div>
 
 	<!-- Confirmation Warning Modal (Active Replace & Clear All) -->
 	<div class="modal-overlay" id="confirmModal" role="dialog" aria-modal="true" aria-hidden="true">
 		<div class="modal-box">
-			<div class="modal-title" id="confirmModalTitle">Warning</div>
+			<div class="modal-title" id="confirmModalTitle" data-i18n="metroTicket.modals.confirm.title">Warning</div>
 			<div class="modal-desc" id="confirmModalDesc">Are you sure?</div>
 			<div class="modal-btn-row">
-				<button type="button" class="modal-btn-cancel" id="btnCancelConfirm">Cancel</button>
-				<button type="button" class="modal-btn-confirm" id="btnAcceptConfirm">Confirm</button>
+				<button type="button" class="modal-btn-cancel" id="btnCancelConfirm" data-i18n="metroTicket.modals.confirm.cancel">Cancel</button>
+				<button type="button" class="modal-btn-confirm" id="btnAcceptConfirm" data-i18n="metroTicket.modals.confirm.confirm">Confirm</button>
 			</div>
 		</div>
 	</div>
@@ -249,6 +272,5 @@
 	<script src="./js/lib/engine_vector_painter.js"></script>
 	
 	<script type="module" src="./js/pages/metro_QR_ticket.js"></script>
-	<!-- Modular Standalone Application Controller (Separated from Engines) -->
 </body>
 </html>

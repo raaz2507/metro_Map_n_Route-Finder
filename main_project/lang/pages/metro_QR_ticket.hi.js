@@ -16,6 +16,7 @@ export default {
 			dropTitle: "कागज़ी टिकट या स्क्रीनशॉट यहाँ डालें",
 			dropHint: "मल्टी-इंजन फ़ॉलबैक: BarcodeDetector -> jsQR -> ZXing",
 			btnCamera: "कैमरे से फोटो खींचें (कागज़ी टिकट)",
+			btnBrowse: "डिवाइस / गैलरी से फाइल चुनें",
 			btnPaste: "क्लिपबोर्ड से स्क्रीनशॉट पेस्ट करें"
 		},
 		pass: {
@@ -69,6 +70,12 @@ export default {
 			sub: "ओरिजिनल बैकअप",
 			btnClose: "प्रिव्यू बंद करें"
 		},
+		camera: {
+			title: "लाइव कैमरा टिकट स्कैनर",
+			hint: "स्कैन करने के लिए कागज़ी टिकट का QR फ़्रेम के अंदर रखें",
+			switchCamera: "कैमरा बदलें",
+			btnClose: "रद्द करें / बंद करें"
+		},
 		confirm: {
 			title: "चेतावनी",
 			cancel: "रद्द करें",
@@ -89,6 +96,8 @@ export default {
 		movedToHistory: "सक्रिय टिकट हिस्ट्री में भेज दिया गया।",
 		restoredToGatePass: "टिकट को दोबारा गेट पास बना दिया गया!",
 		deletedFromHistory: "टिकट हिस्ट्री से हटा दिया गया।",
-		allCleared: "सभी टिकट हिस्ट्री हटा दी गई।"
+		allCleared: "सभी टिकट हिस्ट्री हटा दी गई।",
+		cameraPermissionDenied: "कैमरा परमिशन अस्वीकार या कैमरा अनुपलब्ध है।",
+		cameraError: "कैमरा शुरू करने में असमर्थ। कृपया टिकट इमेज अपलोड करें।"
 	}
 };

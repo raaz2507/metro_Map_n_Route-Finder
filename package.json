@@ -1,0 +1,36 @@
+{
+  "name": "metro_map_n_route-finder",
+  "version": "1.0.0",
+  "description": "🔗 **Live Demo:** [https://raaz2507.github.io/metro_Map_n_Route-Finder/](https://raaz2507.github.io/metro_Map_n_Route-Finder/)",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raaz2507/metro_Map_n_Route-Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/raaz2507/metro_Map_n_Route-Finder/issues"
+  },
+  "homepage": "https://github.com/raaz2507/metro_Map_n_Route-Finder#readme",
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/camera": "^8.2.4",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/geolocation": "^8.2.2",
+    "@capacitor/status-bar": "^8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5"
+  }
+}

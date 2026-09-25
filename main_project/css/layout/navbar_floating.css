@@ -134,31 +134,31 @@
 	}
 
 	@media (max-width: 768px) {
-		.floating-nav {
+		/* .floating-nav {
 			--width: 48px;
 			--icon-width: 22px;
 			--icon-size: 42px;
 			--nav-hight: 56px;
-		}
+		} */
 
-		.floating-nav-list {
+		/* .floating-nav-list {
 			gap: var(--space-xs);
-		}
+		} */
 
 		/* मोबाइल में एक्टिव गोले को नॉच के साथ 100% सही संरेखित करें */
-		.floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon,
+		/* .floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon,
 		.floating-nav-item.active a .icon {
 			transform: translateY(-24px);
-		}
+		} */
 
-		.floating-nav-item a .text {
+		/* .floating-nav-item a .text {
 			font-size: 0.52em;
 			bottom: var(--space-xs);
 		}
 
 		.floating-nav-item.active a .text {
 			transform: translateY(-6px) scale(0.95);
-		}
+		} */
 	}
 }
 

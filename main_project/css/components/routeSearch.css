@@ -58,6 +58,8 @@
 	.sharebtn button:hover {
 		background-color: var(--btn-reset-bg);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		transform: scale(1.1);
 	}
 
@@ -127,6 +129,8 @@
 		font-size: var(--fs-lg);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		margin: 0;
 	}
 
@@ -149,6 +153,8 @@
 	.close-modal-btn:hover {
 		background: var(--btn-reset-bg);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 	}
 
 	/* Route Overview Preview Card Inside Modal */
@@ -168,6 +174,8 @@
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -215,6 +223,8 @@
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-medium);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		cursor: pointer;
 		transition:
 			transform var(--transition-fast),
@@ -287,6 +297,8 @@
 		font-size: var(--fs-md);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		margin: 0 0 var(--space-xs) 0;
 	}
 
@@ -314,6 +326,8 @@
 		font-weight: var(--fw-extrabold);
 		letter-spacing: -0.02em;
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		margin-bottom: var(--space-sm);
 		padding: 0;
 		float: left;
@@ -342,6 +356,8 @@
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-medium);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		background: var(--input-bg);
 		border: 1px solid var(--input-border);
 		border-radius: var(--radius-md);
@@ -370,6 +386,8 @@
 		border: 1px solid var(--border-color);
 		background: var(--input-bg);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		font-size: var(--fs-md);
 		cursor: pointer;
 		display: flex;
@@ -583,6 +601,8 @@
 	#priority-fastest:checked ~ label[for="priority-fastest"],
 	#priority-leastTransfers:checked ~ label[for="priority-leastTransfers"] {
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		font-weight: var(--fw-bold);
 	}
 
@@ -608,20 +628,24 @@
 	/* 💰 Dynamic Fare Selectable Cards UI */
 .fare-cards-row {
     display: flex;
-    gap: 6px;
-    align-items: stretch; /* Makes all boxes equal height */
+    position: relative;
+    background-color: var(--btn-reset-bg);
+    border-radius: var(--radius-xl);
+    padding: 4px;
+    align-items: stretch;
     width: 100%;
+    border: 1px solid var(--border-color);
 }
 
 .fare-selectable-col {
     border: none;
     flex: 1;
-    display: flex; /* Forces inner card to stretch vertically */
+    display: flex;
 }
 
 .fare-selectable-card {
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-smooth);
     width: 100%;
     height: 100%;
     display: flex;
@@ -629,15 +653,21 @@
     align-items: center;
     justify-content: center;
     padding: 10px 4px;
-    border-radius: 8px;
+    border-radius: calc(var(--radius-xl) - 4px);
     box-sizing: border-box;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
-    background: var(--bg-color, #fff);
+    box-shadow: none;
+    background: transparent;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    transform: scale(0.98);
 }
 
 .fare-selectable-card.selected {
-    box-shadow: 0 0 0 2px var(--accent-color, #007bff) inset;
-    background: rgba(0, 123, 255, 0.05);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 }
 
 .fare-selectable-card .metric-val {
@@ -693,6 +723,8 @@
 		font-size: var(--fs-lg);
 		font-weight: var(--fw-extrabold);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		text-transform: uppercase;
 		margin: var(--space-xs) 0;
 		letter-spacing: -0.01em;
@@ -744,6 +776,8 @@
 		font-size: var(--fs-xl);
 		font-weight: var(--fw-extrabold);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 	}
 
 	.metric-lbl {
@@ -810,6 +844,8 @@
 		font-size: var(--fs-md);
 		font-weight: var(--fw-extrabold);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		margin-bottom: var(--space-xs);
 	}
 
@@ -871,6 +907,8 @@
 	.station-row:hover .station-name-main {
 		transform: translateX(6px) scale(1.06);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 	}
 
 	body[data-theme="dark"] .station-row:hover {
@@ -990,6 +1028,8 @@
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		text-transform: uppercase;
 		display: flex;
 		align-items: center;
@@ -1003,6 +1043,8 @@
 	a.station-name-main {
 		text-decoration: none;
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		cursor: pointer;
 	}
 	a.station-name-main:hover {
@@ -1080,6 +1122,8 @@
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-medium);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		line-height: 1.4;
 	}
 
@@ -1192,6 +1236,8 @@
 		border-bottom: 1px solid var(--border-color);
 		transition: background-color var(--transition-fast);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		gap: var(--space-sm);
 		text-decoration: none;
 	}
@@ -1216,6 +1262,8 @@
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-medium);
 		color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -1261,6 +1309,8 @@
 	font-size: 0.88rem;
 	font-weight: var(--fw-semibold, 600);
 	color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 	transition: all 0.2s ease;
 }
@@ -1298,6 +1348,8 @@
 	font-weight: 700;
 	font-size: 0.9rem;
 	color: var(--text-primary);
+    opacity: 1;
+    transform: scale(1);
 }
 
 .leg-alert-pill {
@@ -1334,86 +1386,4 @@
 }
 
 	/* Option B Responsive Compact Mobile Breakpoint */
-	@media (max-width: 768px) {
-		form.routeFinder fieldset {
-			gap: var(--space-xs);
-		}
-
-		.form-group {
-			gap: 2px;
-		}
-
-		.form-group input[type="text"] {
-			padding: var(--space-xs) var(--space-sm);
-			font-size: var(--fs-xs);
-		}
-
-		#swapButton {
-			width: 36px;
-			height: 36px;
-			right: 4px;
-		}
-
-		#swapButton img {
-			width: 18px;
-			height: 18px;
-		}
-
-		.form-actions {
-			gap: var(--space-xs);
-		}
-
-		.form-actions button[type="reset"],
-		.form-actions button[type="submit"] {
-			padding: var(--space-xs) var(--space-sm);
-			font-size: var(--fs-xs);
-		}
-
-		#journeyDetails.active {
-			padding: var(--space-xs);
-			gap: var(--space-xs);
-			margin-top: var(--space-xs);
-		}
-
-		.switch-slider-track {
-			height: 34px;
-		}
-
-		.switch-slider-label {
-			font-size: var(--fs-xs);
-		}
-
-		.warning-banner {
-			padding: var(--space-xs);
-			font-size: var(--badge-font-size);
-		}
-
-		.journey-title-header {
-			font-size: var(--fs-xs);
-			margin: 2px 0;
-		}
-
-		.journey-metrics-card {
-			padding: var(--space-xs);
-			gap: var(--space-xs);
-		}
-
-		.metric-val {
-			font-size: var(--fs-md);
-		}
-
-		.metric-lbl {
-			font-size: var(--badge-font-size);
-		}
-
-		.timing-subrow {
-			font-size: var(--fs-xs);
-			padding-top: 4px;
-		}
-
-		.btn-show-route {
-			padding: var(--space-xs) var(--space-sm);
-			font-size: var(--fs-xs);
-		}
-	}
 }

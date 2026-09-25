@@ -1,17 +1,60 @@
 # ==============================================================================
-# 1. PYTHON ARTIFACTS & CACHE (पायथन की फालतू कैशे फाइलें)
+# 1. NODE & CAPACITOR DEPENDENCIES
+# ==============================================================================
+node_modules/
+*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==============================================================================
+# 2. ANDROID BUILD ARTIFACTS & LOCAL CONFIG (केवल गैर-ज़रूरी फाइल्स इग्नोर होंगी)
+# ==============================================================================
+# Gradle & Build Caches (रूट और सब-डायरेक्ट्रीज दोनों के लिए)
+.gradle/
+android/.gradle/
+build/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/build/
+
+# Local Machine Android SDK Path (Do NOT commit local.properties)
+android/local.properties
+local.properties
+
+# Android Studio / IntelliJ IDE specific files
+android/.idea/
+android/*.iml
+android/app/*.iml
+.idea/
+
+# Android Build Outputs & Release Keystores (Security)
+*.apk
+*.aab
+*.ap_
+*.dex
+*.keystore
+*.jks
+captures/
+.externalNativeBuild/
+
+# ==============================================================================
+# 3. PYTHON ARTIFACTS & VENV
 # ==============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.tmp
+venv/
+import_data/venv/
 .staging_temp/
 import_data/.staging_temp/
 import_data/**/__pycache__/
+
+# ==============================================================================
+# 4. TEMPORARY & HEAVY SCRAPING FILES
+# ==============================================================================
 temp_working files/
-# ==============================================================================
-# 2. HEAVY MEDIA & SCAPED IMAGES (100MB+ मीडिया फाइल्स को गिट से बाहर रखना)
-# ==============================================================================
 /import_data/**/media/
 /import_data/**/*.png
 /import_data/**/*.jpg
@@ -19,32 +62,23 @@ temp_working files/
 /import_data/**/*.pdf
 /import_data/**/*.webp
 
+# Temporary automation scratch scripts
+fix_*.ps1
+patch_*.py
+
 # ==============================================================================
-# 3. LOCAL BACKUPS & ARCHIVES (भारी ज़िप फाइलें)
+# 5. LOCAL BACKUPS & ARCHIVES
 # ==============================================================================
 *.zip
-backup_data(dont delete).zip
+*.tar.gz
+backup_data*.zip
 qr_engine.zip
 
 # ==============================================================================
-# 4. CAPACITOR, NODE & ANDROID ARTIFACTS (मोबाइल बिल्ड फाइल्स)
-# ==============================================================================
-node_modules/
-/main_project/node_modules/
-/main_project/android/build/
-/main_project/android/app/build/
-/main_project/android/.gradle/
-
-# ==============================================================================
-# 5. OS & EDITOR TRASH
+# 6. OS & SYSTEM TRASH
 # ==============================================================================
 .DS_Store
 Thumbs.db
-/doc/
-*.txt
-
-# ==============================================================================
-# 6. PYTHON VIRTUAL ENVIRONMENT (VENV)
-# ==============================================================================
-venv/
-import_data/venv/
+ehthumbs.db
+desktop.ini
+.vscode/
