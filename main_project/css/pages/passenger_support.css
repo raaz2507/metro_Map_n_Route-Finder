@@ -9,7 +9,14 @@
    ========================================================================== */
 
 @layer components {
-
+	html,
+	body {
+		height: auto;
+		min-height: 100%;
+	}
+	.tab-panel {
+		scroll-margin-top: 90px;
+	}
 	/* -------------------------------------------------------------------------
 	   1. Universal Mask Icon Engine (Zero inline SVG clutter)
 	   ------------------------------------------------------------------------- */
@@ -87,7 +94,7 @@
 		flex-direction: column;
 		max-width: 860px;
 		margin: 0 auto;
-		padding: var(--space-xl) var(--space-lg) calc(var(--space-2xl) + 80px);
+		padding: var(--space-xl) var(--space-lg) var(--space-md);
 		width: 100%;
 		gap: var(--space-xl);
 		box-sizing: border-box;
@@ -307,14 +314,16 @@
 	/* -------------------------------------------------------------------------
 	   6. Floating Bottom Action Bar
 	   ------------------------------------------------------------------------- */
+		/* -------------------------------------------------------------------------
+	   6. Floating Bottom Action Bar (Compact 2-Line Balanced Layout)
+	   ------------------------------------------------------------------------- */
 	.floating-bottom-bar {
-		position: fixed;
+		position: sticky;
 		bottom: var(--space-lg);
-		left: 50%;
-		transform: translateX(-50%);
 		z-index: 999;
-		width: calc(100% - 32px);
-		max-width: 580px;
+		width: 100%;
+		max-width: 460px;
+		margin: 0 auto;
 		background: var(--card-bg);
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius-full, 9999px);
@@ -328,7 +337,7 @@
 
 	.floating-bottom-bar .seg-tab-btn {
 		flex: 1;
-		padding: 9px 12px;
+		padding: 6px 10px;
 		border-radius: var(--radius-full, 9999px);
 		border: none;
 		background: transparent;
@@ -342,8 +351,15 @@
 		justify-content: center;
 		gap: 6px;
 		transition: all var(--transition-fast);
-		white-space: nowrap;
+		white-space: normal;
+		line-height: 1.15;
+		text-align: center;
+		text-wrap: balance;
 		text-decoration: none;
+	}
+
+	.floating-bottom-bar .seg-tab-btn .support-ico {
+		flex-shrink: 0;
 	}
 
 	.floating-bottom-bar .seg-tab-btn:hover {
@@ -396,11 +412,12 @@
 		.floating-bottom-bar {
 			bottom: var(--space-sm);
 			width: calc(100% - 20px);
+			max-width: calc(100% - 20px);
 			padding: 4px;
 		}
 		.floating-bottom-bar .seg-tab-btn {
-			padding: 8px 6px;
-			font-size: 11px;
+			padding: 5px 4px;
+			font-size: 10.5px;
 			gap: 4px;
 		}
 		.item-drawer {

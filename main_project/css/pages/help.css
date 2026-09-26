@@ -10,6 +10,12 @@
    ========================================================================== */
 
 @layer components {
+	/* Help page natural window scroll unlock */
+	html,
+	body {
+		height: auto;
+		min-height: 100%;
+	}
 
 	/* -------------------------------------------------------------------------
 	   1. Universal Mask Icon Engine (Zero inline SVG clutter)

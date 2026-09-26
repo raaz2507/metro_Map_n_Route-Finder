@@ -70,6 +70,7 @@
 		--fs-4xl: clamp(1.75rem, 2.5vw, 2.25rem);  /* 28px - 36px */
 
 		/* Spacing System */
+		--space-2xs: 2px;
 		--space-xs: 4px;
 		--space-sm: 8px;
 		--space-md: 12px;
@@ -79,6 +80,7 @@
 		--space-3xl: 48px;
 
 		/* Border Radius System */
+		--radius-2xs: 4px;
 		--radius-xs: 6px;
 		--radius-sm: 8px;
 		--radius-md: 12px;
@@ -124,7 +126,7 @@
 		--op-warning-bg: var(--op-solid);
 		--op-interchange-bg: var(--op-solid);
 
-        /* ---------------------------------------------------------
+		/* ---------------------------------------------------------
 		   GLOBAL MICRO-BADGES & TAG SYSTEM TOKENS
 		--------------------------------------------------------- */
 		--badge-height: 18px;
@@ -186,11 +188,11 @@
 		--text-on-accent: #ffffff;
 
 
-        /* Micro Badges & Tags */
+		/* Micro Badges & Tags */
 		--badge-bg: #ffffff;
 		--badge-text: #0f172a;
 		--badge-border: #cbd5e1;
-    }
+	}
 
 	/* =========================================================================
 	   THEME 2: SLEEK DARK THEME
@@ -249,11 +251,11 @@
 		--text-on-accent: #ffffff;
 
 
-        /* Micro Badges & Tags */
+		/* Micro Badges & Tags */
 		--badge-bg: #0f172a;
 		--badge-text: #ffffff;
 		--badge-border: #38bdf8;
-    }
+	}
 
 	/* =========================================================================
 	   THEME 3: NEON CYBERPUNK THEME
@@ -313,11 +315,11 @@
 		--text-on-accent: #000000;
 
 
-        /* Micro Badges & Tags */
+		/* Micro Badges & Tags */
 		--badge-bg: #0f172a;
 		--badge-text: #ffffff;
 		--badge-border: #38bdf8;
-    }
+	}
 
 	/* =========================================================================
 	   THEME 4: VINTAGE RETRO THEME
@@ -488,35 +490,35 @@
 }
 
 @layer base {
-    body {
-        position: relative;
-        font-family: var(--font-main);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        background-color: var(--bg-app);
-        color: var(--text-primary);
-        transition: background-color var(--transition-smooth), color var(--transition-smooth);
-    }
+	body {
+		position: relative;
+		font-family: var(--font-main);
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--bg-app);
+		color: var(--text-primary);
+		transition: background-color var(--transition-smooth), color var(--transition-smooth);
+	}
 
-    /* 
-       UNIVERSAL APP BACKGROUND IMAGE & THEME FILTER 
-       (Applies automatically to ALL pages: index.html, help.html, about.html, etc.)
-    */
-    body::before {
-        content: "";
-        position: fixed;
-        top: -20px;
-        left: -20px;
-        right: -20px;
-        bottom: -20px;
-		background-image: url('../../assets/images/background_com.png'); 
-        background-repeat: no-repeat; 
-        background-size: cover; 
-        background-position: center; 
-        background-attachment: fixed;
-        z-index: var(--z-bg);
-        filter: var(--bg-filter);
-        transition: filter var(--transition-smooth); 
-    }
+	/* 
+	   UNIVERSAL APP BACKGROUND IMAGE & THEME FILTER 
+	   (Applies automatically to ALL pages: index.html, help.html, about.html, etc.)
+	*/
+	body::before {
+		content: "";
+		position: fixed;
+		top: -20px;
+		left: -20px;
+		right: -20px;
+		bottom: -20px;
+		background-image: url('../../assets/images/site_background.webp'); 
+		background-repeat: no-repeat; 
+		background-size: cover; 
+		background-position: center; 
+		background-attachment: fixed;
+		z-index: var(--z-bg);
+		filter: var(--bg-filter);
+		transition: filter var(--transition-smooth); 
+	}
 }

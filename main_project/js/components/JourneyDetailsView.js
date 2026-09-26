@@ -65,6 +65,53 @@ export class JourneyDetailsView {
 		if (fareVal) fareVal.textContent = fare;
 	}
 
+	#formatTimeSlots(slots) {
+		if (!Array.isArray(slots) || slots.length === 0) return "";
+		return slots.map(s => `<div class="time-slot-line">${s.start} – ${s.end}</div>`).join("");
+	}
+
+	#renderFareCardsHtml(products, selectedKey, legIndex = 0) {
+		if (!products || typeof products !== "object") return "";
+		const entries = Object.entries(products);
+		if (entries.length === 0) return "";
+
+		// 🎯 Single Fare: Clean static display (No button, no selector pill)
+		if (entries.length === 1) {
+			const [key, prod] = entries[0];
+			const labelName = prod.label?.[this.#settings.currentLang] || prod.label?.en || "Fare";
+			return `
+				<div class="fare-single-metric" data-leg-index="${legIndex}" data-fare="${prod.fare}">
+					<span class="metric-val">₹${prod.fare}</span>
+					<span class="metric-lbl">${labelName}</span>
+				</div>
+			`;
+		}
+
+		// 🎯 Multi-Fare: Interactive Selectable Cards
+		return entries.map(([key, prod]) => {
+			const isSelected = key === selectedKey;
+			const labelName = prod.label?.[this.#settings.currentLang] || prod.label?.en || "Fare";
+			const badgeHtml = prod.isDiscounted && prod.discountPercent > 0 
+				? `<span class="fare-badge badge-blue">(${prod.discountPercent}% Off)</span>` : "";
+			
+			const timeHtml = Array.isArray(prod.timeSlots) && prod.timeSlots.length > 0 ? `<div class="fare-time-slot">${this.#formatTimeSlots(prod.timeSlots)}</div>` : "";
+			const activeNowLabel = i18n.t("pages.home.sidebar.findroute.route.activeNow") || "Active Now";
+			const activeBadgeHtml = (prod.timeRule && prod.isCurrentSlotActive) 
+			? `<span class="fare-active-badge">● ${activeNowLabel}</span>` : "";
+			return `
+				<div class="fare-selectable-col">
+					<div class="fare-selectable-card ${isSelected ? 'selected' : ''}" 
+						 data-leg-index="${legIndex}" data-fare="${prod.fare}" data-is-premium="${prod.isPremium ? 'true' : 'false'}">
+						<span class="metric-val ${prod.isDiscounted ? 'color-blue' : ''}">₹${prod.fare}</span>
+						<span class="metric-lbl">${labelName} ${badgeHtml}</span>
+						${activeBadgeHtml}
+						${timeHtml}
+					</div>
+				</div>
+			`;
+		}).join("");
+	}
+
 	#renderJourneyHeader(parent, startName, endName) {
 		const header = document.createElement("div");
 		header.className = "journey-title-header";
@@ -121,23 +168,7 @@ export class JourneyDetailsView {
 			const products = routeInfo.fare?.products || {};
 			const { selectedKey, selectedFare } = getDefaultProduct(products);
 			initialGrandTotal = selectedFare || routeInfo.fare?.totalFare || 0;
-
-			for (const [key, prod] of Object.entries(products)) {
-				const isSelected = key === selectedKey;
-				const labelName = prod.label?.[this.#settings.currentLang] || prod.label?.en || "Fare";
-				const badgeHtml = prod.isDiscounted && prod.discountPercent > 0 
-					? `<br><span class="fare-badge badge-blue">(${prod.discountPercent}% Off)</span>` : "";
-				
-				dynamicFaresHtml += `
-					<div class="fare-selectable-col">
-						<div class="fare-selectable-card ${isSelected ? 'selected' : ''}" 
-							 data-leg-index="0" data-fare="${prod.fare}" data-is-premium="${prod.isPremium ? 'true' : 'false'}">
-							<span class="metric-val ${prod.isDiscounted ? 'color-blue' : ''}">₹${prod.fare}</span>
-							<span class="metric-lbl">${labelName}${badgeHtml}</span>
-						</div>
-					</div>
-				`;
-			}
+			dynamicFaresHtml = this.#renderFareCardsHtml(products, selectedKey, 0);
 		}
 
 		// 2. Multi-Leg Breakdown Dynamic Fares
@@ -156,40 +187,24 @@ export class JourneyDetailsView {
 					return `<div class="leg-alert-pill ${a.type}"><span>${a.icon}</span> <span>${alertText}</span></div>`;
 				}).join("");
 
-				let legFaresHtml = "";
-				for (const [key, prod] of Object.entries(leg.products || {})) {
-					const isSelected = key === selectedKey;
-					const pLabel = prod.label?.[this.#settings.currentLang] || prod.label?.en || "Fare";
-					const pBadge = prod.isDiscounted && prod.discountPercent > 0 
-						? `<br><span class="fare-badge badge-blue">(${prod.discountPercent}% Off)</span>` : "";
-					
-					legFaresHtml += `
-						<div class="fare-selectable-col">
-							<div class="fare-selectable-card ${isSelected ? 'selected' : ''}" 
-								 data-leg-index="${legIndex}" data-fare="${prod.fare}" data-is-premium="${prod.isPremium ? 'true' : 'false'}">
-								<span class="metric-val ${prod.isDiscounted ? 'color-blue' : ''}">₹${prod.fare}</span>
-								<span class="metric-lbl">${pLabel}${pBadge}</span>
-							</div>
-						</div>
-					`;
-				}
+				const legFaresHtml = this.#renderFareCardsHtml(leg.products || {}, selectedKey, legIndex);
 
 				return `
 					<div class="leg-item-card">
 						<div class="leg-card-header">
-							<span class="line-badge-solid" style="background-color: ${leg.lineColor}; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">${lName}</span>
-							<span class="leg-route-title" style="font-weight: 600; font-size: 0.85rem;">${fromName} ➔ ${toName}</span>
+							<span class="line-badge-solid" style="background-color: ${leg.lineColor};">${lName}</span>
+							<span class="leg-route-title">${fromName} ➔ ${toName}</span>
 						</div>
-						${alertsHtml ? `<div class="leg-alerts-list" style="margin: 6px 0; display: flex; flex-direction: column; gap: 4px;">${alertsHtml}</div>` : ""}
+						${alertsHtml ? `<div class="leg-alerts-list">${alertsHtml}</div>` : ""}
 						
-						<div class="metrics-row leg-mini-row" style="background: rgba(0,0,0,0.02); padding: 8px 6px; border-radius: 6px;">
-							<div class="metric-col"><span class="metric-val color-indigo" style="font-size: 0.95rem;">${leg.distanceKm} <small style="font-size:0.75em;">km</small></span><span class="metric-lbl">${distanceLabel}</span></div>
-							<div class="metric-col"><span class="metric-val color-emerald" style="font-size: 0.95rem;">${leg.travelMinutes}</span><span class="metric-lbl">${timeLabel}</span></div>
-							<div class="metric-col"><span class="metric-val color-sky" style="font-size: 0.95rem;">${leg.stationsCount}</span><span class="metric-lbl">${stationsLabel}</span></div>
-							<div class="metric-col"><span class="metric-val color-amber" style="font-size: 0.95rem;">${leg.interchangesCount || 0}</span><span class="metric-lbl">${changeLabel}</span></div>
+						<div class="metrics-row leg-mini-row">
+							<div class="metric-col"><span class="metric-val color-indigo">${leg.distanceKm} <small class="unit-km">km</small></span><span class="metric-lbl">${distanceLabel}</span></div>
+							<div class="metric-col"><span class="metric-val color-emerald">${leg.travelMinutes}</span><span class="metric-lbl">${timeLabel}</span></div>
+							<div class="metric-col"><span class="metric-val color-sky">${leg.stationsCount}</span><span class="metric-lbl">${stationsLabel}</span></div>
+							<div class="metric-col"><span class="metric-val color-amber">${leg.interchangesCount || 0}</span><span class="metric-lbl">${changeLabel}</span></div>
 						</div>
 
-						<div class="fare-cards-row" style="margin-top: 6px; padding: 8px 6px; background: rgba(0,0,0,0.02); border-radius: 6px;">
+						<div class="fare-cards-row leg-fare-cards-row">
 							${legFaresHtml}
 						</div>
 					</div>
@@ -205,13 +220,14 @@ export class JourneyDetailsView {
 		const lastTrainDisplay = schedule?.last_train ? formatTime12h(schedule.last_train) : "N/A";
 
 		// 🎯 Added these missing variables back!
-		const firstText = `${i18n.t("pages.home.sidebar.findroute.route.first") || "First"} Train`;
-		const lastText = `${i18n.t("pages.home.sidebar.findroute.route.last") || "Last"} Train`;
+		const firstText = i18n.t("pages.home.sidebar.findroute.route.first") || "First Train";
+		const lastText = i18n.t("pages.home.sidebar.findroute.route.last") || "Last Train";
+		const totalFareText = i18n.t("pages.home.sidebar.findroute.route.totalFareLabel") || "Total Fare";
 
 		metricsCard.innerHTML = `
 			<div class="metrics-row">
 				<div class="metric-col">
-					<span class="metric-val color-indigo">${distNum} <small style="font-weight:400; font-size:0.75em; opacity:0.8;">km</small></span>
+					<span class="metric-val color-indigo">${distNum} <small class="unit-km">km</small></span>
 					<span class="metric-lbl">${distanceLabel}</span>
 				</div>
 				<div class="metric-col">
@@ -228,28 +244,32 @@ export class JourneyDetailsView {
 				</div>
 			</div>
 
-			<div class="metrics-row" style="margin-top: 14px; border-top: 1px dashed var(--border-color); padding-top: 12px;">
-				${dynamicFaresHtml ? `<div class="fare-cards-row">${dynamicFaresHtml}</div>` : `
-					<div class="metric-col" style="width: 100%; text-align: center; border: none;">
-						<span class="metric-val" id="cardGrandTotalDisplay">₹${initialGrandTotal}</span>
-						<span class="metric-lbl">Total Fare</span>
-					</div>
+			<div class="metrics-row fare-metrics-divider">
+				${dynamicFaresHtml ? `<div class="fare-cards-row ${Object.keys(routeInfo.fare?.products || {}).length === 1 ? 'is-single' : ''}">${dynamicFaresHtml}</div>` : `
+				<div class="metric-col fare-grand-total-col">
+					<span class="metric-val" id="cardGrandTotalDisplay">₹${initialGrandTotal}</span>
+					<span class="metric-lbl">${totalFareText}</span>
+				</div>
 				`}
 			</div>
 			
-			<div class="timing-subrow" style="margin-top: 12px; border-top: 1px dashed var(--border-color); padding-top: 10px;">
+			<div class="timing-subrow">
 				<div class="timing-item">☀️ ${firstText} <strong>${firstTrainDisplay}</strong></div>
 				<div class="timing-item">🌙 ${lastText} <strong>${lastTrainDisplay}</strong></div>
 			</div>
-
 			${routeInfo.fare?.isMultiTicket ? `
-				<div class="fare-breakdown-toggle-box" style="margin-top: 12px; border-top: 1px dashed var(--border-color); padding-top: 10px;">
+				<div class="fare-breakdown-toggle-box">
 					<button type="button" class="fare-breakdown-btn" id="fareBreakdownBtn">
-						<span class="btn-text">ℹ️ ${i18n.t("pages.home.sidebar.findroute.route.breakdownToggle", { count: routeInfo.fare.legs?.length || 2 })}</span>
-						<span class="btn-arrow" id="fareBreakdownArrow">▼</span>
+						<div class="btn-text-col">
+							<span class="btn-primary-label">${i18n.t("pages.home.sidebar.findroute.route.splitFareTitle") || "Split Fare & Ticket Breakdown"}</span>
+							<span class="btn-sub-label">${i18n.t("pages.home.sidebar.findroute.route.splitFareSubtitle", { count: routeInfo.fare.legs?.length || 2 })}</span>
+						</div>
+						<div class="round-chevron-btn">
+							<span class="chevron" id="fareBreakdownArrow">▼</span>
+						</div>
 					</button>
 					
-					<div class="fare-legs-container" id="fareLegsContent" style="display: none; margin-top: 10px; flex-direction: column; gap: 10px;">
+					<div class="fare-legs-container" id="fareLegsContent">
 						${legsHtml}
 					</div>
 				</div>
@@ -305,12 +325,14 @@ export class JourneyDetailsView {
 		if (routeInfo.fare?.isMultiTicket) {
 			const toggleBtn = metricsCard.querySelector("#fareBreakdownBtn");
 			const content = metricsCard.querySelector("#fareLegsContent");
-			const arrow = metricsCard.querySelector("#fareBreakdownArrow");
 			if (toggleBtn && content) {
 				toggleBtn.addEventListener("click", () => {
-					const isHidden = content.style.display === "none";
-					content.style.display = isHidden ? "flex" : "none";
-					if (arrow) arrow.textContent = isHidden ? "▲" : "▼";
+					// 🎯 क्लास-बेस्ड चेक: पहली बार में इनलाइन खाली स्ट्रिंग ("") के बग को पूरी तरह रोकता है
+					const isCurrentlyOpen = toggleBtn.classList.contains("open-state");
+					const shouldOpen = !isCurrentlyOpen;
+
+					content.style.display = shouldOpen ? "flex" : "none";
+					toggleBtn.classList.toggle("open-state", shouldOpen);
 				});
 			}
 		}
@@ -348,9 +370,14 @@ export class JourneyDetailsView {
 			const segHeader = document.createElement("div");
 			segHeader.className = "segment-header";
 			segHeader.style.setProperty("--delay", `${animationRowCounter * 120}ms`);
+
+			const directionStr = i18n.t("pages.home.sidebar.findroute.route.directionText", { 
+				terminal: terminalName.toUpperCase(), 
+				platform: platformNo 
+			});
 			segHeader.innerHTML = `
 				<span class="line-badge-solid" style="background-color: ${lineColor}; color: ${badgeTextColor};">${lineName}</span>
-				<span class="segment-direction">➔ Towards ${terminalName.toUpperCase()} · Platform ${platformNo}</span>
+				<span class="segment-direction">➔ ${directionStr}</span>
 			`;
 			segmentEl.appendChild(segHeader);
 			animationRowCounter++;
@@ -430,6 +457,15 @@ export class JourneyDetailsView {
 				const dist = tData.distanceMeters || step.nextTransferDistanceMeters;
 				let modeBadgeHtml = "";
 
+				const transferTypeKey = (tData.type || "interchange").replace(/_/g, "-");
+				const stationTypeObj = metroData?.station_types?.[tData.type || "interchange"];
+				const typeLabel = stationTypeObj?.[this.#settings.currentLang] || stationTypeObj?.en;
+				const typeBadgeHtml = typeLabel 
+					? `<span class="transfer-pill-badge transfer-pill-station-type"><span class="station-type-glyph type-${transferTypeKey}"></span>${typeLabel}</span>` 
+					: "";
+
+
+
 				if (mode === "cross_platform") {
 					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.crossPlatform") || "Cross-Platform";
 					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">↔️ ${label}</span>`;
@@ -472,6 +508,7 @@ export class JourneyDetailsView {
 									Change to <strong>${nextLineName}</strong>
 								</span>
 								<div class="interchange-badges-row">
+									${typeBadgeHtml}
 									${modeBadgeHtml}
 									${featureBadgesHtml}
 								</div>

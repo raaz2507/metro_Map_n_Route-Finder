@@ -1,0 +1,4294 @@
+{
+	"taj_east_gate": {
+		"id": "taj_east_gate",
+		"station_code": "TEGT",
+		"station_name_en": "TAJ EAST GATE",
+		"station_name_hi": "ताज पूर्वी गेट",
+		"meta_raw": {
+			"id": 1,
+			"st_name": "TAJ EAST GATE",
+			"st_code": "TEGT",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_dG72WlU.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_3BNQky9.png"
+			},
+			"latitude": "27.1583959",
+			"longitude": "78.0578603",
+			"x_coords": 1270.43,
+			"y_coords": 1047.45,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		},
+		"en_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 1,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "Line 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "TAJ EAST GATE",
+						"end_station": "MANKAMESHWAR MANDIR",
+						"status": "Normal Service"
+					}
+				],
+				"st_name": "TAJ EAST GATE",
+				"st_code": "TEGT",
+				"st_type": "Elevated",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_dG72WlU.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_3BNQky9.png"
+				},
+				"st_desc": "It is an Elevated stations on on yellow Line (Line-1) of Agra metro network. For more information or queries kindly contact station controller.",
+				"st_status": [],
+				"prev_next_stations": [
+					{
+						"Line 1": [
+							{
+								"line_id": 1,
+								"prev_station": "",
+								"next_station": {
+									"id": 2,
+									"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+									"st_code": "SCSG"
+								},
+								"line_color": "#c1282b",
+								"line_code": "LN1"
+							}
+						]
+					}
+				],
+				"mobile": null,
+				"landline": "9236405939",
+				"interchange": false,
+				"latitude": "27.1583959",
+				"longitude": "78.0578603",
+				"x_coords": 1270.43,
+				"y_coords": 1047.45,
+				"st_key_info": [
+					{
+						"name": "Divyang Friendly Station",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "Lift / Escalator Available",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "Parking Available",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Toilet",
+								"purpose": "Toilet",
+								"location_description": "Concourse Paid area ",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Water",
+								"purpose": "Water",
+								"location_description": "Concourse Paid area ",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "Platform No. 1",
+						"train_towards": {
+							"id": 2,
+							"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+							"st_code": "SCSG"
+						},
+						"platform_code": "PF22011",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "Platform No. 2",
+						"train_towards": {
+							"id": 2,
+							"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+							"st_code": "SCSG"
+						},
+						"platform_code": "PF22012",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.1",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.1",
+								"gate_code": "",
+								"location": "TDI MALL",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.2",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 2",
+								"train_towards": {
+									"id": 2,
+									"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22012",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.3",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 1",
+								"train_towards": {
+									"id": 2,
+									"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22011",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 1",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.2",
+								"gate_code": "",
+								"location": "SANTI MANGLIK HOSPITAL",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 2",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 2",
+								"train_towards": {
+									"id": 2,
+									"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22012",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 3",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 1",
+								"train_towards": {
+									"id": 2,
+									"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22011",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 4",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.1",
+								"gate_code": "",
+								"location": "TDI MALL",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "Gate No.1",
+						"gate_code": "",
+						"location": "TDI MALL",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					},
+					{
+						"gate_name": "Gate No.2",
+						"gate_code": "",
+						"location": "SANTI MANGLIK HOSPITAL",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": []
+			}
+		},
+		"hi_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 1,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "लाइन 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "ताज पूर्वी गेट",
+						"end_station": "मनकामेश्वर मंदिर",
+						"status": "सामान्य सेवाएँ"
+					}
+				],
+				"st_name": "ताज पूर्वी गेट",
+				"st_code": "TEGT",
+				"st_type": "Elevated",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_dG72WlU.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_3BNQky9.png"
+				},
+				"st_desc": "यह आगरा मेट्रो नेटवर्क की पीली लाइन (लाइन-1) पर एक एलिवेटेड स्टेशन है। अधिक जानकारी या प्रश्नों के लिए कृपया स्टेशन नियंत्रक से संपर्क करें।",
+				"st_status": [],
+				"mobile": null,
+				"landline": "9236405939",
+				"interchange": false,
+				"latitude": "27.1583959",
+				"longitude": "78.0578603",
+				"x_coords": 1270.43,
+				"y_coords": 1047.45,
+				"st_key_info": [
+					{
+						"name": "दिव्यांग मित्रवत स्टेशन",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "लिफ्ट/एस्केलेटर उपलब्ध",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "पार्किंग उपलब्ध है",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "शौचालय",
+								"purpose": "शौचालय",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "पेय जल",
+								"purpose": "पेय जल",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "प्लेटफार्म नंबर 1",
+						"train_towards": {
+							"id": 2,
+							"st_name": "शहीद कैप्टन शुभम गुप्ता",
+							"st_code": "SCSG"
+						},
+						"platform_code": "PF22011",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "प्लेटफार्म नंबर 2",
+						"train_towards": {
+							"id": 2,
+							"st_name": "शहीद कैप्टन शुभम गुप्ता",
+							"st_code": "SCSG"
+						},
+						"platform_code": "PF22012",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-1",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 1",
+								"gate_code": "",
+								"location": "टीडीआई मॉल",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-2",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 2",
+								"train_towards": {
+									"id": 2,
+									"st_name": "शहीद कैप्टन शुभम गुप्ता",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22012",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-3",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 1",
+								"train_towards": {
+									"id": 2,
+									"st_name": "शहीद कैप्टन शुभम गुप्ता",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22011",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-1",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 2",
+								"gate_code": "",
+								"location": "शांति मांगलिक हॉस्पिटल",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-2",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 2",
+								"train_towards": {
+									"id": 2,
+									"st_name": "शहीद कैप्टन शुभम गुप्ता",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22012",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-3",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 1",
+								"train_towards": {
+									"id": 2,
+									"st_name": "शहीद कैप्टन शुभम गुप्ता",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22011",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-4",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 1",
+								"gate_code": "",
+								"location": "टीडीआई मॉल",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "गेट नंबर 1",
+						"gate_code": "",
+						"location": "टीडीआई मॉल",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					},
+					{
+						"gate_name": "गेट नंबर 2",
+						"gate_code": "",
+						"location": "शांति मांगलिक हॉस्पिटल",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": []
+			}
+		}
+	},
+	"shaheed_captain_shubham_gupta": {
+		"id": "shaheed_captain_shubham_gupta",
+		"station_code": "SCSG",
+		"station_name_en": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+		"station_name_hi": "शहीद कैप्टन शुभम गुप्ता",
+		"meta_raw": {
+			"id": 2,
+			"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+			"st_code": "SCSG",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_ixSr4xc.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_FkGaBl7.png"
+			},
+			"latitude": "27.1583959",
+			"longitude": "78.0578603",
+			"x_coords": 1.0,
+			"y_coords": 2.0,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		},
+		"en_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 2,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "Line 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "TAJ EAST GATE",
+						"end_station": "MANKAMESHWAR MANDIR",
+						"status": "Normal Service"
+					}
+				],
+				"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+				"st_code": "SCSG",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_ixSr4xc.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_FkGaBl7.png"
+				},
+				"st_desc": "It is an Elevated stations on on yellow Line (Line-1) of Agra metro network. For more information or queries kindly contact station controller.",
+				"st_status": [],
+				"prev_next_stations": [
+					{
+						"Line 1": [
+							{
+								"line_id": 1,
+								"prev_station": {
+									"id": 1,
+									"st_name": "TAJ EAST GATE",
+									"st_code": "TEGT"
+								},
+								"next_station": {
+									"id": 3,
+									"st_name": "FATEHABAD ROAD",
+									"st_code": "FTBR"
+								},
+								"line_color": "#c1282b",
+								"line_code": "LN1"
+							}
+						]
+					}
+				],
+				"mobile": null,
+				"landline": "9236405940",
+				"interchange": false,
+				"latitude": "27.1583959",
+				"longitude": "78.0578603",
+				"x_coords": 1.0,
+				"y_coords": 2.0,
+				"st_key_info": [
+					{
+						"name": "Divyang Friendly Station",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "Lift / Escalator Available",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "Parking Available",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Toilet",
+								"purpose": "Toilet",
+								"location_description": "Concourse Paid area ",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Water",
+								"purpose": "Water",
+								"location_description": "Concourse Paid area ",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "Platform No. 1",
+						"train_towards": {
+							"id": 1,
+							"st_name": "TAJ EAST GATE",
+							"st_code": "TEGT"
+						},
+						"platform_code": "PF22021",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "Platform No. 2",
+						"train_towards": {
+							"id": 3,
+							"st_name": "FATEHABAD ROAD",
+							"st_code": "FTBR"
+						},
+						"platform_code": "PF22022",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.1",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.2",
+								"gate_code": "",
+								"location": "KFC",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.2",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 2",
+								"train_towards": {
+									"id": 3,
+									"st_name": "FATEHABAD ROAD",
+									"st_code": "FTBR"
+								},
+								"platform_code": "PF22022",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.3",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 1",
+								"train_towards": {
+									"id": 1,
+									"st_name": "TAJ EAST GATE",
+									"st_code": "TEGT"
+								},
+								"platform_code": "PF22021",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 1",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.2",
+								"gate_code": "",
+								"location": "KFC",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 2",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 2",
+								"train_towards": {
+									"id": 3,
+									"st_name": "FATEHABAD ROAD",
+									"st_code": "FTBR"
+								},
+								"platform_code": "PF22022",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 3",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 1",
+								"train_towards": {
+									"id": 1,
+									"st_name": "TAJ EAST GATE",
+									"st_code": "TEGT"
+								},
+								"platform_code": "PF22021",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 4",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.1",
+								"gate_code": "",
+								"location": "RELIANCE TRENDS",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "Gate No.1",
+						"gate_code": "",
+						"location": "RELIANCE TRENDS",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					},
+					{
+						"gate_name": "Gate No.2",
+						"gate_code": "",
+						"location": "KFC",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": []
+			}
+		},
+		"hi_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 2,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "लाइन 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "ताज पूर्वी गेट",
+						"end_station": "मनकामेश्वर मंदिर",
+						"status": "सामान्य सेवाएँ"
+					}
+				],
+				"st_name": "शहीद कैप्टन शुभम गुप्ता",
+				"st_code": "SCSG",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_ixSr4xc.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_FkGaBl7.png"
+				},
+				"st_desc": "यह आगरा मेट्रो नेटवर्क की पीली लाइन (लाइन-1) पर एक एलिवेटेड स्टेशन है। अधिक जानकारी या प्रश्नों के लिए कृपया स्टेशन नियंत्रक से संपर्क करें।",
+				"st_status": [],
+				"mobile": null,
+				"landline": "9236405940",
+				"interchange": false,
+				"latitude": "27.1583959",
+				"longitude": "78.0578603",
+				"x_coords": 1.0,
+				"y_coords": 2.0,
+				"st_key_info": [
+					{
+						"name": "दिव्यांग मित्रवत स्टेशन",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "लिफ्ट/एस्केलेटर उपलब्ध",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "पार्किंग उपलब्ध है",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "शौचालय",
+								"purpose": "शौचालय",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "पेय जल",
+								"purpose": "पेय जल",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "प्लेटफार्म नंबर 1",
+						"train_towards": {
+							"id": 1,
+							"st_name": "ताज पूर्वी गेट",
+							"st_code": "TEGT"
+						},
+						"platform_code": "PF22021",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "प्लेटफार्म नंबर 2",
+						"train_towards": {
+							"id": 3,
+							"st_name": "फ़तेहाबाद रोड",
+							"st_code": "FTBR"
+						},
+						"platform_code": "PF22022",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-1",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 2",
+								"gate_code": "",
+								"location": "केएफसी",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-2",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 2",
+								"train_towards": {
+									"id": 3,
+									"st_name": "फ़तेहाबाद रोड",
+									"st_code": "FTBR"
+								},
+								"platform_code": "PF22022",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-3",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 1",
+								"train_towards": {
+									"id": 1,
+									"st_name": "ताज पूर्वी गेट",
+									"st_code": "TEGT"
+								},
+								"platform_code": "PF22021",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-1",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 2",
+								"gate_code": "",
+								"location": "केएफसी",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-2",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 2",
+								"train_towards": {
+									"id": 3,
+									"st_name": "फ़तेहाबाद रोड",
+									"st_code": "FTBR"
+								},
+								"platform_code": "PF22022",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-3",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 1",
+								"train_towards": {
+									"id": 1,
+									"st_name": "ताज पूर्वी गेट",
+									"st_code": "TEGT"
+								},
+								"platform_code": "PF22021",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-4",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 1",
+								"gate_code": "",
+								"location": "रिलायंस रुझान",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "गेट नंबर 1",
+						"gate_code": "",
+						"location": "रिलायंस रुझान",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					},
+					{
+						"gate_name": "गेट नंबर 2",
+						"gate_code": "",
+						"location": "केएफसी",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": []
+			}
+		}
+	},
+	"fatehabad_road": {
+		"id": "fatehabad_road",
+		"station_code": "FTBR",
+		"station_name_en": "FATEHABAD ROAD",
+		"station_name_hi": "फ़तेहाबाद रोड",
+		"meta_raw": {
+			"id": 3,
+			"st_name": "FATEHABAD ROAD",
+			"st_code": "FTBR",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_yT0kliA.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_3C4fPxz.png"
+			},
+			"latitude": "27.1583959",
+			"longitude": "78.0578603",
+			"x_coords": 1084.32,
+			"y_coords": 1002.73,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		},
+		"en_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 3,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "Line 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "TAJ EAST GATE",
+						"end_station": "MANKAMESHWAR MANDIR",
+						"status": "Normal Service"
+					}
+				],
+				"st_name": "FATEHABAD ROAD",
+				"st_code": "FTBR",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_yT0kliA.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_3C4fPxz.png"
+				},
+				"st_desc": "It is an Elevated stations on on yellow Line (Line-1) of Agra metro network. For more information or queries kindly contact station controller.",
+				"st_status": [],
+				"prev_next_stations": [
+					{
+						"Line 1": [
+							{
+								"line_id": 1,
+								"prev_station": {
+									"id": 2,
+									"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+									"st_code": "SCSG"
+								},
+								"next_station": {
+									"id": 34,
+									"st_name": "TAJ MAHAL",
+									"st_code": "TJML"
+								},
+								"line_color": "#c1282b",
+								"line_code": "LN1"
+							}
+						]
+					}
+				],
+				"mobile": null,
+				"landline": "9236405941",
+				"interchange": false,
+				"latitude": "27.1583959",
+				"longitude": "78.0578603",
+				"x_coords": 1084.32,
+				"y_coords": 1002.73,
+				"st_key_info": [
+					{
+						"name": "Divyang Friendly Station",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "Lift / Escalator Available",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Water",
+								"purpose": "Water",
+								"location_description": "Concourse Paid area ",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Toilet",
+								"purpose": "Toilet",
+								"location_description": "Concourse Paid area ",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "Platform No. 2",
+						"train_towards": {
+							"id": 34,
+							"st_name": "TAJ MAHAL",
+							"st_code": "TJML"
+						},
+						"platform_code": "PF22032",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "Platform No. 1",
+						"train_towards": {
+							"id": 2,
+							"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+							"st_code": "SCSG"
+						},
+						"platform_code": "PF22031",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.1",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.1",
+								"gate_code": "",
+								"location": "ITC MUGAL HOTAL",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.2",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 2",
+								"train_towards": {
+									"id": 34,
+									"st_name": "TAJ MAHAL",
+									"st_code": "TJML"
+								},
+								"platform_code": "PF22032",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "ESC No.3",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 1",
+								"train_towards": {
+									"id": 2,
+									"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22031",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 1",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.1",
+								"gate_code": "",
+								"location": "ITC MUGAL HOTAL",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 2",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 2",
+								"train_towards": {
+									"id": 34,
+									"st_name": "TAJ MAHAL",
+									"st_code": "TJML"
+								},
+								"platform_code": "PF22032",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 3",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "Platform No. 1",
+								"train_towards": {
+									"id": 2,
+									"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22031",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "LIFT No. 4",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "Gate No.1",
+								"gate_code": "",
+								"location": "ITC MUGAL HOTAL",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 225 days 4 hours 26 minutes ago"
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "Gate No.1",
+						"gate_code": "",
+						"location": "ITC MUGAL HOTAL",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					},
+					{
+						"gate_name": "Gate No.2",
+						"gate_code": "",
+						"location": "IDFC FIRST BANK",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": []
+			}
+		},
+		"hi_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 3,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "लाइन 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "ताज पूर्वी गेट",
+						"end_station": "मनकामेश्वर मंदिर",
+						"status": "सामान्य सेवाएँ"
+					}
+				],
+				"st_name": "फ़तेहाबाद रोड",
+				"st_code": "FTBR",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_yT0kliA.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_3C4fPxz.png"
+				},
+				"st_desc": "यह आगरा मेट्रो नेटवर्क की पीली लाइन (लाइन-1) पर एक एलिवेटेड स्टेशन है। अधिक जानकारी या प्रश्नों के लिए कृपया स्टेशन नियंत्रक से संपर्क करें।",
+				"st_status": [],
+				"mobile": null,
+				"landline": "9236405941",
+				"interchange": false,
+				"latitude": "27.1583959",
+				"longitude": "78.0578603",
+				"x_coords": 1084.32,
+				"y_coords": 1002.73,
+				"st_key_info": [
+					{
+						"name": "दिव्यांग मित्रवत स्टेशन",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "लिफ्ट/एस्केलेटर उपलब्ध",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "पेय जल",
+								"purpose": "पेय जल",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "शौचालय",
+								"purpose": "शौचालय",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "प्लेटफार्म नंबर 2",
+						"train_towards": {
+							"id": 34,
+							"st_name": "ताज महल",
+							"st_code": "TJML"
+						},
+						"platform_code": "PF22032",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "प्लेटफार्म नंबर 1",
+						"train_towards": {
+							"id": 2,
+							"st_name": "शहीद कैप्टन शुभम गुप्ता",
+							"st_code": "SCSG"
+						},
+						"platform_code": "PF22031",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-1",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 1",
+								"gate_code": "",
+								"location": "आईटीसी मुगल होटल",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-2",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 2",
+								"train_towards": {
+									"id": 34,
+									"st_name": "ताज महल",
+									"st_code": "TJML"
+								},
+								"platform_code": "PF22032",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "एस्केलेटर न-3",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 1",
+								"train_towards": {
+									"id": 2,
+									"st_name": "शहीद कैप्टन शुभम गुप्ता",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22031",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-1",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 1",
+								"gate_code": "",
+								"location": "आईटीसी मुगल होटल",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-2",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 2",
+								"train_towards": {
+									"id": 34,
+									"st_name": "ताज महल",
+									"st_code": "TJML"
+								},
+								"platform_code": "PF22032",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-3",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [
+							{
+								"platform_name": "प्लेटफार्म नंबर 1",
+								"train_towards": {
+									"id": 2,
+									"st_name": "शहीद कैप्टन शुभम गुप्ता",
+									"st_code": "SCSG"
+								},
+								"platform_code": "PF22031",
+								"train_towards_second": null
+							}
+						],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "लिफ़्ट न-4",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [
+							{
+								"gate_name": "गेट नंबर 1",
+								"gate_code": "",
+								"location": "आईटीसी मुगल होटल",
+								"gate_latitude": "27.1585558",
+								"gate_longitude": "78.0578362",
+								"divyang_friendly": false,
+								"status": "open"
+							}
+						],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "गेट नंबर 1",
+						"gate_code": "",
+						"location": "आईटीसी मुगल होटल",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					},
+					{
+						"gate_name": "गेट नंबर 2",
+						"gate_code": "",
+						"location": "आईडीएफसी फर्स्ट बैंक",
+						"gate_latitude": "27.1585558",
+						"gate_longitude": "78.0578362",
+						"divyang_friendly": false,
+						"status": "open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": []
+			}
+		}
+	},
+	"taj_mahal": {
+		"id": "taj_mahal",
+		"station_code": "TJML",
+		"station_name_en": "TAJ MAHAL",
+		"station_name_hi": "ताज महल",
+		"meta_raw": {
+			"id": 34,
+			"st_name": "TAJ MAHAL",
+			"st_code": "TJML",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_5bYJfpn.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_hQ4b2F8.png"
+			},
+			"latitude": "27.168378",
+			"longitude": "78.0358742",
+			"x_coords": 1017.67,
+			"y_coords": 959.52,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		},
+		"en_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 34,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "Line 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "TAJ EAST GATE",
+						"end_station": "MANKAMESHWAR MANDIR",
+						"status": "Normal Service"
+					}
+				],
+				"st_name": "TAJ MAHAL",
+				"st_code": "TJML",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_5bYJfpn.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_hQ4b2F8.png"
+				},
+				"st_desc": "It is one of the several Underground   stations on yellow Line (Line-1) of UPMRC's Agra Metro network. For more information or queries kindly contact station officer at the following contact number: NOT AVAILABLE.",
+				"st_status": [],
+				"prev_next_stations": [
+					{
+						"Line 1": [
+							{
+								"line_id": 1,
+								"prev_station": {
+									"id": 3,
+									"st_name": "FATEHABAD ROAD",
+									"st_code": "FTBR"
+								},
+								"next_station": {
+									"id": 35,
+									"st_name": "AGRA FORT",
+									"st_code": "AFTM"
+								},
+								"line_color": "#c1282b",
+								"line_code": "LN1"
+							}
+						]
+					}
+				],
+				"mobile": null,
+				"landline": "9236405942",
+				"interchange": false,
+				"latitude": "27.168378",
+				"longitude": "78.0358742",
+				"x_coords": 1017.67,
+				"y_coords": 959.52,
+				"st_key_info": [
+					{
+						"name": "Divyang Friendly Station",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "Lift / Escalator Available",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "Parking Available",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "WATER COOLER",
+								"purpose": "Water",
+								"location_description": "Concourse Paid area",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Toilet",
+								"purpose": "Toilet",
+								"location_description": "Concourse Paid area",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "Platform No. 1",
+						"train_towards": {
+							"id": 3,
+							"st_name": "FATEHABAD ROAD",
+							"st_code": "FTBR"
+						},
+						"platform_code": "PF22041",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "Platform No. 2",
+						"train_towards": {
+							"id": 35,
+							"st_name": "AGRA FORT",
+							"st_code": "AFTM"
+						},
+						"platform_code": "PF22042",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "Gate No. 1",
+						"gate_code": "",
+						"location": "PURANI MANDI CHAURAHA",
+						"gate_latitude": "27.168378",
+						"gate_longitude": "78.0358742",
+						"divyang_friendly": false,
+						"status": "Open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": [
+					{
+						"Tourist Attractions": {
+							"Railway Station": [
+								{
+									"icon-class": "Explore",
+									"image": {
+										"title": "",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/images/explore_GSf1tJf.png"
+									}
+								},
+								{
+									"place_types": "Railway Station",
+									"name": "Taj Mahal",
+									"image": {
+										"title": "Taj Mahal",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Taj_Mahal.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 2.7,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": 26.0,
+									"transport_time_est": 9.0
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		"hi_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 34,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "लाइन 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "ताज पूर्वी गेट",
+						"end_station": "मनकामेश्वर मंदिर",
+						"status": "सामान्य सेवाएँ"
+					}
+				],
+				"st_name": "ताज महल",
+				"st_code": "TJML",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_5bYJfpn.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_hQ4b2F8.png"
+				},
+				"st_desc": "यह यूपीएमआरसी के आगरा मेट्रो नेटवर्क की येलो लाइन (लाइन-1) पर कई भूमिगत स्टेशनों में से एक है। अधिक जानकारी या प्रश्नों के लिए कृपया निम्नलिखित संपर्क नंबर पर स्टेशन अधिकारी से संपर्क करें: उपलब्ध नहीं है",
+				"st_status": [],
+				"mobile": null,
+				"landline": "9236405942",
+				"interchange": false,
+				"latitude": "27.168378",
+				"longitude": "78.0358742",
+				"x_coords": 1017.67,
+				"y_coords": 959.52,
+				"st_key_info": [
+					{
+						"name": "दिव्यांग मित्रवत स्टेशन",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "लिफ्ट/एस्केलेटर उपलब्ध",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "पार्किंग उपलब्ध है",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "पेय जल",
+								"purpose": "पेय जल",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "शौचालय",
+								"purpose": "शौचालय",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "प्लेटफार्म नंबर 1",
+						"train_towards": {
+							"id": 3,
+							"st_name": "फ़तेहाबाद रोड",
+							"st_code": "FTBR"
+						},
+						"platform_code": "PF22041",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "प्लेटफार्म नंबर 2",
+						"train_towards": {
+							"id": 35,
+							"st_name": "आगरा किला",
+							"st_code": "AFTM"
+						},
+						"platform_code": "PF22042",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "गेट नंबर 1",
+						"gate_code": "",
+						"location": "पुरानी मंडी चौराहा",
+						"gate_latitude": "27.168378",
+						"gate_longitude": "78.0358742",
+						"divyang_friendly": false,
+						"status": "Open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": [
+					{
+						"Tourist Attractions": {
+							"Railway Station": [
+								{
+									"icon-class": "Explore",
+									"image": {
+										"title": "",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/images/explore_GSf1tJf.png"
+									}
+								},
+								{
+									"place_types": "रेलवे स्टेशन",
+									"name": "ताज महल",
+									"banner_image": {
+										"title": "Taj Mahal",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Taj_Mahal.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 2.7,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": 26.0,
+									"transport_time_est": 9.0
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	"agra_fort": {
+		"id": "agra_fort",
+		"station_code": "AFTM",
+		"station_name_en": "AGRA FORT",
+		"station_name_hi": "आगरा किला",
+		"meta_raw": {
+			"id": 35,
+			"st_name": "AGRA FORT",
+			"st_code": "AFTM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_z8ZvEH6.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_Gpah3Ya.png"
+			},
+			"latitude": "27.175207",
+			"longitude": "78.0224515",
+			"x_coords": 922.4,
+			"y_coords": 965.09,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		},
+		"en_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 35,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "Line 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "TAJ EAST GATE",
+						"end_station": "MANKAMESHWAR MANDIR",
+						"status": "Normal Service"
+					}
+				],
+				"st_name": "AGRA FORT",
+				"st_code": "AFTM",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_z8ZvEH6.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_Gpah3Ya.png"
+				},
+				"st_desc": "It is one of the several Underground   stations on yellow Line (Line-1) of UPMRC's Agra Metro network. For more information or queries kindly contact station officer at the following contact number: NOT AVAILABLE.",
+				"st_status": [],
+				"prev_next_stations": [
+					{
+						"Line 1": [
+							{
+								"line_id": 1,
+								"prev_station": {
+									"id": 34,
+									"st_name": "TAJ MAHAL",
+									"st_code": "TJML"
+								},
+								"next_station": {
+									"id": 36,
+									"st_name": "MANKAMESHWAR MANDIR",
+									"st_code": "MKM"
+								},
+								"line_color": "#c1282b",
+								"line_code": "LN1"
+							}
+						]
+					}
+				],
+				"mobile": null,
+				"landline": "9236405943",
+				"interchange": false,
+				"latitude": "27.175207",
+				"longitude": "78.0224515",
+				"x_coords": 922.4,
+				"y_coords": 965.09,
+				"st_key_info": [
+					{
+						"name": "Divyang Friendly Station",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "Lift / Escalator Available",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "Parking Available",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Toilet",
+								"purpose": "Toilet",
+								"location_description": "Concourse Paid area",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "WATER COOLER",
+								"purpose": "Water",
+								"location_description": "Concourse Paid area",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "Platform No. 1",
+						"train_towards": {
+							"id": 34,
+							"st_name": "TAJ MAHAL",
+							"st_code": "TJML"
+						},
+						"platform_code": "PF22051",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "Platform No. 2",
+						"train_towards": {
+							"id": 36,
+							"st_name": "MANKAMESHWAR MANDIR",
+							"st_code": "MKM"
+						},
+						"platform_code": "PF22052",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "Gate No. 1",
+						"gate_code": "",
+						"location": "RAM LEELA MAIDAN",
+						"gate_latitude": "27.175207",
+						"gate_longitude": "78.0224515",
+						"divyang_friendly": false,
+						"status": "Open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": [
+					{
+						"Tourist Attractions": {
+							"Railway Station": [
+								{
+									"icon-class": "Explore",
+									"image": {
+										"title": "",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/images/explore_GSf1tJf.png"
+									}
+								},
+								{
+									"place_types": "Railway Station",
+									"name": "Agra Fort",
+									"image": {
+										"title": "Agra Fort",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Agra_Fort.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 0.2,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": 2.0,
+									"transport_time_est": 2.0
+								},
+								{
+									"place_types": "Railway Station",
+									"name": "Tomb of Akbar",
+									"image": {
+										"title": "Tomb of akbar",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Tomb_of_akbar.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 15.3,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": 120.0,
+									"transport_time_est": 29.0
+								}
+							]
+						}
+					},
+					{
+						"Shopping": {
+							"Market": [
+								{
+									"icon-class": "Chat",
+									"image": {
+										"title": "",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/images/shopping_cart_2qNtsBx.png"
+									}
+								},
+								{
+									"place_types": "Market",
+									"name": "Mama Chicken a.k.a. Mama Frankie, Sadar Bazar",
+									"image": {
+										"title": "mama chicken",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/mama_chicken.jpg"
+									},
+									"metro_connected": true,
+									"metro_distance": 2.5,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		"hi_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 35,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "लाइन 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "ताज पूर्वी गेट",
+						"end_station": "मनकामेश्वर मंदिर",
+						"status": "सामान्य सेवाएँ"
+					}
+				],
+				"st_name": "आगरा किला",
+				"st_code": "AFTM",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_z8ZvEH6.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_Gpah3Ya.png"
+				},
+				"st_desc": "यह यूपीएमआरसी के आगरा मेट्रो नेटवर्क की येलो लाइन (लाइन-1) पर कई भूमिगत स्टेशनों में से एक है। अधिक जानकारी या प्रश्नों के लिए कृपया निम्नलिखित संपर्क नंबर पर स्टेशन अधिकारी से संपर्क करें: उपलब्ध नहीं है",
+				"st_status": [],
+				"mobile": null,
+				"landline": "9236405943",
+				"interchange": false,
+				"latitude": "27.175207",
+				"longitude": "78.0224515",
+				"x_coords": 922.4,
+				"y_coords": 965.09,
+				"st_key_info": [
+					{
+						"name": "दिव्यांग मित्रवत स्टेशन",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "लिफ्ट/एस्केलेटर उपलब्ध",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "पार्किंग उपलब्ध है",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "शौचालय",
+								"purpose": "शौचालय",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "पेय जल",
+								"purpose": "पेय जल",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "प्लेटफार्म नंबर 1",
+						"train_towards": {
+							"id": 34,
+							"st_name": "ताज महल",
+							"st_code": "TJML"
+						},
+						"platform_code": "PF22051",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "प्लेटफार्म नंबर 2",
+						"train_towards": {
+							"id": 36,
+							"st_name": "मनकामेश्वर मंदिर",
+							"st_code": "MKM"
+						},
+						"platform_code": "PF22052",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "गेट नंबर 1",
+						"gate_code": "",
+						"location": "राम लीला मैदान",
+						"gate_latitude": "27.175207",
+						"gate_longitude": "78.0224515",
+						"divyang_friendly": false,
+						"status": "Open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": [
+					{
+						"Tourist Attractions": {
+							"Railway Station": [
+								{
+									"icon-class": "Explore",
+									"image": {
+										"title": "",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/images/explore_GSf1tJf.png"
+									}
+								},
+								{
+									"place_types": "रेलवे स्टेशन",
+									"name": "Agra Fort",
+									"banner_image": {
+										"title": "Agra Fort",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Agra_Fort.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 0.2,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": 2.0,
+									"transport_time_est": 2.0
+								},
+								{
+									"place_types": "रेलवे स्टेशन",
+									"name": "अकबर का मकबरा",
+									"banner_image": {
+										"title": "Tomb of akbar",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Tomb_of_akbar.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 15.3,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": 120.0,
+									"transport_time_est": 29.0
+								}
+							]
+						}
+					},
+					{
+						"Shopping": {
+							"Market": [
+								{
+									"icon-class": "Chat",
+									"image": {
+										"title": "",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/images/shopping_cart_2qNtsBx.png"
+									}
+								},
+								{
+									"place_types": "बाज़ार",
+									"name": "मामा चिकन उर्फ ​​मामा फ्रेंकी, सदर बाजार",
+									"banner_image": {
+										"title": "mama chicken",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/mama_chicken.jpg"
+									},
+									"metro_connected": true,
+									"metro_distance": 2.5,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	"mankameshwar_mandir": {
+		"id": "mankameshwar_mandir",
+		"station_code": "MKM",
+		"station_name_en": "MANKAMESHWAR MANDIR",
+		"station_name_hi": "मनकामेश्वर मंदिर",
+		"meta_raw": {
+			"id": 36,
+			"st_name": "MANKAMESHWAR MANDIR",
+			"st_code": "MKM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_IWeRWkp.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_naxgaiC.png"
+			},
+			"latitude": "27.178123",
+			"longitude": "78.0172131",
+			"x_coords": 1.0,
+			"y_coords": 2.0,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		},
+		"en_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 36,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "Line 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "TAJ EAST GATE",
+						"end_station": "MANKAMESHWAR MANDIR",
+						"status": "Normal Service"
+					}
+				],
+				"st_name": "MANKAMESHWAR MANDIR",
+				"st_code": "MKM",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_IWeRWkp.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_naxgaiC.png"
+				},
+				"st_desc": "It is one of the several Underground   stations on yellow Line (Line-1) of UPMRC's Agra Metro network. For more information or queries kindly contact station officer at the following contact number: NOT AVAILABLE.",
+				"st_status": [],
+				"prev_next_stations": [
+					{
+						"Line 1": [
+							{
+								"line_id": 1,
+								"prev_station": {
+									"id": 35,
+									"st_name": "AGRA FORT",
+									"st_code": "AFTM"
+								},
+								"next_station": "",
+								"line_color": "#c1282b",
+								"line_code": "LN1"
+							}
+						]
+					}
+				],
+				"mobile": null,
+				"landline": "9236405944",
+				"interchange": false,
+				"latitude": "27.178123",
+				"longitude": "78.0172131",
+				"x_coords": 1.0,
+				"y_coords": 2.0,
+				"st_key_info": [
+					{
+						"name": "Divyang Friendly Station",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "Lift / Escalator Available",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "Parking Available",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "WATER COOLER",
+								"purpose": "Water",
+								"location_description": "Concourse Paid area",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "Toilet",
+								"purpose": "Toilet",
+								"location_description": "Concourse Paid area",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "Platform No. 1",
+						"train_towards": {
+							"id": 35,
+							"st_name": "AGRA FORT",
+							"st_code": "AFTM"
+						},
+						"platform_code": "PF22061",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "Platform No. 2",
+						"train_towards": {
+							"id": 35,
+							"st_name": "AGRA FORT",
+							"st_code": "AFTM"
+						},
+						"platform_code": "PF22062",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "Ground to Concourse",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "Concourse to Platfrom",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true,
+						"status": false,
+						"note": "",
+						"last_update": "2 years 223 days 4 hours 8 minutes ago"
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "Gate No. 1",
+						"gate_code": "",
+						"location": "BIJLI GHAR CHAURAHA",
+						"gate_latitude": "27.178123",
+						"gate_longitude": "78.0172131",
+						"divyang_friendly": false,
+						"status": "Open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": [
+					{
+						"Shopping": {
+							"Market": [
+								{
+									"icon-class": "Chat",
+									"image": {
+										"title": "",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/images/shopping_cart_2qNtsBx.png"
+									}
+								},
+								{
+									"place_types": "Market",
+									"name": "Panchi Petha",
+									"image": {
+										"title": "Panchi petha Agra",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Panchi_petha_Agra.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 3.0,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								},
+								{
+									"place_types": "Market",
+									"name": "Deviram Sweets",
+									"image": {
+										"title": "Deviraam sweets",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Deviraam_sweets.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 1.7,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								},
+								{
+									"place_types": "Market",
+									"name": "Ram Babu Parantha Bhandar",
+									"image": {
+										"title": "rambabu paratha bhandar",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/rambabu_paratha_bhandar.jpg"
+									},
+									"metro_connected": true,
+									"metro_distance": 2.0,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								},
+								{
+									"place_types": "Market",
+									"name": "Chaat Gali",
+									"image": {
+										"title": "agra chaat gali",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/agra_chaat_gali.webp"
+									},
+									"metro_connected": false,
+									"metro_distance": 2.5,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		"hi_raw": {
+			"status": true,
+			"message": "Station Exists",
+			"data": {
+				"id": 36,
+				"metro_lines": [
+					{
+						"id": 1,
+						"ln_name": "लाइन 1",
+						"ln_color": "#c1282b",
+						"ln_code": "LN1",
+						"ln_image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_718_1_KtqeaJm.png"
+						},
+						"start_station": "ताज पूर्वी गेट",
+						"end_station": "मनकामेश्वर मंदिर",
+						"status": "सामान्य सेवाएँ"
+					}
+				],
+				"st_name": "मनकामेश्वर मंदिर",
+				"st_code": "MKM",
+				"st_type": "Underground",
+				"st_image": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_IWeRWkp.png"
+				},
+				"st_image_small": {
+					"title": "",
+					"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_naxgaiC.png"
+				},
+				"st_desc": "यह यूपीएमआरसी के आगरा मेट्रो नेटवर्क की येलो लाइन (लाइन-1) पर कई भूमिगत स्टेशनों में से एक है। अधिक जानकारी या प्रश्नों के लिए कृपया निम्नलिखित संपर्क नंबर पर स्टेशन अधिकारी से संपर्क करें: उपलब्ध नहीं है",
+				"st_status": [],
+				"mobile": null,
+				"landline": "9236405944",
+				"interchange": false,
+				"latitude": "27.178123",
+				"longitude": "78.0172131",
+				"x_coords": 1.0,
+				"y_coords": 2.0,
+				"st_key_info": [
+					{
+						"name": "दिव्यांग मित्रवत स्टेशन",
+						"class_name": "Divyang",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+						}
+					},
+					{
+						"name": "लिफ्ट/एस्केलेटर उपलब्ध",
+						"class_name": "Lift",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+						}
+					},
+					{
+						"name": "पार्किंग उपलब्ध है",
+						"class_name": "Parking",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+						}
+					}
+				],
+				"station_facilities": [
+					{
+						"kind": "Water",
+						"icon-class": "Water",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Mask_group_wzjlohp.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "पेय जल",
+								"purpose": "पेय जल",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					},
+					{
+						"kind": "Toilet",
+						"icon-class": "Toilet",
+						"image": {
+							"title": "",
+							"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Toilet_LgJ15jk_hNYigwu.png"
+						},
+						"detail_list": [
+							{
+								"facility_name": "शौचालय",
+								"purpose": "शौचालय",
+								"location_description": "कॉनकोर्स पेड एरिया",
+								"nearest_gate_name": "",
+								"nearest_gate_code": "",
+								"nearest_platform_name": "",
+								"nearest_platform_code": "",
+								"nearest_lift_name": "",
+								"nearest_lift_code": ""
+							}
+						]
+					}
+				],
+				"platforms": [
+					{
+						"platform_name": "प्लेटफार्म नंबर 1",
+						"train_towards": {
+							"id": 35,
+							"st_name": "आगरा किला",
+							"st_code": "AFTM"
+						},
+						"platform_code": "PF22061",
+						"train_towards_second": null
+					},
+					{
+						"platform_name": "प्लेटफार्म नंबर 2",
+						"train_towards": {
+							"id": 35,
+							"st_name": "आगरा किला",
+							"st_code": "AFTM"
+						},
+						"platform_code": "PF22062",
+						"train_towards_second": null
+					}
+				],
+				"lifts": [
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Escalator",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": false
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "ग्राउंड टू कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					},
+					{
+						"lift_type": "Lift",
+						"name": "",
+						"description_location": "प्लैटफ़ॉर्म से कॉनकोर्स",
+						"code": "",
+						"from_gate_code": [],
+						"to_gate_code": [],
+						"from_platform_code": [],
+						"to_platform_code": [],
+						"available_outside_inside": "Inside",
+						"divyang_friendly": true
+					}
+				],
+				"gates": [
+					{
+						"gate_name": "गेट नंबर 1",
+						"gate_code": "",
+						"location": "बिजली घर चौराहा",
+						"gate_latitude": "27.178123",
+						"gate_longitude": "78.0172131",
+						"divyang_friendly": false,
+						"status": "Open"
+					}
+				],
+				"parkings": [],
+				"first_last_train": [
+					{
+						"weekdays": []
+					},
+					{
+						"saturday": []
+					},
+					{
+						"sunday": []
+					}
+				],
+				"feeder": [],
+				"nearby_places": [
+					{
+						"Shopping": {
+							"Market": [
+								{
+									"icon-class": "Chat",
+									"image": {
+										"title": "",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/images/shopping_cart_2qNtsBx.png"
+									}
+								},
+								{
+									"place_types": "बाज़ार",
+									"name": "पंछी पेठा",
+									"banner_image": {
+										"title": "Panchi petha Agra",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Panchi_petha_Agra.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 3.0,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								},
+								{
+									"place_types": "बाज़ार",
+									"name": "देवीराम स्वीट्स",
+									"banner_image": {
+										"title": "Deviraam sweets",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/Deviraam_sweets.jpg"
+									},
+									"metro_connected": false,
+									"metro_distance": 1.7,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								},
+								{
+									"place_types": "बाज़ार",
+									"name": "राम बाबू पराँठा भंडार",
+									"banner_image": {
+										"title": "rambabu paratha bhandar",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/rambabu_paratha_bhandar.jpg"
+									},
+									"metro_connected": true,
+									"metro_distance": 2.0,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								},
+								{
+									"place_types": "बाज़ार",
+									"name": "चाट गली",
+									"banner_image": {
+										"title": "agra chaat gali",
+										"file": "https://upmrcl-media.s3.amazonaws.com/media/original_images/agra_chaat_gali.webp"
+									},
+									"metro_connected": false,
+									"metro_distance": 2.5,
+									"nearest_gate_name": "",
+									"nearest_gate_code": "",
+									"walk_time_est": null,
+									"transport_time_est": null
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

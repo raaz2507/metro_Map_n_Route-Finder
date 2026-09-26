@@ -13,6 +13,10 @@
 		-webkit-backdrop-filter: blur(var(--backdrop-blur, 16px));
 		box-shadow: var(--shadow-lg);
 		
+		/* GPU Layer Isolation & Anti-flicker */
+		transform: translateZ(0);
+		contain: paint layout;
+
 		/* स्मूथ थीम स्विचिंग ट्रांजिशन */
 		transition: background-color var(--transition-smooth), 
 					border-color var(--transition-smooth), 
@@ -44,12 +48,13 @@
 	   SVG Map Elements Styling & Micro-interactions
 	   ========================================================================= */
 
-		/* स्टेशन के नाम (Labels) को थीम-फ्रेंडली बनाना */
+	/* स्टेशन के नाम (Labels) को थीम-फ्रेंडली बनाना */
 	.mapContainer svg text,
 	.mapContainer svg text tspan {
 		fill: var(--text-primary); 
 		font-family: var(--map-font);
 		font-weight: var(--fw-medium);
+		pointer-events: none; /* टेक्स्ट को री-पेंट इवेंट्स और टच ब्लॉक से बचाता है */
 		transition: font-size 0.2s ease, stroke-width 0.2s ease, opacity var(--transition-smooth); 
 	}
 
@@ -73,40 +78,48 @@
 	}
 
 	/* =========================================================================
-	   1. LEGEND STATION TYPES & ROUTE CIRCLES - PURE SIZE BREATHING PULSE
-	   ========================================================================= */
-	@keyframes pulse-legend-station {
-		0%, 100% {
-			transform: scale(1.0);
-		}
-		50% {
-			transform: scale(1.4);
-		}
-	}
-
+	   1. LEGEND STATION TYPES & ROUTE CIRCLES - ROCK SOLID ACTIVE STATE
+	========================================================================= */
 	.mapContainer svg.map-dimmed circle.highlighted,
 	.mapContainer svg.map-dimmed g.highlighted circle {
 		opacity: 1;
-		animation: pulse-legend-station 1.4s ease-in-out infinite;
+		transform: scale(1.22);
+		animation: none; /* स्टेशन नेम्स की ब्लिंकिंग को 100% रोकता है */
+		filter: drop-shadow(0 0 8px rgba(var(--color-primary-rgb), 0.5));
 	}
 
 	/* =========================================================================
-	   2. HIGHLIGHTED METRO TRACKS (Full Opacity)
-	========================================================================= */
-	@keyframes pulse-highlight-line {
-		0%, 100% {
-			stroke-width: 160;
-			filter: drop-shadow(0 0 6px rgba(var(--color-primary-rgb), 0.6));
+	   2. HIGHLIGHTED METRO TRACKS - 60 FPS FROM-TO-TO METRO FLOW
+	   ========================================================================= */
+	@keyframes metro-dash-forward {
+		from {
+			stroke-dashoffset: 0;
 		}
-		50% {
-			stroke-width: 230;
-			filter: drop-shadow(0 0 20px rgba(var(--color-primary-rgb), 1));
+		to {
+			stroke-dashoffset: -1200;
+		}
+	}
+
+	@keyframes metro-dash-backward {
+		from {
+			stroke-dashoffset: 0;
+		}
+		to {
+			stroke-dashoffset: 1200;
 		}
 	}
 
 	.mapContainer svg.map-dimmed line.highlighted-line {
 		opacity: 1;
-		animation: pulse-highlight-line 1.5s ease-in-out infinite;
+		stroke-width: 190;
+		stroke-linecap: round;
+		stroke-dasharray: 400 200;
+		animation: metro-dash-forward 1.8s linear infinite;
+	}
+
+	/* जब लाइन का SVG पाथ यात्रा की उल्टी दिशा में बना हो (Reverse Direction) */
+	.mapContainer svg.map-dimmed line.highlighted-line.reverse-flow {
+		animation: metro-dash-backward 1.8s linear infinite;
 	}
 
 	/* =========================================================================

@@ -833,6 +833,7 @@ export class MetroMap {
 					effectiveStatus
 				);
 				line.dataset.edgeId = key;
+				line.dataset.fromStation = station.id;
 				line.dataset.lineId = neighbor.line;
 				line.dataset.status = effectiveStatus;
 				fragment.appendChild(line);
@@ -1166,8 +1167,8 @@ export class MetroMap {
 		const { path, lineId, stationType, stationId } = config;
 
 		// 1. पिछले सभी एक्टिव हाईलाइट्स को 0ms में साफ करें
-		svg.svg.querySelectorAll(".highlighted, .highlighted-line, .highlighted-text, .target-highlight-circle, .target-highlight-text").forEach(el => {
-			el.classList.remove("highlighted", "highlighted-line", "highlighted-text", "target-highlight-circle", "target-highlight-text");
+		svg.svg.querySelectorAll(".highlighted, .highlighted-line, .reverse-flow, .highlighted-text, .target-highlight-circle, .target-highlight-text").forEach(el => {
+			el.classList.remove("highlighted", "highlighted-line", "reverse-flow", "highlighted-text", "target-highlight-circle", "target-highlight-text");
 		});
 
 		// 2. रीसेट लॉजिक: यदि कोई फ़िल्टर नहीं है तो सीधे '.map-dimmed' हटाकर तुरंत बाहर निकलें
@@ -1207,10 +1208,18 @@ export class MetroMap {
 			});
 
 			for (let i = 0; i < path.length - 1; i++) {
-				const edgeId1 = `${path[i]}-${path[i + 1]}`;
-				const edgeId2 = `${path[i + 1]}-${path[i]}`;
+				const u = path[i];
+				const v = path[i + 1];
+				const edgeId1 = `${u}-${v}`;
+				const edgeId2 = `${v}-${u}`;
 				const edgeNode = svg.tracks_lineGroup.querySelector(`line[data-edge-id="${edgeId1}"], line[data-edge-id="${edgeId2}"]`);
-				if (edgeNode) edgeNode.classList.add("highlighted-line");
+				if (edgeNode) {
+					edgeNode.classList.add("highlighted-line");
+					// यदि लाइन का आंतरिक स्टार्ट u नहीं है, तो फ्लो को रिवर्स करें ताकि हमेशा From -> To चले
+					if (edgeNode.dataset.fromStation !== u) {
+						edgeNode.classList.add("reverse-flow");
+					}
+				}
 			}
 			return;
 		}

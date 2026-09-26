@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>🎟️ Multi-Ticket Breakdown Button Showcase (10 Designs)</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--bg: #f8fafc;
+			--surface: #ffffff;
+			--surface-subtle: #f1f5f9;
+			--text-primary: #0f172a;
+			--text-secondary: #64748b;
+			--border: #e2e8f0;
+			--primary: #3b82f6;
+			--primary-hover: #2563eb;
+			--primary-subtle: rgba(59, 130, 246, 0.08);
+			--accent-amber: #d97706;
+			--accent-emerald: #10b981;
+			--radius-sm: 8px;
+			--radius-md: 12px;
+			--radius-lg: 16px;
+			--radius-full: 9999px;
+			--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+			--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+		}
+
+		[data-theme="dark"] {
+			--bg: #0b0f19;
+			--surface: #1e293b;
+			--surface-subtle: #334155;
+			--text-primary: #f8fafc;
+			--text-secondary: #94a3b8;
+			--border: #334155;
+			--primary: #60a5fa;
+			--primary-hover: #3b82f6;
+			--primary-subtle: rgba(96, 165, 250, 0.12);
+			--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+			--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: var(--bg);
+			color: var(--text-primary);
+			padding: 32px 16px;
+			min-height: 100vh;
+			transition: background-color 0.2s ease, color 0.2s ease;
+		}
+
+		.container {
+			max-width: 680px;
+			margin: 0 auto;
+		}
+
+		.page-header {
+			text-align: center;
+			margin-bottom: 32px;
+		}
+
+		.page-header h1 {
+			font-family: 'Outfit', sans-serif;
+			font-size: 1.85rem;
+			font-weight: 800;
+			margin-bottom: 8px;
+			color: var(--text-primary);
+		}
+
+		.page-header p {
+			color: var(--text-secondary);
+			font-size: 0.95rem;
+		}
+
+		.theme-switcher-bar {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 36px;
+			gap: 12px;
+		}
+
+		.theme-btn {
+			padding: 8px 18px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			border-radius: var(--radius-full);
+			border: 1px solid var(--border);
+			background: var(--surface);
+			color: var(--text-primary);
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			box-shadow: var(--shadow-sm);
+			transition: all 0.2s;
+		}
+
+		.theme-btn:hover {
+			border-color: var(--primary);
+		}
+
+		.theme-btn.active {
+			background: var(--primary);
+			color: #ffffff;
+			border-color: var(--primary);
+		}
+
+		.design-grid {
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
+		}
+
+		.design-card {
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-lg);
+			padding: 20px;
+			box-shadow: var(--shadow-sm);
+		}
+
+		.design-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			margin-bottom: 14px;
+			border-bottom: 1px dashed var(--border);
+			padding-bottom: 8px;
+		}
+
+		.design-title {
+			font-family: 'Outfit', sans-serif;
+			font-size: 1.05rem;
+			font-weight: 700;
+			color: var(--text-primary);
+		}
+
+		.design-tag {
+			font-size: 0.72rem;
+			font-weight: 600;
+			padding: 2px 8px;
+			border-radius: var(--radius-full);
+			background: var(--surface-subtle);
+			color: var(--text-secondary);
+		}
+
+		/* Dummy Legs Container for Interactive Preview */
+		.dummy-legs-box {
+			display: none;
+			margin-top: 12px;
+			padding: 12px;
+			background: var(--surface-subtle);
+			border-radius: var(--radius-md);
+			font-size: 0.8rem;
+			color: var(--text-secondary);
+			line-height: 1.5;
+			border-left: 3px solid var(--primary);
+		}
+
+		.dummy-legs-box.open {
+			display: block;
+			animation: fadeIn 0.2s ease-in-out;
+		}
+
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(-4px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		.chevron {
+			transition: transform 0.25s ease;
+			display: inline-block;
+		}
+
+		.open-state .chevron {
+			transform: rotate(180deg);
+		}
+
+		/* =========================================================================
+		   🎨 THE 10 DISTINCT DESIGNS
+		   ========================================================================= */
+
+		/* -------------------------------------------------------------
+		   DESIGN 1: Apple iOS Style Pill with Micro Count Badge
+		   ------------------------------------------------------------- */
+		.btn-design-1 {
+			width: 100%;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-full);
+			padding: 10px 18px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			box-shadow: var(--shadow-sm);
+			transition: all 0.2s ease;
+		}
+		.btn-design-1:hover {
+			border-color: var(--primary);
+			background: var(--primary-subtle);
+		}
+		.btn-design-1 .left-wrap {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		.btn-design-1 .info-circle {
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background: var(--primary);
+			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.75rem;
+			font-weight: 700;
+		}
+		.btn-design-1 .label {
+			font-size: 0.88rem;
+			font-weight: 600;
+			color: var(--text-primary);
+		}
+		.btn-design-1 .count-pill {
+			background: var(--surface-subtle);
+			padding: 2px 10px;
+			border-radius: var(--radius-full);
+			font-size: 0.75rem;
+			font-weight: 600;
+			color: var(--primary);
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 2: Left Accent Bar & Glass Card
+		   ------------------------------------------------------------- */
+		.btn-design-2 {
+			width: 100%;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-left: 4px solid var(--primary);
+			border-radius: var(--radius-md);
+			padding: 12px 16px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			box-shadow: var(--shadow-sm);
+			transition: all 0.2s ease;
+		}
+		.btn-design-2:hover {
+			box-shadow: var(--shadow-md);
+			transform: translateY(-1px);
+		}
+		.btn-design-2 .title-box {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		.btn-design-2 .icon-wrap {
+			font-size: 1.15rem;
+		}
+		.btn-design-2 .main-txt {
+			font-size: 0.88rem;
+			font-weight: 600;
+			color: var(--text-primary);
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 3: Transit Voucher / Perforated Stub
+		   ------------------------------------------------------------- */
+		.btn-design-3 {
+			width: 100%;
+			background: var(--surface-subtle);
+			border: 1.5px dashed var(--border);
+			border-radius: var(--radius-md);
+			padding: 11px 16px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+		.btn-design-3:hover {
+			border-color: var(--primary);
+			background: var(--surface);
+		}
+		.btn-design-3 .stub-left {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 0.86rem;
+			font-weight: 600;
+			color: var(--text-primary);
+		}
+		.btn-design-3 .ticket-tag {
+			background: rgba(16, 185, 129, 0.12);
+			color: var(--accent-emerald);
+			padding: 2px 8px;
+			border-radius: 4px;
+			font-size: 0.72rem;
+			font-weight: 700;
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 4: Executive Dual-Line Information Bar
+		   ------------------------------------------------------------- */
+		.btn-design-4 {
+			width: 100%;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-md);
+			padding: 10px 16px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			box-shadow: var(--shadow-sm);
+			transition: all 0.2s ease;
+		}
+		.btn-design-4:hover {
+			border-color: var(--primary);
+		}
+		.btn-design-4 .text-col {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 2px;
+		}
+		.btn-design-4 .primary-label {
+			font-size: 0.88rem;
+			font-weight: 700;
+			color: var(--text-primary);
+		}
+		.btn-design-4 .sub-label {
+			font-size: 0.72rem;
+			color: var(--text-secondary);
+		}
+		.btn-design-4 .round-chevron-btn {
+			width: 26px;
+			height: 26px;
+			border-radius: 50%;
+			background: var(--surface-subtle);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.75rem;
+			color: var(--text-secondary);
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 5: Multimodal Line Badges Strip
+		   ------------------------------------------------------------- */
+		.btn-design-5 {
+			width: 100%;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-md);
+			padding: 10px 16px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+		.btn-design-5:hover {
+			border-color: var(--primary);
+		}
+		.btn-design-5 .line-dots-wrap {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		.btn-design-5 .mini-line-dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			display: inline-block;
+		}
+		.btn-design-5 .txt {
+			font-size: 0.86rem;
+			font-weight: 600;
+			color: var(--text-primary);
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 6: Minimalist Micro-Outline with Accent Hover Glow
+		   ------------------------------------------------------------- */
+		.btn-design-6 {
+			width: 100%;
+			background: transparent;
+			border: 1px solid var(--border);
+			border-radius: var(--radius-sm);
+			padding: 8px 14px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			font-size: 0.84rem;
+			font-weight: 500;
+			color: var(--text-secondary);
+			transition: all 0.2s ease;
+		}
+		.btn-design-6:hover {
+			color: var(--text-primary);
+			border-color: var(--primary);
+			background: var(--primary-subtle);
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 7: Floating Soft-Elevated Neomorphic Capsule
+		   ------------------------------------------------------------- */
+		.btn-design-7 {
+			width: 100%;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-lg);
+			padding: 12px 18px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+			transition: all 0.2s ease;
+		}
+		.btn-design-7:hover {
+			box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+			transform: translateY(-1px);
+		}
+		.btn-design-7 .badge-capsule {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 0.88rem;
+			font-weight: 700;
+			color: var(--text-primary);
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 8: Frosted Glassmorphism (Cyber/Dark Ready)
+		   ------------------------------------------------------------- */
+		.btn-design-8 {
+			width: 100%;
+			background: rgba(59, 130, 246, 0.05);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			border: 1px solid rgba(59, 130, 246, 0.2);
+			border-radius: var(--radius-md);
+			padding: 11px 16px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+		.btn-design-8:hover {
+			background: rgba(59, 130, 246, 0.1);
+			border-color: var(--primary);
+		}
+		.btn-design-8 .glass-text {
+			font-size: 0.88rem;
+			font-weight: 600;
+			color: var(--primary);
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 9: Segmented Action Strip
+		   ------------------------------------------------------------- */
+		.btn-design-9 {
+			width: 100%;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-md);
+			padding: 6px 8px 6px 16px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			box-shadow: var(--shadow-sm);
+			transition: all 0.2s ease;
+		}
+		.btn-design-9:hover {
+			border-color: var(--primary);
+		}
+		.btn-design-9 .left-info {
+			font-size: 0.86rem;
+			font-weight: 600;
+			color: var(--text-primary);
+		}
+		.btn-design-9 .action-pill {
+			background: var(--surface-subtle);
+			padding: 6px 12px;
+			border-radius: var(--radius-sm);
+			font-size: 0.78rem;
+			font-weight: 700;
+			color: var(--text-secondary);
+			display: flex;
+			align-items: center;
+			gap: 4px;
+			transition: all 0.2s;
+		}
+		.btn-design-9:hover .action-pill {
+			background: var(--primary);
+			color: #ffffff;
+		}
+
+		/* -------------------------------------------------------------
+		   DESIGN 10: Multimodal Security & Fare Alert Capsule
+		   ------------------------------------------------------------- */
+		.btn-design-10 {
+			width: 100%;
+			background: rgba(217, 119, 6, 0.08);
+			border: 1px solid rgba(217, 119, 6, 0.25);
+			border-radius: var(--radius-md);
+			padding: 10px 14px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			transition: all 0.2s ease;
+		}
+		.btn-design-10:hover {
+			background: rgba(217, 119, 6, 0.14);
+		}
+		.btn-design-10 .alert-box {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			color: var(--accent-amber);
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<header class="page-header">
+			<h1>🎟️ Multi-Ticket Breakdown Button Showcase</h1>
+			<p>Click on any button to test its interactive expand/collapse animation!</p>
+		</header>
+
+		<div class="theme-switcher-bar">
+			<button class="theme-btn active" id="btnLight" onclick="setTheme('light')">☀️ Light Mode</button>
+			<button class="theme-btn" id="btnDark" onclick="setTheme('dark')">🌙 Dark Mode</button>
+		</div>
+
+		<div class="design-grid">
+
+			<!-- DESIGN 1 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">1. Apple iOS Pill with Micro Count Badge</span>
+					<span class="design-tag">Ultra Modern & Sleek</span>
+				</div>
+				<button class="btn-design-1" onclick="toggleDetails(this)">
+					<div class="left-wrap">
+						<span class="info-circle">ℹ</span>
+						<span class="label">View Journey Details</span>
+					</div>
+					<div style="display: flex; align-items: center; gap: 8px;">
+						<span class="count-pill">3 Tickets</span>
+						<span class="chevron">▼</span>
+					</div>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 2 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">2. Left Accent Border & Card</span>
+					<span class="design-tag">Structured & Clean</span>
+				</div>
+				<button class="btn-design-2" onclick="toggleDetails(this)">
+					<div class="title-box">
+						<span class="icon-wrap">🎫</span>
+						<span class="main-txt">Breakdown of 3 Separate Tickets</span>
+					</div>
+					<span class="chevron">▼</span>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 3 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">3. Transit Voucher / Perforated Ticket Stub</span>
+					<span class="design-tag">Authentic Transit Look</span>
+				</div>
+				<button class="btn-design-3" onclick="toggleDetails(this)">
+					<div class="stub-left">
+						<span>🎟️</span>
+						<span>Inspect Multi-Operator Leg Tickets</span>
+						<span class="ticket-tag">3 LEGS</span>
+					</div>
+					<span class="chevron">▼</span>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 4 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">4. Executive Dual-Line Information Bar</span>
+					<span class="design-tag">Clear Hierarchy & Subtitle</span>
+				</div>
+				<button class="btn-design-4" onclick="toggleDetails(this)">
+					<div class="text-col">
+						<span class="primary-label">Split Fare & Ticket Breakdown</span>
+						<span class="sub-label">Tap to view fares for 3 individual line segments</span>
+					</div>
+					<div class="round-chevron-btn">
+						<span class="chevron">▼</span>
+					</div>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 5 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">5. Multimodal Line Badges Strip</span>
+					<span class="design-tag">Visual Line Route Indicators</span>
+				</div>
+				<button class="btn-design-5" onclick="toggleDetails(this)">
+					<div class="line-dots-wrap">
+						<div style="display:flex; align-items:center; gap:4px;">
+							<span class="mini-line-dot" style="background:#007bff;"></span>
+							<span class="mini-line-dot" style="background:#d97706;"></span>
+							<span class="mini-line-dot" style="background:#ffd514;"></span>
+						</div>
+						<span class="txt">View Details of 3 Line Tickets</span>
+					</div>
+					<span class="chevron">▼</span>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 6 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">6. Minimalist Micro-Outline with Hover Glow</span>
+					<span class="design-tag">Space Saver & Subtle</span>
+				</div>
+				<button class="btn-design-6" onclick="toggleDetails(this)">
+					<span>ℹ️ View individual tickets for 3 legs</span>
+					<span class="chevron">▼</span>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 7 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">7. Floating Soft-Elevated Neomorphic Capsule</span>
+					<span class="design-tag">Tactile Touch & Elevation</span>
+				</div>
+				<button class="btn-design-7" onclick="toggleDetails(this)">
+					<div class="badge-capsule">
+						<span>📑</span>
+						<span>Multi-Ticket Journey Breakdown (3)</span>
+					</div>
+					<span class="chevron">▼</span>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 8 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">8. Frosted Glassmorphism (Cyber/Dark Ready)</span>
+					<span class="design-tag">Vibrant Translucent Glass</span>
+				</div>
+				<button class="btn-design-8" onclick="toggleDetails(this)">
+					<div class="glass-text">
+						<span>✨</span>
+						<span>View Detailed Split of 3 Tickets</span>
+					</div>
+					<span class="chevron">▼</span>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 9 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">9. Segmented Action Strip</span>
+					<span class="design-tag">Clear Call-to-Action</span>
+				</div>
+				<button class="btn-design-9" onclick="toggleDetails(this)">
+					<span class="left-info">🎟️ 3 Line Tickets Breakdown</span>
+					<div class="action-pill">
+						<span>Inspect</span>
+						<span class="chevron">▼</span>
+					</div>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+			<!-- DESIGN 10 -->
+			<div class="design-card">
+				<div class="design-header">
+					<span class="design-title">10. Multimodal Security & Fare Alert Capsule</span>
+					<span class="design-tag">High-Visibility Warning</span>
+				</div>
+				<button class="btn-design-10" onclick="toggleDetails(this)">
+					<div class="alert-box">
+						<span>🛡️</span>
+						<span>3 Separate Tickets Required (Multimodal Route)</span>
+					</div>
+					<span class="chevron">▼</span>
+				</button>
+				<div class="dummy-legs-box">
+					Leg 1: Blue Line (Token ₹43) • Leg 2: Namo Bharat (Standard ₹60) • Leg 3: Yellow Line (Token ₹20)
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		function setTheme(theme) {
+			document.documentElement.setAttribute('data-theme', theme);
+			document.getElementById('btnLight').classList.toggle('active', theme === 'light');
+			document.getElementById('btnDark').classList.toggle('active', theme === 'dark');
+		}
+
+		function toggleDetails(btn) {
+			btn.classList.toggle('open-state');
+			const dummyBox = btn.nextElementSibling;
+			if (dummyBox) {
+				dummyBox.classList.toggle('open');
+			}
+		}
+	</script>
+</body>
+</html>

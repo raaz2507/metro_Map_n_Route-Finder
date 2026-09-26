@@ -545,50 +545,136 @@ class BackupSettingsController {
 
 	#queryElements() {
 		this.#elements = {
-			btnExport: document.getElementById("btnExportBackup"),
+			btnDownload: document.getElementById("btnDownloadBackup") || document.getElementById("btnExportBackup"),
+			btnShare: document.getElementById("btnShareBackup"),
 			fileInput: document.getElementById("backupFileInput")
 		};
 	}
-
 	#bindEvents() {
 		const signal = this.#abortController.signal;
-		this.#elements.btnExport?.addEventListener("click", () => this.#exportData(), { signal });
+		this.#elements.btnDownload?.addEventListener("click", () => this.#downloadData(), { signal });
+		this.#elements.btnShare?.addEventListener("click", () => this.#shareData(), { signal });
 		this.#elements.fileInput?.addEventListener("change", (e) => this.#importData(e), { signal });
 	}
 
 	// -------------------------------------------------------------------------
-	// 📤 EXPORT LOGIC
+	// 📦 PAYLOAD GENERATOR (DRY Architecture)
 	// -------------------------------------------------------------------------
-	#exportData() {
+	#createExportPayload() {
 		const exportPayload = {
 			appName: "YatraMarg_Metro_App",
 			version: "1.0",
 			timestamp: new Date().toISOString(),
 			data: {}
 		};
-
 		for (let i = 0; i < localStorage.length; i++) {
 			const key = localStorage.key(i);
 			if (key && (key.startsWith("metro_") || key.startsWith("metro-") || key === "language")) {
 				exportPayload.data[key] = localStorage.getItem(key);
 			}
 		}
-
 		const dataStr = JSON.stringify(exportPayload, null, 2);
+		const dateStr = new Date().toLocaleDateString("en-GB").replace(/\//g, "-");
+		const fileName = `YatraMarg_Backup_${dateStr}.json`;
+		return { dataStr, fileName };
+	}
+	// -------------------------------------------------------------------------
+	// 📥 1-CLICK DIRECT DOWNLOAD (Phone Documents / Browser Downloads)
+	// -------------------------------------------------------------------------
+	async #downloadData() {
+		const { dataStr, fileName } = this.#createExportPayload();
+		const isNative = Boolean(window.Capacitor && window.Capacitor.isNativePlatform());
+		// 1. Android APK Native Mode -> सीधे Documents फ़ोल्डर में राइट करें
+		if (isNative && window.Capacitor.Plugins?.Filesystem) {
+			try {
+				const { Filesystem } = window.Capacitor.Plugins;
+				await Filesystem.writeFile({
+					path: fileName,
+					data: dataStr,
+					directory: "DOCUMENTS",
+					encoding: "utf8"
+				});
+				eventBus.emit("SHOW_TOAST", { 
+					message: `✅ Saved in Documents: ${fileName}`, 
+					type: "success" 
+				});
+				return;
+			} catch (err) {
+				console.error("[Backup] Download to Documents failed:", err);
+				eventBus.emit("SHOW_TOAST", { message: "❌ Failed to save in Documents.", type: "error" });
+				return;
+			}
+		}
+		// 2. Desktop Browser Fallback
 		const blob = new Blob([dataStr], { type: "application/json" });
+		this.#triggerBrowserDownload(blob, fileName);
+	}
+	// -------------------------------------------------------------------------
+	// 📤 NATIVE SHARE (Google Drive, WhatsApp, Files etc.)
+	// -------------------------------------------------------------------------
+	async #shareData() {
+		const { dataStr, fileName } = this.#createExportPayload();
+		const isNative = Boolean(window.Capacitor && window.Capacitor.isNativePlatform());
+		// 1. Android APK Native Mode -> Cache में लिखकर Share Sheet खोलें
+		if (isNative && window.Capacitor.Plugins?.Filesystem && window.Capacitor.Plugins?.Share) {
+			try {
+				const { Filesystem, Share } = window.Capacitor.Plugins;
+				const writeResult = await Filesystem.writeFile({
+					path: fileName,
+					data: dataStr,
+					directory: "CACHE",
+					encoding: "utf8"
+				});
+				if (writeResult?.uri) {
+					await Share.share({
+						title: "Metro Route Finder Backup",
+						text: "YatraMarg Metro App Backup File",
+						url: writeResult.uri,
+						dialogTitle: "Save or Share Backup"
+					});
+					return;
+				}
+			} catch (err) {
+				if (err.name === "AbortError" || err.message?.includes("canceled") || err.message?.includes("dismissed")) {
+					return;
+				}
+				console.error("[Backup] Share failed:", err);
+				eventBus.emit("SHOW_TOAST", { message: "❌ Failed to share backup.", type: "error" });
+				return;
+			}
+		}
+		// 2. Desktop Browser Web Share (Fallback)
+		try {
+			const blob = new Blob([dataStr], { type: "application/json" });
+			const file = new File([blob], fileName, { type: "application/json" });
+			if (navigator.canShare && navigator.canShare({ files: [file] })) {
+				await navigator.share({
+					files: [file],
+					title: "Metro Route Finder Backup",
+					text: "YatraMarg Metro App Backup File"
+				});
+				return;
+			}
+		} catch (e) {
+			if (e.name === "AbortError") return;
+		}
+		// 3. Fallback to direct download
+		const blob = new Blob([dataStr], { type: "application/json" });
+		this.#triggerBrowserDownload(blob, fileName);
+	}
+	#triggerBrowserDownload(blob, fileName) {
 		const url = URL.createObjectURL(blob);
-		
 		const a = document.createElement("a");
 		a.href = url;
-		const dateStr = new Date().toLocaleDateString("en-GB").replace(/\//g, "-");
-		a.download = `YatraMarg_Backup_${dateStr}.json`;
+		a.download = fileName;
 		document.body.appendChild(a);
 		a.click();
 		document.body.removeChild(a);
 		URL.revokeObjectURL(url);
-
-		eventBus.emit("SHOW_TOAST", { message: "✅ Backup exported successfully!", type: "success" });
+		eventBus.emit("SHOW_TOAST", { message: "✅ Backup downloaded successfully!", type: "success" });
 	}
+
+
 
 	// -------------------------------------------------------------------------
 	// 🖼️ CUSTOM UI MODAL PROMPT (No HTML/CSS changes needed)
@@ -644,7 +730,7 @@ class BackupSettingsController {
 		});
 	}
 
-		// -------------------------------------------------------------------------
+	// -------------------------------------------------------------------------
 	// 📥 IMPORT & SECURITY LOGIC (100% Logical Accuracy)
 	// -------------------------------------------------------------------------
 	async #importData(event) {

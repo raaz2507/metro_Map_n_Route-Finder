@@ -5,7 +5,7 @@
 	   2.5D FLOATING GLASS ISLAND HEADER (100% PURE BASE.CSS TOKENS)
 	   - Un-squished Logo + Permanently Visible Tagline down to 0px
 	   ========================================================================== */
-		header.main-header {
+	header.main-header {
 		display: flex;
 		flex-direction: column;
 		flex-shrink: 0;
@@ -14,7 +14,12 @@
 		margin: var(--space-xs) auto;
 		padding: var(--space-xs) var(--space-md);
 		border-radius: var(--radius-xl);
-		z-index: var(--z-header);
+		position: relative;
+		z-index: var(--z-dropdown);
+
+		/* GPU Compositor Layer Isolation (Nav & Home Button Blinking Prevention) */
+		transform: translateZ(0);
+		overflow: visible;
 
 		background: linear-gradient(
 			180deg, 
@@ -180,20 +185,106 @@
 	}
 
 	/* अदृश्य सेलेक्ट ताकि क्लिक करने पर मेन्यू खुले लेकिन स्क्रीन पर सिर्फ इमेज 2 जैसा साफ बटन दिखे */
-	header.main-header .btn-25d select {
+		/* Custom Floating 2.5D Dropdown Menu */
+	header.main-header .dropdown-container {
+		position: relative;
+	}
+
+	header.main-header .custom-dropdown-menu {
+		display: none;
 		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0;
-		cursor: pointer;
+		top: calc(100% + var(--space-xs));
+		right: 0;
+		width: max-content;
+		min-width: 150px;
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-top: 1.5px solid rgba(255, 255, 255, var(--op-glass));
+		border-bottom: 2.5px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--space-2xs) 0;
+		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, var(--op-shadow)),
+		            0 4px 10px -2px rgba(0, 0, 0, var(--op-subtle));
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		z-index: var(--z-modal, 1000);
+		list-style: none;
 		margin: 0;
-		padding: 0;
-		border: none;
+	}
+
+	/* Language मेन्यू के लिए कॉम्पैक्ट विड्थ */
+	header.main-header #lang-menu {
+		min-width: 110px;
+	}
+
+	header.main-header .custom-dropdown-menu.show {
+		display: flex;
+		flex-direction: column;
+		animation: dropdownFadeIn 0.15s ease-out;
+	}
+
+	@keyframes dropdownFadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(-4px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	header.main-header .custom-dropdown-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--space-xs) var(--space-sm);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-primary);
+		cursor: pointer;
+		user-select: none;
+		transition: background-color var(--transition-fast), color var(--transition-fast);
+	}
+
+	header.main-header .custom-dropdown-item:hover,
+	header.main-header .custom-dropdown-item:focus-visible {
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-medium));
+		color: var(--color-primary);
+		outline: none;
+	}
+
+	header.main-header .custom-dropdown-item.active {
+		font-weight: var(--fw-bold);
+		color: var(--color-primary);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-light));
+	}
+
+	/* Active Item Auto Tick Mark via CSS (Zero Junk HTML) */
+	header.main-header .custom-dropdown-item.active::after {
+		content: "✓";
+		font-weight: var(--fw-bold);
+		color: var(--color-primary);
+		margin-left: var(--space-sm);
 	}
 
 	@media (max-width: 768px) {
+
 	@layer components {
+		/* #app-header {
+			position: sticky;
+			top: 0;
+			z-index: var(--z-dropdown, 500);
+			width: 100%;
+			display: block;
+			padding-top: max(4px, env(safe-area-inset-top));
+		}
+		header.main-header {
+			margin-top: 0;
+			margin-bottom: var(--space-xs);
+			box-shadow: 0 8px 24px -2px rgba(0, 0, 0, var(--op-shadow));
+		} */
 	}
 }
 }

@@ -1,0 +1,506 @@
+{
+	"aiims": {
+		"id": "aiims",
+		"station_code": "BHO_01",
+		"station_name_en": "Aiims",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 1,
+		"coordinates": {
+			"latitude": 23.20982740351736,
+			"longitude": 77.45605526949295
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "AIIMS",
+			"coordinates_found": true
+		}
+	},
+	"alkapuri": {
+		"id": "alkapuri",
+		"station_code": "BHO_02",
+		"station_name_en": "Alkapuri",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 2,
+		"coordinates": {
+			"latitude": 23.21646805779927,
+			"longitude": 77.45107821264921
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "ALKAPURI",
+			"coordinates_found": true
+		}
+	},
+	"drm_office": {
+		"id": "drm_office",
+		"station_code": "BHO_03",
+		"station_name_en": "Drm Office",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 3,
+		"coordinates": {
+			"latitude": 23.21613768894856,
+			"longitude": 77.4433071762306
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "DRM OFFICE",
+			"coordinates_found": true
+		}
+	},
+	"rani_kamlapati_railway_station": {
+		"id": "rani_kamlapati_railway_station",
+		"station_code": "BHO_04",
+		"station_name_en": "Rani Kamlapati Railway Station",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 4,
+		"coordinates": {
+			"latitude": 23.22127007926616,
+			"longitude": 77.43835068905813
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "RANI KAMLAPATI RAILWAY STATION",
+			"coordinates_found": true
+		}
+	},
+	"mp_nagar": {
+		"id": "mp_nagar",
+		"station_code": "BHO_05",
+		"station_name_en": "Mp Nagar",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 5,
+		"coordinates": {
+			"latitude": 23.22763800020192,
+			"longitude": 77.43521358452836
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "MP NAGAR",
+			"coordinates_found": true
+		}
+	},
+	"board_office_chauraha": {
+		"id": "board_office_chauraha",
+		"station_code": "BHO_06",
+		"station_name_en": "Board Office Chauraha",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 6,
+		"coordinates": {
+			"latitude": 23.23243194613437,
+			"longitude": 77.43169600167894
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "BOARD OFFICE CHAURAHA",
+			"coordinates_found": true
+		}
+	},
+	"kendriya_vidalaya": {
+		"id": "kendriya_vidalaya",
+		"station_code": "BHO_07",
+		"station_name_en": "Kendriya Vidalaya",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 7,
+		"coordinates": {
+			"latitude": 23.240224304442,
+			"longitude": 77.43159305342319
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "KENDRIYA VIDALAYA",
+			"coordinates_found": true
+		}
+	},
+	"subhash_nagar": {
+		"id": "subhash_nagar",
+		"station_code": "BHO_08",
+		"station_name_en": "Subhash Nagar",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 8,
+		"coordinates": {
+			"latitude": 23.24776949675169,
+			"longitude": 77.42996158257692
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "SUBHASH NAGAR",
+			"coordinates_found": true
+		}
+	},
+	"pul_bogda": {
+		"id": "pul_bogda",
+		"station_code": "BHO_09",
+		"station_name_en": "Pul Bogda",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 9,
+		"coordinates": {
+			"latitude": 23.25140886491019,
+			"longitude": 77.42462476353273
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "PUL BOGDA*",
+			"coordinates_found": true
+		}
+	},
+	"aishbagh": {
+		"id": "aishbagh",
+		"station_code": "BHO_10",
+		"station_name_en": "Aishbagh",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 10,
+		"coordinates": {
+			"latitude": 23.25579265206385,
+			"longitude": 77.41842175841356
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "AISHBAGH",
+			"coordinates_found": true
+		}
+	},
+	"railway_station": {
+		"id": "railway_station",
+		"station_code": "BHO_11",
+		"station_name_en": "Railway Station",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 11,
+		"coordinates": {
+			"latitude": 23.2653293939077,
+			"longitude": 77.4117346419265
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "RAILWAY STATION",
+			"coordinates_found": true
+		}
+	},
+	"nadra_bus_stand": {
+		"id": "nadra_bus_stand",
+		"station_code": "BHO_12",
+		"station_name_en": "Nadra Bus Stand",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 12,
+		"coordinates": {
+			"latitude": 23.26697446337026,
+			"longitude": 77.40689820508734
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "NADRA BUS STAND",
+			"coordinates_found": true
+		}
+	},
+	"sindhi_colony": {
+		"id": "sindhi_colony",
+		"station_code": "BHO_13",
+		"station_name_en": "Sindhi Colony",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 13,
+		"coordinates": {
+			"latitude": 23.27218896909405,
+			"longitude": 77.40182274946346
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "SINDHI COLONY",
+			"coordinates_found": true
+		}
+	},
+	"dig_bungalow": {
+		"id": "dig_bungalow",
+		"station_code": "BHO_14",
+		"station_name_en": "Dig Bungalow",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 14,
+		"coordinates": {
+			"latitude": 23.28061814848179,
+			"longitude": 77.40376230699958
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "DIG BUNGALOW",
+			"coordinates_found": true
+		}
+	},
+	"krishi_upaj_mandi": {
+		"id": "krishi_upaj_mandi",
+		"station_code": "BHO_15",
+		"station_name_en": "Krishi Upaj Mandi",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 15,
+		"coordinates": {
+			"latitude": 23.29055916407415,
+			"longitude": 77.40365747983164
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "KRISHI UPAJ MANDI",
+			"coordinates_found": true
+		}
+	},
+	"karond_chauraha": {
+		"id": "karond_chauraha",
+		"station_code": "BHO_16",
+		"station_name_en": "Karond Chauraha",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 16,
+		"coordinates": {
+			"latitude": 23.30370036947046,
+			"longitude": 77.40444102244402
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "KAROND CHAURAHA",
+			"coordinates_found": true
+		}
+	},
+	"bhadbhada_chauraha": {
+		"id": "bhadbhada_chauraha",
+		"station_code": "BHO_17",
+		"station_name_en": "Bhadbhada Chauraha",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 17,
+		"coordinates": {
+			"latitude": 23.21925804347403,
+			"longitude": 77.38117299632995
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "BHADBHADA CHAURAHA",
+			"coordinates_found": true
+		}
+	},
+	"jawahar_chowk": {
+		"id": "jawahar_chowk",
+		"station_code": "BHO_18",
+		"station_name_en": "Jawahar Chowk",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 18,
+		"coordinates": {
+			"latitude": 23.2324105137005,
+			"longitude": 77.39489707492841
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "JAWAHAR CHOWK",
+			"coordinates_found": true
+		}
+	},
+	"roshanpura_chauraha": {
+		"id": "roshanpura_chauraha",
+		"station_code": "BHO_19",
+		"station_name_en": "Roshanpura Chauraha",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 19,
+		"coordinates": {
+			"latitude": 23.23835413244276,
+			"longitude": 77.40235937972083
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "ROSHANPURA CHAURAHA",
+			"coordinates_found": true
+		}
+	},
+	"kushabhau_thakre_hall": {
+		"id": "kushabhau_thakre_hall",
+		"station_code": "BHO_20",
+		"station_name_en": "Kushabhau Thakre Hall",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 20,
+		"coordinates": {
+			"latitude": 23.24210696627915,
+			"longitude": 77.40783886248663
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "KUSHABHAU THAKRE HALL",
+			"coordinates_found": true
+		}
+	},
+	"parade_ground": {
+		"id": "parade_ground",
+		"station_code": "BHO_21",
+		"station_name_en": "Parade Ground",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 21,
+		"coordinates": {
+			"latitude": 23.2472482099938,
+			"longitude": 77.41224943027206
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "PARADE GROUND",
+			"coordinates_found": true
+		}
+	},
+	"prabhat_chauraha": {
+		"id": "prabhat_chauraha",
+		"station_code": "BHO_22",
+		"station_name_en": "Prabhat Chauraha",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 22,
+		"coordinates": {
+			"latitude": 23.25295811834525,
+			"longitude": 77.43476482196378
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "PRABHAT CHAURAHA",
+			"coordinates_found": true
+		}
+	},
+	"govindpura": {
+		"id": "govindpura",
+		"station_code": "BHO_23",
+		"station_name_en": "Govindpura",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 23,
+		"coordinates": {
+			"latitude": 23.25309941376333,
+			"longitude": 77.44019953627955
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "GOVINDPURA",
+			"coordinates_found": true
+		}
+	},
+	"govindpura_industrial_area": {
+		"id": "govindpura_industrial_area",
+		"station_code": "BHO_24",
+		"station_name_en": "Govindpura Industrial Area",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 24,
+		"coordinates": {
+			"latitude": 23.25286978381207,
+			"longitude": 77.44625275728016
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "GOVINDPURA INDUSTRIAL AREA",
+			"coordinates_found": true
+		}
+	},
+	"jk_road": {
+		"id": "jk_road",
+		"station_code": "BHO_25",
+		"station_name_en": "Jk Road",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 25,
+		"coordinates": {
+			"latitude": 23.25129518529755,
+			"longitude": 77.45747887815752
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "JK ROAD",
+			"coordinates_found": true
+		}
+	},
+	"indrapuri": {
+		"id": "indrapuri",
+		"station_code": "BHO_26",
+		"station_name_en": "Indrapuri",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 26,
+		"coordinates": {
+			"latitude": 23.25004288730066,
+			"longitude": 77.46537914772826
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "INDRAPURI",
+			"coordinates_found": true
+		}
+	},
+	"piplani": {
+		"id": "piplani",
+		"station_code": "BHO_27",
+		"station_name_en": "Piplani",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 27,
+		"coordinates": {
+			"latitude": 23.24893926643096,
+			"longitude": 77.47241248995097
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "PIPLANI",
+			"coordinates_found": true
+		}
+	},
+	"ratnagiri_tiraha": {
+		"id": "ratnagiri_tiraha",
+		"station_code": "BHO_28",
+		"station_name_en": "Ratnagiri Tiraha",
+		"line": "Orange Line",
+		"layout": "Elevated",
+		"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"order": 28,
+		"coordinates": {
+			"latitude": 23.25048226442008,
+			"longitude": 77.47875215557788
+		},
+		"meta_raw": {
+			"source": "official_mpmrcl_kmz",
+			"raw_placemark_name": "RATNAGIRI TIRAHA",
+			"coordinates_found": true
+		}
+	}
+}

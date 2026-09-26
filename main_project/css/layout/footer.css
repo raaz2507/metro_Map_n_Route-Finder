@@ -117,15 +117,39 @@
 		margin: 0 auto;
 	}
 
+	.footer-qr-btn {
+		background: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-2xs);
+		flex-shrink: 0;
+		border-radius: var(--radius-md);
+		outline-offset: 3px;
+		transition: transform var(--transition-fast);
+	}
+
+	.footer-qr-btn:hover {
+		transform: scale(1.04);
+	}
+
+	.footer-qr-btn:focus-visible {
+		outline: 2px solid rgb(var(--color-primary-rgb));
+	}
+
 	.footer-qr-wrapper {
 		background: #ffffff;
 		padding: 4px;
 		border-radius: var(--radius-md);
 		border: 1px solid var(--border-color);
-		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		box-shadow: var(--shadow-sm);
 	}
 
 	.footer-qr-img {
@@ -133,6 +157,18 @@
 		height: 72px;
 		display: block;
 		object-fit: contain;
+	}
+
+	.footer-qr-expand-badge {
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-semibold);
+		color: var(--text-secondary);
+		display: inline-block;
+		transition: color var(--transition-fast);
+	}
+
+	.footer-qr-btn:hover .footer-qr-expand-badge {
+		color: rgb(var(--color-primary-rgb));
 	}
 
 	.footer-pass-info {
@@ -192,6 +228,131 @@
 
 	.footer-bottom-credit strong {
 		color: var(--text-primary);
+	}
+
+		/* 6. ACCESSIBLE QR LIGHTBOX MODAL OVERLAY */
+	.footer-qr-modal-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: var(--z-modal);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-md);
+		background: rgba(0, 0, 0, 0.72);
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+	}
+
+	.footer-qr-modal-overlay.is-open {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	.footer-qr-modal-card {
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+		width: 100%;
+		max-width: 360px;
+		max-height: 90vh;
+		display: flex;
+		flex-direction: column;
+		transform: scale(0.92);
+		transition: transform var(--transition-spring);
+		overflow: hidden;
+		box-sizing: border-box;
+	}
+
+	.footer-qr-modal-overlay.is-open .footer-qr-modal-card {
+		transform: scale(1);
+	}
+
+	.footer-qr-modal-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--space-md) var(--space-lg);
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.footer-qr-modal-title-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.footer-qr-modal-title-wrap h3 {
+		font-family: var(--font-title);
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	.footer-qr-close-btn {
+		background: var(--btn-reset-bg);
+		color: var(--text-primary);
+		border: 1px solid var(--border-color);
+		width: 34px;
+		height: 34px;
+		border-radius: var(--radius-full);
+		font-size: var(--fs-xl);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		line-height: 1;
+		transition: background var(--transition-fast), transform var(--transition-fast);
+	}
+
+	.footer-qr-close-btn:hover {
+		background: var(--btn-reset-hover);
+		transform: scale(1.08);
+	}
+
+	.footer-qr-close-btn:focus-visible {
+		outline: 2px solid rgb(var(--color-primary-rgb));
+	}
+
+	.footer-qr-modal-body {
+		padding: var(--space-xl) var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-md);
+		text-align: center;
+	}
+
+	.footer-qr-large-wrapper {
+		background: #ffffff;
+		padding: var(--space-md);
+		border-radius: var(--radius-lg);
+		border: 1.5px solid var(--border-color);
+		box-shadow: var(--shadow-md);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.footer-qr-large-img {
+		width: clamp(200px, 50vw, 240px);
+		height: clamp(200px, 50vw, 240px);
+		display: block;
+		object-fit: contain;
+	}
+
+	.footer-qr-scan-hint {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		line-height: 1.5;
+		margin: 0;
 	}
 }
 

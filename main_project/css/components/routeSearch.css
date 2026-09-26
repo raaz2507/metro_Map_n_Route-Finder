@@ -1,6 +1,8 @@
+@import url("./station_types.css");
+
 @layer components {
 	/* =========================================================================
-	   Route Finder Form & Input Styling (Token-Compliant)
+	   Route Finder Form & Input Styling (100% Token-Compliant)
 	   ========================================================================= */
 
 	/* Route Priority Container */
@@ -16,7 +18,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 0px var(--space-sm);
+		margin: 0 var(--space-sm);
 	}
 
 	.priority-header p {
@@ -44,22 +46,17 @@
 		align-items: center;
 		justify-content: center;
 		color: var(--text-secondary);
-		transition:
-			transform var(--transition-fast),
-			color var(--transition-fast),
-			background-color var(--transition-fast);
+		transition: transform var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
 	}
 
 	.sharebtn button .icon {
-		width: 18px;
-		height: 18px;
+		width: var(--badge-height);
+		height: var(--badge-height);
 	}
 
 	.sharebtn button:hover {
 		background-color: var(--btn-reset-bg);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		transform: scale(1.1);
 	}
 
@@ -129,8 +126,6 @@
 		font-size: var(--fs-lg);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		margin: 0;
 	}
 
@@ -145,16 +140,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition:
-			transform var(--transition-fast),
-			color var(--transition-fast);
+		transition: transform var(--transition-fast), color var(--transition-fast);
 	}
 
 	.close-modal-btn:hover {
 		background: var(--btn-reset-bg);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 	}
 
 	/* Route Overview Preview Card Inside Modal */
@@ -174,8 +165,6 @@
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -223,12 +212,8 @@
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-medium);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		cursor: pointer;
-		transition:
-			transform var(--transition-fast),
-			background-color var(--transition-fast);
+		transition: transform var(--transition-fast), background-color var(--transition-fast);
 	}
 
 	.share-opt-icon {
@@ -261,7 +246,7 @@
 	/* Floating Toast Notification */
 	.share-toast-msg {
 		position: fixed;
-		bottom: 30px;
+		bottom: var(--space-2xl);
 		left: 50%;
 		transform: translateX(-50%) translateY(100px);
 		background: var(--text-primary);
@@ -275,9 +260,7 @@
 		z-index: var(--z-overlay);
 		opacity: 0;
 		pointer-events: none;
-		transition:
-			transform var(--transition-spring),
-			opacity var(--transition-fast);
+		transition: transform var(--transition-spring), opacity var(--transition-fast);
 	}
 
 	.share-toast-msg.show {
@@ -297,8 +280,6 @@
 		font-size: var(--fs-md);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		margin: 0 0 var(--space-xs) 0;
 	}
 
@@ -326,8 +307,6 @@
 		font-weight: var(--fw-extrabold);
 		letter-spacing: -0.02em;
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		margin-bottom: var(--space-sm);
 		padding: 0;
 		float: left;
@@ -356,29 +335,23 @@
 		font-size: var(--fs-sm);
 		font-weight: var(--fw-medium);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		background: var(--input-bg);
 		border: 1px solid var(--input-border);
 		border-radius: var(--radius-md);
-		transition:
-			border-color var(--transition-fast),
-			box-shadow var(--transition-fast);
+		transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 		outline: none;
 		box-shadow: var(--shadow-sm);
 	}
 
 	.form-group input[type="text"]:focus {
 		border-color: var(--input-focus-border);
-		box-shadow:
-			0 0 0 4px rgba(var(--color-primary-rgb), var(--op-focus-shadow)),
-			var(--shadow-sm);
+		box-shadow: 0 0 0 var(--space-xs) rgba(var(--color-primary-rgb), var(--op-focus-shadow)), var(--shadow-sm);
 	}
 
 	/* Floating Swap Button */
 	#swapButton {
 		position: absolute;
-		right: 0px;
+		right: 0;
 		top: 39%;
 		width: 55px;
 		height: 55px;
@@ -386,18 +359,13 @@
 		border: 1px solid var(--border-color);
 		background: var(--input-bg);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		font-size: var(--fs-md);
 		cursor: pointer;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		box-shadow: var(--shadow-sm);
-		transition:
-			transform var(--transition-spring),
-			border-color var(--transition-fast),
-			box-shadow var(--transition-fast);
+		transition: transform var(--transition-spring), border-color var(--transition-fast), box-shadow var(--transition-fast);
 		z-index: var(--z-base);
 	}
 
@@ -412,8 +380,8 @@
 	}
 
 	#swapButton img {
-		width: 24px;
-		height: 24px;
+		width: var(--space-xl);
+		height: var(--space-xl);
 		object-fit: contain;
 		transition: transform var(--transition-smooth);
 	}
@@ -435,10 +403,7 @@
 		font-weight: var(--fw-bold);
 		border-radius: var(--radius-md);
 		cursor: pointer;
-		transition:
-			transform var(--transition-fast),
-			box-shadow var(--transition-fast),
-			background-color var(--transition-fast);
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
 		outline: none;
 		text-align: center;
 		border: none;
@@ -458,15 +423,13 @@
 	.form-actions button[type="submit"] {
 		background: var(--btn-primary-bg);
 		color: var(--btn-primary-text);
-		box-shadow: 0 4px 12px
-			rgba(var(--color-primary-rgb), var(--op-focus-shadow));
+		box-shadow: 0 4px var(--space-md) rgba(var(--color-primary-rgb), var(--op-focus-shadow));
 	}
 
 	.form-actions button[type="submit"]:hover {
 		background: var(--btn-primary-hover);
 		transform: translateY(-2px);
-		box-shadow: 0 6px 16px
-			rgba(var(--color-primary-rgb), var(--op-focus-shadow));
+		box-shadow: 0 6px var(--space-lg) rgba(var(--color-primary-rgb), var(--op-focus-shadow));
 	}
 
 	.form-actions button[type="submit"]:active,
@@ -474,8 +437,8 @@
 		transform: translateY(0);
 	}
 
-	/* =========================================================================
-	   Journey Details & Priority Switch Slider
+		/* =========================================================================
+	   Journey Details & Priority Switch Slider (100% Token-Compliant)
 	   ========================================================================= */
 	#journeyDetails {
 		display: none;
@@ -516,7 +479,7 @@
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 		color: var(--text-secondary);
-		margin: 0px var(--space-sm);
+		margin: 0 var(--space-sm);
 	}
 
 	/* Priority Switch Slider Track */
@@ -525,16 +488,14 @@
 		position: relative;
 		background-color: var(--btn-reset-bg);
 		border-radius: var(--radius-full);
-		padding: 4px;
+		padding: var(--space-xs);
 		height: 44px;
 		align-items: center;
 		width: 100%;
 		user-select: none;
 		border: 1px solid var(--border-color);
 		overflow: hidden;
-		transition:
-			background-color var(--transition-smooth),
-			border-color var(--transition-smooth);
+		transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
 	}
 
 	.switch-slider-track input[type="radio"] {
@@ -544,10 +505,10 @@
 	/* Sliding Thumb Capsule */
 	.switch-slider-thumb {
 		position: absolute;
-		top: 4px;
-		bottom: 4px;
-		left: 4px;
-		width: calc(50% - 4px);
+		top: var(--space-xs);
+		bottom: var(--space-xs);
+		left: var(--space-xs);
+		width: calc(50% - var(--space-xs));
 		background: var(--card-bg);
 		border-radius: var(--radius-full);
 		box-shadow: var(--shadow-sm);
@@ -582,8 +543,8 @@
 	}
 
 	.switch-icon {
-		width: 18px;
-		height: 18px;
+		width: var(--badge-height);
+		height: var(--badge-height);
 		object-fit: contain;
 		transition: filter var(--transition-fast);
 		filter: opacity(0.5);
@@ -601,97 +562,187 @@
 	#priority-fastest:checked ~ label[for="priority-fastest"],
 	#priority-leastTransfers:checked ~ label[for="priority-leastTransfers"] {
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
 		font-weight: var(--fw-bold);
 	}
 
 	#priority-fastest:checked ~ label[for="priority-fastest"] .switch-icon,
-	#priority-leastTransfers:checked
-		~ label[for="priority-leastTransfers"]
-		.switch-icon {
+	#priority-leastTransfers:checked ~ label[for="priority-leastTransfers"] .switch-icon {
 		filter: opacity(0.9);
 	}
 
-	body[data-theme="dark"]
-		#priority-fastest:checked
-		~ label[for="priority-fastest"]
-		.switch-icon,
-	body[data-theme="dark"]
-		#priority-leastTransfers:checked
-		~ label[for="priority-leastTransfers"]
-		.switch-icon {
+	body[data-theme="dark"] #priority-fastest:checked ~ label[for="priority-fastest"] .switch-icon,
+	body[data-theme="dark"] #priority-leastTransfers:checked ~ label[for="priority-leastTransfers"] .switch-icon {
 		filter: invert(0) opacity(0.9);
 	}
 
+	/* =========================================================================
+	   💰 Dynamic Fare Selectable Cards UI (100% Token-Compliant)
+	   ========================================================================= */
+	.fare-cards-row {
+		display: flex;
+		position: relative;
+		background-color: var(--btn-reset-bg);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xs);
+		gap: var(--space-xs);
+		align-items: stretch;
+		width: 100%;
+		border: 1px solid var(--border-color);
+		overflow-x: auto;
+	}
 
-	/* 💰 Dynamic Fare Selectable Cards UI */
-.fare-cards-row {
-    display: flex;
-    position: relative;
-    background-color: var(--btn-reset-bg);
-    border-radius: var(--radius-xl);
-    padding: 4px;
-    align-items: stretch;
-    width: 100%;
-    border: 1px solid var(--border-color);
-}
+	.fare-selectable-col {
+		border: none;
+		flex: 1 1 0;
+		min-width: 85px;
+		display: flex;
+	}
 
-.fare-selectable-col {
-    border: none;
-    flex: 1;
-    display: flex;
-}
+	.fare-selectable-card {
+		cursor: pointer;
+		transition: all var(--transition-smooth);
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-sm) var(--space-xs);
+		border-radius: calc(var(--radius-xl) - var(--space-xs));
+		box-sizing: border-box;
+		box-shadow: none;
+		background: transparent;
+		color: var(--text-secondary);
+		opacity: var(--op-glass);
+		transform: scale(0.98);
+	}
 
-.fare-selectable-card {
-    cursor: pointer;
-    transition: all var(--transition-smooth);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 4px;
-    border-radius: calc(var(--radius-xl) - 4px);
-    box-sizing: border-box;
-    box-shadow: none;
-    background: transparent;
-    color: var(--text-secondary);
-    opacity: 0.7;
-    transform: scale(0.98);
-}
+	.fare-selectable-card.selected {
+		box-shadow: var(--shadow-md);
+		background: var(--card-bg);
+		color: var(--text-primary);
+		opacity: var(--op-solid);
+		transform: scale(1);
+	}
 
-.fare-selectable-card.selected {
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
-    background: var(--card-bg);
-    color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
-}
+	.fare-selectable-card .metric-val {
+		font-size: var(--fs-lg);
+		line-height: 1;
+		font-weight: var(--fw-bold);
+	}
 
-.fare-selectable-card .metric-val {
-    font-size: 1.1rem;
-    line-height: 1;
-    font-weight: bold;
-}
+	.fare-selectable-card .metric-lbl {
+		text-align: center;
+		line-height: 1.2;
+		margin-top: var(--space-xs);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+	}
 
-.fare-selectable-card .metric-lbl {
-    text-align: center;
-    line-height: 1.2;
-    margin-top: 6px;
-    font-size: 0.85rem;
-}
+	.fare-badge {
+		font-size: var(--fs-2xs);
+		display: inline-block;
+		margin-top: var(--space-2xs);
+	}
 
-.fare-badge {
-    font-size: 0.75rem;
-    display: inline-block;
-    margin-top: 2px;
-}
+	/* ⏰ टाइमिंग स्लॉट्स (3 लाइन्स) */
+	.fare-time-slot {
+		margin-top: var(--space-xs);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+		width: 100%;
+	}
+
+	.fare-time-slot .time-slot-line {
+		font-size: var(--fs-2xs);
+		color: var(--text-secondary);
+		background: var(--btn-reset-bg);
+		padding: 1px var(--space-xs);
+		border-radius: calc(var(--radius-xs) - var(--space-2xs));
+		text-align: center;
+		white-space: nowrap;
+		line-height: 1.3;
+	}
+
+	/* 🟢 Active Now बैज (Theme Success Token) */
+	.fare-active-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-semibold);
+		color: rgb(var(--color-success-rgb));
+		background: rgba(var(--color-success-rgb), var(--op-subtle));
+		padding: 1px var(--radius-xs);
+		border-radius: var(--radius-2xs);
+		margin-top: var(--space-2xs);
+	}
+
+	/* -------------------------------------------------------------------------
+	   🎯 Layout Containers & Dividers (Zero Inline Styles)
+	   ------------------------------------------------------------------------- */
+	.fare-metrics-divider {
+		margin-top: var(--space-md);
+		border-top: 1px dashed var(--border-color);
+		padding-top: var(--space-md);
+	}
+
+	.fare-grand-total-col {
+		width: 100%;
+		text-align: center;
+		border: none;
+	}
+
+	/* 🎯 सिंगल फेयर (Airport Express Single Journey आदि) */
+	.fare-cards-row.is-single {
+		background: transparent;
+		border: none;
+		padding: var(--space-2xs) 0;
+		justify-content: center;
+	}
+
+	.fare-single-metric {
+		width: 100%;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-xs) 0;
+	}
+
+	.fare-single-metric .metric-val {
+		font-size: var(--fs-2xl);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		line-height: 1.1;
+	}
+
+	.fare-single-metric .metric-lbl {
+		font-size: var(--fs-sm);
+		color: var(--text-secondary);
+		margin-top: var(--space-xs);
+		font-weight: var(--fw-medium);
+	}
+
+	/* 🎟️ मल्टी-लेग टिकट ब्रेकडाउन कंटेनर्स */
+	.fare-breakdown-toggle-box {
+		margin-top: var(--space-md);
+		border-top: 1px dashed var(--border-color);
+		padding-top: calc(var(--space-sm) + var(--space-2xs));
+	}
+
+	.fare-legs-container {
+		display: none;
+		margin-top: var(--space-sm);
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
 
 	/* =========================================================================
-	   Journey Metrics & Timeline Cards
-	   ========================================================================= */
+	Journey Metrics & Timeline Cards
+	========================================================================= */
 
 	.warning-banner {
 		display: flex;
@@ -723,8 +774,8 @@
 		font-size: var(--fs-lg);
 		font-weight: var(--fw-extrabold);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
+		opacity: 1;
+		transform: scale(1);
 		text-transform: uppercase;
 		margin: var(--space-xs) 0;
 		letter-spacing: -0.01em;
@@ -776,8 +827,8 @@
 		font-size: var(--fs-xl);
 		font-weight: var(--fw-extrabold);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
+		opacity: 1;
+		transform: scale(1);
 	}
 
 	.metric-lbl {
@@ -790,8 +841,10 @@
 	.timing-subrow {
 		display: flex;
 		justify-content: space-between;
-		border-top: 1px solid var(--border-color);
-		padding-top: var(--space-sm);
+		align-items: center;
+		margin-top: 12px;
+		border-top: 1px dashed var(--border-color);
+		padding-top: 10px;
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
 		color: var(--text-secondary);
@@ -818,9 +871,7 @@
 		font-weight: var(--fw-bold);
 		border-radius: var(--radius-md);
 		cursor: pointer;
-		transition:
-			transform var(--transition-fast),
-			background-color var(--transition-fast);
+		transition: transform var(--transition-fast), background-color var(--transition-fast);
 	}
 
 	.btn-show-route:hover {
@@ -844,8 +895,8 @@
 		font-size: var(--fs-md);
 		font-weight: var(--fw-extrabold);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
+		opacity: 1;
+		transform: scale(1);
 		margin-bottom: var(--space-xs);
 	}
 
@@ -899,23 +950,21 @@
 
 	.station-row:hover .station-dot-solid {
 		transform: scale(1.18);
-		box-shadow:
-			0 4px 10px rgba(0, 0, 0, 0.15),
-			0 0 12px var(--line-color);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), 0 0 12px var(--line-color);
 	}
 
 	.station-row:hover .station-name-main {
 		transform: translateX(6px) scale(1.06);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
+		opacity: 1;
+		transform: scale(1);
 	}
 
 	body[data-theme="dark"] .station-row:hover {
 		background-color: rgba(255, 255, 255, var(--op-glow));
 	}
 
-		.station-track {
+	.station-track {
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -980,7 +1029,7 @@
 		animation-delay: calc(var(--delay) + 120ms);
 		transform-origin: top;
 	}
-	
+
 	@keyframes drawLine {
 		0% {
 			transform: translateX(-50%) scaleY(0);
@@ -990,10 +1039,7 @@
 		}
 	}
 
-	.route-timeline
-		.timeline-segment:last-child
-		.station-row:last-child
-		.station-track-line {
+	.route-timeline .timeline-segment:last-child .station-row:last-child .station-track-line {
 		display: none;
 	}
 
@@ -1028,23 +1074,21 @@
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
+		opacity: 1;
+		transform: scale(1);
 		text-transform: uppercase;
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
-		transition:
-			transform var(--transition-fast),
-			color var(--transition-fast);
+		transition: transform var(--transition-fast), color var(--transition-fast);
 		transform-origin: left center;
 	}
 
 	a.station-name-main {
 		text-decoration: none;
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
+		opacity: 1;
+		transform: scale(1);
 		cursor: pointer;
 	}
 	a.station-name-main:hover {
@@ -1122,8 +1166,8 @@
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-medium);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
+		opacity: 1;
+		transform: scale(1);
 		line-height: 1.4;
 	}
 
@@ -1177,25 +1221,33 @@
 		white-space: nowrap;
 		line-height: 1.4;
 	}
+
+	.transfer-pill-station-type {
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		color: var(--text-primary);
+		border: 1px solid rgba(var(--color-primary-rgb), var(--op-shadow));
+		gap: 6px;
+	}
+
 	.transfer-pill-mode {
-		background: rgba(var(--color-primary-rgb, 0, 123, 255), 0.12);
-		color: rgb(var(--color-primary-rgb, 0, 123, 255));
-		border: 1px solid rgba(var(--color-primary-rgb, 0, 123, 255), 0.25);
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		color: rgb(var(--color-primary-rgb));
+		border: 1px solid rgba(var(--color-primary-rgb), var(--op-shadow));
 	}
 	.transfer-pill-rickshaw {
-		background: rgba(40, 167, 69, 0.12);
-		color: #28a745;
-		border: 1px solid rgba(40, 167, 69, 0.25);
+		background: rgba(var(--color-success-rgb), var(--op-subtle));
+		color: rgb(var(--color-success-rgb));
+		border: 1px solid rgba(var(--color-success-rgb), var(--op-shadow));
 	}
 	.transfer-pill-security {
-		background: rgba(220, 53, 69, 0.12);
-		color: #dc3545;
-		border: 1px solid rgba(220, 53, 69, 0.25);
+		background: rgba(var(--color-danger-rgb), var(--op-subtle));
+		color: rgb(var(--color-danger-rgb));
+		border: 1px solid rgba(var(--color-danger-rgb), var(--op-shadow));
 	}
 
 	/* ===========================================================================
-   STATION AUTOCOMPLETE DROPDOWN STYLING (Clean Single-Line UI)
-   =========================================================================== */
+	   STATION AUTOCOMPLETE DROPDOWN STYLING (Clean Single-Line UI)
+	   =========================================================================== */
 	.input-autocomplete-wrapper {
 		position: relative;
 		width: 100%;
@@ -1205,185 +1257,268 @@
 	.station-autocomplete-dropdown {
 		display: none;
 		position: absolute;
-		top: calc(100% + 4px);
+		top: calc(100% + var(--space-xs));
 		left: 0;
 		right: 0;
 		max-height: 240px;
 		overflow-y: auto;
-		background-color: var(--card-bg, rgba(var(--color-bg-base-rgb), 0.98));
+		background-color: var(--card-bg);
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius-md);
 		box-shadow: var(--shadow-lg);
-		backdrop-filter: blur(var(--backdrop-blur));
-		-webkit-backdrop-filter: blur(var(--backdrop-blur));
-		z-index: 1050;
+		z-index: var(--z-dropdown);
+		margin: 0;
+		padding: var(--space-xs) 0;
+		list-style: none;
+		scrollbar-width: thin;
+		scrollbar-color: var(--border-color) transparent;
+	}
+
+	/* 2. Jab active class ho tabhi flex dikhe */
+	.station-autocomplete-dropdown.active {
+		display: flex;
 		flex-direction: column;
 	}
 
-	/* 2. Sirf tabhi dikhe jab isme stations ki list ho */
-	.station-autocomplete-dropdown:not([hidden]):not(:empty) {
-		display: flex;
+	/* Webkit Scrollbar */
+	.station-autocomplete-dropdown::-webkit-scrollbar {
+		width: 5px;
+	}
+	.station-autocomplete-dropdown::-webkit-scrollbar-thumb {
+		background: var(--border-color);
+		border-radius: var(--radius-full);
 	}
 
-	.station-autocomplete-item {
+	/* Single-Line Row Item */
+	.autocomplete-item {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 10px 14px;
-		min-height: 42px;
-		box-sizing: border-box;
+		padding: var(--space-sm) var(--space-md);
 		cursor: pointer;
-		border-bottom: 1px solid var(--border-color);
-		transition: background-color var(--transition-fast);
-		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
-		gap: var(--space-sm);
-		text-decoration: none;
-	}
-
-	.station-autocomplete-item:last-child {
-		border-bottom: none;
-	}
-
-	.station-autocomplete-item:hover,
-	.station-autocomplete-item.focused {
-		background-color: rgba(var(--color-primary-rgb), 0.15);
-	}
-
-	.st-item-name-group {
-		display: flex;
-		align-items: center;
-		text-align: left;
-		overflow: hidden;
-	}
-
-	.st-item-main-name {
+		font-family: var(--font-main);
 		font-size: var(--fs-sm);
-		font-weight: var(--fw-medium);
 		color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
+		gap: var(--space-md);
+		transition: background-color var(--transition-fast);
 		white-space: nowrap;
 		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 
-	.st-item-lines-group {
+	.autocomplete-item:hover,
+	.autocomplete-item.focused {
+		background-color: var(--btn-reset-bg);
+	}
+
+	/* Station Name on the Left */
+	.autocomplete-name {
+		font-weight: var(--fw-medium);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		flex: 1;
+	}
+
+	.autocomplete-name mark {
+		background: transparent;
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-bold);
+	}
+
+	/* Line Badges Pills on the Right */
+	.autocomplete-lines {
 		display: flex;
 		align-items: center;
-		gap: 6px;
+		gap: var(--radius-xs);
 		flex-shrink: 0;
 	}
 
-	.st-line-dot {
+	/* Micro Solid Pill */
+	.autocomplete-line-dot {
+		display: inline-block;
 		width: 10px;
 		height: 10px;
 		border-radius: var(--radius-full);
-		display: inline-block;
-		box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+		box-shadow: var(--shadow-sm);
+		flex-shrink: 0;
 	}
 
-	.st-interchange-badge {
-		font-size: var(--fs-xs);
-		background: var(--btn-reset-bg, rgba(255, 255, 255, 0.1));
+	/* Interchange Hub Badge */
+	.autocomplete-interchange-badge {
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		background-color: var(--btn-reset-bg);
 		border: 1px solid var(--border-color);
-		padding: 2px 6px;
+		padding: var(--space-2xs) var(--radius-xs);
 		border-radius: var(--radius-full);
 		color: var(--text-secondary);
 	}
 
+	/* =========================================================================
+	   🎟️ Fare Multi-Leg Breakdown Styles (100% Token-Compliant)
+	   ========================================================================= */
+		.fare-breakdown-btn {
+		width: 100%;
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-sm);
+		padding: var(--space-sm) var(--space-md);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+		box-shadow: var(--shadow-sm);
+		transition: border-color var(--transition-fast), background-color var(--transition-fast);
+	}
 
+	.fare-breakdown-btn:hover {
+		border-color: rgb(var(--color-primary-rgb));
+		background: var(--btn-reset-bg);
+	}
 
-	/* 🎟️ Fare Multi-Leg Breakdown Styles */
-.fare-breakdown-btn {
-	width: 100%;
-	background: var(--card-bg, #ffffff);
-	border: 1.5px solid var(--border-color);
-	border-radius: var(--radius-md, 8px);
-	padding: 10px 14px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	cursor: pointer;
-	font-size: 0.88rem;
-	font-weight: var(--fw-semibold, 600);
-	color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-	transition: all 0.2s ease;
+	.fare-breakdown-btn .btn-text-col {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--space-2xs);
+	}
+
+	.fare-breakdown-btn .btn-primary-label {
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+
+	.fare-breakdown-btn .btn-sub-label {
+		font-size: var(--fs-2xs);
+		color: var(--text-secondary);
+	}
+
+	.fare-breakdown-btn .round-chevron-btn {
+		width: calc(var(--space-md) + var(--space-xs));
+		height: calc(var(--space-md) + var(--space-xs));
+		border-radius: var(--radius-full);
+		background: var(--btn-reset-bg);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: var(--fs-2xs);
+		color: var(--text-secondary);
+		flex-shrink: 0;
+	}
+
+	.fare-breakdown-btn .chevron {
+		display: inline-block;
+		transition: transform var(--transition-fast);
+	}
+
+	.fare-breakdown-btn.open-state .chevron {
+		transform: rotate(180deg);
+	}
+
+	.leg-item-card {
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-sm);
+		padding: var(--space-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.leg-card-header {
+		display: flex;
+		align-items: center;
+		gap: calc(var(--space-sm) + var(--space-2xs));
+	}
+
+	/* 🏷️ लाइन पिल कभी 2 लाइनों में नहीं टूटेगी */
+	.leg-card-header .line-badge-solid {
+		white-space: nowrap;
+		flex-shrink: 0;
+		letter-spacing: 0.3px;
+	}
+
+	.leg-card-header .leg-route-title {
+		font-weight: var(--fw-bold);
+		font-size: var(--fs-sm);
+		color: var(--text-primary);
+	}
+
+	.leg-alert-pill {
+		font-size: var(--fs-xs);
+		padding: var(--space-xs) var(--space-sm);
+		border-radius: var(--radius-2xs);
+		display: flex;
+		align-items: center;
+		gap: var(--radius-xs);
+	}
+
+	.leg-alert-pill.multimodal {
+		background: rgba(var(--color-danger-rgb), var(--op-glow));
+		color: rgb(var(--color-danger-rgb));
+		border: 1px solid rgba(var(--color-danger-rgb), var(--op-subtle));
+	}
+
+	.leg-alert-pill.ncmc {
+		background: rgba(var(--color-info-rgb), var(--op-glow));
+		color: rgb(var(--color-info-rgb));
+		border: 1px solid rgba(var(--color-info-rgb), var(--op-subtle));
+	}
+
+	.leg-alert-pill.walkway {
+		background: rgba(var(--color-warning-rgb), var(--op-glow));
+		color: rgb(var(--color-warning-rgb));
+		border: 1px solid rgba(var(--color-warning-rgb), var(--op-subtle));
+	}
+
+	.leg-alert-pill.shared_track {
+		background: rgba(var(--color-success-rgb), var(--op-glow));
+		color: rgb(var(--color-success-rgb));
+		border: 1px solid rgba(var(--color-success-rgb), var(--op-subtle));
+	}
+
+	/* -------------------------------------------------------------------------
+	   🎯 Reusable Classes for Journey Details (Zero Inline Styles)
+	   ------------------------------------------------------------------------- */
+	.unit-km {
+		font-weight: var(--fw-regular);
+		font-size: var(--fs-2xs);
+		opacity: var(--op-glass);
+	}
+
+	.line-badge-solid {
+		color: var(--btn-primary-text);
+		padding: var(--space-2xs) var(--space-sm);
+		border-radius: var(--radius-2xs);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		display: inline-block;
+	}
+
+	.leg-alerts-list {
+		margin: var(--radius-xs) 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.leg-mini-row {
+		background: var(--btn-reset-bg);
+		padding: var(--space-sm) var(--radius-xs);
+		border-radius: var(--radius-xs);
+	}
+
+	.leg-mini-row .metric-val {
+		font-size: var(--fs-sm);
+	}
+
+	.leg-fare-cards-row {
+		margin-top: var(--space-xs);
+		padding: var(--space-sm) var(--radius-xs);
+		background: var(--btn-reset-bg);
+		border-radius: var(--radius-xs);
+	}
 }
 
-.fare-breakdown-btn:hover {
-	background: var(--bg-hover, rgba(0, 0, 0, 0.03));
-	border-color: var(--color-primary, #3b82f6);
-}
-
-.leg-item-card {
-	background: var(--card-bg, #ffffff);
-	border: 1px solid var(--border-color);
-	border-radius: var(--radius-md, 8px);
-	padding: 12px;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-}
-
-.leg-card-header {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-
-/* 🏷️ लाइन पिल कभी 2 लाइनों में नहीं टूटेगी */
-.leg-card-header .line-badge-solid {
-	white-space: nowrap;
-	flex-shrink: 0;
-	letter-spacing: 0.3px;
-}
-
-.leg-card-header .leg-route-title {
-	font-weight: 700;
-	font-size: 0.9rem;
-	color: var(--text-primary);
-    opacity: 1;
-    transform: scale(1);
-}
-
-.leg-alert-pill {
-	font-size: 0.75rem;
-	padding: 4px 8px;
-	border-radius: 4px;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-}
-
-.leg-alert-pill.multimodal {
-	background: rgba(239, 68, 68, 0.08);
-	color: #dc2626;
-	border: 1px solid rgba(239, 68, 68, 0.2);
-}
-
-.leg-alert-pill.ncmc {
-	background: rgba(59, 130, 246, 0.08);
-	color: #2563eb;
-	border: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-.leg-alert-pill.walkway {
-	background: rgba(245, 158, 11, 0.08);
-	color: #d97706;
-	border: 1px solid rgba(245, 158, 11, 0.2);
-}
-
-.leg-alert-pill.shared_track {
-	background: rgba(16, 185, 129, 0.08);
-	color: #059669;
-	border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-	/* Option B Responsive Compact Mobile Breakpoint */
-}

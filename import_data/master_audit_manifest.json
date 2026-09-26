@@ -1,5 +1,4 @@
 {
-	"total_networks_registered": 7,
 	"networks": {
 		"ncrtc_rrts": {
 			"id": "ncrtc_rrts",
@@ -190,14 +189,19 @@
 			"state_note": "Mumbai MMR",
 			"subtitle": "Rapid Transit System serving Navi Mumbai",
 			"source_url": "https://cidco.maharashtra.gov.in/",
-			"data_sources": {},
-			"pipeline": {
-				"stage": "stage_3_structured",
-				"status": "manual_entry",
-				"supervised_by_developer": true
-			}
+			"data_sources": {
+				"line1_stations": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)"
+				}
 			},
-			"mumbai_monorail": {
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+		"mumbai_monorail": {
 			"id": "mumbai_monorail",
 			"name": "Mumbai Monorail (MMRDA)",
 			"icon": "🚝",
@@ -206,11 +210,414 @@
 			"state_note": "Mumbai MMR",
 			"subtitle": "Monorail System serving Mumbai",
 			"source_url": "https://mmrda.maharashtra.gov.in/",
-			"data_sources": {},
+			"data_sources": {
+				"monorail_stations": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail"
+				},
+				"coordinates_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/w/api.php?action=query&prop=coordinates&titles={titles}&format=json"
+				}
+			},
 			"pipeline": {
-				"stage": "stage_3_structured",
-				"status": "manual_entry",
-				"supervised_by_developer": true
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+		"lucknow_metro": {
+			"id": "lucknow_metro",
+			"name": "Lucknow Metro (UPMRC)",
+			"icon": "🚇",
+			"city": "Lucknow",
+			"state": "Uttar Pradesh",
+			"state_note": "Lucknow",
+			"subtitle": "North-South Corridor Mass Rapid Transit serving Lucknow",
+			"source_url": "https://lucknow.upmetrorail.com/",
+			"media_base_url": "https://upmrcl-media.s3.amazonaws.com",
+			"city_id": 1,
+			"line_code": "LN2",
+			"data_sources": {
+				"stations": {
+					"protocol": "rest_api",
+					"url": "https://portal.upmetrorail.com/{lang}/api/v2/stations_list_by_city_line/{city_id}/{line_code}/"
+				},
+				"station_details": {
+					"protocol": "rest_api",
+					"url": "https://portal.upmetrorail.com/{lang}/api/v2/station_detail/{city_id}/{st_code}/",
+					"languages": ["en", "hi"]
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+		"kanpur_metro": {
+			"id": "kanpur_metro",
+			"name": "Kanpur Metro (UPMRC)",
+			"icon": "🚇",
+			"city": "Kanpur",
+			"state": "Uttar Pradesh",
+			"state_note": "Kanpur",
+			"subtitle": "Orange Line Rapid Transit serving Industrial Capital Kanpur",
+			"source_url": "https://kanpur.upmetrorail.com/",
+			"media_base_url": "https://upmrcl-media.s3.amazonaws.com",
+			"city_id": 2,
+			"line_code": "LN3",
+			"data_sources": {
+				"stations": {
+					"protocol": "rest_api",
+					"url": "https://portal.upmetrorail.com/{lang}/api/v2/stations_list_by_city_line/{city_id}/{line_code}/"
+				},
+				"station_details": {
+					"protocol": "rest_api",
+					"url": "https://portal.upmetrorail.com/{lang}/api/v2/station_detail/{city_id}/{st_code}/",
+					"languages": ["en", "hi"]
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+		"agra_metro": {
+			"id": "agra_metro",
+			"name": "Agra Metro (UPMRC)",
+			"icon": "🚇",
+			"city": "Agra",
+			"state": "Uttar Pradesh",
+			"state_note": "Agra",
+			"subtitle": "Priority Corridor Rapid Transit serving Heritage City Agra",
+			"source_url": "https://agra.upmetrorail.com/",
+			"media_base_url": "https://upmrcl-media.s3.amazonaws.com",
+			"city_id": 3,
+			"line_code": "LN1",
+			"data_sources": {
+				"stations": {
+					"protocol": "rest_api",
+					"url": "https://portal.upmetrorail.com/{lang}/api/v2/stations_list_by_city_line/{city_id}/{line_code}/"
+				},
+				"station_details": {
+					"protocol": "rest_api",
+					"url": "https://portal.upmetrorail.com/{lang}/api/v2/station_detail/{city_id}/{st_code}/",
+					"languages": ["en", "hi"]
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"pune_metro": {
+			"id": "pune_metro",
+			"name": "Pune Metro (Maha Metro)",
+			"icon": "🚇",
+			"city": "Pune",
+			"state": "Maharashtra",
+			"state_note": "Pune MMR",
+			"subtitle": "Mass Rapid Transit System serving Pune & Pimpri-Chinchwad",
+			"source_url": "https://www.punemetrorail.org/",
+			"data_sources": {
+				"stations_catalog": {
+					"protocol": "html_form",
+					"url": "https://www.punemetrorail.org/fare_chart.aspx"
+				},
+				"stations_metadata": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Pune_Metro_stations"
+				},
+				"coordinates_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/w/api.php?action=query&prop=coordinates&titles={titles}&format=json"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+		"nagpur_metro": {
+			"id": "nagpur_metro",
+			"name": "Nagpur Metro (Maha Metro)",
+			"icon": "🚇",
+			"city": "Nagpur",
+			"state": "Maharashtra",
+			"state_note": "Nagpur",
+			"subtitle": "Green & Orange Line Rapid Transit serving Nagpur",
+			"source_url": "https://www.metrorailnagpur.com/",
+			"data_sources": {
+				"official_kml_map": {
+					"protocol": "kml_stream",
+					"url": "https://www.google.com/maps/d/kml?mid=1Abjh72BYbNo2snTpBhWCWTtzLtEvbhly&forcekml=1"
+				},
+				"stations_metadata": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Nagpur_Metro_stations"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"namma_metro": {
+			"id": "namma_metro",
+			"name": "Namma Metro (BMRCL)",
+			"icon": "🚇",
+			"city": "Bengaluru",
+			"state": "Karnataka",
+			"state_note": "Bengaluru",
+			"subtitle": "Rapid Transit System serving Bengaluru Metropolitan Region",
+			"source_url": "https://english.bmrc.co.in/",
+			"data_sources": {
+				"stations_metadata": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Namma_Metro_stations"
+				},
+				"coordinates_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/w/api.php?action=query&prop=coordinates&titles={titles}&format=json"
+				},
+				"fare_rules": {
+					"protocol": "web_page",
+					"url": "https://english.bmrc.co.in/fare-rules"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"hyderabad_metro": {
+			"id": "hyderabad_metro",
+			"name": "Hyderabad Metro (L&T Metro Rail)",
+			"icon": "🚇",
+			"city": "Hyderabad",
+			"state": "Telangana",
+			"state_note": "Hyderabad",
+			"subtitle": "Rapid Transit System serving Hyderabad & Secunderabad",
+			"source_url": "https://ltmetro.com/",
+			"data_sources": {
+				"stations_api": {
+					"protocol": "rest_api",
+					"url": "https://ltmetro.com/wp-json/wp/v2/stations?per_page=100"
+				},
+				"wiki_stations_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Hyderabad_Metro_stations"
+				},
+				"wiki_coordinates_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/w/api.php?action=query&prop=coordinates&titles={titles}&format=json"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"kolkata_metro": {
+			"id": "kolkata_metro",
+			"name": "Kolkata Metro (Metro Railway / Indian Railways)",
+			"icon": "🚇",
+			"city": "Kolkata",
+			"state": "West Bengal",
+			"state_note": "Kolkata Metropolitan Area",
+			"subtitle": "First Rapid Transit System in India serving Kolkata & Howrah",
+			"source_url": "https://mtp.indianrailways.gov.in/",
+			"data_sources": {
+				"stations_metadata": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Kolkata_Metro_stations"
+				},
+				"coordinates_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/w/api.php?action=query&prop=coordinates&titles={titles}&format=json"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"kochi_metro": {
+			"id": "kochi_metro",
+			"name": "Kochi Metro (KMRL)",
+			"icon": "🚇",
+			"city": "Kochi",
+			"state": "Kerala",
+			"state_note": "Kochi Metropolitan Region",
+			"subtitle": "Rapid Transit System serving Greater Kochi",
+			"source_url": "https://kochimetro.org/",
+			"data_sources": {
+				"gtfs_feed": {
+					"protocol": "gtfs_zip",
+					"url": "https://kochimetro.org/opendata/KMRLOpenData.zip"
+				},
+				"fare_chart": {
+					"protocol": "web_page",
+					"url": "https://kochimetro.org/fare-chart/"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"chennai_metro": {
+			"id": "chennai_metro",
+			"name": "Chennai Metro (CMRL)",
+			"icon": "🚇",
+			"city": "Chennai",
+			"state": "Tamil Nadu",
+			"state_note": "Chennai Metropolitan Area",
+			"subtitle": "Rapid Transit System serving Chennai",
+			"source_url": "https://chennaimetrorail.org/",
+			"data_sources": {
+				"stations_api": {
+					"protocol": "rest_api",
+					"url": "https://chennaimetrorail.org/wp-json/wp/v2/station-information?per_page=100"
+				},
+				"lines_api": {
+					"protocol": "rest_api",
+					"url": "https://chennaimetrorail.org/wp-json/wp/v2/phase-one"
+				},
+				"wiki_stations_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Chennai_Metro_stations"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"indore_metro": {
+			"id": "indore_metro",
+			"name": "Indore Metro (MPMRCL)",
+			"icon": "🚇",
+			"city": "Indore",
+			"state": "Madhya Pradesh",
+			"state_note": "Indore Metropolitan Area",
+			"subtitle": "Rapid Transit System serving Indore",
+			"source_url": "https://mpmetrorail.com/",
+			"data_sources": {
+				"kmz_map": {
+					"protocol": "kmz_kml",
+					"url": "https://www.mpmetrorail.com/assets/kml/Indore.kmz"
+				},
+				"fare_chart": {
+					"protocol": "pdf",
+					"url": "https://mpmetrorail.com/uploads/media/Fare_Chart_(English_Hindi)_Indore_Metro.pdf"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+		"bhopal_metro": {
+			"id": "bhopal_metro",
+			"name": "Bhopal Metro (MPMRCL)",
+			"icon": "🚇",
+			"city": "Bhopal",
+			"state": "Madhya Pradesh",
+			"state_note": "Bhopal Metropolitan Area",
+			"subtitle": "Rapid Transit System serving Bhopal",
+			"source_url": "https://mpmetrorail.com/",
+			"data_sources": {
+				"kmz_map": {
+					"protocol": "kmz_kml",
+					"url": "https://www.mpmetrorail.com/assets/kml/Bhopal.kmz"
+				},
+				"fare_chart": {
+					"protocol": "pdf",
+					"url": "https://www.mpmetrorail.com/uploads/media/bhopal_metro_fare_matrix.pdf"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"ahmedabad_metro": {
+			"id": "ahmedabad_metro",
+			"name": "Ahmedabad Metro (GMRC)",
+			"icon": "🚇",
+			"city": "Ahmedabad / Gandhinagar",
+			"state": "Gujarat",
+			"state_note": "Ahmedabad-Gandhinagar Region",
+			"subtitle": "Rapid Transit System serving Ahmedabad & Gandhinagar",
+			"source_url": "https://www.gujaratmetrorail.com/",
+			"data_sources": {
+				"route_and_fares": {
+					"protocol": "web_page",
+					"url": "https://www.gujaratmetrorail.com/ahmedabad/route-and-fares/"
+				},
+				"official_kml_map": {
+					"protocol": "kml",
+					"url": "https://www.google.com/maps/d/kml?mid=1ebnAmbRUbMyI_quB06reRZWcyfcLF8M&forcekml=1"
+				},
+				"fare_ajax_api": {
+					"protocol": "ajax_post",
+					"url": "https://www.gujaratmetrorail.com/ahmedabad/wp-admin/admin-ajax.php"
+				},
+				"wiki_stations_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Ahmedabad_Metro_stations"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
+			}
+		},
+				"jaipur_metro": {
+			"id": "jaipur_metro",
+			"name": "Jaipur Metro (JMRC)",
+			"icon": "🚇",
+			"city": "Jaipur",
+			"state": "Rajasthan",
+			"state_note": "Jaipur",
+			"subtitle": "Rapid Transit System serving Jaipur",
+			"source_url": "https://transport.rajasthan.gov.in/jmrc",
+			"data_sources": {
+				"stations_contact": {
+					"protocol": "html_table",
+					"url": "https://transport.rajasthan.gov.in/content/transportportal/en/metro/PassengerInformation/StationContactNumber.html"
+				},
+				"metro_stations": {
+					"protocol": "web_page",
+					"url": "https://transport.rajasthan.gov.in/content/transportportal/en/metro/PassengerInformation/MetroStations.html"
+				},
+				"fare_chart": {
+					"protocol": "web_page",
+					"url": "https://transport.rajasthan.gov.in/content/transportportal/en/metro/PassengerInformation/MetroFares.html"
+				},
+				"wiki_stations_api": {
+					"protocol": "rest_api",
+					"url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Jaipur_Metro_stations"
+				}
+			},
+			"pipeline": {
+				"stage": "stage_1_raw",
+				"status": "ready",
+				"supervised_by_developer": false
 			}
 		}
 	}

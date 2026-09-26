@@ -1,0 +1,78 @@
+/* =========================================================================
+   🚉 SHARED STATION TYPES & GLYPHS (Used in Legend Panel & Route Search)
+   ========================================================================= */
+
+.station-type-glyph,
+.legend-icon-normal,
+.legend-icon-circle,
+.legend-icon-walkway,
+.legend-icon-multimodal,
+.legend-icon-shared-track {
+	display: inline-flex;
+	flex-shrink: 0;
+	box-sizing: border-box;
+}
+
+/* 0. Normal Station (Legend Only) */
+.legend-icon-normal {
+	width: var(--lg-normal-size, 14px);
+	height: var(--lg-normal-size, 14px);
+	border-radius: var(--radius-full, 9999px);
+	border: 2px solid var(--legend-circle-border, var(--text-primary));
+	background: var(--card-bg, #1e293b);
+	box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+/* 1. Interchange Station (Concentric Circle) */
+.station-type-glyph.type-interchange,
+.legend-icon-circle {
+	width: var(--lg-interchange-size, 14px);
+	height: var(--lg-interchange-size, 14px);
+	border-radius: var(--radius-full, 9999px);
+	border: 2px solid var(--text-primary);
+	background: radial-gradient(circle, var(--text-primary) 40%, transparent 45%);
+}
+
+/* 2. Walkway / Travelators (Dashed Circle + Center Dot) */
+.station-type-glyph.type-walkway,
+.legend-icon-walkway {
+	width: var(--lg-walkway-size, 14px);
+	height: var(--lg-walkway-size, 14px);
+	border-radius: var(--radius-full, 9999px);
+	border: 1.5px dashed var(--text-primary);
+	background: radial-gradient(circle, var(--text-primary) 35%, transparent 40%);
+}
+
+/* 3. Multimodal Transit Hub (Rounded Square + Glowing Violet) */
+.station-type-glyph.type-multimodal,
+.legend-icon-multimodal {
+	width: 14px;
+	height: 14px;
+	border-radius: 4px;
+	border: 2px solid #c084fc;
+	background: radial-gradient(circle, #c084fc 35%, transparent 40%);
+	box-shadow: 0 0 6px rgba(192, 132, 252, 0.4);
+}
+
+/* 4. Shared Track Station (Capsule / Pill with 2 Dots) */
+.station-type-glyph.type-shared-track,
+.legend-icon-shared-track {
+	width: 18px;
+	height: 11px;
+	border-radius: 6px;
+	border: 2px solid #f43f5e;
+	display: inline-flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0 1px;
+}
+.station-type-glyph.type-shared-track::before,
+.station-type-glyph.type-shared-track::after,
+.legend-icon-shared-track::before,
+.legend-icon-shared-track::after {
+	content: '';
+	width: 3px;
+	height: 3px;
+	background: #f43f5e;
+	border-radius: 50%;
+}

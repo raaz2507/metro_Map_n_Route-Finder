@@ -281,44 +281,22 @@ class HelpController extends BaseSearchEngine {
 	 * 🧭 Sticky Sidebar Smooth Scroll & ScrollSpy
 	 */
 	#bindScrollSpy() {
-		const { sidebarLinks, sections } = this.#dom;
-		if (!sidebarLinks || !sections) return;
-
-		// 1. Smooth Click-to-Scroll
+		const { sidebarLinks } = this.#dom;
+		if (!sidebarLinks) return;
 		sidebarLinks.forEach((link) => {
 			link.addEventListener("click", (e) => {
 				e.preventDefault();
-				const targetId = link.getAttribute("data-target");
+				const targetId = link.getAttribute("data-target") || link.hash?.replace("#", "");
 				const targetSection = document.getElementById(targetId);
-
 				if (targetSection) {
-					const offset = targetSection.getBoundingClientRect().top + window.scrollY - 85;
-					window.scrollTo({ top: offset, behavior: "smooth" });
+					sidebarLinks.forEach((l) => l.classList.toggle("active", l === link));
+					targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
 				}
 			});
 		});
-
-		// 2. Active Section ScrollSpy on Window Scroll
-		window.addEventListener("scroll", () => {
-			const scrollPos = window.scrollY + 130;
-
-			sections.forEach((section) => {
-				if (section.classList.contains("hidden")) return;
-
-				const top = section.offsetTop;
-				const height = section.offsetHeight;
-				const id = section.getAttribute("id");
-
-				if (scrollPos >= top && scrollPos < top + height) {
-					sidebarLinks.forEach((link) => {
-						const isMatch = link.getAttribute("data-target") === id;
-						link.classList.toggle("active", isMatch);
-					});
-				}
-			});
-		}, { passive: true });
 	}
 }
+
 
 // Instantiate on DOM Load
 document.addEventListener("DOMContentLoaded", () => {

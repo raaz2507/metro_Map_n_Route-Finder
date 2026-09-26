@@ -28,6 +28,7 @@ class PassengerSupportController {
 		// 4. Bind Floating Navigation & ScrollSpy
 		this.#bindFloatingNav();
 
+
 		// 5. Load and Apply City-Specific passenger_support.json
 		await this.#loadSupportData();
 	}
@@ -42,37 +43,45 @@ class PassengerSupportController {
 			});
 		});
 	}
-
+	
 	#bindFloatingNav() {
 		const tabBtns = document.querySelectorAll(".floating-bottom-bar .seg-tab-btn");
 		const tabPanels = document.querySelectorAll(".tab-panel");
+
+		const setActiveBtn = (targetId) => {
+			tabBtns.forEach((b) => {
+				const id = b.getAttribute("data-tab") || b.hash?.replace("#", "");
+				b.classList.toggle("active", id === targetId);
+			});
+		};
+
+		// 1. Instant Active State + Smooth Scroll (like help.js)
 		tabBtns.forEach((btn) => {
-			btn.addEventListener("click", () => {
-				tabBtns.forEach((b) => b.classList.remove("active"));
-				btn.classList.add("active");
-				const targetTab = btn.getAttribute("data-tab");
-				const targetPanel = document.getElementById(targetTab);
+			btn.addEventListener("click", (e) => {
+				e.preventDefault();
+				const targetId = btn.getAttribute("data-tab") || btn.hash?.replace("#", "");
+				const targetPanel = document.getElementById(targetId);
+
 				if (targetPanel) {
-					const offset = targetPanel.getBoundingClientRect().top + window.scrollY - 80;
-					window.scrollTo({ top: offset, behavior: "smooth" });
+					setActiveBtn(targetId);
+					targetPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 				}
 			});
 		});
 
-		// ScrollSpy to highlight active tab
-		window.addEventListener("scroll", () => {
-			const scrollPosition = window.scrollY + 120;
-			tabPanels.forEach((panel) => {
-				const top = panel.offsetTop;
-				const height = panel.offsetHeight;
-				const id = panel.getAttribute("id");
-				if (scrollPosition >= top && scrollPosition < top + height) {
-					tabBtns.forEach((btn) => {
-						btn.classList.toggle("active", btn.getAttribute("data-tab") === id);
-					});
-				}
-			});
-		});
+		// 2. Modern IntersectionObserver for Accurate ScrollSpy (उंगली से स्क्रॉल करने पर)
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setActiveBtn(entry.target.id);
+					}
+				});
+			},
+			{ rootMargin: "-20% 0px -60% 0px", threshold: 0 }
+		);
+
+		tabPanels.forEach((panel) => observer.observe(panel));
 	}
 
 	async #loadSupportData() {

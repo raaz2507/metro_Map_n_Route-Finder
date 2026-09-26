@@ -8,6 +8,9 @@
 		"currency": "INR",
 		"last_updated": "2026-09-20",
 		"networks": {
+			"mumbai_metro": {"operator": "MMRDA / MMRC / MMOPL", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
+			"navi_mumbai_metro": {"operator": "CIDCO / Maha Metro", "avgSpeedMetersPerMin": 500, "stationHaltMinutes": 0.5},
+			"mumbai_monorail": {"operator": "MMRDA", "avgSpeedMetersPerMin": 350, "stationHaltMinutes": 0.75, "status": "suspended"},
 			"mmopl": {"operator": "Mumbai Metro One Private Limited (Reliance / MMRDA)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
 			"mmmocl": {"operator": "Maha Mumbai Metro Operation Corporation Limited", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
 			"mmrcl": {"operator": "Mumbai Metro Rail Corporation Limited", "avgSpeedMetersPerMin": 600, "stationHaltMinutes": 0.5},
@@ -21,7 +24,7 @@
 		},
 		"policies": {
 			"mmopl_line1": {
-				"network": "mmopl",
+				"network": "mumbai_metro",
 				"effectiveFrom": "2024-01-01",
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
@@ -47,7 +50,7 @@
 				}
 			},
 			"mmmocl_standard": {
-				"network": "mmmocl",
+				"network": "mumbai_metro",
 				"effectiveFrom": "2023-01-19",
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
@@ -76,7 +79,7 @@
 				}
 			},
 			"mmrcl_line3": {
-				"network": "mmrcl",
+				"network": "mumbai_metro",
 				"effectiveFrom": "2024-10-07",
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
@@ -105,7 +108,7 @@
 				}
 			},
 			"cidco_navi_mumbai": {
-				"network": "cidco",
+				"network": "navi_mumbai_metro",
 				"effectiveFrom": "2024-09-07",
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
@@ -126,7 +129,7 @@
 				}
 			},
 			"mmrda_monorail_standard": {
-				"network": "mmrda_monorail",
+				"network": "mumbai_monorail",
 				"status": "suspended",
 				"effectiveFrom": "2018-01-01",
 				"effectiveTo": "2025-09-20",
@@ -157,7 +160,7 @@
 	"lines": {
 		"mumbai.blue": {
 			"id": "mumbai.blue",
-			"network": "mmopl",
+			"network": "mumbai_metro",
 			"operator": "MMOPL",
 			"farePolicy": "mmopl_line1",
 			"name": {"en": "Line 1 (Blue Line)", "mr": "मेट्रो मार्ग १ (ब्लू लाइन)", "hi": "मेट्रो लाइन १ (ब्लू लाइन)"},
@@ -167,7 +170,7 @@
 		},
 		"mumbai.yellow": {
 			"id": "mumbai.yellow",
-			"network": "mmmocl",
+			"network": "mumbai_metro",
 			"operator": "MMMOCL",
 			"farePolicy": "mmmocl_standard",
 			"name": {"en": "Line 2A (Yellow Line)", "mr": "मेट्रो मार्ग २A (यलो लाइन)", "hi": "मेट्रो लाइन २A (यलो लाइन)"},
@@ -177,7 +180,7 @@
 		},
 		"mumbai.red": {
 			"id": "mumbai.red",
-			"network": "mmmocl",
+			"network": "mumbai_metro",
 			"operator": "MMMOCL",
 			"farePolicy": "mmmocl_standard",
 			"name": {"en": "Line 7 (Red Line)", "mr": "मेट्रो मार्ग ७ (रेड लाइन)", "hi": "मेट्रो लाइन ७ (रेड लाइन)"},
@@ -187,7 +190,7 @@
 		},
 		"mumbai.aqua": {
 			"id": "mumbai.aqua",
-			"network": "mmrcl",
+			"network": "mumbai_metro",
 			"operator": "MMRCL",
 			"farePolicy": "mmrcl_line3",
 			"name": {"en": "Line 3 (Aqua Line)", "mr": "मेट्रो मार्ग ३ (अक्वा लाइन)", "hi": "मेट्रो लाइन ३ (एक्वा लाइन)"},
@@ -197,7 +200,7 @@
 		},
 		"mumbai.navi_mumbai_1": {
 			"id": "mumbai.navi_mumbai_1",
-			"network": "cidco",
+			"network": "navi_mumbai_metro",
 			"operator": "CIDCO / Maha Metro",
 			"farePolicy": "cidco_navi_mumbai",
 			"name": {"en": "Navi Mumbai Metro Line 1", "mr": "नवी मुंबई मेट्रो मार्ग १", "hi": "नवी मुंबई मेट्रो लाइन १"},
@@ -207,7 +210,7 @@
 		},
 		"mumbai.monorail": {
 			"id": "mumbai.monorail",
-			"network": "mmrda_monorail",
+			"network": "mumbai_monorail",
 			"operator": "MMRDA",
 			"farePolicy": "mmrda_monorail_standard",
 			"name": {"en": "Monorail Line 1 (Green Line)", "mr": "मोनोरेल मार्ग १ (हिरवी लाइन)", "hi": "मोनोरेल लाइन १ (ग्रीन लाइन)"},

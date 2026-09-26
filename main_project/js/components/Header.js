@@ -3,7 +3,7 @@
  * Enterprise Single Source of Truth for rendering, theme switching, and global language translation.
  */
 import { appStateStore } from "../core/app-state-store.js";
-import i18n from "../core/i18n.js";
+import i18n, { SUPPORTED_LANGUAGES } from "../core/i18n.js";
 import { RechargeModalComponent } from "./RechargeModal.js";
 
 export class HeaderComponent {
@@ -71,25 +71,32 @@ export class HeaderComponent {
 					</div>
 
 					<section class="toolbar">
-						<div class="btn-25d theme-selector">
-							<span class="btn-icon">🌙</span>
-							<span class="btn-text">Theme</span>
-							<select name="theme" id="theme" aria-label="Theme Selector">
-								<option value="light" ${currentTheme === 'light' ? 'selected' : ''} data-i18n="header.themes.light">Classic Light</option>
-								<option value="dark" ${currentTheme === 'dark' ? 'selected' : ''} data-i18n="header.themes.dark">Sleek Dark</option>
-								<option value="cyberpunk" ${currentTheme === 'cyberpunk' ? 'selected' : ''} data-i18n="header.themes.cyberpunk">Neon Cyberpunk</option>
-								<option value="vintage" ${currentTheme === 'vintage' ? 'selected' : ''} data-i18n="header.themes.vintage">Vintage Retro</option>
-								<option value="mint" ${currentTheme === 'mint' ? 'selected' : ''} data-i18n="header.themes.mint">Forest Mint</option>
-								<option value="ghibli" ${currentTheme === 'ghibli' ? 'selected' : ''} data-i18n="header.themes.ghibli">Ghibli Nostalgia</option>
-							</select>
+						<div class="dropdown-container">
+							<button type="button" class="btn-25d theme-selector" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme Selector">
+								<span class="btn-icon">🌙</span>
+								<span class="btn-text">Theme</span>
+							</button>
+							<ul class="custom-dropdown-menu" id="theme-menu" role="listbox">
+								<li class="custom-dropdown-item ${currentTheme === 'light' ? 'active' : ''}" role="option" data-value="light" data-i18n="header.themes.light">Classic Light</li>
+								<li class="custom-dropdown-item ${currentTheme === 'dark' ? 'active' : ''}" role="option" data-value="dark" data-i18n="header.themes.dark">Sleek Dark</li>
+								<li class="custom-dropdown-item ${currentTheme === 'cyberpunk' ? 'active' : ''}" role="option" data-value="cyberpunk" data-i18n="header.themes.cyberpunk">Neon Cyberpunk</li>
+								<li class="custom-dropdown-item ${currentTheme === 'vintage' ? 'active' : ''}" role="option" data-value="vintage" data-i18n="header.themes.vintage">Vintage Retro</li>
+								<li class="custom-dropdown-item ${currentTheme === 'mint' ? 'active' : ''}" role="option" data-value="mint" data-i18n="header.themes.mint">Forest Mint</li>
+								<li class="custom-dropdown-item ${currentTheme === 'ghibli' ? 'active' : ''}" role="option" data-value="ghibli" data-i18n="header.themes.ghibli">Ghibli Nostalgia</li>
+							</ul>
 						</div>
-						<div class="btn-25d lang-selector">
-							<span class="btn-icon">🌐</span>
-							<span class="btn-text">${currentLang === 'hi' ? 'HI' : 'EN'}</span>
-							<select id="language" name="lang" aria-label="Language Selector">
-								<option value="en" ${currentLang === 'en' ? 'selected' : ''}>Eng</option>
-								<option value="hi" ${currentLang === 'hi' ? 'selected' : ''}>हिन्दी</option>
-							</select>
+						<div class="dropdown-container">
+							<button type="button" class="btn-25d lang-selector" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language Selector">
+								<span class="btn-icon">🌐</span>
+								<span class="btn-text">${SUPPORTED_LANGUAGES.find(l => l.code === currentLang)?.short || currentLang.toUpperCase()}</span>
+							</button>
+							<ul class="custom-dropdown-menu" id="lang-menu" role="listbox">
+								${SUPPORTED_LANGUAGES.map(l => `
+									<li class="custom-dropdown-item ${currentLang === l.code ? 'active' : ''}" role="option" data-value="${l.code}">
+										${l.label}
+									</li>
+								`).join('')}
+							</ul>
 						</div>
 					</section>
 				</div>
@@ -174,18 +181,56 @@ export class HeaderComponent {
 			});
 		}
 
-		const themeSelect = document.getElementById('theme');
-		if (themeSelect) {
-			themeSelect.addEventListener('change', (e) => {
-				appStateStore.setState({ currentTheme: e.target.value });
-			});
-		}
+				this.#setupDropdown('theme-btn', 'theme-menu', (val) => {
+			appStateStore.setState({ currentTheme: val });
+		});
 
-		const langSelect = document.getElementById('language');
-		if (langSelect) {
-			langSelect.addEventListener('change', async (e) => {
-				await appStateStore.setState({ currentLang: e.target.value });
+		this.#setupDropdown('lang-btn', 'lang-menu', async (val) => {
+			await appStateStore.setState({ currentLang: val });
+		});
+	}
+
+	static #setupDropdown(btnId, menuId, onSelectCallback) {
+		const btn = document.getElementById(btnId);
+		const menu = document.getElementById(menuId);
+		if (!btn || !menu) return;
+
+		const close = () => {
+			menu.classList.remove('show');
+			btn.setAttribute('aria-expanded', 'false');
+		};
+
+		btn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const isOpen = menu.classList.contains('show');
+			document.querySelectorAll('.custom-dropdown-menu.show').forEach(m => m.classList.remove('show'));
+			if (!isOpen) {
+				menu.classList.add('show');
+				btn.setAttribute('aria-expanded', 'true');
+			} else {
+				close();
+			}
+		});
+
+		menu.querySelectorAll('.custom-dropdown-item').forEach(item => {
+			item.addEventListener('click', (e) => {
+				e.stopPropagation();
+				const val = item.getAttribute('data-value');
+				menu.querySelectorAll('.custom-dropdown-item').forEach(i => i.classList.remove('active'));
+				item.classList.add('active');
+				close();
+				if (onSelectCallback) onSelectCallback(val);
 			});
-		}
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!btn.contains(e.target) && !menu.contains(e.target)) {
+				close();
+			}
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') close();
+		});
 	}
 }

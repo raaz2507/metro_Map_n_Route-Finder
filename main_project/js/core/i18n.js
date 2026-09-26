@@ -1,7 +1,12 @@
 const DEFAULT_LANGUAGE = "en";
-
+export const SUPPORTED_LANGUAGES = [
+	{ code: "en", label: "English", short: "EN" },
+	{ code: "hi", label: "हिन्दी", short: "HI" }
+	// भविष्य में नई भाषा जोड़ने के लिए सिर्फ यहाँ एक लाइन जोड़ें, जैसे:
+	// { code: "mr", label: "मराठी", short: "MR" }
+];
 class I18n {
-    #currentLanguage = "en";
+	#currentLanguage = "en";
     #dictionary = {};
     #languageCache = new Map();
     #RTL_LANGUAGES = new Set(["ar", "fa", "ur"]);

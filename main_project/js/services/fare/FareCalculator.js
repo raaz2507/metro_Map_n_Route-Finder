@@ -430,8 +430,11 @@ export class FareCalculator {
 		// 2. Extra Products (Discounts or Premium Multipliers)
 		for (const [key, config] of Object.entries(productsConfig)) {
 			if (config.type === "discount" || config.type === "concession") {
-				if (config.timeRule === "off_peak" && !isOffPeak) continue; 
-				
+				// 🎯 Always calculate product; attach timing rules directly from JSON
+				const isRuleOffPeak = config.timeRule === "off_peak";
+				const timeSlots = isRuleOffPeak ? (policy.timeRules?.off_peak || []) : [];
+				const isCurrentSlotActive = isRuleOffPeak && isOffPeak;
+				// const isCurrentSlotActive = true; //testing line
 				const baseFareValue = config.baseProduct && computedProducts[config.baseProduct] 
 					? computedProducts[config.baseProduct].fare 
 					: baseFare;
@@ -453,7 +456,10 @@ export class FareCalculator {
 					label: config.label || { en: key, hi: key },
 					isDiscounted: !!config.discountPercent,
 					discountPercent: config.discountPercent || 0,
-					isPremium: isPremiumCoach
+					isPremium: isPremiumCoach,
+					timeRule: config.timeRule || null,
+					isCurrentSlotActive: isCurrentSlotActive,
+					timeSlots: timeSlots
 				};
 			}
 		}

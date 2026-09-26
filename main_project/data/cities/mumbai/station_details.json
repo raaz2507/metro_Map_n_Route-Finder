@@ -2,12 +2,7 @@
 	"aarey_jvlr": {
 		"name": {"en": "Aarey JVLR", "mr": "आरे जे.वी.एल.आर", "hi": "आरे जे.वी.एल.आर"},
 		"gates": {
-			"A1/B1": {
-				"code": "A1/B1",
-				"status": "open",
-				"divyang": false,
-				"landmark": {"en": "Powai, Seepz", "mr": "सीप्झ, पवई"}
-			}
+			"A1/B1": {"code": "A1/B1", "status": "open", "divyang": false, "landmark": {"en": "Powai, Seepz", "mr": "सीप्झ, पवई"}}
 		},
 		"vertical_transit": {
 			"lifts": {
@@ -115,14 +110,20 @@
 			"mr": "मुंबई मेट्रो लाईन ३ चे हे ॲट- ग्रेड स्थानक आहे. अधिक माहितीसाठी किंवा शंका निरसनासाठी आपण कृपया स्थानक अधिकाऱ्यांशी 01242800011 या क्रमांकावर संपर्क साधावा"
 		},
 		"nearby_places": {
-			"Health": [{"name": "Dr. Susan Sodder Pvt. Hospital", "connected": false, "walking_min": 47.61904761904762}],
-			"Hotels": [{"name": "Sun City Hotel", "connected": false, "walking_min": 11.904761904761905}],
+			"Health": [
+				{"name": "Dr. Susan Sodder Pvt. Hospital", "connected": false, "walking_min": 47.61904761904762}
+			],
+			"Hotels": [
+				{"name": "Sun City Hotel", "connected": false, "walking_min": 11.904761904761905}
+			],
 			"Government Offices": [
 				{"name": "Directi SEEPZ Office", "connected": false, "walking_min": 13.452380952380953},
 				{"name": "Marol Police Camp", "connected": false, "walking_min": 23.452380952380953},
 				{"name": "Western Regional Power Committee", "connected": false, "walking_min": 15}
 			],
-			"Residental": [{"name": "Aarey Milk Colony", "connected": false, "walking_min": 73.80952380952381}],
+			"Residental": [
+				{"name": "Aarey Milk Colony", "connected": false, "walking_min": 73.80952380952381}
+			],
 			"Institutional": [
 				{"name": "Indian Educational Society", "connected": false, "walking_min": 7.738095238095238},
 				{"name": "Oberoi International School, Jvlr Campus", "connected": false, "walking_min": 45.23809523809524}
@@ -148,10 +149,7 @@
 				{"name": "Jogeshwari Vikhroli Link Road", "connected": false, "walking_min": 1.1904761904761905}
 			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"seepz": {
 		"name": {"en": "SEEPZ", "mr": "सीप्झ", "hi": "सीप्झ"},
@@ -300,7 +298,9 @@
 				{"name": "Adani Electricity Management Institute", "connected": false, "walking_min": 11.904761904761905},
 				{"name": "Unidesign Jewellery India Pvt. Ltd.", "connected": false, "walking_min": 28.571428571428573}
 			],
-			"Transportation": [{"name": "SEEPZ Bus Depot", "connected": false, "walking_min": 0.9523809523809523}],
+			"Transportation": [
+				{"name": "SEEPZ Bus Depot", "connected": false, "walking_min": 0.9523809523809523}
+			],
 			"Government Offices": [
 				{"name": "National Test House (Western Railway)", "connected": false, "walking_min": 4.761904761904762},
 				{"name": "Directi Seepz Office", "connected": false, "walking_min": 8.928571428571429},
@@ -322,12 +322,11 @@
 				{"name": "Gyan Ashram", "connected": false, "walking_min": 15.476190476190476},
 				{"name": "Sacred Heart Church", "connected": false, "walking_min": 11.904761904761905}
 			],
-			"Recreation": [{"name": "Chota Kashmir", "connected": false, "walking_min": 66, "pub_transport_min": 22}]
+			"Recreation": [
+				{"name": "Chota Kashmir", "connected": false, "walking_min": 66, "pub_transport_min": 22}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"midc_andheri": {
 		"name": {"en": "Midc-andheri", "mr": "एम.आय.डी.सी-अंधेरी", "hi": "एम.आय.डी.सी-अंधेरी"},
@@ -511,14 +510,15 @@
 				{"name": "Ryan Global School", "connected": false, "walking_min": 2.142857142857143},
 				{"name": "ESI Post Graduate Institute of Medical Science and Research", "connected": false, "walking_min": 9.523809523809524}
 			],
-			"Residental": [{"name": "Midc Industrial Estate", "connected": false, "walking_min": 3.4523809523809526}],
-			"Health": [{"name": "Seven Hills Hospital", "connected": false, "walking_min": 17.857142857142858}],
+			"Residental": [
+				{"name": "Midc Industrial Estate", "connected": false, "walking_min": 3.4523809523809526}
+			],
+			"Health": [
+				{"name": "Seven Hills Hospital", "connected": false, "walking_min": 17.857142857142858}
+			],
 			"Commercial": [{"name": "MCGM Market", "connected": false, "walking_min": 20.238095238095237}]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"marol_naka": {
 		"name": {"en": "Marol Naka", "mr": "मरोळ नाका", "hi": "मरोळ नाका"},
@@ -738,9 +738,15 @@
 				{"name": "Marol Naka Station (Line-1 )", "connected": false, "walking_min": 0.47619047619047616},
 				{"name": "Marol Fire Brigade", "connected": false, "walking_min": 1.6666666666666667}
 			],
-			"Health": [{"name": "Seven Hills Hospital", "connected": false, "walking_min": 13.095238095238095}],
-			"Private Offices": [{"name": "Smartworks - Fleet House", "connected": false, "walking_min": 0.47619047619047616}],
-			"Religious": [{"name": "St. John The Evangelist Church", "connected": false, "walking_min": 8.928571428571429}]
+			"Health": [
+				{"name": "Seven Hills Hospital", "connected": false, "walking_min": 13.095238095238095}
+			],
+			"Private Offices": [
+				{"name": "Smartworks - Fleet House", "connected": false, "walking_min": 0.47619047619047616}
+			],
+			"Religious": [
+				{"name": "St. John The Evangelist Church", "connected": false, "walking_min": 8.928571428571429}
+			]
 		}
 	},
 	"csmi_airport_t2": {
@@ -751,21 +757,30 @@
 				"status": "open",
 				"divyang": false,
 				"coordinates": {"latitude": 19.101761, "longitude": 72.874611},
-				"landmark": {"en": "Sahar Cargo, Chhatrapati Shivaji Maharaj International Airport-T2", "mr": "सहार कार्गो, छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ - T2"}
+				"landmark": {
+					"en": "Sahar Cargo, Chhatrapati Shivaji Maharaj International Airport-T2",
+					"mr": "सहार कार्गो, छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ - T2"
+				}
 			},
 			"A2": {
 				"code": "A2",
 				"status": "open",
 				"divyang": false,
 				"coordinates": {"latitude": 19.101993, "longitude": 72.873619},
-				"landmark": {"en": "Sahar Cargo, Chhatrapati Shivaji Maharaj International Airport-T2", "mr": "सहार कार्गो, छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ - T2"}
+				"landmark": {
+					"en": "Sahar Cargo, Chhatrapati Shivaji Maharaj International Airport-T2",
+					"mr": "सहार कार्गो, छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ - T2"
+				}
 			},
 			"B1": {
 				"code": "B1",
 				"status": "close",
 				"divyang": false,
 				"coordinates": {"latitude": 19.10202, "longitude": 72.875379},
-				"landmark": {"en": "Chhatrapati Shivaji Maharaj International Airport-T2, Yellow Fever Hospital", "mr": "छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ - T2, यलो फिव्हर हॉस्पिटल"}
+				"landmark": {
+					"en": "Chhatrapati Shivaji Maharaj International Airport-T2, Yellow Fever Hospital",
+					"mr": "छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ - T2, यलो फिव्हर हॉस्पिटल"
+				}
 			}
 		},
 		"vertical_transit": {
@@ -943,13 +958,14 @@
 				{"name": "Ambassador’S Sky Chef", "connected": false, "walking_min": 6.5476190476190474},
 				{"name": "Air India Air Transport Services Ltd", "connected": false, "walking_min": 11.904761904761905}
 			],
-			"Health": [{"name": "Airport Health Organization", "connected": false, "walking_min": 4.761904761904762}],
-			"Government Offices": [{"name": "Sahar Police Station", "connected": false, "walking_min": 10.119047619047619}]
+			"Health": [
+				{"name": "Airport Health Organization", "connected": false, "walking_min": 4.761904761904762}
+			],
+			"Government Offices": [
+				{"name": "Sahar Police Station", "connected": false, "walking_min": 10.119047619047619}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"sahar_road": {
 		"name": {"en": "Sahar Road", "mr": "सहार रोड", "hi": "सहार रोड"},
@@ -1145,20 +1161,25 @@
 				{"name": "Hilton Mumbai International Airport", "connected": false, "walking_min": 7.738095238095238},
 				{"name": "ITC Maratha", "connected": false, "walking_min": 6.904761904761905}
 			],
-			"Private Offices": [{"name": "Prime Corporate Park", "connected": false, "walking_min": 10.119047619047619}],
-			"Government Offices": [{"name": "Indian Meteorological Department, Rsrw", "connected": false, "walking_min": 20.238095238095237}],
+			"Private Offices": [
+				{"name": "Prime Corporate Park", "connected": false, "walking_min": 10.119047619047619}
+			],
+			"Government Offices": [
+				{"name": "Indian Meteorological Department, Rsrw", "connected": false, "walking_min": 20.238095238095237}
+			],
 			"Residental": [
 				{"name": "Sahar P&T Colony", "connected": false, "walking_min": 8.928571428571429},
 				{"name": "Sahar Village", "connected": false, "walking_min": 5.357142857142857},
 				{"name": "J B Nagar Residential Area", "connected": false, "walking_min": 23.80952380952381}
 			],
-			"Institutional": [{"name": "Bombay Cambridge International School", "connected": false, "walking_min": 14.285714285714286}],
-			"Transportation": [{"name": "Chakala Metro Station (Line-1)", "connected": false, "walking_min": 17.857142857142858}]
+			"Institutional": [
+				{"name": "Bombay Cambridge International School", "connected": false, "walking_min": 14.285714285714286}
+			],
+			"Transportation": [
+				{"name": "Chakala Metro Station (Line-1)", "connected": false, "walking_min": 17.857142857142858}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"csmi_airport_t1": {
 		"name": {"en": "CSMI Airport-t1", "mr": "सी. एस. एम. आय विमानतळ - T1", "hi": "सी. एस. एम. आय विमानतळ - T1"},
@@ -1168,14 +1189,20 @@
 				"status": "open",
 				"divyang": true,
 				"coordinates": {"latitude": 19.093523, "longitude": 72.853744},
-				"landmark": {"en": "Western Express Highway, Chhatrapati Shivaji Maharaj International Airport-T1", "mr": "मिलान फ्लायओव्हर, विलेपार्ले रेल्वे स्टेशन"}
+				"landmark": {
+					"en": "Western Express Highway, Chhatrapati Shivaji Maharaj International Airport-T1",
+					"mr": "मिलान फ्लायओव्हर, विलेपार्ले रेल्वे स्टेशन"
+				}
 			},
 			"B1": {
 				"code": "B1",
 				"status": "open",
 				"divyang": true,
 				"coordinates": {"latitude": 19.095607, "longitude": 72.852099},
-				"landmark": {"en": "Milan Flyover, Vile Parle Railway Station", "mr": "पश्चिम द्रुतगती महामार्ग, छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ - T1"}
+				"landmark": {
+					"en": "Milan Flyover, Vile Parle Railway Station",
+					"mr": "पश्चिम द्रुतगती महामार्ग, छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ - T1"
+				}
 			}
 		},
 		"vertical_transit": {
@@ -1320,13 +1347,12 @@
 				{"name": "M.L. Dahanukar College Of Commerce", "connected": false, "walking_min": 5.9523809523809526},
 				{"name": "Sathaye College", "connected": false, "walking_min": 5.9523809523809526}
 			],
-			"Government Offices": [{"name": "Airport Speed Post Office", "connected": false, "walking_min": 2.619047619047619}],
+			"Government Offices": [
+				{"name": "Airport Speed Post Office", "connected": false, "walking_min": 2.619047619047619}
+			],
 			"Commercial": [{"name": "ATC Tower", "connected": false, "walking_min": 3.5714285714285716}]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"santacruz_metro": {
 		"name": {"en": "Santacruz Metro", "mr": "सांताक्रूझ मेट्रो", "hi": "सांताक्रूझ मेट्रो"},
@@ -1512,8 +1538,12 @@
 			"mr": "हे मुंबई मेट्रो लाइन 3 च्या अनेक भूमिगत स्थानकांपैकी एक आहे. अधिक माहितीसाठी किंवा प्रश्नांसाठी कृपया खालील संपर्क क्रमांकावर स्टेशन ऑफिसरशी संपर्क साधा: 01242 800011."
 		},
 		"nearby_places": {
-			"Recreation": [{"name": "Dinker Patel Garden", "connected": false, "walking_min": 4.761904761904762}],
-			"Hotels": [{"name": "Grand Hyatt Mumbai", "connected": false, "walking_min": 10.714285714285714}],
+			"Recreation": [
+				{"name": "Dinker Patel Garden", "connected": false, "walking_min": 4.761904761904762}
+			],
+			"Hotels": [
+				{"name": "Grand Hyatt Mumbai", "connected": false, "walking_min": 10.714285714285714}
+			],
 			"Private Offices": [
 				{"name": "DDB Mudra Group", "connected": false, "walking_min": 11.488095238095237},
 				{"name": "Reliance Centre", "connected": false, "walking_min": 7.142857142857143},
@@ -1526,8 +1556,12 @@
 				{"name": "BMC Vakola School", "connected": false, "walking_min": 4.761904761904762},
 				{"name": "Patuck College", "connected": false, "walking_min": 5.357142857142857}
 			],
-			"Government Offices": [{"name": "Vakola Police Station", "connected": false, "walking_min": 1.369047619047619}],
-			"Commercial": [{"name": "Porsche Centre Mumbai", "connected": false, "walking_min": 23.80952380952381}],
+			"Government Offices": [
+				{"name": "Vakola Police Station", "connected": false, "walking_min": 1.369047619047619}
+			],
+			"Commercial": [
+				{"name": "Porsche Centre Mumbai", "connected": false, "walking_min": 23.80952380952381}
+			],
 			"Religious": [
 				{"name": "St. Anthony Church / Vakola Church", "connected": false, "walking_min": 8.333333333333334},
 				{"name": "Iskcon Temple,Juhu", "connected": false, "walking_min": 77, "pub_transport_min": 30.67}
@@ -1541,12 +1575,11 @@
 				{"name": "Santacurz Suburban Railway Station (Western)", "connected": false, "walking_min": 6.5476190476190474},
 				{"name": "Western Express Highway", "connected": false, "walking_min": 0}
 			],
-			"Nature": [{"name": "Juhu Beach", "connected": false, "walking_min": 60, "pub_transport_min": 25}]
+			"Nature": [
+				{"name": "Juhu Beach", "connected": false, "walking_min": 60, "pub_transport_min": 25}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"bandra_colony": {
 		"name": {"en": "Bandra Colony", "mr": "वांद्रे कॉलनी", "hi": "वांद्रे कॉलनी"},
@@ -1563,7 +1596,10 @@
 				"status": "open",
 				"divyang": false,
 				"coordinates": {"latitude": 19.0694465150979, "longitude": 72.8499888341933},
-				"landmark": {"en": "University of Mumbai [Kalina University], Ascend International School", "mr": "मुंबई विद्यापीठ [कलिना कॅम्पस], असेंड इंटरनॅशनल स्कूल"}
+				"landmark": {
+					"en": "University of Mumbai [Kalina University], Ascend International School",
+					"mr": "मुंबई विद्यापीठ [कलिना कॅम्पस], असेंड इंटरनॅशनल स्कूल"
+				}
 			},
 			"B1": {
 				"code": "B1",
@@ -1745,16 +1781,15 @@
 				{"name": "Khar Road Suburban Railway Station (Western)", "connected": false, "walking_min": 16.666666666666668},
 				{"name": "Bandra Railway Staation", "connected": false, "walking_min": 26.19047619047619}
 			],
-			"Recreation": [{"name": "Dr. Babasaheb Ambedkar Udyan", "connected": false, "walking_min": 11.904761904761905}],
+			"Recreation": [
+				{"name": "Dr. Babasaheb Ambedkar Udyan", "connected": false, "walking_min": 11.904761904761905}
+			],
 			"Sports": [
 				{"name": "Mmrda Grounds", "connected": false, "walking_min": 17.857142857142858},
 				{"name": "AITA Trust Tennis Courts", "connected": false, "walking_min": 11.904761904761905}
 			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"bandra_kurla_complex": {
 		"name": {"en": "Bandra-kurla Complex", "mr": "वांद्रे-कुर्ला कॉम्प्लेक्स", "hi": "वांद्रे-कुर्ला कॉम्प्लेक्स"},
@@ -1764,7 +1799,10 @@
 				"status": "open",
 				"divyang": false,
 				"coordinates": {"latitude": 19.0585198838111, "longitude": 72.8553647457012},
-				"landmark": {"en": "Bandra-Kurla Complex 'E' Block, Mumbai Metropolitian Region Development Authority[MMRDA]", "mr": "वांद्रे कुर्ला कॉम्प्लेक्स 'E' ब्लॉक, मुंबई महानगर प्रदेश विकास प्राधिकरण [MMRDA]"}
+				"landmark": {
+					"en": "Bandra-Kurla Complex 'E' Block, Mumbai Metropolitian Region Development Authority[MMRDA]",
+					"mr": "वांद्रे कुर्ला कॉम्प्लेक्स 'E' ब्लॉक, मुंबई महानगर प्रदेश विकास प्राधिकरण [MMRDA]"
+				}
 			},
 			"A4": {
 				"code": "A4",
@@ -1785,7 +1823,10 @@
 				"status": "open",
 				"divyang": true,
 				"coordinates": {"latitude": 19.0616200513233, "longitude": 72.8538444641642},
-				"landmark": {"en": "Sant Dyaneshwar Nagar, Office of District Collector,Mumbai Surburban", "mr": "संत ज्ञानेश्वर नगर, जिल्हाधिकारी कार्यालय, मुंबई उपनगर"}
+				"landmark": {
+					"en": "Sant Dyaneshwar Nagar, Office of District Collector,Mumbai Surburban",
+					"mr": "संत ज्ञानेश्वर नगर, जिल्हाधिकारी कार्यालय, मुंबई उपनगर"
+				}
 			},
 			"A2": {
 				"code": "A2",
@@ -1799,7 +1840,10 @@
 				"status": "open",
 				"divyang": false,
 				"coordinates": {"latitude": 19.0595382228821, "longitude": 72.8557647228524},
-				"landmark": {"en": "Bandra-Kurla Complex 'E' Block, National Stock Exchange [NSE]", "mr": "वांद्रे कुर्ला कॉम्प्लेक्स 'E' ब्लॉक, नॅशनल स्टॉक एक्स्चेंज [NSE]"}
+				"landmark": {
+					"en": "Bandra-Kurla Complex 'E' Block, National Stock Exchange [NSE]",
+					"mr": "वांद्रे कुर्ला कॉम्प्लेक्स 'E' ब्लॉक, नॅशनल स्टॉक एक्स्चेंज [NSE]"
+				}
 			}
 		},
 		"vertical_transit": {
@@ -2018,14 +2062,20 @@
 				{"name": "Chetana'S Institute Of Management And Research", "connected": false, "walking_min": 13.095238095238095},
 				{"name": "Chetana'S H.S College Of Commerce & Economics.", "connected": false, "walking_min": 14.285714285714286}
 			],
-			"Health": [{"name": "Guru Nanak Hospital", "connected": false, "walking_min": 6.5476190476190474}],
+			"Health": [
+				{"name": "Guru Nanak Hospital", "connected": false, "walking_min": 6.5476190476190474}
+			],
 			"Recreation": [
 				{"name": "Bandra Fort", "connected": false, "walking_min": 75, "pub_transport_min": 22},
 				{"name": "Nita Mukesh Ambani Cultural Centre,", "connected": false, "walking_min": 26, "pub_transport_min": 7},
 				{"name": "Jio World Drive", "connected": true, "walking_min": 13, "pub_transport_min": 5}
 			],
-			"Nature": [{"name": "Bandstand", "connected": false, "walking_min": 65, "pub_transport_min": 20}],
-			"Religious": [{"name": "Mount Mary's Basilica", "connected": false, "walking_min": 64, "pub_transport_min": 20.67}]
+			"Nature": [
+				{"name": "Bandstand", "connected": false, "walking_min": 65, "pub_transport_min": 20}
+			],
+			"Religious": [
+				{"name": "Mount Mary's Basilica", "connected": false, "walking_min": 64, "pub_transport_min": 20.67}
+			]
 		},
 		"platforms": {
 			"1": {"line": "mumbai.aqua", "destination": "aarey_jvlr"},
@@ -2187,7 +2237,9 @@
 		},
 		"nearby_places": {
 			"Commercial": [{"name": "Leather Goods Market", "connected": false, "walking_min": 14}],
-			"Government Offices": [{"name": "Ongc (Oil & Natural Gas Company)", "connected": false, "walking_min": 12}],
+			"Government Offices": [
+				{"name": "Ongc (Oil & Natural Gas Company)", "connected": false, "walking_min": 12}
+			],
 			"Transportation": [
 				{"name": "Sion Suburban Railway Station (Central)", "connected": false, "walking_min": 31},
 				{"name": "Mahim Suburban Railway Station (Western)", "connected": false, "walking_min": 10},
@@ -2221,10 +2273,7 @@
 			],
 			"Tourist Place": [{"name": "Mahim Fort", "connected": false, "walking_min": 23}]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"shitala_devi_mandir": {
 		"name": {"en": "Shitala Devi Mandir", "mr": "Shitala Devi Mandir", "hi": "Shitala Devi Mandir"},
@@ -2477,7 +2526,9 @@
 				{"name": "Raheja Hospital", "connected": false, "walking_min": 16},
 				{"name": "P. D. Hinduja Hospital & Medical Research Centre", "connected": false, "walking_min": 12}
 			],
-			"Transportation": [{"name": "Mahim Suburban Railway Station (Western)", "connected": false, "walking_min": 9}],
+			"Transportation": [
+				{"name": "Mahim Suburban Railway Station (Western)", "connected": false, "walking_min": 9}
+			],
 			"Restaurants": [
 				{"name": "Baba Falooda", "connected": false, "walking_min": 7},
 				{"name": "Paramount Hotel", "connected": false, "walking_min": 1}
@@ -2485,10 +2536,7 @@
 			"Heritage": [{"name": "Mahim Fort", "connected": false, "walking_min": 8}],
 			"Recreation": [{"name": "Paradise E. Square Cinema", "connected": false, "walking_min": 1}]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"dadar_metro": {
 		"name": {"en": "Dadar Metro", "mr": "दादर मेट्रो", "hi": "दादर मेट्रो"},
@@ -2505,14 +2553,20 @@
 				"status": "open",
 				"divyang": false,
 				"coordinates": {"latitude": 19.02302, "longitude": 72.8386},
-				"landmark": {"en": "Chatrapati Shivaiji Maharaj Park, Dr.Babasaheb Ambedkar (Smarak) Chaitybhoomi, Institute of Hotel Management(Catering College), Dadar", "mr": "डॉ बाबासाहेब आंबेडकर (स्मारक) चैत्यभूमी, छत्रपती शिवाजी महाराज उद्यान, इन्स्टिट्यूट ऑफ हॉटेल मॅनेजमेंट (केटरिंग कॉलेज), दादर"}
+				"landmark": {
+					"en": "Chatrapati Shivaiji Maharaj Park, Dr.Babasaheb Ambedkar (Smarak) Chaitybhoomi, Institute of Hotel Management(Catering College), Dadar",
+					"mr": "डॉ बाबासाहेब आंबेडकर (स्मारक) चैत्यभूमी, छत्रपती शिवाजी महाराज उद्यान, इन्स्टिट्यूट ऑफ हॉटेल मॅनेजमेंट (केटरिंग कॉलेज), दादर"
+				}
 			},
 			"B3": {
 				"code": "B3",
 				"status": "open",
 				"divyang": false,
 				"coordinates": {"latitude": 19.0245, "longitude": 72.83992},
-				"landmark": {"en": "Chatrapati Shivaiji Maharaj Park, Balasaheb Thackeray Rashtriya Smarak", "mr": "बाळासाहेब ठाकरे राष्ट्रीय स्मारक, छत्रपती शिवाजी महाराज उद्यान"}
+				"landmark": {
+					"en": "Chatrapati Shivaiji Maharaj Park, Balasaheb Thackeray Rashtriya Smarak",
+					"mr": "बाळासाहेब ठाकरे राष्ट्रीय स्मारक, छत्रपती शिवाजी महाराज उद्यान"
+				}
 			},
 			"B1": {
 				"code": "B1",
@@ -2747,10 +2801,7 @@
 			"Residental": [{"name": "Mayor’S Bungalow", "connected": false, "walking_min": 17}],
 			"Restaurants": [{"name": "Gypsy Chinese", "connected": false, "walking_min": 2}]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"siddhivinayak": {
 		"name": {"en": "Siddhivinayak", "mr": "सिध्दिविनायक", "hi": "सिध्दिविनायक"},
@@ -3027,10 +3078,7 @@
 				{"name": "Shree Siddhivinayak Ganpati Mandir", "connected": false, "walking_min": 1}
 			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"worli": {
 		"name": {"en": "Worli", "mr": "वरळी", "hi": "वरळी"},
@@ -3040,7 +3088,10 @@
 				"status": "open",
 				"divyang": false,
 				"coordinates": {"latitude": 19.0078, "longitude": 72.8187},
-				"landmark": {"en": "Worli Police Station, Maharashtra State Police Housing & Welfare Corporation Ltd", "mr": "वरळी पोलिस स्टेशन, महाराष्ट्र राज्य पोलिस गृहनिर्माण आणि कल्याण महामंडळ लि."}
+				"landmark": {
+					"en": "Worli Police Station, Maharashtra State Police Housing & Welfare Corporation Ltd",
+					"mr": "वरळी पोलिस स्टेशन, महाराष्ट्र राज्य पोलिस गृहनिर्माण आणि कल्याण महामंडळ लि."
+				}
 			},
 			"B1": {
 				"code": "B1",
@@ -3232,13 +3283,12 @@
 				{"name": "Sasmira Institute Of Management Studies", "connected": false, "walking_min": 2}
 			],
 			"Industry": [{"name": "Glaxo Smith Kline", "connected": false, "walking_min": 1}],
-			"Religious": [{"name": "Nipponzan Myohoji Budha Temple", "connected": false, "walking_min": 12}],
+			"Religious": [
+				{"name": "Nipponzan Myohoji Budha Temple", "connected": false, "walking_min": 12}
+			],
 			"Tourist Place": [{"name": "Worli Fort", "connected": false, "walking_min": 25}]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"acharya_atre_chowk": {
 		"name": {"en": "Acharya Atre Chowk", "mr": "Acharya Atre Chowk", "hi": "Acharya Atre Chowk"},
@@ -3440,53 +3490,27 @@
 				{"name": "Nehru Centre", "connected": false, "walking_min": 8},
 				{"name": "Nehru Planetarium", "connected": false, "walking_min": 11}
 			],
-			"Health": [{"name": "Podar Medical College And Hospital", "connected": false, "walking_min": 8}],
+			"Health": [
+				{"name": "Podar Medical College And Hospital", "connected": false, "walking_min": 8}
+			],
 			"Private Offices": [{"name": "Ambe Internationa Humane", "connected": false, "walking_min": 9}]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"science_centre": {
 		"name": {"en": "Science Centre", "mr": "Science Centre", "hi": "Science Centre"},
 		"gates": {
-			"A1": {
-				"code": "A1",
-				"status": "open",
-				"divyang": false,
-				"landmark": {"en": "Mahalaxmi Race Course, Amateur Riders' Club"}
-			},
-			"B2": {
-				"code": "B2",
-				"status": "open",
-				"divyang": false,
-				"landmark": {"en": "Nehru Science Centre, Nehru Planetarium"}
-			},
-			"B3": {
-				"code": "B3",
-				"status": "open",
-				"divyang": false,
-				"landmark": {"en": "Four Seasons Hotel, ST Peter's Cemetery"}
-			},
-			"A3": {
-				"code": "A3",
-				"status": "open",
-				"divyang": false,
-				"landmark": {"en": "Haji Usman Seth Rakhangi Chowk, Namaste Tower"}
-			},
+			"A1": {"code": "A1", "status": "open", "divyang": false, "landmark": {"en": "Mahalaxmi Race Course, Amateur Riders' Club"}},
+			"B2": {"code": "B2", "status": "open", "divyang": false, "landmark": {"en": "Nehru Science Centre, Nehru Planetarium"}},
+			"B3": {"code": "B3", "status": "open", "divyang": false, "landmark": {"en": "Four Seasons Hotel, ST Peter's Cemetery"}},
+			"A3": {"code": "A3", "status": "open", "divyang": false, "landmark": {"en": "Haji Usman Seth Rakhangi Chowk, Namaste Tower"}},
 			"A4": {
 				"code": "A4",
 				"status": "open",
 				"divyang": false,
 				"landmark": {"en": "Haji Usman Seth Rakhangi Chowk, Mahalaxmi Sports Stadium"}
 			},
-			"A6": {
-				"code": "A6",
-				"status": "open",
-				"divyang": false,
-				"landmark": {"en": "Anand Niketan General Hospital, Famous Studio"}
-			}
+			"A6": {"code": "A6", "status": "open", "divyang": false, "landmark": {"en": "Anand Niketan General Hospital, Famous Studio"}}
 		},
 		"vertical_transit": {
 			"lifts": {
@@ -3713,14 +3737,17 @@
 					"walking_min": 16.6666666666667
 				}
 			],
-			"Sports": [{"name": "The National Sports Club Of India", "distance_km": 2.4, "connected": false, "walking_min": 28.5714285714286}],
-			"Commercial": [{"name": "High Street Phoenix Mall", "distance_km": 0.9, "connected": false, "walking_min": 10.7142857142857}],
-			"Government Offices": [{"name": "Love Grove Waste Water Treatment Plant", "distance_km": 1.2, "connected": false, "walking_min": 14.2857142857143}]
+			"Sports": [
+				{"name": "The National Sports Club Of India", "distance_km": 2.4, "connected": false, "walking_min": 28.5714285714286}
+			],
+			"Commercial": [
+				{"name": "High Street Phoenix Mall", "distance_km": 0.9, "connected": false, "walking_min": 10.7142857142857}
+			],
+			"Government Offices": [
+				{"name": "Love Grove Waste Water Treatment Plant", "distance_km": 1.2, "connected": false, "walking_min": 14.2857142857143}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"mahalaxmi_metro": {
 		"name": {"en": "Mahalaxmi Metro", "mr": "महालक्ष्मी मेट्रो", "hi": "महालक्ष्मी मेट्रो"},
@@ -3938,7 +3965,9 @@
 			"mr": "हे मुंबई मेट्रो लाइन 3 च्या अनेक भूमिगत स्थानकांपैकी एक आहे. अधिक माहितीसाठी किंवा प्रश्नांसाठी कृपया खालील संपर्क क्रमांकावर स्टेशन ऑफिसरशी संपर्क साधा: 01242 800011."
 		},
 		"nearby_places": {
-			"Commercial": [{"name": "Dhobi Ghat", "distance_km": 0.35, "connected": false, "walking_min": 4.16666666666667}],
+			"Commercial": [
+				{"name": "Dhobi Ghat", "distance_km": 0.35, "connected": false, "walking_min": 4.16666666666667}
+			],
 			"Religious": [
 				{"name": "St. Ignatius Church", "distance_km": 0.45, "connected": false, "walking_min": 5.35714285714286},
 				{"name": "Haji Ali Darga", "distance_km": 3.9, "connected": false, "walking_min": 46.4285714285714}
@@ -3960,17 +3989,18 @@
 					"walking_min": 5.95238095238095
 				}
 			],
-			"Government Offices": [{"name": "Arthur Road Central Jail", "distance_km": 0.7, "connected": false, "walking_min": 8.33333333333333}],
+			"Government Offices": [
+				{"name": "Arthur Road Central Jail", "distance_km": 0.7, "connected": false, "walking_min": 8.33333333333333}
+			],
 			"Sports": [
 				{"name": "National Sports Club Of India", "distance_km": 3.8, "connected": false, "walking_min": 45.2380952380952},
 				{"name": "Mahalakshmi Race Cource", "distance_km": 4, "connected": false, "walking_min": 47.6190476190476}
 			],
-			"Residental": [{"name": "Essar House", "distance_km": 2.9, "connected": false, "walking_min": 34.5238095238095}]
+			"Residental": [
+				{"name": "Essar House", "distance_km": 2.9, "connected": false, "walking_min": 34.5238095238095}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"jagannath_shankar_sheth_metro": {
 		"name": {"en": "Jagannath Shankar Sheth Metro", "mr": "जेएसएस मेट्रो", "hi": "जेएसएस मेट्रो"},
@@ -3985,13 +4015,19 @@
 				"code": "A2",
 				"status": "open",
 				"divyang": false,
-				"landmark": {"en": "Mumbai Central Suburban Railway Station [Western], Bellasis Road", "mr": "मुंबई सेंट्रल उपनगरी रेल्वे स्थानक [पश्चिम], बेलासिस रोड"}
+				"landmark": {
+					"en": "Mumbai Central Suburban Railway Station [Western], Bellasis Road",
+					"mr": "मुंबई सेंट्रल उपनगरी रेल्वे स्थानक [पश्चिम], बेलासिस रोड"
+				}
 			},
 			"A4": {
 				"code": "A4",
 				"status": "open",
 				"divyang": false,
-				"landmark": {"en": "Mumbai Central Railway Station, Mumbai Central Suburban Railway Station [Western]", "mr": "मुंबई सेंट्रल उपनगरी रेल्वे स्थानक [पश्चिम], मुंबई सेंट्रल रेल्वे स्थानक"}
+				"landmark": {
+					"en": "Mumbai Central Railway Station, Mumbai Central Suburban Railway Station [Western]",
+					"mr": "मुंबई सेंट्रल उपनगरी रेल्वे स्थानक [पश्चिम], मुंबई सेंट्रल रेल्वे स्थानक"
+				}
 			},
 			"B2": {
 				"code": "B2",
@@ -4009,7 +4045,10 @@
 				"code": "B4",
 				"status": "open",
 				"divyang": false,
-				"landmark": {"en": "Maratha Mandir, Maratha Mandir's Babasaheb Gawde Institute Of Technology", "mr": "मराठा मंदिर, मराठा मंदिरचे बाबासाहेब गावडे इन्स्टिट्यूट ऑफ टेक्नॉलॉजी"}
+				"landmark": {
+					"en": "Maratha Mandir, Maratha Mandir's Babasaheb Gawde Institute Of Technology",
+					"mr": "मराठा मंदिर, मराठा मंदिरचे बाबासाहेब गावडे इन्स्टिट्यूट ऑफ टेक्नॉलॉजी"
+				}
 			},
 			"A5": {
 				"code": "A5",
@@ -4258,7 +4297,9 @@
 			"mr": "हे मुंबई मेट्रो लाइन 3 च्या अनेक भूमिगत स्थानकांपैकी एक आहे. अधिक माहितीसाठी किंवा प्रश्नांसाठी कृपया खालील संपर्क क्रमांकावर स्टेशन ऑफिसरशी संपर्क साधा: 01242 800011."
 		},
 		"nearby_places": {
-			"Recreation": [{"name": "Maratha Mandir", "distance_km": 0.091, "connected": false, "walking_min": 1.08333333333333}],
+			"Recreation": [
+				{"name": "Maratha Mandir", "distance_km": 0.091, "connected": false, "walking_min": 1.08333333333333}
+			],
 			"Institutional": [
 				{
 					"name": "Maratha Mandir's Babasaheb Gawde Institute Of Technology",
@@ -4294,7 +4335,9 @@
 					"walking_min": 1.42857142857143
 				}
 			],
-			"Residental": [{"name": "Imperial Towers", "distance_km": 1.3, "connected": false, "walking_min": 15.4761904761905}],
+			"Residental": [
+				{"name": "Imperial Towers", "distance_km": 1.3, "connected": false, "walking_min": 15.4761904761905}
+			],
 			"Health": [
 				{"name": "Jaslok Hospital", "distance_km": 2.8, "connected": false, "walking_min": 33.3333333333333},
 				{"name": "Breach Candy Hospital", "distance_km": 3, "connected": false, "walking_min": 35.7142857142857},
@@ -4306,13 +4349,14 @@
 				{"name": "Shree Mahalakshmi Temple", "distance_km": 2.6, "connected": false, "walking_min": 30.952380952381},
 				{"name": "Mahella Patel Agiary", "distance_km": 0.8, "connected": false, "walking_min": 9.52380952380952}
 			],
-			"Sports": [{"name": "Willingdon Sports Club", "distance_km": 2.1, "connected": false, "walking_min": 25}],
-			"Tourist Place": [{"name": "National Museum Of Indian Cinema", "distance_km": 2.7, "connected": false, "walking_min": 32.1428571428571}]
+			"Sports": [
+				{"name": "Willingdon Sports Club", "distance_km": 2.1, "connected": false, "walking_min": 25}
+			],
+			"Tourist Place": [
+				{"name": "National Museum Of Indian Cinema", "distance_km": 2.7, "connected": false, "walking_min": 32.1428571428571}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"grant_road_metro": {
 		"name": {"en": "Grant Road Metro", "mr": "ग्रँट रोड मेट्रो", "hi": "ग्रँट रोड मेट्रो"},
@@ -4573,7 +4617,9 @@
 					"walking_min": 8.92857142857143
 				}
 			],
-			"Sports": [{"name": "August Kranti Maidan", "distance_km": 0.85, "connected": false, "walking_min": 10.1190476190476}],
+			"Sports": [
+				{"name": "August Kranti Maidan", "distance_km": 0.85, "connected": false, "walking_min": 10.1190476190476}
+			],
 			"Transportation": [
 				{
 					"name": "Grant Road Suburban Railway Station (Western)",
@@ -4591,15 +4637,20 @@
 				{"name": "Mahanagar Pallika Park", "distance_km": 0.35, "connected": false, "walking_min": 4.16666666666667},
 				{"name": "Hanging Gardens", "distance_km": 2.2, "connected": false, "walking_min": 26.1904761904762}
 			],
-			"Institutional": [{"name": "Wilson College", "distance_km": 1.2, "connected": false, "walking_min": 14.2857142857143}],
-			"Heritage": [{"name": "Mackichan Hall", "distance_km": 1.4, "connected": false, "walking_min": 16.6666666666667}],
-			"Commercial": [{"name": "Nana Chowk", "distance_km": 0.65, "connected": false, "walking_min": 7.73809523809524}],
-			"Tourist Place": [{"name": "Mani Bhavan", "distance_km": 1, "connected": false, "walking_min": 11.9047619047619}]
+			"Institutional": [
+				{"name": "Wilson College", "distance_km": 1.2, "connected": false, "walking_min": 14.2857142857143}
+			],
+			"Heritage": [
+				{"name": "Mackichan Hall", "distance_km": 1.4, "connected": false, "walking_min": 16.6666666666667}
+			],
+			"Commercial": [
+				{"name": "Nana Chowk", "distance_km": 0.65, "connected": false, "walking_min": 7.73809523809524}
+			],
+			"Tourist Place": [
+				{"name": "Mani Bhavan", "distance_km": 1, "connected": false, "walking_min": 11.9047619047619}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"girgaon": {
 		"name": {"en": "Girgaon", "mr": "गिरगाव", "hi": "गिरगाव"},
@@ -4822,15 +4873,23 @@
 			"mr": "हे मुंबई मेट्रो लाइन 3 च्या अनेक भूमिगत स्थानकांपैकी एक आहे. अधिक माहितीसाठी किंवा प्रश्नांसाठी कृपया खालील संपर्क क्रमांकावर स्टेशन ऑफिसरशी संपर्क साधा: 01242 800011."
 		},
 		"nearby_places": {
-			"Tourist Place": [{"name": "Taraporevala Aquarium", "distance_km": 0.7, "connected": false, "walking_min": 8.33333333333333}],
-			"Institutional": [{"name": "Wilson College", "distance_km": 1.4, "connected": false, "walking_min": 16.6666666666667}],
-			"Heritage": [{"name": "Mackichan Hall", "distance_km": 1.5, "connected": false, "walking_min": 17.8571428571429}],
+			"Tourist Place": [
+				{"name": "Taraporevala Aquarium", "distance_km": 0.7, "connected": false, "walking_min": 8.33333333333333}
+			],
+			"Institutional": [
+				{"name": "Wilson College", "distance_km": 1.4, "connected": false, "walking_min": 16.6666666666667}
+			],
+			"Heritage": [
+				{"name": "Mackichan Hall", "distance_km": 1.5, "connected": false, "walking_min": 17.8571428571429}
+			],
 			"Recreation": [
 				{"name": "Bharati Vidya Bhavan", "distance_km": 1.5, "connected": false, "walking_min": 17.8571428571429},
 				{"name": "The Royal Opera House", "distance_km": 0.9, "connected": false, "walking_min": 10.7142857142857},
 				{"name": "S.K. Patil Garden", "distance_km": 0.25, "connected": false, "walking_min": 2.97619047619048}
 			],
-			"Health": [{"name": "Saifee Hospital", "distance_km": 0.6, "connected": false, "walking_min": 7.14285714285714}],
+			"Health": [
+				{"name": "Saifee Hospital", "distance_km": 0.6, "connected": false, "walking_min": 7.14285714285714}
+			],
 			"Religious": [
 				{"name": "Sri Venkateswara Balaji Mandir (Fanaswadi)", "distance_km": 0.5, "connected": false, "walking_min": 5.95238095238095},
 				{"name": "Parsi Agiary", "distance_km": 0.55, "connected": false, "walking_min": 6.54761904761905},
@@ -4845,10 +4904,7 @@
 				}
 			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"kalbadevi": {
 		"name": {"en": "Kalbadevi", "mr": "काळबादेवी", "hi": "काळबादेवी"},
@@ -5163,10 +5219,7 @@
 				}
 			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"chhatrapati_shivaji_maharaj_terminus_metro": {
 		"name": {"en": "Chhatrapati Shivaji Maharaj Terminus Metro", "mr": "सीएसएमटी मेट्रो", "hi": "सीएसएमटी मेट्रो"},
@@ -5187,7 +5240,10 @@
 				"code": "A1",
 				"status": "open",
 				"divyang": false,
-				"landmark": {"en": "Brihanmumbai Muncipal Corporation Head Office, Chief Metropolitian Magistrate Court", "mr": "बृहन्मुंबई महानगरपालिका मुख्य कार्यालय, मुख्य महानगर दंडाधिकारी न्यायालय"}
+				"landmark": {
+					"en": "Brihanmumbai Muncipal Corporation Head Office, Chief Metropolitian Magistrate Court",
+					"mr": "बृहन्मुंबई महानगरपालिका मुख्य कार्यालय, मुख्य महानगर दंडाधिकारी न्यायालय"
+				}
 			},
 			"B1": {
 				"code": "B1",
@@ -5517,10 +5573,7 @@
 				{"name": "The Cama & Albless Hospital", "distance_km": 0.04, "connected": false, "walking_min": 0.476190476190476}
 			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"hutatma_chowk": {
 		"name": {"en": "Hutatma Chowk", "mr": "हुतात्मा चौक", "hi": "हुतात्मा चौक"},
@@ -5541,13 +5594,19 @@
 				"code": "A3",
 				"status": "open",
 				"divyang": false,
-				"landmark": {"en": "The J.N. Petit Library & Reading Room, The J.B. Petit High School", "mr": "जेएन पेटिट लायब्ररी आणि वाचन कक्ष, जेबी पेटिट हायस्कूल"}
+				"landmark": {
+					"en": "The J.N. Petit Library & Reading Room, The J.B. Petit High School",
+					"mr": "जेएन पेटिट लायब्ररी आणि वाचन कक्ष, जेबी पेटिट हायस्कूल"
+				}
 			},
 			"B2": {
 				"code": "B2",
 				"status": "open",
 				"divyang": false,
-				"landmark": {"en": "Jeevan Udyog Building, The Cathedral & John Cannon Middle School", "mr": "जीवन उद्योग इमारत, कॅथेड्रल आणि जॉन कॉनन सीनियर स्कूल"}
+				"landmark": {
+					"en": "Jeevan Udyog Building, The Cathedral & John Cannon Middle School",
+					"mr": "जीवन उद्योग इमारत, कॅथेड्रल आणि जॉन कॉनन सीनियर स्कूल"
+				}
 			},
 			"B1": {
 				"code": "B1",
@@ -5810,7 +5869,9 @@
 			"mr": "हे मुंबई मेट्रो लाइन 3 च्या अनेक भूमिगत स्थानकांपैकी एक आहे. अधिक माहितीसाठी किंवा प्रश्नांसाठी कृपया खालील संपर्क क्रमांकावर स्टेशन ऑफिसरशी संपर्क साधा: 01242 800011."
 		},
 		"nearby_places": {
-			"Commercial": [{"name": "Oriental Building", "distance_km": 1, "connected": false, "walking_min": 11.9047619047619}],
+			"Commercial": [
+				{"name": "Oriental Building", "distance_km": 1, "connected": false, "walking_min": 11.9047619047619}
+			],
 			"Institutional": [
 				{"name": "Siddharth College Of Law", "distance_km": 0.06, "connected": false, "walking_min": 0.714285714285714},
 				{"name": "Anglo Scottish Educational Society", "distance_km": 0.19, "connected": false, "walking_min": 2.26190476190476},
@@ -5849,8 +5910,12 @@
 				{"name": "HSBC", "distance_km": 0.14, "connected": false, "walking_min": 1.66666666666667},
 				{"name": "TCS house", "distance_km": 0.3, "connected": false, "walking_min": 3.57142857142857}
 			],
-			"Religious": [{"name": "St. Thomas Cathedral", "distance_km": 0.35, "connected": false, "walking_min": 4.16666666666667}],
-			"Heritage": [{"name": "Horniman Circle", "distance_km": 0.45, "connected": false, "walking_min": 5.35714285714286}],
+			"Religious": [
+				{"name": "St. Thomas Cathedral", "distance_km": 0.35, "connected": false, "walking_min": 4.16666666666667}
+			],
+			"Heritage": [
+				{"name": "Horniman Circle", "distance_km": 0.45, "connected": false, "walking_min": 5.35714285714286}
+			],
 			"Recreation": [
 				{"name": "Cross Maidan", "distance_km": 0.3, "connected": false, "walking_min": 3.57142857142857},
 				{"name": "Tata Garden / Cross Maidan", "distance_km": 0.45, "connected": false, "walking_min": 5.35714285714286},
@@ -5861,7 +5926,9 @@
 				{"name": "Bombay Gymkhana Squash Court", "distance_km": 0.29, "connected": false, "walking_min": 3.45238095238095},
 				{"name": "Azad Maidan", "distance_km": 0.5, "connected": false, "walking_min": 5.95238095238095}
 			],
-			"Hotels": [{"name": "Taj Palace Hotel", "distance_km": 1.5, "connected": false, "walking_min": 17.8571428571429}],
+			"Hotels": [
+				{"name": "Taj Palace Hotel", "distance_km": 1.5, "connected": false, "walking_min": 17.8571428571429}
+			],
 			"Transportation": [
 				{
 					"name": "Churchgate Suburban Railway Station (Western)",
@@ -5870,7 +5937,9 @@
 					"walking_min": 8.92857142857143
 				}
 			],
-			"Health": [{"name": "Lions Club of Bombay Host - Health Center", "distance_km": 0.27, "connected": false, "walking_min": 3.21428571428571}],
+			"Health": [
+				{"name": "Lions Club of Bombay Host - Health Center", "distance_km": 0.27, "connected": false, "walking_min": 3.21428571428571}
+			],
 			"Tourist Place": [
 				{"name": "Jehangir Art Gallery", "distance_km": 0.65, "connected": false, "walking_min": 7.73809523809524},
 				{"name": "Gate Way of India", "distance_km": 1.5, "connected": false, "walking_min": 17.8571428571429},
@@ -5880,10 +5949,7 @@
 				{"name": "Marine Drive View Point", "distance_km": 1.5, "connected": false, "walking_min": 17.8571428571429}
 			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"churchgate_metro": {
 		"name": {"en": "Churchgate Metro", "mr": "चर्चगेट मेट्रो", "hi": "चर्चगेट मेट्रो"},
@@ -6129,7 +6195,9 @@
 				{"name": "Jamnalal Bajaj Institute", "distance_km": 0.35, "connected": false, "walking_min": 4.16666666666667},
 				{"name": "University of Mumbai", "distance_km": 0.45, "connected": false, "walking_min": 5.35714285714286}
 			],
-			"Private Offices": [{"name": "HPCL building", "distance_km": 0.08, "connected": false, "walking_min": 0.952380952380952}],
+			"Private Offices": [
+				{"name": "HPCL building", "distance_km": 0.08, "connected": false, "walking_min": 0.952380952380952}
+			],
 			"Government Offices": [
 				{"name": "Yogakshema Building", "distance_km": 0.19, "connected": false, "walking_min": 2.26190476190476},
 				{"name": "Public Works Department", "distance_km": 0.4, "connected": false, "walking_min": 4.76190476190476},
@@ -6161,12 +6229,11 @@
 					"walking_min": 0.238095238095238
 				}
 			],
-			"Tourist Place": [{"name": "Marine Drive View Point (Near Air India)", "distance_km": 0.45, "connected": false, "walking_min": 5.35714285714286}]
+			"Tourist Place": [
+				{"name": "Marine Drive View Point (Near Air India)", "distance_km": 0.45, "connected": false, "walking_min": 5.35714285714286}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"vidhan_bhavan": {
 		"name": {"en": "Vidhan Bhavan", "mr": "विधान भवन", "hi": "विधान भवन"},
@@ -6193,7 +6260,10 @@
 				"code": "B4",
 				"status": "open",
 				"divyang": false,
-				"landmark": {"en": "Air India Building, National Centre Performing Arts [NCPA]", "mr": "एअर इंडिया बिल्डिंग, नॅशनल सेंटर फॉर परफॉर्मिंग आर्ट्स (एनसीपीए)"}
+				"landmark": {
+					"en": "Air India Building, National Centre Performing Arts [NCPA]",
+					"mr": "एअर इंडिया बिल्डिंग, नॅशनल सेंटर फॉर परफॉर्मिंग आर्ट्स (एनसीपीए)"
+				}
 			},
 			"B5": {
 				"code": "B5",
@@ -6531,7 +6601,9 @@
 				{"name": "National Gallery of Modern Art", "distance_km": 0.65, "connected": false, "walking_min": 7.73809523809524},
 				{"name": "Yashwantrao Chavan Centre", "distance_km": 0.35, "connected": false, "walking_min": 4.16666666666667}
 			],
-			"Sports": [{"name": "Cooperage Football Ground", "distance_km": 0.8, "connected": false, "walking_min": 9.52380952380952}],
+			"Sports": [
+				{"name": "Cooperage Football Ground", "distance_km": 0.8, "connected": false, "walking_min": 9.52380952380952}
+			],
 			"Tourist Place": [
 				{
 					"name": "Chhatrapati Shivaji Maharaj Vastu Sangrahalaya",
@@ -6542,12 +6614,11 @@
 				{"name": "Nariman Point (Sunset Point)", "distance_km": 0.9, "connected": false, "walking_min": 10.7142857142857},
 				{"name": "Marine Drive, Madame Cama Road Junction", "distance_km": 0.9, "connected": false, "walking_min": 10.7142857142857}
 			],
-			"Hotels": [{"name": "Manora MLA Hostel", "distance_km": 0.05, "connected": false, "walking_min": 0.595238095238095}]
+			"Hotels": [
+				{"name": "Manora MLA Hostel", "distance_km": 0.05, "connected": false, "walking_min": 0.595238095238095}
+			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"cuffe_parade": {
 		"name": {"en": "Cuffe Parade", "mr": "कफ परेड", "hi": "कफ परेड"},
@@ -6732,18 +6803,19 @@
 				{"name": "Backbay Bus Depot", "distance_km": 0.55, "connected": false, "walking_min": 6.54761904761905},
 				{"name": "Colaba Post Office Bus Stop", "distance_km": 0.5, "connected": false, "walking_min": 5.95238095238095}
 			],
-			"Hotels": [{"name": "Hotel President, Mumbai", "distance_km": 0.05, "connected": false, "walking_min": 0.595238095238095}],
-			"Residental": [{"name": "Railway Colony", "distance_km": 1.2, "connected": false, "walking_min": 14.2857142857143}],
+			"Hotels": [
+				{"name": "Hotel President, Mumbai", "distance_km": 0.05, "connected": false, "walking_min": 0.595238095238095}
+			],
+			"Residental": [
+				{"name": "Railway Colony", "distance_km": 1.2, "connected": false, "walking_min": 14.2857142857143}
+			],
 			"Commercial": [
 				{"name": "Colaba Market", "distance_km": 1.3, "connected": false, "walking_min": 15.4761904761905},
 				{"name": "Maker Towers", "distance_km": 0.8, "connected": false, "walking_min": 9.52380952380952},
 				{"name": "World Trade Center", "distance_km": 0.4, "connected": false, "walking_min": 4.76190476190476}
 			]
 		},
-		"platforms": {
-			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
-			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
 	},
 	"mmmocl_2a_dahisareast": {
 		"name": {"en": "Dahisar East", "mr": "दहिसर पूर्व", "hi": "दहिसर पूर्व"},
@@ -8196,7 +8268,9 @@
 			"hi": "मेट्रो लाइन २ए का दक्षिणी टर्मिनल स्टेशन, जो १२० मीटर लंबे समर्पित स्काईवॉक के जरिए मेट्रो लाइन १ के डी.एन. नगर स्टेशन से सीधे जुड़ा हुआ है।"
 		},
 		"nearby_places": {
-			"Transit": [{"name": "Line 1 D.N. Nagar Metro Station (Connected via Skywalk)", "walking_min": 2}],
+			"Transit": [
+				{"name": "Line 1 D.N. Nagar Metro Station (Connected via Skywalk)", "walking_min": 2}
+			],
 			"Heritage & Education": [{"name": "Historic Gilbert Hill Monolith", "walking_min": 10}, {"name": "Bhavan's College Andheri", "walking_min": 7}]
 		}
 	},
@@ -9699,7 +9773,9 @@
 			"hi": "वेस्टर्न एक्सप्रेस हाईवे पर स्थित स्टेशन, जो एक विशेष स्काईवॉक के जरिए मेट्रो लाइन ७ (रेड लाइन - गुंदावली) से इंटरचेंज प्रदान करता है।"
 		},
 		"nearby_places": {
-			"Transit": [{"name": "Line 7 Gundavali Metro Station (Connected via Walkway)", "walking_min": 2}],
+			"Transit": [
+				{"name": "Line 7 Gundavali Metro Station (Connected via Walkway)", "walking_min": 2}
+			],
 			"Commercial": [{"name": "Solitaire Corporate Park", "walking_min": 6}, {"name": "Bisleri Corporate Headquarters", "walking_min": 4}]
 		}
 	},
@@ -10974,9 +11050,7 @@
 			"mr": "उत्तर खारघर आणि तळोजा एमआयडीसी परिसराच्या सीमेवरील पंचानंद मेट्रो स्थानक.",
 			"hi": "उत्तर खारघर और तलोजा एमआईडीसी सीमा पर स्थित पंचानंद मेट्रो स्टेशन।"
 		},
-		"nearby_places": {
-			"Civic": [{"name": "Panchanand Municipal School", "walking_min": 5}]
-		}
+		"nearby_places": {"Civic": [{"name": "Panchanand Municipal School", "walking_min": 5}]}
 	},
 	"nmm_1_pendhar": {
 		"name": {"en": "Pendhar", "mr": "पेंधर", "hi": "पेंधर"},
@@ -11099,7 +11173,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11183,7 +11259,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11266,7 +11344,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11288,9 +11368,7 @@
 			"mr": "राष्ट्रीय केमिकल्स अँड फर्टिलायझर्स (आरसीएफ) टाउनशिप परिसराला सेवा देणारे स्थानक.",
 			"hi": "राष्ट्रीय केमिकल्स एंड फर्टिलाइजर्स (आरसीएफ) आवासीय टाउनशिप को कनेक्टिविटी देने वाला स्टेशन।"
 		},
-		"nearby_places": {
-			"Industrial Township": [{"name": "RCF Police Colony & Township", "walking_min": 3}]
-		}
+		"nearby_places": {"Industrial Township": [{"name": "RCF Police Colony & Township", "walking_min": 3}]}
 	},
 	"mm_mono_bharat_petroleum": {
 		"name": {"en": "Bharat Petroleum", "mr": "भारत पेट्रोलियम", "hi": "भारत पेट्रोलियम"},
@@ -11337,7 +11415,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11359,9 +11439,7 @@
 			"mr": "भारत पेट्रोलियम (बीपीसीएल) रिफायनरी आणि माहुल औद्योगिक परिसरातील स्थानक.",
 			"hi": "भारत पेट्रोलियम (बीपीसीएल) रिफाइनरी कॉम्प्लेक्स और माहुल क्षेत्र के समीप स्थित मोनोरेल स्टेशन।"
 		},
-		"nearby_places": {
-			"Industrial": [{"name": "BPCL Mumbai Refinery", "walking_min": 4}]
-		}
+		"nearby_places": {"Industrial": [{"name": "BPCL Mumbai Refinery", "walking_min": 4}]}
 	},
 	"mm_mono_mysore_colony": {
 		"name": {"en": "Mysore Colony", "mr": "म्हैसूर कॉलनी", "hi": "मैसूर कॉलोनी"},
@@ -11408,7 +11486,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11430,9 +11510,7 @@
 			"mr": "म्हैसूर कॉलनी आणि एचपीसीएल वसाहतींना सेवा पुरवणारे मोनोरेल स्थानक.",
 			"hi": "मैसूर कॉलोनी और एचपीसीएल आवासीय क्वार्टर्स को सेवा प्रदान करने वाला स्टेशन।"
 		},
-		"nearby_places": {
-			"Residential": [{"name": "Mysore Colony Garden", "walking_min": 3}]
-		}
+		"nearby_places": {"Residential": [{"name": "Mysore Colony Garden", "walking_min": 3}]}
 	},
 	"mm_mono_bhakti_park": {
 		"name": {"en": "Bhakti Park", "mr": "भक्ती पार्क", "hi": "भक्ति पार्क"},
@@ -11479,7 +11557,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11551,7 +11631,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11623,7 +11705,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11695,7 +11779,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11766,7 +11852,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11788,9 +11876,7 @@
 			"mr": "वडाळा पूर्व येथील आचार्य अत्रे नगर आणि स्थानिक शाळा-कॉलेजांना जोडणारे स्थानक.",
 			"hi": "वडाला पूर्व में आचार्य अत्रे नगर और आवासीय कॉलोनियों को सेवा देने वाला स्टेशन।"
 		},
-		"nearby_places": {
-			"Community": [{"name": "Acharya Atre Ground", "walking_min": 4}]
-		}
+		"nearby_places": {"Community": [{"name": "Acharya Atre Ground", "walking_min": 4}]}
 	},
 	"mm_mono_wadala_bridge": {
 		"name": {"en": "Wadala Bridge", "mr": "वडाळा ब्रिज", "hi": "वडाला ब्रिज"},
@@ -11837,7 +11923,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11908,7 +11996,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -11980,7 +12070,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -12051,7 +12143,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -12122,7 +12216,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -12194,7 +12290,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}
@@ -12288,7 +12386,9 @@
 				{"name": "Tactile Paving for Visually Impaired", "location": "Platform Edge"},
 				{"name": "Ramp and Lift Access for Wheelchairs", "location": "Concourse Entry"}
 			],
-			"Ticket Facilities": [{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}],
+			"Ticket Facilities": [
+				{"name": "Token Vending Counters & Smart Card Facility", "location": "Ticket Counter"}
+			],
 			"Customer Services": [
 				{"name": "Station Master Office & Helpdesk", "location": "Concourse Level"},
 				{"name": "Lost and Found Cell", "location": "Wadala Depot Station Control Room"}

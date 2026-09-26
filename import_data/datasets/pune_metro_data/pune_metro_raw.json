@@ -1,0 +1,530 @@
+{
+	"pcmc": {
+		"id": "pcmc",
+		"station_code": "PUN_1",
+		"station_name_en": "PCMC",
+		"station_name_mr": null,
+		"operator": "Maha Metro",
+		"order": 1,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "1",
+				"name": "PCMC"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": false,
+			"coordinates_found": false
+		}
+	},
+	"sant_tukaram_nagar": {
+		"id": "sant_tukaram_nagar",
+		"station_code": "PUN_2",
+		"station_name_en": "Sant Tukaram Nagar",
+		"station_name_mr": "संत तुकाराम नगर",
+		"operator": "Maha Metro",
+		"order": 2,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "2",
+				"name": "Sant Tukaram Nagar"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"nashik_phata_bhosari": {
+		"id": "nashik_phata_bhosari",
+		"station_code": "PUN_3",
+		"station_name_en": "Nashik Phata (Bhosari)",
+		"station_name_mr": null,
+		"operator": "Maha Metro",
+		"order": 3,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "3",
+				"name": "Nashik Phata (Bhosari)"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": false,
+			"coordinates_found": false
+		}
+	},
+	"kasarwadi": {
+		"id": "kasarwadi",
+		"station_code": "PUN_4",
+		"station_name_en": "Kasarwadi",
+		"station_name_mr": "कासारवाडी",
+		"operator": "Maha Metro",
+		"order": 4,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "4",
+				"name": "Kasarwadi"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"phugewadi": {
+		"id": "phugewadi",
+		"station_code": "PUN_5",
+		"station_name_en": "Phugewadi",
+		"station_name_mr": "फुगेवाडी",
+		"operator": "Maha Metro",
+		"order": 5,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "5",
+				"name": "Phugewadi"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"dapodi": {
+		"id": "dapodi",
+		"station_code": "PUN_6",
+		"station_name_en": "Dapodi",
+		"station_name_mr": "दापोडी",
+		"operator": "Maha Metro",
+		"order": 6,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "6",
+				"name": "Dapodi"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"bopodi": {
+		"id": "bopodi",
+		"station_code": "PUN_7",
+		"station_name_en": "Bopodi",
+		"station_name_mr": "बोपोडी",
+		"operator": "Maha Metro",
+		"order": 7,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "7",
+				"name": "Bopodi"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"khadki": {
+		"id": "khadki",
+		"station_code": "PUN_8",
+		"station_name_en": "Khadki",
+		"station_name_mr": "खडकी",
+		"operator": "Maha Metro",
+		"order": 8,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "8",
+				"name": "Khadki"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"shivaji_nagar": {
+		"id": "shivaji_nagar",
+		"station_code": "PUN_11",
+		"station_name_en": "Shivaji Nagar",
+		"station_name_mr": "शिवाजी नगर",
+		"operator": "Maha Metro",
+		"order": 9,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "11",
+				"name": "Shivaji Nagar"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"district_court": {
+		"id": "district_court",
+		"station_code": "PUN_12",
+		"station_name_en": "District Court",
+		"station_name_mr": null,
+		"operator": "Maha Metro",
+		"order": 10,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "12",
+				"name": "District Court"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": false,
+			"coordinates_found": false
+		}
+	},
+	"kasba_peth": {
+		"id": "kasba_peth",
+		"station_code": "PUN_13",
+		"station_name_en": "Kasba Peth",
+		"station_name_mr": "कसबा पेठ",
+		"operator": "Maha Metro",
+		"order": 11,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "13",
+				"name": "Kasba Peth"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"mahatma_phule_mandai": {
+		"id": "mahatma_phule_mandai",
+		"station_code": "PUN_14",
+		"station_name_en": "Mahatma Phule Mandai",
+		"station_name_mr": "महात्मा फुले मंडई",
+		"operator": "Maha Metro",
+		"order": 12,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "14",
+				"name": "Mahatma Phule Mandai"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"swargate": {
+		"id": "swargate",
+		"station_code": "PUN_15",
+		"station_name_en": "Swargate",
+		"station_name_mr": "स्वारगेट",
+		"operator": "Maha Metro",
+		"order": 13,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "15",
+				"name": "Swargate"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"vanaz": {
+		"id": "vanaz",
+		"station_code": "PUN_17",
+		"station_name_en": "Vanaz",
+		"station_name_mr": "वनाझ",
+		"operator": "Maha Metro",
+		"order": 14,
+		"coordinates": {
+			"latitude": 18.5071,
+			"longitude": 73.80527
+		},
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "17",
+				"name": "Vanaz"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": true
+		}
+	},
+	"anand_nagar": {
+		"id": "anand_nagar",
+		"station_code": "PUN_18",
+		"station_name_en": "Anand Nagar",
+		"station_name_mr": "आनंद नगर",
+		"operator": "Maha Metro",
+		"order": 15,
+		"coordinates": {
+			"latitude": 18.50963,
+			"longitude": 73.81408
+		},
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "18",
+				"name": "Anand Nagar"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": true
+		}
+	},
+	"paud_phata": {
+		"id": "paud_phata",
+		"station_code": "PUN_19",
+		"station_name_en": "Paud Phata",
+		"station_name_mr": "पौड फाटा",
+		"operator": "Maha Metro",
+		"order": 16,
+		"coordinates": {
+			"latitude": 18.5091,
+			"longitude": 73.82208
+		},
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "19",
+				"name": "Paud Phata"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": true
+		}
+	},
+	"sndt_college": {
+		"id": "sndt_college",
+		"station_code": "PUN_20",
+		"station_name_en": "S.N.D.T. College",
+		"station_name_mr": "एसएनडीटी कॉलेज",
+		"operator": "Maha Metro",
+		"order": 17,
+		"coordinates": {
+			"latitude": 18.50725,
+			"longitude": 73.82867
+		},
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "20",
+				"name": "S.N.D.T. College"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": true
+		}
+	},
+	"garware_college": {
+		"id": "garware_college",
+		"station_code": "PUN_21",
+		"station_name_en": "Garware College",
+		"station_name_mr": "गरवारे महाविद्यालय",
+		"operator": "Maha Metro",
+		"order": 18,
+		"coordinates": {
+			"latitude": 18.51204,
+			"longitude": 73.83799
+		},
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "21",
+				"name": "Garware College"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": true
+		}
+	},
+	"deccan_gymkhana": {
+		"id": "deccan_gymkhana",
+		"station_code": "PUN_22",
+		"station_name_en": "Deccan Gymkhana",
+		"station_name_mr": "डेक्कन जिमखाना",
+		"operator": "Maha Metro",
+		"order": 19,
+		"coordinates": {
+			"latitude": 18.51631,
+			"longitude": 73.84447
+		},
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "22",
+				"name": "Deccan Gymkhana"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": true
+		}
+	},
+	"chhatrapati_sambhaji_udyan": {
+		"id": "chhatrapati_sambhaji_udyan",
+		"station_code": "PUN_23",
+		"station_name_en": "Chhatrapati Sambhaji Udyan",
+		"station_name_mr": "छत्रपती संभाजी उद्यान",
+		"operator": "Maha Metro",
+		"order": 20,
+		"coordinates": {
+			"latitude": 18.52014,
+			"longitude": 73.84761
+		},
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "23",
+				"name": "Chhatrapati Sambhaji Udyan"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": true
+		}
+	},
+	"pmc": {
+		"id": "pmc",
+		"station_code": "PUN_24",
+		"station_name_en": "PMC",
+		"station_name_mr": null,
+		"operator": "Maha Metro",
+		"order": 21,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "24",
+				"name": "PMC"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": false,
+			"coordinates_found": false
+		}
+	},
+	"rto_pune": {
+		"id": "rto_pune",
+		"station_code": "PUN_25",
+		"station_name_en": "R.T.O Pune",
+		"station_name_mr": null,
+		"operator": "Maha Metro",
+		"order": 22,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "25",
+				"name": "R.T.O Pune"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": false,
+			"coordinates_found": false
+		}
+	},
+	"pune_railway_station": {
+		"id": "pune_railway_station",
+		"station_code": "PUN_26",
+		"station_name_en": "Pune Railway Station",
+		"station_name_mr": "पुणे रेल्वे स्थानक",
+		"operator": "Maha Metro",
+		"order": 23,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "26",
+				"name": "Pune Railway Station"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"ruby_hall_clinic": {
+		"id": "ruby_hall_clinic",
+		"station_code": "PUN_27",
+		"station_name_en": "Ruby Hall Clinic",
+		"station_name_mr": "रुबी हॉल क्लिनिक",
+		"operator": "Maha Metro",
+		"order": 24,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "27",
+				"name": "Ruby Hall Clinic"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"bund_garden": {
+		"id": "bund_garden",
+		"station_code": "PUN_32",
+		"station_name_en": "Bund Garden",
+		"station_name_mr": "बंड गार्डन",
+		"operator": "Maha Metro",
+		"order": 25,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "32",
+				"name": "Bund Garden"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"yerwada": {
+		"id": "yerwada",
+		"station_code": "PUN_35",
+		"station_name_en": "Yerwada",
+		"station_name_mr": "येरवडा",
+		"operator": "Maha Metro",
+		"order": 26,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "35",
+				"name": "Yerwada"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"kalyani_nagar": {
+		"id": "kalyani_nagar",
+		"station_code": "PUN_36",
+		"station_name_en": "Kalyani Nagar",
+		"station_name_mr": "कल्याणी नगर",
+		"operator": "Maha Metro",
+		"order": 27,
+		"coordinates": null,
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "36",
+				"name": "Kalyani Nagar"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": false
+		}
+	},
+	"ramwadi": {
+		"id": "ramwadi",
+		"station_code": "PUN_37",
+		"station_name_en": "Ramwadi",
+		"station_name_mr": "रामवाडी",
+		"operator": "Maha Metro",
+		"order": 28,
+		"coordinates": {
+			"latitude": 18.557144,
+			"longitude": 73.90968
+		},
+		"meta_raw": {
+			"dropdown_option": {
+				"id": "37",
+				"name": "Ramwadi"
+			},
+			"source_url": "https://www.punemetrorail.org/fare_chart.aspx",
+			"marathi_found": true,
+			"coordinates_found": true
+		}
+	}
+}

@@ -120,9 +120,11 @@ class HomePageController {
 		if (recentSearches && recentSearches.length > 0) {
 			const lastSearch = recentSearches[0];
 			if (this.#elemts.startStation) {
+				this.#elemts.startStation.dataset.stationId = lastSearch.fromId;
 				this.#elemts.startStation.value = centerClass.getStationName(lastSearch.fromId, this.#settings.currentLang);
 			}
 			if (this.#elemts.endStation) {
+				this.#elemts.endStation.dataset.stationId = lastSearch.toId;
 				this.#elemts.endStation.value = centerClass.getStationName(lastSearch.toId, this.#settings.currentLang);
 			}
 		}
@@ -157,6 +159,13 @@ class HomePageController {
 			onRouteConfirm: (startName, endName) => {
 				if (this.#elemts.startStation) this.#elemts.startStation.value = startName;
 				if (this.#elemts.endStation) this.#elemts.endStation.value = endName;
+
+				// 🚀 Find Route साइडबार विंडो को स्वचालित रूप से खोलें
+				const routeFinderTab = document.querySelector('.sidebar-link[data-target="route-finder"]');
+				if (routeFinderTab) {
+					routeFinderTab.click();
+				}
+
 				this.#executeRouteSearch(startName, endName);
 			}
 		});
@@ -176,6 +185,7 @@ class HomePageController {
 			inputEl: this.#elemts.startStation,
 			dropdownEl: this.#elemts.startStationDropdown,
 			onSelect: (station) => {
+				this.#elemts.startStation.dataset.stationId = station.id;
 				this.#elemts.startStation.value = centerClass.getStationName(station.id, this.#settings.currentLang);
 				this.#elemts.startStation.focus();
 			}
@@ -185,6 +195,7 @@ class HomePageController {
 			inputEl: this.#elemts.endStation,
 			dropdownEl: this.#elemts.endStationDropdown,
 			onSelect: (station) => {
+				this.#elemts.endStation.dataset.stationId = station.id;
 				this.#elemts.endStation.value = centerClass.getStationName(station.id, this.#settings.currentLang);
 				this.#elemts.endStation.focus();
 			}
@@ -211,14 +222,37 @@ class HomePageController {
 			if (this.#currentRouteInfo && this.#journeyDetailsView) {
 				this.#journeyDetailsView.render(this.#currentRouteInfo, newLang);
 			}
+
+			// 🌐 इनपुट फील्ड में लिखे स्टेशन के नाम को नई भाषा में बदलें
+			const syncInputLang = (inputEl) => {
+				if (!inputEl) return;
+				let stId = inputEl.dataset.stationId;
+				// अगर dataset में id नहीं है (उदा: हाथ से टाइप किया था), तो नाम से id ढूंढें
+				if (!stId && inputEl.value.trim()) {
+					const found = centerClass.getStationSearchEngine()?.search(inputEl.value.trim())?.[0]?.station;
+					if (found) stId = found.id;
+				}
+				if (stId) {
+					inputEl.dataset.stationId = stId;
+					inputEl.value = centerClass.getStationName(stId, newLang);
+				}
+			};
+
+			syncInputLang(this.#elemts.startStation);
+			syncInputLang(this.#elemts.endStation);
 		});
 	}
 	#initSwapButton(signal) {
 		if (this.#elemts.swapButton) {
 			this.#elemts.swapButton.addEventListener("click", () => {
-				const temp = this.#elemts.startStation.value;
+				const tempVal = this.#elemts.startStation.value;
+				const tempId = this.#elemts.startStation.dataset.stationId;
+
 				this.#elemts.startStation.value = this.#elemts.endStation.value;
-				this.#elemts.endStation.value = temp;
+				this.#elemts.startStation.dataset.stationId = this.#elemts.endStation.dataset.stationId || "";
+
+				this.#elemts.endStation.value = tempVal;
+				this.#elemts.endStation.dataset.stationId = tempId || "";
 			}, { signal });
 		}
 	}

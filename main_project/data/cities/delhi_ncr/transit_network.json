@@ -65,7 +65,7 @@
 				"effectiveFrom": "2025-08-25",
 				"fareModel": "station_pair",
 				"calculation": {"rounding": "exact"},
-				"stations": ["new_delhi", "shivaji_stadium", "dhaula_kuan", "delhi_aerocity", "igi_airport", "dwarka_sector_21", "yashobhoomi_dwarka_sector_25"],
+								"stations": ["new_delhi_yellow_airport_line", "shivaji_stadium", "dhaula_kuan", "delhi_aerocity", "airport_t_3", "dwarka_sector_21", "yashobhoomi_dwarka_sector_25"],
 				"fareMatrix": [
 					[11, 21, 43, 54, 64, 64, 75],
 					[21, 11, 21, 32, 54, 64, 75],
