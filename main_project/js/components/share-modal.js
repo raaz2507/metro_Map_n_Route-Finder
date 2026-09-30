@@ -5,6 +5,7 @@
  */
 import { centerClass } from "../core/CenterClass.js";
 import { APP_CONFIG } from "../core/app-config.js";
+import i18n from "../core/i18n.js";
 
 export class ShareModalComponent {
 	#elements = {};
@@ -162,26 +163,17 @@ export class ShareModalComponent {
 			copyShareUrlBtn.onclick = async () => {
 				try {
 					await navigator.clipboard.writeText(shareUrl);
-					this.#showToast(
-						currentLang === "hi"
-							? "रूट का लिंक क्लिपबोर्ड में कॉपी हो गया!"
-							: "Route link copied to clipboard!"
-					);
+					this.#showToast(i18n.t("pages.home.toast.share.copiedLink"));
 				} catch (e) {
 					console.error("Clipboard copy failed:", e);
 				}
 			};
 		}
-
 		if (copyShareTextBtn) {
 			copyShareTextBtn.onclick = async () => {
 				try {
 					await navigator.clipboard.writeText(shareText);
-					this.#showToast(
-						currentLang === "hi"
-							? "पूरा विवरण और लिंक क्लिपबोर्ड में कॉपी हो गया!"
-							: "Full details & link copied to clipboard!"
-					);
+					this.#showToast(i18n.t("pages.home.toast.share.copiedDetails"));
 				} catch (e) {
 					console.error("Clipboard copy failed:", e);
 				}

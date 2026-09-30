@@ -21,6 +21,7 @@ export class StationInfoManager {
 	#currentCity = "delhi_ncr";
 	#stBasicData = null;
 	#stRichData = null;
+	#unsubscribeLang = null;
 
 	// Localization
 	#lang = "en";
@@ -28,6 +29,13 @@ export class StationInfoManager {
 	constructor() {
 		this.#extractParams();
 		this.#lang = appStateStore.getState("currentLang") || "en";
+	}
+
+	destroy() {
+		if (this.#unsubscribeLang) {
+			this.#unsubscribeLang();
+			this.#unsubscribeLang = null;
+		}
 	}
 
 	/**
@@ -51,8 +59,9 @@ export class StationInfoManager {
 	 * Initializes Universal Header, Footer, and loads dynamic data
 	 */
 	async init() {
-		HeaderComponent.render("stations");
+		// Render Footer first, then Header for single-pass full-DOM translation
 		FooterComponent.render();
+		await HeaderComponent.render("stations");
 
 		try {
 			// 1. Asynchronously load transit graph data and detailed facilities
@@ -73,24 +82,40 @@ export class StationInfoManager {
 			}
 
 			// 3. Render Bento Grid Sections
-			this.#renderBackLink();
-			this.#renderRouteTrack(this.#stBasicData);
-			this.#renderLineInfoCard(this.#stBasicData);
-			this.#renderHero(this.#stBasicData, this.#stRichData);
-			this.#renderTimings(this.#stBasicData, this.#stRichData);
-			this.#renderHelplines(this.#stRichData);
-			this.#renderPlatforms(this.#stBasicData, this.#stRichData);
-			this.#renderGates(this.#stRichData);
-			this.#renderFacilitiesMasterSection(this.#stRichData);
-			this.#renderParkingSection(this.#stRichData);
-			this.#renderTransitTable(this.#stRichData);
-			this.#renderFeederBuses(this.#stRichData);
-			this.#renderStationLayouts(this.#stRichData);
-			this.#renderNearbyPlaces(this.#stRichData);
+			this.#renderAllSections();
+
+			// 4. Subscribe to language switches for seamless in-place re-render
+			this.#unsubscribeLang = appStateStore.subscribe("currentLang", (newLang) => {
+				this.#lang = newLang || "en";
+				this.#renderAllSections();
+			});
 		} catch (error) {
 			console.error("[StationInfoManager] Failed to load station info:", error);
 			this.#render404();
 		}
+	}
+
+	#renderAllSections() {
+		this.#renderPageTitle();
+		this.#renderBackLink();
+		this.#renderRouteTrack(this.#stBasicData);
+		this.#renderLineInfoCard(this.#stBasicData);
+		this.#renderHero(this.#stBasicData, this.#stRichData);
+		this.#renderTimings(this.#stBasicData, this.#stRichData);
+		this.#renderHelplines(this.#stRichData);
+		this.#renderPlatforms(this.#stBasicData, this.#stRichData);
+		this.#renderGates(this.#stRichData);
+		this.#renderFacilitiesMasterSection(this.#stRichData);
+		this.#renderParkingSection(this.#stRichData);
+		this.#renderTransitTable(this.#stRichData);
+		this.#renderFeederBuses(this.#stRichData);
+		this.#renderStationLayouts(this.#stRichData);
+		this.#renderNearbyPlaces(this.#stRichData);
+	}
+
+	#renderPageTitle() {
+		const name = this.#stBasicData?.name?.[this.#lang] || this.#stBasicData?.name?.en || this.#stationId.toUpperCase();
+		document.title = this.#t("meta.title", { name });
 	}
 
 	#findBasicData(id) {
@@ -110,6 +135,7 @@ export class StationInfoManager {
 		const backBtn = document.querySelector(".back-btn");
 		if (backBtn) {
 			backBtn.textContent = this.#t("nav.backBtn");
+			backBtn.setAttribute("aria-label", this.#t("nav.backBtnAria"));
 			backBtn.href = `all_stations.html?city=${encodeURIComponent(this.#currentCity)}`;
 		}
 	}
@@ -237,7 +263,7 @@ export class StationInfoManager {
 				<div class="gis-action-strip">
 					${plusCode ? `<span class="gis-badge">🏷️ <strong>${this.#escapeHTML(this.#t("hero.plusCode"))}:</strong> ${this.#escapeHTML(plusCode)}</span>` : ""}
 					<span class="gis-badge">🌐 <strong>${this.#escapeHTML(this.#t("hero.coordinates"))}:</strong> ${lat.toFixed(5)}, ${lon.toFixed(5)}</span>
-					<a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="gis-map-btn">${this.#escapeHTML(this.#t("hero.openInMaps"))}</a>
+					<a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="gis-map-btn" aria-label="${this.#escapeHTML(this.#t("hero.openInMapsAria"))}">${this.#escapeHTML(this.#t("hero.openInMaps"))}</a>
 				</div>
 			`;
 		}
@@ -386,15 +412,17 @@ export class StationInfoManager {
 				? `<span class="divyang-tag accessible">${this.#escapeHTML(this.#t("gates.divyangAccessible"))}</span>` 
 				: `<span class="divyang-tag standard">${this.#escapeHTML(this.#t("gates.standardAccess"))}</span>`;
 			const gateCode = g.code || `GA${gNum}`;
-			const status = (g.status || "OPEN").toUpperCase();
-			const statusClass = status === "OPEN" ? "status-active" : "status-maintenance";
+			const isOpen = (g.status || "OPEN").toUpperCase() === "OPEN";
+			const status = isOpen ? this.#t("gates.open") : this.#t("gates.closed");
+			const statusClass = isOpen ? "status-active" : "status-maintenance";
 			const landmark = g.landmark?.[this.#lang] || g.landmark?.en || g.landmark?.hi || "Exit Gate Area";
+			const gateLabel = this.#t("gates.gateNum", { num: gNum });
 
 			html += `
 				<div class="gate-card-32">
 					<div class="gate-card-header">
 						<div class="gate-title-group">
-							<span class="gate-number">Gate No. ${this.#escapeHTML(gNum)}</span>
+							<span class="gate-number">${this.#escapeHTML(gateLabel)}</span>
 							<span class="gate-code-tag">${this.#escapeHTML(gateCode)}</span>
 						</div>
 						<span class="${statusClass}">${this.#escapeHTML(status)}</span>
@@ -496,11 +524,12 @@ export class StationInfoManager {
 			tableHTML += `</tbody></table></div>`;
 			capacityContainer.innerHTML = tableHTML;
 		} else if (parkingCharges) {
-			// In stations like Daurli (NCRTC), parking is active with direct official rate cards
+			const noticeTitle = this.#t("parking.authorisedNoticeTitle", { state: parkingCharges.state || "Active" });
+			const noticeDesc = this.#t("parking.authorisedNoticeDesc");
 			capacityContainer.innerHTML = `
 				<div class="facility-pill" style="width: 100%; border-left: 4px solid rgb(var(--color-success-rgb));">
-					<span class="facility-name">🅿️ Authorised Multimodal Station Parking (${this.#escapeHTML(parkingCharges.state || "Active")})</span>
-					<span class="facility-loc">Available 24x7 with automated smart ticketing, CCTV surveillance, and designated Divyang slots. Check tariff card below.</span>
+					<span class="facility-name">${this.#escapeHTML(noticeTitle)}</span>
+					<span class="facility-loc">${this.#escapeHTML(noticeDesc)}</span>
 				</div>
 			`;
 		}
@@ -521,17 +550,19 @@ export class StationInfoManager {
 		const formatM = (m) => {
 			if (m >= 1440) {
 				const days = m / 1440;
-				return Number.isInteger(days) ? `${days} Day` : `${days.toFixed(1)} Days`;
+				return Number.isInteger(days) 
+					? this.#t("parking.duration.day", { count: days })
+					: this.#t("parking.duration.days", { count: days.toFixed(1) });
 			}
 			if (m >= 60) {
 				const hrs = m / 60;
-				return Number.isInteger(hrs) ? `${hrs} hrs` : `${hrs.toFixed(1)} hrs`;
+				return this.#t("parking.duration.hrs", { count: Number.isInteger(hrs) ? hrs : hrs.toFixed(1) });
 			}
-			return `${m} min`;
+			return this.#t("parking.duration.min", { count: m });
 		};
 
-		if (minM === 0) return `Up to ${formatM(maxM)}`;
-		return `${formatM(minM)} to ${formatM(maxM)}`;
+		if (minM === 0) return this.#t("parking.duration.upTo", { time: formatM(maxM) });
+		return this.#t("parking.duration.range", { from: formatM(minM), to: formatM(maxM) });
 	}
 
 	#renderMonthlyPasses(passes, sym) {
@@ -544,10 +575,10 @@ export class StationInfoManager {
 				<span><strong>${this.#escapeHTML(this.#t("parking.monthlyPass"))}:</strong></span>
 				${entries.map(([key, p]) => {
 					let label = "Pass";
-					if (key === "day_only") label = "Day Pass";
-					else if (key === "full_24_7") label = "24/7 Pass";
-					else if (key === "tariff_a") label = "General Pass";
-					else if (key === "tariff_b") label = "Executive Pass";
+					if (key === "day_only") label = this.#t("parking.passes.dayOnly");
+					else if (key === "full_24_7") label = this.#t("parking.passes.full247");
+					else if (key === "tariff_a") label = this.#t("parking.passes.tariffA");
+					else if (key === "tariff_b") label = this.#t("parking.passes.tariffB");
 					else label = key.replace(/_/g, " ").toUpperCase();
 
 					const timing = p.timing ? ` (${p.timing})` : "";
@@ -798,6 +829,7 @@ export class StationInfoManager {
 		let html = "";
 		routes.forEach(r => {
 			const freqText = r.frequency_min ? this.#t("feederBus.frequency", { min: r.frequency_min }) : "";
+
 			html += `
 				<div class="feeder-card">
 					<div class="feeder-card-header">
@@ -834,7 +866,7 @@ export class StationInfoManager {
 		layouts.forEach(lay => {
 			const title = lay.name || lay.level?.toUpperCase() || "Level Schematic";
 			const viewBtn = lay.layout_url ? `<a href="${lay.layout_url}" target="_blank" rel="noopener noreferrer" class="layout-level-btn">🗺️ ${this.#escapeHTML(this.#t("stationLayout.viewFloorPlan"))}</a>` : "";
-			const pdfBtn = lay.pdf_url ? `<a href="${lay.pdf_url}" target="_blank" rel="noopener noreferrer" class="layout-level-btn">📄 ${this.#escapeHTML(this.#t("stationLayout.downloadPdf"))}</a>` : "";
+			const pdfBtn = lay.pdf_url ? `<a href="${lay.pdf_url}" target="_blank" rel="noopener noreferrer" class="layout-level-btn" aria-label="${this.#escapeHTML(this.#t("stationLayout.downloadPdfAria"))}">📄 ${this.#escapeHTML(this.#t("stationLayout.downloadPdf"))}</a>` : "";
 
 			html += `
 				<div class="layout-level-card">
@@ -858,7 +890,7 @@ export class StationInfoManager {
 		const categories = Object.keys(nearbyObj);
 
 		if (categories.length === 0) {
-			container.innerHTML = `<div class="empty-data-notice">${this.#escapeHTML(this.#t("nearby.noLandmarks"))}</div>`;
+			container.innerHTML = `<div class="empty-data-notice">${this.#escapeHTML(this.#t("nearby.noNearby"))}</div>`;
 			return;
 		}
 
@@ -890,10 +922,13 @@ export class StationInfoManager {
 	#render404() {
 		const main = document.querySelector(".station-page-container");
 		if (main) {
+			const notFoundTitle = this.#t("notFound.title");
+			const notFoundMsg = this.#t("notFound.message", { stationId: this.#stationId });
+
 			main.innerHTML = `
 				<div style="text-align:center; padding:5rem 1rem; color:var(--text-secondary);">
-					<h2 style="font-size:2rem; margin-bottom:1rem;">⚠️ Station Not Found</h2>
-					<p>The requested station code/ID "<strong>${this.#escapeHTML(this.#stationId)}</strong>" was not found in our metro directory.</p>
+					<h2 style="font-size:2rem; margin-bottom:1rem;">${this.#escapeHTML(notFoundTitle)}</h2>
+					<p>${this.#escapeHTML(notFoundMsg)}</p>
 					<a href="all_stations.html?city=${encodeURIComponent(this.#currentCity)}" class="back-btn" style="margin-top:1.5rem;">${this.#escapeHTML(this.#t("nav.backBtn"))}</a>
 				</div>
 			`;

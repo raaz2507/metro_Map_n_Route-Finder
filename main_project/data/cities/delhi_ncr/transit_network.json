@@ -178,7 +178,7 @@
 				"effectiveFrom": "2025-01-01",
 				"fareModel": "station_pair",
 				"calculation": {"rounding": "exact"},
-				"stations": ["sarai_kale_khan", "new_ashok_nagar", "anand_vihar", "sahibabad", "ghaziabad", "guldhar", "duhai", "duhai_depot", "murad_nagar", "modi_nagar_south", "modi_nagar_north", "meerut_south", "partapur", "rithani", "shatabdi_nagar", "brahampuri", "meerut_central", "bhaisali", "begumpul", "mes_colony", "daurli", "meerut_north", "modipuram"],
+				"stations": ["sarai_kale_khan_hazrat_nizamuddin", "new_ashok_nagar", "anand_vihar_isbt", "sahibabad", "ghaziabad", "guldhar", "duhai", "duhai_depot", "murad_nagar", "modi_nagar_south", "modi_nagar_north", "meerut_south", "partapur", "rithani", "shatabdi_nagar", "brahampuri", "meerut_central", "bhaisali", "begumpul", "mes_colony", "daurli", "meerut_north", "modipuram"],
 				"fareMatrix": [
 					[0, 35, 60, 70, 95, 110, 120, 130, 145, 170, 170, 190, 200, 210, 215, 225, 225, 235, 240, 250, 250, 250, 250],
 					[35, 0, 35, 60, 70, 85, 95, 110, 120, 145, 155, 180, 190, 190, 190, 200, 200, 210, 215, 225, 235, 235, 240],
@@ -230,7 +230,7 @@
 			"color": "#C60C30",
 			"color_name": "red",
 			"style": "solid",
-			"route": {"from": "rithala", "to": "shaheed_sthal"},
+			"route": {"from": "rithala", "to": "shaheed_sthal_new_bus_adda"},
 			"stations": ["rithala", "dr_baba_saheb_ambedkar_hospital", "rohini_east", "north_pitampura", "kohat_enclave", "netaji_subhash_place", "keshav_puram", "kanhaiya_nagar", "inderlok", "shastri_nagar", "pratap_nagar", "pulbangash", "tis_hazari", "kashmere_gate", "shastri_park", "seelampur", "welcome", "shahdara", "mansarovar_park", "jhilmil", "dilshad_garden", "shaheed_nagar", "raj_bagh", "major_mohit_sharma_rajendra_nagar", "shyam_park", "mohan_nagar", "arthala", "hindon_river", "shaheed_sthal_new_bus_adda"],
 			"farePolicy": "dmrc_standard",
 			"name": {
@@ -247,7 +247,7 @@
 			"color": "#FFD514",
 			"color_name": "yellow",
 			"style": "solid",
-			"route": {"from": "samaypur_badli", "to": "huda_city_center"},
+			"route": {"from": "samaypur_badli_dipo", "to": "millennium_city_centre_gurugram"},
 			"stations": ["samaypur_badli_dipo", "rohini_sector_18_19", "haiderpur_badli_mor", "jahangirpuri", "adarsh_nagar", "azadpur", "model_town", "guru_teg_bahadur_nagar", "vishwavidyalaya", "vidhan_sabha", "civil_lines", "kashmere_gate", "chandni_chowk", "chawri_bazar", "new_delhi_yellow_airport_line", "rajiv_chowk", "patel_chowk", "central_secretariat", "seva_teerth_earlier_udyog_bhawan", "lok_kalyan_marg", "jor_bagh", "dilli_haat_ina", "aiims", "green_park", "hauz_khas", "malviya_nagar", "saket", "qutab_minar", "chhatarpur", "sultanpur", "ghitorni", "arjan_garh", "guru_dronacharya", "sikanderpur", "mg_road", "iffco_chowk", "millennium_city_centre_gurugram"],
 			"farePolicy": "dmrc_standard",
 			"name": {
@@ -312,7 +312,7 @@
 			"color": "#5A189A",
 			"color_name": "violet",
 			"style": "solid",
-			"route": {"from": "kashmere_gate", "to": "raja_nahar_singh"},
+			"route": {"from": "kashmere_gate", "to": "raja_nahar_singh_ballabhgarh"},
 			"stations": ["kashmere_gate", "lal_quila", "jama_masjid", "delhi_gate", "ito", "mandi_house", "janpath", "central_secretariat", "khan_market", "jln_stadium", "jangpura", "lajpat_nagar", "moolchand", "kailash_colony", "nehru_place", "kalkaji_mandir", "govind_puri", "harkesh_nagar_okhla", "jasola_apollo", "sarita_vihar", "mohan_estate", "tughlakabad_station", "badarpur_border", "sarai", "nhpc_chowk", "mewala_maharajpur", "sector_28_faridabad", "badkal_mor", "old_faridabad", "neelam_chowk_ajronda", "bata_chowk", "escorts_mujesar", "sant_surdas_sihi", "raja_nahar_singh_ballabhgarh"],
 			"farePolicy": "dmrc_standard",
 			"name": {
@@ -374,7 +374,7 @@
 			"color": "#FF8000",
 			"color_name": "orange",
 			"style": "solid",
-			"route": {"from": "new_delhi", "to": "yashobhoomi_dwarka_sector_25"},
+			"route": {"from": "new_delhi_yellow_airport_line", "to": "yashobhoomi_dwarka_sector_25"},
 			"stations": ["new_delhi_yellow_airport_line", "shivaji_stadium", "dhaula_kuan", "delhi_aerocity", "airport_t_3", "dwarka_sector_21", "yashobhoomi_dwarka_sector_25"],
 			"farePolicy": "airport_express",
 			"name": {
@@ -409,7 +409,7 @@
 			"color_name": "dark_blue",
 			"style": "solid",
 			"route": {"from": "sector_55_56", "to": "dlf_phase_3"},
-			"stations": ["sector_55_56", "sector_54_chowk", "sector_53_54", "sector_42_43", "phase_1", "sikanderpur", "phase_2", "belvedere_towers", "cyber_city", "moulsari_avenue", "phase_3"],
+			"stations": ["sector_55_56", "sector_54_chowk", "sector_53_54", "sector_42_43", "phase_1", "sikanderpur", "phase_2", "belvedere_towers", "cyber_city", "moulsari_avenue", "dlf_phase_3"],
 			"farePolicy": "rapid_metro_standard",
 			"name": {"en": "Rapid Metro (Gurugram) - Sector 55-56 to Phase-3", "hi": "रैपिड मेट्रो (गुरुग्राम) - सेक्टर 55-56 से फेज-3"}
 		},
@@ -749,7 +749,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "mansarovar_park", "line": "dmrc.red", "distance": 1117},
@@ -769,7 +769,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"},
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"},
 				"3": {"line": "dmrc.pink", "destination": "shiv_vihar"},
 				"4": {"line": "dmrc.pink", "destination": "majlis_park"}
 			},
@@ -786,13 +786,13 @@
 			},
 			"train_schedule": {"first_train": "05:55:10", "last_train": "23:23:57", "sunday_first_train": null, "sunday_last_train": null}
 		},
-		"phase_3": {
-			"id": "phase_3",
+		"dlf_phase_3": {
+			"id": "dlf_phase_3",
 			"name": {"en": "DLF Phase 3", "hi": "डीएलएफ फेज 3"},
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"}
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"}
 			},
 			"neighbors": [
 				{"station": "moulsari_avenue", "line": "rapid_metro.rapid", "distance": 523},
@@ -851,8 +851,8 @@
 			"lines": ["dmrc.pink", "dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"},
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"},
 				"3": {"line": "dmrc.pink", "destination": "shiv_vihar"},
 				"4": {"line": "dmrc.pink", "destination": "majlis_park"}
 			},
@@ -892,7 +892,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -912,8 +912,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "chandni_chowk", "line": "dmrc.yellow", "distance": 1018},
@@ -952,10 +952,10 @@
 			"lines": ["dmrc.yellow", "dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"},
-				"3": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
-				"4": {"line": "dmrc.yellow", "destination": "kashmere_gate"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"},
+				"3": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
+				"4": {"line": "dmrc.violet","destination": "kashmere_gate"}
 			},
 			"neighbors": [
 				{"station": "patel_chowk", "line": "dmrc.yellow", "distance": 933},
@@ -993,7 +993,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -1013,7 +1013,7 @@
 			"lines": ["dmrc.violet", "ncrtc.delhi_meerut_rrts"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -1035,7 +1035,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "raj_bagh", "line": "dmrc.red", "distance": 1205}, {"station": "shyam_park", "line": "dmrc.red", "distance": 1182}],
 			"location": {
@@ -1052,9 +1052,9 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.pink", "destination": "shiv_vihar"},
-				"2": {"line": "dmrc.magenta", "destination": "majlis_park"},
-				"3": {"line": "dmrc.pink", "destination": "shiv_vihar"},
-				"4": {"line": "dmrc.pink", "destination": "shiv_vihar"}
+				"2": {"line": "dmrc.magenta", "destination": "deepali_chowk"},
+				"3": {"line": "dmrc.pink", "destination": "maujpur_babarpur"},
+				"4": {"line": "dmrc.magenta", "destination": "majlis_park"}
 			},
 			"neighbors": [
 				{"station": "burari", "line": "dmrc.pink", "distance": 1822},
@@ -1094,7 +1094,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -1114,7 +1114,7 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"}
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"}
 			},
 			"neighbors": [
 				{"station": "phase_2", "line": "rapid_metro.rapid", "distance": 648},
@@ -1133,8 +1133,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "jahangirpuri", "line": "dmrc.yellow", "distance": 1301},
@@ -1173,8 +1173,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "ghitorni", "line": "dmrc.yellow", "distance": 2709},
@@ -1213,8 +1213,8 @@
 			"lines": ["dmrc.pink", "dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"},
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"},
 				"3": {"line": "dmrc.pink", "destination": "shiv_vihar"},
 				"4": {"line": "dmrc.pink", "destination": "majlis_park"}
 			},
@@ -1237,8 +1237,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "saket", "line": "dmrc.yellow", "distance": 1682},
@@ -1372,11 +1372,11 @@
 			"lines": ["dmrc.violet", "dmrc.red", "dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"},
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"},
 				"3": {"line": "dmrc.red", "destination": "rithala"},
-				"4": {"line": "dmrc.red", "destination": "shaheed_sthal"},
-				"5": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"4": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"},
+				"5": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"6": {"line": "dmrc.red", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -1399,7 +1399,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -1419,8 +1419,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "rajiv_chowk", "line": "dmrc.yellow", "distance": 1177},
@@ -1479,7 +1479,7 @@
 			"lines": ["dmrc.magenta", "dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"},
 				"3": {"line": "dmrc.magenta", "destination": "botanical_garden"},
 				"4": {"line": "dmrc.magenta", "destination": "janakpuri_west"}
@@ -1523,7 +1523,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -1543,7 +1543,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"},
 				"3": {"line": "dmrc.violet", "destination": "old_faridabad"}
 			},
@@ -1564,8 +1564,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "samaypur_badli_dipo", "line": "dmrc.yellow", "distance": 714},
@@ -1585,7 +1585,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "netaji_subhash_place", "line": "dmrc.red", "distance": 1196},
@@ -1605,7 +1605,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "north_pitampura", "line": "dmrc.red", "distance": 963},
@@ -1624,7 +1624,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -1748,8 +1748,8 @@
 			"lines": ["dmrc.magenta", "dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"},
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"},
 				"3": {"line": "dmrc.magenta", "destination": "botanical_garden"},
 				"4": {"line": "dmrc.magenta", "destination": "janakpuri_west"}
 			},
@@ -1830,7 +1830,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "shaheed_nagar", "line": "dmrc.red", "distance": 1465},
@@ -1939,7 +1939,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -1959,7 +1959,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -1997,7 +1997,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "inderlok", "line": "dmrc.red", "distance": 1200}, {"station": "pratap_nagar", "line": "dmrc.red", "distance": 1713}],
 			"location": {
@@ -2013,7 +2013,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -2033,7 +2033,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"},
 				"3": {"line": "dmrc.green", "destination": "inderlok"}
 			},
@@ -2055,7 +2055,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "shahdara", "line": "dmrc.red", "distance": 1127}, {"station": "jhilmil", "line": "dmrc.red", "distance": 1117}],
 			"location": {
@@ -2071,7 +2071,7 @@
 			"lines": ["dmrc.blue_main", "dmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.blue_main", "destination": "SECTOR 55-56"},
+				"1": {"line": "dmrc.blue_main", "destination": "sector_55_56"},
 				"2": {"line": "dmrc.blue_main", "destination": "dlf_phase_3"}
 			},
 			"neighbors": [
@@ -2093,8 +2093,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "guru_teg_bahadur_nagar", "line": "dmrc.yellow", "distance": 816},
@@ -2114,7 +2114,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "pulbangash", "line": "dmrc.red", "distance": 907},
@@ -2154,7 +2154,7 @@
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
 				"2": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"},
-				"3": {"line": "dmrc.airport_express", "destination": "new_delhi"}
+				"3": {"line": "dmrc.airport_express", "destination": "new_delhi_yellow_airport_line"}
 			},
 			"neighbors": [
 				{"station": "delhi_aerocity", "line": "dmrc.airport_express", "distance": 3463},
@@ -2251,7 +2251,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -2311,7 +2311,7 @@
 			"lines": ["dmrc.pink", "ncrtc.delhi_meerut_rrts"],
 			"properties": {"layout": "underground", "status": "operational", "station_type": "multimodal"},
 			"platforms": {
-				"1": {"line": "dmrc.pink", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.pink", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.pink", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -2334,7 +2334,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "shastri_nagar", "line": "dmrc.red", "distance": 1713},
@@ -2353,7 +2353,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "kirti_nagar"}
 			},
 			"neighbors": [
@@ -2396,8 +2396,8 @@
 			"lines": ["rapid_metro.rapid", "dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "guru_dronacharya", "line": "dmrc.yellow", "distance": 975},
@@ -2435,7 +2435,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -2455,8 +2455,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "malviya_nagar", "line": "dmrc.yellow", "distance": 921},
@@ -2515,8 +2515,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "vishwavidyalaya", "line": "dmrc.yellow", "distance": 989},
@@ -2575,8 +2575,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "qutab_minar", "line": "dmrc.yellow", "distance": 1336},
@@ -2596,7 +2596,7 @@
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"},
-				"2": {"line": "dmrc.airport_express", "destination": "new_delhi"}
+				"2": {"line": "dmrc.airport_express", "destination": "new_delhi_yellow_airport_line"}
 			},
 			"neighbors": [
 				{"station": "dhaula_kuan", "line": "dmrc.airport_express", "distance": 6211},
@@ -2615,7 +2615,7 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"},
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"},
 				"2": {"line": "rapid_metro.rapid", "destination": "dlf_phase_3"}
 			},
 			"neighbors": [{"station": "sector_54_chowk", "line": "rapid_metro.rapid", "distance": 1201}],
@@ -2652,7 +2652,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [{"station": "bahadurgarh_city", "line": "dmrc.green", "distance": 1753}],
@@ -2669,8 +2669,8 @@
 			"lines": ["dmrc.yellow", "dmrc.magenta"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"},
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"},
 				"3": {"line": "dmrc.magenta", "destination": "deepali_chowk"},
 				"4": {"line": "dmrc.magenta", "destination": "majlis_park"}
 			},
@@ -2767,10 +2767,10 @@
 			"lines": ["dmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.pink", "destination": "maujpur"},
+				"1": {"line": "dmrc.pink", "destination": "maujpur_babarpur"},
 				"2": {"line": "dmrc.pink", "destination": "majlis_park"},
 				"3": {"line": "dmrc.pink", "destination": "shiv_vihar"},
-				"4": {"line": "dmrc.pink", "destination": "maujpur"}
+				"4": {"line": "dmrc.pink", "destination": "maujpur_babarpur"}
 			},
 			"neighbors": [
 				{"station": "yamuna_vihar", "line": "dmrc.pink", "distance": 1346},
@@ -2835,7 +2835,7 @@
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"},
-				"2": {"line": "dmrc.airport_express", "destination": "new_delhi"}
+				"2": {"line": "dmrc.airport_express", "destination": "new_delhi_yellow_airport_line"}
 			},
 			"neighbors": [
 				{"station": "new_delhi_yellow_airport_line", "line": "dmrc.airport_express", "distance": 1820},
@@ -2874,7 +2874,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -2916,7 +2916,7 @@
 			"platforms": {
 				"1": {"line": "dmrc.blue_main", "destination": "noida_electronic_city"},
 				"2": {"line": "dmrc.blue_main", "destination": "dwarka_sector_21"},
-				"3": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"3": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"4": {"line": "dmrc.blue_main", "destination": "kirti_nagar"}
 			},
 			"neighbors": [
@@ -2938,7 +2938,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "mohan_nagar", "line": "dmrc.red", "distance": 1113},
@@ -3046,7 +3046,7 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"}
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"}
 			},
 			"neighbors": [
 				{"station": "belvedere_towers", "line": "rapid_metro.rapid", "distance": 503},
@@ -3065,7 +3065,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -3087,7 +3087,7 @@
 			"platforms": {
 				"1": {"line": "dmrc.blue_main", "destination": "noida_electronic_city"},
 				"2": {"line": "dmrc.blue_main", "destination": "dwarka_sector_21"},
-				"3": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"3": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"4": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -3109,7 +3109,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -3208,7 +3208,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.grey", "destination": "dhansa_bus_stand"},
-				"2": {"line": "dmrc.grey", "destination": "dwarka"}
+				"2": {"line": "dmrc.grey", "destination": "dwarka_kakrola"}
 			},
 			"neighbors": [
 				{"station": "dwarka_kakrola", "line": "dmrc.grey", "distance": 1141},
@@ -3227,7 +3227,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -3247,8 +3247,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [{"station": "rohini_sector_18_19", "line": "dmrc.yellow", "distance": 714}],
 			"location": {
@@ -3305,7 +3305,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -3326,7 +3326,7 @@
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"},
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"},
 				"3": {"line": "dmrc.pink", "destination": "shiv_vihar"},
 				"4": {"line": "dmrc.pink", "destination": "majlis_park"}
 			},
@@ -3369,8 +3369,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [{"station": "iffco_chowk", "line": "dmrc.yellow", "distance": 1428}],
 			"location": {
@@ -3446,8 +3446,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "azadpur", "line": "dmrc.yellow", "distance": 1360},
@@ -3467,7 +3467,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "dr_baba_saheb_ambedkar_hospital", "line": "dmrc.red", "distance": 985}],
 			"location": {
@@ -3483,7 +3483,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -3505,7 +3505,7 @@
 			"platforms": {
 				"1": {"line": "dmrc.pink", "destination": "shiv_vihar"},
 				"2": {"line": "dmrc.pink", "destination": "majlis_park"},
-				"3": {"line": "dmrc.pink", "destination": "BRIG. HOSHIAR SINGH"},
+				"3": {"line": "dmrc.pink", "destination": "brig_hoshiar_singh"},
 				"4": {"line": "dmrc.pink", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -3527,7 +3527,7 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"},
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"},
 				"2": {"line": "rapid_metro.rapid", "destination": "dlf_phase_3"}
 			},
 			"neighbors": [
@@ -3547,8 +3547,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "dilli_haat_ina", "line": "dmrc.yellow", "distance": 723},
@@ -3587,7 +3587,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -3627,8 +3627,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "kashmere_gate", "line": "dmrc.yellow", "distance": 1090},
@@ -3687,7 +3687,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -3708,7 +3708,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "dr_baba_saheb_ambedkar_hospital", "line": "dmrc.red", "distance": 1359},
@@ -3728,7 +3728,7 @@
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.grey", "destination": "dhansa_bus_stand"},
-				"2": {"line": "dmrc.grey", "destination": "dwarka"}
+				"2": {"line": "dmrc.grey", "destination": "dwarka_kakrola"}
 			},
 			"neighbors": [
 				{"station": "nangli", "line": "dmrc.grey", "distance": 2793},
@@ -3748,7 +3748,7 @@
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.grey", "destination": "dhansa_bus_stand"},
-				"2": {"line": "dmrc.grey", "destination": "dwarka"}
+				"2": {"line": "dmrc.grey", "destination": "dwarka_kakrola"}
 			},
 			"neighbors": [{"station": "najafgarh", "line": "dmrc.grey", "distance": 2032}],
 			"location": {
@@ -3764,7 +3764,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -3784,7 +3784,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -3805,7 +3805,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "hindon_river", "line": "dmrc.red", "distance": 760}],
 			"location": {
@@ -3935,8 +3935,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "arjan_garh", "line": "dmrc.yellow", "distance": 2302},
@@ -3955,7 +3955,7 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"},
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"},
 				"2": {"line": "rapid_metro.rapid", "destination": "dlf_phase_3"}
 			},
 			"neighbors": [
@@ -3995,7 +3995,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -4036,7 +4036,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "welcome", "line": "dmrc.red", "distance": 1191},
@@ -4056,7 +4056,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"},
-				"2": {"line": "dmrc.airport_express", "destination": "new_delhi"}
+				"2": {"line": "dmrc.airport_express", "destination": "new_delhi_yellow_airport_line"}
 			},
 			"neighbors": [
 				{"station": "shivaji_stadium", "line": "dmrc.airport_express", "distance": 6426},
@@ -4096,7 +4096,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "rithala", "line": "dmrc.red", "distance": 985}, {"station": "rohini_east", "line": "dmrc.red", "distance": 1359}],
 			"location": {
@@ -4133,7 +4133,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "major_mohit_sharma_rajendra_nagar", "line": "dmrc.red", "distance": 1182},
@@ -4169,8 +4169,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "haiderpur_badli_mor", "line": "dmrc.yellow", "distance": 1375},
@@ -4189,7 +4189,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -4209,7 +4209,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -4229,7 +4229,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -4269,7 +4269,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -4289,7 +4289,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [{"station": "udyog_nagar", "line": "dmrc.green", "distance": 682}, {"station": "nangloi", "line": "dmrc.green", "distance": 893}],
@@ -4306,7 +4306,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -4380,8 +4380,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "mg_road", "line": "dmrc.yellow", "distance": 1163},
@@ -4400,8 +4400,8 @@
 			"lines": ["dmrc.yellow", "dmrc.blue_main"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"},
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"},
 				"3": {"line": "dmrc.blue_main", "destination": "noida_electronic_city"},
 				"4": {"line": "dmrc.blue_main", "destination": "dwarka_sector_21"}
 			},
@@ -4444,11 +4444,11 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"}
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"}
 			},
 			"neighbors": [
 				{"station": "cyber_city", "line": "rapid_metro.rapid", "distance": 747},
-				{"station": "phase_3", "line": "rapid_metro.rapid", "distance": 523}
+				{"station": "dlf_phase_3", "line": "rapid_metro.rapid", "distance": 523}
 			],
 			"location": {
 				"decimal": {"lat": 28.4975, "lon": 77.0958},
@@ -4483,13 +4483,13 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"},
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"},
 				"2": {"line": "rapid_metro.rapid", "destination": "dlf_phase_3"}
 			},
 			"neighbors": [
 				{"station": "sikanderpur", "line": "rapid_metro.rapid", "distance": 565},
 				{"station": "belvedere_towers", "line": "rapid_metro.rapid", "distance": 648},
-				{"station": "phase_3", "line": "rapid_metro.rapid", "distance": 1060}
+				{"station": "dlf_phase_3", "line": "rapid_metro.rapid", "distance": 1060}
 			],
 			"location": {
 				"decimal": {"lat": 28.4868, "lon": 77.0912},
@@ -4504,7 +4504,7 @@
 			"lines": ["dmrc.pink", "dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"},
 				"3": {"line": "dmrc.pink", "destination": "shiv_vihar"},
 				"4": {"line": "dmrc.pink", "destination": "majlis_park"}
@@ -4548,8 +4548,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "vidhan_sabha", "line": "dmrc.yellow", "distance": 1291},
@@ -4609,7 +4609,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "kashmere_gate", "line": "dmrc.red", "distance": 2125},
@@ -4628,8 +4628,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "central_secretariat", "line": "dmrc.yellow", "distance": 343},
@@ -4702,7 +4702,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [{"station": "jama_masjid", "line": "dmrc.violet", "distance": 1239}, {"station": "ito", "line": "dmrc.violet", "distance": 969}],
@@ -4723,7 +4723,7 @@
 				"2": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"},
 				"3": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"},
 				"4": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"},
-				"7": {"line": "dmrc.yellow", "destination": "new_delhi"}
+				"7": {"line": "dmrc.yellow", "destination": "new_delhi_yellow_airport_line"}
 			},
 			"neighbors": [
 				{"station": "chawri_bazar", "line": "dmrc.yellow", "distance": 844},
@@ -4743,7 +4743,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -4763,7 +4763,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -4804,7 +4804,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "shyam_park", "line": "dmrc.red", "distance": 1005}, {"station": "arthala", "line": "dmrc.red", "distance": 1113}],
 			"location": {
@@ -4840,7 +4840,7 @@
 			"lines": ["dmrc.green", "dmrc.magenta"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -4862,7 +4862,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "arthala", "line": "dmrc.red", "distance": 1658},
@@ -4903,8 +4903,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "lok_kalyan_marg", "line": "dmrc.yellow", "distance": 1138},
@@ -4981,7 +4981,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [
 				{"station": "dilshad_garden", "line": "dmrc.red", "distance": 917},
@@ -5000,7 +5000,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -5117,7 +5117,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -5137,8 +5137,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [{"station": "aiims", "line": "dmrc.yellow", "distance": 1019}, {"station": "hauz_khas", "line": "dmrc.yellow", "distance": 1828}],
 			"location": {
@@ -5175,7 +5175,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "jhilmil", "line": "dmrc.red", "distance": 881}, {"station": "shaheed_nagar", "line": "dmrc.red", "distance": 917}],
 			"location": {
@@ -5212,7 +5212,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "shastri_park", "line": "dmrc.red", "distance": 1649}, {"station": "welcome", "line": "dmrc.red", "distance": 1081}],
 			"location": {
@@ -5228,8 +5228,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "sultanpur", "line": "dmrc.yellow", "distance": 1346},
@@ -5268,7 +5268,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -5289,7 +5289,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "pratap_nagar", "line": "dmrc.red", "distance": 825}, {"station": "tis_hazari", "line": "dmrc.red", "distance": 907}],
 			"location": {
@@ -5305,7 +5305,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -5345,7 +5345,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -5439,8 +5439,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "sikanderpur", "line": "dmrc.yellow", "distance": 1227},
@@ -5479,8 +5479,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [{"station": "hauz_khas", "line": "dmrc.yellow", "distance": 1712}, {"station": "saket", "line": "dmrc.yellow", "distance": 921}],
 			"location": {
@@ -5496,7 +5496,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -5516,7 +5516,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -5536,7 +5536,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -5556,8 +5556,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"},
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"},
 				"3": {"line": "dmrc.yellow", "destination": "sultanpur"}
 			},
 			"neighbors": [
@@ -5577,8 +5577,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.yellow", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli"}
+				"1": {"line": "dmrc.yellow", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.yellow", "destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "seva_teerth_earlier_udyog_bhawan", "line": "dmrc.yellow", "distance": 1605},
@@ -5635,7 +5635,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"}
 			},
 			"neighbors": [{"station": "keshav_puram", "line": "dmrc.red", "distance": 769}, {"station": "inderlok", "line": "dmrc.red", "distance": 1163}],
 			"location": {
@@ -5651,7 +5651,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -5671,7 +5671,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [{"station": "sant_surdas_sihi", "line": "dmrc.violet", "distance": 1627}],
@@ -5705,7 +5705,7 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"},
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"},
 				"2": {"line": "rapid_metro.rapid", "destination": "dlf_phase_3"}
 			},
 			"neighbors": [
@@ -5725,7 +5725,7 @@
 			"lines": ["dmrc.green"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.green", "destination": "BRIG. HOSHIAR SINGH"},
+				"1": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
 				"2": {"line": "dmrc.green", "destination": "inderlok"}
 			},
 			"neighbors": [
@@ -5745,7 +5745,7 @@
 			"lines": ["rapid_metro.rapid"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "rapid_metro.rapid", "destination": "SECTOR 55-56"},
+				"1": {"line": "rapid_metro.rapid", "destination": "sector_55_56"},
 				"2": {"line": "rapid_metro.rapid", "destination": "dlf_phase_3"}
 			},
 			"neighbors": [
@@ -5805,10 +5805,10 @@
 			"lines": ["dmrc.airport_express", "dmrc.blue_main"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.airport_express", "destination": "vaishali"},
+				"1": {"line": "dmrc.blue_main", "destination": "noida_electronic_city"},
 				"2": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"},
-				"3": {"line": "dmrc.airport_express", "destination": "new_delhi"},
-				"4": {"line": "dmrc.airport_express", "destination": "new_delhi"}
+				"3": {"line": "dmrc.airport_express", "destination": "new_delhi_yellow_airport_line"},
+				"4": {"line": "dmrc.airport_express", "destination": "new_delhi_yellow_airport_line"}
 			},
 			"neighbors": [
 				{"station": "dwarka_sector_8", "line": "dmrc.blue_main", "distance": 1736},
@@ -5828,7 +5828,7 @@
 			"lines": ["dmrc.airport_express"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.airport_express", "destination": "new_delhi"},
+				"1": {"line": "dmrc.airport_express", "destination": "new_delhi_yellow_airport_line"},
 				"2": {"line": "dmrc.airport_express", "destination": "yashobhoomi_dwarka_sector_25"}
 			},
 			"neighbors": [{"station": "dwarka_sector_21", "line": "dmrc.airport_express", "distance": 997}],
@@ -5846,9 +5846,9 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.red", "destination": "rithala"},
-				"2": {"line": "dmrc.red", "destination": "shaheed_sthal"},
-				"3": {"line": "dmrc.red", "destination": "BRIG. HOSHIAR SINGH"},
-				"4": {"line": "dmrc.red", "destination": "BRIG. HOSHIAR SINGH"}
+				"2": {"line": "dmrc.red", "destination": "shaheed_sthal_new_bus_adda"},
+				"3": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"},
+				"4": {"line": "dmrc.green", "destination": "brig_hoshiar_singh"}
 			},
 			"neighbors": [
 				{"station": "kanhaiya_nagar", "line": "dmrc.red", "distance": 1163},
@@ -5868,7 +5868,7 @@
 			"lines": ["dmrc.violet"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh"},
+				"1": {"line": "dmrc.violet", "destination": "raja_nahar_singh_ballabhgarh"},
 				"2": {"line": "dmrc.violet", "destination": "kashmere_gate"}
 			},
 			"neighbors": [
@@ -5966,7 +5966,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.pink", "destination": "majlis_park"},
-				"2": {"line": "dmrc.pink", "destination": "maujpur"}
+				"2": {"line": "dmrc.pink", "destination": "maujpur_babarpur"}
 			},
 			"neighbors": [
 				{"station": "majlis_park", "line": "dmrc.pink", "distance": 1822},
@@ -5986,7 +5986,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.pink", "destination": "majlis_park"},
-				"2": {"line": "dmrc.pink", "destination": "maujpur"}
+				"2": {"line": "dmrc.pink", "destination": "maujpur_babarpur"}
 			},
 			"neighbors": [
 				{"station": "burari", "line": "dmrc.pink", "distance": 1498},
@@ -6005,8 +6005,8 @@
 			"lines": ["dmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.pink", "destination": "maujpur"},
-				"2": {"line": "dmrc.pink", "destination": "maujpur"}
+				"1": {"line": "dmrc.pink", "destination": "maujpur_babarpur"},
+				"2": {"line": "dmrc.pink", "destination": "maujpur_babarpur"}
 			},
 			"neighbors": [
 				{"station": "jharoda_majra", "line": "dmrc.pink", "distance": 1078},
@@ -6043,7 +6043,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.pink", "destination": "majlis_park"},
-				"2": {"line": "dmrc.pink", "destination": "maujpur"}
+				"2": {"line": "dmrc.pink", "destination": "maujpur_babarpur"}
 			},
 			"neighbors": [
 				{"station": "soorghat", "line": "dmrc.pink", "distance": 1451},
@@ -6063,7 +6063,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.pink", "destination": "majlis_park"},
-				"2": {"line": "dmrc.pink", "destination": "maujpur"}
+				"2": {"line": "dmrc.pink", "destination": "maujpur_babarpur"}
 			},
 			"neighbors": [
 				{"station": "nanaksar_sonia_vihar", "line": "dmrc.pink", "distance": 1250},
@@ -6083,7 +6083,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.pink", "destination": "majlis_park"},
-				"2": {"line": "dmrc.pink", "destination": "maujpur"}
+				"2": {"line": "dmrc.pink", "destination": "maujpur_babarpur"}
 			},
 			"neighbors": [
 				{"station": "khajuri_khas", "line": "dmrc.pink", "distance": 803},
@@ -6103,7 +6103,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
 				"1": {"line": "dmrc.pink", "destination": "majlis_park"},
-				"2": {"line": "dmrc.pink", "destination": "maujpur"}
+				"2": {"line": "dmrc.pink", "destination": "maujpur_babarpur"}
 			},
 			"neighbors": [
 				{"station": "bhajanpura", "line": "dmrc.pink", "distance": 1457},
@@ -6142,8 +6142,8 @@
 			"lines": ["dmrc.magenta"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"platforms": {
-				"1": {"line": "dmrc.magenta", "destination": "huda_city_center"},
-				"2": {"line": "dmrc.magenta", "destination": "samaypur_badli"},
+				"1": {"line": "dmrc.magenta", "destination": "millennium_city_centre_gurugram"},
+				"2": {"line": "dmrc.magenta", "destination": "samaypur_badli_dipo"},
 				"3": {"line": "dmrc.magenta", "destination": "deepali_chowk"},
 				"4": {"line": "dmrc.magenta", "destination": "majlis_park"}
 			},

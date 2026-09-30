@@ -44,8 +44,9 @@ class TicketWalletApp {
 	 */
 	async init() {
 		// 1. Render Universal Layout Header & Footer
-		await HeaderComponent.render('ticket');
 		FooterComponent.render('app-footer');
+		await HeaderComponent.render('ticket');
+		
 
 		// 2. Cache DOM Elements
 		this.#initDomHandles();
@@ -899,9 +900,7 @@ class TicketWalletApp {
 								${i18n.t('metroTicket.cards.history.btnRestore')}
 							</button>
 						` : ''}
-						<button type="button" class="btn-delete-history-item" data-delete-id="${item.id}" title="Delete" aria-label="Delete">
-							🗑️
-						</button>
+						<button type="button" class="btn-delete-history-item" data-delete-id="${item.id}" title="${i18n.t('metroTicket.cards.history.btnDelete')}" aria-label="${i18n.t('metroTicket.cards.history.btnDelete')}">🗑️</button>
 					</div>
 				</div>
 			`;

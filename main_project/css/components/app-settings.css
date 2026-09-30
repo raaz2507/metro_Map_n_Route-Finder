@@ -7,7 +7,6 @@
 	   1. SIDEBAR SETTINGS CONTAINER & HEADER
 	   ========================================================================= */
 	#app-settings {
-		width: min(440px, calc(100vw - 95px)); /* 👈 Added fixed common width */
 		display: flex;
 		flex-direction: column;
 		padding: 0;
@@ -50,6 +49,12 @@
 		background: rgba(var(--color-bg-base-rgb), 0.3);
 		border-radius: var(--radius-md) var(--radius-md) 0 0;
 		flex-shrink: 0;
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	.settings-folder-tabs::-webkit-scrollbar {
+		display: none;
 	}
 
 	.folder-tab {
@@ -272,5 +277,163 @@
 		background: rgba(239, 68, 68, 0.1);
 		border-color: rgba(239, 68, 68, 0.4);
 		color: #ef4444;
+	}
+
+
+		/* =========================================================================
+	   9. 📦 PACKS MANAGER (Languages & Themes Tab)
+	   ========================================================================= */
+	:root {
+		--tab-packs-accent: #10b981; /* Emerald/Green Accent */
+		--tab-packs-accent-rgb: 16, 185, 129;
+		--tab-packs-bg: rgba(var(--tab-packs-accent-rgb), 0.05);
+		--tab-packs-border: rgba(var(--tab-packs-accent-rgb), 0.35);
+		--tab-packs-glow: rgba(var(--tab-packs-accent-rgb), 0.18);
+	}
+
+	/* 🌟 Packs Active Folder Tab */
+	.folder-tab[data-tab="packs"].active {
+		background: rgba(var(--tab-packs-accent-rgb), 0.14);
+		color: var(--tab-packs-accent);
+		border-color: var(--tab-packs-border);
+		border-bottom-color: transparent;
+		margin-bottom: -1px;
+		z-index: 2;
+		box-shadow: 0 -2px 8px rgba(var(--tab-packs-accent-rgb), 0.15);
+	}
+
+	/* 🎴 Packs Scoped Fieldset & Legend */
+	.settings-tab-panel[data-panel="packs"] .settings-fieldset {
+		margin: 0 0 var(--space-md) 0;
+		padding: var(--space-md);
+		border: 1px solid var(--tab-packs-border);
+		border-radius: var(--radius-lg);
+		background: var(--tab-packs-bg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+	}
+
+	.settings-tab-panel[data-panel="packs"] .settings-fieldset:hover {
+		border-color: var(--tab-packs-accent);
+		box-shadow: 0 4px 16px var(--tab-packs-glow);
+	}
+
+	.settings-tab-panel[data-panel="packs"] .settings-legend {
+		float: none;
+		width: auto;
+		padding: 4px var(--space-sm);
+		margin-left: -4px;
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--tab-packs-accent);
+		background: rgba(var(--tab-packs-accent-rgb), 0.12);
+		border: 1px solid var(--tab-packs-border);
+		border-radius: var(--radius-full);
+	}
+
+	/* ℹ️ Platform Web Info Notice */
+	.settings-notice-box {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-xs);
+		padding: var(--space-xs) var(--space-sm);
+		border-radius: var(--radius-md);
+		background: rgba(var(--color-info-rgb, 59, 130, 246), 0.1);
+		border: 1px solid rgba(var(--color-info-rgb, 59, 130, 246), 0.25);
+		margin-bottom: var(--space-sm);
+	}
+
+	.settings-notice-box .notice-icon {
+		font-size: var(--fs-sm);
+	}
+
+	.settings-notice-box .notice-text {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	/* 📋 Pack Item Rows & Badges */
+	.packs-list-group {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.pack-item-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-sm);
+		padding: var(--space-xs) 0;
+		border-bottom: 1px dashed rgba(var(--tab-packs-accent-rgb), 0.15);
+	}
+
+	.pack-item-row:last-child {
+		border-bottom: none;
+	}
+
+	.pack-item--disabled {
+		opacity: 0.55;
+	}
+
+	.pack-meta-text {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		line-height: 1.4;
+	}
+
+	.pack-action-wrapper {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		flex-shrink: 0;
+	}
+
+	.pack-status-badge {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		padding: 3px 8px;
+		border-radius: var(--radius-full);
+	}
+
+	.pack-status-badge.is-installed {
+		color: #10b981;
+		background: rgba(16, 185, 129, 0.12);
+		border: 1px solid rgba(16, 185, 129, 0.3);
+	}
+
+	.btn-pack-download {
+		background: var(--tab-packs-bg);
+		border-color: var(--tab-packs-border);
+		color: var(--tab-packs-accent);
+	}
+
+	.btn-pack-download:hover {
+		background: var(--tab-packs-accent);
+		color: #ffffff;
+		box-shadow: 0 2px 8px var(--tab-packs-glow);
+	}
+
+	.btn-pack-uninstall {
+		background: rgba(239, 68, 68, 0.08);
+		border-color: rgba(239, 68, 68, 0.3);
+		color: #ef4444;
+	}
+
+	.btn-pack-uninstall:hover {
+		background: #ef4444;
+		color: #ffffff;
+		box-shadow: 0 2px 8px rgba(239, 68, 68, 0.25);
+	}
+
+	.is-hidden {
+		display: none !important;
 	}
 }

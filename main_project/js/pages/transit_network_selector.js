@@ -19,6 +19,7 @@ export class TransitNetworkSelector {
 	#activeSort = "status_smart";
 	#searchQuery = "";
 	#abortController = null;
+	#unsubscribeLang = null; 
 
 	// Private DOM Element Handles
 	#dom = {
@@ -45,14 +46,19 @@ export class TransitNetworkSelector {
 			this.#abortController.abort();
 			this.#abortController = null;
 		}
+		if (this.#unsubscribeLang) {
+			this.#unsubscribeLang();
+			this.#unsubscribeLang = null;
+		}
 		if (this.#searchEngine && typeof this.#searchEngine.destroy === "function") {
 			this.#searchEngine.destroy();
 		}
 	}
 
 	async init() {
-		await HeaderComponent.render("networks");
 		FooterComponent.render();
+		await HeaderComponent.render("networks");
+		
 		
 		if (this.#dom.sortChipsWrapper) {
 			this.#dom.sortChipsWrapper.querySelectorAll(".chip-btn").forEach(btn => {
@@ -62,6 +68,18 @@ export class TransitNetworkSelector {
 			});
 		}
 		
+		await this.#searchEngine.init().catch(err => console.warn("[SearchEngine] Init notice:", err));
+		await this.#fetchRegistry();
+
+
+		// Subscribe to dynamic language toggle for instant in-place re-render
+		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
+			if (this.#dom.searchInput) {
+				this.#dom.searchInput.placeholder = i18n.t("pages.networks.search.placeholder");
+			}
+			this.#render();
+		});
+
 		await this.#searchEngine.init().catch(err => console.warn("[SearchEngine] Init notice:", err));
 		await this.#fetchRegistry();
 	}

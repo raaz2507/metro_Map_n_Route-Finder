@@ -275,8 +275,8 @@
 			"1": {"destination": "rithala"}
 		}
 	},
-	"phase_3": {
-		"id": "phase_3",
+	"dlf_phase_3": {
+		"id": "dlf_phase_3",
 		"timings": {"opening": "06:09:00", "closing": "22:09:00"},
 		"description": {
 			"en": "Phase-3 Station is a station in Rapid Metro Gurgaon. The next station from Phase-3 station towards Sector 55-56 is Phase-2 and towards the other end is Moulsari Avenue station. Phase-3 station is connected to DMRC’s Yellow line through Sikanderpur Metro Station.Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800006.",
@@ -13175,7 +13175,7 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
 	},
 	"terminal_1_igi_airport": {
 		"id": "terminal_1_igi_airport",
@@ -19486,7 +19486,7 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
 	},
 	"aiims": {
 		"id": "aiims",
@@ -22503,7 +22503,7 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
 	},
 	"nehru_enclave": {
 		"id": "nehru_enclave",
@@ -26365,7 +26365,7 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
 	},
 	"lajpat_nagar": {
 		"id": "lajpat_nagar",
@@ -34739,7 +34739,7 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
 	},
 	"madipur": {
 		"id": "madipur",
@@ -35003,7 +35003,7 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
 	},
 	"kalindi_kunj": {
 		"id": "kalindi_kunj",

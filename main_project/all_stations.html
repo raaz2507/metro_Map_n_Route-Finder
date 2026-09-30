@@ -1,74 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <!-- Open Graph / SEO Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
-    <meta property="og:title" content="Metro Stations Directory - Coach Grid Layout">
-    <meta property="og:description" content="Explore all metro stations, lines, first & last train timings, and transit facilities.">
-    <meta property="og:image" content="./assets/images/share_image_com.png"> 
+	<!-- Open Graph / SEO Meta Tags -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
+	<meta property="og:title" content="All Stations Directory | YatraMarg">
+	<meta property="og:description" content="Explore all metro stations, lines, first & last train timings, and transit facilities." data-i18n-meta="pages.all_stations.meta.desc">
+	<meta property="og:image" content="./assets/images/share_image_com.png"> 
 
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
-    <meta name="twitter:title" content="Metro Stations Directory">
-    <meta name="twitter:description" content="Explore all metro stations, lines, first & last train timings, and transit facilities.">
-    <meta name="twitter:image" content="./assets/images/share_image_com.png">
-    
-    <!-- Site Icon / Favicon -->
-    <link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
-    <title>All Stations Directory - Metro Guide</title>
+	<!-- Twitter / X -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/">
+	<meta name="twitter:title" content="All Stations Directory | YatraMarg">
+	<meta name="twitter:description" content="Explore all metro stations, lines, first & last train timings, and transit facilities." data-i18n-meta="pages.all_stations.meta.desc">
+	<meta name="twitter:image" content="./assets/images/share_image_com.png">
+	
+	<!-- Site Icon / Favicon -->
+	<link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
+	<title data-i18n-title-tag="pages.all_stations.meta.title">All Stations Directory | YatraMarg</title>
 
-    <!-- Page Stylesheet -->
-    <link rel="stylesheet" href="./css/pages/all_stations.css">
+	<!-- Page Stylesheet -->
+	<link rel="stylesheet" href="./css/pages/all_stations.css">
 </head>
 <body>
 
-    <!-- 1. Universal Header Container -->
-    <div id="app-header"></div>
+	<!-- 1. Universal Header Container -->
+	<div id="app-header"></div>
 
-    <!-- 2. Main Stations Directory Container -->
-    <main class="stations-page-container">
-        <!-- Controls & Search Area -->
-        <section class="directory-controls" aria-label="Search and Filter Stations">
-            <div class="search-box-wrapper">
-                <span class="search-icon" aria-hidden="true">🔍</span>
-                <input 
-                    type="text" 
-                    id="dir-search-input" 
-                    placeholder="Search station, hospital, landmark by name or code (e.g. Rajiv Chowk, AIIMS)..."
-                    aria-label="Search stations or landmarks"
-                    autocomplete="off"
-                >
-                <button type="button" id="clear-search-btn" class="clear-btn" aria-label="Clear Search" hidden>✕</button>
+	<!-- 2. Main Stations Directory Container -->
+	<main class="stations-page-container">
+		<!-- Controls & Search Area -->
+		<section class="directory-controls" data-i18n-aria-label="pages.all_stations.controls.filterGroupAria" aria-label="Search and Filter Stations">
+			<div class="search-box-wrapper">
+				<span class="search-icon" aria-hidden="true">🔍</span>
+				<input 
+					type="text" 
+					id="dir-search-input" 
+					placeholder="Search station, landmark by name or code (e.g. Rajiv Chowk, AIIMS)..."
+					aria-label="Search stations or landmarks"
+					data-i18n-placeholder="pages.all_stations.controls.searchPlaceholder"
+					data-i18n-aria-label="pages.all_stations.controls.searchAria"
+					autocomplete="off"
+				>
+				<button type="button" id="clear-search-btn" class="clear-btn" aria-label="Clear Search" data-i18n-aria-label="pages.all_stations.controls.clearSearchAria" hidden>✕</button>
 
-                <!-- Dynamic Autocomplete Search Dropdown Panel -->
-                <div class="search-autocomplete-dropdown" id="search-autocomplete-dropdown" role="listbox" hidden></div>
-            </div>
+				<!-- Dynamic Autocomplete Search Dropdown Panel -->
+				<div class="search-autocomplete-dropdown" id="search-autocomplete-dropdown" role="listbox" hidden></div>
+			</div>
 
-            <!-- Dynamic Line Filter Chips -->
-            <div class="filter-chips-wrapper" id="filter-chips-wrapper" role="group" aria-label="Filter by Line">
-                <button class="chip-btn active" data-line="all">All Lines</button>
-            </div>
-        </section>
+			<!-- Dynamic Line Filter Chips -->
+			<div class="filter-chips-wrapper" id="filter-chips-wrapper" role="group" aria-label="Filter by Line" data-i18n-aria-label="pages.all_stations.controls.filterGroupAria">
+				<button class="chip-btn active" data-line="all" data-i18n="pages.all_stations.controls.allLines">All Lines</button>
+			</div>
+		</section>
 
-        <!-- Dynamic Container where JS Class will render Line Sections & Coach Tracks -->
-        <div id="stations-directory-container" aria-live="polite">
-            <!-- Initial Loading State -->
-            <div class="loading-state" style="text-align: center; padding: 4rem 1rem; color: var(--text-secondary);">
-                <p>Loading Stations Directory...</p>
-            </div>
-        </div>
-    </main>
-    
-    <!-- 3. Universal Footer Container -->
-    <div id="app-footer"></div>
+		<!-- Dynamic Container where JS Class will render Line Sections & Coach Tracks -->
+		<div id="stations-directory-container" aria-live="polite">
+			<!-- Initial Loading State -->
+			<div class="loading-state" style="text-align: center; padding: 4rem 1rem; color: var(--text-secondary);">
+				<p data-i18n="pages.all_stations.controls.loading">Loading Stations Directory...</p>
+			</div>
+		</div>
+	</main>
+	
+	<!-- 3. Universal Footer Container -->
+	<div id="app-footer"></div>
 
-    <!-- 4. Page Script Module -->
-    <script type="module" src="./js/pages/all_stations.js"></script>
-    
+	<!-- 4. Page Script Module -->
+	<script type="module" src="./js/pages/all_stations.js"></script>
+	
 </body>
 </html>

@@ -257,17 +257,20 @@ export class RouteFinder {
 			totalTimeSeconds += trainTravelSeconds;
 		}
 
-		// ✅ प्रत्येक स्टेप के लिए असली टर्मिनल स्टेशन और प्लेटफॉर्म निकालें
+				// ✅ प्रत्येक स्टेप के लिए असली प्लेटफ़ॉर्म और टर्मिनल निकालें
 		let cumulativeSeconds = 0;
 		steps.forEach((step, idx) => {
-			const terminalId = this.getTerminalStationId(step.intermediateStations, step.line);
+			const stationIds = step.intermediateStations || [step.fromStation, step.toStation];
+			const nextHop = stationIds.length > 1 ? stationIds[1] : step.toStation;
+
+			const startStationObj = this.#stationData[step.fromStation];
+			const platInfo = this.getPlatformDetails(startStationObj, step.line, nextHop);
+			step.platformNo = platInfo.platNo;
+
+			const terminalId = platInfo.destination || this.getTerminalStationId(step.intermediateStations, step.line);
 			step.terminalStationId = terminalId;
 			step.terminalName = this.#getStationNames(terminalId);
 
-			const startStationObj = this.#stationData[step.fromStation];
-			step.platformNo = this.getInterchangePlatformNumber(startStationObj, step.line, terminalId);
-
-			const stationIds = step.intermediateStations || [step.fromStation, step.toStation];
 			const avgSecondsPerStation = stationIds.length > 1 ? (step.travelTimeSeconds / (stationIds.length - 1)) : 120;
 
 			step.stations = stationIds.map((stId, sIdx) => {
@@ -291,8 +294,10 @@ export class RouteFinder {
 			if (idx < steps.length - 1) {
 				const nextStep = steps[idx + 1];
 				const interchangeStation = this.#stationData[step.toStation];
-				const nextTerminalId = this.getTerminalStationId(nextStep.intermediateStations, nextStep.line);
-				step.nextPlatformNo = this.getInterchangePlatformNumber(interchangeStation, nextStep.line, nextTerminalId);
+				const nextStationIds = nextStep.intermediateStations || [nextStep.fromStation, nextStep.toStation];
+				const nextHopTarget = nextStationIds.length > 1 ? nextStationIds[1] : nextStep.toStation;
+				const nextPlatInfo = this.getPlatformDetails(interchangeStation, nextStep.line, nextHopTarget);
+				step.nextPlatformNo = nextPlatInfo.platNo;
 
 				cumulativeSeconds += (step.nextTransferSeconds || 0);
 			}
@@ -300,8 +305,9 @@ export class RouteFinder {
 
 		return { steps, walkways, totalTimeSeconds };
 	}
+
 	/**
-	 * लाइन की दिशा में अंतिम टर्मिनल स्टेशन (Line Terminal) खोजें
+	 * लाइन की दिशा में अंतिम टर्मिनल स्टेशन खोजें
 	 */
 	getTerminalStationId(stationIds, lineId) {
 		if (!stationIds || stationIds.length < 2) return "";
@@ -331,31 +337,56 @@ export class RouteFinder {
 		this.#terminalCache.set(cacheKey, terminalId);
 		return terminalId;
 	}
+
 	/**
-	 * इंटरचेंज स्टेशन के लिए सही प्लेटफॉर्म नंबर निकालें
+	 * ट्रेन रवाना होने की दिशा (nextStationId) के आधार पर सटीक प्लेटफ़ॉर्म निकालें
 	 */
-	getInterchangePlatformNumber(stationOrId, targetLineId, terminalStationId) {
+	getPlatformDetails(stationOrId, targetLineId, nextStationId = null) {
 		const station = typeof stationOrId === "string" ? this.#stationData?.[stationOrId] : stationOrId;
-		if (!station || !station.platforms) return "__";
-		const platforms = station.platforms;
-		const matchingPlatforms = [];
-		for (const [platNo, platInfo] of Object.entries(platforms)) {
+		if (!station || !station.platforms) return { platNo: "__", destination: "" };
+
+		const matching = [];
+		for (const [platNo, platInfo] of Object.entries(station.platforms)) {
 			if (platInfo.line === targetLineId && platInfo.is_open !== false) {
-				matchingPlatforms.push({ platNo, platInfo });
+				matching.push({ platNo, destination: platInfo.destination });
 			}
 		}
-		if (matchingPlatforms.length === 0) return "__";
-		if (matchingPlatforms.length === 1) return matchingPlatforms[0].platNo;
-		if (terminalStationId) {
-			const normalizedTerminalId = terminalStationId.toLowerCase().replace(/_/g, "");
-			for (const p of matchingPlatforms) {
-				const dest = (p.platInfo.destination || "").toLowerCase().replace(/_/g, "");
-				if (dest.includes(normalizedTerminalId) || normalizedTerminalId.includes(dest)) {
-					return p.platNo;
+
+		if (matching.length === 0) return { platNo: "__", destination: "" };
+		if (matching.length === 1) return { platNo: matching[0].platNo, destination: matching[0].destination || "" };
+
+		// यदि ट्रेन की अगली दिशा पता है, तो उस दिशा के ट्रैक पर पहला मैच खोजें
+		if (nextStationId && nextStationId !== station.id) {
+			const queue = [{ stId: nextStationId, dist: 1 }];
+			const visited = new Set([station.id, nextStationId]);
+			const found = [];
+
+			while (queue.length > 0) {
+				const { stId, dist } = queue.shift();
+				for (const p of matching) {
+					// जिस प्लेटफ़ॉर्म का डेस्टिनेशन आगे जाने वाली दिशा में पड़ता है, वही सही प्लेटफ़ॉर्म है
+					if (p.destination === stId) {
+						found.push({ platNo: p.platNo, destination: p.destination, dist });
+					}
+				}
+				const currObj = this.#stationData[stId];
+				if (!currObj || !currObj.neighbors) continue;
+				for (const n of currObj.neighbors) {
+					if (n.line === targetLineId && !visited.has(n.station)) {
+						visited.add(n.station);
+						queue.push({ stId: n.station, dist: dist + 1 });
+					}
 				}
 			}
+
+			if (found.length > 0) {
+				// जो डेस्टिनेशन रास्ते में सबसे पहले/सटीक मिलता है, उसे चुनें
+				found.sort((a, b) => a.dist - b.dist);
+				return { platNo: found[0].platNo, destination: found[0].destination || "" };
+			}
 		}
-		return matchingPlatforms[0].platNo;
+
+		return { platNo: matching[0].platNo, destination: matching[0].destination || "" };
 	}
 
 	/**

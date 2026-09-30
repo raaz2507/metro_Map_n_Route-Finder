@@ -6,8 +6,7 @@
 	   Aside / Floating Glassmorphic Sidebar
 	   ========================================================================= */
 	:root {
-		--recent-searches-width: 340px;  /* Recent Searches ki width */
-		--route-finder-width: 440px; 
+		--sidebar-width: 440px; /* 🎯 Single Source of Truth for ALL sidebar sections */
 	}
 
 	/* aside ko ek transparent wrapper banaya gaya hai (No background, No padding) */
@@ -27,11 +26,14 @@
 		flex-shrink: 1;
 		max-width: calc(100vw - 90px);
 		max-height: 100%;
+		position: relative;
 	}
 
-	   /* 1. Base Card Styling for all sections */
+	/* 1. Base Card Styling for all sections (Unified Common Width) */
 	.sidebar-section {
-		flex: 1 1 auto; 
+		width: min(var(--sidebar-width), calc(100vw - 95px));
+		max-width: min(var(--sidebar-width), calc(100vw - 95px));
+		flex: 0 0 auto; 
 		min-width: 0; 
 		display: flex;
 		flex-direction: column;
@@ -47,24 +49,15 @@
 		max-height: 100%;
 	}
 
-
-
-	/* =========================================================================
-   Sidebar Circular Glass Close Button (Single Button Approach)
-   ========================================================================= */
-
-	/* 1. Ensure aside is positioning context */
-	aside {
-		position: relative;
-	}
-
-	/* 2. Glassmorphic Circular Close Button */
+		/* =========================================================================
+	   Sidebar Circular Glass Close Button (Half-Out Top-Right & Red Danger Theme)
+	   ========================================================================= */
 	.sidebar-close-btn {
-		--btn-size: 28px;
+		--btn-size: 26px;
 		position: absolute;
-		top: calc(var(--btn-size) * -0.25);
-		right: calc(var(--btn-size) * -0.25);
-		z-index: calc(var(--z-sidebar) + 1);
+		top: calc(var(--btn-size) * -0.4);   /* 👈 आधा ऊपर बाहर (-10px) */
+		right: calc(var(--btn-size) * -0.4); /* 👈 आधा दाएँ बाहर (-10px) */
+		z-index: calc(var(--z-sidebar) + 2);
 
 		width: var(--btn-size);
 		height: var(--btn-size);
@@ -74,13 +67,15 @@
 		align-items: center;
 		justify-content: center;
 
-		background: rgba(var(--color-bg-base-rgb), var(--op-translucent, 0.5));
+		/* Clear All जैसी हल्की लाल (Danger) थीम */
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), 0.12);
 		backdrop-filter: blur(var(--backdrop-blur));
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
-		border: 1px solid var(--border-color);
-		color: var(--color-text-muted);
+		border: 1px solid rgba(var(--color-danger-rgb, 239, 68, 68), 0.35);
+		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 		
-		font-size: var(--fs-lg);
+		font-size: var(--fs-md);
 		line-height: 1;
 		cursor: pointer;
 
@@ -90,34 +85,30 @@
 					border-color var(--transition-smooth);
 	}
 
-	/* Hover effect: Smooth scale, subtle red glass fill & red icon */
 	.sidebar-close-btn:hover {
-		transform: scale(1.08);
-		background: rgba(239, 68, 68, 0.15);
-		border-color: rgba(239, 68, 68, 0.4);
-		color: #ef4444;
+		transform: scale(1.12);
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), 0.25);
+		border-color: rgba(var(--color-danger-rgb, 239, 68, 68), 0.6);
+		color: rgb(var(--color-danger-rgb, 239, 68, 68));
 	}
 
-	/* Active click micro-interaction */
 	.sidebar-close-btn:active {
 		transform: scale(0.94);
+		background: rgba(var(--color-danger-rgb, 239, 68, 68), 0.35);
 	}
 
-	/* Keyboard accessibility outline */
 	.sidebar-close-btn:focus-visible {
-		outline: 2px solid var(--color-primary-rgb, #3b82f6);
+		outline: 2px solid rgba(var(--color-danger-rgb, 239, 68, 68), 0.8);
 		outline-offset: 2px;
 	}
 
-	/* केवल Recent Searches कार्ड पर अंदरूनी पैडिंग */
+	/* केवल Recent Searches कार्ड पर अंदरूनी पैडिंग (अलग विड्थ हटा दी गई) */
 	#recent-searches {
-		width: min(var(--recent-searches-width), calc(100vw - 95px));
-		padding: var(--space-md);                /* केवल Recent Searches में 14px पैडिंग */
+		padding: var(--space-md);
 	}
 
-	/* 2. Route Finder Dynamic Height Overrides (Must come after .sidebar-section) */
+	/* Route Finder Dynamic Height Overrides (अलग विड्थ हटा दी गई) */
 	#route-finder {
-		width: min(var(--route-finder-width), calc(100vw - 95px));
 		flex: 0 1 auto;                          /* शुरुआत में केवल फ़ॉर्म जितना छोटा रहेगा */
 		height: auto;
 		overflow: visible;                       /* 👈 ड्रॉपडाउन को बाहर निकलने की अनुमति */
@@ -132,7 +123,7 @@
 
 	/* जब भी ड्रॉपडाउन खुला हो, कार्ड से बाहर ओवरफ्लो होने दे (No Clipping) */
 	#route-finder:has(.station-autocomplete-dropdown:not([hidden])) {
-		overflow: visible ;
+		overflow: visible;
 	}
 
 	/* Sidebar Sections Show/Hide */
@@ -142,37 +133,42 @@
 
 	/* ऑटो-हाइड नियम: जब कोई भी सेक्शन एक्टिव नहीं होगा, तो पूरा aside कंटेनर छुप जाएगा */
 	aside:not(:has(.sidebar-section.active)) {
-		display: none ;
+		display: none;
 	}
-	
 
-
+	/* =========================================================================
+	   📱 MOBILE & ANDROID RESPONSIVENESS
+	   ========================================================================= */
 	@media (max-width: 768px) {
 		aside {
 			flex-direction: column;
 			gap: var(--space-sm);
-			flex: 1;
-			width: 100%;
-			max-width: 100% ; /* 👈 380px ki limit hata di */
+			flex: 1 1 0;
+			min-width: 0;
+			width: auto;
+			max-width: 100%;
 			height: 100%;
 		}
 
-		/* 100% Bounded Height jisse scrollbar turant chalu hoga */
-				/* Mobile height overrides */
-		#recent-searches,
+		/* मोबाइल पर सभी सेक्शन्स एक समान विड्थ लेंगे और बॉक्स से बाहर नहीं फैलेंगे */
 		.sidebar-section {
-			width: 100% ;
-			max-width: 100% ;
+			width: 100%;
+			max-width: 100%;
 			min-width: 0;
+			box-sizing: border-box;
 			height: 100%;
 			flex: 1 1 auto;
 			overflow-y: auto;
 		}
 
-		/* Mobile Route Finder: Shuruat me fit-content, result aane par 100% height */
+		/* मोबाइल पर Recent Searches की पैडिंग कॉम्पैक्ट रखें ताकि जगह मिले */
+		#recent-searches {
+			padding: var(--space-sm);
+		}
+
+
+		/* Mobile Route Finder Height Transitions */
 		#route-finder {
-			width: 100%;
-			min-width: 100%;
 			height: auto;
 			flex: 0 1 auto;
 			overflow-y: auto;
@@ -185,11 +181,11 @@
 
 		/* Mobile Tab Toggles */
 		body[data-active-tab="map"] aside {
-			display: none ;
+			display: none;
 		}
 		
 		body[data-active-tab="recent"] aside {
-			display: flex ;
+			display: flex;
 		}
 	}
 }

@@ -239,14 +239,17 @@ class CenterClass {
 			return null;
 		}
 
-		// 2. फेयर इंजन से डायनामिक किराया निकालें
+		// 2. फेयर इंजन से डायनामिक किराया निकालें (रविवार व पीक/ऑफ-पीक सिंक सहित)
 		const fareData = this.#fareCalculator.calculateFare({
 			path: routeData.path,
 			totalDistanceMeters: routeData.totalDistanceMeters,
 			startId: routeData.source.id,
 			endId: routeData.destination.id,
 			segments: routeData.steps,
-			coachClass: coachClass
+			coachClass: coachClass,
+			journeyDate: options.journeyDate || new Date(),
+			isHoliday: options.isHoliday ?? false,
+			customTime: options.customTime || null
 		});
 
 		// 3. यदि कम से कम ट्रांसफर चुना है, तो तुलना के लिए सबसे छोटी दूरी का डेटा भी लाएं
@@ -416,6 +419,144 @@ class CenterClass {
 	getStationName(stationId, lang = "en") {
 		const station = this.getStationDetails(stationId);
 		return getStationName(station, lang);
+	}
+
+
+		// =========================================================================
+	// 📦 PACKS & OFFLINE ASSETS MANAGEMENT (PWA Cache & Android Sandboxed Storage)
+	// =========================================================================
+
+	/**
+	 * चेक करें कि क्या वर्तमान एनवायरनमेंट नेटिव ऐप (Android) है
+	 */
+	isNativePlatform() {
+		return Boolean(window.Capacitor?.isNativePlatform());
+	}
+
+	/**
+	 * चेक करें कि क्या ऐप PWA (Installed / Standalone) मोड में चल रही है
+	 */
+	isPwaMode() {
+		return window.matchMedia("(display-mode: standalone)").matches || 
+		       Boolean(window.navigator.standalone);
+	}
+
+	/**
+	 * भाषा पैक के फ़ाइल पाथ्स प्राप्त करें
+	 * @param {string} langCode - 'hi' आदि
+	 */
+	#getLanguagePackFiles(langCode) {
+		if (langCode === "hi") {
+			return [
+				`./lang/india/hi/all_stations.js`,
+				`./lang/india/hi/home.js`,
+				`./lang/india/hi/metro_fare.js`,
+				`./lang/india/hi/metro_lines.js`,
+				`./lang/india/hi/metro_map.js`,
+				`./lang/india/hi/metro_network.js`,
+				`./lang/india/hi/metro_QR_ticket.js`,
+				`./lang/india/hi/station_info.js`,
+				`./lang/india/hi/tvm_dispenser.js`
+			];
+		}
+		return [];
+	}
+
+	/**
+	 * चेक करें कि क्या कोई भाषा पैक ऑफ़लाइन उपलब्ध/इंस्टॉल है
+	 * @param {string} langCode 
+	 */
+	isLanguagePackInstalled(langCode) {
+		if (langCode === "en") return true; // Core builtin default
+		const uninstalled = JSON.parse(localStorage.getItem("metro_uninstalled_packs") || "[]");
+		return !uninstalled.includes(langCode);
+	}
+
+	/**
+	 * भाषा पैक को डाउनलोड करें (PWA: Cache Storage, Android: App Private Internal Storage)
+	 * @param {string} langCode 
+	 */
+	async downloadLanguagePack(langCode) {
+		if (langCode === "en") return true;
+
+		const files = this.#getLanguagePackFiles(langCode);
+
+		// 1. Android Native Platform: Capacitor Filesystem (Private App Data Directory)
+		if (this.isNativePlatform() && window.Capacitor?.Plugins?.Filesystem) {
+			const { Filesystem } = window.Capacitor.Plugins;
+			for (const fileUrl of files) {
+				const response = await fetch(fileUrl);
+				if (!response.ok) throw new Error(`HTTP_${response.status}`);
+				const content = await response.text();
+				const fileName = fileUrl.split("/").pop();
+				
+				await Filesystem.writeFile({
+					path: `packs/lang/${langCode}/${fileName}`,
+					data: content,
+					directory: "DATA", // App Internal Sandboxed Storage only
+					recursive: true
+				});
+			}
+		} 
+		// 2. PWA / Web Platform: Standard Browser Cache Storage
+		else if ("caches" in window) {
+			const cache = await caches.open("yatramarg-packs-v1");
+			await cache.addAll(files);
+		}
+
+		// अनइंस्टॉल लिस्ट से निकालें और सिंक करें
+		const uninstalled = JSON.parse(localStorage.getItem("metro_uninstalled_packs") || "[]");
+		const updated = uninstalled.filter(code => code !== langCode);
+		localStorage.setItem("metro_uninstalled_packs", JSON.stringify(updated));
+
+		eventBus.emit("LANGUAGE_PACK_CHANGED", { lang: langCode, installed: true });
+		return true;
+	}
+
+	/**
+	 * भाषा पैक को अनइंस्टॉल करें और स्टोरेज खाली करें
+	 * @param {string} langCode 
+	 */
+	async uninstallLanguagePack(langCode) {
+		if (langCode === "en") return false;
+
+		const files = this.#getLanguagePackFiles(langCode);
+
+		// 1. Android Native: सैंडबॉक्स स्टोरेज से डिलीट करें
+		if (this.isNativePlatform() && window.Capacitor?.Plugins?.Filesystem) {
+			const { Filesystem } = window.Capacitor.Plugins;
+			try {
+				await Filesystem.rmdir({
+					path: `packs/lang/${langCode}`,
+					directory: "DATA",
+					recursive: true
+				});
+			} catch (e) {
+				console.warn("[CenterClass] Error deleting native pack dir:", e);
+			}
+		}
+		// 2. PWA / Web: Cache Storage से डिलीट करें
+		else if ("caches" in window) {
+			const cache = await caches.open("yatramarg-packs-v1");
+			for (const fileUrl of files) {
+				await cache.delete(fileUrl);
+			}
+		}
+
+		// अनइंस्टॉल लिस्ट में मार्क करें
+		const uninstalled = new Set(JSON.parse(localStorage.getItem("metro_uninstalled_packs") || "[]"));
+		uninstalled.add(langCode);
+		localStorage.setItem("metro_uninstalled_packs", JSON.stringify([...uninstalled]));
+
+		// यदि हटाई गई भाषा अभी एक्टिव थी, तो सुरक्षित रूप से 'en' पर स्विच करें
+		const currentLang = localStorage.getItem("app-lang") || "en";
+		if (currentLang === langCode) {
+			const { appStateStore } = await import("./app-state-store.js");
+			await appStateStore.setState({ currentLang: "en" });
+		}
+
+		eventBus.emit("LANGUAGE_PACK_CHANGED", { lang: langCode, installed: false });
+		return true;
 	}
 }
 

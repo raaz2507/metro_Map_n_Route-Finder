@@ -127,10 +127,14 @@ export class MetroMap {
 		// prettier-ignore
 		if (!this.#elemts.track_line_legend) {
 			const legendPanelElemtMap = {
-				// 0. Legend Toggle Button
-				legendToggleBtn: { type: "button", cls: "metro-btn-overlay", html_con: "Legend", },
+				// 0. Legend Toggle Button with data-i18n
+				legendToggleBtn: { 
+					type: "button", 
+					cls: "metro-btn-overlay", 
+					html_con: `<span data-i18n="pages.home.map.legend">Legend</span>` 
+				},
 
-				// 0.1 Clear Route Highlight Overlay Button (Legend button ke left me align)
+				// 0.1 Clear Route Highlight Overlay Button
 				clearRouteBtn: { 
 					type: "button", 
 					id: "clearRouteHighlightBtn", 
@@ -144,18 +148,18 @@ export class MetroMap {
 				// 1. Main Panel Wrapper
 				legendPanel: { type: "div", cls: "legend-panel" },
 				// Main Header
-				mainHeader: { type: "h2", html_con: "Legend", parent: "legendPanel" },
+				mainHeader: { type: "h2", html_con: `<span data-i18n="pages.home.map.legend">Legend</span>`, parent: "legendPanel" },
 				// 2. Section: Metro Track Lines
 				trackSection: { type: "div", cls: "legend-section", parent: "legendPanel" },
-				trackHeader: { type: "h3", html_con: "Metro Track Lines", parent: "trackSection" },
+				trackHeader: { type: "h3", html_con: `<span data-i18n="pages.home.map.metroTrackLines">Metro Track Lines</span>`, parent: "trackSection" },
 				track_line_legend: { type: "ul", id: "track_line_legend", parent: "trackSection" },
 				// 3. Section: Station Type
 				stationSection: { type: "div", cls: "legend-section", parent: "legendPanel" },
-				stationHeader: { type: "h3", html_con: "Station Type", parent: "stationSection" },
+				stationHeader: { type: "h3", html_con: `<span data-i18n="pages.home.map.stationType">Station Type</span>`, parent: "stationSection" },
 				station_type_legend: { type: "ul", id: "station_type_legend", parent: "stationSection" },
 				// 4. Section: Track & Station Status
 				statusSection: { type: "div", cls: "legend-section", parent: "legendPanel" },
-				statusHeader: { type: "h3", html_con: "Track & Station Status", parent: "statusSection" },
+				statusHeader: { type: "h3", html_con: `<span data-i18n="pages.home.map.trackStatus">Track & Station Status</span>`, parent: "statusSection" },
 				status_legend: { type: "ul", id: "status_legend", parent: "statusSection" }
 			};
 

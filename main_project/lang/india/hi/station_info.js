@@ -5,13 +5,15 @@ export default {
 		desc: "स्टेशन की संपूर्ण जानकारी, गेट, सुविधाएं, पार्किंग दरें, प्लेटफ़ॉर्म दिशा और फीडर कनेक्टिविटी: {name}।"
 	},
 	nav: {
-		backBtn: "⬅️ सभी स्टेशनों पर वापस जाएं"
+		backBtn: "⬅️ सभी स्टेशनों पर वापस जाएं",
+		backBtnAria: "स्टेशन डायरेक्टरी पर वापस लौटें"
 	},
 	hero: {
 		stationCode: "स्टेशन कोड",
 		layout: "लेआउट",
 		noDescription: "इस स्टेशन के लिए कोई विस्तृत विवरण उपलब्ध नहीं है।",
 		openInMaps: "📍 गूगल मैप्स पर देखें",
+		openInMapsAria: "गूगल मैप्स पर स्टेशन की लोकेशन देखें",
 		plusCode: "प्लस कोड",
 		coordinates: "निर्देशांक",
 		connectedLines: "🚆 जुड़ी हुई मेट्रो लाइन्स"
@@ -39,6 +41,7 @@ export default {
 	},
 	gates: {
 		title: "🚪 स्टेशन प्रवेश व निकास द्वार",
+		gateNum: "गेट नं. {num}",
 		divyangAccessible: "♿ दिव्यांग सुलभ",
 		standardAccess: "🚶 मानक पहुंच",
 		open: "खुला है",
@@ -63,7 +66,23 @@ export default {
 		helmetDeposit: "हेलमेट डिपॉज़िट",
 		bicycleStand: "साइकिल स्टैंड",
 		noParking: "🚫 इस स्टेशन पर कोई अधिकृत पार्किंग उपलब्ध नहीं है।",
-		noTariff: "मानक मेट्रो पार्किंग दरें लागू हैं।"
+		noTariff: "मानक मेट्रो पार्किंग दरें लागू हैं।",
+		authorisedNoticeTitle: "🅿️ अधिकृत मल्टीमॉडल स्टेशन पार्किंग ({state})",
+		authorisedNoticeDesc: "स्वचालित स्मार्ट टिकटिंग, सीसीटीवी निगरानी और दिव्यांगों के लिए आरक्षित स्लॉट के साथ 24x7 उपलब्ध। नीचे दर कार्ड देखें।",
+		passes: {
+			dayOnly: "डे पास",
+			full247: "24/7 पास",
+			tariffA: "सामान्य पास",
+			tariffB: "एग्जीक्यूटिव पास"
+		},
+		duration: {
+			upTo: "{time} तक",
+			range: "{from} से {to}",
+			day: "{count} दिन",
+			days: "{count} दिन",
+			hrs: "{count} घंटे",
+			min: "{count} मिनट"
+		}
 	},
 	verticalTransit: {
 		title: "🛗 लिफ्ट व स्वचालित सीढ़ियां (वर्टिकल ट्रांजिट)",
@@ -99,6 +118,7 @@ export default {
 		title: "🗺️ स्टेशन बहु-स्तरीय नक़्शा व लेआउट",
 		viewFloorPlan: "नक़्शा देखें",
 		downloadPdf: "PDF लेआउट डाउनलोड करें",
+		downloadPdfAria: "स्टेशन लेआउट का बहु-स्तरीय PDF डाउनलोड करें",
 		noLayout: "स्टेशन संरचनात्मक नक़्शा अपलोड नहीं है।"
 	},
 	nearby: {
@@ -107,5 +127,9 @@ export default {
 		transit: "🚌 {min} मिनट वाहन से",
 		directFob: "सीधा फुट-ओवर ब्रिज जुड़ाव",
 		noNearby: "इस स्टेशन के लिए कोई नजदीकी स्थल दर्ज नहीं है।"
+	},
+	notFound: {
+		title: "⚠️ स्टेशन नहीं मिला",
+		message: "अनुरोधित स्टेशन कोड/आईडी \"{stationId}\" हमारे मेट्रो डायरेक्टरी में नहीं मिला।"
 	}
 };

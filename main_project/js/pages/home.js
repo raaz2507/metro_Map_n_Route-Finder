@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 	const pwaManager = new PwaManager();
 	pwaManager.init();
 
+	FooterComponent.render();
     await HeaderComponent.render('home');
-    FooterComponent.render();
     new HomePageController();
 	const settingsView = new SettingsView();
 	settingsView.init();
@@ -262,7 +262,7 @@ class HomePageController {
 		const routeInfo = centerClass.searchRoute(startVal, endVal, { routeType });
 		if (!routeInfo) {
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.sidebar.findroute.noRouteFound"),
+				message: i18n.t("pages.home.toast.route.noRoute"),
 				type: "error"
 			});
 			return;
@@ -307,7 +307,7 @@ class HomePageController {
 	#handleShareRoute() {
 		if (!this.#currentRouteInfo?.path?.length) {
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.shareModal.noRouteToast") || "Please find a route first to share.",
+				message: i18n.t("pages.home.toast.alarm.noRoute"),
 				type: "warning"
 			});
 			return;

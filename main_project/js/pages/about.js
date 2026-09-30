@@ -4,11 +4,14 @@
  */
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
+import { appStateStore } from "../core/app-state-store.js";
+import i18n from "../core/i18n.js";
 
 class AboutController {
 	// Private DOM handles
 	#dom = {};
 	#toastTimer = null;
+	#unsubscribeLang = null;
 
 	/**
 	 * 🚀 Initialize Universal Layout & About Interactions
@@ -26,6 +29,18 @@ class AboutController {
 
 		// 4. Bind Interactive Feedback Modal
 		this.#bindFeedbackModal();
+
+		// 5. Subscribe to Dynamic Language Switch
+		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
+			// i18n automatic single-pass DOM applies on language toggle
+		});
+	}
+
+	destroy() {
+		if (this.#unsubscribeLang) {
+			this.#unsubscribeLang();
+			this.#unsubscribeLang = null;
+		}
 	}
 
 	/**
@@ -54,117 +69,85 @@ class AboutController {
 	 * 🎯 Bind Micro-Interactions & Keyboard Accessibility
 	 */
 	#bindInteractions() {
-		// Smooth subtle tilt effect on hover for Bento Cards
 		this.#dom.bentoCards.forEach((card) => {
 			card.setAttribute("tabindex", "0");
 		});
 
-		// Accessible button feedback
-		this.#dom.communityBtns.forEach((btn) => {
-			btn.addEventListener("keydown", (e) => {
-				if (e.key === "Enter" || e.key === " ") {
-					btn.click();
-				}
+		this.#dom.metricBoxes.forEach((box) => {
+			box.addEventListener("mouseenter", () => {
+				box.style.transform = "translateY(-4px)";
+			});
+			box.addEventListener("mouseleave", () => {
+				box.style.transform = "translateY(0)";
 			});
 		});
 	}
 
 	/**
-	 * 📬 Bind Interactive In-App Feedback & Suggestion Modal
+	 * 💬 Bind Feedback Modal, Copy & Mailto Triggers
 	 */
 	#bindFeedbackModal() {
 		const {
-			feedbackModal,
+			openFeedbackBtns,
 			closeFeedbackModal,
-			feedbackForm,
-			feedbackCategory,
-			feedbackCity,
-			feedbackDetails,
+			feedbackModal,
 			copyFeedbackBtn,
-			openFeedbackBtns
+			submitFeedbackEmailBtn,
+			feedbackDetails
 		} = this.#dom;
 
-		if (!feedbackModal) return;
-
-		// 1. Open modal from triggers
 		openFeedbackBtns.forEach((btn) => {
 			btn.addEventListener("click", (e) => {
-				// Prevent double trigger if clicking directly on inner button
-				if (btn.classList.contains("feedback-tile") && e.target.closest(".open-feedback-btn")) {
-					return;
-				}
-				const category = btn.dataset.category || btn.closest("[data-category]")?.dataset.category || "route_issue";
-				if (feedbackCategory) {
-					feedbackCategory.value = category;
-				}
+				e.preventDefault();
 				this.#openModal();
-			});
-
-			// Keyboard Enter / Space support
-			btn.addEventListener("keydown", (e) => {
-				if (e.key === "Enter" || e.key === " ") {
-					e.preventDefault();
-					const category = btn.dataset.category || btn.closest("[data-category]")?.dataset.category || "route_issue";
-					if (feedbackCategory) {
-						feedbackCategory.value = category;
-					}
-					this.#openModal();
-				}
 			});
 		});
 
-		// 2. Close modal listeners
 		closeFeedbackModal?.addEventListener("click", () => this.#closeModal());
 
-		feedbackModal.addEventListener("click", (e) => {
+		feedbackModal?.addEventListener("click", (e) => {
 			if (e.target === feedbackModal) {
 				this.#closeModal();
 			}
 		});
 
 		document.addEventListener("keydown", (e) => {
-			if (e.key === "Escape" && feedbackModal.classList.contains("active")) {
+			if (e.key === "Escape" && feedbackModal?.classList.contains("active")) {
 				this.#closeModal();
 			}
 		});
 
-		// 3. Copy formatted report to clipboard
-		copyFeedbackBtn?.addEventListener("click", () => {
+		copyFeedbackBtn?.addEventListener("click", async () => {
 			const details = feedbackDetails?.value?.trim();
 			if (!details) {
-				this.#showToast(this.#getI18nText("about.feedbackModal.requireDetails", "Please provide description details first."));
+				this.#showToast(i18n.t("about.feedbackModal.requireDetails"));
 				feedbackDetails?.focus();
 				return;
 			}
 
-			const reportText = this.#generateReportText();
-			this.#copyToClipboard(reportText);
-			this.#showToast(this.#getI18nText("about.feedbackModal.copiedToast", "Report copied to clipboard!"));
+			const reportPayload = this.#generateReportText();
+			await this.#copyToClipboard(reportPayload);
+			this.#showToast(i18n.t("about.feedbackModal.copiedToast"));
 		});
 
-		// 4. Form Submit via Email Client
-		feedbackForm?.addEventListener("submit", (e) => {
+		submitFeedbackEmailBtn?.addEventListener("click", (e) => {
 			e.preventDefault();
 			const details = feedbackDetails?.value?.trim();
 			if (!details) {
-				this.#showToast(this.#getI18nText("about.feedbackModal.requireDetails", "Please provide description details first."));
+				this.#showToast(i18n.t("about.feedbackModal.requireDetails"));
 				feedbackDetails?.focus();
 				return;
 			}
 
-			const reportText = this.#generateReportText();
-			const categoryText = feedbackCategory?.options[feedbackCategory?.selectedIndex]?.text || "Transit Report";
-			const city = feedbackCity?.value?.trim() || "General";
-			const subject = `[YatraMarg Feedback] ${categoryText} - ${city}`;
+			const category = this.#dom.feedbackCategory?.value || "Feedback";
+			const subject = encodeURIComponent(`[YatraMarg Transit Report] - ${category}`);
+			const body = encodeURIComponent(this.#generateReportText());
+			const mailtoUrl = `mailto:support@yatramarg.in?subject=${subject}&body=${body}`;
 
-			const mailtoUrl = `mailto:raaz2507@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(reportText)}`;
-
-			this.#showToast(this.#getI18nText("about.feedbackModal.sendingToast", "Opening your email client..."));
-			window.location.href = mailtoUrl;
-
+			this.#showToast(i18n.t("about.feedbackModal.sendingToast"));
 			setTimeout(() => {
-				this.#closeModal();
-			}, 1200);
+				window.location.href = mailtoUrl;
+			}, 400);
 		});
 	}
 
@@ -174,7 +157,7 @@ class AboutController {
 		feedbackModal.classList.add("active");
 		feedbackModal.setAttribute("aria-hidden", "false");
 		document.body.style.overflow = "hidden";
-		setTimeout(() => feedbackDetails?.focus(), 120);
+		setTimeout(() => feedbackDetails?.focus(), 150);
 	}
 
 	#closeModal() {
@@ -239,16 +222,6 @@ class AboutController {
 		this.#toastTimer = setTimeout(() => {
 			toast.classList.remove("active");
 		}, 3200);
-	}
-
-	#getI18nText(key, fallback) {
-		const currentLang = localStorage.getItem("language") || "en";
-		if (currentLang === "hi") {
-			if (key.includes("copiedToast")) return "रिपोर्ट क्लिपबोर्ड पर कॉपी हो गई!";
-			if (key.includes("sendingToast")) return "ईमेल क्लाइंट खोला जा रहा है...";
-			if (key.includes("requireDetails")) return "कृपया पहले विवरण दर्ज करें।";
-		}
-		return fallback;
 	}
 }
 

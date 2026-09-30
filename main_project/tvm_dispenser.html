@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-	<title>Metro TVM • Automatic Ticket Dispenser</title>
+	<title data-i18n-title-tag="tvmDispenser.meta.title">Metro TVM • Automatic Ticket Dispenser | YatraMarg</title>
 	<link rel="stylesheet" href="./css/pages/tvm_dispenser.css">
 </head>
 <body>
@@ -28,10 +28,10 @@
 		<section class="tvm-kiosk-unit" id="kiosk-unit">
 			<div class="tvm-hood">
 				<div class="tvm-hood-meta">
-					<span class="tvm-device-id">TVM TERMINAL #204</span>
-					<div class="tvm-status-leds" title="Machine Status: Power & Activity">
-						<div class="hardware-led led-pwr" title="Power / Ready"></div>
-						<div class="hardware-led led-act" title="Print Activity"></div>
+					<span class="tvm-device-id" data-i18n="tvmDispenser.kiosk.deviceId">TVM TERMINAL #204</span>
+					<div class="tvm-status-leds" data-i18n-title="tvmDispenser.kiosk.statusLed" title="Machine Status: Power & Activity">
+						<div class="hardware-led led-pwr" data-i18n-title="tvmDispenser.kiosk.powerReady" title="Power / Ready"></div>
+						<div class="hardware-led led-act" data-i18n-title="tvmDispenser.kiosk.printActivity" title="Print Activity"></div>
 					</div>
 				</div>
 
@@ -39,15 +39,15 @@
 				<div class="tvm-hood-actions">
 					
 					<!-- 🔊 Sound Toggle Button -->
-					<div class="sound-toggle-wrapper" title="Toggle Printer Sound">
-						<button type="button" id="sound-toggle-btn" class="tvm-round-btn">
+					<div class="sound-toggle-wrapper" data-i18n-title="tvmDispenser.aria.soundToggle" title="Toggle Printer Sound">
+						<button type="button" id="sound-toggle-btn" class="tvm-round-btn" data-i18n-aria-label="tvmDispenser.aria.soundToggle" aria-label="Toggle Printer Sound">
 							<span>🔊</span>
 						</button>
 					</div>
 
 					<div class="hood-buttons-group">
 						<!-- Settings Button -->
-						<button type="button" class="tvm-round-btn hood-settings-btn" id="btn-tvm-settings" aria-label="Settings" title="Machine Settings">
+						<button type="button" class="tvm-round-btn hood-settings-btn" id="btn-tvm-settings" data-i18n-aria-label="tvmDispenser.aria.settings" data-i18n-title="tvmDispenser.aria.settings" aria-label="Machine Settings" title="Machine Settings">
 							<img src="./assets/icons/setting.svg" alt="Settings" />
 						</button>
 
@@ -99,7 +99,7 @@
 				</div>
 				<div class="chassis-feet-bar">
 					<div class="chassis-foot"></div>
-					<span class="chassis-serial">DMRC-TVM-DISPENSER • STAGE-04</span>
+					<span class="chassis-serial" data-i18n="tvmDispenser.kiosk.chassisSerial">DMRC-TVM-DISPENSER • STAGE-04</span>
 					<div class="chassis-foot"></div>
 				</div>
 			</div>
@@ -113,34 +113,34 @@
 						<span>⚙️</span>
 						<span data-i18n="tvmDispenser.settingsModal.title">TICKET ISSUANCE PANEL</span>
 					</h2>
-					<button type="button" id="btn-close-settings" class="btn-close-modal" aria-label="Close">✖</button>
+					<button type="button" id="btn-close-settings" class="btn-close-modal" data-i18n-aria-label="tvmDispenser.aria.close" aria-label="Close">✖</button>
 				</div>
 
 				<form id="ticket-form">
 					<div class="form-grid">
 						<div class="form-group">
 							<label class="form-label" data-i18n="tvmDispenser.settingsModal.form.labelPassenger">Passenger Name</label>
-							<input type="text" id="input-passenger" class="form-input" placeholder="e.g. VIP VIPIN">
+							<input type="text" id="input-passenger" class="form-input" data-i18n-placeholder="tvmDispenser.placeholders.passenger" placeholder="e.g. VIP VIPIN">
 						</div>
 
 						<div class="form-group">
 							<label class="form-label" data-i18n="tvmDispenser.settingsModal.form.labelFrom">Origin (From)</label>
-							<input type="text" id="input-from" class="form-input" placeholder="e.g. NOIDA SEC 15">
+							<input type="text" id="input-from" class="form-input" data-i18n-placeholder="tvmDispenser.placeholders.from" placeholder="e.g. NOIDA SEC 15">
 						</div>
 
 						<div class="form-group">
 							<label class="form-label" data-i18n="tvmDispenser.settingsModal.form.labelTo">Destination (To)</label>
-							<input type="text" id="input-to" class="form-input" placeholder="e.g. RAJIV CHOWK">
+							<input type="text" id="input-to" class="form-input" data-i18n-placeholder="tvmDispenser.placeholders.to" placeholder="e.g. RAJIV CHOWK">
 						</div>
 
 						<div class="form-group">
 							<label class="form-label" data-i18n="tvmDispenser.settingsModal.form.labelFare">Fare (Price)</label>
-							<input type="text" id="input-price" class="form-input" placeholder="e.g. ₹50.00">
+							<input type="text" id="input-price" class="form-input" data-i18n-placeholder="tvmDispenser.placeholders.price" placeholder="e.g. ₹50.00">
 						</div>
 
 						<div class="form-group">
 							<label class="form-label" for="input-ticket-num" data-i18n="tvmDispenser.settingsModal.form.labelTicketNum">Ticket Number / ID</label>
-							<input type="text" id="input-ticket-num" class="form-input" value="T1 0123456789-A" placeholder="Leave empty for default">
+							<input type="text" id="input-ticket-num" class="form-input" value="T1 0123456789-A" data-i18n-placeholder="tvmDispenser.placeholders.ticketNum" placeholder="Leave empty for default">
 						</div>
 
 						<div class="form-group">

@@ -1,28 +1,57 @@
 {
-	"name": "Metro Map & Route Finder",
-	"short_name": "MetroRoute",
-	"description": "Find the best metro routes, ticket fares, travel time, and intermediate stations easily.",
-	"start_url": "./index.html",
+	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
+	"name": "YatraMarg - Metro Map & Route Finder",
+	"short_name": "YatraMarg",
+	"id": "/",
+	"description": "Smart, offline-first transit navigation, shortest route finder, and fare calculator for Indian metro networks.",
+	"start_url": "index.html",
+	"scope": ".",
 	"display": "standalone",
 	"background_color": "#0f172a",
 	"theme_color": "#0f172a",
 	"orientation": "portrait-primary",
+	"categories": ["navigation", "travel", "utilities"],
 	"icons": [
 		{
-			"src": "./assets/images/site_icon.svg",
+			"src": "assets/images/site_icon.svg",
 			"sizes": "any",
 			"type": "image/svg+xml",
 			"purpose": "any maskable"
 		},
 		{
-			"src": "./assets/app-icons/icon-192.png",
+			"src": "assets/app-icons/icon-192.png",
 			"sizes": "192x192",
-			"type": "image/png"
+			"type": "image/png",
+			"purpose": "any"
 		},
 		{
-			"src": "./assets/app-icons/icon-512.png",
+			"src": "assets/app-icons/icon-512.png",
 			"sizes": "512x512",
-			"type": "image/png"
+			"type": "image/png",
+			"purpose": "any"
+		}
+	],
+	"shortcuts": [
+		{
+			"name": "Route Finder",
+			"short_name": "Routes",
+			"description": "Find shortest metro routes and fares",
+			"url": "index.html#route-finder",
+			"icons": [{ "src": "assets/app-icons/icon-192.png", "sizes": "192x192" }]
+		},
+		{
+			"name": "QR Ticket Wallet",
+			"short_name": "Tickets",
+			"description": "Open active metro ticket passes",
+			"url": "metro_QR_ticket.html",
+			"icons": [{ "src": "assets/app-icons/icon-192.png", "sizes": "192x192" }]
+		},
+		{
+			"name": "Transit Networks",
+			"short_name": "Networks",
+			"description": "Explore Indian transit cities and lines",
+			"url": "TransitNetworkSelector.html",
+			"icons": [{ "src": "assets/app-icons/icon-192.png", "sizes": "192x192" }]
 		}
 	]
 }

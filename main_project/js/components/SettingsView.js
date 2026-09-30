@@ -199,17 +199,17 @@ class AlarmSettingsController {
 
 			if (result.success) {
 				eventBus.emit("SHOW_TOAST", {
-					message: i18n.t("pages.home.sidebar.appSettings.alarm.vibe.vibeSuccess") || "📳 Vibration triggered! (Check touch haptics if not felt)",
-					type: "success"
+					message: i18n.t("pages.home.toast.settings.vibeSuccess"),
+					type: "info"
 				});
 			} else if (result.reason === "BLOCKED_BY_DEVICE") {
 				eventBus.emit("SHOW_TOAST", {
-					message: i18n.t("pages.home.sidebar.appSettings.alarm.vibe.vibeBlocked") || "⚠️ Vibration blocked. Please check phone Silent/DND mode or Haptics setting.",
-					type: "error"
+					message: i18n.t("pages.home.toast.settings.vibeBlocked"),
+					type: "warning"
 				});
 			} else {
 				eventBus.emit("SHOW_TOAST", {
-					message: i18n.t("pages.home.sidebar.appSettings.alarm.vibe.unsupported") || "📳 Haptic vibration is only supported on mobile devices (Android/PWA)",
+					message: i18n.t("pages.home.toast.settings.vibeUnsupported"),
 					type: "warning"
 				});
 			}
@@ -447,6 +447,7 @@ export class SettingsView {
 		this.#controllers.set("alarm", new AlarmSettingsController());
 		this.#controllers.set("map", new MapSettingsController());
 		this.#controllers.set("backup", new BackupSettingsController());
+		this.#controllers.set("packs", new PacksSettingsController());
 	}
 
 	/**
@@ -601,7 +602,10 @@ class BackupSettingsController {
 				return;
 			} catch (err) {
 				console.error("[Backup] Download to Documents failed:", err);
-				eventBus.emit("SHOW_TOAST", { message: "❌ Failed to save in Documents.", type: "error" });
+				eventBus.emit("SHOW_TOAST", { 
+					message: i18n.t("pages.home.toast.settings.saveFailed"), 
+					type: "error" 
+				});
 				return;
 			}
 		}
@@ -639,7 +643,10 @@ class BackupSettingsController {
 					return;
 				}
 				console.error("[Backup] Share failed:", err);
-				eventBus.emit("SHOW_TOAST", { message: "❌ Failed to share backup.", type: "error" });
+				eventBus.emit("SHOW_TOAST", { 
+					message: i18n.t("pages.home.toast.settings.shareFailed"), 
+					type: "error" 
+				});
 				return;
 			}
 		}
@@ -671,10 +678,12 @@ class BackupSettingsController {
 		a.click();
 		document.body.removeChild(a);
 		URL.revokeObjectURL(url);
-		eventBus.emit("SHOW_TOAST", { message: "✅ Backup downloaded successfully!", type: "success" });
+		eventBus.emit("SHOW_TOAST", { 
+			message: i18n.t("pages.home.toast.settings.backupSuccess"), 
+			type: "success" 
+		});
+
 	}
-
-
 
 	// -------------------------------------------------------------------------
 	// 🖼️ CUSTOM UI MODAL PROMPT (No HTML/CSS changes needed)
@@ -738,7 +747,10 @@ class BackupSettingsController {
 		if (!file) return;
 
 		if (file.size > 1024 * 1024) {
-			eventBus.emit("SHOW_TOAST", { message: "❌ Backup must be under 1MB.", type: "error" });
+			eventBus.emit("SHOW_TOAST", { 
+				message: i18n.t("pages.home.toast.settings.restoreSizeLimit"), 
+				type: "error" 
+			});
 			event.target.value = "";
 			return;
 		}
@@ -792,11 +804,17 @@ class BackupSettingsController {
 				}
 			}
 
-			eventBus.emit("SHOW_TOAST", { message: "✅ Backup restored successfully! Reloading...", type: "success" });
+						eventBus.emit("SHOW_TOAST", { 
+				message: i18n.t("pages.home.toast.settings.restoreSuccess"), 
+				type: "success" 
+			});
 			setTimeout(() => window.location.reload(), 1500);
 
 		} catch (error) {
-			eventBus.emit("SHOW_TOAST", { message: "❌ Invalid or corrupted backup file.", type: "error" });
+			eventBus.emit("SHOW_TOAST", { 
+				message: i18n.t("pages.home.toast.settings.restoreInvalid"), 
+				type: "error" 
+			});
 		} finally {
 			event.target.value = "";
 		}
@@ -819,6 +837,187 @@ class BackupSettingsController {
 			}
 		} catch (e) {}
 		return importedValueStr;
+	}
+
+	destroy() {
+		this.#abortController?.abort();
+	}
+}
+
+
+// =============================================================================
+// 4. 📦 PACKS (LANGUAGES & THEMES) SUB-CONTROLLER
+// =============================================================================
+class PacksSettingsController {
+	#elements = {};
+	#abortController = null;
+
+	init() {
+		this.#abortController = new AbortController();
+		this.#queryElements();
+		this.#renderPlatformNotice();
+		this.#renderLanguages();
+		this.#renderThemes();
+		this.#bindEvents();
+	}
+
+	#queryElements() {
+		this.#elements = {
+			platformNotice: document.getElementById("packsPlatformNotice"),
+			langContainer: document.getElementById("packsLangContainer"),
+			themeContainer: document.getElementById("packsThemeContainer")
+		};
+	}
+
+	#renderPlatformNotice() {
+		const isNative = centerClass.isNativePlatform();
+		const isPwa = centerClass.isPwaMode();
+		// सिर्फ सामान्य वेब ब्राउज़र पर नोटिस दिखाएं, ऐप/PWA पर छुपाएं
+		if (this.#elements.platformNotice) {
+			this.#elements.platformNotice.hidden = (isNative || isPwa);
+		}
+	}
+
+	#renderLanguages() {
+		const container = this.#elements.langContainer;
+		if (!container) return;
+
+		// i18n के LANGUAGE_CATEGORIES से सभी भाषाएं उठाएं (Zero Hardcoding!)
+		const categories = i18n.LANGUAGE_CATEGORIES || [];
+		const isNativeOrPwa = centerClass.isNativePlatform() || centerClass.isPwaMode();
+
+		let html = "";
+
+		categories.forEach(category => {
+			category.languages.forEach(lang => {
+				const isCore = (lang.code === "en");
+				const isInstalled = centerClass.isLanguagePackInstalled(lang.code);
+				const approxSize = lang.code === "hi" ? "140" : "100";
+
+				html += `
+					<div class="pack-item-row" data-lang-code="${lang.code}">
+						<div class="settings-label-wrapper">
+							<span class="settings-label">${lang.flag} ${lang.nativeName} (${lang.label})</span>
+							<span class="pack-meta-text">
+								${isCore ? i18n.t("pages.home.settings.packs.coreBuiltin") : `${category.name} • ${i18n.t("pages.home.settings.packs.sizeApprox", { size: approxSize })}`}
+							</span>
+						</div>
+						<div class="pack-action-wrapper">
+							${isCore ? `
+								<span class="pack-status-badge is-installed" data-i18n="pages.home.settings.packs.installed">${i18n.t("pages.home.settings.packs.installed")}</span>
+							` : `
+								<button type="button" class="btn-settings-action btn-pack-download ${isInstalled ? "is-hidden" : ""}" data-action="download" data-lang="${lang.code}">
+									<img src="./assets/icons/download.svg" width="14" height="14" alt="" aria-hidden="true" />
+									<span data-i18n="pages.home.settings.packs.downloadBtn">${i18n.t("pages.home.settings.packs.downloadBtn")}</span>
+								</button>
+								<button type="button" class="btn-settings-action btn-pack-uninstall ${!isInstalled ? "is-hidden" : ""}" data-action="uninstall" data-lang="${lang.code}">
+									<img src="./assets/icons/trash-can-solid-full.svg" width="14" height="14" alt="" aria-hidden="true" />
+									<span data-i18n="pages.home.settings.packs.uninstallBtn">${i18n.t("pages.home.settings.packs.uninstallBtn")}</span>
+								</button>
+							`}
+						</div>
+					</div>
+				`;
+			});
+		});
+
+		container.innerHTML = html;
+	}
+
+	#renderThemes() {
+		const container = this.#elements.themeContainer;
+		if (!container) return;
+
+		container.innerHTML = `
+			<div class="pack-item-row">
+				<div class="settings-label-wrapper">
+					<span class="settings-label">🌗 Classic Light & Dark</span>
+					<span class="pack-meta-text" data-i18n="pages.home.settings.packs.coreBuiltin">${i18n.t("pages.home.settings.packs.coreBuiltin")}</span>
+				</div>
+				<div class="pack-action-wrapper">
+					<span class="pack-status-badge is-installed" data-i18n="pages.home.settings.packs.installed">${i18n.t("pages.home.settings.packs.installed")}</span>
+				</div>
+			</div>
+			<div class="pack-item-row pack-item--disabled">
+				<div class="settings-label-wrapper">
+					<span class="settings-label">⚡ Cyberpunk & Retro Pack</span>
+					<span class="pack-meta-text" data-i18n="pages.home.settings.packs.themeComingSoon">${i18n.t("pages.home.settings.packs.themeComingSoon")}</span>
+				</div>
+				<div class="pack-action-wrapper">
+					<button type="button" class="btn-settings-action" disabled>
+						<img src="./assets/icons/download.svg" width="14" height="14" alt="" aria-hidden="true" />
+						<span data-i18n="pages.home.settings.packs.downloadBtn">${i18n.t("pages.home.settings.packs.downloadBtn")}</span>
+					</button>
+				</div>
+			</div>
+		`;
+	}
+
+	#bindEvents() {
+		const signal = this.#abortController.signal;
+
+		this.#elements.langContainer?.addEventListener("click", async (e) => {
+			const btn = e.target.closest("button[data-action]");
+			if (!btn || btn.disabled) return;
+
+			const action = btn.dataset.action;
+			const langCode = btn.dataset.lang;
+			const row = btn.closest(".pack-item-row");
+
+			if (action === "download") {
+				btn.disabled = true;
+				const originalText = btn.querySelector("span").textContent;
+				btn.querySelector("span").textContent = i18n.t("pages.home.settings.packs.downloading");
+
+				try {
+					await centerClass.downloadLanguagePack(langCode);
+					eventBus.emit("SHOW_TOAST", {
+						message: i18n.t("pages.home.toast.settings.packDownloaded", { name: langCode.toUpperCase() }),
+						type: "success"
+					});
+					this.#toggleButtonVisibility(row, true);
+				} catch (err) {
+					console.error("[Packs] Download failed:", err);
+					eventBus.emit("SHOW_TOAST", {
+						message: i18n.t("pages.home.toast.settings.packDownloadError"),
+						type: "error"
+					});
+				} finally {
+					btn.disabled = false;
+					btn.querySelector("span").textContent = originalText;
+				}
+			} else if (action === "uninstall") {
+				const confirmMsg = i18n.t("pages.home.settings.packs.confirmUninstallLang", { langName: langCode.toUpperCase() });
+				if (!window.confirm(confirmMsg)) return;
+
+				btn.disabled = true;
+				try {
+					await centerClass.uninstallLanguagePack(langCode);
+					eventBus.emit("SHOW_TOAST", {
+						message: i18n.t("pages.home.toast.settings.packRemoved", { name: langCode.toUpperCase() }),
+						type: "info"
+					});
+					this.#toggleButtonVisibility(row, false);
+				} catch (err) {
+					console.error("[Packs] Uninstall failed:", err);
+				} finally {
+					btn.disabled = false;
+				}
+			}
+		}, { signal });
+
+		eventBus.on("LANGUAGE_PACK_CHANGED", () => {
+			this.#renderLanguages();
+		}, { signal });
+	}
+
+	#toggleButtonVisibility(row, isInstalled) {
+		if (!row) return;
+		const downloadBtn = row.querySelector(".btn-pack-download");
+		const uninstallBtn = row.querySelector(".btn-pack-uninstall");
+
+		if (downloadBtn) downloadBtn.classList.toggle("is-hidden", isInstalled);
+		if (uninstallBtn) uninstallBtn.classList.toggle("is-hidden", !isInstalled);
 	}
 
 	destroy() {

@@ -6,6 +6,7 @@
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { BaseSearchEngine } from "../services/search/BaseSearchEngine.js";
+import { appStateStore } from "../core/app-state-store.js";
 import i18n from "../core/i18n.js";
 
 class HelpController extends BaseSearchEngine {
@@ -14,6 +15,7 @@ class HelpController extends BaseSearchEngine {
 	#activeFilter = "all";
 	#searchQuery = "";
 	#abortController = null;
+	#unsubscribeLang = null;
 
 	constructor() {
 		super();
@@ -39,6 +41,23 @@ class HelpController extends BaseSearchEngine {
 
 		// 5. Bind Sticky Sidebar Nav & ScrollSpy
 		this.#bindScrollSpy();
+
+		// 6. Subscribe to Dynamic Language Switch
+		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
+			if (this.#dom.searchInput) {
+				this.#dom.searchInput.placeholder = i18n.t("help.hero.searchPlaceholder");
+			}
+			if (this.#searchQuery) {
+				this.#filterContent();
+			}
+		});
+	}
+
+	destroy() {
+		if (this.#unsubscribeLang) {
+			this.#unsubscribeLang();
+			this.#unsubscribeLang = null;
+		}
 	}
 
 	/**
@@ -69,14 +88,11 @@ class HelpController extends BaseSearchEngine {
 
 			const toggleDrawer = () => {
 				const isCurrentlyCollapsed = card.classList.contains("collapsed");
-				card.classList.toggle("collapsed", !isCurrentlyCollapsed);
-				summary.setAttribute("aria-expanded", isCurrentlyCollapsed ? "true" : "false");
+				card.classList.toggle("collapsed");
+				summary.setAttribute("aria-expanded", String(isCurrentlyCollapsed));
 			};
 
-			// Mouse Click
 			summary.addEventListener("click", toggleDrawer);
-
-			// Keyboard Enter / Space
 			summary.addEventListener("keydown", (e) => {
 				if (e.key === "Enter" || e.key === " ") {
 					e.preventDefault();
@@ -87,65 +103,40 @@ class HelpController extends BaseSearchEngine {
 	}
 
 	/**
-	 * 🔍 Bind Instant Typo-Tolerant Search
+	 * 🔍 Fast Typo-Tolerant Search Binding
 	 */
 	#bindSearch() {
 		const { searchInput, searchClear, btnReset } = this.#dom;
 		if (!searchInput) return;
 
-		// Input event with instant local filtering
 		searchInput.addEventListener("input", (e) => {
-			const query = (e.target.value || "").trim();
-			this.#searchQuery = query;
-
-			if (query.length > 0) {
-				searchClear?.classList.remove("hidden");
-			} else {
-				searchClear?.classList.add("hidden");
-			}
-
+			this.#searchQuery = e.target.value.trim();
+			searchClear?.classList.toggle("hidden", this.#searchQuery.length === 0);
 			this.#filterContent();
 		});
 
-		// Clear button click
-		searchClear?.addEventListener("click", () => {
-			this.#resetSearch();
-		});
-
-		// Empty state reset button click
-		btnReset?.addEventListener("click", () => {
-			this.#resetSearchAndFilters();
-		});
-
-		// Keyboard shortcut: Escape clears search
-		searchInput.addEventListener("keydown", (e) => {
-			if (e.key === "Escape") {
-				this.#resetSearch();
-			}
-		});
+		searchClear?.addEventListener("click", () => this.#resetSearch());
+		btnReset?.addEventListener("click", () => this.#resetSearchAndFilters());
 	}
 
 	/**
-	 * 🏷️ Bind Category Filter Chips
+	 * 🏷️ Filter Chips Binding (Category Narrowing)
 	 */
 	#bindFilterChips() {
 		const { filterChips } = this.#dom;
-		if (!filterChips) return;
+		filterChips.forEach((chip) => {
+			chip.addEventListener("click", () => {
+				filterChips.forEach((btn) => btn.classList.remove("active"));
+				chip.classList.add("active");
 
-		filterChips.forEach((btn) => {
-			btn.addEventListener("click", () => {
-				filterChips.forEach((b) => b.classList.remove("active"));
-				btn.classList.add("active");
-
-				this.#activeFilter = btn.getAttribute("data-filter") || "all";
+				this.#activeFilter = chip.getAttribute("data-filter") || "all";
 				this.#filterContent();
 			});
 		});
 	}
 
 	/**
-	 * 🧠 Core Multi-Criteria Filter & Search Logic
-	 * Integrates exact match + Levenshtein typo-tolerance from BaseSearchEngine.
+	 * ⚡ Core Unified Search & Filter Algorithm
 	 */
 	#filterContent() {
 		const query = this.#searchQuery.toLowerCase();
@@ -198,7 +189,6 @@ class HelpController extends BaseSearchEngine {
 
 				if (isMatch) {
 					card.classList.remove("hidden");
-					// 🌟 Auto-expand card on search match so commuter immediately reads the solution
 					card.classList.remove("collapsed");
 					const summary = card.querySelector(".card-summary");
 					if (summary) summary.setAttribute("aria-expanded", "true");
@@ -210,7 +200,6 @@ class HelpController extends BaseSearchEngine {
 				}
 			});
 
-			// Hide whole section if no cards match inside it
 			if (sectionVisibleCards > 0) {
 				section.classList.remove("hidden");
 			} else {
@@ -218,7 +207,6 @@ class HelpController extends BaseSearchEngine {
 			}
 		});
 
-		// Manage Empty State & Stats Badge
 		this.#updateSearchStats(hasQuery, totalMatchedCards, query);
 	}
 
@@ -230,7 +218,6 @@ class HelpController extends BaseSearchEngine {
 
 		if (hasQuery) {
 			if (count === 0) {
-				// Show empty state
 				emptyState?.classList.remove("hidden");
 				searchStats?.classList.add("hidden");
 				if (emptyStateDesc) {
@@ -238,7 +225,6 @@ class HelpController extends BaseSearchEngine {
 					emptyStateDesc.textContent = i18n.t("help.emptyState.desc", { query: sanitizedQuery });
 				}
 			} else {
-				// Show search results stats
 				emptyState?.classList.add("hidden");
 				searchStats?.classList.remove("hidden");
 				if (searchStats) {
@@ -246,7 +232,6 @@ class HelpController extends BaseSearchEngine {
 				}
 			}
 		} else {
-			// Search cleared
 			emptyState?.classList.add("hidden");
 			searchStats?.classList.add("hidden");
 		}
@@ -296,7 +281,6 @@ class HelpController extends BaseSearchEngine {
 		});
 	}
 }
-
 
 // Instantiate on DOM Load
 document.addEventListener("DOMContentLoaded", () => {

@@ -15,22 +15,28 @@
 	}
 
 	/* Section Header (Title + Clear All button) */
+		/* Section Header (Title + Clear All button) */
 	#recent-searches .section-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
 		padding: 0 var(--space-xs); 
-		flex-shrink: 0;                
+		flex-shrink: 0;
+		min-width: 0; /* 👈 हेडर को फ्लेक्स में सिकुड़ने की अनुमति */
 	}
 
 	#recent-searches-heading {
 		font-family: var(--font-title);
-		font-size: var(--fs-md);                /* 18px -> 16px (कॉम्पैक्ट हेडिंग) */
+		font-size: var(--fs-md);
 		font-weight: var(--fw-bold);
 		letter-spacing: -0.01em;
 		color: var(--text-primary);
 		margin: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		min-width: 0;
 	}
 
 	/* Clear All Button */
@@ -73,13 +79,19 @@
 		overflow: hidden;
 	}
 
-	/* 4. Filter Chips / Tabs (Recent, Most Used, A-Z) Style */
+		/* 4. Filter Chips / Tabs (Recent, Most Used, A-Z) Style */
 	.filter-chips {
 		display: flex;
 		gap: var(--space-xs);
 		margin-bottom: var(--space-xs);
 		width: 100%;
 		flex-shrink: 0;
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	.filter-chips::-webkit-scrollbar {
+		display: none;
 	}
 
 	.filter-chips button {
@@ -90,13 +102,14 @@
 		font-family: var(--font-main);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-medium);
-		padding: 8px 16px;                       /* पैडिंग कम की ताकि "Most Used" न टूटे */
+		padding: 6px 10px; /* 👈 8px 16px से घटाकर 6px 10px किया ताकि मोबाइल स्क्रीन पर चिप्स न कटें */
 		border-radius: var(--radius-full);
 		cursor: pointer;
-		white-space: nowrap;                    /* टेक्स्ट दो लाइनों में टूटने से रोका */
+		white-space: nowrap;
 		transition: all var(--transition-fast);
 		outline: none;
 		text-align: center;
+		min-width: 0;
 	}
 
 	.filter-chips button:hover {

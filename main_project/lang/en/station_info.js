@@ -5,13 +5,15 @@ export default {
 		desc: "Comprehensive station information, gates, amenities, parking tariffs, platforms, and feeder connectivity for {name}."
 	},
 	nav: {
-		backBtn: "⬅️ Back to All Stations"
+		backBtn: "⬅️ Back to All Stations",
+		backBtnAria: "Return to stations directory"
 	},
 	hero: {
 		stationCode: "Station Code",
 		layout: "Layout",
 		noDescription: "No detailed description available for this station.",
 		openInMaps: "📍 Open in Google Maps",
+		openInMapsAria: "View station location on Google Maps",
 		plusCode: "Plus Code",
 		coordinates: "Coordinates",
 		connectedLines: "🚆 Connected Metro Lines"
@@ -39,6 +41,7 @@ export default {
 	},
 	gates: {
 		title: "🚪 Station Gates & Exits",
+		gateNum: "Gate No. {num}",
 		divyangAccessible: "♿ Divyang Accessible",
 		standardAccess: "🚶 Standard Access",
 		open: "Open",
@@ -63,7 +66,23 @@ export default {
 		helmetDeposit: "Helmet Deposit",
 		bicycleStand: "Bicycle Stand",
 		noParking: "🚫 No authorised parking available at this station.",
-		noTariff: "Standard transit parking rate card applies."
+		noTariff: "Standard transit parking rate card applies.",
+		authorisedNoticeTitle: "🅿️ Authorised Multimodal Station Parking ({state})",
+		authorisedNoticeDesc: "Available 24x7 with automated smart ticketing, CCTV surveillance, and designated Divyang slots. Check tariff card below.",
+		passes: {
+			dayOnly: "Day Pass",
+			full247: "24/7 Pass",
+			tariffA: "General Pass",
+			tariffB: "Executive Pass"
+		},
+		duration: {
+			upTo: "Up to {time}",
+			range: "{from} to {to}",
+			day: "{count} Day",
+			days: "{count} Days",
+			hrs: "{count} hrs",
+			min: "{count} min"
+		}
 	},
 	verticalTransit: {
 		title: "🛗 Lifts & Escalators (Vertical Transit)",
@@ -99,6 +118,7 @@ export default {
 		title: "🗺️ Station Multi-Level Schematics",
 		viewFloorPlan: "View Schematic",
 		downloadPdf: "Download PDF Layout",
+		downloadPdfAria: "Download multi-level station schematic map PDF",
 		noLayout: "Station structural schematics not uploaded."
 	},
 	nearby: {
@@ -107,5 +127,9 @@ export default {
 		transit: "🚌 {min} min transit",
 		directFob: "Direct FOB Bridge",
 		noNearby: "No nearby landmarks registered for this station."
+	},
+	notFound: {
+		title: "⚠️ Station Not Found",
+		message: "The requested station code/ID \"{stationId}\" was not found in our metro directory."
 	}
 };

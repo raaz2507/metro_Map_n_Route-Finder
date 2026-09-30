@@ -1,5 +1,6 @@
 import { HeaderComponent } from '../components/Header.js';
 import { FooterComponent } from '../components/Footer.js';
+import { appStateStore } from "../core/app-state-store.js";
 import i18n from "../core/i18n.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,6 +12,7 @@ class PassengerSupportController {
 	#activeCity = "delhi_ncr";
 	#activeNetwork = null;
 	#supportData = null;
+	#unsubscribeLang = null;
 
 	async init() {
 		// 1. Initialize Universal Layout Header & Footer
@@ -28,9 +30,20 @@ class PassengerSupportController {
 		// 4. Bind Floating Navigation & ScrollSpy
 		this.#bindFloatingNav();
 
-
 		// 5. Load and Apply City-Specific passenger_support.json
 		await this.#loadSupportData();
+
+		// 6. Subscribe to Dynamic Language Changes
+		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
+			this.#renderLanguageStrings();
+		});
+	}
+
+	destroy() {
+		if (this.#unsubscribeLang) {
+			this.#unsubscribeLang();
+			this.#unsubscribeLang = null;
+		}
 	}
 
 	#bindAccordion() {
@@ -46,7 +59,6 @@ class PassengerSupportController {
 	
 	#bindFloatingNav() {
 		const tabBtns = document.querySelectorAll(".floating-bottom-bar .seg-tab-btn");
-		const tabPanels = document.querySelectorAll(".tab-panel");
 
 		const setActiveBtn = (targetId) => {
 			tabBtns.forEach((b) => {
@@ -55,163 +67,97 @@ class PassengerSupportController {
 			});
 		};
 
-		// 1. Instant Active State + Smooth Scroll (like help.js)
+		// 1. Instant Active State + Smooth Scroll
 		tabBtns.forEach((btn) => {
 			btn.addEventListener("click", (e) => {
 				e.preventDefault();
 				const targetId = btn.getAttribute("data-tab") || btn.hash?.replace("#", "");
-				const targetPanel = document.getElementById(targetId);
+				const targetSec = document.getElementById(targetId);
 
-				if (targetPanel) {
+				if (targetSec) {
 					setActiveBtn(targetId);
-					targetPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+					targetSec.scrollIntoView({ behavior: "smooth", block: "start" });
 				}
 			});
 		});
 
-		// 2. Modern IntersectionObserver for Accurate ScrollSpy (उंगली से स्क्रॉल करने पर)
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						setActiveBtn(entry.target.id);
-					}
-				});
-			},
-			{ rootMargin: "-20% 0px -60% 0px", threshold: 0 }
-		);
+		// 2. ScrollSpy via IntersectionObserver
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					setActiveBtn(entry.target.id);
+				}
+			});
+		}, {
+			threshold: 0.35,
+			rootMargin: "-20% 0px -40% 0px"
+		});
 
-		tabPanels.forEach((panel) => observer.observe(panel));
+		document.querySelectorAll(".tab-panel").forEach((section) => {
+			observer.observe(section);
+		});
 	}
 
 	async #loadSupportData() {
-		const dataPath = `data/cities/${this.#activeCity}/passenger_support.json`;
 		try {
-			const res = await fetch(dataPath);
-			if (!res.ok) throw new Error(`HTTP ${res.status}`);
-			this.#supportData = await res.json();
-		} catch (err) {
-			console.warn(`[PassengerSupport] Support data not found for "${this.#activeCity}". Using universal transit assistance.`);
-			this.#renderUniversalFallback();
-			return;
+			const response = await fetch(`./data/${this.#activeCity}/passenger_support.json`);
+			if (!response.ok) throw new Error(`HTTP ${response.status}`);
+			this.#supportData = await response.json();
+			this.#populateCityData();
+		} catch (error) {
+			console.warn("[PassengerSupport] Failed to load city support data, falling back to Delhi NCR.", error);
+			try {
+				const fallback = await fetch(`./data/delhi_ncr/passenger_support.json`);
+				this.#supportData = await fallback.json();
+				this.#populateCityData();
+			} catch (e) {
+				console.error("[PassengerSupport] Total fallback failed:", e);
+			}
 		}
+	}
 
-		if (!this.#supportData || !this.#supportData.networks) {
-			this.#renderUniversalFallback();
-			return;
-		}
+	#populateCityData() {
+		if (!this.#supportData || !this.#supportData.networks) return;
 
 		const networks = this.#supportData.networks;
-		// Filter networks that have actual helpline or portal data
-		const validNetworkKeys = Object.keys(networks).filter(k => {
-			const net = networks[k];
-			const hasHelplines = net.helplines && Object.keys(net.helplines).length > 0;
-			const hasPortals = net.portals && Object.keys(net.portals).length > 0;
-			return hasHelplines || hasPortals;
-		});
+		const netKeys = Object.keys(networks);
 
-		if (validNetworkKeys.length === 0) {
-			this.#renderUniversalFallback();
-			return;
-		}
-
+		// If no network selected, default to the first one
 		if (!this.#activeNetwork || !networks[this.#activeNetwork]) {
-			this.#activeNetwork = validNetworkKeys[0];
+			this.#activeNetwork = netKeys[0];
 		}
 
-		// 1. Render Network Switcher if city has multiple operators (e.g. DMRC, NMRC, RRTS)
-		this.#renderNetworkSwitcher(validNetworkKeys, networks);
+		// Render Network Pills if multiple networks exist
+		const pillContainer = document.getElementById("network-selector-container");
+		if (pillContainer) {
+			if (netKeys.length > 1) {
+				pillContainer.innerHTML = netKeys.map((key) => `
+					<button type="button" class="network-pill-btn ${key === this.#activeNetwork ? 'active' : ''}" data-network="${key}">
+						${networks[key].network_name || key.toUpperCase()}
+					</button>
+				`).join("");
+				pillContainer.classList.remove("hidden");
 
-		// 2. Render Active Operator Details
+				pillContainer.querySelectorAll(".network-pill-btn").forEach((btn) => {
+					btn.addEventListener("click", () => {
+						this.#activeNetwork = btn.dataset.network;
+						pillContainer.querySelectorAll(".network-pill-btn").forEach((b) => b.classList.remove("active"));
+						btn.classList.add("active");
+						this.#renderActiveNetwork(networks[this.#activeNetwork]);
+					});
+				});
+			} else {
+				pillContainer.classList.add("hidden");
+			}
+		}
+
 		this.#renderActiveNetwork(networks[this.#activeNetwork]);
-	}
-
-	#renderUniversalFallback() {
-		const container = document.getElementById("network-selector-container");
-		if (container) {
-			container.style.display = "none";
-			container.classList.add("hidden");
-		}
-
-		const heroDesc = document.getElementById("hero-desc-text");
-		if (heroDesc) {
-			heroDesc.textContent = "Direct access to official transit authorities, safety guidelines, and 24x7 emergency assistance.";
-		}
-
-		const depotSub = document.getElementById("depot-subtitle");
-		if (depotSub) {
-			depotSub.textContent = "Central Transit Depot Inventory";
-		}
-
-		const setUniversalCall = (labelId, btnId, labelText, num) => {
-			const label = document.getElementById(labelId);
-			const btn = document.getElementById(btnId);
-			if (label) label.textContent = `${labelText}: ${num}`;
-			if (btn) btn.href = `tel:${num}`;
-		};
-
-		setUniversalCall("label-helpline-main", "btn-call-main", "Emergency Dispatch", "112");
-		setUniversalCall("label-helpline-security", "btn-call-security", "Security Control", "112");
-		setUniversalCall("label-helpline-women", "btn-call-women", "Women SOS Helpline", "112");
-
-		// Hide operator portal buttons if no official portals are registered
-		const portalBtnIds = [
-			"btn-vigilance-url",
-			"btn-security-url",
-			"btn-lostfound-url",
-			"btn-women-url",
-			"btn-divyang-url",
-			"btn-parking-url"
-		];
-		portalBtnIds.forEach(id => {
-			const btn = document.getElementById(id);
-			if (btn) btn.style.display = "none";
-		});
-	}
-
-	#renderNetworkSwitcher(keys, networks) {
-		const container = document.getElementById("network-selector-container");
-		if (!container) return;
-
-		if (keys.length <= 1) {
-			container.style.display = "none";
-			container.classList.add("hidden");
-			return;
-		}
-
-		container.style.display = "flex";
-		container.classList.remove("hidden");
-		container.innerHTML = "";
-
-		keys.forEach((netKey) => {
-			const net = networks[netKey];
-			const btn = document.createElement("button");
-			btn.className = `network-pill-btn ${netKey === this.#activeNetwork ? "active" : ""}`;
-			btn.type = "button";
-			btn.textContent = net.network_name || netKey.toUpperCase();
-			btn.addEventListener("click", () => {
-				this.#activeNetwork = netKey;
-				container.querySelectorAll(".network-pill-btn").forEach(b => b.classList.remove("active"));
-				btn.classList.add("active");
-				this.#renderActiveNetwork(networks[netKey]);
-			});
-			container.appendChild(btn);
-		});
 	}
 
 	#renderActiveNetwork(net) {
 		if (!net) return;
 
 		const portals = net.portals || {};
-		const helplines = net.helplines || {};
-		const facilities = net.facilities || {};
-
-		// Update Hero Description
-		const heroDesc = document.getElementById("hero-desc-text");
-		if (heroDesc) {
-			const netName = net.network_name || (typeof this.#supportData.city_name === 'object' ? this.#supportData.city_name.en : this.#supportData.city_name) || "";
-			heroDesc.textContent = `Direct access to verified official authorities, safety guidelines, passenger amenities, and 24x7 emergency assistance for ${netName}.`;
-		}
 
 		// Helper to update external links safely
 		const setLink = (id, url) => {
@@ -225,47 +171,67 @@ class PassengerSupportController {
 			}
 		};
 
-		// 1. Legal & Portals
+		// 1. Legal & Portals Links
 		setLink("btn-vigilance-url", portals.vigilance_portal);
 		setLink("btn-security-url", portals.contact_us || portals.official_website);
 		setLink("btn-lostfound-url", portals.lost_and_found);
 
-		// 2. Amenities
+		// 2. Amenities Links
 		setLink("btn-women-url", portals.women_safety);
 		setLink("btn-divyang-url", portals.differently_abled);
 		setLink("btn-parking-url", portals.parking_facilities);
 
-		// 3. Central Lost & Found Depot Subtitle
+		// 3. Render Dynamic Localized Strings
+		this.#renderLanguageStrings();
+	}
+
+	#renderLanguageStrings() {
+		if (!this.#supportData || !this.#supportData.networks) return;
+		const net = this.#supportData.networks[this.#activeNetwork];
+		if (!net) return;
+
+		const helplines = net.helplines || {};
+		const facilities = net.facilities || {};
+
+		// 1. Hero Description with network name interpolation
+		const heroDesc = document.getElementById("hero-desc-text");
+		if (heroDesc) {
+			const netName = net.network_name || (typeof this.#supportData.city_name === 'object' ? this.#supportData.city_name.en : this.#supportData.city_name) || "";
+			heroDesc.textContent = i18n.t("passengerSupport.hero.desc", { network: netName });
+		}
+
+		// 2. Lost & Found Depot Subtitle
 		const depotSub = document.getElementById("depot-subtitle");
 		if (depotSub) {
 			if (facilities.central_lost_found_office) {
 				const hours = facilities.lost_found_operating_hours ? ` (${facilities.lost_found_operating_hours})` : "";
-				depotSub.textContent = `Depot: ${facilities.central_lost_found_office}${hours}`;
+				const locationText = `${facilities.central_lost_found_office}${hours}`;
+				depotSub.textContent = i18n.t("passengerSupport.cards.lostFound.subtitle", { depotLocation: locationText });
 			} else {
-				depotSub.textContent = "Central Transit Depot Inventory";
+				depotSub.textContent = i18n.t("passengerSupport.cards.lostFound.subtitle", { depotLocation: "Transit Central Depot" });
 			}
 		}
 
-		// 4. Helplines & Click-to-Call
+		// 3. Helplines & Click-to-Call
 		// Main Operations Helpline
-		const mainNum = helplines.customer_care || "112";
+		const mainNum = helplines.customer_care || "155370";
 		const labelMain = document.getElementById("label-helpline-main");
 		const btnMain = document.getElementById("btn-call-main");
-		if (labelMain) labelMain.textContent = `Customer Care: ${mainNum}`;
+		if (labelMain) labelMain.textContent = `${i18n.t("passengerSupport.helplines.dmrc.title")}: ${mainNum}`;
 		if (btnMain) btnMain.href = `tel:${mainNum.replace(/[^0-9+]/g, '')}`;
 
 		// Security Helpline
-		const secNum = helplines.security_cisf || helplines.police_emergency || "112";
+		const secNum = helplines.security_cisf || helplines.police_emergency || "155655";
 		const labelSec = document.getElementById("label-helpline-security");
 		const btnSec = document.getElementById("btn-call-security");
-		if (labelSec) labelSec.textContent = `Security Control: ${secNum}`;
+		if (labelSec) labelSec.textContent = `${i18n.t("passengerSupport.helplines.cisf.title")}: ${secNum}`;
 		if (btnSec) btnSec.href = `tel:${secNum.replace(/[^0-9+]/g, '')}`;
 
 		// Women SOS Helpline
 		const womenNum = helplines.women_safety || "1090";
 		const labelWomen = document.getElementById("label-helpline-women");
 		const btnWomen = document.getElementById("btn-call-women");
-		if (labelWomen) labelWomen.textContent = `Women Commuter SOS: ${womenNum}`;
+		if (labelWomen) labelWomen.textContent = `${i18n.t("passengerSupport.helplines.women.title")}: ${womenNum}`;
 		if (btnWomen) btnWomen.href = `tel:${womenNum.replace(/[^0-9+]/g, '')}`;
 	}
 }

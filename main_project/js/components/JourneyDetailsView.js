@@ -95,7 +95,7 @@ export class JourneyDetailsView {
 				? `<span class="fare-badge badge-blue">(${prod.discountPercent}% Off)</span>` : "";
 			
 			const timeHtml = Array.isArray(prod.timeSlots) && prod.timeSlots.length > 0 ? `<div class="fare-time-slot">${this.#formatTimeSlots(prod.timeSlots)}</div>` : "";
-			const activeNowLabel = i18n.t("pages.home.sidebar.findroute.route.activeNow") || "Active Now";
+			const activeNowLabel = i18n.t("pages.home.findRoute.timeline.activeNow") || "Active Now";
 			const activeBadgeHtml = (prod.timeRule && prod.isCurrentSlotActive) 
 			? `<span class="fare-active-badge">● ${activeNowLabel}</span>` : "";
 			return `
@@ -127,10 +127,10 @@ export class JourneyDetailsView {
 		const metricsCard = document.createElement("div");
 		metricsCard.className = "journey-metrics-card";
 
-		const timeLabel = i18n.t("pages.home.sidebar.findroute.route.minutesLabel") || "Minutes";
-		const changeLabel = i18n.t("pages.home.sidebar.findroute.route.lineChangeLabel") || "Line Change";
-		const stationsLabel = i18n.t("pages.home.sidebar.findroute.route.stationsLabel") || "Stations";
-		const distanceLabel = i18n.t("pages.home.sidebar.findroute.route.distanceLabel") || "Distance";
+		const timeLabel = i18n.t("pages.home.findRoute.routeSummary.travelTime", { minutes: "" }).trim() || "Min";
+		const changeLabel = i18n.t("pages.home.findRoute.routeSummary.interchange", { count: "" }).trim() || "Line Change";
+		const stationsLabel = i18n.t("pages.home.findRoute.routeSummary.stations", { count: "" }).trim() || "Stations";
+		const distanceLabel = i18n.t("pages.home.findRoute.routeSummary.distance", { distance: "" }).trim() || "Distance";
 		
 		const distNum = ((routeInfo.totalDistanceMeters || 0) / 1000).toFixed(1);
 		const totalMin = Math.round((routeInfo.totalTravelTimeSeconds || 0) / 60);
@@ -220,9 +220,9 @@ export class JourneyDetailsView {
 		const lastTrainDisplay = schedule?.last_train ? formatTime12h(schedule.last_train) : "N/A";
 
 		// 🎯 Added these missing variables back!
-		const firstText = i18n.t("pages.home.sidebar.findroute.route.first") || "First Train";
-		const lastText = i18n.t("pages.home.sidebar.findroute.route.last") || "Last Train";
-		const totalFareText = i18n.t("pages.home.sidebar.findroute.route.totalFareLabel") || "Total Fare";
+		const firstText = i18n.t("pages.home.findRoute.timeline.firstTrain");
+		const lastText = i18n.t("pages.home.findRoute.timeline.lastTrain");
+		const totalFareText = i18n.t("pages.home.findRoute.routeSummary.fare", { fare: "" }).trim() || "Fare";
 
 		metricsCard.innerHTML = `
 			<div class="metrics-row">
@@ -261,8 +261,8 @@ export class JourneyDetailsView {
 				<div class="fare-breakdown-toggle-box">
 					<button type="button" class="fare-breakdown-btn" id="fareBreakdownBtn">
 						<div class="btn-text-col">
-							<span class="btn-primary-label">${i18n.t("pages.home.sidebar.findroute.route.splitFareTitle") || "Split Fare & Ticket Breakdown"}</span>
-							<span class="btn-sub-label">${i18n.t("pages.home.sidebar.findroute.route.splitFareSubtitle", { count: routeInfo.fare.legs?.length || 2 })}</span>
+									<span class="btn-primary-label">${i18n.t("pages.home.findRoute.timeline.splitFareTitle")}</span>
+									<span class="btn-sub-label">${i18n.t("pages.home.findRoute.timeline.splitFareSubtitle", { count: routeInfo.fare.legs?.length || 2 })}</span>
 						</div>
 						<div class="round-chevron-btn">
 							<span class="chevron" id="fareBreakdownArrow">▼</span>
@@ -371,8 +371,8 @@ export class JourneyDetailsView {
 			segHeader.className = "segment-header";
 			segHeader.style.setProperty("--delay", `${animationRowCounter * 120}ms`);
 
-			const directionStr = i18n.t("pages.home.sidebar.findroute.route.directionText", { 
-				terminal: terminalName.toUpperCase(), 
+			const directionStr = i18n.t("pages.home.findRoute.timeline.directionText", { 
+				terminal: terminalName, 
 				platform: platformNo 
 			});
 			segHeader.innerHTML = `
@@ -456,6 +456,7 @@ export class JourneyDetailsView {
 				const mode = tData.transferMode;
 				const dist = tData.distanceMeters || step.nextTransferDistanceMeters;
 				let modeBadgeHtml = "";
+				let featureBadgesHtml = "";
 
 				const transferTypeKey = (tData.type || "interchange").replace(/_/g, "-");
 				const stationTypeObj = metroData?.station_types?.[tData.type || "interchange"];
@@ -464,31 +465,25 @@ export class JourneyDetailsView {
 					? `<span class="transfer-pill-badge transfer-pill-station-type"><span class="station-type-glyph type-${transferTypeKey}"></span>${typeLabel}</span>` 
 					: "";
 
-
-
 				if (mode === "cross_platform") {
-					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.crossPlatform") || "Cross-Platform";
-					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">↔️ ${label}</span>`;
-				} else if (mode === "vertical") {
+					const label = i18n.t("pages.home.findRoute.transferModes.crossPlatform");
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-cross-platform"><span class="badge-icon">⚡</span> ${label}</span>`;
+				} else if (mode === "level_change") {
 					const levels = tData.levels || 1;
-					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.levelChange", { level: levels }) || `Level ${levels} Change`;
-					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">↕️ ${label}</span>`;
+					const label = i18n.t("pages.home.findRoute.transferModes.levelChange", { level: levels });
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-level-change"><span class="badge-icon">🛗</span> ${label}</span>`;
 				} else if (mode === "skywalk") {
-					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.skywalk", { distance: dist }) || `Skywalk (${dist}m)`;
-					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">🌉 ${label}</span>`;
+					const label = i18n.t("pages.home.findRoute.transferModes.skywalk", { distance: dist || 150 });
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-skywalk"><span class="badge-icon">🌉</span> ${label}</span>`;
 				} else if (mode === "corridor") {
-					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.corridor", { distance: dist }) || `Corridor (${dist}m)`;
-					modeBadgeHtml = `<span class="transfer-pill-badge transfer-pill-mode">🚶 ${label}</span>`;
-				}
-
-				let featureBadgesHtml = "";
-				if (tData.freeERickshaw) {
-					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.freeERickshaw") || "Free E-Rickshaw";
-					featureBadgesHtml += `<span class="transfer-pill-badge transfer-pill-rickshaw">🛺 ${label}</span>`;
-				}
-				if (tData.securityCheckRequired) {
-					const label = i18n.t("pages.home.sidebar.findroute.route.transferModes.securityCheck") || "Security Check";
-					featureBadgesHtml += `<span class="transfer-pill-badge transfer-pill-security">🛡️ ${label}</span>`;
+					const label = i18n.t("pages.home.findRoute.transferModes.corridor", { distance: dist || 80 });
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-corridor"><span class="badge-icon">🚶</span> ${label}</span>`;
+				} else if (mode === "free_erickshaw") {
+					const label = i18n.t("pages.home.findRoute.transferModes.freeERickshaw");
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-erickshaw"><span class="badge-icon">🛺</span> ${label}</span>`;
+				} else if (mode === "security_check") {
+					const label = i18n.t("pages.home.findRoute.transferModes.securityCheck");
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-security"><span class="badge-icon">🛡️</span> ${label}</span>`;
 				}
 
 				const interchangeContainer = document.createElement("div");

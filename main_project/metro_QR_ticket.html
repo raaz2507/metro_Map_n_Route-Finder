@@ -7,18 +7,18 @@
 	<!-- Open Graph / Facebook / WhatsApp / Telegram -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/" />
-	<meta property="og:title" content="Metro Map & Route Finder" />
-	<meta property="og:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily." />
+	<meta property="og:title" content="Metro Pass Wallet | YatraMarg" />
+	<meta property="og:description" content="Offline digital metro QR pass wallet. Scan paper tickets or paste WhatsApp screenshots to generate high-contrast gate passes." data-i18n-meta="metroTicket.meta.desc" />
 	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png" />
 
 	<!-- Twitter / X -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/" />
-	<meta name="twitter:title" content="Metro Map & Route Finder" />
-	<meta name="twitter:description" content="Find the best metro routes, ticket fares, travel time, and intermediate stations easily." />
+	<meta name="twitter:title" content="Metro Pass Wallet | YatraMarg" />
+	<meta name="twitter:description" content="Offline digital metro QR pass wallet. Scan paper tickets or paste WhatsApp screenshots to generate high-contrast gate passes." data-i18n-meta="metroTicket.meta.desc" />
 	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png" />
 
-	<title>Metro Ticket Wallet - PoC</title>
+	<title data-i18n-title-tag="metroTicket.meta.title">Metro Pass Wallet | YatraMarg</title>
 	
 	<link rel="stylesheet" href="./css/pages/metro_QR_ticket.css">
 </head>
@@ -75,7 +75,7 @@
 					<span class="pass-status-dot"></span>
 					<span data-i18n="metroTicket.cards.pass.statusReady">GATE READY PASS</span>
 				</div>
-				<span class="pass-timer" id="passCountdown" title="Validity Countdown">03:00:00</span>
+				<span class="pass-timer" id="passCountdown" data-i18n-title="metroTicket.cards.pass.countdownTitle" title="Validity Countdown">03:00:00</span>
 			</div>
 
 			<div class="qr-frame">
@@ -212,7 +212,7 @@
 		<div class="camera-modal-box">
 			<div class="camera-modal-header">
 				<span class="camera-modal-title" data-i18n="metroTicket.modals.camera.title">Live Camera Ticket Scanner</span>
-				<button type="button" class="btn-switch-camera" id="btnSwitchCamera" title="Switch Camera" aria-label="Switch Camera">🔄</button>
+				<button type="button" class="btn-switch-camera" id="btnSwitchCamera" data-i18n-title="metroTicket.modals.camera.switchCamera" data-i18n-aria-label="metroTicket.modals.camera.switchCamera" title="Switch Camera" aria-label="Switch Camera">🔄</button>
 			</div>
 			<div class="camera-viewport-wrap">
 				<video id="cameraVideo" playsinline autoplay muted class="camera-video"></video>

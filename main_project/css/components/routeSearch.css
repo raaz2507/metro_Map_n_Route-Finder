@@ -366,7 +366,7 @@
 		justify-content: center;
 		box-shadow: var(--shadow-sm);
 		transition: transform var(--transition-spring), border-color var(--transition-fast), box-shadow var(--transition-fast);
-		z-index: var(--z-base);
+		z-index: calc(var(--z-dropdown) + 2); /* 👈 हमेशा ड्रॉपडाउन से ऊपर और 100% क्लिकेबल रहेगा */
 	}
 
 	#swapButton:hover {
@@ -1253,7 +1253,7 @@
 		width: 100%;
 	}
 
-	/* 1. By default dropdown band rahega */
+		/* 1. By default dropdown band rahega */
 	.station-autocomplete-dropdown {
 		display: none;
 		position: absolute;
@@ -1268,10 +1268,15 @@
 		box-shadow: var(--shadow-lg);
 		z-index: var(--z-dropdown);
 		margin: 0;
-		padding: var(--space-xs) 0;
+		padding: 0;
 		list-style: none;
 		scrollbar-width: thin;
 		scrollbar-color: var(--border-color) transparent;
+	}
+
+	/* 🎯 Start Station के ड्रॉपडाउन को स्वैप बटन से सुरक्षित दूरी (Right Offset) */
+	#startStation-dropdown {
+		right: 52px; /* स्वैप बटन के लिए साफ़ जगह छोड़ता है ताकि ओवरलैपिंग न हो */
 	}
 
 	/* 2. Jab active class ho tabhi flex dikhe */
@@ -1289,7 +1294,8 @@
 		border-radius: var(--radius-full);
 	}
 
-	/* Single-Line Row Item */
+	/* 🚉 Station Row Item (Fix for Bug 1 & 3: Unselectable + Clear Rows) */
+	.station-autocomplete-item,
 	.autocomplete-item {
 		display: flex;
 		align-items: center;
@@ -1300,47 +1306,69 @@
 		font-size: var(--fs-sm);
 		color: var(--text-primary);
 		gap: var(--space-md);
+		border-bottom: 1px solid var(--border-color); /* 👈 हर स्टेशन के बीच स्पष्ट डिवाइडर */
 		transition: background-color var(--transition-fast);
-		white-space: nowrap;
-		overflow: hidden;
+		user-select: none;           /* 👈 टेक्स्ट सेलेक्ट होना पूरी तरह बंद */
+		-webkit-user-select: none;
 	}
 
+	.station-autocomplete-item:last-child,
+	.autocomplete-item:last-child {
+		border-bottom: none;
+	}
+
+	.station-autocomplete-item:hover,
+	.station-autocomplete-item.focused,
 	.autocomplete-item:hover,
 	.autocomplete-item.focused {
 		background-color: var(--btn-reset-bg);
 	}
 
-	/* Station Name on the Left */
+	/* Station Name Group (Left Side) */
+	.st-item-name-group,
 	.autocomplete-name {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		flex: 1;
+		min-width: 0;
+		overflow: hidden;
+	}
+
+	.st-item-main-name {
 		font-weight: var(--fw-medium);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		flex: 1;
 	}
 
-	.autocomplete-name mark {
-		background: transparent;
-		color: rgb(var(--color-primary-rgb));
-		font-weight: var(--fw-bold);
-	}
-
-	/* Line Badges Pills on the Right */
+	/* Line Color Dots & Interchange Badge (Right Side) */
+	.st-item-lines-group,
 	.autocomplete-lines {
 		display: flex;
 		align-items: center;
-		gap: var(--radius-xs);
+		gap: var(--space-xs);
 		flex-shrink: 0;
+		margin-left: var(--space-sm);
 	}
 
-	/* Micro Solid Pill */
+	/* 🔴 Line Color Dot */
+	.st-line-dot,
 	.autocomplete-line-dot {
 		display: inline-block;
 		width: 10px;
 		height: 10px;
 		border-radius: var(--radius-full);
-		box-shadow: var(--shadow-sm);
+		box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
 		flex-shrink: 0;
+	}
+
+	/* 🔄 Interchange Icon */
+	.st-interchange-badge {
+		font-size: 12px;
+		display: inline-flex;
+		align-items: center;
+		opacity: 0.85;
 	}
 
 	/* Interchange Hub Badge */

@@ -7,11 +7,14 @@
 import { HeaderComponent } from '../components/Header.js';
 import { FooterComponent } from '../components/Footer.js';
 import { SvgTicketController } from '../components/svg_ticket_controller.js';
+import i18n from '../core/i18n.js';
+import { appStateStore } from '../core/app-state-store.js';
 
 class TvmKioskApp {
 	/** @type {SvgTicketController|null} */
 	#ticketCtrl = null;
 	#activeQrUrl = null;
+	#unsubscribeLang = null;
 	
 	/** @type {AudioContext|null} */
 	#audioCtx = null;
@@ -24,6 +27,14 @@ class TvmKioskApp {
 		this.#bootstrapFormFromStorage();
 		this.#bindEvents();
 		this.#initSvgFromLocalPath();
+		this.#subscribeLangChanges();
+	}
+
+	destroy() {
+		if (this.#unsubscribeLang) {
+			this.#unsubscribeLang();
+			this.#unsubscribeLang = null;
+		}
 	}
 
 	/* -------------------------------------------------------------------------
@@ -62,7 +73,6 @@ class TvmKioskApp {
 				const data = JSON.parse(saved);
 				const d = this.#dom;
 				
-				// फॉर्म में सेव की गई वैल्यूज वापस भरें
 				if (data.passenger && d.inputPassenger) d.inputPassenger.value = data.passenger;
 				if (data.from && d.inputFrom) d.inputFrom.value = data.from;
 				if (data.to && d.inputTo) d.inputTo.value = data.to;
@@ -72,6 +82,7 @@ class TvmKioskApp {
 			console.warn('[TvmKioskApp] Storage read error:', e);
 		}
 	}
+
 	/* -------------------------------------------------------------------------
 	   3. EVENT BINDING
 	   ------------------------------------------------------------------------- */
@@ -133,10 +144,18 @@ class TvmKioskApp {
 		}
 	}
 
+	/* -------------------------------------------------------------------------
+	   5. DYNAMIC LANGUAGE SUBSCRIPTION
+	   ------------------------------------------------------------------------- */
+	#subscribeLangChanges() {
+		this.#unsubscribeLang = appStateStore.subscribe('currentLang', () => {
+			this.#applyFormDataToTicket();
+		});
+	}
 
 	/* -------------------------------------------------------------------------
-	   5. DATA SYNC (WALLET & FORM & LOCAL STORAGE)
-	------------------------------------------------------------------------- */
+	   6. DATA SYNC (WALLET & FORM & LOCAL STORAGE)
+	   ------------------------------------------------------------------------- */
 	#loadTicketFromWallet() {
 		try {
 			const rawData = localStorage.getItem('metro_ticket_wallet_store');
@@ -161,25 +180,22 @@ class TvmKioskApp {
 		this.#applyFormDataToTicket();
 	}
 
-
 	#applyFormDataToTicket() {
 		const d = this.#dom;
 		
-		// 1. Data Object बनाना
 		const dataToPersist = {
 			passenger: d.inputPassenger?.value || '',
 			from: d.inputFrom?.value || '',
 			to: d.inputTo?.value || '',
 			price: d.inputPrice?.value || ''
 		};
-		// 2. Local Storage में JSON के रूप में सेव करना (Persistence)
+
 		try {
 			localStorage.setItem('tvm_kiosk_form_data', JSON.stringify(dataToPersist));
 		} catch (e) {
 			console.warn('[TvmKioskApp] Storage write error:', e);
 		}
 		
-		// 3. Ticket Controller में डेटा पास करना
 		if (!this.#ticketCtrl) return;
 		
 		this.#ticketCtrl.setPassengerDetails({
@@ -189,15 +205,26 @@ class TvmKioskApp {
 			price: dataToPersist.price
 		});
 		
-		this.#ticketCtrl.setTicketNumber(d.inputTicketNum?.value || '');
+		const customTicketNum = d.inputTicketNum?.value?.trim();
+		const defaultNetwork = i18n.t('tvmDispenser.ticket.footerLeft') || 'BHARTIYE METRO';
+		if (customTicketNum) {
+			this.#ticketCtrl.setTicketNumber(customTicketNum);
+		} else {
+			this.#ticketCtrl.setFooterLeft(defaultNetwork);
+		}
+
+		this.#ticketCtrl.setFooterClass(i18n.t('tvmDispenser.ticket.footerClass') || 'ECONOMY CLASS');
 		this.#ticketCtrl.setLiveDateTime(parseInt(d.inputDuration?.value, 10) || 90);
 		this.#ticketCtrl.setTicketStatus(d.inputStatus?.value || 'valid');
 		
-		// 4. सिमुलेशन नाम सेट करना
-		this.#ticketCtrl.setHeaderTitle("VIRTUAL METRO PASS");
+		// Bilingual ticket header & QR instructions
+		this.#ticketCtrl.setHeaderTitle(i18n.t('tvmDispenser.ticket.headerTitle') || 'VIRTUAL METRO PASS');
+		this.#ticketCtrl.setQrInstruction(i18n.t('tvmDispenser.ticket.qrInstruction') || 'SCAN AT AFC GATES FOR ENTRY & EXIT');
+		this.#ticketCtrl.setQrValidity(i18n.t('tvmDispenser.ticket.qrValidity') || '• VALID FOR SINGLE JOURNEY •');
 	}
+
 	/* -------------------------------------------------------------------------
-	   6. 2.5D REAL PARALLAX TILT EFFECT
+	   7. 2.5D REAL PARALLAX TILT EFFECT
 	   ------------------------------------------------------------------------- */
 	#init3DTiltEffect() {
 		const wrapper = this.#dom.ticketPaper;
@@ -253,8 +280,9 @@ class TvmKioskApp {
 			popElements.forEach(el => el.style.transition = 'transform 0.1s linear');
 		});
 	}
+
 	/* -------------------------------------------------------------------------
-	   7. MODALS & POPUPS
+	   8. MODALS & POPUPS
 	   ------------------------------------------------------------------------- */
 	#openTvmSettings() {
 		this.#dom.rightPanelColumn?.classList.add('active');
@@ -285,8 +313,9 @@ class TvmKioskApp {
 		this.#dom.gateModal?.classList.remove('active');
 		this.#dom.gateModal?.setAttribute('aria-hidden', 'true');
 	}
+
 	/* -------------------------------------------------------------------------
-	   8. PRINTER & DISPENSE LOGIC
+	   9. PRINTER & DISPENSE LOGIC
 	   ------------------------------------------------------------------------- */
 	#setTicketDropDistance() {
 		const paper = this.#dom.ticketPaper;
@@ -372,11 +401,13 @@ class TvmKioskApp {
 		}
 	}
 }
+
 const initApp = async () => {
-	await HeaderComponent.render('tvm_dispenser');
 	FooterComponent.render();
+	await HeaderComponent.render('recharge');
 	new TvmKioskApp();
 };
+
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', initApp);
 } else {

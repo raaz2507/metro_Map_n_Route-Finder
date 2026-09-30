@@ -3,7 +3,7 @@
  * Enterprise Single Source of Truth for rendering, theme switching, and global language translation.
  */
 import { appStateStore } from "../core/app-state-store.js";
-import i18n, { SUPPORTED_LANGUAGES } from "../core/i18n.js";
+import i18n, { SUPPORTED_LANGUAGES, LANGUAGE_CATEGORIES } from "../core/i18n.js";
 import { RechargeModalComponent } from "./RechargeModal.js";
 
 export class HeaderComponent {
@@ -71,6 +71,11 @@ export class HeaderComponent {
 					</div>
 
 					<section class="toolbar">
+						<!-- 📲 PWA Install Button (Auto-hidden if running as installed app) -->
+						<button type="button" class="btn-25d install-btn" id="header-pwa-install-btn" style="display: none;" aria-label="Install App" title="Install App">
+							<span class="btn-icon">📲</span>
+							<span class="btn-text" data-i18n="header.installApp">Install</span>
+						</button>
 						<div class="dropdown-container">
 							<button type="button" class="btn-25d theme-selector" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme Selector">
 								<span class="btn-icon">🌙</span>
@@ -90,11 +95,27 @@ export class HeaderComponent {
 								<span class="btn-icon">🌐</span>
 								<span class="btn-text">${SUPPORTED_LANGUAGES.find(l => l.code === currentLang)?.short || currentLang.toUpperCase()}</span>
 							</button>
-							<ul class="custom-dropdown-menu" id="lang-menu" role="listbox">
-								${SUPPORTED_LANGUAGES.map(l => `
-									<li class="custom-dropdown-item ${currentLang === l.code ? 'active' : ''}" role="option" data-value="${l.code}">
-										${l.label}
+							<ul class="custom-dropdown-menu categorized-lang-menu" id="lang-menu" role="listbox">
+								${LANGUAGE_CATEGORIES.map(cat => `
+									<li class="dropdown-category-header" role="presentation">
+										<span>${cat.flag} ${cat.name}</span>
 									</li>
+									${cat.languages.map(l => l.disabled ? `
+										<li class="custom-dropdown-item disabled-lang-item" role="option" aria-disabled="true" title="Coming Soon">
+											<span class="lang-label-group">
+												<span class="lang-native-text">${l.label}</span>
+												<span class="lang-sub-text">(${l.nativeName})</span>
+											</span>
+											<span class="badge-coming-soon">Soon</span>
+										</li>
+										` : `
+										<li class="custom-dropdown-item ${currentLang === l.code ? 'active' : ''}" role="option" data-value="${l.code}">
+											<span class="lang-label-group">
+												<span class="lang-native-text">${l.label}</span>
+												<span class="lang-sub-text">${l.code !== 'en' ? `(${l.nativeName})` : ''}</span>
+											</span>
+										</li>
+									`).join('')}
 								`).join('')}
 							</ul>
 						</div>
@@ -187,6 +208,59 @@ export class HeaderComponent {
 
 		this.#setupDropdown('lang-btn', 'lang-menu', async (val) => {
 			await appStateStore.setState({ currentLang: val });
+		});
+		// PWA Install Trigger Setup
+		this.#setupPwaInstall();
+	}
+
+	static #setupPwaInstall() {
+		const installBtn = document.getElementById("header-pwa-install-btn");
+		if (!installBtn) return;
+
+		// 1. अगर पहले से PWA/Desktop App (Standalone) मोड में खुला है तो छुपा दें
+		const isStandalone = window.matchMedia("(display-mode: standalone)").matches || Boolean(window.navigator.standalone);
+		if (isStandalone) {
+			installBtn.style.display = "none";
+			return;
+		}
+
+		let deferredPrompt = window.__pwaDeferredPrompt || null;
+
+		// 2. Chromium (Chrome / Edge / Android) Install Event Capture
+		window.addEventListener("beforeinstallprompt", (e) => {
+			e.preventDefault();
+			deferredPrompt = e;
+			window.__pwaDeferredPrompt = e;
+			installBtn.style.display = "inline-flex";
+		});
+
+		// 3. हमेशा बटन विज़िबल रखें ताकि यूज़र किसी भी ब्राउज़र में इंस्टॉल कर सके
+		installBtn.style.display = "inline-flex";
+
+		// 4. क्लिक हैंडलर
+		installBtn.addEventListener("click", async () => {
+			if (deferredPrompt) {
+				// Chrome / Edge Direct Install
+				deferredPrompt.prompt();
+				const { outcome } = await deferredPrompt.userChoice;
+				if (outcome === "accepted") {
+					installBtn.style.display = "none";
+				}
+				deferredPrompt = null;
+				window.__pwaDeferredPrompt = null;
+			} else {
+				// Firefox / Non-Chromium Browser Guide Dialog
+				const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
+				const guideMsg = isFirefox
+					? "📌 Firefox Taskbar Shortcut:\n\n1. Look at Firefox's address bar.\n2. Click the 'Install' icon (or Menu ➔ 'Install Website as App').\n3. Click 'Install' to pin YatraMarg directly to your Windows Taskbar."
+					: "📌 To Install YatraMarg:\n\nClick your browser menu (⋮) and select 'Install YatraMarg' or 'Add to Desktop / Taskbar'.";
+				
+				alert(guideMsg);
+			}
+		});
+
+		window.addEventListener("appinstalled", () => {
+			installBtn.style.display = "none";
 		});
 	}
 

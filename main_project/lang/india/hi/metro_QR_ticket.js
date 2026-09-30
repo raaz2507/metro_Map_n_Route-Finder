@@ -1,4 +1,4 @@
-// /lang/pages/metro_QR_ticket.hi.js
+// /lang/hi/metro_QR_ticket.js
 export default {
 	meta: {
 		title: "मेट्रो पास वॉलेट | YatraMarg",
@@ -26,13 +26,15 @@ export default {
 			btnGateMode: "गेट मोड",
 			btnOriginalPic: "ओरिजिनल फोटो",
 			btnArchive: "हिस्ट्री में डालें",
-			btnTvm: 'TVM डिस्पेंसर खोलें',
+			btnTvm: "TVM डिस्पेंसर खोलें",
+			countdownTitle: "वैधता उलटी गिनती"
 		},
 		history: {
 			title: "टिकट हिस्ट्री",
 			btnClearAll: "सभी हटाएं",
 			empty: "अभी कोई टिकट हिस्ट्री में नहीं है। सेव किए गए टिकट यहाँ दिखेंगे।",
 			btnRestore: "रीस्टोर",
+			btnDelete: "हटाएं",
 			statusActive: "सक्रिय",
 			statusArchived: "सुरक्षित",
 			statusExpired: "समाप्त"

@@ -21,6 +21,7 @@ export class AllStationsDirectory {
 	#searchQuery = "";
 	#searchEngine = null;
 	#abortController = null;
+	#unsubscribeLang = null;
 
 	// Private DOM Element Handles
 	#dom = {
@@ -31,33 +32,39 @@ export class AllStationsDirectory {
 		dropdown: null
 	};
 
-	// Private Localization & Dictionaries
+	// Private Localization
 	#lang = "en";
-	#t = {};
 
 	constructor() {
 		this.#abortController = new AbortController();
 		this.#cacheDOM();
 		this.#initLocalization();
 	}
+
 	destroy() {
 		if (this.#abortController) {
 			this.#abortController.abort();
 			this.#abortController = null;
 		}
+		if (this.#unsubscribeLang) {
+			this.#unsubscribeLang();
+			this.#unsubscribeLang = null;
+		}
 		if (this.#searchEngine && typeof this.#searchEngine.destroy === "function") {
 			this.#searchEngine.destroy();
 		}
 	}
+
 	/**
 	 * Initializes Universal Header, Footer, Data Store, and Search Engine
 	 */
 	async init() {
-		HeaderComponent.render("stations");
+		// Render Footer first, then Header (ensuring i18n single-pass translates both)
 		FooterComponent.render();
+		await HeaderComponent.render("stations");
 
 		if (this.#dom.searchInput) {
-			this.#dom.searchInput.placeholder = this.#t.searchPlaceholder || "Search station by name or code...";
+			this.#dom.searchInput.placeholder = i18n.t("pages.all_stations.controls.searchPlaceholder") || "Search station by name or code...";
 		}
 
 		try {
@@ -83,6 +90,16 @@ export class AllStationsDirectory {
 
 			// 4. Bind Search & Filter Events
 			this.#bindEvents();
+
+			// 5. Subscribe to dynamic language updates
+			this.#unsubscribeLang = appStateStore.subscribe("currentLang", (newLang) => {
+				this.#lang = newLang || "en";
+				if (this.#dom.searchInput) {
+					this.#dom.searchInput.placeholder = i18n.t("pages.all_stations.controls.searchPlaceholder");
+				}
+				this.#renderFilterChips();
+				this.#render();
+			});
 		} catch (error) {
 			console.error("[AllStationsDirectory] Failed to initialize:", error);
 			this.#renderErrorState(error.message);
@@ -101,20 +118,17 @@ export class AllStationsDirectory {
 	}
 
 	/**
-	 * Initialize active language dictionary
+	 * Initialize active language
 	 */
 	#initLocalization() {
-		this.#lang = appStateStore.getState("currentLang") || "en";
-		this.#t = new Proxy({}, {
-			get: (_, key) => i18n.t(`pages.all_stations.${key}`)
-		});
+		this.#lang = appStateStore.getState("currentLang") || localStorage.getItem("language") || "en";
 	}
 
 	/**
 	 * Bind UI & Search Engine Events
 	 */
 	#bindEvents() {
-		// 🔌 PLUG-AND-PLAY SEARCH ENGINE BINDING
+		// PLUG-AND-PLAY SEARCH ENGINE BINDING
 		if (this.#dom.searchInput && this.#dom.dropdown && this.#searchEngine) {
 			this.#searchEngine.bindUI({
 				inputEl: this.#dom.searchInput,
@@ -150,8 +164,9 @@ export class AllStationsDirectory {
 					this.#searchEngine.hideDropdown();
 				}
 				this.#render();
-			}, { signal }); // 👈 { signal } जोड़ें
+			}, { signal });
 		}
+
 		// Line Filter Chips Delegation
 		if (this.#dom.filterWrapper) {
 			this.#dom.filterWrapper.addEventListener("click", (e) => {
@@ -164,7 +179,7 @@ export class AllStationsDirectory {
 				allChips.forEach(chip => chip.classList.remove("active"));
 				btn.classList.add("active");
 				this.#render();
-			}, { signal }); // 👈 { signal } जोड़ें
+			}, { signal });
 		}
 	}
 
@@ -191,10 +206,12 @@ export class AllStationsDirectory {
 			networkGroups[netKey].lines.push(line);
 		});
 
+		const allLinesLabel = i18n.t("pages.all_stations.controls.allLines") || "All Lines";
+
 		let html = `
 			<div class="network-chips-row">
 				<button type="button" class="chip-btn ${this.#activeFilter === "all" ? "active" : ""}" data-line="all">
-					${this.#escapeHTML(this.#t.allLines || "All Lines")} (${totalStationsCount})
+					${this.#escapeHTML(allLinesLabel)} (${totalStationsCount})
 				</button>
 			</div>
 		`;
@@ -269,8 +286,8 @@ export class AllStationsDirectory {
 			const lineColor = line.color || "#c0282c";
 			const count = filteredStationIds.length;
 			const stationCountText = count === 1 
-				? (this.#t.singleStationCount || "1 Station")
-				: (this.#t.stationCount ? this.#t.stationCount.replace("{count}", count) : `${count} Stations`);
+				? (i18n.t("pages.all_stations.results.singleStationCount") || "1 Station")
+				: i18n.t("pages.all_stations.results.stationCount", { count });
 
 			html += `
 				<section class="line-directory-section" id="section-${this.#escapeHTML(line.id)}">
@@ -288,14 +305,13 @@ export class AllStationsDirectory {
 
 		// Render Empty State if no stations match query
 		if (matchedLineCount === 0) {
-			const noMatchMsg = this.#t.noStationQueryMsg 
-				? this.#t.noStationQueryMsg.replace("{query}", this.#searchQuery) 
-				: `No station matches your search query "${this.#escapeHTML(this.#searchQuery)}".`;
+			const noMatchMsg = i18n.t("pages.all_stations.results.noStationQueryMsg", { query: this.#searchQuery });
+			const noFoundTitle = i18n.t("pages.all_stations.results.noStationsFound") || "🔍 No stations found";
 
 			html = `
 				<div class="directory-empty-state">
-					<h3>${this.#escapeHTML(this.#t.noStationsFound || "🔍 No stations found")}</h3>
-					<p>${noMatchMsg}</p>
+					<h3>${this.#escapeHTML(noFoundTitle)}</h3>
+					<p>${this.#escapeHTML(noMatchMsg)}</p>
 				</div>
 			`;
 		}
@@ -330,32 +346,29 @@ export class AllStationsDirectory {
 		const firstTrain = this.#formatTo12Hour(st.train_schedule?.first_train);
 		const lastTrain = this.#formatTo12Hour(st.train_schedule?.last_train);
 
-		// Layout badge resolution
+		// Layout badge resolution from i18n dictionary
 		const layoutType = (st.properties?.layout || "elevated").toLowerCase();
-		let layoutText = "Elevated";
+		let layoutText = i18n.t("pages.all_stations.badges.elevated");
 		let layoutClass = "badge-elevated";
 		let layoutIcon = "icon_elevated.svg";
 
 		if (layoutType === "underground") {
-			layoutText = this.#lang === "hi" ? "भूमिगत" : "Underground";
+			layoutText = i18n.t("pages.all_stations.badges.underground");
 			layoutClass = "badge-underground";
 			layoutIcon = "icon_underground.svg";
 		} else if (layoutType === "at_grade" || layoutType === "at-grade" || layoutType === "ground") {
-			layoutText = this.#lang === "hi" ? "समतल" : "At Grade";
+			layoutText = i18n.t("pages.all_stations.badges.atGrade");
 			layoutClass = "badge-at-grade";
 			layoutIcon = "icon_at_grade.svg";
-		} else {
-			layoutText = this.#lang === "hi" ? "एलिवेटेड" : "Elevated";
-			layoutClass = "badge-elevated";
-			layoutIcon = "icon_elevated.svg";
 		}
 
-		// Interchange badge resolution
+		// Interchange badge resolution from i18n dictionary
 		const isInterchange = st.properties?.station_type === "interchange";
-		const interchangeText = this.#lang === "hi" ? "इंटरचेंज" : "Interchange";
+		const interchangeText = i18n.t("pages.all_stations.badges.interchange");
+		const cardAria = i18n.t("pages.all_stations.badges.coachAria", { name: stationTitle });
 
 		return `
-			<a href="station_info.html?id=${encodeURIComponent(st.id || stationId)}&city=${encodeURIComponent(this.#currentCity)}" class="real-coach-card" style="--line-color: ${lineColor};" aria-label="${this.#escapeHTML(stationTitle)} Station Info">
+			<a href="station_info.html?id=${encodeURIComponent(st.id || stationId)}&city=${encodeURIComponent(this.#currentCity)}" class="real-coach-card" style="--line-color: ${lineColor};" aria-label="${this.#escapeHTML(cardAria)}">
 				<div class="coach-underglow"></div>
 
 				<svg class="svg-coach-element" viewBox="0 0 360 216" fill="none" xmlns="http://www.w3.org/2000/svg">

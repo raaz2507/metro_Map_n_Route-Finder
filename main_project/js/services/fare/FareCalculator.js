@@ -95,6 +95,10 @@ export class FareCalculator {
 			journeyDate = new Date()
 		} = options;
 
+		// 🗓️ रविवार (Sunday) या सरकारी छुट्टी का 100% डायनामिक ऑटो-डिटेक्शन
+		const isSunday = journeyDate && typeof journeyDate.getDay === "function" ? journeyDate.getDay() === 0 : false;
+		const effectiveHoliday = Boolean(isHoliday || isSunday);
+
 		if (!this.#policies || Object.keys(this.#policies).length === 0) {
 			return this.#createDefaultResponse(0);
 		}
@@ -104,7 +108,7 @@ export class FareCalculator {
 				if (policy.fareModel === "station_pair" || policy.fareModel === "matrix_based") {
 					const matrixFare = this.#calculateStationPair(policy, { startId, endId });
 					if (matrixFare !== null) {
-						return this.#buildFareResponse(matrixFare, policy, { coachClass, isHoliday, customTime });
+						return this.#buildFareResponse(matrixFare, policy, { coachClass, isHoliday: effectiveHoliday, customTime });
 					}
 				}
 			}
@@ -113,7 +117,7 @@ export class FareCalculator {
 		if (segments && segments.length > 0) {
 			const legs = this.#groupSegmentsIntoLegs(segments);
 			if (legs.length > 1) {
-				return this.#calculateMultiLegFare(legs, { coachClass, isHoliday, customTime, journeyDate });
+				return this.#calculateMultiLegFare(legs, { coachClass, isHoliday: effectiveHoliday, customTime, journeyDate });
 			}
 		}
 
@@ -140,10 +144,10 @@ export class FareCalculator {
 			stationsCount,
 			startId,
 			endId,
-			isHoliday
+			isHoliday: effectiveHoliday
 		});
 
-		return this.#buildFareResponse(baseFare, activePolicy, { coachClass, isHoliday, customTime, distanceKm });
+		return this.#buildFareResponse(baseFare, activePolicy, { coachClass, isHoliday: effectiveHoliday, customTime, distanceKm });
 	}
 
 	#detectConnectionType(prevLeg, currentSeg) {

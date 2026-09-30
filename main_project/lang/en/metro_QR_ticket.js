@@ -1,4 +1,4 @@
-// /lang/pages/metro_QR_ticket.en.js
+// /lang/en/metro_QR_ticket.js
 export default {
 	meta: {
 		title: "Metro Pass Wallet | YatraMarg",
@@ -26,13 +26,15 @@ export default {
 			btnGateMode: "Gate Mode",
 			btnOriginalPic: "Original Pic",
 			btnArchive: "Move to History",
-			btnTvm: 'Open TVM Dispenser',
+			btnTvm: "Open TVM Dispenser",
+			countdownTitle: "Validity Countdown"
 		},
 		history: {
 			title: "Ticket History",
 			btnClearAll: "Clear All",
 			empty: "No tickets in history yet. Saved tickets will appear here.",
 			btnRestore: "Restore",
+			btnDelete: "Delete",
 			statusActive: "ACTIVE",
 			statusArchived: "SAVED",
 			statusExpired: "EXPIRED"
