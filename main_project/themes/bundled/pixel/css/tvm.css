@@ -1,0 +1,102 @@
+/* ==========================================================================
+   RETRO 8-BIT PIXEL - TVM MODULE (ARCADE TOKEN CABINET)
+   ========================================================================== */
+@layer themes {
+	[data-theme="pixel"] .tvm-kiosk-unit {
+		border: 4px solid var(--border-color);
+		border-radius: 0;
+		box-shadow: 8px 8px 0 var(--border-color);
+		background-color: var(--card-bg);
+		image-rendering: pixelated;
+	}
+
+	[data-theme="pixel"] .tvm-hood {
+		background: var(--bg-app);
+		border: none;
+		border-bottom: 4px solid var(--border-color);
+		border-radius: 0;
+	}
+
+	[data-theme="pixel"] .tvm-device-id {
+		color: var(--text-primary);
+		font-family: 'Press Start 2P', monospace;
+		font-size: 11px;
+		letter-spacing: 1px;
+	}
+
+	[data-theme="pixel"] .dispenser-slot-bezel {
+		background: var(--card-bg);
+		border: 3px solid var(--border-color);
+		border-radius: 0;
+		box-shadow: 4px 4px 0 var(--border-color);
+	}
+
+	[data-theme="pixel"] .dispenser-label {
+		color: var(--text-primary);
+		font-family: 'Press Start 2P', monospace;
+		font-size: 0.7rem;
+		letter-spacing: 1px;
+	}
+
+	[data-theme="pixel"] .mechanical-slit {
+		background: #000000;
+		border: 2px solid var(--border-color);
+		border-radius: 0;
+		box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.2);
+	}
+
+	[data-theme="pixel"] .tvm-round-btn {
+		background: var(--card-bg);
+		border: 3px solid var(--border-color);
+		border-radius: 0;
+		box-shadow: 4px 4px 0 var(--border-color);
+		transition: none;
+	}
+
+	[data-theme="pixel"] .tvm-round-btn:active {
+		transform: translate(3px, 3px);
+		box-shadow: 1px 1px 0 var(--border-color);
+	}
+
+	[data-theme="pixel"] .tvm-action-btn {
+		background: var(--btn-primary-bg);
+		color: var(--btn-primary-text);
+		border: 3px solid var(--border-color);
+		border-radius: 0;
+		font-family: 'Press Start 2P', monospace;
+		font-size: 0.85rem;
+		box-shadow: 4px 4px 0 var(--border-color);
+		transition: none;
+	}
+
+	[data-theme="pixel"] .tvm-action-btn:active {
+		transform: translate(3px, 3px);
+		box-shadow: 1px 1px 0 var(--border-color);
+	}
+
+	[data-theme="pixel"] .ticket-paper-wrapper img,
+	[data-theme="pixel"] .ticket-paper-wrapper svg {
+		filter: drop-shadow(4px 4px 0 var(--border-color)) !important;
+		image-rendering: pixelated;
+	}
+
+	[data-theme="pixel"] .tvm-bottom-chassis {
+		background: var(--bg-app);
+		border: none;
+		border-top: 4px solid var(--border-color);
+		border-radius: 0;
+	}
+
+	[data-theme="pixel"] .kiosk-tray-well {
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: 0;
+		box-shadow: inset 3px 3px 0 var(--border-color);
+	}
+
+	[data-theme="pixel"] .tray-instructions {
+		color: var(--text-primary);
+		font-family: 'Press Start 2P', monospace;
+		font-size: 0.65rem;
+	}
+}

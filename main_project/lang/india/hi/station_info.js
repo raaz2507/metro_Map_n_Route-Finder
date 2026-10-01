@@ -19,12 +19,10 @@ export default {
 		connectedLines: "🚆 जुड़ी हुई मेट्रो लाइन्स"
 	},
 	timings: {
-		title: "⏰ स्टेशन परिचालन समय",
-		first: "प्रथम ट्रेन",
-		last: "अंतिम ट्रेन",
-		sundayFirst: "रविवार प्रथम",
-		sundayLast: "रविवार अंतिम",
-		sundayTitle: "रविवार व अवकाश समय"
+		title: "संचालन समय सारणी",
+		first: "पहली ट्रेन",
+		last: "आखिरी ट्रेन",
+		sundayTitle: "रविवार का समय"
 	},
 	helplines: {
 		title: "📞 हेल्पलाइन व सहायता",

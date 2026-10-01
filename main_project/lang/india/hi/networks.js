@@ -42,8 +42,8 @@ export default {
 		noNetworksQuery: "\"{query}\" से मेल खाता कोई नेटवर्क नहीं मिला।"
 	},
 	sections: {
-		combined: "🏙️ शहर-व्यापी संयुक्त नेटवर्क",
-		individual: "🚆 व्यक्तिगत ट्रांजिट लाइन्स"
+		combined: "शहर-व्यापी संयुक्त नेटवर्क",
+		individual: "व्यक्तिगत ट्रांजिट लाइन्स"
 	},
 	card: {
 		regionSuffix: " क्षेत्र",

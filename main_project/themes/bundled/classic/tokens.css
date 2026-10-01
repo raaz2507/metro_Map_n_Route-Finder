@@ -1,0 +1,67 @@
+/* ==========================================================================
+   CLASSIC METRO THEME PACK - MASTER GLOBAL TOKENS
+   ========================================================================== */
+@layer themes {
+	[data-theme="classic"] {
+		--font-title: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		--font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		--theme-bg-image: url('../../themes/bundled/classic/assets/images/background.svg');
+	}
+
+	/* ☀️ CLASSIC LIGHT (Default) */
+	[data-theme="classic"][data-mode="light"],
+	[data-theme="classic"] {
+		--bg-app: #f8fafc;
+		--card-bg: #ffffff;
+		--border-color: #e2e8f0;
+
+		--text-primary: #0f172a;
+		--text-secondary: #64748b;
+		--text-muted: #94a3b8;
+
+		--input-bg: #ffffff;
+		--input-border: #cbd5e1;
+		--input-focus-border: #3b82f6;
+
+		--btn-primary-bg: #3b82f6;
+		--btn-primary-text: #ffffff;
+		--btn-primary-hover: #2563eb;
+		--btn-reset-bg: #f1f5f9;
+		--btn-reset-text: #475569;
+		--btn-reset-hover: #e2e8f0;
+
+		--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.02);
+		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+		--shadow-lg: 4px 0 24px rgba(0, 0, 0, 0.04);
+
+		--bg-filter: none;
+	}
+
+	/* 🌙 CLASSIC DARK (Midnight Transit) */
+	[data-theme="classic"][data-mode="dark"] {
+		--bg-app: #0b0f19;
+		--card-bg: #1e293b;
+		--border-color: #334155;
+
+		--text-primary: #f8fafc;
+		--text-secondary: #94a3b8;
+		--text-muted: #64748b;
+
+		--input-bg: #1e293b;
+		--input-border: #475569;
+		--input-focus-border: #3b82f6;
+
+		--btn-primary-bg: #3b82f6;
+		--btn-primary-text: #ffffff;
+		--btn-primary-hover: #2563eb;
+		--btn-reset-bg: #334155;
+		--btn-reset-text: #cbd5e1;
+		--btn-reset-hover: #475569;
+
+		--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+		--shadow-lg: 4px 0 24px rgba(0, 0, 0, 0.4);
+
+		--bg-filter: blur(8px) brightness(0.35) contrast(1.1) saturate(0.85);
+	}
+}

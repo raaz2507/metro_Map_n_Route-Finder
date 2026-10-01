@@ -10,16 +10,17 @@ export default {
 	"header": {
 		"appName": "YatraMarg",
 		"tagLine": "Maps • Routes • Fares • Journey Assistance",
-		"installApp": "Install PWA",
-		"language": "Lang:",
-		"themes": {
-			"label": "Theme:",
-			"light": "Classic Light",
-			"dark": "Sleek Dark",
-			"cyberpunk": "Neon Cyberpunk",
-			"vintage": "Vintage Retro",
-			"mint": "Forest Mint",
-			"ghibli": "Ghibli Nostalgia"
+		"installApp": "Install App",
+		"hardRefresh": "Clear Cache & Refresh",
+		"appOptions": "App Utilities",
+		"mode": {
+			"switchToDark": "Switch to Dark Mode",
+			"switchToLight": "Switch to Light Mode"
+		},
+		"fontScale": {
+			"decrease": "Decrease Font Size (-5%)",
+			"reset": "Reset Font Size (100%)",
+			"increase": "Increase Font Size (+5%)"
 		}
 	},
 	"nav-header": {
@@ -48,5 +49,17 @@ export default {
 		"brandDescription": "Built for smarter urban transit navigation.",
 		"disclaimer": "Route, fare and travel information are provided for reference only.",
 		"developedBy": "Developed with ❤️"
+	},
+	"rechargeModal": {
+		"title": "Smart Card Quick Top-Up",
+		"closeAria": "Close modal",
+		"infoBanner": "Direct Recharge Helper: Card ID will be copied and DMRC's official top-up portal will open in 1 click.",
+		"cardIdLabel": "Smart Card ID (Engraved No.)",
+		"cardIdPlaceholder": "e.g. 12345678",
+		"amountLabel": "Recharge Amount (₹)",
+		"amountPlaceholder": "Amount (min ₹100)",
+		"submitBtn": "Copy Card ID & Open DMRC Portal",
+		"toastInvalid": "Please enter a valid 8 to 11 digit Metro Card ID.",
+		"toastSuccess": "Card ID {cardId} copied! Opening DMRC Portal..."
 	}
 };

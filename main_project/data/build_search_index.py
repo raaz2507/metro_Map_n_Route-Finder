@@ -65,13 +65,17 @@ def tokenize(text):
 	words = re.findall(r"[\w\u0900-\u097F]+", str(text).lower())
 	return [w for w in words if len(w) >= 2]
 
-def build_search_index():
+def build_search_index(country_key="india"):
 	base_dir = os.path.dirname(os.path.abspath(__file__))
-	registry_path = os.path.join(base_dir, "india_transit_registry.json")
-	cities_dir = os.path.join(base_dir, "cities")
-	cache_output_path = os.path.join(base_dir, "search_cache", "transit_search_index.json")
+	country_dir = os.path.join(base_dir, country_key)
+	registry_path = os.path.join(country_dir, f"{country_key}_transit_registry.json")
+	cities_dir = os.path.join(country_dir, "cities")
+	cache_dir = os.path.join(country_dir, "search_cache")
+	cache_output_path = os.path.join(cache_dir, "transit_search_index.json")
 
-	print("🚀 [SEARCH ENGINE] Starting Inverted Index Pre-computation...")
+	os.makedirs(cache_dir, exist_ok=True)
+
+	print(f"🚀 [SEARCH ENGINE] Starting Inverted Index Pre-computation for '{country_key}'...")
 	print(f"📂 Scanning datasets from: {cities_dir}")
 
 	items = {}
@@ -277,4 +281,5 @@ def build_search_index():
 	print("=" * 70)
 
 if __name__ == "__main__":
-	build_search_index()
+	country = sys.argv[1] if len(sys.argv) > 1 else "india"
+	build_search_index(country)

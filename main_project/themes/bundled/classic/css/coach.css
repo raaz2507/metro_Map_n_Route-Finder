@@ -1,0 +1,66 @@
+/* ==========================================================================
+   CLASSIC METRO THEME PACK - COACH MODULE (DESIGN 9)
+   ========================================================================== */
+@layer themes {
+	[data-theme="classic"] {
+		--coach-font-title: var(--font-title);
+		--coach-font-mono: var(--font-mono, monospace);
+		--coach-text-title: #ffffff;
+		--coach-text-time: #34d399;
+
+		/* 🚇 Classic Slate Badge */
+		--coach-badge-size: 26px;
+		--coach-badge-bg: #0f172a;
+		--coach-badge-border: 2px solid #64748b;
+		--coach-badge-text: #ffffff;
+		--coach-badge-radius: 9999px;
+		--coach-badge-fs: 11px;
+		--coach-badge-font: monospace;
+		--coach-badge-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+		--coach-badge-filter: none;
+		--coach-badge-clip: none;
+	}
+
+	/* ☀️ LIGHT COACH GRAPHICS */
+	[data-theme="classic"][data-mode="light"],
+	[data-theme="classic"] {
+		--coach-body-grad-start: #ffffff;
+		--coach-body-grad-end: #e2e8f0;
+		--coach-body-border: #94a3b8;
+		--coach-top-glint: #ffffff;
+
+		--coach-window-bg: #020617;
+		--coach-window-border: #334155;
+
+		--coach-chassis-color: #475569;
+		--coach-bogie-bg: #0f172a;
+		--coach-bogie-border: #1e293b;
+
+		--coach-wheel-fill: #475569;
+		--coach-wheel-rim: #0f172a;
+		--coach-wheel-inner: #1e293b;
+		--coach-spoke-color: #94a3b8;
+		--coach-axle-color: #e2e8f0;
+	}
+
+	/* 🌙 DARK COACH GRAPHICS */
+	[data-theme="classic"][data-mode="dark"] {
+		--coach-body-grad-start: #334155;
+		--coach-body-grad-end: #0f172a;
+		--coach-body-border: #475569;
+		--coach-top-glint: rgba(255, 255, 255, 0.4);
+
+		--coach-window-bg: #000000;
+		--coach-window-border: #1e293b;
+
+		--coach-chassis-color: #1e293b;
+		--coach-bogie-bg: #09090b;
+		--coach-bogie-border: #18181b;
+
+		--coach-wheel-fill: #1e293b;
+		--coach-wheel-rim: #09090b;
+		--coach-wheel-inner: #0f172a;
+		--coach-spoke-color: #64748b;
+		--coach-axle-color: #38bdf8;
+	}
+}

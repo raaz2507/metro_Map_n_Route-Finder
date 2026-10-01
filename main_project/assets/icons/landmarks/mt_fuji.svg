@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+  <!-- Sun Backdrop -->
+  <circle cx="50" cy="40" r="22" opacity="0.4"/>
+  <!-- Mt. Fuji Volcano Silhouette -->
+  <path d="M 10 90 L 40 32 L 60 32 L 90 90 Z"/>
+  <!-- Snowcap Top -->
+  <path d="M 38 36 L 41 48 L 46 44 L 50 52 L 54 45 L 59 49 L 62 36 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <!-- Base Ground -->
+  <rect x="5" y="90" width="90" height="4" rx="2"/>
+  <!-- Traditional Torii Gate Silhouette (Foreground) -->
+  <rect x="18" y="70" width="4" height="20" rx="0.5"/>
+  <rect x="34" y="70" width="4" height="20" rx="0.5"/>
+  <rect x="14" y="68" width="28" height="3.5" rx="1"/>
+  <rect x="16" y="73" width="24" height="2.5" rx="0.5"/>
+</svg>

@@ -269,15 +269,6 @@
 		transform: translateY(-1px);
 	}
 
-	body[data-theme="dark"] .delete-search-btn {
-		background: rgba(239, 68, 68, 0.15);
-		border-color: rgba(239, 68, 68, 0.35);
-	}
-
-	body[data-theme="dark"] .delete-search-btn:hover {
-		background: rgba(239, 68, 68, 0.3);
-		border-color: rgba(239, 68, 68, 0.6);
-	}
 
 	.delete-search-btn img {
 		width: 14px;

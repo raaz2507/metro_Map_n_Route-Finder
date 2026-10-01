@@ -28,7 +28,8 @@ export class UniversalSearchEngine extends BaseSearchEngine {
         this.#fetchAbort = new AbortController();
 
         try {
-            const response = await fetch("data/search_cache/transit_search_index.json", {
+            const activeCountry = appStateStore?.getState("activeCountry") || "india";
+			const response = await fetch(`data/${activeCountry}/search_cache/transit_search_index.json`, {
                 signal: this.#fetchAbort.signal
             });
 

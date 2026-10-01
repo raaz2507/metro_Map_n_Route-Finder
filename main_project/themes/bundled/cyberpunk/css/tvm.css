@@ -1,0 +1,97 @@
+/* ==========================================================================
+   NEON CYBERPUNK - TVM MODULE (CYBER KIOSK HARDWARE)
+   ========================================================================== */
+@layer themes {
+	[data-theme="cyberpunk"] .tvm-kiosk-unit {
+		background: #090314;
+		border: 2px solid #00f0ff;
+		border-radius: var(--radius-xl);
+		box-shadow: 0 0 25px rgba(0, 240, 255, 0.35), inset 0 0 30px rgba(236, 72, 153, 0.2);
+	}
+
+	[data-theme="cyberpunk"] .tvm-hood {
+		background: linear-gradient(135deg, #1c0b36, #090314);
+		border: none;
+		border-bottom: 2px solid #ec4899;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(236, 72, 153, 0.5);
+	}
+
+	[data-theme="cyberpunk"] .tvm-device-id {
+		color: #00f0ff;
+		font-family: 'Share Tech Mono', monospace;
+		letter-spacing: 2px;
+		text-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+	}
+
+	[data-theme="cyberpunk"] .dispenser-slot-bezel {
+		background: #140826;
+		border: 1.5px solid #00f0ff;
+		box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 12px rgba(236, 72, 153, 0.3);
+		border-radius: var(--radius-md);
+	}
+
+	[data-theme="cyberpunk"] .dispenser-label {
+		color: #ec4899;
+		font-family: 'Share Tech Mono', monospace;
+		letter-spacing: 2px;
+		text-shadow: 0 0 8px rgba(236, 72, 153, 0.8);
+		font-size: 0.75rem;
+	}
+
+	[data-theme="cyberpunk"] .mechanical-slit {
+		background: #000000;
+		border: 1px solid #00f0ff;
+		box-shadow: inset 0 0 8px #00f0ff, 0 0 10px rgba(0, 240, 255, 0.5);
+	}
+
+	[data-theme="cyberpunk"] .tvm-round-btn {
+		background: #1c0b36;
+		border: 1.5px solid #00f0ff;
+		box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+	}
+
+	[data-theme="cyberpunk"] .tvm-round-btn:active {
+		box-shadow: 0 0 18px #ec4899;
+	}
+
+	[data-theme="cyberpunk"] .tvm-action-btn {
+		background: linear-gradient(135deg, #00f0ff, #0284c7);
+		color: #090314;
+		border: 1px solid #00f0ff;
+		font-family: 'Share Tech Mono', monospace;
+		font-weight: 900;
+		box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+	}
+
+	[data-theme="cyberpunk"] .tvm-action-btn:active {
+		box-shadow: 0 0 25px #ec4899;
+	}
+
+	[data-theme="cyberpunk"] .ticket-dispense-bay {
+		background: transparent;
+	}
+
+	[data-theme="cyberpunk"] .ticket-paper-wrapper img,
+	[data-theme="cyberpunk"] .ticket-paper-wrapper svg {
+		filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.5)) drop-shadow(0 15px 25px rgba(0, 0, 0, 0.8)) !important;
+	}
+
+	[data-theme="cyberpunk"] .tvm-bottom-chassis {
+		background: #140826;
+		border: none;
+		border-top: 2px solid #00f0ff;
+		box-shadow: inset 0 15px 25px rgba(0, 0, 0, 0.6);
+	}
+
+	[data-theme="cyberpunk"] .kiosk-tray-well {
+		background: #090314;
+		border: 1px solid rgba(236, 72, 153, 0.5);
+		box-shadow: inset 0 0 15px rgba(236, 72, 153, 0.3), 0 0 12px rgba(0, 240, 255, 0.2);
+	}
+
+	[data-theme="cyberpunk"] .tray-instructions {
+		color: #00f0ff;
+		font-family: 'Share Tech Mono', monospace;
+		letter-spacing: 1px;
+	}
+}

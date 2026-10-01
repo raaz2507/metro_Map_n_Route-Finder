@@ -26,26 +26,18 @@
 		padding: 0 var(--space-md);
 	}
 
-		.tvm-header-tips .quick-tips {
+	.tvm-header-tips .quick-tips {
 		margin-top: 0;
 		padding: var(--space-md) var(--space-lg);
-		
-		/* 100% Variable-Based Glassmorphism */
 		background: rgba(var(--color-bg-base-rgb), var(--op-translucent)); 
 		backdrop-filter: blur(var(--backdrop-blur));
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
-		
 		border-left: 4px solid rgb(var(--color-primary-rgb));
 		border-radius: var(--radius-md);
-		
 		font-size: var(--fs-sm);
-		
-		/* डार्क और क्रिस्प टेक्स्ट (थीम के अनुसार) */
 		color: var(--text-primary); 
 		font-weight: var(--fw-semibold); 
 		line-height: 1.6;
-		
-		/* थीम के अनुसार शैडो */
 		box-shadow: var(--shadow-md);
 	}
 
@@ -58,41 +50,31 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		background: transparent;
-		border: none;
-		box-shadow: none;
 		overflow: visible;
-
 		animation: tvm-float 5s ease-in-out infinite;
 		transition: transform 0.3s ease-out;
-
 	}
 
-	/* जब माउस Hover हो या मोबाइल पर टच किया जाए, तो फ्लोट होना रुक जाए (Still) */
 	.tvm-kiosk-unit:hover,
 	.tvm-kiosk-unit:active {
 		animation-play-state: paused;
 	}
 
-	/* मशीन के हवा में तैरने का स्मूद एनिमेशन */
 	@keyframes tvm-float {
 		0%, 100% {
 			transform: translateY(0px);
 		}
 		50% {
-			transform: translateY(-12px); /* 12 पिक्सल ऊपर जाएगी */
+			transform: translateY(-12px);
 		}
 	}
 
 	/* Top Metal Hood & Screws */
 	.tvm-hood {
 		padding: var(--space-xl) var(--space-xl) var(--space-sm);
-		background: var(--card-bg);
-		border: 2px solid var(--border-color);
 		border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-		box-shadow: var(--shadow-md);
 		position: relative;
-		z-index: auto;
+		z-index: 5;
 	}
 
 	.tvm-hood-meta {
@@ -107,7 +89,7 @@
 		color: var(--text-muted);
 	}
 
-		/* Realistic Hardware Status LEDs */
+	/* Realistic Hardware Status LEDs */
 	.tvm-status-leds {
 		display: flex;
 		align-items: center;
@@ -122,19 +104,16 @@
 		transition: all var(--transition-fast);
 	}
 
-	/* LED 1: Power Status (Always Solid Ready Green) */
 	.hardware-led.led-pwr {
 		background: rgb(var(--color-success-rgb));
 		box-shadow: 0 0 6px rgba(var(--color-success-rgb), 0.6);
 	}
 
-	/* LED 2: Activity Status (Idle: Soft, Printing: Rhythmic Pulse) */
 	.hardware-led.led-act {
 		background: rgb(var(--color-success-rgb));
 		opacity: 0.35;
 	}
 
-	/* Active Printing State - Smooth Synchronized Pulse */
 	.tvm-kiosk-unit:has(.ticket-dispense-bay.state-dispensing) .hardware-led.led-act {
 		opacity: 1;
 		box-shadow: 0 0 10px rgba(var(--color-success-rgb), 0.9);
@@ -153,7 +132,7 @@
 		}
 	}
 
-	/* Hood Buttons (3D Settings, Print, Gate Mode) */
+	/* Hood Buttons */
 	.tvm-hood-actions {
 		display: flex;
 		gap: var(--space-lg);
@@ -169,29 +148,18 @@
 	}
 
 	.tvm-round-btn {
-		background: linear-gradient(to bottom, #ffffff, var(--input-bg));
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-full);
 		width: 44px;
 		height: 44px;
+		border-radius: var(--radius-full);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		box-shadow: 0 var(--space-xs) 0 var(--border-color), 0 5px 10px rgba(0, 0, 0, 0.15);
-		transition: all var(--transition-fast);
 		position: relative;
-		top: 0;
-	}
-
-	.tvm-round-btn:active {
-		top: var(--space-xs);
-		box-shadow: 0 0px 0 var(--border-color), 0 2px 5px rgba(0, 0, 0, 0.15);
 	}
 
 	.tvm-round-btn span {
 		font-size: var(--fs-xl);
-		filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 1));
 		transition: opacity var(--transition-fast);
 	}
 
@@ -208,32 +176,16 @@
 		display: flex;
 		align-items: center;
 		gap: var(--space-sm);
-		background: var(--color-primary, #3b82f6);
-		color: white;
-		border: 1px solid var(--color-primary-dark, #2563eb);
 		font-family: var(--font-title);
 		font-size: var(--fs-md);
 		font-weight: var(--fw-bold);
 		cursor: pointer;
-		box-shadow: 0 var(--space-xs) 0 var(--color-primary-dark, #1d4ed8), 0 5px 10px rgba(0, 0, 0, 0.2);
-		transition: all var(--transition-fast);
 		position: relative;
-		top: 0;
-	}
-
-	.tvm-action-btn:active {
-		top: var(--space-xs);
-		box-shadow: 0 0px 0 var(--color-primary-dark, #1d4ed8), 0 2px 5px rgba(0, 0, 0, 0.2);
 	}
 
 	.hood-gate-btn {
 		background: var(--bg-dark, #0f172a);
 		border-color: var(--border-color, #020617);
-		box-shadow: 0 var(--space-xs) 0 var(--border-color, #020617), 0 5px 10px rgba(0, 0, 0, 0.2);
-	}
-
-	.hood-gate-btn:active {
-		box-shadow: 0 0px 0 var(--border-color, #020617), 0 2px 5px rgba(0, 0, 0, 0.2);
 	}
 
 	.hood-gate-btn .print-btn-text {
@@ -244,15 +196,11 @@
 		display: none !important;
 	}
 
-	/* Ticket Dispenser Slot (Mouth) */
+	/* Ticket Dispenser Slot Bezel & Slit */
 	.dispenser-slot-bezel {
-		background: var(--bg-app);
-		border: 2px solid var(--border-color);
-		border-radius: var(--radius-md);
 		padding: var(--space-md) var(--space-lg);
-		box-shadow: var(--shadow-sm);
 		position: relative;
-		z-index: 2;
+		z-index: 6;
 	}
 
 	.dispenser-slot-banner {
@@ -265,37 +213,28 @@
 	.dispenser-label {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		gap: var(--space-xs);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-bold);
-		color: var(--text-primary);
 	}
 
 	.mechanical-slit {
 		height: 14px;
-		background: var(--bg-app);
-		border-radius: var(--radius-xs);
-		border-top: 1px solid var(--border-color);
-		border-bottom: 1px solid var(--border-color);
 		position: relative;
 		overflow: visible;
-		z-index: 3;
+		z-index: 7;
 	}
 
 	/* Bottom Chassis & Tray */
 	.tvm-bottom-chassis {
-		background: var(--card-bg);
-		border: 2px solid var(--border-color);
-		border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 		padding: var(--space-md) var(--space-lg) var(--space-lg);
-		box-shadow: var(--shadow-sm);
+		border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 		position: relative;
 		z-index: 1;
 	}
 
 	.kiosk-tray-well {
-		background: var(--bg-app);
-		border: 1px solid var(--border-color);
 		border-radius: var(--radius-md);
 		padding: var(--space-sm) var(--space-md);
 		display: flex;
@@ -309,7 +248,6 @@
 		gap: var(--space-sm);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-bold);
-		color: var(--text-secondary);
 	}
 
 	.chassis-feet-bar {
@@ -332,7 +270,6 @@
 		color: var(--text-muted);
 	}
 
-
 	/* =========================================================================
 	   3. TICKET PAPER & DISPENSE BAY
 	   ========================================================================= */
@@ -343,9 +280,9 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		background: var(--card-bg);
 		box-shadow: none;
 		overflow: visible;
+		z-index: 2;
 	}
 
 	.ticket-paper-wrapper {
@@ -368,7 +305,6 @@
 		transition: filter 0.5s ease;
 	}
 
-	/* Prevent hard shadow line at the slit during print */
 	.state-dispensing .ticket-paper-wrapper svg {
 		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 	}
@@ -376,7 +312,6 @@
 	#ticket-mount-point {
 		width: 100%;
 	}
-
 
 	/* =========================================================================
 	   4. TICKET ISSUANCE FORM PANEL (MODAL)
@@ -536,7 +471,6 @@
 		background: var(--btn-reset-hover);
 	}
 
-
 	/* =========================================================================
 	   5. OVERLAYS & FULLSCREEN GATE SCAN MODAL
 	   ========================================================================= */
@@ -647,10 +581,7 @@
 		100% { opacity: 1; }
 	}
 
-	
-	
-
-	/* 4. TICKET DISPENSE FEED (DARK / DEFAULT THEME) */
+	/* 4. TICKET DISPENSE FEED */
 	.state-dispensing .ticket-paper-wrapper {
 		animation: dispense-feed 2.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
 	}
@@ -681,7 +612,7 @@
 		}
 	}
 
-	/* 5. PAPER GRAVITY DROP & REBOUND (DARK / DEFAULT THEME) */
+	/* 5. PAPER GRAVITY DROP & REBOUND */
 	.state-dispensed .ticket-paper-wrapper {
 		transform: translateY(0px);
 		opacity: 1;
@@ -694,48 +625,7 @@
 		85% { transform: translateY(calc(var(--ticket-drop-distance, 18px) - 5px)) rotate(-0.2deg); }
 		100% { transform: translateY(var(--ticket-drop-distance, 18px)) rotate(0deg); }
 	}
-
-	/* 6. TICKET DISPENSE FEED (LIGHT THEME) */
-	body.light-theme .state-dispensing .ticket-paper-wrapper {
-		animation: dispense-feed-light 2.8s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
-	}
-
-	@keyframes dispense-feed-light {
-		0% {
-			transform: translateY(-85%);
-			opacity: 0;
-			clip-path: inset(85% -50px -50px -50px);
-		}
-		15% { opacity: 1; }
-		40% {
-			transform: translateY(-50%);
-			clip-path: inset(50% -50px -50px -50px);
-		}
-		70% {
-			transform: translateY(-18%);
-			clip-path: inset(18% -50px -50px -50px);
-		}
-		88% {
-			transform: translateY(3px);
-			clip-path: inset(0% -50px -50px -50px);
-		}
-		100% {
-			transform: translateY(0);
-			clip-path: inset(0% -50px -50px -50px);
-			opacity: 1;
-		}
-	}
-
-	/* 7. PAPER GRAVITY DROP & REBOUND (LIGHT THEME) */
-	body.light-theme .state-dispensed .ticket-paper-wrapper {
-		transform: translateY(18px);
-		animation: paper-drop-settle-light 0.7s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
-	}
-
-	@keyframes paper-drop-settle-light {
-		0% { transform: translateY(0) rotate(0); }
-		65% { transform: translateY(calc(var(--ticket-drop-distance, 18px) + 18px)) rotate(0.4deg); }
-		85% { transform: translateY(calc(var(--ticket-drop-distance, 18px) - 5px)) rotate(-0.2deg); }
-		100% { transform: translateY(var(--ticket-drop-distance, 18px)) rotate(0deg); }
+	#ticket-mount-point {
+		width: 100%;
 	}
 }

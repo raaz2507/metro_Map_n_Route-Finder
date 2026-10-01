@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+  <!-- Spire & Finials -->
+  <line x1="50" y1="4" x2="50" y2="14" stroke="currentColor" stroke-width="2"/>
+  <circle cx="50" cy="3.5" r="1.5"/>
+  <!-- Pyramid Roof -->
+  <polygon points="50,14 43,26 57,26"/>
+  <!-- Upper Belfry Stage -->
+  <rect x="42" y="26" width="16" height="12" rx="0.5"/>
+  <line x1="46" y1="28" x2="46" y2="36" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="50" y1="28" x2="50" y2="36" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="54" y1="28" x2="54" y2="36" stroke="currentColor" stroke-width="1.5"/>
+  <!-- Clock Face Box -->
+  <rect x="40" y="38" width="20" height="18" rx="1"/>
+  <circle cx="50" cy="47" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+  <line x1="50" y1="47" x2="50" y2="43" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="50" y1="47" x2="53" y2="47" stroke="currentColor" stroke-width="1.5"/>
+  <!-- Lower Shaft Tower Body -->
+  <rect x="42" y="56" width="16" height="36" rx="0.5"/>
+  <line x1="46" y1="58" x2="46" y2="90" stroke="currentColor" stroke-width="1"/>
+  <line x1="50" y1="58" x2="50" y2="90" stroke="currentColor" stroke-width="1"/>
+  <line x1="54" y1="58" x2="54" y2="90" stroke="currentColor" stroke-width="1"/>
+  <!-- Base Foundation -->
+  <rect x="38" y="92" width="24" height="4" rx="1"/>
+</svg>

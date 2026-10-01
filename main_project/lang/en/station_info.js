@@ -19,12 +19,10 @@ export default {
 		connectedLines: "🚆 Connected Metro Lines"
 	},
 	timings: {
-		title: "⏰ Station Operating Hours",
+		title: "Operating Timings",
 		first: "First Train",
 		last: "Last Train",
-		sundayFirst: "Sunday First",
-		sundayLast: "Sunday Last",
-		sundayTitle: "Sunday / Holiday Schedule"
+		sundayTitle: "Sunday Timings"
 	},
 	helplines: {
 		title: "📞 Helplines & Support",

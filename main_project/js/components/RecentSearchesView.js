@@ -35,11 +35,11 @@ export class RecentSearchesView {
 					${this.#settings.currentLang === "hi" ? "कोई हाल की खोज नहीं मिली।" : "No recent searches found."}
 				</li>
 			`;
-			if (this.#clearBtn) this.#clearBtn.style.display = "none";
+			if (this.#clearBtn) this.#clearBtn.hidden = true;
 			return;
 		} 
 		
-		if (this.#clearBtn) this.#clearBtn.style.display = "block";
+		if (this.#clearBtn) this.#clearBtn.hidden = false;
 
 		let displaySearches = [...searches];
 		if (this.#activeFilter === "most-used") {

@@ -1,0 +1,112 @@
+{
+	"$schema": "./theme-manifest-schema.json",
+	"version": "1.0.0",
+	"defaultTheme": "classic",
+	"themes": [
+		{
+			"id": "classic",
+			"name": "Classic Metro",
+			"category": "🚇 Transit & Metro",
+			"badge": "Standard Edition",
+			"description": "Modern clean DMRC subway design with light-sweep patti & tactile wheels.",
+			"version": "1.0.0",
+			"type": "bundled",
+			"path": "themes/bundled/classic",
+			"preview": {
+				"light": "#ffffff",
+				"dark": "#0f172a",
+				"accent": "#2563eb"
+			}
+		},
+		{
+			"id": "comic",
+			"name": "Pop-Comic Hero",
+			"category": "💥 Comics & Manga",
+			"badge": "Graphic Novel",
+			"description": "Hand-inked comic newsprint, Ben-Day dots, speed lines & starburst badge.",
+			"version": "1.0.0",
+			"type": "bundled",
+			"path": "themes/bundled/comic",
+			"preview": {
+				"light": "#fffde7",
+				"dark": "#18181b",
+				"accent": "#ef4444"
+			}
+		},
+		{
+			"id": "anime",
+			"name": "Anime Nostalgia",
+			"category": "🎬 Anime & Cinema",
+			"badge": "Cinematic Edition",
+			"description": "Nostalgic sea-railway locomotive, antique watercolor gouache, Cinzel serif typography, and embossed brass hardware.",
+			"version": "1.0.0",
+			"type": "bundled",
+			"path": "themes/bundled/anime",
+			"preview": {
+				"light": "#faf7ea",
+				"dark": "#152232",
+				"accent": "#b45309"
+			}
+		},
+		{
+			"id": "cyberpunk",
+			"name": "Neon Cyberpunk",
+			"category": "⚡ Sci-Fi & Retro",
+			"badge": "Night City 2077",
+			"description": "High-tech synthwave aesthetic with neon cyan/magenta HUD glow, dark carbon maglev, and cyber-grid telemetry.",
+			"version": "1.0.0",
+			"type": "bundled",
+			"path": "themes/bundled/cyberpunk",
+			"preview": {
+				"light": "#fdf4ff",
+				"dark": "#090314",
+				"accent": "#00f0ff"
+			}
+		},
+		{
+			"id": "pixel",
+			"name": "Retro 8-Bit Pixel",
+			"category": "⚡ Sci-Fi & Retro",
+			"badge": "Arcade & 8-Bit",
+			"description": "Authentic 8-bit retro arcade aesthetic inspired by classic consoles with Press Start 2P font, royal blue frames, and electric cyan accents.",
+			"version": "1.0.0",
+			"type": "bundled",
+			"path": "themes/bundled/pixel",
+			"preview": {
+				"light": "#1535a1",
+				"dark": "#08081a",
+				"accent": "#30cef0"
+			}
+		},
+		{
+			"id": "chamgadar",
+			"name": "Chamgadar",
+			"category": "🦇 Dark Vigilante",
+			"badge": "Shadow Patrol",
+			"description": "Tactical night vigilante armor aesthetic with matte carbon fiber weave, tactical beacon gold, and stealth telemetry.",
+			"version": "1.0.0",
+			"type": "bundled",
+			"path": "themes/bundled/chamgadar",
+			"preview": {
+				"light": "#dbe1ea",
+				"dark": "#0a0b0e",
+				"accent": "#f59e0b"
+			}
+		},
+		{
+			"id": "makad-manav",
+			"name": "Makad-Manav",
+			"category": "🕷️ Web-Slinger",
+			"badge": "Web Transit",
+			"description": "Kinetic superhero transit aesthetic with geometric honeycomb mesh, bold crimson web-lines, and deep cobalt blue.",
+			"version": "1.0.0",
+			"type": "bundled",
+			"path": "themes/bundled/makad-manav",
+			"preview": {
+				"light": "#f5f3f7",
+				"dark": "#080912",
+				"accent": "#ef4444"
+			}
+		}
+	]
+}

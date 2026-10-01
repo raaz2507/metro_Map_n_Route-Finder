@@ -181,6 +181,91 @@ export class AllStationsDirectory {
 				this.#render();
 			}, { signal });
 		}
+
+
+				// =========================================================================
+		// 🌟 SHOWCASE REAL 2.5D MOUSE CURSOR TILT & DEPTH PARALLAX ENGINE
+		// =========================================================================
+		if (this.#dom.container) {
+			this.#dom.container.addEventListener("mousemove", (e) => {
+				const card = e.target.closest(".real-coach-card");
+				if (!card) return;
+
+				const rect = card.getBoundingClientRect();
+				const mouseX = e.clientX - rect.left;
+				const mouseY = e.clientY - rect.top;
+
+				const normX = Math.max(-1, Math.min(1, ((mouseX / rect.width) - 0.5) * 2));
+				const normY = Math.max(-1, Math.min(1, ((mouseY / rect.height) - 0.5) * 2));
+
+				// 1. Deep 3D Card Rotations
+				const rotateX = -normY * 14;
+				const rotateY = normX * 16;
+				const translateY = -8 + (normY * -3);
+
+				card.style.transform = `perspective(850px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(${translateY.toFixed(1)}px) scale3d(1.03, 1.03, 1.03)`;
+
+				// 2. Parallax Depth on Window Text (Station Title & Time)
+				const textContainer = card.querySelector(".coach-window-overlay");
+				if (textContainer) {
+					const textX = (normX * 8).toFixed(1);
+					const textY = (normY * 6).toFixed(1);
+					textContainer.style.transform = `translate3d(${textX}px, ${textY}px, 35px)`;
+				}
+
+				// 3. Tactile Medal Badge Pop & Glow
+				const badge = card.querySelector(".coach-center-badge");
+				if (badge) {
+					const badgeX = (normX * 12).toFixed(1);
+					const badgeY = (normY * 8).toFixed(1);
+					badge.style.transform = `translateX(calc(-50% + ${badgeX}px)) translateY(${badgeY}px) scale(1.22)`;
+				}
+
+				// 4. Reactive Underglow Counter-Balance
+				const underglow = card.querySelector(".coach-underglow");
+				if (underglow) {
+					const glowX = (-normX * 14).toFixed(1);
+					const glowY = (15 + normY * 5).toFixed(1);
+					underglow.style.transform = `translate(${glowX}px, ${glowY}px) scaleX(1.15)`;
+					underglow.style.opacity = "0.75";
+				}
+			});
+
+			this.#dom.container.addEventListener("mouseleave", (e) => {
+				const cards = this.#dom.container.querySelectorAll(".real-coach-card");
+				cards.forEach(card => {
+					card.style.transform = "";
+					const textContainer = card.querySelector(".coach-window-overlay");
+					if (textContainer) textContainer.style.transform = "";
+					const badge = card.querySelector(".coach-center-badge");
+					if (badge) badge.style.transform = "translateX(-50%) scale(1)";
+					const underglow = card.querySelector(".coach-underglow");
+					if (underglow) {
+						underglow.style.transform = "";
+						underglow.style.opacity = "";
+					}
+				});
+			}, true);
+
+			this.#dom.container.addEventListener("mouseout", (e) => {
+				const card = e.target.closest(".real-coach-card");
+				if (!card) return;
+				const related = e.relatedTarget;
+				if (related && card.contains(related)) return;
+
+				card.style.transform = "";
+				const textContainer = card.querySelector(".coach-window-overlay");
+				if (textContainer) textContainer.style.transform = "";
+				const badge = card.querySelector(".coach-center-badge");
+				if (badge) badge.style.transform = "translateX(-50%) scale(1)";
+				const underglow = card.querySelector(".coach-underglow");
+				if (underglow) {
+					underglow.style.transform = "";
+					underglow.style.opacity = "";
+				}
+			});
+		}
+		
 	}
 
 	/**
@@ -371,41 +456,9 @@ export class AllStationsDirectory {
 			<a href="station_info.html?id=${encodeURIComponent(st.id || stationId)}&city=${encodeURIComponent(this.#currentCity)}" class="real-coach-card" style="--line-color: ${lineColor};" aria-label="${this.#escapeHTML(cardAria)}">
 				<div class="coach-underglow"></div>
 
-				<svg class="svg-coach-element" viewBox="0 0 360 216" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<defs>
-						<linearGradient id="bodyGrad-${st.id || stationId}" x1="0" y1="0" x2="0" y2="1">
-							<stop offset="0%" stop-color="var(--coach-body-grad-start, #ffffff)"/>
-							<stop offset="100%" stop-color="var(--coach-body-grad-end, #cbd5e1)"/>
-						</linearGradient>
-						<linearGradient id="roofGrad-${st.id || stationId}" x1="0" y1="0" x2="0" y2="1">
-							<stop offset="0%" stop-color="var(--coach-roof-grad-start, #f8fafc)"/>
-							<stop offset="100%" stop-color="var(--coach-roof-grad-end, #475569)"/>
-						</linearGradient>
-					</defs>
-
-					<path d="M12 35 C12 20, 25 12, 45 12 L315 12 C335 12, 348 20, 354 38 L348 165 C340 195, 320 200, 300 200 L25 200 C15 200, 10 185, 10 165 Z" fill="url(#bodyGrad-${st.id || stationId})" stroke="#64748B" stroke-width="2"/>
-					<path d="M15 25 C15 12, 28 8, 48 8 L312 8 C328 8, 342 12, 350 25 Z" fill="url(#roofGrad-${st.id || stationId})"/>
-
-					<path d="M322 18 L344 18 C352 18, 356 28, 350 48 L334 48 Z" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5"/>
-					<polygon points="325,20 342,20 334,44 325,44" fill="#FFFFFF" opacity="0.3"/>
-
-					<rect class="dynamic-stripe-fill" x="10" y="166" width="340" height="24" rx="4"/>
-					<rect x="10" y="174" width="340" height="5" fill="#FFFFFF" opacity="0.8"/>
-
-					<rect x="45" y="198" width="75" height="18" rx="4" fill="#0F172A"/>
-					<circle cx="65" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
-					<circle cx="65" cy="207" r="3" fill="#E2E8F0"/>
-					<circle cx="100" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
-					<circle cx="100" cy="207" r="3" fill="#E2E8F0"/>
-
-					<rect x="240" y="198" width="75" height="18" rx="4" fill="#0F172A"/>
-					<circle cx="260" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
-					<circle cx="260" cy="207" r="3" fill="#E2E8F0"/>
-					<circle cx="295" cy="207" r="9" fill="#64748B" stroke="#0F172A" stroke-width="3"/>
-					<circle cx="295" cy="207" r="3" fill="#E2E8F0"/>
-
-					<circle cx="348" cy="180" r="5" fill="#38BDF8" stroke="#FFFFFF" stroke-width="1.5"/>
-					<circle cx="338" cy="180" r="4" fill="#F59E0B"/>
+				<!-- Dynamic Reusable SVG Coach Symbol (Theme-Engine Driven) -->
+				<svg class="svg-coach-element" viewBox="0 0 360 210" aria-hidden="true">
+					<use href="#theme-coach-shape"></use>
 				</svg>
 
 				<div class="coach-window-overlay">
@@ -418,16 +471,9 @@ export class AllStationsDirectory {
 					</div>
 				</div>
 
-				<div class="coach-stripe-badges">
-					<span class="coach-badge ${layoutClass}" title="${this.#escapeHTML(layoutText)}">
-						<img src="./assets/icons/${layoutIcon}" class="badge-icon-img" alt="${this.#escapeHTML(layoutText)}">
-					</span>
-
-					${isInterchange ? `
-						<span class="coach-badge badge-interchange" title="${this.#escapeHTML(interchangeText)}">
-							<img src="./assets/icons/icon_interchange.svg" class="badge-icon-img" alt="${this.#escapeHTML(interchangeText)}">
-						</span>
-					` : ""}
+				<!-- Showcase Circular Center Badge (Elevated on Patti) -->
+				<div class="coach-center-badge ${layoutClass}" title="${this.#escapeHTML(layoutText)}">
+					<span>${layoutType.startsWith("u") ? "UG" : (layoutType.startsWith("a") ? "AG" : "E")}</span>
 				</div>
 			</a>
 		`;

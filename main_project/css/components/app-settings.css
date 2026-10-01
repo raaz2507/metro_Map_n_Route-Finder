@@ -211,7 +211,9 @@
 		font-weight: var(--fw-semibold);
 		outline: none;
 		cursor: pointer;
-		transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+		transition:
+			border-color var(--transition-fast),
+			box-shadow var(--transition-fast);
 	}
 
 	/* =========================================================================
@@ -279,8 +281,7 @@
 		color: #ef4444;
 	}
 
-
-		/* =========================================================================
+	/* =========================================================================
 	   9. 📦 PACKS MANAGER (Languages & Themes Tab)
 	   ========================================================================= */
 	:root {
@@ -312,7 +313,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-sm);
-		transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+		transition:
+			border-color var(--transition-smooth),
+			box-shadow var(--transition-smooth);
 	}
 
 	.settings-tab-panel[data-panel="packs"] .settings-fieldset:hover {
@@ -435,5 +438,192 @@
 
 	.is-hidden {
 		display: none !important;
+	}
+
+	/* ==========================================================================
+   THEME & SKIN PACKS GALLERY STYLES (100% Design Token Powered)
+   ========================================================================== */
+	#panel-setting-packs {
+		padding-bottom: 90px; /* फ्लोटिंग अलार्म/टिकट बटन्स के लिए सुरक्षित बॉटम स्पेस */
+	}
+
+	.theme-skin-card {
+		padding: var(--space-md) var(--space-lg);
+		margin-bottom: var(--space-md);
+		border-radius: var(--radius-md);
+		border: 1.5px solid var(--border-color);
+		background: var(--card-bg);
+		box-shadow: var(--shadow-sm);
+		transition:
+			border-color var(--transition-fast),
+			transform var(--transition-fast),
+			box-shadow var(--transition-fast);
+	}
+
+	.theme-skin-card:hover {
+		border-color: var(--color-primary, #3b82f6);
+		box-shadow: var(--shadow-md);
+	}
+
+	.theme-skin-card.is-theme-active {
+		border-color: var(--color-primary, #3b82f6);
+		box-shadow:
+			0 0 0 1px var(--color-primary, #3b82f6),
+			var(--shadow-md);
+	}
+
+	.theme-card-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		margin-bottom: var(--space-2xs);
+	}
+
+	.theme-card-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+
+	.theme-badge-pill {
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		padding: 2px var(--space-xs);
+		border-radius: var(--radius-full);
+		background: rgba(var(--color-primary-rgb, 59, 130, 246), 0.12);
+		color: rgb(var(--color-primary-rgb, 59, 130, 246));
+		border: 1px solid rgba(var(--color-primary-rgb, 59, 130, 246), 0.3);
+	}
+
+	.theme-card-desc {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		margin: 0 0 var(--space-sm) 0;
+		line-height: 1.45;
+	}
+
+	.theme-palette-wrapper {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+	}
+
+	.theme-palette-label {
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.theme-swatches-group {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.theme-swatch-circle {
+		width: 14px;
+		height: 14px;
+		border-radius: var(--radius-full);
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+		display: inline-block;
+	}
+
+	.btn-apply-theme {
+		padding: var(--space-xs) var(--space-md);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		background: var(--btn-reset-bg);
+		color: var(--btn-reset-text);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-sm);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+	}
+
+	.btn-apply-theme:hover {
+		background: var(--color-primary, #3b82f6);
+		color: #ffffff;
+		border-color: var(--color-primary, #3b82f6);
+	}
+
+	.theme-active-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 4px 10px;
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-extrabold);
+		color: rgb(var(--color-success-rgb, 16, 185, 129));
+		background: rgba(var(--color-success-rgb, 16, 185, 129), 0.12);
+		border: 1px solid rgba(var(--color-success-rgb, 16, 185, 129), 0.35);
+		border-radius: var(--radius-full);
+	}
+
+		/* 💾 Backup Restore Modal Dialog Styling */
+	.restore-modal-backdrop {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.6);
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: var(--z-modal, 99999);
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.restore-modal-card {
+		max-width: 420px;
+		width: 90%;
+	}
+
+	.restore-modal-body {
+		padding: var(--space-xl);
+	}
+
+	.restore-modal-desc {
+		font-size: var(--fs-sm);
+		margin-bottom: var(--space-xl);
+		color: var(--text-secondary);
+		line-height: 1.5;
+	}
+
+	.restore-modal-actions {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+
+	.btn-restore-merge {
+		background: var(--tab-backup-accent, #6366f1);
+		color: #ffffff;
+		border: none;
+		padding: var(--space-md);
+		font-size: var(--fs-sm);
+		justify-content: center;
+	}
+
+	.btn-restore-overwrite {
+		background: rgba(239, 68, 68, 0.1);
+		color: #ef4444;
+		border: 1px solid rgba(239, 68, 68, 0.4);
+		padding: var(--space-md);
+		font-size: var(--fs-sm);
+		justify-content: center;
+	}
+
+	.btn-restore-cancel {
+		background: transparent;
+		color: var(--text-secondary);
+		border: 1px solid var(--border-color);
+		padding: var(--space-md);
+		font-size: var(--fs-sm);
+		justify-content: center;
 	}
 }

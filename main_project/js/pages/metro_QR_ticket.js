@@ -737,8 +737,8 @@ class TicketWalletApp {
 		// स्थिति 1: जब कोई एक्टिव टिकट नहीं है -> Pass Card छुपाएं और Ingestion Card दिखाएं
 		if (!this.#state.activeTicketId) {
 			this.#dom.passCard.classList.remove('active');
-			this.#dom.passCard.style.display = 'none';
-			if (this.#dom.ingestionCard) this.#dom.ingestionCard.style.display = '';
+			this.#dom.passCard.hidden = true;
+			if (this.#dom.ingestionCard) this.#dom.ingestionCard.hidden = false;
 
 			if (this.#state.timerIntervalId) {
 				clearInterval(this.#state.timerIntervalId);
@@ -751,15 +751,15 @@ class TicketWalletApp {
 		if (!ticket || (!ticket.tokenText && !ticket.originalImage)) {
 			this.#state.activeTicketId = null;
 			this.#dom.passCard.classList.remove('active');
-			this.#dom.passCard.style.display = 'none';
-			if (this.#dom.ingestionCard) this.#dom.ingestionCard.style.display = '';
+			this.#dom.passCard.hidden = true;
+			if (this.#dom.ingestionCard) this.#dom.ingestionCard.hidden = false;
 			return;
 		}
 
 		// स्थिति 2: जब एक्टिव टिकट मौजूद है -> Pass Card दिखाएं और Ingestion Card छुपाएं
-		this.#dom.passCard.style.display = '';
+		this.#dom.passCard.hidden = false;
 		this.#dom.passCard.classList.add('active');
-		if (this.#dom.ingestionCard) this.#dom.ingestionCard.style.display = 'none';
+		if (this.#dom.ingestionCard) this.#dom.ingestionCard.hidden = true;
 
 		if (ticket.type === 'VECTOR_QR' && ticket.tokenText) {
 			this.#dom.passQrSubtitle.textContent = i18n.t('metroTicket.cards.pass.turnstileSubtitle');

@@ -1,7 +1,7 @@
 
 import { createDOMFromMap } from "./dom-builder.js";
 import { eventBus } from "../core/event-bus.js";
-
+import i18n from "../core/i18n.js";
 const earthScale = 111320; // Meters per degree
 
 export class MetroMap {
@@ -131,7 +131,7 @@ export class MetroMap {
 				legendToggleBtn: { 
 					type: "button", 
 					cls: "metro-btn-overlay", 
-					html_con: `<span data-i18n="pages.home.map.legend">Legend</span>` 
+					html_con: `<span data-i18n="pages.home.map.legend">${i18n.t("pages.home.map.legend")}</span>` 
 				},
 
 				// 0.1 Clear Route Highlight Overlay Button
@@ -139,7 +139,12 @@ export class MetroMap {
 					type: "button", 
 					id: "clearRouteHighlightBtn", 
 					cls: "clear-route-highlight-btn hidden", 
-					html_con: `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearRoute">Clear Route</span>` 
+					clearRouteBtn: { 
+						type: "button", 
+						id: "clearRouteHighlightBtn", 
+						cls: "clear-route-highlight-btn hidden", 
+						html_con: `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearRoute">${i18n.t("pages.home.map.clearRoute")}</span>` 
+					},
 				},
 
 				// क्लोज़ बटन "X"
@@ -148,7 +153,11 @@ export class MetroMap {
 				// 1. Main Panel Wrapper
 				legendPanel: { type: "div", cls: "legend-panel" },
 				// Main Header
-				mainHeader: { type: "h2", html_con: `<span data-i18n="pages.home.map.legend">Legend</span>`, parent: "legendPanel" },
+				mainHeader: { 
+					type: "h2", 
+					html_con: `<span data-i18n="pages.home.map.legend">${i18n.t("pages.home.map.legend")}</span>`, 
+					parent: "legendPanel" 
+				},
 				// 2. Section: Metro Track Lines
 				trackSection: { type: "div", cls: "legend-section", parent: "legendPanel" },
 				trackHeader: { type: "h3", html_con: `<span data-i18n="pages.home.map.metroTrackLines">Metro Track Lines</span>`, parent: "trackSection" },

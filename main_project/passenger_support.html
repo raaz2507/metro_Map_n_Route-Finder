@@ -2,50 +2,36 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-	<!-- Open Graph / Facebook / WhatsApp / Telegram -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/passenger_support.html">
-	<meta property="og:title" content="Passenger Safety &amp; Helplines - YatraMarg">
-	<meta property="og:description" content="Centralized transit support, women safety lines, emergency SOS, and lost &amp; found directories.">
-	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png"> 
-
-	<!-- Twitter / X -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/passenger_support.html">
-	<meta name="twitter:title" content="Passenger Safety &amp; Helplines - YatraMarg">
-	<meta name="twitter:description" content="Centralized transit support, women safety lines, emergency SOS, and lost &amp; found directories.">
-	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
-
-	<!-- Site Icon / Favicon -->
-	<link rel="icon" type="image/svg+xml" href="./assets/images/site_icon.svg">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title data-i18n="passengerSupport.pageTitle">Passenger Support &amp; Legal Directory | YatraMarg Metro</title>
 	
-	<title data-i18n="passengerSupport.meta.title">Passenger Safety &amp; Helplines - YatraMarg</title>
-
-	<!-- App Stylesheet (Zero CDN Dependencies) -->
-	<link rel="stylesheet" href="./css/pages/passenger_support.css"/>
+	<!-- Favicon & PWA Icons -->
+	<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+	
+	<!-- Enterprise Design System CSS Pipeline -->
+	<link rel="stylesheet" href="css/base/base.css">
+	<link rel="stylesheet" href="css/layout/layout.css">
+	<link rel="stylesheet" href="css/layout/header.css">
+	<link rel="stylesheet" href="css/layout/navbar_header.css">
+	<link rel="stylesheet" href="css/layout/footer.css">
+	<link rel="stylesheet" href="css/pages/passenger_support.css">
 </head>
-<body>
+<body data-page="passenger_support">
 
-	<!-- Universal Header Container -->
-	<div id="app-header"></div>
+	<!-- Global Fixed Header (Mounted by Header.js) -->
+	<header id="app-header" class="site-header"></header>
 
-	<!-- Main Content Area -->
-	<main class="support-container">
+	<main class="support-container" id="main-content">
 		
-		<!-- 1. Hero / Header Card -->
-		<section class="support-hero">
+		<!-- 1. Hero / Header Block -->
+		<header class="support-hero">
 			<div class="hero-badge">
-				<span class="support-ico ico-check ico-xs" aria-hidden="true"></span>
-				<span data-i18n="passengerSupport.hero.badge">Verified Transit Directory</span>
+				<span class="support-ico ico-shield ico-sm" aria-hidden="true"></span>
+				<span data-i18n="passengerSupport.hero.badge">Official Regulatory Directory</span>
 			</div>
-			<h1 data-i18n="passengerSupport.hero.title">Official Passenger Support</h1>
-			<p id="hero-desc-text" data-i18n="passengerSupport.hero.desc">Direct access to verified official authorities, safety guidelines, passenger amenities, and 24x7 emergency assistance.</p>
-		</section>
-
-		<!-- Network Switcher Strip (Dynamically rendered if city has multiple networks) -->
-		<div id="network-selector-container" class="network-selector-pills hidden"></div>
+			<h1 data-i18n="passengerSupport.hero.title">Passenger Support &amp; Legal Redirection</h1>
+			<p data-i18n="passengerSupport.hero.subtitle">Statutory compliance portals, station accessibility assistance, authorized baggage limitations, and immediate control room contacts.</p>
+		</header>
 
 		<!-- 2. Section 1: Legal Redirection & Safety (Official Portals) -->
 		<section class="support-group tab-panel" id="tab-safety">
@@ -59,7 +45,7 @@
 				<div class="support-item" id="item-vigilance">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(220, 38, 38, 0.12); color: #dc2626;">
+							<div class="item-bullet-icon bullet-red">
 								<span class="support-ico ico-scale" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
@@ -85,7 +71,7 @@
 				<div class="support-item" id="item-security">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(37, 99, 235, 0.12); color: #2563eb;">
+							<div class="item-bullet-icon bullet-blue">
 								<span class="support-ico ico-shield" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
@@ -98,37 +84,37 @@
 					<div class="item-drawer">
 						<p data-i18n="passengerSupport.cards.security.desc">Official restrictions and safety checks before station concourse entry:</p>
 						<ul class="drawer-bullets">
-							<li data-i18n="passengerSupport.cards.security.fact1">Strictly prohibited: Flammable materials, weapons, and oversized luggage</li>
-							<li data-i18n="passengerSupport.cards.security.fact2">Emergency rapid response team deployed at all passenger screening gates</li>
+							<li data-i18n="passengerSupport.cards.security.fact1">Flammables, weapons, and petroleum products are strictly prohibited.</li>
+							<li data-i18n="passengerSupport.cards.security.fact2">All baggage must pass through X-BIS X-ray inspection tunnels.</li>
 						</ul>
-						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-security-url">
-							<span data-i18n="passengerSupport.cards.security.btn">Read Security Rules</span>
+						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-cisf-guidelines">
+							<span data-i18n="passengerSupport.cards.security.btn">View Full CISF Prohibited List</span>
 						</a>
 					</div>
 				</div>
 
-				<!-- Lost & Found -->
-				<div class="support-item" id="item-lostfound">
+				<!-- Baggage Rules -->
+				<div class="support-item" id="item-baggage">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(217, 119, 6, 0.12); color: #d97706;">
+							<div class="item-bullet-icon bullet-amber">
 								<span class="support-ico ico-box" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
-								<h4 data-i18n="passengerSupport.cards.lostFound.title">Lost &amp; Found Property Cell</h4>
-								<span id="depot-subtitle" data-i18n="passengerSupport.cards.lostFound.subtitle">Central Depot Inventory</span>
+								<h4 data-i18n="passengerSupport.cards.baggage.title">Authorized Baggage Limitations</h4>
+								<span data-i18n="passengerSupport.cards.baggage.subtitle">Statutory Weight &amp; Dimension Permissibility</span>
 							</div>
 						</div>
 						<span class="item-chevron" aria-hidden="true"></span>
 					</div>
 					<div class="item-drawer">
-						<p data-i18n="passengerSupport.cards.lostFound.desc">Check recovered baggage, electronics, or personal articles:</p>
+						<p data-i18n="passengerSupport.cards.baggage.desc">Metro Carriage &amp; Ticket Rules strictly enforce the following limitations per commuter:</p>
 						<ul class="drawer-bullets">
-							<li data-i18n="passengerSupport.cards.lostFound.fact1">Daily updated inventory of unclaimed valuables deposited by station staff</li>
-							<li data-i18n="passengerSupport.cards.lostFound.fact2">Valid Government Photo ID and proof of ownership mandatory for claim</li>
+							<li data-i18n="passengerSupport.cards.baggage.fact1">Maximum Permissible Weight: <strong>15 kg to 25 kg</strong> (Network specific)</li>
+							<li data-i18n="passengerSupport.cards.baggage.fact2">Maximum Dimensions: <strong>80 cm × 50 cm × 30 cm</strong></li>
 						</ul>
-						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-lostfound-url">
-							<span data-i18n="passengerSupport.cards.lostFound.btn">Check Lost Articles</span>
+						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-baggage-rules">
+							<span data-i18n="passengerSupport.cards.baggage.btn">Read Complete Carriage Policy</span>
 						</a>
 					</div>
 				</div>
@@ -136,88 +122,88 @@
 			</div>
 		</section>
 
-		<!-- 3. Section 2: Passenger Care & Amenities (Quick Guidance) -->
+		<!-- 3. Section 2: Commuter Rights & Facilities -->
 		<section class="support-group tab-panel" id="tab-facilities">
 			<div class="group-heading">
 				<span class="support-ico ico-accessibility ico-sm" aria-hidden="true"></span>
-				<span data-i18n="passengerSupport.sections.facilitiesTitle">Passenger Care &amp; Amenities (Quick Guidance)</span>
+				<span data-i18n="passengerSupport.sections.facilitiesTitle">Commuter Rights &amp; Station Amenities</span>
 			</div>
 			<div class="support-card">
-				
-				<!-- Women Safety -->
-				<div class="support-item" id="item-women">
+
+				<!-- Women Safety & Dedicated Coach -->
+				<div class="support-item" id="item-women-safety">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(219, 39, 119, 0.12); color: #db2777;">
+							<div class="item-bullet-icon bullet-pink">
 								<span class="support-ico ico-women" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
-								<h4 data-i18n="passengerSupport.cards.women.title">Women Commuter Safety &amp; Reserved Coach</h4>
-								<span data-i18n="passengerSupport.cards.women.subtitle">Dedicated Coach &amp; Security Monitoring</span>
+								<h4 data-i18n="passengerSupport.cards.womenSafety.title">Women Commuter Safety &amp; Reserved Coaches</h4>
+								<span data-i18n="passengerSupport.cards.womenSafety.subtitle">First Coach Reservation &amp; Enforcement</span>
 							</div>
 						</div>
 						<span class="item-chevron" aria-hidden="true"></span>
 					</div>
 					<div class="item-drawer">
-						<p data-i18n="passengerSupport.cards.women.desc">Universal safety standards for women passengers:</p>
+						<p data-i18n="passengerSupport.cards.womenSafety.desc">Protection under Metro Railways (O&amp;M) Act section 64:</p>
 						<ul class="drawer-bullets">
-							<li data-i18n="passengerSupport.cards.women.fact1">Coach 1 (in train movement direction) strictly reserved for women commuters</li>
-							<li data-i18n="passengerSupport.cards.women.fact2">Heavy statutory fine and eviction for male commuters entering reserved coach</li>
+							<li data-i18n="passengerSupport.cards.womenSafety.fact1">The first coach in moving direction is reserved exclusively for women commuters.</li>
+							<li data-i18n="passengerSupport.cards.womenSafety.fact2">Male entry is a punishable offense carrying immediate fine and legal eviction.</li>
 						</ul>
-						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-women-url">
-							<span data-i18n="passengerSupport.cards.women.btn">Official Facilities Guide</span>
+						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-women-safety">
+							<span data-i18n="passengerSupport.cards.womenSafety.btn">Safety Protocols &amp; Helpline</span>
 						</a>
 					</div>
 				</div>
 
-				<!-- Differently Abled (Divyang) -->
-				<div class="support-item" id="item-divyang">
+				<!-- Accessibility & Divyangjan Assist -->
+				<div class="support-item" id="item-accessibility">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(5, 150, 105, 0.12); color: #059669;">
+							<div class="item-bullet-icon bullet-green">
 								<span class="support-ico ico-accessibility" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
-								<h4 data-i18n="passengerSupport.cards.divyang.title">Differently Abled (Divyang) Mobility</h4>
-								<span data-i18n="passengerSupport.cards.divyang.subtitle">Wheelchairs, Braille Lifts &amp; Ramps</span>
+								<h4 data-i18n="passengerSupport.cards.divyangjan.title">Barrier-Free Accessibility (Divyangjan)</h4>
+								<span data-i18n="passengerSupport.cards.divyangjan.subtitle">Wheelchair Escorts, Ramps &amp; Tactile Paths</span>
 							</div>
 						</div>
 						<span class="item-chevron" aria-hidden="true"></span>
 					</div>
 					<div class="item-drawer">
-						<p data-i18n="passengerSupport.cards.divyang.desc">Barrier-free accessibility across all metro stations:</p>
+						<p data-i18n="passengerSupport.cards.divyangjan.desc">100% barrier-free transit infrastructure provided across all operational lines:</p>
 						<ul class="drawer-bullets">
-							<li data-i18n="passengerSupport.cards.divyang.fact1">Station staff provides free wheelchair escort from gate to coach on request</li>
-							<li data-i18n="passengerSupport.cards.divyang.fact2">Tactile guided pathway tiles and wide automatic AFC gates at all concourses</li>
+							<li data-i18n="passengerSupport.cards.divyangjan.fact1">Tactile floor pathways from station entry to train boarding platform.</li>
+							<li data-i18n="passengerSupport.cards.divyangjan.fact2">Station Control Room provides wheelchair escort assistance upon request.</li>
 						</ul>
-						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-divyang-url">
-							<span data-i18n="passengerSupport.cards.divyang.btn">View Accessibility Standards</span>
+						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-accessibility-guide">
+							<span data-i18n="passengerSupport.cards.divyangjan.btn">Accessibility Guide</span>
 						</a>
 					</div>
 				</div>
 
-				<!-- Parking Tariffs -->
+				<!-- Station Parking Rules & Tariffs -->
 				<div class="support-item" id="item-parking">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(79, 70, 229, 0.12); color: #4f46e5;">
+							<div class="item-bullet-icon bullet-indigo">
 								<span class="support-ico ico-parking" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
-								<h4 data-i18n="passengerSupport.cards.parking.title">Station Parking &amp; Feeder Tariffs</h4>
-								<span data-i18n="passengerSupport.cards.parking.subtitle">Official Authorized Rates &amp; Lots</span>
+								<h4 data-i18n="passengerSupport.cards.parking.title">Metro Parking Regulations &amp; Fare Slabs</h4>
+								<span data-i18n="passengerSupport.cards.parking.subtitle">Authorized Contractor Rates &amp; Overnight Rules</span>
 							</div>
 						</div>
 						<span class="item-chevron" aria-hidden="true"></span>
 					</div>
 					<div class="item-drawer">
-						<p data-i18n="passengerSupport.cards.parking.desc">Parking regulations for two-wheelers and four-wheelers:</p>
+						<p data-i18n="passengerSupport.cards.parking.desc">Authorized parking facilities available at major terminal and interchange stations:</p>
 						<ul class="drawer-bullets">
-							<li data-i18n="passengerSupport.cards.parking.fact1">Authorized parking strictly managed by official transit operators</li>
-							<li data-i18n="passengerSupport.cards.parking.fact2">Night parking charges apply beyond regular operational hours</li>
+							<li data-i18n="passengerSupport.cards.parking.fact1">Operates from 05:00 AM to 11:30 PM under standardized MCD/Statutory slabs.</li>
+							<li data-i18n="passengerSupport.cards.parking.fact2">FASTag and Smart Card integrated touch-and-go payment enabled at select lots.</li>
 						</ul>
-						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-parking-url">
-							<span data-i18n="passengerSupport.cards.parking.btn">View Parking Tariffs</span>
+						<a href="#" target="_blank" rel="noopener noreferrer" class="drawer-btn" id="btn-parking-tariffs">
+							<span data-i18n="passengerSupport.cards.parking.btn">View Live Parking Fares</span>
 						</a>
 					</div>
 				</div>
@@ -225,11 +211,11 @@
 			</div>
 		</section>
 
-		<!-- 4. Section 3: 24x7 Emergency Helplines (Direct Dialers) -->
-		<section class="support-group tab-panel" id="tab-helplines">
+		<!-- 4. Section 3: Emergency & Control Room Numbers -->
+		<section class="support-group tab-panel" id="tab-helpline">
 			<div class="group-heading">
 				<span class="support-ico ico-phone ico-sm" aria-hidden="true"></span>
-				<span data-i18n="passengerSupport.sections.helplinesTitle">24x7 Emergency Helplines (Direct Dialers)</span>
+				<span data-i18n="passengerSupport.sections.helplineTitle">Emergency &amp; Control Room Directory</span>
 			</div>
 			<div class="support-card">
 				
@@ -237,7 +223,7 @@
 				<div class="support-item" id="item-helpline-main">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(14, 165, 233, 0.12); color: #0ea5e9;">
+							<div class="item-bullet-icon bullet-sky">
 								<span class="support-ico ico-phone" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
@@ -245,7 +231,7 @@
 								<span id="label-helpline-main" data-i18n="passengerSupport.helplines.dmrc.note">Customer Care: 112</span>
 							</div>
 						</div>
-						<a href="tel:112" class="drawer-btn" id="btn-call-main" style="margin-left: auto;">
+						<a href="tel:112" class="drawer-btn drawer-btn-push" id="btn-call-main">
 							<span data-i18n="passengerSupport.helplines.callBtn">Call</span>
 						</a>
 					</div>
@@ -255,7 +241,7 @@
 				<div class="support-item" id="item-helpline-security">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(37, 99, 235, 0.12); color: #2563eb;">
+							<div class="item-bullet-icon bullet-blue">
 								<span class="support-ico ico-shield" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
@@ -263,7 +249,7 @@
 								<span id="label-helpline-security" data-i18n="passengerSupport.helplines.cisf.note">Security Control: 112</span>
 							</div>
 						</div>
-						<a href="tel:112" class="drawer-btn" id="btn-call-security" style="margin-left: auto;">
+						<a href="tel:112" class="drawer-btn drawer-btn-push" id="btn-call-security">
 							<span data-i18n="passengerSupport.helplines.callBtn">Call</span>
 						</a>
 					</div>
@@ -273,7 +259,7 @@
 				<div class="support-item" id="item-helpline-women">
 					<div class="item-summary">
 						<div class="item-main">
-							<div class="item-bullet-icon" style="background: rgba(219, 39, 119, 0.12); color: #db2777;">
+							<div class="item-bullet-icon bullet-pink">
 								<span class="support-ico ico-women" aria-hidden="true"></span>
 							</div>
 							<div class="item-texts">
@@ -281,7 +267,7 @@
 								<span id="label-helpline-women" data-i18n="passengerSupport.helplines.women.note">Women Commuter SOS: 112</span>
 							</div>
 						</div>
-						<a href="tel:112" class="drawer-btn" id="btn-call-women" style="margin-left: auto;">
+						<a href="tel:112" class="drawer-btn drawer-btn-push" id="btn-call-women">
 							<span data-i18n="passengerSupport.helplines.callBtn">Call</span>
 						</a>
 					</div>
@@ -300,20 +286,19 @@
 			<span class="support-ico ico-accessibility ico-xs" aria-hidden="true"></span>
 			<span data-i18n="passengerSupport.nav.facilities">Facilities</span>
 		</a>
-		<a href="#tab-helplines" class="seg-tab-btn" data-tab="tab-helplines">
+		<a href="#tab-helpline" class="seg-tab-btn" data-tab="tab-helpline">
 			<span class="support-ico ico-phone ico-xs" aria-hidden="true"></span>
-			<span data-i18n="passengerSupport.nav.helplines">Helplines</span>
+			<span data-i18n="passengerSupport.nav.helpline">Helpline</span>
 		</a>
 	</nav>
 
 	</main>
 
-	
+	<!-- Global Fixed Footer (Mounted by Footer.js) -->
+	<footer id="app-footer" class="site-footer"></footer>
 
-	<!-- Global Universal Footer Container -->
-	<div id="app-footer"></div>
-
-	<!-- Page Controller Script (ES2022 Module) -->
-	<script type="module" src="./js/pages/passenger_support.js"></script>
+	<!-- Architecture Scripts -->
+	<script type="module" src="js/core/CenterClass.js"></script>
+	<script type="module" src="js/pages/passenger_support.js"></script>
 </body>
 </html>

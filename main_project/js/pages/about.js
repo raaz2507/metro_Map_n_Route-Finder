@@ -156,7 +156,7 @@ class AboutController {
 		if (!feedbackModal) return;
 		feedbackModal.classList.add("active");
 		feedbackModal.setAttribute("aria-hidden", "false");
-		document.body.style.overflow = "hidden";
+		document.body.classList.add("lock-scroll");
 		setTimeout(() => feedbackDetails?.focus(), 150);
 	}
 
@@ -165,7 +165,7 @@ class AboutController {
 		if (!feedbackModal) return;
 		feedbackModal.classList.remove("active");
 		feedbackModal.setAttribute("aria-hidden", "true");
-		document.body.style.overflow = "";
+		document.body.classList.remove("lock-scroll");
 	}
 
 	#generateReportText() {

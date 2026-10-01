@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="theme-coach-shape" viewBox="0 0 360 210">
+  <style>
+      .wheel-rotate {
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: transform 0.2s ease-out;
+      }
+      :hover .wheel-rotate,
+      .real-coach-card:hover .wheel-rotate {
+        animation: spinWheelOnAxle 0.8s linear infinite !important;
+      }
+      @keyframes spinWheelOnAxle {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+    </style>
+    <defs>
+      <!-- Warm Antique Gouache Paper Gradient -->
+      <linearGradient id="ghibliBodyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fffef9"/>
+        <stop offset="40%" stop-color="#fcf5e5"/>
+        <stop offset="100%" stop-color="#edd9b4"/>
+      </linearGradient>
+      <!-- Vintage Moss/Teal Roof -->
+      <linearGradient id="ghibliRoofGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#244d44"/>
+        <stop offset="50%" stop-color="#183630"/>
+        <stop offset="100%" stop-color="#0e211d"/>
+      </linearGradient>
+      <!-- Polished Antique Brass Trim -->
+      <linearGradient id="brassShine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#b45309"/>
+        <stop offset="35%" stop-color="#fde047"/>
+        <stop offset="70%" stop-color="#d97706"/>
+        <stop offset="100%" stop-color="#78350f"/>
+      </linearGradient>
+      <!-- Soft Breathing Lantern Beam -->
+      <radialGradient id="lanternBeam" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+        <stop offset="25%" stop-color="#fef08a" stop-opacity="0.75"/>
+        <stop offset="65%" stop-color="#f59e0b" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Soft Under-Shadow -->
+    <ellipse cx="180" cy="200" rx="145" ry="7" fill="rgba(69,26,3,0.35)"/>
+
+    <!-- Clerestory Vintage Curved Roof -->
+    <path d="M40 22 C40 13, 65 11, 180 11 C295 11, 320 13, 320 22 Z" fill="url(#ghibliRoofGrad)" stroke="#382513" stroke-width="2"/>
+    <!-- Brass Roof Air Vents -->
+    <rect x="80" y="8" width="18" height="6" rx="2.5" fill="url(#brassShine)" stroke="#382513" stroke-width="1"/>
+    <rect x="262" y="8" width="18" height="6" rx="2.5" fill="url(#brassShine)" stroke="#382513" stroke-width="1"/>
+    <!-- Golden Rivets Along Seam -->
+    <circle cx="55" cy="18" r="1.5" fill="#fde047"/>
+    <circle cx="115" cy="16" r="1.5" fill="#fde047"/>
+    <circle cx="180" cy="15" r="1.5" fill="#fde047"/>
+    <circle cx="245" cy="16" r="1.5" fill="#fde047"/>
+    <circle cx="305" cy="18" r="1.5" fill="#fde047"/>
+
+    <!-- Main Carriage Body with Hand-Inked Sepia Outline -->
+    <rect x="14" y="22" width="332" height="158" rx="22" fill="url(#ghibliBodyGrad)" stroke="#451a03" stroke-width="2.5"/>
+    <line x1="22" y1="28" x2="338" y2="28" stroke="url(#brassShine)" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Deep Forest Lacquer Window (Design 13: 100% Panoramic Clear-View, Zero Pillars) -->
+    <rect x="22" y="36" width="316" height="104" rx="14" fill="#0d1f1a" stroke="#451a03" stroke-width="2.5"/>
+
+    <!-- Glowing Lantern Lamp on Left -->
+    <g id="d13-lantern-group">
+      <path d="M14 74 Q7 74 7 82 L7 90 Q7 98 14 98" stroke="url(#brassShine)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <line x1="7" y1="86" x2="11" y2="86" stroke="url(#brassShine)" stroke-width="2"/>
+      <path d="M14 70 C24 76, 32 82, 32 86 C32 90, 24 96, 14 102 Z" fill="rgba(254, 240, 138, 0.22)"/>
+      <ellipse id="d13-lantern-glow" cx="12" cy="86" rx="10" ry="15" fill="url(#lanternBeam)"/>
+      <path d="M8 77 C8 73, 16 73, 16 77 Z" fill="url(#brassShine)" stroke="#382513" stroke-width="1"/>
+      <rect x="11" y="71" width="2" height="3" fill="url(#brassShine)"/>
+      <rect x="8" y="77" width="8" height="18" rx="2.5" fill="#fef08a" stroke="#382513" stroke-width="1.2"/>
+      <line x1="8" y1="86" x2="16" y2="86" stroke="#b45309" stroke-width="1"/>
+      <line x1="12" y1="77" x2="12" y2="95" stroke="#b45309" stroke-width="1"/>
+      <rect x="7" y="95" width="10" height="3.5" rx="1" fill="url(#brassShine)" stroke="#382513" stroke-width="1"/>
+      <circle cx="12" cy="86" r="2.2" fill="#ffffff"/>
+    </g>
+
+    <!-- Vintage Enameled Lacquer Patti Stripe -->
+    <g id="d13-patti-group">
+      <line x1="20" y1="151" x2="340" y2="151" stroke="url(#brassShine)" stroke-width="2" stroke-linecap="round"/>
+      <rect class="dynamic-line-stripe" x="22" y="153" width="316" height="16" rx="3" fill="var(--line-color)" stroke="#382513" stroke-width="1.5"/>
+      <line x1="24" y1="157" x2="336" y2="157" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round"/>
+      <line x1="20" y1="171" x2="340" y2="171" stroke="url(#brassShine)" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Heavy Cowcatcher Chassis Beam -->
+    <path d="M18 185 L342 185" stroke="#382513" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- Antique Wheels Bogie 1 -->
+    <rect x="54" y="186" width="66" height="17" rx="4" fill="#1c1917" stroke="#451a03" stroke-width="1.5"/>
+    <g class="wheel-rotate">
+      <circle cx="71" cy="195" r="9" fill="#292524" stroke="url(#brassShine)" stroke-width="2.5"/>
+      <circle cx="71" cy="195" r="6" fill="#1c1917"/>
+      <line x1="71" y1="187" x2="71" y2="203" stroke="#d97706" stroke-width="1.5"/>
+      <line x1="63" y1="195" x2="79" y2="195" stroke="#d97706" stroke-width="1.5"/>
+      <circle cx="71" cy="195" r="2.5" fill="#fde047"/>
+    </g>
+    <g class="wheel-rotate">
+      <circle cx="103" cy="195" r="9" fill="#292524" stroke="url(#brassShine)" stroke-width="2.5"/>
+      <circle cx="103" cy="195" r="6" fill="#1c1917"/>
+      <line x1="103" y1="187" x2="103" y2="203" stroke="#d97706" stroke-width="1.5"/>
+      <line x1="95" y1="195" x2="111" y2="195" stroke="#d97706" stroke-width="1.5"/>
+      <circle cx="103" cy="195" r="2.5" fill="#fde047"/>
+    </g>
+    <line x1="71" y1="198" x2="103" y2="198" stroke="url(#brassShine)" stroke-width="2.2" stroke-linecap="round"/>
+
+    <!-- Bogie 2 -->
+    <rect x="224" y="186" width="66" height="17" rx="4" fill="#1c1917" stroke="#451a03" stroke-width="1.5"/>
+    <g class="wheel-rotate">
+      <circle cx="241" cy="195" r="9" fill="#292524" stroke="url(#brassShine)" stroke-width="2.5"/>
+      <circle cx="241" cy="195" r="6" fill="#1c1917"/>
+      <line x1="241" y1="187" x2="241" y2="203" stroke="#d97706" stroke-width="1.5"/>
+      <line x1="233" y1="195" x2="249" y2="195" stroke="#d97706" stroke-width="1.5"/>
+      <circle cx="241" cy="195" r="2.5" fill="#fde047"/>
+    </g>
+    <g class="wheel-rotate">
+      <circle cx="273" cy="195" r="9" fill="#292524" stroke="url(#brassShine)" stroke-width="2.5"/>
+      <circle cx="273" cy="195" r="6" fill="#1c1917"/>
+      <line x1="273" y1="187" x2="273" y2="203" stroke="#d97706" stroke-width="1.5"/>
+      <line x1="265" y1="195" x2="281" y2="195" stroke="#d97706" stroke-width="1.5"/>
+      <circle cx="273" cy="195" r="2.5" fill="#fde047"/>
+    </g>
+    <line x1="241" y1="198" x2="273" y2="198" stroke="url(#brassShine)" stroke-width="2.2" stroke-linecap="round"/>
+  </symbol>
+</svg>

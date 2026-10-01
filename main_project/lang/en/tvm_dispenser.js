@@ -62,10 +62,5 @@ export default {
 		soundToggle: "Toggle Printer Sound",
 		settings: "Machine Settings",
 		close: "Close"
-	},
-	toast: {
-		ticketPrinted: "🎟️ Ticket dispensed! Collect from the tray below.",
-		settingsSaved: "✅ Ticket issuance settings updated successfully.",
-		invalidInput: "⚠️ Please enter valid passenger origin and destination."
 	}
 };

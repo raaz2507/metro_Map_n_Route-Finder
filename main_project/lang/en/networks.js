@@ -42,8 +42,8 @@ export default {
 		noNetworksQuery: "No networks match \"{query}\"."
 	},
 	sections: {
-		combined: "🏙️ City-wide Combined Networks",
-		individual: "🚆 Individual Transit Lines"
+		combined: "City-wide Combined Networks",
+		individual: "Individual Transit Lines"
 	},
 	card: {
 		regionSuffix: " Region",

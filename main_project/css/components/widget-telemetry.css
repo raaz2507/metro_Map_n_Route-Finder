@@ -145,14 +145,9 @@
 	padding: 4px 0;
 	font-family: var(--font-title);
 	font-size: 0.65rem;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	border-bottom: 1px solid var(--border-color);
 }
 
-/* डार्क व अन्य थीम्स के लिए डिवाइडर लाइन */
-body[data-theme="dark"] .telemetry-row,
-body[data-theme="cyberpunk"] .telemetry-row {
-	border-bottom-color: rgba(255, 255, 255, 0.06);
-}
 
 .telemetry-row:last-of-type {
 	border-bottom: none;

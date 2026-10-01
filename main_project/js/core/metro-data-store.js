@@ -36,7 +36,8 @@ class MetroDataStore {
 		if (this.#registryData) return this.#registryData;
 
 		try {
-			const response = await fetch("data/india_transit_registry.json");
+			const activeCountry = localStorage.getItem("active_country") || "india";
+			const response = await fetch(`data/${activeCountry}/${activeCountry}_transit_registry.json`);
 			if (response.ok) {
 				this.#registryData = await response.json();
 			}
@@ -68,8 +69,9 @@ class MetroDataStore {
 		this.#abortController = new AbortController();
 		const signal = this.#abortController.signal;
 
-		const dataPath = `data/cities/${resolvedCity}/transit_network.json`;
-		const autoDataPath = `data/cities/${resolvedCity}/transit_network_auto.json`;
+		const activeCountry = localStorage.getItem("active_country") || "india";
+		const dataPath = `data/${activeCountry}/cities/${resolvedCity}/transit_network.json`;
+		const autoDataPath = `data/${activeCountry}/cities/${resolvedCity}/transit_network_auto.json`;
 
 		try {
 			console.log(`[MetroDataStore] Loading transit graph (Base + Auto) for: "${resolvedCity}"...`);

@@ -5,20 +5,235 @@
 import { appStateStore } from "../core/app-state-store.js";
 import i18n, { SUPPORTED_LANGUAGES, LANGUAGE_CATEGORIES } from "../core/i18n.js";
 import { RechargeModalComponent } from "./RechargeModal.js";
+import { themeEngine } from "../core/ThemeEngine.js";
+import { pwaManager } from "../core/PwaManager.js";
 
 export class HeaderComponent {
 	static async render(activePage = 'home', targetContainerId = 'app-header') {
 		const container = document.getElementById(targetContainerId);
 		if (!container) return;
 
-		const currentTheme = localStorage.getItem('app-theme') || localStorage.getItem('metro-theme') || 'light';
+		let currentTheme = localStorage.getItem('app-theme');
+		if (!currentTheme || currentTheme === 'light' || currentTheme === 'dark') {
+			currentTheme = 'classic';
+			localStorage.setItem('app-theme', 'classic');
+		}
+		const currentMode = localStorage.getItem('app-mode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 		const currentLang = localStorage.getItem('app-lang') || localStorage.getItem('language') || 'en';
 
-		// Set initial theme & lang attributes on body
+		// Set initial theme, mode & lang attributes on body
 		document.body.setAttribute('data-theme', currentTheme);
+		document.body.setAttribute('data-mode', currentMode);
 		document.body.setAttribute('data-lang', currentLang);
 
-		container.innerHTML = `
+		// Apply saved font scale
+		const savedFontScale = localStorage.getItem('app-font-scale') || '100';
+		document.documentElement.style.setProperty('--app-font-scale', `${savedFontScale}%`);
+
+		// Centrally Initialize Global Pluggable Theme Engine
+		try {
+			await themeEngine.init();
+		} catch (err) {
+			console.warn("[HeaderComponent] ThemeEngine init notice:", err);
+		}
+
+		const availableThemes = themeEngine.getThemes();
+		container.innerHTML = HeaderComponent.#HTMLStrucher(activePage, currentTheme, currentMode, currentLang, availableThemes);
+
+		this.initEvents();
+
+		// Centrally execute & apply global i18n translations across the entire page
+		try {
+			await i18n.initI18n();
+		} catch (err) {
+			console.warn("[HeaderComponent] i18n auto-init notice:", err);
+		}
+
+		// Smoothly bring active nav tab into view on mobile horizontal scroll
+		requestAnimationFrame(() => {
+			const activeNavLink = container.querySelector('.nav-link.active');
+			if (activeNavLink) {
+				activeNavLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+			}
+		});
+	}
+
+	static initEvents() {
+		// Font Scaler Setup
+		this.#setupFontScaler();
+		// Recharge Modal Trigger
+		const rechargeModal = RechargeModalComponent.getInstance();
+
+		const rechargeBtn = document.getElementById('nav-recharge-btn');
+		if (rechargeBtn) {
+			rechargeBtn.addEventListener('click', (e) => {
+				e.preventDefault();
+				rechargeModal.open();
+			});
+		}
+
+				this.#setupDropdown('theme-btn', 'theme-menu', (val) => {
+			appStateStore.setState({ currentTheme: val });
+		});
+		this.#setupThemeModeToggle();
+
+		this.#setupDropdown('lang-btn', 'lang-menu', async (val) => {
+			await appStateStore.setState({ currentLang: val });
+		});
+		// PWA & App Utility Hub Setup
+		pwaManager.bindHeaderUI();
+	}
+
+
+	/**
+	 * Bounded Continuous Font Scale Stepper (85% to 130%, 5% step)
+	 */
+	static #setupFontScaler() {
+		const decBtn = document.getElementById('font-dec-btn');
+		const resetBtn = document.getElementById('font-reset-btn');
+		const incBtn = document.getElementById('font-inc-btn');
+
+		if (!decBtn || !resetBtn || !incBtn) return;
+
+		const MIN_SCALE = 85;
+		const MAX_SCALE = 130;
+		const STEP = 5;
+		const DEFAULT_SCALE = 100;
+
+		const getScale = () => {
+			const saved = parseInt(localStorage.getItem('app-font-scale'), 10);
+			return isNaN(saved) ? DEFAULT_SCALE : saved;
+		};
+
+		const updateUI = (scale) => {
+			document.documentElement.style.setProperty('--app-font-scale', `${scale}%`);
+			localStorage.setItem('app-font-scale', scale.toString());
+
+			// Bounds and visual feedback
+			decBtn.disabled = scale <= MIN_SCALE;
+			incBtn.disabled = scale >= MAX_SCALE;
+
+			if (scale === DEFAULT_SCALE) {
+				resetBtn.classList.add('is-default');
+				resetBtn.style.color = '';
+			} else {
+				resetBtn.classList.remove('is-default');
+				resetBtn.style.color = 'var(--color-primary)';
+			}
+
+			// Dynamic accessible tooltips
+			decBtn.title = `Decrease Font Size (${scale - STEP >= MIN_SCALE ? scale - STEP : scale}%)`;
+			incBtn.title = `Increase Font Size (${scale + STEP <= MAX_SCALE ? scale + STEP : scale}%)`;
+			resetBtn.title = `Reset Font Size (Current: ${scale}%)`;
+		};
+
+		// Initial boundary sync
+		updateUI(getScale());
+
+		decBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			const current = getScale();
+			if (current > MIN_SCALE) {
+				updateUI(Math.max(MIN_SCALE, current - STEP));
+			}
+		});
+
+		incBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			const current = getScale();
+			if (current < MAX_SCALE) {
+				updateUI(Math.min(MAX_SCALE, current + STEP));
+			}
+		});
+
+		resetBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			updateUI(DEFAULT_SCALE);
+		});
+	}
+
+
+	/**
+	 * Dual-Mode (Light / Dark) Toggle Handler (Pure Icon + i18n Safe)
+	 */
+	static #setupThemeModeToggle() {
+		const modeBtn = document.getElementById('theme-mode-btn');
+		const modeIcon = document.getElementById('mode-icon');
+		if (!modeBtn) return;
+
+		modeBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			const currentMode = document.body.getAttribute('data-mode') === 'dark' ? 'dark' : 'light';
+			const newMode = currentMode === 'dark' ? 'light' : 'dark';
+
+			// 1. Update Body Attribute & Local Storage
+			document.body.setAttribute('data-mode', newMode);
+			localStorage.setItem('app-mode', newMode);
+
+			// 2. Pure Icon Toggle
+			if (modeIcon) {
+				modeIcon.textContent = newMode === 'dark' ? '🌙' : '☀️';
+			}
+
+			// 3. Dynamic i18n Safe Tooltip & Aria
+			const i18nKey = newMode === 'dark' ? 'header.mode.switchToLight' : 'header.mode.switchToDark';
+			const localizedTitle = i18n.t(i18nKey);
+			modeBtn.setAttribute('title', localizedTitle);
+			modeBtn.setAttribute('aria-label', localizedTitle);
+
+			// 4. Dispatch global event for theme listeners
+			window.dispatchEvent(new CustomEvent('app-mode-changed', { detail: { mode: newMode } }));
+		});
+	}
+
+
+	static #setupDropdown(btnId, menuId, onSelectCallback) {
+		const btn = document.getElementById(btnId);
+		const menu = document.getElementById(menuId);
+		if (!btn || !menu) return;
+
+		const close = () => {
+			menu.classList.remove('show');
+			btn.setAttribute('aria-expanded', 'false');
+		};
+
+		btn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const isOpen = menu.classList.contains('show');
+			document.querySelectorAll('.custom-dropdown-menu.show').forEach(m => m.classList.remove('show'));
+			if (!isOpen) {
+				menu.classList.add('show');
+				btn.setAttribute('aria-expanded', 'true');
+			} else {
+				close();
+			}
+		});
+
+		menu.querySelectorAll('.custom-dropdown-item').forEach(item => {
+			item.addEventListener('click', (e) => {
+				e.stopPropagation();
+				const val = item.getAttribute('data-value');
+				menu.querySelectorAll('.custom-dropdown-item').forEach(i => i.classList.remove('active'));
+				item.classList.add('active');
+				close();
+				if (onSelectCallback) onSelectCallback(val);
+			});
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!btn.contains(e.target) && !menu.contains(e.target)) {
+				close();
+			}
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') close();
+		});
+	}
+
+	static #HTMLStrucher(activePage, currentTheme, currentMode, currentLang, availableThemes = []) {
+		const isNative = Boolean(window.Capacitor?.isNativePlatform());
+		return `
 			<!-- Global SVG Symbol Sprite for Navigation (Zero External Requests) -->
 			<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
 				<symbol id="icon-networks" viewBox="0 0 24 24">
@@ -71,25 +286,89 @@ export class HeaderComponent {
 					</div>
 
 					<section class="toolbar">
-						<!-- 📲 PWA Install Button (Auto-hidden if running as installed app) -->
-						<button type="button" class="btn-25d install-btn" id="header-pwa-install-btn" style="display: none;" aria-label="Install App" title="Install App">
-							<span class="btn-icon">📲</span>
-							<span class="btn-text" data-i18n="header.installApp">Install</span>
-						</button>
-						<div class="dropdown-container">
-							<button type="button" class="btn-25d theme-selector" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme Selector">
-								<span class="btn-icon">🌙</span>
-								<span class="btn-text">Theme</span>
+						<section class="toolbar">
+						${!isNative ? `
+						<!-- 📱 Smart App Utility & PWA Hub Dropdown (Web/PWA Only) -->
+						<div class="dropdown-container app-utility-container">
+							<button type="button" class="btn-25d app-utility-btn" id="app-utility-btn" aria-haspopup="menu" aria-expanded="false" 
+								data-i18n-attr="title:header.appOptions;aria-label:header.appOptions" title="App Utilities">
+								<span class="btn-icon">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+										<line x1="12" y1="18" x2="12.01" y2="18"/>
+										<path d="M9 6h6"/>
+									</svg>
+								</span>
 							</button>
-							<ul class="custom-dropdown-menu" id="theme-menu" role="listbox">
-								<li class="custom-dropdown-item ${currentTheme === 'light' ? 'active' : ''}" role="option" data-value="light" data-i18n="header.themes.light">Classic Light</li>
-								<li class="custom-dropdown-item ${currentTheme === 'dark' ? 'active' : ''}" role="option" data-value="dark" data-i18n="header.themes.dark">Sleek Dark</li>
-								<li class="custom-dropdown-item ${currentTheme === 'cyberpunk' ? 'active' : ''}" role="option" data-value="cyberpunk" data-i18n="header.themes.cyberpunk">Neon Cyberpunk</li>
-								<li class="custom-dropdown-item ${currentTheme === 'vintage' ? 'active' : ''}" role="option" data-value="vintage" data-i18n="header.themes.vintage">Vintage Retro</li>
-								<li class="custom-dropdown-item ${currentTheme === 'mint' ? 'active' : ''}" role="option" data-value="mint" data-i18n="header.themes.mint">Forest Mint</li>
-								<li class="custom-dropdown-item ${currentTheme === 'ghibli' ? 'active' : ''}" role="option" data-value="ghibli" data-i18n="header.themes.ghibli">Ghibli Nostalgia</li>
+							<ul class="custom-dropdown-menu app-utility-menu" id="app-utility-menu" role="menu">
+								<!-- Install PWA (Auto-shown only when eligible) -->
+								<li class="custom-dropdown-item" id="menu-install-pwa" role="menuitem" style="display: none;">
+									<span class="item-icon">📲</span>
+									<span data-i18n="header.installApp">Install App</span>
+								</li>
+								<!-- Clear Cache & Hard Refresh -->
+								<li class="custom-dropdown-item" id="menu-hard-refresh" role="menuitem">
+									<span class="item-icon">
+										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<polyline points="23 4 23 10 17 10"/>
+											<polyline points="1 20 1 14 7 14"/>
+											<path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+										</svg>
+									</span>
+									<span data-i18n="header.hardRefresh">Clear Cache & Refresh</span>
+								</li>
 							</ul>
 						</div>
+						` : ''}
+
+						<!-- 🔤 Continuous Bounded Font Size Stepper -->
+						<div class="font-scale-stepper" role="group" aria-label="Font Size Adjuster">
+							<button type="button" class="btn-stepper" id="font-dec-btn" 
+								data-i18n-attr="title:header.fontScale.decrease;aria-label:header.fontScale.decrease">A-</button>
+							<span class="stepper-divider" aria-hidden="true"></span>
+							<button type="button" class="btn-stepper is-default" id="font-reset-btn" 
+								data-i18n-attr="title:header.fontScale.reset;aria-label:header.fontScale.reset">A</button>
+							<span class="stepper-divider" aria-hidden="true"></span>
+							<button type="button" class="btn-stepper" id="font-inc-btn" 
+								data-i18n-attr="title:header.fontScale.increase;aria-label:header.fontScale.increase">A+</button>
+						</div>
+
+						
+						<!-- ☀️ / 🌙 Pure Icon Dual-Mode Toggle Button (Zero Extra Text) -->
+						
+						<section class="theme-container">
+							<button type="button" class="btn-25d mode-toggle-btn" id="theme-mode-btn"
+								data-i18n-attr="aria-label:header.mode.switchTo${currentMode === 'dark' ? 'Light' : 'Dark'};title:header.mode.switchTo${currentMode === 'dark' ? 'Light' : 'Dark'}">
+								<span class="btn-icon" id="mode-icon">${currentMode === 'dark' ? '🌙' : '☀️'}</span>
+							</button>
+							<div class="dropdown-container">
+								<button type="button" class="btn-25d theme-selector" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme Selector">
+									<span class="btn-icon">🎨</span>
+									<span class="btn-text">Theme</span>
+								</button>
+								<ul class="custom-dropdown-menu" id="theme-menu" role="listbox">
+									${(() => {
+										// Group themes by category dynamically from manifest
+										const groups = {};
+										availableThemes.forEach(t => {
+											const cat = t.category || "🎨 Themes";
+											if (!groups[cat]) groups[cat] = [];
+											groups[cat].push(t);
+										});
+										return Object.entries(groups).map(([categoryName, themes]) => `
+											<li class="dropdown-category-header" role="presentation">
+												<span>${categoryName}</span>
+											</li>
+											${themes.map(t => `
+												<li class="custom-dropdown-item ${currentTheme === t.id ? 'active' : ''}" role="option" data-value="${t.id}">
+													${t.name}
+												</li>
+											`).join('')}
+										`).join('');
+									})()}
+								</ul>
+							</div>
+						</section>
 						<div class="dropdown-container">
 							<button type="button" class="btn-25d lang-selector" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language Selector">
 								<span class="btn-icon">🌐</span>
@@ -173,138 +452,5 @@ export class HeaderComponent {
 				</ul>
 			</nav>
 		`;
-
-		this.initEvents();
-
-		// Centrally execute & apply global i18n translations across the entire page
-		try {
-			await i18n.initI18n();
-		} catch (err) {
-			console.warn("[HeaderComponent] i18n auto-init notice:", err);
-		}
-
-		// Smoothly bring active nav tab into view on mobile horizontal scroll
-		requestAnimationFrame(() => {
-			const activeNavLink = container.querySelector('.nav-link.active');
-			if (activeNavLink) {
-				activeNavLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-			}
-		});
-	}
-
-	static initEvents() {
-		// Recharge Modal Trigger
-		const rechargeBtn = document.getElementById('nav-recharge-btn');
-		if (rechargeBtn) {
-			rechargeBtn.addEventListener('click', (e) => {
-				e.preventDefault();
-				RechargeModalComponent.getInstance().open();
-			});
-		}
-
-				this.#setupDropdown('theme-btn', 'theme-menu', (val) => {
-			appStateStore.setState({ currentTheme: val });
-		});
-
-		this.#setupDropdown('lang-btn', 'lang-menu', async (val) => {
-			await appStateStore.setState({ currentLang: val });
-		});
-		// PWA Install Trigger Setup
-		this.#setupPwaInstall();
-	}
-
-	static #setupPwaInstall() {
-		const installBtn = document.getElementById("header-pwa-install-btn");
-		if (!installBtn) return;
-
-		// 1. अगर पहले से PWA/Desktop App (Standalone) मोड में खुला है तो छुपा दें
-		const isStandalone = window.matchMedia("(display-mode: standalone)").matches || Boolean(window.navigator.standalone);
-		if (isStandalone) {
-			installBtn.style.display = "none";
-			return;
-		}
-
-		let deferredPrompt = window.__pwaDeferredPrompt || null;
-
-		// 2. Chromium (Chrome / Edge / Android) Install Event Capture
-		window.addEventListener("beforeinstallprompt", (e) => {
-			e.preventDefault();
-			deferredPrompt = e;
-			window.__pwaDeferredPrompt = e;
-			installBtn.style.display = "inline-flex";
-		});
-
-		// 3. हमेशा बटन विज़िबल रखें ताकि यूज़र किसी भी ब्राउज़र में इंस्टॉल कर सके
-		installBtn.style.display = "inline-flex";
-
-		// 4. क्लिक हैंडलर
-		installBtn.addEventListener("click", async () => {
-			if (deferredPrompt) {
-				// Chrome / Edge Direct Install
-				deferredPrompt.prompt();
-				const { outcome } = await deferredPrompt.userChoice;
-				if (outcome === "accepted") {
-					installBtn.style.display = "none";
-				}
-				deferredPrompt = null;
-				window.__pwaDeferredPrompt = null;
-			} else {
-				// Firefox / Non-Chromium Browser Guide Dialog
-				const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
-				const guideMsg = isFirefox
-					? "📌 Firefox Taskbar Shortcut:\n\n1. Look at Firefox's address bar.\n2. Click the 'Install' icon (or Menu ➔ 'Install Website as App').\n3. Click 'Install' to pin YatraMarg directly to your Windows Taskbar."
-					: "📌 To Install YatraMarg:\n\nClick your browser menu (⋮) and select 'Install YatraMarg' or 'Add to Desktop / Taskbar'.";
-				
-				alert(guideMsg);
-			}
-		});
-
-		window.addEventListener("appinstalled", () => {
-			installBtn.style.display = "none";
-		});
-	}
-
-	static #setupDropdown(btnId, menuId, onSelectCallback) {
-		const btn = document.getElementById(btnId);
-		const menu = document.getElementById(menuId);
-		if (!btn || !menu) return;
-
-		const close = () => {
-			menu.classList.remove('show');
-			btn.setAttribute('aria-expanded', 'false');
-		};
-
-		btn.addEventListener('click', (e) => {
-			e.stopPropagation();
-			const isOpen = menu.classList.contains('show');
-			document.querySelectorAll('.custom-dropdown-menu.show').forEach(m => m.classList.remove('show'));
-			if (!isOpen) {
-				menu.classList.add('show');
-				btn.setAttribute('aria-expanded', 'true');
-			} else {
-				close();
-			}
-		});
-
-		menu.querySelectorAll('.custom-dropdown-item').forEach(item => {
-			item.addEventListener('click', (e) => {
-				e.stopPropagation();
-				const val = item.getAttribute('data-value');
-				menu.querySelectorAll('.custom-dropdown-item').forEach(i => i.classList.remove('active'));
-				item.classList.add('active');
-				close();
-				if (onSelectCallback) onSelectCallback(val);
-			});
-		});
-
-		document.addEventListener('click', (e) => {
-			if (!btn.contains(e.target) && !menu.contains(e.target)) {
-				close();
-			}
-		});
-
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape') close();
-		});
 	}
 }

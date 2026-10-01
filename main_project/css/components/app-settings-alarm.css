@@ -146,10 +146,18 @@
 		display: none !important;
 	}
 
-	/* 🔊 Test Preview Action Buttons */
+	
+	/* 🔊 Action Row & Backup Import Button Styling */
 	.settings-action-row {
 		display: flex;
 		gap: var(--space-xs);
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+
+	.btn-settings-action-label {
+		cursor: pointer;
+		margin: 0;
 	}
 
 	.btn-settings-action {

@@ -1,0 +1,74 @@
+{
+	"version": "1.0",
+	"default_country": "india",
+	"countries": {
+		"india": {
+			"code": "in",
+			"name": {
+				"en": "India",
+				"hi": "भारत"
+			},
+			"flag": "🇮🇳",
+			"status": "active",
+			"themeColor": "#FF9933",
+			"accentColor": "#000080",
+			"landmark": "taj_mahal",
+			"landmarkSvg": "assets/icons/landmarks/taj_mahal.svg",
+			"totalCities": 21,
+			"totalNetworks": 32,
+			"registryPath": "data/india/india_transit_registry.json",
+			"searchIndexPath": "data/india/search_cache/search_index.json"
+		},
+		"japan": {
+			"code": "jp",
+			"name": {
+				"en": "Japan",
+				"hi": "जापान"
+			},
+			"flag": "🇯🇵",
+			"status": "upcoming",
+			"themeColor": "#BC002D",
+			"accentColor": "#1E293B",
+			"landmark": "mt_fuji",
+			"landmarkSvg": "assets/icons/landmarks/mt_fuji.svg",
+			"totalCities": 0,
+			"totalNetworks": 0,
+			"registryPath": "data/japan/japan_transit_registry.json",
+			"searchIndexPath": "data/japan/search_cache/search_index.json"
+		},
+		"united_kingdom": {
+			"code": "gb",
+			"name": {
+				"en": "United Kingdom",
+				"hi": "यूनाइटेड किंगडम"
+			},
+			"flag": "🇬🇧",
+			"status": "upcoming",
+			"themeColor": "#012169",
+			"accentColor": "#C8102E",
+			"landmark": "big_ben",
+			"landmarkSvg": "assets/icons/landmarks/big_ben.svg",
+			"totalCities": 0,
+			"totalNetworks": 0,
+			"registryPath": "data/uk/uk_transit_registry.json",
+			"searchIndexPath": "data/uk/search_cache/search_index.json"
+		},
+		"france": {
+			"code": "fr",
+			"name": {
+				"en": "France",
+				"hi": "फ़्रांस"
+			},
+			"flag": "🇫🇷",
+			"status": "upcoming",
+			"themeColor": "#002654",
+			"accentColor": "#ED2939",
+			"landmark": "eiffel_tower",
+			"landmarkSvg": "assets/icons/landmarks/eiffel_tower.svg",
+			"totalCities": 0,
+			"totalNetworks": 0,
+			"registryPath": "data/france/france_transit_registry.json",
+			"searchIndexPath": "data/france/search_cache/search_index.json"
+		}
+	}
+}

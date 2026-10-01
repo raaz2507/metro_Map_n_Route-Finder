@@ -147,11 +147,11 @@ export class StationInfoManager {
 		const lineKeys = stBasic?.lines || [];
 		const neighbors = stBasic?.neighbors || [];
 		if (lineKeys.length === 0 && neighbors.length === 0) {
-			container.style.display = "none";
+			container.hidden = true;
 			return;
 		}
 
-		container.style.display = "grid";
+		container.hidden = false;
 		const primaryLineColor = this.#metroLines[lineKeys[0]]?.color || "#007bff";
 
 		let prevStackHTML = "";
@@ -201,10 +201,10 @@ export class StationInfoManager {
 		if (!container) return;
 		const lineKeys = stBasic?.lines || [];
 		if (lineKeys.length === 0) {
-			container.style.display = "none";
+			container.hidden = true;
 			return;
 		}
-		container.style.display = "block";
+		container.hidden = false;
 		let linesHTML = '<div class="line-info-master-wrapper">';
 
 		lineKeys.forEach(lineId => {

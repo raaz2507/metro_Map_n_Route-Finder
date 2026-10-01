@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<symbol id="theme-coach-shape" viewBox="0 0 360 210">
+	<style>
+	.wheel-rotate {
+		transform-box: fill-box;
+		transform-origin: center;
+		transition: transform 0.2s ease-out;
+	}
+	:hover .wheel-rotate,
+	.real-coach-card:hover .wheel-rotate {
+		animation: spinCyberWheel 0.5s linear infinite !important;
+	}
+	@keyframes spinCyberWheel {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+	.cyber-patti-beam {
+		transform-box: fill-box;
+		transform-origin: center;
+		opacity: 0.35;
+		transition: opacity 0.25s ease;
+	}
+	:hover .cyber-patti-beam,
+	.real-coach-card:hover .cyber-patti-beam {
+		opacity: 1 !important;
+		animation: cyberPattiRun 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+	}
+	@keyframes cyberPattiRun {
+		0% { transform: translateX(-160px); }
+		100% { transform: translateX(360px); }
+	}
+	</style>
+	<defs>
+	<!-- Deep Space Obsidian Gradient -->
+	<linearGradient id="cyberBodyGrad" x1="0" y1="0" x2="0" y2="1">
+		<stop offset="0%" stop-color="#1e1035"/>
+		<stop offset="60%" stop-color="#120624"/>
+		<stop offset="100%" stop-color="#080210"/>
+	</linearGradient>
+
+	<!-- Neon Smoked HUD Window -->
+	<linearGradient id="cyberWindowGrad" x1="0" y1="0" x2="0" y2="1">
+		<stop offset="0%" stop-color="#05010a"/>
+		<stop offset="100%" stop-color="#020005"/>
+	</linearGradient>
+
+	<!-- Neon Cyan Runner Beam -->
+	<linearGradient id="cyberRunnerBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+		<stop offset="0%" stop-color="#00f0ff" stop-opacity="0"/>
+		<stop offset="50%" stop-color="#00f0ff" stop-opacity="1"/>
+		<stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
+	</linearGradient>
+
+	<!-- Patti Clip -->
+	<clipPath id="cyberPattiClip">
+		<rect x="22" y="156" width="316" height="18" rx="3"/>
+	</clipPath>
+	</defs>
+
+	<!-- Obsidian Carbon Composite Coach Body -->
+	<rect x="14" y="22" width="332" height="162" rx="22" fill="url(#cyberBodyGrad)" stroke="#ec4899" stroke-width="2"/>
+	<!-- Top Electric Neon Glint Line -->
+	<path d="M38 24 L322 24" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+
+	<!-- Smoked HUD Cockpit / Passenger Window Frame -->
+	<rect x="22" y="32" width="316" height="114" rx="14" fill="url(#cyberWindowGrad)" stroke="#00f0ff" stroke-width="1.8"/>
+	<!-- Diagonal HUD Scanline Grid Highlight -->
+	<polygon points="26,36 120,36 80,140 26,140" fill="rgba(0,240,255,0.06)"/>
+	<line x1="130" y1="36" x2="90" y2="140" stroke="rgba(236,72,153,0.2)" stroke-width="2" stroke-linecap="round"/>
+
+	<!-- Cyberpunk Dynamic Patti with High-Speed Laser Sweep -->
+	<g id="cyber-patti-group">
+	<rect class="dynamic-line-stripe" x="22" y="156" width="316" height="18" rx="3" fill="var(--line-color, #ec4899)" stroke="#00f0ff" stroke-width="1.2"/>
+	<!-- Top Neon Bevel Line -->
+	<line x1="24" y1="158" x2="336" y2="158" stroke="#ffffff" stroke-width="1" opacity="0.8"/>
+	<!-- Center Optic Laser Line -->
+	<line x1="22" y1="165" x2="338" y2="165" stroke="#00f0ff" stroke-width="2.2" opacity="0.8"/>
+	<!-- High Speed Runner Beam -->
+	<g clip-path="url(#cyberPattiClip)">
+		<rect class="cyber-patti-beam pointer-events-none" x="22" y="156" width="110" height="18" fill="url(#cyberRunnerBeam)"/>
+	</g>
+	</g>
+
+	<!-- Heavy Maglev Chassis Rail Bar -->
+	<path d="M18 185 L342 185" stroke="#00f0ff" stroke-width="3.5" stroke-linecap="round"/>
+
+	<!-- Bogie 1 with Neon Cyan Wheels -->
+	<rect x="54" y="186" width="66" height="17" rx="3" fill="#090314" stroke="#ec4899" stroke-width="1.2"/>
+	<g class="wheel-rotate">
+	<circle cx="71" cy="195" r="9" fill="#140826" stroke="#00f0ff" stroke-width="2.5"/>
+	<circle cx="71" cy="195" r="5" fill="#090314"/>
+	<line x1="71" y1="187" x2="71" y2="203" stroke="#ec4899" stroke-width="1.5"/>
+	<line x1="63" y1="195" x2="79" y2="195" stroke="#ec4899" stroke-width="1.5"/>
+	<circle cx="71" cy="195" r="2.5" fill="#00f0ff"/>
+	</g>
+	<g class="wheel-rotate">
+	<circle cx="103" cy="195" r="9" fill="#140826" stroke="#00f0ff" stroke-width="2.5"/>
+	<circle cx="103" cy="195" r="5" fill="#090314"/>
+	<line x1="103" y1="187" x2="103" y2="203" stroke="#ec4899" stroke-width="1.5"/>
+	<line x1="95" y1="195" x2="111" y2="195" stroke="#ec4899" stroke-width="1.5"/>
+	<circle cx="103" cy="195" r="2.5" fill="#00f0ff"/>
+	</g>
+
+	<!-- Bogie 2 with Neon Cyan Wheels -->
+	<rect x="224" y="186" width="66" height="17" rx="3" fill="#090314" stroke="#ec4899" stroke-width="1.2"/>
+	<g class="wheel-rotate">
+	<circle cx="241" cy="195" r="9" fill="#140826" stroke="#00f0ff" stroke-width="2.5"/>
+	<circle cx="241" cy="195" r="5" fill="#090314"/>
+	<line x1="241" y1="187" x2="241" y2="203" stroke="#ec4899" stroke-width="1.5"/>
+	<line x1="233" y1="195" x2="249" y2="195" stroke="#ec4899" stroke-width="1.5"/>
+	<circle cx="241" cy="195" r="2.5" fill="#00f0ff"/>
+	</g>
+	<g class="wheel-rotate">
+	<circle cx="273" cy="195" r="9" fill="#140826" stroke="#00f0ff" stroke-width="2.5"/>
+	<circle cx="273" cy="195" r="5" fill="#090314"/>
+	<line x1="273" y1="187" x2="273" y2="203" stroke="#ec4899" stroke-width="1.5"/>
+	<line x1="265" y1="195" x2="281" y2="195" stroke="#ec4899" stroke-width="1.5"/>
+	<circle cx="273" cy="195" r="2.5" fill="#00f0ff"/>
+	</g>
+</symbol>
+</svg>

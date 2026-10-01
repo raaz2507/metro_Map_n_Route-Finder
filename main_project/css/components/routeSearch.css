@@ -550,12 +550,16 @@
 		filter: opacity(0.5);
 	}
 
-	body[data-theme="dark"] .switch-slider-label {
+	[data-mode="dark"] .switch-slider-label {
 		color: var(--text-secondary);
 	}
-
-	body[data-theme="dark"] .switch-icon {
+	[data-mode="dark"] .switch-icon {
 		filter: invert(1) opacity(0.5);
+	}
+
+	[data-mode="dark"] #priority-fastest:checked ~ label[for="priority-fastest"] .switch-icon,
+	[data-mode="dark"] #priority-leastTransfers:checked ~ label[for="priority-leastTransfers"] .switch-icon {
+		filter: invert(0) opacity(0.9);
 	}
 
 	/* Active Tab Styling */
@@ -570,10 +574,7 @@
 		filter: opacity(0.9);
 	}
 
-	body[data-theme="dark"] #priority-fastest:checked ~ label[for="priority-fastest"] .switch-icon,
-	body[data-theme="dark"] #priority-leastTransfers:checked ~ label[for="priority-leastTransfers"] .switch-icon {
-		filter: invert(0) opacity(0.9);
-	}
+	
 
 	/* =========================================================================
 	   💰 Dynamic Fare Selectable Cards UI (100% Token-Compliant)
@@ -960,8 +961,8 @@
 		transform: scale(1);
 	}
 
-	body[data-theme="dark"] .station-row:hover {
-		background-color: rgba(255, 255, 255, var(--op-glow));
+	.station-row:hover {
+		background-color: rgba(var(--color-primary-rgb), var(--op-glow));
 	}
 
 	.station-track {
@@ -969,7 +970,7 @@
 		top: 0;
 		bottom: 0;
 		left: 0;
-		width: 24px;
+		width: var(--space-xl); 
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -977,8 +978,8 @@
 
 	/* 1. सामान्य स्टेशन डॉट */
 	.station-dot-solid {
-		width: 22px;
-		height: 22px;
+		width: calc(var(--space-xl) - var(--space-2xs)); 
+		height: calc(var(--space-xl) - var(--space-2xs));
 		border-radius: var(--radius-full);
 		z-index: var(--z-base);
 		display: flex;
@@ -993,14 +994,15 @@
 		transition: transform var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow var(--transition-fast);
 	}
 
-	/* 2. इंटरचेंज स्टेशन डॉट (बड़ा 26px, थीम बैकग्राउंड + 3px स्प्लिट बॉर्डर) */
-	.station-dot-solid.interchange-node {
-		width: 26px;
-		height: 26px;
-		background-color: var(--card-bg) !important;
-		color: var(--text-primary) !important;
+	
+	/* 2. इंटरचेंज स्टेशन डॉट (26px, शुद्ध बेस टोकन्स) */
+	.station-track .station-dot-solid.interchange-node {
+		width: calc(var(--space-xl) + var(--space-2xs)); /* 26px */
+		height: calc(var(--space-xl) + var(--space-2xs));
+		background-color: var(--card-bg);
+		color: var(--text-primary);
 		border-style: solid;
-		border-width: 3px;
+		border-width: calc(var(--space-xs) - 1px); /* 3px */
 		font-weight: var(--fw-extrabold);
 	}
 
@@ -1018,11 +1020,11 @@
 	/* 3. ट्रैक लाइन */
 	.station-track-line {
 		position: absolute;
-		top: 11px;
-		bottom: -11px;
+		top: calc(var(--space-md) - 1px); /* 11px */
+		bottom: calc(-1 * (var(--space-md) - 1px)); /* -11px */
 		left: 50%;
 		transform: translateX(-50%);
-		width: 4px;
+		width: var(--space-xs); /* 4px Token */
 		z-index: 0;
 		border-radius: var(--radius-xs);
 		animation: drawLine 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;

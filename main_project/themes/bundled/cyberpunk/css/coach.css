@@ -1,0 +1,42 @@
+/* ==========================================================================
+   NEON CYBERPUNK - COACH MODULE (MAGLEV HUD DISPLAY)
+   ========================================================================== */
+@layer themes {
+	[data-theme="cyberpunk"] {
+		--coach-font-title: 'Share Tech Mono', monospace;
+		--coach-font-mono: 'Share Tech Mono', monospace;
+		--coach-text-title: #00f0ff;
+		--coach-text-time: #f43f5e;
+
+		/* 🔷 Cyberpunk Hexagonal High-Tech Badge */
+		--coach-badge-size: 28px;
+		--coach-badge-bg: #090314;
+		--coach-badge-border: 1.5px solid #00f0ff;
+		--coach-badge-text: #00f0ff;
+		--coach-badge-radius: 4px;
+		--coach-badge-fs: 11px;
+		--coach-badge-font: 'Share Tech Mono', monospace;
+		--coach-badge-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+		--coach-badge-filter: drop-shadow(0 0 8px #00f0ff);
+		--coach-badge-clip: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	}
+
+	[data-theme="cyberpunk"] .station-name-title {
+		letter-spacing: 0.12em;
+		text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.35);
+		transition: color 0.2s ease, text-shadow 0.2s ease;
+	}
+
+	[data-theme="cyberpunk"] .real-coach-card:hover .station-name-title {
+		color: #ffffff;
+		text-shadow: 0 0 12px #00f0ff, 0 0 24px #ec4899;
+	}
+
+	[data-theme="cyberpunk"] .real-coach-card:hover .coach-center-badge {
+		box-shadow: 0 0 20px #00f0ff, 0 0 35px #ec4899;
+	}
+
+	[data-theme="cyberpunk"] .coach-underglow {
+		background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.6) 0%, rgba(236, 72, 153, 0.3) 50%, transparent 75%) !important;
+	}
+}

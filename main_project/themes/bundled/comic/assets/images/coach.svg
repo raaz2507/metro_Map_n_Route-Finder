@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="theme-coach-shape" viewBox="0 0 360 210">
+    <style>
+      /* 💥 Comic Bogie Wheels Rotation (Fast 0.45s) */
+      .wheel-rotate {
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: transform 0.2s ease-out;
+      }
+      :hover .wheel-rotate,
+      .real-coach-card:hover .wheel-rotate {
+        animation: spinWheelOnAxle 0.45s linear infinite !important;
+      }
+      @keyframes spinWheelOnAxle {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+
+      /* ⚡ Comic Speed Lines Hover Pulse & Strobe */
+      #d12-speed-lines {
+        opacity: 0.15;
+        transition: opacity 0.2s ease;
+      }
+      :hover #d12-speed-lines,
+      .real-coach-card:hover #d12-speed-lines {
+        opacity: 0.95 !important;
+        animation: speedLineStrobe 0.16s steps(2, start) infinite !important;
+      }
+      @keyframes speedLineStrobe {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-6px); }
+      }
+    </style>
+    <defs>
+      <!-- Comic Paper Gradient -->
+      <linearGradient id="comicPaperGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fffef0"/>
+        <stop offset="100%" stop-color="#fef08a"/>
+      </linearGradient>
+
+      <!-- Comic Dark Panel Gradient -->
+      <linearGradient id="comicWindowGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#18181b"/>
+        <stop offset="100%" stop-color="#09090b"/>
+      </linearGradient>
+
+      <!-- Ben-Day Dots Pattern -->
+      <pattern id="benDayDots" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+        <circle cx="4" cy="4" r="1.5" fill="#facc15" opacity="0.4"/>
+      </pattern>
+
+      <!-- Halftone Stripe Pattern -->
+      <pattern id="comicHalftoneDark" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+        <circle cx="3" cy="3" r="1.2" fill="#000000" opacity="0.3"/>
+      </pattern>
+    </defs>
+
+    <!-- Dynamic Speed / Action Lines Background -->
+    <g id="d12-speed-lines">
+      <line x1="10" y1="30" x2="350" y2="30" stroke="#000000" stroke-width="1.8" stroke-dasharray="20 14" opacity="0.4"/>
+      <line x1="5" y1="75" x2="45" y2="75" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="315" y1="75" x2="355" y2="75" stroke="#000000" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="10" y1="184" x2="60" y2="184" stroke="#000000" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- Hard Comic Block Shadow -->
+    <rect x="20" y="28" width="330" height="156" rx="18" fill="#000000"/>
+
+    <!-- Main Inked Coach Body with Ben-Day Dots -->
+    <rect x="14" y="22" width="330" height="156" rx="18" fill="url(#comicPaperGrad)" stroke="#000000" stroke-width="3.5"/>
+    <rect x="14" y="22" width="330" height="156" rx="18" fill="url(#benDayDots)"/>
+
+    <!-- Cel-Shade Shading -->
+    <polygon points="14,120 120,178 14,178" fill="#000000" opacity="0.2"/>
+
+    <!-- Top Inking Glint Line -->
+    <path d="M28 26 L332 26" stroke="#000000" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M30 29 L280 29" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+
+    <!-- Comic Sound Tag Stamp "METRO!" -->
+    <polygon points="275,22 334,22 326,38 267,38" fill="#facc15" stroke="#000000" stroke-width="2"/>
+    <text x="299" y="34" fill="#000000" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="9" text-anchor="middle" letter-spacing="0.1em">METRO!</text>
+
+    <!-- Comic Dark Panel / Smoked Window -->
+    <rect x="22" y="36" width="314" height="106" rx="12" fill="url(#comicWindowGrad)" stroke="#000000" stroke-width="3"/>
+    <!-- Diagonal Comic Action Slash Highlight -->
+    <polygon points="26,40 100,40 60,105 26,105" fill="rgba(255,255,255,0.12)"/>
+    <line x1="112" y1="40" x2="72" y2="105" stroke="rgba(255,255,255,0.2)" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Comic Color Patti -->
+    <g id="d12-patti-group">
+      <rect x="22" y="170" width="314" height="5" fill="#000000"/>
+      <rect class="dynamic-line-stripe" x="22" y="152" width="314" height="19" rx="3" fill="var(--line-color)" stroke="#000000" stroke-width="2.5"/>
+      <rect x="22" y="162" width="314" height="9" fill="url(#comicHalftoneDark)"/>
+      <path d="M30 156 L75 156 M90 156 L190 156 M205 156 L325 156" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Heavy Bottom Chassis Bar -->
+    <path d="M16 184 L344 184" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Comic Bogie 1 with Wheel Rotation -->
+    <rect x="52" y="185" width="70" height="18" rx="4" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+    <g class="wheel-rotate">
+      <circle cx="70" cy="194" r="9.5" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+      <circle cx="70" cy="194" r="5" fill="#000000"/>
+      <line x1="70" y1="185" x2="70" y2="203" stroke="#000000" stroke-width="2"/>
+      <line x1="61" y1="194" x2="79" y2="194" stroke="#000000" stroke-width="2"/>
+      <circle cx="70" cy="194" r="2" fill="#facc15"/>
+    </g>
+    <g class="wheel-rotate">
+      <circle cx="104" cy="194" r="9.5" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+      <circle cx="104" cy="194" r="5" fill="#000000"/>
+      <line x1="104" y1="185" x2="104" y2="203" stroke="#000000" stroke-width="2"/>
+      <line x1="95" y1="194" x2="113" y2="194" stroke="#000000" stroke-width="2"/>
+      <circle cx="104" cy="194" r="2" fill="#facc15"/>
+    </g>
+
+    <!-- Comic Bogie 2 with Wheel Rotation -->
+    <rect x="228" y="185" width="70" height="18" rx="4" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+    <g class="wheel-rotate">
+      <circle cx="246" cy="194" r="9.5" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+      <circle cx="246" cy="194" r="5" fill="#000000"/>
+      <line x1="246" y1="185" x2="246" y2="203" stroke="#000000" stroke-width="2"/>
+      <line x1="237" y1="194" x2="255" y2="194" stroke="#000000" stroke-width="2"/>
+      <circle cx="246" cy="194" r="2" fill="#facc15"/>
+    </g>
+    <g class="wheel-rotate">
+      <circle cx="280" cy="194" r="9.5" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+      <circle cx="280" cy="194" r="5" fill="#000000"/>
+      <line x1="280" y1="185" x2="280" y2="203" stroke="#000000" stroke-width="2"/>
+      <line x1="271" y1="194" x2="289" y2="194" stroke="#000000" stroke-width="2"/>
+      <circle cx="280" cy="194" r="2" fill="#facc15"/>
+    </g>
+  </symbol>
+</svg>

@@ -16,8 +16,9 @@ class PassengerSupportController {
 
 	async init() {
 		// 1. Initialize Universal Layout Header & Footer
-		await HeaderComponent.render("passenger_support");
 		FooterComponent.render();
+		await HeaderComponent.render("passenger_support");
+		
 
 		// 2. Resolve Active City & Network (From URL or localStorage)
 		const urlParams = new URLSearchParams(window.location.search);
@@ -159,15 +160,15 @@ class PassengerSupportController {
 
 		const portals = net.portals || {};
 
-		// Helper to update external links safely
+		// Helper to update external links safely (Zero inline style)
 		const setLink = (id, url) => {
 			const el = document.getElementById(id);
 			if (!el) return;
 			if (url && url !== "#") {
 				el.href = url;
-				el.style.display = "inline-flex";
+				el.hidden = false;
 			} else {
-				el.style.display = "none";
+				el.hidden = true;
 			}
 		};
 

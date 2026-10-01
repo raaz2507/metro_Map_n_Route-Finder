@@ -9,12 +9,14 @@ import tvmDispenser from "./en/tvm_dispenser.js";
 import passengerSupport from "./en/passenger_support.js";
 import help from "./en/help.js";
 import about from "./en/about.js";
+import countrySelector from "./en/country_selector.js";
 
 export default {
 	...common,
 	pages: {
 		home,
 		networks,
+		countrySelector,
 		all_stations: allStations
 	},
 	station_info: stationInfo,

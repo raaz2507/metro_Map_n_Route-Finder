@@ -1,38 +1,21 @@
-// lang/pages/passenger_support.en.js
+// lang/en/passenger_support.js
 export default {
-	meta: {
-		title: "Passenger Support & Transit Helplines",
-		desc: "Official transit directory for safety, security guidelines, women assistance, divyang facilities, and 24x7 emergency contacts."
-	},
+	pageTitle: "Passenger Support & Legal Directory | YatraMarg Metro",
 	hero: {
-		badge: "Verified Transit Directory",
-		title: "Official Passenger Support",
+		badge: "Official Regulatory Directory",
+		title: "Passenger Support & Legal Redirection",
+		subtitle: "Statutory compliance portals, station accessibility assistance, authorized baggage limitations, and immediate control room contacts.",
 		desc: "Direct access to verified official authorities, safety guidelines, passenger amenities, and 24x7 emergency assistance for {network}."
 	},
 	nav: {
-		safety: "Safety & Vigilance",
-		facilities: "Passenger Facilities",
-		helplines: "Emergency Helplines"
+		safety: "Safety",
+		facilities: "Facilities",
+		helpline: "Helpline"
 	},
 	sections: {
 		safetyTitle: "Legal Redirection & Safety (Official Portals)",
-		facilitiesTitle: "Passenger Care & Amenities (Quick Guidance)",
-		helplinesTitle: "24x7 Emergency Helplines (Direct Dialers)"
-	},
-	helplines: {
-		callBtn: "Call",
-		dmrc: {
-			title: "24x7 Passenger Operations Helpline",
-			note: "Toll-Free All India: 155370"
-		},
-		cisf: {
-			title: "CISF Metro Security Control Room",
-			note: "Armed Security Response: 155655"
-		},
-		women: {
-			title: "Women Commuter Emergency SOS",
-			note: "Delhi Police & Lady CISF: 011-23415440"
-		}
+		facilitiesTitle: "Commuter Rights & Station Amenities",
+		helplineTitle: "Emergency & Control Room Directory"
 	},
 	cards: {
 		vigilance: {
@@ -47,41 +30,56 @@ export default {
 			title: "CISF Security & Prohibited Articles",
 			subtitle: "Baggage Scanning & Security Protocols",
 			desc: "Official restrictions and safety checks before station concourse entry:",
-			fact1: "Strictly prohibited: Flammable materials, weapons, and oversized luggage",
-			fact2: "Emergency rapid response team deployed at all passenger screening gates",
-			btn: "Read Security Rules"
+			fact1: "Flammables, weapons, and petroleum products are strictly prohibited.",
+			fact2: "All baggage must pass through X-BIS X-ray inspection tunnels.",
+			btn: "View Full CISF Prohibited List"
 		},
-		lostFound: {
-			title: "Lost & Found Property Cell",
-			subtitle: "Central Depot: {depotLocation}",
-			desc: "Check recovered baggage, electronics, or personal articles:",
-			fact1: "Daily updated inventory of unclaimed valuables deposited by station staff",
-			fact2: "Valid Government Photo ID and proof of ownership mandatory for claim",
-			btn: "Check Lost Articles"
+		baggage: {
+			title: "Authorized Baggage Limitations",
+			subtitle: "Statutory Weight & Dimension Permissibility",
+			desc: "Metro Carriage & Ticket Rules strictly enforce the following limitations per commuter:",
+			fact1: "Maximum Permissible Weight: 15 kg to 25 kg (Network specific)",
+			fact2: "Maximum Dimensions: 80 cm × 50 cm × 30 cm",
+			btn: "Read Complete Carriage Policy"
 		},
-		women: {
-			title: "Women Commuter Safety & Reserved Coach",
-			subtitle: "Dedicated Coach & Security Monitoring",
-			desc: "Universal safety standards for women passengers:",
-			fact1: "Coach 1 (in train movement direction) strictly reserved for women commuters",
-			fact2: "Heavy statutory fine and eviction for male commuters entering reserved coach",
-			btn: "Official Facilities Guide"
+		womenSafety: {
+			title: "Women Commuter Safety & Reserved Coaches",
+			subtitle: "First Coach Reservation & Enforcement",
+			desc: "Protection under Metro Railways (O&M) Act section 64:",
+			fact1: "The first coach in moving direction is reserved exclusively for women commuters.",
+			fact2: "Male entry is a punishable offense carrying immediate fine and legal eviction.",
+			btn: "Safety Protocols & Helpline"
 		},
-		divyang: {
-			title: "Differently Abled (Divyang) Mobility",
-			subtitle: "Wheelchairs, Braille Lifts & Ramps",
-			desc: "Barrier-free accessibility across all metro stations:",
-			fact1: "Station staff provides free wheelchair escort from gate to coach on request",
-			fact2: "Tactile guided pathway tiles and wide automatic AFC gates at all concourses",
-			btn: "View Accessibility Standards"
+		divyangjan: {
+			title: "Barrier-Free Accessibility (Divyangjan)",
+			subtitle: "Wheelchair Escorts, Ramps & Tactile Paths",
+			desc: "100% barrier-free transit infrastructure provided across all operational lines:",
+			fact1: "Tactile floor pathways from station entry to train boarding platform.",
+			fact2: "Station Control Room provides wheelchair escort assistance upon request.",
+			btn: "Accessibility Guide"
 		},
 		parking: {
-			title: "Station Parking & Feeder Tariffs",
-			subtitle: "Official Authorized Rates & Lots",
-			desc: "Parking regulations for two-wheelers and four-wheelers:",
-			fact1: "Authorized parking strictly managed by official transit operators",
-			fact2: "Night parking charges apply beyond regular operational hours",
-			btn: "View Parking Tariffs"
+			title: "Metro Parking Regulations & Fare Slabs",
+			subtitle: "Authorized Contractor Rates & Overnight Rules",
+			desc: "Authorized parking facilities available at major terminal and interchange stations:",
+			fact1: "Operates from 05:00 AM to 11:30 PM under standardized MCD/Statutory slabs.",
+			fact2: "FASTag and Smart Card integrated touch-and-go payment enabled at select lots.",
+			btn: "View Live Parking Fares"
+		}
+	},
+	helplines: {
+		callBtn: "Call",
+		dmrc: {
+			title: "24x7 Passenger Operations Helpline",
+			note: "Customer Care: 155370"
+		},
+		cisf: {
+			title: "CISF Metro Security Control Room",
+			note: "Security Control: 155655"
+		},
+		women: {
+			title: "Women Commuter Emergency SOS",
+			note: "Women Commuter SOS: 112"
 		}
 	}
 };

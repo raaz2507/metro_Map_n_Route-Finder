@@ -1,0 +1,76 @@
+/* ==========================================================================
+   NEON CYBERPUNK THEME PACK - MASTER GLOBAL TOKENS
+   Dual-Mode: ☀️ Day Matrix (Clean White-Cyan) & 🌙 Night City (Obsidian Neon)
+   ========================================================================== */
+@layer themes {
+	[data-theme="cyberpunk"] {
+		--font-title: 'Share Tech Mono', 'Orbitron', monospace;
+		--font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+		--theme-bg-image: url('../../themes/bundled/cyberpunk/assets/images/background.svg');
+	}
+
+	/* ☀️ CYBERPUNK DAY MATRIX (Clean Tech-Silver & Electric Cyan) */
+	[data-theme="cyberpunk"][data-mode="light"],
+	[data-theme="cyberpunk"] {
+		--bg-app: #f1f5f9;
+		--card-bg: #ffffff;
+		--border-color: #0284c7;
+
+		--text-primary: #030712;
+		--text-secondary: #0369a1;
+		--text-muted: #64748b;
+
+		--input-bg: #f8fafc;
+		--input-border: #0284c7;
+		--input-focus-border: #ec4899;
+
+		--btn-primary-bg: #0284c7;
+		--btn-primary-text: #ffffff;
+		--btn-primary-hover: #0369a1;
+		--btn-reset-bg: #fdf2f8;
+		--btn-reset-text: #be185d;
+		--btn-reset-hover: #fce7f3;
+
+		--shadow-sm: 0 1px 3px rgba(2, 132, 199, 0.15);
+		--shadow-md: 0 4px 12px rgba(2, 132, 199, 0.2), 0 0 10px rgba(0, 240, 255, 0.25);
+		--shadow-lg: 0 10px 25px rgba(2, 132, 199, 0.25), 0 0 20px rgba(236, 72, 153, 0.2);
+
+		--badge-bg: #0284c7;
+		--badge-text: #ffffff;
+		--badge-border: #00f0ff;
+
+		--bg-filter: none;
+	}
+
+	/* 🌙 CYBERPUNK NIGHT CITY (Deep Obsidian, Electric Cyan & Hot Magenta) */
+	[data-theme="cyberpunk"][data-mode="dark"] {
+		--bg-app: #090314;
+		--card-bg: #140826;
+		--border-color: rgba(236, 72, 153, 0.45);
+
+		--text-primary: #00f0ff;
+		--text-secondary: #f472b6;
+		--text-muted: #c084fc;
+
+		--input-bg: #1c0b36;
+		--input-border: rgba(0, 240, 255, 0.4);
+		--input-focus-border: #ec4899;
+
+		--btn-primary-bg: #00f0ff;
+		--btn-primary-text: #090314;
+		--btn-primary-hover: #38bdf8;
+		--btn-reset-bg: rgba(236, 72, 153, 0.2);
+		--btn-reset-text: #fdf4ff;
+		--btn-reset-hover: rgba(236, 72, 153, 0.35);
+
+		--shadow-sm: 0 0 10px rgba(0, 240, 255, 0.2);
+		--shadow-md: 0 0 18px rgba(236, 72, 153, 0.3), 0 4px 12px rgba(0, 0, 0, 0.7);
+		--shadow-lg: 0 0 30px rgba(0, 240, 255, 0.35), 0 10px 30px rgba(0, 0, 0, 0.85);
+
+		--badge-bg: #160828;
+		--badge-text: #00f0ff;
+		--badge-border: #00f0ff;
+
+		--bg-filter: blur(8px) brightness(0.4) contrast(1.3) saturate(1.35);
+	}
+}

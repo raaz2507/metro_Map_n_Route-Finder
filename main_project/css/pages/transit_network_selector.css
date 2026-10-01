@@ -11,47 +11,49 @@
 @import url("../components/toast.css");
 
 /* ===========================================================================
-   1. BASE LAYER - PAGE CONTAINER (Clean Semi-Translucent Panel)
+   1. BASE LAYER - PAGE CONTAINER (Transparent Canvas)
    =========================================================================== */
 @layer base {
 	main.network-selector-page {
 		height: auto;
 		min-height: calc(100vh - 160px);
 		flex: 1 0 auto;
-		overflow: visible;
 		max-width: 1280px;
-		margin: 1.5rem auto;
-		padding: var(--space-xl);
+		margin: var(--space-xl) auto;
+		padding: 0 var(--space-lg);
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-xl);
 		font-family: var(--font-main);
 		color: var(--text-primary);
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-		backdrop-filter: blur(var(--backdrop-blur));
-		-webkit-backdrop-filter: blur(var(--backdrop-blur));
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-xl);
-		box-shadow: var(--shadow-md);
+		background: transparent;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
 	}
 }
 
 /* ===========================================================================
-   2. COMPONENTS LAYER - CONTROLS, COMPACT CARDS & BADGES
+   2. COMPONENTS LAYER - ISLAND CARDS, ACCORDIONS & TILES
    =========================================================================== */
 @layer components {
-	/* Controls Container Wrapper */
-	.selector-controls {
+
+	/* =========================================================================
+	   ISLAND BLOCK 1: SEARCH & FILTER CONTROLS DECK
+	   ========================================================================= */
+	.selector-controls-deck {
+		background-color: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xl);
+		box-shadow: var(--shadow-sm);
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-lg);
-		background: transparent;
-		border: none;
-		padding: 0;
-		box-shadow: none;
 	}
 
-	/* Filters & Sort Rows (Row-Aligned Layout) */
 	.filters-row {
 		display: flex;
 		flex-direction: column;
@@ -67,12 +69,12 @@
 	}
 
 	.filter-label {
-		font-size: 0.825rem;
+		font-size: var(--fs-xs);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
-		min-width: 70px;
+		min-width: 72px;
 		flex-shrink: 0;
 	}
 
@@ -84,21 +86,21 @@
 		flex: 1;
 	}
 
-	/* Inactive Chips - Crisp Dark Text & Clear Solid-Translucent Background */
+	/* Filter Chips */
 	.chip-btn {
 		border: 1.5px solid var(--border-color);
 		background-color: rgba(var(--color-bg-base-rgb), var(--op-semi-heavy));
 		color: var(--text-primary);
-		padding: 5px var(--space-md);
+		padding: var(--space-xs) var(--space-md);
 		border-radius: var(--radius-full);
-		font-size: 0.825rem;
+		font-size: var(--fs-xs);
 		font-family: var(--font-main);
 		font-weight: var(--fw-semibold);
 		cursor: pointer;
 		transition: all var(--transition-fast);
 		display: inline-flex;
 		align-items: center;
-		gap: 5px;
+		gap: var(--space-xs);
 		user-select: none;
 		box-shadow: var(--shadow-sm);
 	}
@@ -108,7 +110,6 @@
 		transform: translateY(-1px);
 	}
 
-	/* Active Chips - Fully Dynamic Theme Primary Tokens (No Hardcoded Colors) */
 	.chip-btn.active {
 		background-color: var(--btn-primary-bg);
 		color: var(--btn-primary-text);
@@ -116,76 +117,162 @@
 		box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.35);
 	}
 
-	/* Stats Bar */
+	/* Status Chip Vector Accents */
+	.chip-btn[data-status="operational"]:not(.active) .icon-status-operational { background-color: #10B981; }
+	.chip-btn[data-status="operational_partial"]:not(.active) .icon-status-partial { background-color: #F59E0B; }
+	.chip-btn[data-status="under_construction"]:not(.active) .icon-status-construction { background-color: #F97316; }
+
+	/* =========================================================================
+	   BLOCK 2: STATS SUMMARY BAR
+	   ========================================================================= */
 	.results-stats-bar {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 0 var(--space-xs);
-		font-size: 0.9rem;
+		font-size: var(--fs-sm);
 		color: var(--text-secondary);
 		font-weight: var(--fw-medium);
 	}
 
-	/* Compact Unified Flat Grid & Sleek Tiles */
-	.transit-sections-container {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-lg);
-	}
-
-	
-
-	/* Loading & Empty States */
-	.loading-state, .empty-state {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: var(--space-3xl) var(--space-xl);
-		gap: var(--space-lg);
-		text-align: center;
-		color: var(--text-secondary);
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-		border: 1px dashed var(--border-color);
-		border-radius: var(--radius-xl);
-	}
-
-	.spinner {
-		width: 40px;
-		height: 40px;
-		border: 3px solid rgba(var(--color-primary-rgb), 0.2);
-		border-top-color: var(--btn-primary-bg);
-		border-radius: 50%;
-		animation: spin 0.8s linear infinite;
-	}
-
-	@keyframes spin {
-		to { transform: rotate(360deg); }
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-		/* =========================================================================
-	   DYNAMIC RESPONSIVE NETWORKS GRID
+	/* =========================================================================
+	   ISLAND BLOCK 3: COUNTRY ACCORDION CARDS (passenger_support style)
 	   ========================================================================= */
+	.country-accordions-container {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+	}
+
+	.country-accordion-card {
+		background-color: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-sm);
+		overflow: hidden;
+		transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+	}
+
+	.country-accordion-card:hover {
+		border-color: rgba(var(--color-primary-rgb), 0.35);
+	}
+
+	/* Clickable Accordion Header */
+	.country-accordion-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--space-md) var(--space-xl);
+		background-color: var(--card-bg);
+		border-bottom: 1px solid var(--border-color);
+		cursor: pointer;
+		user-select: none;
+		transition: background-color var(--transition-fast);
+	}
+
+	.country-accordion-header:hover {
+		background-color: rgba(var(--color-primary-rgb), 0.08);
+	}
+
+	.country-header-left {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.country-flag-icon {
+		font-size: 1.75rem;
+		line-height: 1;
+		flex-shrink: 0;
+	}
+
+	.country-header-titles {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.country-header-titles h2 {
+		margin: 0;
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		letter-spacing: 0.3px;
+	}
+
+	.country-networks-count {
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		font-weight: var(--fw-medium);
+	}
+
+	/* Rotating Chevron */
+	.country-accordion-chevron {
+		width: 10px;
+		height: 10px;
+		border-right: 2px solid var(--text-secondary);
+		border-bottom: 2px solid var(--text-secondary);
+		transform: rotate(45deg);
+		transition: transform var(--transition-fast);
+		flex-shrink: 0;
+		margin-right: var(--space-xs);
+	}
+
+	.country-accordion-card.collapsed .country-accordion-chevron {
+		transform: rotate(-135deg);
+	}
+
+	.country-accordion-card.collapsed .country-accordion-drawer {
+		display: none;
+	}
+
+	/* Accordion Body & Sub-decks */
+	.country-accordion-drawer {
+		padding: var(--space-xl);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+	}
+
+	.sub-network-deck {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+
+	.sub-deck-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1.5px solid var(--border-color);
+		padding-bottom: var(--space-xs);
+	}
+
+	.sub-deck-header h3 {
+		margin: 0;
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+
+	.sub-deck-badge {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		color: var(--color-primary);
+		background-color: rgba(var(--color-primary-rgb), var(--op-subtle));
+		padding: var(--space-2xs) var(--space-sm);
+		border-radius: var(--radius-full);
+	}
+
+	/* Fluid Networks Grid */
 	.networks-compact-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
 		gap: var(--space-lg);
 	}
 
 	/* =========================================================================
-	   FINAL CONCEPT 12: HYBRID SIGNATURE CARD
+	   SIGNATURE TRANSIT NETWORK CARDS
 	   ========================================================================= */
 	.network-card-compact {
 		position: relative;
@@ -196,7 +283,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		min-height: 142px;
+		min-height: 140px;
 		cursor: pointer;
 		user-select: none;
 		overflow: hidden;
@@ -210,7 +297,6 @@
 		border-color: var(--card-city-accent);
 	}
 
-	/* Top-Left Radial Hover Color Spread */
 	.network-card-compact::before {
 		content: '';
 		position: absolute;
@@ -218,7 +304,7 @@
 		left: -40px;
 		width: 140px;
 		height: 140px;
-		border-radius: 50%;
+		border-radius: var(--radius-full);
 		background: radial-gradient(circle, color-mix(in srgb, var(--card-city-accent) 24%, transparent) 0%, transparent 70%);
 		pointer-events: none;
 		transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease;
@@ -233,10 +319,9 @@
 		transform: scale(1.8);
 	}
 
-	/* Metro Route Trace Silhouette */
 	.network-card-compact .card-trace-bg {
 		position: absolute;
-		bottom: 8px;
+		bottom: var(--space-sm);
 		right: 32px;
 		width: 85px;
 		height: 35px;
@@ -251,9 +336,6 @@
 		pointer-events: none;
 	}
 
-
-
-	/* Card Top Header (Stamp + Brand Logo / Cluster) */
 	.network-card-compact .card-top-head {
 		display: flex;
 		justify-content: space-between;
@@ -262,7 +344,6 @@
 		z-index: 1;
 	}
 
-	/* Dashed City Stamp */
 	.network-card-compact .city-stamp {
 		font-family: 'Comfortaa', cursive, sans-serif;
 		font-size: var(--fs-xs);
@@ -270,15 +351,19 @@
 		color: var(--card-city-accent);
 		border: 1.5px dashed var(--card-city-accent);
 		background: color-mix(in srgb, var(--card-city-accent) 6%, transparent);
-		padding: 2px 9px;
+		padding: var(--space-2xs) var(--space-sm);
 		border-radius: var(--radius-full);
 		white-space: nowrap;
 		display: inline-flex;
 		align-items: center;
-		gap: 4px;
+		gap: var(--space-xs);
 	}
 
-	/* Single Brand Icon (Clean 36px, transparent) */
+	.network-card-compact .city-stamp .ui-vector-icon {
+		width: 12px;
+		height: 12px;
+	}
+
 	.network-card-compact .brand-avatar-box {
 		display: flex;
 		align-items: center;
@@ -287,13 +372,12 @@
 	}
 
 	.network-card-compact .brand-avatar-box img {
-		width: 36px;
-		height: 36px;
+		width: var(--logo-size-md);
+		height: var(--logo-size-md);
 		object-fit: contain;
 		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
 	}
 
-	/* Multi-Logo Avatar Cluster (for Group Cards) */
 	.network-card-compact .avatar-cluster {
 		display: inline-flex;
 		align-items: center;
@@ -324,10 +408,10 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 0.7rem;
+		font-size: var(--fs-2xs);
 		font-weight: var(--fw-bold);
 		height: 26px;
-		padding: 0 6px;
+		padding: 0 var(--space-xs);
 		border-radius: var(--radius-full);
 		background: color-mix(in srgb, var(--card-city-accent) 15%, var(--card-bg));
 		color: var(--card-city-accent);
@@ -336,9 +420,8 @@
 		box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 	}
 
-	/* Card Content (Title + Operator Subtitle) */
 	.network-card-compact .card-body {
-		margin: var(--space-xs) 0 2px 0;
+		margin: var(--space-xs) 0 var(--space-2xs) 0;
 		position: relative;
 		z-index: 1;
 	}
@@ -357,10 +440,9 @@
 		font-size: var(--fs-xs);
 		color: var(--text-secondary);
 		font-style: italic;
-		margin: 2px 0 0 0;
+		margin: var(--space-2xs) 0 0 0;
 	}
 
-	/* Card Footer Row */
 	.network-card-compact .card-foot {
 		display: flex;
 		justify-content: space-between;
@@ -371,7 +453,6 @@
 		margin-top: var(--space-xs);
 	}
 
-	/* Mode & Status Meta Group */
 	.network-card-compact .foot-meta-group {
 		display: inline-flex;
 		align-items: center;
@@ -386,7 +467,13 @@
 		font-weight: var(--fw-bold);
 		display: inline-flex;
 		align-items: center;
-		gap: 3px;
+		gap: var(--space-2xs);
+	}
+
+	.network-card-compact .mode-tag .ui-vector-icon {
+		background-color: var(--card-city-accent);
+		width: 14px;
+		height: 14px;
 	}
 
 	.network-card-compact .meta-sep {
@@ -404,7 +491,7 @@
 		transition: color var(--transition-fast);
 	}
 
-	/* Animated Live Pulse Dot (Still by default, pulses on card hover) */
+	/* Animated Status Dot */
 	.network-card-compact .live-status-dot {
 		position: relative;
 		display: inline-block;
@@ -419,10 +506,7 @@
 	.network-card-compact .live-status-dot::before {
 		content: '';
 		position: absolute;
-		top: -2.5px;
-		left: -2.5px;
-		right: -2.5px;
-		bottom: -2.5px;
+		inset: -2.5px;
 		border-radius: var(--radius-full);
 		background-color: var(--status-color, #10B981);
 		opacity: 0;
@@ -442,31 +526,25 @@
 		}
 	}
 
-	/* Status Color Tokens */
-	.status-operational { --status-color: #10B981; }              /* Green Pulse (Operational) */
-	.status-partial, 
-	.status-operational_partial { --status-color: #F59E0B; }      /* Amber Pulse (Partial Service) */
-	.status-construction,
-	.status-under_construction { --status-color: #F97316; }       /* Orange Pulse (Construction) */
-	.status-approved { --status-color: #06B6D4; }                 /* Cyan Pulse (Approved) */
-	.status-proposed { --status-color: #8B5CF6; }                 /* Purple Pulse (Proposed) */
+	.status-operational { --status-color: #10B981; }
+	.status-partial, .status-operational_partial { --status-color: #F59E0B; }
+	.status-construction, .status-under_construction { --status-color: #F97316; }
+	.status-approved { --status-color: #06B6D4; }
+	.status-proposed { --status-color: #8B5CF6; }
 
-	/* Group Card Linked Lines Badge */
 	.network-card-compact .linked-lines-badge {
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-bold);
 		color: var(--card-city-accent);
 	}
 
-	/* Action Indicators Group */
 	.network-card-compact .action-group {
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
+		gap: var(--space-sm);
 		margin-left: auto;
 	}
 
-	/* Official Website Icon Link (Clean, borderless - No circle & No background) */
 	.network-card-compact .official-website-link {
 		display: inline-flex;
 		align-items: center;
@@ -475,17 +553,17 @@
 		text-decoration: none;
 		background: transparent;
 		border: none;
-		padding: 2px;
+		padding: var(--space-2xs);
 		transition: color var(--transition-fast), transform var(--transition-fast);
 	}
-	
+
 	.network-card-compact .official-website-link .ui-vector-icon {
-		width: 20px;
-		height: 20px;
+		width: 18px;
+		height: 18px;
 	}
 
 	.network-card-compact:hover .official-website-link {
-		color: #0EA5E9; /* Vibrant Skyblue on card hover */
+		color: #0EA5E9;
 	}
 
 	.network-card-compact .official-website-link:hover {
@@ -493,7 +571,6 @@
 		transform: scale(1.2);
 	}
 
-	/* Interactive Right Arrow */
 	.network-card-compact .action-arrow {
 		color: var(--text-muted);
 		font-size: var(--fs-md);
@@ -506,7 +583,7 @@
 		color: var(--card-city-accent);
 	}
 
-	/* Dynamic Vector Mask Icons */
+	/* Dynamic Vector Icons */
 	.ui-vector-icon {
 		display: inline-block;
 		width: 14px;
@@ -534,132 +611,72 @@
 	.icon-sort-alpha { --icon-url: url('../../assets/icons/ui/icon_sort_alpha.svg'); }
 	.icon-all-modes { --icon-url: url('../../assets/icons/ui/all_modes.svg'); }
 	.icon-all-status { --icon-url: url('../../assets/icons/ui/all_status.svg'); }
+	.icon-city-network { --icon-url: url('../../assets/icons/ui/city_network.svg'); }
+	.icon-train-lines { --icon-url: url('../../assets/icons/ui/train_lines.svg'); }
 
-	/* Inactive status chips icon color accents */
-	.chip-btn[data-status="operational"]:not(.active) .icon-status-operational { background-color: #10B981; }
-	.chip-btn[data-status="operational_partial"]:not(.active) .icon-status-partial { background-color: #F59E0B; }
-	.chip-btn[data-status="under_construction"]:not(.active) .icon-status-construction { background-color: #F97316; }
+	/* Sub-deck Section Headers with Vector Icons */
+	.sub-deck-header h3 {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-xs);
+	}
+	.sub-deck-header h3 .ui-vector-icon {
+		width: var(--fs-md);
+		height: var(--fs-md);
+		color: var(--color-primary);
+	}
+
+	/* Loading & Empty States */
+	.loading-state, .empty-state {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-3xl) var(--space-xl);
+		gap: var(--space-lg);
+		text-align: center;
+		color: var(--text-secondary);
+		background-color: var(--card-bg);
+		border: 1px dashed var(--border-color);
+		border-radius: var(--radius-xl);
+	}
+
+	.spinner {
+		width: 40px;
+		height: 40px;
+		border: 3px solid rgba(var(--color-primary-rgb), 0.2);
+		border-top-color: var(--btn-primary-bg);
+		border-radius: var(--radius-full);
+		animation: spin 0.8s linear infinite;
+	}
+
+	@keyframes spin {
+		to { transform: rotate(360deg); }
+	}
 
 	/* =========================================================================
-	   CLEAN COMPONENT UTILITIES (Replaces JS Inline Styles)
+	   PROJECT STANDARD RESPONSIVE BREAKPOINT (<= 768px)
 	   ========================================================================= */
-	
-	/* 1. Section Wrappers & Titles */
-	.network-section-wrapper {
-		margin-bottom: 2rem;
-	}
-	.network-section-title {
-		margin-bottom: 1rem;
-		color: var(--text-primary);
-		border-bottom: 2px solid var(--border-color);
-		padding-bottom: 0.5rem;
-		font-size: var(--fs-lg);
-		font-weight: var(--fw-bold);
-	}
-	/* 2. Mode Icon Styling in Card */
-	.network-card-compact .mode-tag .ui-vector-icon {
-		background-color: var(--card-city-accent);
-		width: 14px;
-		height: 14px;
-		margin-right: 3px;
-	}
-	/* 3. Leaf Icon in City Stamp */
-	.network-card-compact .city-stamp .ui-vector-icon {
-		width: 12px;
-		height: 12px;
-	}
-	/* 4. Globe Icon in Official Website Link */
-	.network-card-compact .official-website-link .ui-vector-icon {
-		width: 18px !important;
-		height: 18px !important;
-	}
-		/* =========================================================================
-	   MOBILE RESPONSIVENESS (2-Column Grid on Mobile Screens <= 640px)
-	   ========================================================================= */
-	@media (max-width: 640px) {
+	@media (max-width: 768px) {
 		main.network-selector-page {
-			margin: 0.5rem auto;
-			padding: var(--space-sm);
+			margin: var(--space-sm) auto;
+			padding: 0 var(--space-sm);
 			gap: var(--space-md);
-			border-radius: var(--radius-lg);
+		}
+
+		.selector-controls-deck,
+		.country-accordion-drawer {
+			padding: var(--space-md);
+			gap: var(--space-md);
+		}
+
+		.country-accordion-header {
+			padding: var(--space-md);
 		}
 
 		.networks-compact-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			gap: var(--space-sm);
-		}
-
-		.network-card-compact {
-			padding: 8px;
-			min-height: 120px;
-			border-radius: var(--radius-lg);
-		}
-
-		.network-card-compact .city-stamp {
-			font-size: 0.65rem;
-			padding: 1px 6px;
-			gap: 2px;
-		}
-
-		.network-card-compact .city-stamp .ui-vector-icon {
-			width: 10px;
-			height: 10px;
-		}
-
-		.network-card-compact .brand-avatar-box img {
-			width: 26px;
-			height: 26px;
-		}
-
-		.network-card-compact .avatar-cluster img {
-			width: 20px;
-			height: 20px;
-			margin-left: -6px;
-		}
-
-		.network-card-compact .cluster-count {
-			height: 20px;
-			font-size: 0.6rem;
-			padding: 0 4px;
-			margin-left: -6px;
-		}
-
-		.network-card-compact .network-title {
-			font-size: 0.82rem;
-			line-height: 1.2;
-		}
-
-		.network-card-compact .operator-sub {
-			font-size: 0.68rem;
-		}
-
-		.network-card-compact .card-foot {
-			margin-top: 4px;
-		}
-
-		.network-card-compact .foot-meta-group {
-			font-size: 0.65rem;
-			gap: 3px;
-		}
-
-		.network-card-compact .mode-tag .ui-vector-icon {
-			width: 11px;
-			height: 11px;
-		}
-
-		.network-card-compact .action-group {
-			gap: 4px;
-		}
-
-		.network-card-compact .action-arrow {
-			font-size: var(--fs-xs);
-		}
-
-		.network-card-compact .card-trace-bg {
-			width: 50px;
-			height: 22px;
-			right: 10px;
-			bottom: 4px;
+			grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+			gap: var(--space-md);
 		}
 	}
 }

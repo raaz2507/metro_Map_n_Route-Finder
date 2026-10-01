@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Tactical Carbon Fiber Weave Pattern -->
+    <pattern id="carbonWeave" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#08090c" />
+      <polygon points="0,0 12,0 0,12" fill="#12141a" opacity="0.8" />
+      <polygon points="12,12 24,12 12,24" fill="#12141a" opacity="0.8" />
+      <polygon points="12,0 24,0 24,12 12,12" fill="#181a24" opacity="0.6" />
+      <polygon points="0,12 12,12 12,24 0,24" fill="#181a24" opacity="0.6" />
+    </pattern>
+
+    <!-- Night Vigilante Searchlight Glow -->
+    <radialGradient id="nightBeaconGlow" cx="50%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.30" />
+      <stop offset="35%" stop-color="#b45309" stop-opacity="0.12" />
+      <stop offset="70%" stop-color="#0a0b0e" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#0a0b0e" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Base Matte Tactical Dark Canvas -->
+  <rect width="1080" height="1920" fill="#0a0b0e" />
+  <rect width="1080" height="1920" fill="url(#carbonWeave)" opacity="0.5" />
+
+  <!-- Beacon Sky Beam Glow -->
+  <rect width="1080" height="1920" fill="url(#nightBeaconGlow)" />
+
+  <!-- ── 1. METROPOLIS MONOLITH TOWERS SILHOUETTE ── -->
+  <g fill="#050608" opacity="0.75">
+    <polygon points="0,1920 0,1320 80,1320 80,1250 140,1250 140,1380 220,1380 220,1920" />
+    <polygon points="200,1920 200,1220 270,1220 270,1140 290,1140 290,1050 300,1050 300,1140 320,1140 320,1220 390,1220 390,1920" />
+    <polygon points="370,1920 370,1360 450,1360 450,1280 540,1280 540,1360 620,1360 620,1920" />
+    <polygon points="600,1920 600,1180 670,1180 670,1090 710,1090 710,1180 780,1180 780,1920" />
+    <polygon points="760,1920 760,1300 840,1300 840,1230 920,1230 920,1920" />
+    <polygon points="900,1920 900,1350 990,1350 990,1270 1080,1270 1080,1920" />
+  </g>
+
+  <!-- ── 2. ORIGINAL TACTICAL APEX STEALTH RADAR WING (Zero Copyright) ── -->
+  <g transform="translate(540, 260) scale(1.5)" opacity="0.45">
+    <!-- Outer Wing Chevron -->
+    <polygon points="0,-40 60,-10 140,40 100,55 50,25 0,70 -50,25 -100,55 -140,40 -60,-10" 
+             fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round" />
+    
+    <!-- Inner Stealth Body Armor -->
+    <polygon points="0,-25 45,0 80,35 40,20 0,50 -40,20 -80,35 -45,0" 
+             fill="#f59e0b" opacity="0.65" />
+             
+    <!-- Central HUD Radar Reticle -->
+    <circle cx="0" cy="8" r="14" fill="none" stroke="#f59e0b" stroke-width="2" />
+    <circle cx="0" cy="8" r="4" fill="#f59e0b" />
+    <line x1="-22" y1="8" x2="22" y2="8" stroke="#f59e0b" stroke-width="1.5" />
+    <line x1="0" y1="-14" x2="0" y2="30" stroke="#f59e0b" stroke-width="1.5" />
+  </g>
+
+  <!-- ── 3. TACTICAL CORNER TELEMETRY BRACKETS (Generic Safe Tech) ── -->
+  <!-- Top Left Bracket -->
+  <g stroke="#f59e0b" stroke-width="2.5" fill="none" opacity="0.45">
+    <path d="M 40 90 L 40 40 L 90 40" />
+    <rect x="44" y="44" width="6" height="6" fill="#f59e0b" />
+    <text x="56" y="65" fill="#f59e0b" font-family="'Chakra Petch', 'Orbitron', monospace" font-size="10" letter-spacing="2">TACTICAL_RADAR // NIGHT_PATROL</text>
+  </g>
+
+  <!-- Top Right Bracket -->
+  <g stroke="#f59e0b" stroke-width="2.5" fill="none" opacity="0.45">
+    <path d="M 1040 90 L 1040 40 L 990 40" />
+    <line x1="970" y1="52" x2="1010" y2="52" stroke="#f59e0b" stroke-width="1.5" />
+    <text x="915" y="72" fill="#f59e0b" font-family="'Chakra Petch', monospace" font-size="9" letter-spacing="1">DEFENSE_GRID</text>
+  </g>
+</svg>

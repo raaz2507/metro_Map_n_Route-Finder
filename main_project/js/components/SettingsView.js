@@ -113,9 +113,10 @@ class AlarmSettingsController {
 		if (el.alertInterchange) el.alertInterchange.checked = Boolean(this.#settings.alertOnInterchange);
 		if (el.soundType) el.soundType.value = this.#settings.soundType;
 
-		// Custom MP3 Box Visibility
+		
+		// Custom MP3 Box Visibility (Clean hidden attribute)
 		if (el.customMp3Box) {
-			el.customMp3Box.style.display = this.#settings.soundType === "custom" ? "flex" : "none";
+			el.customMp3Box.hidden = (this.#settings.soundType !== "custom");
 		}
 		if (el.selectedFileName) {
 			el.selectedFileName.textContent = this.#settings.customAudioName || "Select Audio File...";
@@ -155,7 +156,7 @@ class AlarmSettingsController {
 		el.soundType?.addEventListener("change", (e) => {
 			this.#settings.soundType = e.target.value;
 			if (el.customMp3Box) {
-				el.customMp3Box.style.display = this.#settings.soundType === "custom" ? "flex" : "none";
+				el.customMp3Box.hidden = (this.#settings.soundType !== "custom");
 			}
 			this.#saveSettings();
 		}, { signal });
@@ -691,33 +692,28 @@ class BackupSettingsController {
 	#showRestoreModal() {
 		return new Promise((resolve) => {
 			const backdrop = document.createElement("div");
-			backdrop.className = "share-modal-backdrop";
-			backdrop.style.zIndex = "99999";
-			backdrop.style.display = "flex";
-			backdrop.style.opacity = "1";
-			backdrop.style.pointerEvents = "auto";
+			backdrop.className = "restore-modal-backdrop";
 			
-			// आपके मौजूदा Share Modal वाले डिज़ाइन को री-यूज़ किया गया है
 			backdrop.innerHTML = `
-				<div class="share-modal-card" role="dialog" style="max-width: 420px;">
+				<div class="share-modal-card restore-modal-card" role="dialog">
 					<header class="share-modal-header">
 						<h3>💾 Backup Detected</h3>
 						<button type="button" class="close-modal-btn" id="btnCancelRestoreTop">
 							<span class="icon close-icon">✕</span>
 						</button>
 					</header>
-					<div class="share-modal-body" style="padding: 20px;">
-						<p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary); line-height: 1.5;">
+					<div class="share-modal-body restore-modal-body">
+						<p class="restore-modal-desc">
 							How would you like to handle your existing recent searches and preferences?
 						</p>
-						<div style="display: flex; flex-direction: column; gap: 12px;">
-							<button type="button" class="btn-settings-action" id="btnSmartMerge" style="background: var(--tab-backup-accent, #6366f1); color: white; border: none; padding: 12px; font-size: 14px; justify-content: center;">
+						<div class="restore-modal-actions">
+							<button type="button" class="btn-settings-action btn-restore-merge" id="btnSmartMerge">
 								✅ Smart Merge (Recommended)
 							</button>
-							<button type="button" class="btn-settings-action" id="btnStrictOverwrite" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 12px; font-size: 14px; justify-content: center;">
+							<button type="button" class="btn-settings-action btn-restore-overwrite" id="btnStrictOverwrite">
 								⚠️ Strict Overwrite (Replace All)
 							</button>
-							<button type="button" class="btn-settings-action" id="btnCancelRestore" style="background: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); padding: 12px; font-size: 14px; justify-content: center;">
+							<button type="button" class="btn-settings-action btn-restore-cancel" id="btnCancelRestore">
 								❌ Cancel
 							</button>
 						</div>
@@ -924,33 +920,65 @@ class PacksSettingsController {
 		container.innerHTML = html;
 	}
 
-	#renderThemes() {
+		async #renderThemes() {
 		const container = this.#elements.themeContainer;
 		if (!container) return;
 
-		container.innerHTML = `
-			<div class="pack-item-row">
-				<div class="settings-label-wrapper">
-					<span class="settings-label">🌗 Classic Light & Dark</span>
-					<span class="pack-meta-text" data-i18n="pages.home.settings.packs.coreBuiltin">${i18n.t("pages.home.settings.packs.coreBuiltin")}</span>
-				</div>
-				<div class="pack-action-wrapper">
-					<span class="pack-status-badge is-installed" data-i18n="pages.home.settings.packs.installed">${i18n.t("pages.home.settings.packs.installed")}</span>
-				</div>
-			</div>
-			<div class="pack-item-row pack-item--disabled">
-				<div class="settings-label-wrapper">
-					<span class="settings-label">⚡ Cyberpunk & Retro Pack</span>
-					<span class="pack-meta-text" data-i18n="pages.home.settings.packs.themeComingSoon">${i18n.t("pages.home.settings.packs.themeComingSoon")}</span>
-				</div>
-				<div class="pack-action-wrapper">
-					<button type="button" class="btn-settings-action" disabled>
-						<img src="./assets/icons/download.svg" width="14" height="14" alt="" aria-hidden="true" />
-						<span data-i18n="pages.home.settings.packs.downloadBtn">${i18n.t("pages.home.settings.packs.downloadBtn")}</span>
-					</button>
-				</div>
-			</div>
-		`;
+		const currentTheme = localStorage.getItem("app-theme") || "classic";
+
+		try {
+			// 1. Fetch live catalog directly from manifest.json (Zero Hardcoding!)
+			const res = await fetch("themes/manifest.json");
+			if (!res.ok) throw new Error("Manifest could not be loaded");
+			const manifest = await res.json();
+			const themesList = manifest.themes || [];
+
+			let html = "";
+			themesList.forEach(theme => {
+				const isActive = (theme.id === currentTheme);
+				const colors = [
+					theme.preview?.light || "#ffffff",
+					theme.preview?.dark || "#000000",
+					theme.preview?.accent || "#3b82f6"
+				];
+
+				html += `
+					<div class="pack-item-row theme-skin-card ${isActive ? "is-theme-active" : ""}" data-theme-id="${theme.id}">
+						<div class="settings-label-wrapper">
+							<div class="theme-card-header">
+								<span class="theme-card-title">${theme.name}</span>
+								<span class="theme-badge-pill">${theme.badge || "Theme Pack"}</span>
+							</div>
+							<p class="theme-card-desc">${theme.description || ""}</p>
+							
+							<div class="theme-palette-wrapper">
+								<span class="theme-palette-label">Palette:</span>
+								<div class="theme-swatches-group">
+									${colors.map(c => `<span class="theme-swatch-circle" style="background-color: ${c};"></span>`).join("")}
+								</div>
+							</div>
+						</div>
+
+						<div class="pack-action-wrapper">
+							${isActive ? `
+								<span class="theme-active-pill">
+									<span>✓</span> <span>ACTIVE</span>
+								</span>
+							` : `
+								<button type="button" class="btn-apply-theme" data-theme-id="${theme.id}">
+									<span>Apply Theme</span>
+								</button>
+							`}
+						</div>
+					</div>
+				`;
+			});
+
+			container.innerHTML = html;
+		} catch (err) {
+			console.error("[SettingsView] Failed to load theme catalog:", err);
+			container.innerHTML = `<p class="pack-meta-text" style="color: var(--color-danger, #ef4444);">Failed to load themes catalogue.</p>`;
+		}
 	}
 
 	#bindEvents() {
@@ -1009,6 +1037,33 @@ class PacksSettingsController {
 		eventBus.on("LANGUAGE_PACK_CHANGED", () => {
 			this.#renderLanguages();
 		}, { signal });
+
+
+				this.#elements.themeContainer?.addEventListener("click", async (e) => {
+			const btn = e.target.closest(".btn-apply-theme");
+			if (!btn) return;
+
+			const themeId = btn.dataset.themeId;
+			if (!themeId) return;
+
+			btn.disabled = true;
+			btn.textContent = "Applying...";
+
+			try {
+				const { themeEngine } = await import("../core/ThemeEngine.js");
+				await themeEngine.applyTheme(themeId);
+
+				eventBus.emit("SHOW_TOAST", {
+					message: `Theme switched to ${themeId.toUpperCase()}!`,
+					type: "success"
+				});
+
+				// Re-render theme rows to update Active badges
+				this.#renderThemes();
+			} catch (err) {
+				console.error("[SettingsView] Failed to apply theme:", err);
+			}
+		});
 	}
 
 	#toggleButtonVisibility(row, isInstalled) {

@@ -1,0 +1,124 @@
+/* ==========================================================================
+   MAKAD-MANAV (SPIDER-MAN) THEME PACK - MASTER GLOBAL TOKENS
+   Kinetic Web-Slinger: Crimson Web, Deep Cobalt Blue, Honeycomb Mesh
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Bangers&family=Inter:wght@600;700&display=swap');
+
+@layer themes {
+	[data-theme="spiderman"] {
+		--font-title: 'Teko', 'Bangers', sans-serif;
+		--font-main: 'Inter', -apple-system, sans-serif;
+		--map-font: 'Teko', sans-serif;
+
+		--radius-sm: 4px;
+		--radius-md: 8px;
+		--radius-lg: 12px;
+		--radius-xl: 16px;
+		--radius-full: 9999px;
+		--theme-bg-image: url('../../themes/bundled/spiderman/assets/images/background.svg');
+	}
+
+	/* ☀️ DAILY BUGLE LIGHT (Queens Transit Red & Blue) */
+	[data-theme="spiderman"][data-mode="light"],
+	[data-theme="spiderman"] {
+		--color-bg-base-rgb: 254, 242, 242;
+		--color-primary-rgb: 220, 38, 38;
+		--color-accent-rgb: 29, 78, 216;
+
+		--bg-app: #f5f3f7;
+		--card-bg: #ffffff;
+		--border-color: #2563eb;
+
+		--text-primary: #0f172a;
+		--text-secondary: #dc2626;
+		--text-muted: #64748b;
+
+		--input-bg: #ffffff;
+		--input-border: #2563eb;
+		--input-focus-border: #dc2626;
+
+		/* Web-Slinger Crimson Primary */
+		--btn-primary-bg: #dc2626;
+		--btn-primary-text: #ffffff;
+		--btn-primary-hover: #b91c1c;
+
+		--btn-reset-bg: #eff6ff;
+		--btn-reset-text: #1d4ed8;
+		--btn-reset-hover: #dbeafe;
+
+		--shadow-sm: 0 1px 3px rgba(220, 38, 38, 0.15);
+		--shadow-md: 0 4px 12px rgba(37, 99, 235, 0.2), 0 0 10px rgba(220, 38, 38, 0.15);
+		--shadow-lg: 0 10px 25px rgba(220, 38, 38, 0.2);
+
+		--badge-bg: #dc2626;
+		--badge-text: #ffffff;
+		--badge-border: #1d4ed8;
+
+		--bg-filter: none;
+	}
+
+	/* 🌙 MILES STEALTH DARK (Spider-Verse Black, Crimson & Cyan Web) */
+	[data-theme="spiderman"][data-mode="dark"] {
+		--color-bg-base-rgb: 10, 11, 20;
+		--color-primary-rgb: 239, 68, 68;
+		--color-accent-rgb: 37, 99, 235;
+
+		--bg-app: #080912;
+		--card-bg: #111424;
+		--border-color: rgba(239, 68, 68, 0.4);
+
+		--text-primary: #f8fafc;
+		--text-secondary: #f87171;
+		--text-muted: #94a3b8;
+
+		--input-bg: #0b0d18;
+		--input-border: rgba(37, 99, 235, 0.4);
+		--input-focus-border: #ef4444;
+
+		--btn-primary-bg: #ef4444;
+		--btn-primary-text: #ffffff;
+		--btn-primary-hover: #dc2626;
+
+		--btn-reset-bg: rgba(37, 99, 235, 0.2);
+		--btn-reset-text: #bfdbfe;
+		--btn-reset-hover: rgba(37, 99, 235, 0.35);
+
+		--shadow-sm: 0 0 8px rgba(0, 0, 0, 0.7);
+		--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 14px rgba(239, 68, 68, 0.25);
+		--shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 25px rgba(37, 99, 235, 0.25);
+
+		--badge-bg: #1e0d13;
+		--badge-text: #ef4444;
+		--badge-border: #ef4444;
+
+		--bg-filter: none;
+	}
+
+	/* 🕷️ KINETIC WEB-SLINGER OVERRIDES */
+	[data-theme="spiderman"] .card,
+	[data-theme="spiderman"] .custom-dropdown-menu,
+	[data-theme="spiderman"] .share-modal-card {
+		border: 2px solid var(--border-color) !important;
+		border-radius: var(--radius-lg) !important;
+		box-shadow: var(--shadow-md) !important;
+	}
+
+	[data-theme="spiderman"] .btn-25d,
+	[data-theme="spiderman"] .btn-stepper,
+	[data-theme="spiderman"] .pill-btn,
+	[data-theme="spiderman"] button.sidebar-link {
+		font-family: var(--font-title) !important;
+		font-size: 16px !important;
+		letter-spacing: 1px !important;
+		border: 1.5px solid var(--border-color) !important;
+		border-radius: var(--radius-sm) !important;
+	}
+
+	[data-theme="spiderman"] .custom-dropdown-item.active {
+		background-color: #ef4444 !important;
+		color: #ffffff !important;
+		font-family: var(--font-title) !important;
+		font-size: 16px !important;
+		letter-spacing: 1px !important;
+	}
+}

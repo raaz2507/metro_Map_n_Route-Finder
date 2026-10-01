@@ -62,12 +62,6 @@ export default {
 			freeERickshaw: "Free E-Rickshaw",
 			securityCheck: "Security Check",
 			accessible: "Wheelchair Accessible"
-		},
-		alerts: {
-			multimodalSecurity: "Multimodal Junction: Separate gate & fresh security check required",
-			ncmcCard: "RuPay NCMC / Smart Card works directly at gates",
-			walkwayNotice: "{distance}m walkway (~{minutes} min walk)",
-			sharedTrackNotice: "Shared Track: Local & express trains available on same platform"
 		}
 	},
 
@@ -109,8 +103,8 @@ export default {
 			themeComingSoon: "New themes coming soon"
 		},
 		alarm: {
-			title: "Alarm & Journey Settings",
-			subtitle: "Configure alerts, triggers, and audio options",
+			title: "Alarm Settings",
+			subtitle: "Proximity & sound preferences",
 			triggersHeading: "🎯 Trigger & Geofence",
 			thresholdLabel: "Arrival Alert Distance",
 			thresholdDesc: "Alarm triggers when train reaches within this distance from station.",
@@ -124,18 +118,17 @@ export default {
 			destAlertLabel: "Destination Station Alarm",
 			destAlertDesc: "Rings loudly before arriving at your destination.",
 			interchangeAlertLabel: "Line Interchange Alarm",
-			interchangeAlertDesc: "Alerts you before approaching transfer stations to switch lines.",
+			interchangeAlertDesc: "Alerts you 1 station before you need to switch train lines.",
 			audioHeading: "🔊 Sound & Volume",
-			toneLabel: "Alarm Sound Tone",
-			tones: {
-				chime: "Metro Chime (Melodic)",
-				beep: "Warning Beep (Pulse)",
-				siren: "Emergency Siren",
-				custom: "Custom Audio (MP3)"
+			toneLabel: "Alarm Ringtone",
+			toneOptions: {
+				chime: "🔔 Metro Chime (Soft)",
+				loud: "🚨 Loud Siren (Awakening)",
+				subtle: "🎵 Subtle Marimba",
+				ping: "📍 Single Proximity Ping"
 			},
+			testToneBtn: "Preview Sound",
 			volumeLabel: "Alarm Volume",
-			testSoundBtn: "🔊 Test Sound",
-			uploadMp3Label: "Choose Custom MP3 File",
 			vibeHeading: "📳 Haptics & Vibration",
 			vibeLabel: "Vibration Pattern",
 			vibePatterns: {
@@ -144,97 +137,122 @@ export default {
 				sos: "SOS Pattern",
 				continuous: "Continuous"
 			},
-			testVibeBtn: "📳 Test Vibration",
+			testVibeBtn: "Test Vibration",
 			voiceHeading: "🗣️ Offline Voice Alerts",
 			voiceLabel: "Voice Announcements (TTS)",
 			voiceDesc: "Announces upcoming station names and line change reminders aloud offline.",
-			voiceSelectLabel: "Announcement Voice",
-			testVoiceBtn: "🗣️ Test Voice",
-			resetBtn: "Reset to Default"
+			voiceSelectLabel: "Announcement Voice"
 		},
 		map: {
-			title: "Map & Display Settings",
-			heading: "🗺️ Map Display & View",
-			autoCenterLabel: "Auto-Center on Route",
-			autoCenterDesc: "Automatically zoom and center map when a new route is searched.",
-			walkwaysLabel: "Show Interchange Walkways",
-			walkwaysDesc: "Draw dashed connecting footpaths between interchange stations.",
-			underConstructionLabel: "Show Under Construction",
-			underConstructionDesc: "Display upcoming and under-construction lines (dashed) and stations on the map.",
-			approvedLabel: "Show Approved & Planned",
-			approvedDesc: "Display approved and proposed future transit corridors (dotted) on the map."
+			title: "Map & Display",
+			subtitle: "Canvas & visual styling",
+			heading: "🗺️ Canvas Display Options",
+			autoCenterLabel: "Auto-Center Station on Search",
+			autoCenterDesc: "Smoothly pans map when you pick origin/destination.",
+			stationLabelsLabel: "Show Intermediate Station Names",
+			stationLabelsDesc: "Displays labels permanently along route tracks.",
+			walkwaysLabel: "Draw Interchange Footpaths",
+			walkwaysDesc: "Renders dashed interchange connectors on the map.",
+			resetMapBtn: "Reset Map View & Zoom"
 		},
 		backup: {
-			title: "💾 Backup & Restore Data",
-			desc: "Manage your saved routes, alarms, and preferences.",
-			exportBtn: "Export Data",
-			importBtn: "Import Data"
+			title: "Backup & Restore",
+			subtitle: "Data persistence",
+			heading: "💾 Local Application Data",
+			desc: "Export your recent searches, favorite routes, and custom settings as an offline backup.",
+			exportBtn: "Download",
+			importBtn: "Import",
+			resetHeading: "⚠️ Reset App State",
+			resetDesc: "Clear all saved routes, preferences, and reset the application to fresh factory state.",
+			resetBtn: "Clear Storage"
 		}
 	},
 
 	// 5. Interactive SVG Map Controls
 	map: {
-		label: "Map",
+		label: "Metro Network Map",
 		legend: "Legend",
-		metroTrackLines: "Metro Track Lines",
-		stationType: "Station Type",
-		trackStatus: "Track & Station Status",
 		clearRoute: "Clear Route",
 		showRoute: "Show Route",
 		clearFilter: "Clear Filter",
+		metroTrackLines: "Metro Track Lines",
+		stationType: "Station Type",
+		trackStatus: "Track & Station Status",
 		viewStationInfo: "View Station Details",
-		ariaMap: "Interactive Metro Map"
+		ariaMap: "Interactive Metro Map",
+		controls: {
+			zoomInAria: "Zoom In",
+			zoomOutAria: "Zoom Out",
+			resetAria: "Reset Zoom and Center",
+			fitBoundsAria: "Fit Map to Screen",
+			gpsTrackAria: "Track Live Location on Map"
+		}
 	},
 
-	// 6. Alarm Banner (Live Sticky Notification Bar)
-	alarmBanner: {
-		approaching: "Approaching Station",
-		trackingActive: "🛰️ Live Tracking Active",
-		interchangeAlert: "Interchange Station • Change Line Here",
-		destinationAlert: "Destination Station • Arriving Soon",
-		dismissBtn: "🔕 Dismiss",
-		snoozeBtn: "⏱️ Snooze (2m)",
-		stopAlarmBtn: "🛑 Stop Alarm"
-	},
-
-	// 7. Telemetry & Live Sensors
+	// 6. Sensor Telemetry Widget
 	telemetry: {
-		title: "Signal Telemetry",
+		title: "Live Commute Telemetry",
+		gpsBadge: "GPS Live",
 		gpsLabel: "GPS Status",
 		netLabel: "Network",
-		accuracyLabel: "Precision",
+		accuracyLabel: "GPS Precision",
 		guideTitle: "📡 Telemetry & GPS Guide",
-		guideItems: {
-			active: "🟢 80%-100%: Strong Satellite Lock (Active GPS)",
-			fair: "🟡 40%-79%: Fair / Moderate Signal (Station Sheds)",
-			tunnel: "🔴 In Tunnel: Underground Transit (Timer Fallback Active)",
-			deviceOff: "📵 Device GPS Off: Turn on Device Location",
-			blocked: "🚫 Blocked: Location permission denied in browser"
-		},
 		status: {
-			blocked: "🚫 Blocked",
-			notAllowed: "⚠️ Not Allowed",
-			off: "📵 GPS Off",
-			tunnel: "🚇 In Tunnel",
-			active: "🛰️ Active",
+			blocked: "Blocked",
+			notAllowed: "Permission Needed",
+			off: "GPS Off",
+			tunnel: "In Tunnel",
+			searching: "Searching...",
+			ready: "Ready",
+			active: "Active",
 			online: "Online",
-			offline: "Offline (Cache)",
-			ready: "🛰️ Ready",
-			searching: "🛰️ Searching..."
+			offline: "Offline",
+			inactive: "Inactive",
+			calculating: "Acquiring..."
+		},
+		guideItems: {
+			active: "🟢 80%-100%: Strong Satellite Lock",
+			fair: "🟡 40%-79%: Moderate Signal",
+			tunnel: "🔴 In Tunnel: Timer Fallback Active",
+			deviceOff: "📵 GPS Off: Enable Device Location",
+			blocked: "🚫 Blocked: Location permission denied"
+		},
+		speedLabel: "Current Speed",
+		speedUnit: "km/h",
+		nextStopLabel: "Next Station",
+		distRemainingLabel: "Distance Left"
+	},
+
+	// 7. Live Journey Speedometer
+	speedometer: {
+		title: "Live Transit Speedometer",
+		speedUnit: "KM/H",
+		maxSpeed: "Max Speed: {speed} km/h",
+		avgSpeed: "Avg Speed: {speed} km/h",
+		motionStatus: "Motion Status",
+		statusStates: {
+			departing: "Departing Station",
+			cruising: "Cruising",
+			decelerating: "Decelerating / Halting",
+			stationary: "Stationary / At Platform"
 		}
 	},
 
-	// 8. Speedometer Widget
-	speedometer: {
-		title: "Live Speedometer",
-		topSpeed: "Top Speed",
-		gpsAccuracy: "GPS Accuracy",
-		statusLabel: "Status",
-		statusStates: {
-			halted: "Stationary",
-			departing: "Accelerating",
-			cruising: "Cruising"
-		}
+	// 8. Alarm Dynamic Banner Bar
+	alarmBanner: {
+		title: "यात्रा अलार्म सक्रिय है",
+		approachingNotice: "~{dist}m में {station} आ रहा है",
+		interchangeNotice: "{station} पर लाइन बदलें!",
+		destinationNotice: "गंतव्य {station} अगला स्टेशन है! उतरने की तैयारी करें।",
+		snoozeBtn: "2 मिनट स्नूज़",
+		dismissBtn: "मैं पहुँच गया",
+		enabledToast: "🔔 लाइव यात्रा अलार्म सक्रिय हो गया!",
+		stoppedToast: "🛑 लाइव अलार्म बंद कर दिया गया।"
+	},
+	gps: {
+		permissionDenied: "📍 Location permission is denied. Please allow location in browser settings.",
+		unavailable: "⚠️ GPS signal unavailable. Alarm will rely on estimated travel time.",
+		gpsFallbackWarning: "⚠️ GPS signal is weak. Timer fallback active."
 	},
 
 	// 9. Share Route Modal
@@ -281,11 +299,6 @@ export default {
 		route: {
 			noRoute: "No route found between these stations.",
 			sameStation: "Start and destination stations cannot be the same."
-		},
-		gps: {
-			permissionDenied: "📍 Location permission denied. Please allow GPS to track live speed and arrival alerts.",
-			unavailable: "📍 GPS signal unavailable. Please ensure Device Location is ON.",
-			fallbackWarning: "⚠️ GPS is off or unavailable. Alarm is running in Fallback Mode (Timer & Motion Sensors)."
 		}
 	}
 };

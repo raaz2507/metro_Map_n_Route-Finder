@@ -202,8 +202,32 @@ export class TransitNetworkSelector {
 
 	async #fetchRegistry() {
 		try {
-			const response = await fetch("data/india_transit_registry.json");
-			if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+			// 1. Resolve Active Country from URL param > LocalStorage > Default 'india'
+			const urlParams = new URLSearchParams(window.location.search);
+			const requestedCountry = urlParams.get("country") || localStorage.getItem("active_country") || "india";
+
+			// 2. Load Global Countries Manifest to resolve dynamic registry path
+			const manifestRes = await fetch("data/countries_manifest.json", {
+				signal: this.#abortController ? this.#abortController.signal : undefined
+			});
+			if (!manifestRes.ok) throw new Error(`Manifest HTTP Error: ${manifestRes.status}`);
+			const manifest = await manifestRes.json();
+
+			const countryMeta = manifest.countries?.[requestedCountry] || manifest.countries?.[manifest.default_country || "india"];
+			if (!countryMeta) throw new Error(`Country "${requestedCountry}" not found in manifest.`);
+
+			// 3. Persist Active Country
+			try {
+				localStorage.setItem("active_country", countryMeta.code ? requestedCountry : "india");
+			} catch (e) {}
+
+			// 4. Fetch Country Specific Registry
+			const registryPath = countryMeta.registryPath || `data/${requestedCountry}/${requestedCountry}_transit_registry.json`;
+			const response = await fetch(registryPath, {
+				signal: this.#abortController ? this.#abortController.signal : undefined
+			});
+			if (!response.ok) throw new Error(`Registry HTTP Error: ${response.status} for ${registryPath}`);
+
 			this.#registryData = await response.json();
 			this.#render();
 		} catch (error) {
@@ -431,36 +455,90 @@ export class TransitNetworkSelector {
 			return;
 		}
 
-		let finalHtml = "";
+		// =========================================================================
+		// 🌐 DYNAMIC COUNTRY-WISE ACCORDION RENDERING ENGINE
+		// Reads country metadata from registry and encapsulates sub-decks (2.1 & 2.2)
+		// =========================================================================
+		const countryName = this.#registryData.country || "India";
+		const countryFlag = countryName.toLowerCase() === "india" ? "🇮🇳" : "🌐";
+		const totalCardsCount = individualNetworks.length;
 
-		
-		// Section 1: Group Cards
+		let subDecksHtml = "";
+
+		// 🏙️ Sub-Section 2.1: City-wide Combined Networks (Integrated Regional Hubs)
 		if (groupNetworks.length > 0) {
-			const groupTitle = i18n.t("pages.networks.sections.combined") || "🏙️ City-wide Combined Networks";
-			finalHtml += `
-				<div class="network-section-wrapper">
-					<h3 class="network-section-title">${this.#escapeHTML(groupTitle)}</h3>
+			const groupTitle = i18n.t("pages.networks.sections.combined") || "City-wide Combined Networks";
+			subDecksHtml += `
+				<section class="sub-network-deck">
+					<div class="sub-deck-header">
+						<h3><span class="ui-vector-icon icon-city-network" aria-hidden="true"></span> ${this.#escapeHTML(groupTitle)}</h3>
+						<span class="sub-deck-badge">${groupNetworks.length} Hubs</span>
+					</div>
 					<div class="networks-compact-grid">
 						${groupNetworks.map(item => this.#renderCompactCard(item)).join("")}
 					</div>
-				</div>
+				</section>
 			`;
 		}
 
-		// Section 2: Individual Cards
+		// 🚆 Sub-Section 2.2: Individual Transit Lines (Standalone Operator Corridors)
 		if (individualNetworks.length > 0) {
-			const indTitle = i18n.t("pages.networks.sections.individual") || "🚆 Individual Transit Lines";
-			finalHtml += `
-				<div class="network-section-wrapper">
-					<h3 class="network-section-title">${this.#escapeHTML(indTitle)}</h3>
+			const indTitle = i18n.t("pages.networks.sections.individual") || "Individual Transit Lines";
+			subDecksHtml += `
+				<section class="sub-network-deck">
+					<div class="sub-deck-header">
+						<h3><span class="ui-vector-icon icon-train-lines" aria-hidden="true"></span> ${this.#escapeHTML(indTitle)}</h3>
+						<span class="sub-deck-badge">${individualNetworks.length} Networks</span>
+					</div>
 					<div class="networks-compact-grid">
 						${individualNetworks.map(item => this.#renderCompactCard(item)).join("")}
 					</div>
-				</div>
+				</section>
 			`;
 		}
 
-		this.#dom.container.innerHTML = finalHtml;
+		// 📦 Build Country Accordion Card (Passenger Support Accordion Pattern)
+		const countryCardHtml = `
+			<article class="country-accordion-card" id="country-card-${this.#escapeHTML(countryName.toLowerCase())}">
+				<!-- Clickable Accordion Header -->
+				<header class="country-accordion-header" role="button" aria-expanded="true" tabindex="0" title="Click to collapse / expand">
+					<div class="country-header-left">
+						<span class="country-flag-icon" aria-hidden="true">${countryFlag}</span>
+						<div class="country-header-titles">
+							<h2>${this.#escapeHTML(countryName.toUpperCase())} TRANSIT DIRECTORY</h2>
+							<span class="country-networks-count">${totalCardsCount} Transit Networks Available</span>
+						</div>
+					</div>
+					<span class="country-accordion-chevron" aria-hidden="true"></span>
+				</header>
+				
+				<!-- Expandable / Collapsible Drawer -->
+				<div class="country-accordion-drawer">
+					${subDecksHtml}
+				</div>
+			</article>
+		`;
+
+		this.#dom.container.innerHTML = countryCardHtml;
+
+		// 🎯 Bind Smooth Accordion Toggle & Full Keyboard Accessibility (Enter / Space)
+		this.#dom.container.querySelectorAll(".country-accordion-header").forEach(header => {
+			const toggleAccordion = () => {
+				const card = header.closest(".country-accordion-card");
+				if (card) {
+					const isCollapsed = card.classList.toggle("collapsed");
+					header.setAttribute("aria-expanded", String(!isCollapsed));
+				}
+			};
+
+			header.addEventListener("click", toggleAccordion);
+			header.addEventListener("keydown", (e) => {
+				if (e.key === "Enter" || e.key === " ") {
+					e.preventDefault();
+					toggleAccordion();
+				}
+			});
+		});
 	}
 
 	#renderCompactCard(item) {

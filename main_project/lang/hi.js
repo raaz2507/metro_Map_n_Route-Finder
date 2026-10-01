@@ -9,12 +9,15 @@ import tvmDispenser from "./india/hi/tvm_dispenser.js";
 import passengerSupport from "./india/hi/passenger_support.js";
 import help from "./india/hi/help.js";
 import about from "./india/hi/about.js";
+import countrySelector from "./india/hi/country_selector.js";
+
 
 export default {
 	...common,
 	pages: {
 		home,
 		networks,
+		countrySelector,
 		all_stations: allStations
 	},
 	station_info: stationInfo,

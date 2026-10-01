@@ -1,0 +1,55 @@
+/* ==========================================================================
+   RETRO 8-BIT PIXEL - COACH MODULE
+   ========================================================================== */
+@layer themes {
+	[data-theme="pixel"] {
+		--coach-font-title: 'Press Start 2P', monospace;
+		--coach-font-mono: 'VT323', monospace;
+		--coach-text-title: #0f380f;
+		--coach-text-time: #306230;
+
+		/* 👾 8-Bit Pixel Block Badge */
+		--coach-badge-size: 26px;
+		--coach-badge-bg: #0f380f;
+		--coach-badge-border: 2px solid #306230;
+		--coach-badge-text: #9bbc0f;
+		--coach-badge-radius: 0px;
+		--coach-badge-fs: 10px;
+		--coach-badge-font: 'Press Start 2P', monospace;
+		--coach-badge-shadow: 2px 2px 0 #0f380f;
+		--coach-badge-filter: none;
+		--coach-badge-clip: none;
+	}
+
+	[data-theme="pixel"][data-mode="dark"] {
+		--coach-text-title: #4ade80;
+		--coach-text-time: #facc15;
+		--coach-badge-bg: #22c55e;
+		--coach-badge-border: 2px solid #050508;
+		--coach-badge-text: #050508;
+		--coach-badge-shadow: 2px 2px 0 #15803d;
+	}
+
+	[data-theme="pixel"] .station-name-title {
+		font-family: 'Press Start 2P', monospace;
+		font-size: 0.95rem;
+		letter-spacing: 0.05em;
+		text-shadow: 2px 2px 0 #0f380f;
+		image-rendering: pixelated;
+	}
+
+	[data-theme="pixel"][data-mode="dark"] .station-name-title {
+		text-shadow: 2px 2px 0 #000000;
+	}
+
+	[data-theme="pixel"] .real-coach-card:hover .station-name-title {
+		color: #facc15;
+		transform: scale(1.02);
+	}
+
+	[data-theme="pixel"] .coach-underglow {
+		border-radius: 0 !important;
+		filter: none !important;
+		opacity: 0.4 !important;
+	}
+}

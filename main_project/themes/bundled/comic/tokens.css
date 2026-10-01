@@ -1,0 +1,158 @@
+/* ==========================================================================
+   POP-COMIC HERO THEME PACK - MASTER GLOBAL TOKENS
+   Exact 1:1 Match with comic_design_lab.html Option 1 (Pulp Newsprint):
+   - Eye-friendly warm aged newsprint (#fffde7)
+   - Balanced ink outlines without harsh clutter
+   - Bangers for headers/titles, Comic Neue for body
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap');
+
+@layer themes {
+	[data-theme="comic"] {
+		--font-title: 'Bangers', cursive, sans-serif;
+		--font-main: 'Comic Neue', 'Arial', sans-serif;
+		--map-font: 'Bangers', cursive, sans-serif;
+
+		/* Classic comic book panel corners */
+		--radius-sm: 4px;
+		--radius-md: 4px;
+		--radius-lg: 6px;
+		--radius-xl: 8px;
+		--radius-full: 9999px;
+		--theme-bg-image: url('../../themes/bundled/comic/assets/images/background.svg');
+	}
+
+	/* ☀️ COMIC DAY (Aged Newsprint Paper - Soft & Calming) */
+	[data-theme="comic"][data-mode="light"],
+	[data-theme="comic"] {
+		--color-bg-base-rgb: 255, 253, 231;
+		--color-primary-rgb: 220, 38, 38;
+		--color-accent-rgb: 250, 204, 21;
+
+		--bg-app: #f4f1db;
+		--card-bg: #fffde7;
+		--border-color: #222222;
+
+		--text-primary: #111111;
+		--text-secondary: #dc2626;
+		--text-muted: #666666;
+
+		--input-bg: #ffffff;
+		--input-border: #222222;
+		--input-focus-border: #dc2626;
+
+		/* Balanced Comic Actions */
+		--btn-primary-bg: #ef4444;
+		--btn-primary-text: #ffffff;
+		--btn-primary-hover: #dc2626;
+
+		--btn-reset-bg: #facc15;
+		--btn-reset-text: #111111;
+		--btn-reset-hover: #eab308;
+
+		/* Clean Non-Cluttered Hard Cel-Shadows */
+		--shadow-sm: 2px 2px 0px #000000;
+		--shadow-md: 3.5px 3.5px 0px #000000;
+		--shadow-lg: 5px 5px 0px #000000;
+
+		--badge-bg: #facc15;
+		--badge-text: #111111;
+		--badge-border: #000000;
+
+		--bg-filter: none;
+	}
+
+	/* 🌙 COMIC NOIR (Aged Noir Graphic Novel Night) */
+	[data-theme="comic"][data-mode="dark"] {
+		--color-bg-base-rgb: 30, 27, 24;
+		--color-primary-rgb: 250, 204, 21;
+		--color-accent-rgb: 239, 68, 68;
+
+		--bg-app: #181614;
+		--card-bg: #221f1b;
+		--border-color: #facc15;
+
+		--text-primary: #fefce8;
+		--text-secondary: #facc15;
+		--text-muted: #a1a1aa;
+
+		--input-bg: #181614;
+		--input-border: #facc15;
+		--input-focus-border: #fef08a;
+
+		--btn-primary-bg: #ef4444;
+		--btn-primary-text: #ffffff;
+		--btn-primary-hover: #dc2626;
+
+		--btn-reset-bg: #facc15;
+		--btn-reset-text: #111111;
+		--btn-reset-hover: #fef08a;
+
+		--shadow-sm: 2px 2px 0px #facc15;
+		--shadow-md: 3.5px 3.5px 0px #facc15;
+		--shadow-lg: 5px 5px 0px #facc15;
+
+		--badge-bg: #ef4444;
+		--badge-text: #ffffff;
+		--badge-border: #facc15;
+
+		--bg-filter: none;
+	}
+
+	/* 💥 BALANCED PULP COMIC OVERRIDES (Zero Clutter) */
+
+	/* Cards & Containers: Authentic 3px Black Ink Border + Solid Offset */
+	[data-theme="comic"] .card,
+	[data-theme="comic"] .custom-dropdown-menu,
+	[data-theme="comic"] .share-modal-card {
+		border: 3px solid var(--border-color) !important;
+		box-shadow: 5px 5px 0px var(--border-color) !important;
+		background-color: var(--card-bg) !important;
+	}
+
+	/* Header & Nav: Clean Newsprint Integration */
+	[data-theme="comic"] header.main-header {
+		background: var(--card-bg) !important;
+		border: 2.5px solid var(--border-color) !important;
+		box-shadow: 4px 4px 0px var(--border-color) !important;
+	}
+
+	[data-theme="comic"] .header-nav-item .nav-link {
+		border: 2px solid var(--border-color) !important;
+		background: var(--card-bg) !important;
+		box-shadow: 2px 2px 0px var(--border-color) !important;
+		color: var(--text-primary) !important;
+	}
+
+	[data-theme="comic"] .header-nav-item .nav-link.active {
+		background: #facc15 !important;
+		color: #111111 !important;
+		box-shadow: 3px 3px 0px var(--border-color) !important;
+		font-weight: 700 !important;
+	}
+
+	/* Small Header Buttons & Steppers: Clean 2px Border */
+	[data-theme="comic"] .btn-25d,
+	[data-theme="comic"] .btn-stepper,
+	[data-theme="comic"] .pill-btn,
+	[data-theme="comic"] button.sidebar-link {
+		border: 2px solid var(--border-color) !important;
+		border-radius: 4px !important;
+		box-shadow: 2px 2px 0px var(--border-color) !important;
+		font-family: var(--font-title) !important;
+		letter-spacing: 0.8px !important;
+	}
+
+	[data-theme="comic"] .btn-25d:active,
+	[data-theme="comic"] .btn-stepper:active:not(:disabled) {
+		transform: translate(2px, 2px) !important;
+		box-shadow: 0px 0px 0px var(--border-color) !important;
+	}
+
+	/* Dropdown Active Highlight */
+	[data-theme="comic"] .custom-dropdown-item.active {
+		background-color: #facc15 !important;
+		color: #111111 !important;
+		font-weight: 700 !important;
+	}
+}

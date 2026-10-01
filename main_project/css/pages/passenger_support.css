@@ -230,7 +230,7 @@
 		min-width: 0;
 	}
 
-	.item-bullet-icon {
+		.item-bullet-icon {
 		width: 32px;
 		height: 32px;
 		border-radius: var(--radius-sm);
@@ -238,6 +238,20 @@
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+	}
+
+	/* Semantic Color Variants for Bullet Icons (Replaces inline styles) */
+	.item-bullet-icon.bullet-red    { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
+	.item-bullet-icon.bullet-blue   { background: rgba(37, 99, 235, 0.12); color: #2563eb; }
+	.item-bullet-icon.bullet-amber  { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+	.item-bullet-icon.bullet-pink   { background: rgba(219, 39, 119, 0.12); color: #db2777; }
+	.item-bullet-icon.bullet-green  { background: rgba(5, 150, 105, 0.12); color: #059669; }
+	.item-bullet-icon.bullet-indigo { background: rgba(79, 70, 229, 0.12); color: #4f46e5; }
+	.item-bullet-icon.bullet-sky    { background: rgba(14, 165, 233, 0.12); color: #0ea5e9; }
+
+	/* Push button to end */
+	.drawer-btn-push {
+		margin-left: auto;
 	}
 
 	.item-texts h4 {

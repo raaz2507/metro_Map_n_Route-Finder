@@ -1,0 +1,106 @@
+/* ==========================================================================
+   POP-COMIC THEME PACK - TVM MODULE (DESIGN 4)
+   ========================================================================== */
+@layer themes {
+	[data-theme="comic"] .tvm-kiosk-unit {
+		border: 4px solid #000000;
+		border-radius: var(--radius-xl);
+		box-shadow: 8px 10px 0 #000000;
+		background-color: #fef08a;
+		background-image: radial-gradient(#000000 1.2px, transparent 1.6px);
+		background-size: 8px 8px;
+	}
+
+	[data-theme="comic"] .tvm-hood {
+		background: #ffffff;
+		border: none;
+		border-bottom: 4px solid #000000;
+		box-shadow: 0 4px 0 #000000;
+	}
+
+	[data-theme="comic"] .tvm-device-id {
+		color: #000000;
+		font-family: 'Impact', 'Arial Black', sans-serif;
+		font-size: 15px;
+		letter-spacing: 1px;
+		text-shadow: 1.5px 1.5px 0 #facc15;
+	}
+
+	[data-theme="comic"] .dispenser-slot-bezel {
+		background: #ef4444;
+		border: 3px solid #000000;
+		box-shadow: 4px 4px 0 #000000;
+		border-radius: var(--radius-md);
+	}
+
+	[data-theme="comic"] .dispenser-label {
+		color: #ffffff;
+		font-family: 'Impact', 'Arial Black', sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		text-shadow: 2px 2px 0 #000000;
+		font-size: 0.85rem;
+	}
+
+	[data-theme="comic"] .mechanical-slit {
+		background: #000000;
+		border: 2px solid #000000;
+		border-radius: 0;
+		box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.25);
+	}
+
+	[data-theme="comic"] .tvm-round-btn {
+		background: #ffffff;
+		border: 3px solid #000000;
+		box-shadow: 3px 4px 0 #000000;
+		transition: transform 0.1s ease, box-shadow 0.1s ease;
+	}
+
+	[data-theme="comic"] .tvm-round-btn:active {
+		transform: translate(3px, 3px);
+		box-shadow: 0 0 0 #000000;
+	}
+
+	[data-theme="comic"] .tvm-action-btn {
+		background: #3b82f6;
+		color: #ffffff;
+		border: 3px solid #000000;
+		font-family: 'Impact', 'Arial Black', sans-serif;
+		letter-spacing: 1px;
+		box-shadow: 4px 5px 0 #000000;
+		transition: transform 0.1s ease, box-shadow 0.1s ease;
+	}
+
+	[data-theme="comic"] .tvm-action-btn:active {
+		transform: translate(4px, 4px);
+		box-shadow: 0 0 0 #000000;
+	}
+
+	[data-theme="comic"] .ticket-dispense-bay {
+		background: transparent;
+	}
+
+	[data-theme="comic"] .ticket-paper-wrapper img,
+	[data-theme="comic"] .ticket-paper-wrapper svg {
+		filter: drop-shadow(5px 8px 0 #000000) !important;
+	}
+
+	[data-theme="comic"] .tvm-bottom-chassis {
+		background: #ffffff;
+		border: none;
+		border-top: 4px solid #000000;
+		box-shadow: inset 0 6px 0 #000000;
+	}
+
+	[data-theme="comic"] .kiosk-tray-well {
+		background: #000000;
+		border: 2px solid #000000;
+		box-shadow: inset 0 4px 0 rgba(255, 255, 255, 0.2);
+	}
+
+	[data-theme="comic"] .tray-instructions {
+		color: #ffffff;
+		font-family: 'Impact', 'Arial Black', sans-serif;
+		letter-spacing: 1px;
+	}
+}

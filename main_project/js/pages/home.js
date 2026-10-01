@@ -19,15 +19,14 @@ import { StationCalloutView } from "../components/StationCalloutView.js";
 import { AlarmBannerView } from "../components/AlarmBannerView.js";
 import { SpeedometerWidget } from "../components/WidgetSpeedometer.js";
 import { TelemetryWidget } from "../components/WidgetTelemetry.js";
-import { PwaManager } from '../core/PwaManager.js';
+import { pwaManager } from '../core/PwaManager.js';
 
 
 
 document.addEventListener("DOMContentLoaded", async () => {
 
 	// PWA मैनेजर इनिशियलाइज़ करें
-	const pwaManager = new PwaManager();
-	pwaManager.init();
+	pwaManager.bindBannerUI();
 
 	FooterComponent.render();
     await HeaderComponent.render('home');

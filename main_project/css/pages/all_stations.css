@@ -10,144 +10,154 @@
 @import url("../components/universal_search.css");
 
 /* ===========================================================================
-   ALL STATIONS DIRECTORY & CONTROLS LAYOUT (Pure base.css Tokens)
+   ALL STATIONS DIRECTORY & CONTROLS LAYOUT (@layer components)
    =========================================================================== */
 
-/* ---------------------------------------------------------------------------
-   1. PAGE CONTAINER LAYOUT
-   --------------------------------------------------------------------------- */
-main, main.stations-page-container {
-    height: auto;
-    min-height: auto;
-    flex: 1 0 auto;
-    overflow: visible;
-    max-width: 1200px;
-    margin: 1.5rem auto;
-    padding: 0 var(--space-lg) var(--space-3xl) var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xl);
-    font-family: var(--font-main);
-}
+@layer components {
+	/* ---------------------------------------------------------------------------
+	   1. PAGE CONTAINER LAYOUT
+	   --------------------------------------------------------------------------- */
+	main, main.stations-page-container {
+		height: auto;
+		min-height: auto;
+		flex: 1 0 auto;
+		overflow: visible;
+		max-width: 1200px;
+		margin: 1.5rem auto;
+		padding: 0 var(--space-lg) var(--space-3xl) var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+		font-family: var(--font-main);
+	}
 
-/* ---------------------------------------------------------------------------
-   2. DIRECTORY CONTROLS & SEARCH BOX
-   --------------------------------------------------------------------------- */
-.directory-controls {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-    backdrop-filter: blur(var(--backdrop-blur));
-    -webkit-backdrop-filter: blur(var(--backdrop-blur));
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
-    box-shadow: var(--shadow-md);
-}
+	/* ---------------------------------------------------------------------------
+	   2. DIRECTORY CONTROLS & SEARCH BOX
+	   --------------------------------------------------------------------------- */
+	.directory-controls {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xl);
+		box-shadow: var(--shadow-md);
+	}
 
-/* ---------------------------------------------------------------------------
-   3. NETWORK OPERATOR FILTER GROUPS & CHIPS LAYOUT
-   --------------------------------------------------------------------------- */
-.filter-chips-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    padding-bottom: var(--space-xs);
-}
+	/* ---------------------------------------------------------------------------
+	   3. NETWORK OPERATOR FILTER GROUPS & CHIPS LAYOUT
+	   --------------------------------------------------------------------------- */
+	.filter-chips-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		padding-bottom: var(--space-xs);
+	}
 
-.network-filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-}
+	.network-filter-group {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
 
-.network-group-title {
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-bold);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary);
-    padding-left: var(--space-xs);
-}
+	.network-group-title {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-secondary);
+		padding-left: var(--space-xs);
+	}
 
-.network-chips-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    align-items: center;
-}
+	.network-chips-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-sm);
+		align-items: center;
+	}
 
-.chip-btn {
-    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    padding: var(--space-xs) var(--space-lg);
-    border-radius: var(--radius-full);
-    font-size: var(--fs-sm);
-    font-weight: var(--fw-semibold);
-    cursor: pointer;
-    white-space: nowrap;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
-}
+	.chip-btn {
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+		border: 1px solid var(--border-color);
+		color: var(--text-primary);
+		padding: var(--space-xs) var(--space-lg);
+		border-radius: var(--radius-full);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+		white-space: nowrap;
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+	}
 
-.chip-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-}
+	.chip-btn:hover {
+		transform: translateY(-1px);
+		box-shadow: var(--shadow-sm);
+	}
 
-.chip-btn.active {
-    background-color: var(--line-color, var(--btn-primary-bg));
-    color: var(--btn-primary-text, #ffffff);
-    border-color: var(--line-color, var(--btn-primary-bg));
-    box-shadow: var(--shadow-md);
-}
+	.chip-btn.active {
+		background-color: var(--line-color, var(--btn-primary-bg));
+		color: var(--btn-primary-text, #ffffff);
+		border-color: var(--line-color, var(--btn-primary-bg));
+		box-shadow: var(--shadow-md);
+	}
 
-/* ---------------------------------------------------------------------------
-   4. METRO LINE DIRECTORY SECTIONS & HEADERS
-   --------------------------------------------------------------------------- */
-.line-directory-section {
-    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-    backdrop-filter: blur(var(--backdrop-blur));
-    -webkit-backdrop-filter: blur(var(--backdrop-blur));
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
-    padding: var(--space-xl) var(--space-lg) var(--space-2xl) var(--space-lg);
-    margin-bottom: var(--space-xl);
-    color: var(--text-primary);
-    box-shadow: var(--shadow-md);
-}
+	/* ---------------------------------------------------------------------------
+	   4. METRO LINE DIRECTORY SECTIONS & HEADERS
+	   --------------------------------------------------------------------------- */
+	.line-directory-section {
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+		backdrop-filter: blur(var(--backdrop-blur));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--border-color);
+		padding: var(--space-xl) var(--space-lg) var(--space-2xl) var(--space-lg);
+		margin-bottom: var(--space-xl);
+		color: var(--text-primary);
+		box-shadow: var(--shadow-md);
+	}
 
-.line-section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
-    border-top: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    border-left: 6px solid var(--line-color, var(--btn-primary-bg));
-    padding: var(--space-md) var(--space-xl);
-    border-radius: var(--radius-md);
-    font-family: var(--font-title);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-lg);
-    color: var(--text-primary);
-    margin-bottom: var(--space-lg);
-}
+	.line-section-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+		border-top: 1px solid var(--border-color);
+		border-right: 1px solid var(--border-color);
+		border-bottom: 1px solid var(--border-color);
+		border-left: 6px solid var(--line-color, var(--btn-primary-bg));
+		padding: var(--space-md) var(--space-xl);
+		border-radius: var(--radius-md);
+		font-family: var(--font-title);
+		font-weight: var(--fw-bold);
+		font-size: var(--fs-lg);
+		color: var(--text-primary);
+		margin-bottom: var(--space-lg);
+	}
 
-/* Empty State Box */
-.directory-empty-state {
-    text-align: center;
-    padding: var(--space-3xl) var(--space-lg);
-    color: var(--text-secondary);
-    background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-    border: 1px dashed var(--border-color);
-    border-radius: var(--radius-xl);
-}
+	/* ---------------------------------------------------------------------------
+	   5. FEEDBACK STATES (Loading & Empty States)
+	   --------------------------------------------------------------------------- */
+	.loading-state {
+		text-align: center;
+		padding: var(--space-3xl) var(--space-md);
+		color: var(--text-secondary);
+	}
 
-.directory-empty-state h3 {
-    font-size: var(--fs-xl);
-    margin-bottom: var(--space-xs);
-    color: var(--text-primary);
+	.directory-empty-state {
+		text-align: center;
+		padding: var(--space-3xl) var(--space-lg);
+		color: var(--text-secondary);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+		border: 1px dashed var(--border-color);
+		border-radius: var(--radius-xl);
+	}
+
+	.directory-empty-state h3 {
+		font-size: var(--fs-xl);
+		margin-bottom: var(--space-xs);
+		color: var(--text-primary);
+	}
 }

@@ -1,0 +1,43 @@
+/* ==========================================================================
+   POP-COMIC THEME PACK - COACH MODULE (DESIGN 12)
+   ========================================================================== */
+@layer themes {
+	[data-theme="comic"] {
+		--coach-font-title: 'Arial Black', 'Impact', sans-serif;
+		--coach-font-mono: 'Arial Black', monospace;
+		--coach-text-title: #ffffff;
+		--coach-text-time: #4ade80;
+
+		/* 💥 13-Point Comic Action Starburst Badge */
+		--coach-badge-size: 32px;
+		--coach-badge-bg: #ef4444;
+		--coach-badge-border: none;
+		--coach-badge-text: #ffffff;
+		--coach-badge-radius: 0px;
+		--coach-badge-fs: 13px;
+		--coach-badge-font: 'Impact', 'Arial Black', sans-serif;
+		--coach-badge-shadow: none;
+		--coach-badge-filter: drop-shadow(0 2px 0 #000000);
+		--coach-badge-clip: polygon(
+			50% 0%, 63% 13%, 81% 8%, 84% 27%, 100% 31%, 91% 47%, 99% 63%, 84% 71%, 86% 89%, 69% 87%, 
+			59% 100%, 46% 91%, 32% 100%, 25% 87%, 9% 89%, 10% 71%, 0% 63%, 9% 47%, 0% 31%, 16% 27%, 
+			19% 8%, 37% 13%
+		);
+	}
+
+	/* Design 12 Solid Inked Lettering & Pop On Hover */
+	[data-theme="comic"] .station-name-title {
+		letter-spacing: 0.08em;
+		text-shadow: 2px 2px 0 #000000, -1.5px -1.5px 0 #000000, 1.5px -1.5px 0 #000000, -1.5px 1.5px 0 #000000, 3px 3px 0 #000000;
+		transition: color 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
+	}
+
+	[data-theme="comic"] .real-coach-card:hover .station-name-title {
+		color: #fde047;
+		transform: scale(1.03);
+	}
+
+	[data-theme="comic"] .real-coach-card:hover .coach-center-badge {
+		filter: drop-shadow(3px 4px 0 #000000);
+	}
+}

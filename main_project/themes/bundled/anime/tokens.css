@@ -1,0 +1,176 @@
+/* ==========================================================================
+   STUDIO GHIBLI THEME PACK - MASTER GLOBAL TOKENS
+   Style: Option 1 - Spirited Sea-Railway (Miyazaki Antique Locomotive & Brass)
+   - Typography: 'Cinzel' for Titles/Nav & 'Cormorant Garamond' for Text
+   - Borders: Warm Antique Brass & Copper (#b45309)
+   - Buttons: Embossed Vintage Railway Brass Controls
+   - Performance: 100% Android 60fps Safe (Zero GPU Heavy Filters)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,600&display=swap');
+
+@layer themes {
+	[data-theme="ghibli"] {
+		--font-title: 'Cinzel', 'Georgia', serif;
+		--font-main: 'Cormorant Garamond', 'Georgia', serif;
+		--map-font: 'Cinzel', serif;
+
+		/* Vintage railway card curvature */
+		--radius-sm: 6px;
+		--radius-md: 8px;
+		--radius-lg: 12px;
+		--radius-xl: 16px;
+		--radius-full: 9999px;
+		--theme-bg-image: url('../../themes/bundled/ghibli/assets/images/background.webp');
+	}
+
+	/* ☀️ SPIRITED DAY (Antique Gouache Watercolor Paper #faf7ea) */
+	[data-theme="ghibli"][data-mode="light"],
+	[data-theme="ghibli"] {
+		--color-bg-base-rgb: 250, 247, 234;
+		--color-primary-rgb: 180, 83, 9;
+		--color-accent-rgb: 217, 119, 6;
+
+		--bg-app: #f4efdb;
+		--card-bg: #faf7ea;
+		--border-color: #b45309;
+
+		--text-primary: #382415;
+		--text-secondary: #78350f;
+		--text-muted: #8c6e54;
+
+		--input-bg: #fffef8;
+		--input-border: #b45309;
+		--input-focus-border: #d97706;
+
+		/* Embossed Vintage Brass Button Tokens */
+		--btn-primary-bg: #b45309;
+		--btn-primary-text: #fef3c7;
+		--btn-primary-hover: #d97706;
+
+		--btn-reset-bg: #e6dfc8;
+		--btn-reset-text: #382415;
+		--btn-reset-hover: #dad1b5;
+
+		/* Soft Brass Ambient Depths */
+		--shadow-sm: 0 2px 4px rgba(69, 26, 3, 0.08);
+		--shadow-md: 0 4px 12px rgba(180, 83, 9, 0.15);
+		--shadow-lg: 0 10px 25px rgba(69, 26, 3, 0.16);
+
+		--badge-bg: #b45309;
+		--badge-text: #fef3c7;
+		--badge-border: #78350f;
+
+		--bg-filter: none;
+	}
+
+	/* 🌙 SPIRITED TWILIGHT (Sixth Station Sea-Railway Twilight #152232) */
+	[data-theme="ghibli"][data-mode="dark"] {
+		--color-bg-base-rgb: 21, 34, 50;
+		--color-primary-rgb: 217, 119, 6;
+		--color-accent-rgb: 245, 158, 11;
+
+		--bg-app: #0e1724;
+		--card-bg: #152232;
+		--border-color: #d97706;
+
+		--text-primary: #fef3c7;
+		--text-secondary: #f59e0b;
+		--text-muted: #94a3b8;
+
+		--input-bg: #0f1c2e;
+		--input-border: #b45309;
+		--input-focus-border: #f59e0b;
+
+		--btn-primary-bg: #d97706;
+		--btn-primary-text: #0e1724;
+		--btn-primary-hover: #f59e0b;
+
+		--btn-reset-bg: #1e3147;
+		--btn-reset-text: #fef3c7;
+		--btn-reset-hover: #294361;
+
+		--shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.5);
+		--shadow-md: 0 6px 16px rgba(0, 0, 0, 0.6), 0 0 15px rgba(217, 119, 6, 0.18);
+		--shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(217, 119, 6, 0.22);
+
+		--badge-bg: #d97706;
+		--badge-text: #0e1724;
+		--badge-border: #f59e0b;
+
+		--bg-filter: none;
+	}
+
+	/* 🚂 OPTION 1: SPIRITED SEA-RAILWAY OVERRIDES */
+
+	/* Cards & Modals: Antique Double Border with Brass Tint */
+	[data-theme="ghibli"] .card,
+	[data-theme="ghibli"] .custom-dropdown-menu,
+	[data-theme="ghibli"] .share-modal-card {
+		border: 2px solid var(--border-color) !important;
+		border-radius: var(--radius-lg) !important;
+		background-color: var(--card-bg) !important;
+		box-shadow: var(--shadow-md) !important;
+	}
+
+	/* Header: Vintage Station Master Arch */
+	[data-theme="ghibli"] header.main-header {
+		background: var(--card-bg) !important;
+		border: 2px solid var(--border-color) !important;
+		box-shadow: var(--shadow-md) !important;
+		border-radius: var(--radius-xl) !important;
+	}
+
+	/* Nav Bogie Links: Antique Railway Timetable Tabs */
+	[data-theme="ghibli"] .header-nav-item .nav-link {
+		border: 1.5px solid var(--border-color) !important;
+		border-radius: var(--radius-md) !important;
+		background: var(--card-bg) !important;
+		font-family: var(--font-title) !important;
+		letter-spacing: 0.8px !important;
+		color: var(--text-primary) !important;
+	}
+
+	[data-theme="ghibli"] .header-nav-item .nav-link.active {
+		background: var(--btn-primary-bg) !important;
+		color: var(--btn-primary-text) !important;
+		border-color: var(--border-color) !important;
+		font-weight: 700 !important;
+	}
+
+	/* 2.5D Button Controls: Embossed Vintage Brass Plate with Top Light Rim */
+	[data-theme="ghibli"] .btn-25d,
+	[data-theme="ghibli"] .btn-stepper,
+	[data-theme="ghibli"] .pill-btn,
+	[data-theme="ghibli"] button.sidebar-link {
+		font-family: var(--font-title) !important;
+		letter-spacing: 0.8px !important;
+		border: 1.5px solid var(--border-color) !important;
+		border-top: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+		border-bottom: 2.5px solid rgba(0, 0, 0, 0.25) !important;
+		border-radius: var(--radius-sm) !important;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+		transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+	}
+
+	[data-theme="ghibli"] .btn-25d:hover,
+	[data-theme="ghibli"] .btn-stepper:hover:not(:disabled),
+	[data-theme="ghibli"] .pill-btn:hover {
+		transform: translateY(-1px) !important;
+		box-shadow: 0 4px 10px rgba(180, 83, 9, 0.25) !important;
+	}
+
+	[data-theme="ghibli"] .btn-25d:active,
+	[data-theme="ghibli"] .btn-stepper:active:not(:disabled),
+	[data-theme="ghibli"] .pill-btn:active {
+		transform: translateY(1.5px) !important;
+		border-bottom-width: 1px !important;
+		box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+	}
+
+	/* Dropdown Active State */
+	[data-theme="ghibli"] .custom-dropdown-item.active {
+		background-color: rgba(180, 83, 9, 0.15) !important;
+		color: var(--border-color) !important;
+		font-weight: 700 !important;
+	}
+}

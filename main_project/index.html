@@ -33,7 +33,7 @@
 
 	<body class="lock-viewport">
 		<!-- ================== PWA INSTALL BANNER ================== -->
-		<div id="pwa-install-banner" class="pwa-install-banner" style="display: none" aria-live="polite">
+		<div id="pwa-install-banner" class="pwa-install-banner" aria-live="polite">
 			<div class="pwa-banner-content">
 				<img src="./assets/images/site_icon.svg" alt="App Icon" class="pwa-app-icon" />
 				<div class="pwa-text">
@@ -295,7 +295,7 @@
 									<div class="settings-form-group">
 										<p class="settings-desc" data-i18n="pages.home.settings.backup.desc">Manage your saved routes, alarms, and preferences.</p>
 									</div>
-									<div class="settings-action-row" style="justify-content: flex-start; gap: 10px; flex-wrap: wrap">
+									<div class="settings-action-row">
 										<button type="button" id="btnDownloadBackup" class="btn-settings-action">
 											<span class="btn-icon" aria-hidden="true">📥</span>
 											<span data-i18n="pages.home.settings.backup.exportBtn">Download</span>
@@ -304,10 +304,10 @@
 											<span class="btn-icon" aria-hidden="true">📤</span>
 											<span data-i18n="pages.home.shareModal.title">Share</span>
 										</button>
-										<label for="backupFileInput" id="btnImportBackup" class="btn-settings-action" style="cursor: pointer; margin: 0">
+										<label for="backupFileInput" id="btnImportBackup" class="btn-settings-action btn-settings-action-label">
 											<span class="btn-icon" aria-hidden="true">📁</span>
 											<span data-i18n="pages.home.settings.backup.importBtn">Import</span>
-											<input type="file" id="backupFileInput" accept=".json" style="display: none" />
+											<input type="file" id="backupFileInput" class="visually-hidden-file" accept=".json" />
 										</label>
 									</div>
 								</fieldset>
@@ -532,7 +532,7 @@
 			</div>
 
 			<nav class="floating-nav-wrapper" id="floating-nav-wrapper" data-i18n-aria-label="pages.home.navFloating.wrapperAria" aria-label="Floating Navigation Wrapper">
-				<svg width="0" height="0" style="position: absolute">
+				<svg width="0" height="0" class="nav-mask-svg" aria-hidden="true">
 					<defs>
 						<mask id="nav-mask" maskContentUnits="userSpaceOnUse">
 							<rect width="1000" height="70" fill="white" />

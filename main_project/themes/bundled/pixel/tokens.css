@@ -1,0 +1,131 @@
+/* ==========================================================================
+   RETRO 8-BIT ARCADE PIXEL THEME - MASTER GLOBAL TOKENS
+   Directly derived from pixlate_degine.html:
+   - Font: 'Press Start 2P', monospace
+   - Zero-Lag Hardware Accelerated Architecture (No full-screen scanlines/blurs)
+   - Palette: Royal Arcade Blue, Electric Cyan, Arcade Gold Coin
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@layer themes {
+	[data-theme="pixel"] {
+		--font-title: 'Press Start 2P', 'Courier New', monospace;
+		--font-main: 'Press Start 2P', 'Courier New', monospace;
+		--map-font: 'Press Start 2P', monospace;
+		--theme-bg-image: url('../../themes/bundled/pixel/assets/images/background.svg');
+
+		/* Sharp pixelated zero-radius */
+		--radius-sm: 0px;
+		--radius-md: 0px;
+		--radius-lg: 0px;
+		--radius-xl: 0px;
+		--radius-full: 0px;
+
+		image-rendering: pixelated;
+	}
+
+	/* ☀️ PIXEL DAY CONSOLE (Royal Blue & Electric Cyan Arcade) */
+	[data-theme="pixel"][data-mode="light"],
+	[data-theme="pixel"] {
+		--color-bg-base-rgb: 42, 42, 62;
+		--color-primary-rgb: 48, 206, 240;
+		--color-accent-rgb: 232, 184, 77;
+
+		--bg-app: #1535a1;
+		--card-bg: #2a2a3e;
+		--border-color: #30cef0;
+
+		--text-primary: #ffffff;
+		--text-secondary: #30cef0;
+		--text-muted: #a0a0c0;
+
+		--input-bg: #1a1a2e;
+		--input-border: #0a6a88;
+		--input-focus-border: #30cef0;
+
+		/* Gold Pixel Coin Button Token */
+		--btn-primary-bg: #e8b84d;
+		--btn-primary-text: #1a1a2e;
+		--btn-primary-hover: #f0cc70;
+
+		/* Cyan Secondary Token */
+		--btn-reset-bg: #30cef0;
+		--btn-reset-text: #0a1a2e;
+		--btn-reset-hover: #50e0ff;
+
+		/* Hardware Accelerated Solid 3D Pixel Inset Shadows */
+		--shadow-sm: 0 -2px 0 0 #f0cc70 inset, 0 2px 0 0 #8a6a18 inset, 0 2px 0 1px #4a3808;
+		--shadow-md: 0 -2px 0 0 #50e0ff inset, 0 2px 0 0 #0a6a88 inset, 0 3px 0 1px #084858;
+		--shadow-lg: 0 0 0 2px #0a6a88, 0 4px 0 2px #000000;
+
+		--badge-bg: #e8a830;
+		--badge-text: #1a1a2e;
+		--badge-border: #8a6a18;
+
+		--bg-filter: none;
+	}
+
+	/* 🌙 PIXEL NIGHT CRT (Deep Midnight Space Invader #08081a) */
+	[data-theme="pixel"][data-mode="dark"] {
+		--color-bg-base-rgb: 26, 26, 46;
+		--color-primary-rgb: 48, 206, 240;
+		--color-accent-rgb: 240, 204, 112;
+
+		--bg-app: #08081a;
+		--card-bg: #1a1a2e;
+		--border-color: #22b8dd;
+
+		--text-primary: #f0f0ff;
+		--text-secondary: #30cef0;
+		--text-muted: #8899b8;
+
+		--input-bg: #0d0d1a;
+		--input-border: #148aaa;
+		--input-focus-border: #30cef0;
+
+		--btn-primary-bg: #e8b84d;
+		--btn-primary-text: #0a1a2e;
+		--btn-primary-hover: #f0cc70;
+
+		--btn-reset-bg: #cc3333;
+		--btn-reset-text: #ffcccc;
+		--btn-reset-hover: #ee4444;
+
+		--shadow-sm: 0 -2px 0 0 #f0cc70 inset, 0 2px 0 0 #8a6a18 inset, 0 2px 0 1px #4a3808;
+		--shadow-md: 0 -2px 0 0 #50e0ff inset, 0 2px 0 0 #0a6a88 inset, 0 3px 0 1px #084858;
+		--shadow-lg: 0 0 0 2px #0a6a88, 0 4px 0 2px #000000;
+
+		--badge-bg: #30cef0;
+		--badge-text: #08081a;
+		--badge-border: #0a6a88;
+
+		--bg-filter: none;
+	}
+
+	/* 🕹️ ZERO-LAG SOLID 8-BIT BUTTONS & DROPDOWN CARDS */
+	[data-theme="pixel"] .btn-25d,
+	[data-theme="pixel"] .btn-stepper,
+	[data-theme="pixel"] .pill-btn,
+	[data-theme="pixel"] button.sidebar-link {
+		border-radius: 0 !important;
+		font-family: var(--font-main) !important;
+		letter-spacing: 0.5px;
+		border: 2px solid #0a6a88 !important;
+		box-shadow: 0 -2px 0 0 #50e0ff inset, 0 2px 0 0 #0a6a88 inset, 0 2px 0 1px #084858 !important;
+	}
+
+	[data-theme="pixel"] .custom-dropdown-menu,
+	[data-theme="pixel"] .sidebar-nav,
+	[data-theme="pixel"] .card,
+	[data-theme="pixel"] .share-modal-card {
+		border-radius: 0 !important;
+		border: 3px solid #0a6a88 !important;
+		box-shadow: 0 0 0 2px #30cef0, 0 6px 0 2px rgba(0, 0, 0, 0.7) !important;
+	}
+
+	/* Active item inside 8-Bit Dropdown */
+	[data-theme="pixel"] .custom-dropdown-item.active {
+		background-color: #30cef0 !important;
+		color: #0a1a2e !important;
+	}
+}

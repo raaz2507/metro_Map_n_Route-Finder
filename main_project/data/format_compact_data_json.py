@@ -178,10 +178,12 @@ def format_city(city_dir):
 
 def main():
 	base_dir = os.path.dirname(os.path.abspath(__file__))
-	cities_dir = os.path.join(base_dir, "cities")
+	
+	# Support country argument: python format_compact_data_json.py india [city]
+	country_key = "india"
+	cities_dir = os.path.join(base_dir, country_key, "cities")
 
 	arg = sys.argv[1] if len(sys.argv) > 1 else "all"
-
 	print("=" * 70)
 	print("🚇 Master Data Compact JSON Formatter (Zero Key Mutation Guard)")
 	print("=" * 70)
