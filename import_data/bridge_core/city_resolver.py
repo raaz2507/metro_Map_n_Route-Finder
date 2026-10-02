@@ -106,6 +106,8 @@ class CityRegistryResolver:
 					if alt_details.exists():
 						master_file = alt_details
 
+			fare_file = dataset_dir / "fare_rules.json"
+
 			network_list.append({
 				"network_key": net_key,
 				"effective_net_id": effective_net_id,
@@ -115,7 +117,9 @@ class CityRegistryResolver:
 				"dataset_dir": dataset_dir,
 				"master_file": master_file,
 				"support_file": support_file,
+				"fare_file": fare_file,
 				"master_exists": master_file.exists(),
-				"support_exists": support_file.exists()
+				"support_exists": support_file.exists(),
+				"fare_exists": fare_file.exists()
 			})
 		return network_list

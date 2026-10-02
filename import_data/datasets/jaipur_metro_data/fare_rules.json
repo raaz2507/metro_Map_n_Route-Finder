@@ -1,0 +1,80 @@
+{
+    "currency": "INR",
+    "networks": {
+        "jmrc": {
+            "operator": "Jaipur Metro Rail Corporation (JMRC)",
+            "avgSpeedMetersPerMin": 530,
+            "stationHaltMinutes": 0.5
+        }
+    },
+    "policies": {
+        "jaipur_metro_standard": {
+            "network": "jmrc",
+            "effectiveFrom": "2020-09-23",
+            "fareModel": "station_count_based",
+            "calculation": {
+                "distanceUnit": "stations",
+                "rounding": "exact"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minStations": 0,
+                        "maxStations": 2,
+                        "fare": 10
+                    },
+                    {
+                        "minStations": 3,
+                        "maxStations": 5,
+                        "fare": 15
+                    },
+                    {
+                        "minStations": 6,
+                        "maxStations": 8,
+                        "fare": 25
+                    },
+                    {
+                        "minStations": 9,
+                        "maxStations": 10,
+                        "fare": 30
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "JMRC Smart Card (10% Off)",
+                        "hi": "जेएमआरसी स्मार्ट कार्ड (10% छूट)"
+                    }
+                },
+                "tourist_card_1day": {
+                    "type": "pass",
+                    "price": 100,
+                    "label": {
+                        "en": "1-Day Tourist Card (₹100)",
+                        "hi": "1-दिवसीय टूरिस्ट कार्ड (₹100)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 60,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

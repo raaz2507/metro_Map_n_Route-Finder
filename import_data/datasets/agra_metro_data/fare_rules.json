@@ -1,0 +1,87 @@
+{
+    "currency": "INR",
+    "networks": {
+        "upmrc_agra": {
+            "operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        }
+    },
+    "policies": {
+        "agra_metro_standard": {
+            "network": "upmrc_agra",
+            "effectiveFrom": "2024-03-06",
+            "fareModel": "station_count_based",
+            "calculation": {
+                "distanceUnit": "stations",
+                "rounding": "exact"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minStations": 1,
+                        "maxStations": 1,
+                        "fare": 10
+                    },
+                    {
+                        "minStations": 2,
+                        "maxStations": 2,
+                        "fare": 15
+                    },
+                    {
+                        "minStations": 3,
+                        "maxStations": 6,
+                        "fare": 20
+                    },
+                    {
+                        "minStations": 7,
+                        "maxStations": 9,
+                        "fare": 30
+                    },
+                    {
+                        "minStations": 10,
+                        "maxStations": 13,
+                        "fare": 40
+                    },
+                    {
+                        "minStations": 14,
+                        "maxStations": 17,
+                        "fare": 50
+                    },
+                    {
+                        "minStations": 18,
+                        "maxStations": 99,
+                        "fare": 60
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "GoSmart / NCMC Card (10% Off)",
+                        "hi": "गो-स्मार्ट / एनसीएमसी कार्ड (10% छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

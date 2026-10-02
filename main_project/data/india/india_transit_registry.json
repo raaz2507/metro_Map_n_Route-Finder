@@ -252,6 +252,8 @@
 				"en": "Tamil Nadu",
 				"hi": "तमिलनाडु"
 			},
+			"hasData": true,
+			"dataPath": "data/cities/chennai",
 			"networks": {
 				"chennai_metro": {
 					"name": {
@@ -262,7 +264,8 @@
 					"status": "operational",
 					"operator": "CMRL",
 					"website": "https://chennaimetrorail.org",
-					"dataPath": "chennai_metro_data",
+					"hasData": true,
+					"dataPath": "data/cities/chennai",
 					"icon": "assets/icons/networks/chennai_metro.svg"
 				},
 				"chennai_light_rail": {
@@ -288,6 +291,8 @@
 				"en": "Kerala",
 				"hi": "केरल"
 			},
+			"hasData": true,
+			"dataPath": "data/cities/kochi",
 			"networks": {
 				"kochi_metro": {
 					"name": {
@@ -298,7 +303,8 @@
 					"status": "operational",
 					"operator": "KMRL",
 					"website": "https://kochimetro.org",
-					"dataPath": "kochi_metro_data",
+					"hasData": true,
+					"dataPath": "data/cities/kochi",
 					"icon": "assets/icons/networks/kochi_metro.png"
 				}
 			},
@@ -337,6 +343,8 @@
 				"en": "Maharashtra",
 				"hi": "महाराष्ट्र"
 			},
+			"hasData": true,
+			"dataPath": "data/cities/nagpur",
 			"networks": {
 				"nagpur_metro": {
 					"name": {
@@ -347,7 +355,9 @@
 					"status": "operational",
 					"operator": "Maha Metro",
 					"website": "https://www.mahametro.org",
-					"dataPath": "nagpur_metro_data"
+					"hasData": true,
+					"dataPath": "data/cities/nagpur",
+					"icon": "assets/icons/networks/nagpur_metro.svg"
 				}
 			},
 			"themeColor": "#D97706"
@@ -410,6 +420,8 @@
 				"en": "Uttar Pradesh",
 				"hi": "उत्तर प्रदेश"
 			},
+			"hasData": true,
+			"dataPath": "data/cities/lucknow",
 			"networks": {
 				"lucknow_metro": {
 					"name": {
@@ -420,7 +432,8 @@
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "lucknow_metro_data",
+					"hasData": true,
+					"dataPath": "data/cities/lucknow",
 					"icon": "assets/icons/networks/up_metro.svg"
 				}
 			},
@@ -435,6 +448,8 @@
 				"en": "Uttar Pradesh",
 				"hi": "उत्तर प्रदेश"
 			},
+			"hasData": false,
+			"dataPath": "data/cities/kanpur",
 			"networks": {
 				"kanpur_metro": {
 					"name": {
@@ -445,7 +460,8 @@
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "kanpur_metro_data",
+					"hasData": false,
+					"dataPath": "data/cities/kanpur",
 					"icon": "assets/icons/networks/up_metro.svg"
 				}
 			},
@@ -485,6 +501,8 @@
 				"en": "Madhya Pradesh",
 				"hi": "मध्य प्रदेश"
 			},
+			"hasData": true,
+			"dataPath": "data/cities/indore",
 			"networks": {
 				"indore_metro": {
 					"name": {
@@ -495,7 +513,8 @@
 					"status": "operational_partial",
 					"operator": "MPMRCL",
 					"website": "https://mpmetrorail.com",
-					"dataPath": "indore_metro_data"
+					"hasData": true,
+					"dataPath": "data/cities/indore"
 				}
 			},
 			"themeColor": "#0891B2"
@@ -509,6 +528,8 @@
 				"en": "Madhya Pradesh",
 				"hi": "मध्य प्रदेश"
 			},
+			"hasData": true,
+			"dataPath": "data/cities/bhopal",
 			"networks": {
 				"bhopal_metro": {
 					"name": {
@@ -519,7 +540,8 @@
 					"status": "operational_partial",
 					"operator": "MPMRCL",
 					"website": "https://mpmetrorail.com",
-					"dataPath": "bhopal_metro_data"
+					"hasData": true,
+					"dataPath": "data/cities/bhopal"
 				}
 			},
 			"themeColor": "#0891B2"

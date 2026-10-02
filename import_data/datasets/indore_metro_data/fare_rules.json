@@ -1,0 +1,82 @@
+{
+    "currency": "INR",
+    "networks": {
+        "mpmrcl_indore": {
+            "operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+            "avgSpeedMetersPerMin": 530,
+            "stationHaltMinutes": 0.5
+        }
+    },
+    "policies": {
+        "indore_metro_standard": {
+            "network": "mpmrcl_indore",
+            "effectiveFrom": "2024-01-01",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 2,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 2,
+                        "maxKm": 5,
+                        "fare": 15
+                    },
+                    {
+                        "minKm": 5,
+                        "maxKm": 8,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 8,
+                        "maxKm": 12,
+                        "fare": 25
+                    },
+                    {
+                        "minKm": 12,
+                        "maxKm": 16,
+                        "fare": 30
+                    },
+                    {
+                        "minKm": 16,
+                        "maxKm": 99,
+                        "fare": 40
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "MPMRCL NCMC Smart Card (10% Off)",
+                        "hi": "एमपीएमआरसीएल एनसीएमसी स्मार्ट कार्ड (10% छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

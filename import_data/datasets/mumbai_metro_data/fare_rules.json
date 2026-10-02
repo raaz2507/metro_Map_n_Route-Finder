@@ -1,0 +1,265 @@
+{
+    "currency": "INR",
+    "networks": {
+        "mmopl": {
+            "operator": "Mumbai Metro One Private Limited (MMOPL)",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        },
+        "mmmocl": {
+            "operator": "Maha Mumbai Metro Operation Corporation Ltd",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        },
+        "mmrcl": {
+            "operator": "Mumbai Metro Rail Corporation Limited",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        },
+        "cidco": {
+            "operator": "City and Industrial Development Corporation / Maha Metro",
+            "avgSpeedMetersPerMin": 500,
+            "stationHaltMinutes": 0.5
+        },
+        "mmrda_monorail": {
+            "operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+            "avgSpeedMetersPerMin": 350,
+            "stationHaltMinutes": 0.75,
+            "status": "suspended"
+        }
+    },
+    "policies": {
+        "mmopl_line_1": {
+            "network": "mmopl",
+            "effectiveFrom": "2024-01-01",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 3,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 3,
+                        "maxKm": 8,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 8,
+                        "maxKm": 99,
+                        "fare": 30
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Token / Paper QR",
+                        "hi": "टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 5,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Metro One Smart Card (5% Off)",
+                        "hi": "मेट्रो वन स्मार्ट कार्ड (5% छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 75,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        },
+        "mmrda_standard": {
+            "network": "mmmocl",
+            "effectiveFrom": "2023-01-20",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 3,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 3,
+                        "maxKm": 12,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 12,
+                        "maxKm": 18,
+                        "fare": 30
+                    },
+                    {
+                        "minKm": 18,
+                        "maxKm": 24,
+                        "fare": 40
+                    },
+                    {
+                        "minKm": 24,
+                        "maxKm": 30,
+                        "fare": 50
+                    },
+                    {
+                        "minKm": 30,
+                        "maxKm": 36,
+                        "fare": 60
+                    },
+                    {
+                        "minKm": 36,
+                        "maxKm": 42,
+                        "fare": 70
+                    },
+                    {
+                        "minKm": 42,
+                        "maxKm": 99,
+                        "fare": 80
+                    }
+                ]
+            },
+            "products": {
+                "qr_ticket": {
+                    "type": "base",
+                    "label": {
+                        "en": "Paper / Mobile QR Ticket",
+                        "hi": "पेपर / मोबाइल क्यूआर टिकट"
+                    }
+                },
+                "mumbai_1_card": {
+                    "type": "discount",
+                    "baseProduct": "qr_ticket",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Mumbai 1 NCMC Card (10% Off)",
+                        "hi": "मुंबई 1 एनसीएमसी कार्ड (10% छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        },
+        "cidco_navi_mumbai": {
+            "network": "cidco",
+            "effectiveFrom": "2024-09-07",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 4,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 4,
+                        "maxKm": 8,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 8,
+                        "maxKm": 99,
+                        "fare": 30
+                    }
+                ]
+            },
+            "products": {
+                "qr_ticket": {
+                    "type": "base",
+                    "label": {
+                        "en": "Standard QR Ticket",
+                        "hi": "स्टैंडर्ड क्यूआर टिकट"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 90,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        },
+        "mmrda_monorail_standard": {
+            "network": "mmrda_monorail",
+            "effectiveFrom": "2018-01-01",
+            "effectiveTo": "2025-09-20",
+            "status": "suspended",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 3,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 3,
+                        "maxKm": 12,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 12,
+                        "maxKm": 18,
+                        "fare": 30
+                    },
+                    {
+                        "minKm": 18,
+                        "maxKm": 99,
+                        "fare": 40
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token",
+                        "hi": "सिंगल जर्नी टोकन"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 60,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 40
+            }
+        }
+    }
+}

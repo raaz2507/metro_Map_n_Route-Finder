@@ -1,0 +1,171 @@
+{
+    "currency": "INR",
+    "networks": {
+        "kmrl": {
+            "operator": "Kochi Metro Rail Limited (KMRL)",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        },
+        "kwml": {
+            "operator": "Kochi Water Metro Limited (KWML)",
+            "avgSpeedMetersPerMin": 250,
+            "stationHaltMinutes": 1
+        }
+    },
+    "policies": {
+        "kmrl_standard": {
+            "network": "kmrl",
+            "effectiveFrom": "2017-06-19",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 2,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 2,
+                        "maxKm": 5,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 5,
+                        "maxKm": 10,
+                        "fare": 30
+                    },
+                    {
+                        "minKm": 10,
+                        "maxKm": 15,
+                        "fare": 40
+                    },
+                    {
+                        "minKm": 15,
+                        "maxKm": 20,
+                        "fare": 50
+                    },
+                    {
+                        "minKm": 20,
+                        "maxKm": 99,
+                        "fare": 60
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 20,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Kochi1 Smart Card (20% Off)",
+                        "hi": "कोच्चि1 स्मार्ट कार्ड (20% छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 30,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        },
+        "kwml_water_standard": {
+            "network": "kwml",
+            "effectiveFrom": "2023-04-25",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 3,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 3,
+                        "maxKm": 6,
+                        "fare": 30
+                    },
+                    {
+                        "minKm": 6,
+                        "maxKm": 9,
+                        "fare": 35
+                    },
+                    {
+                        "minKm": 9,
+                        "maxKm": 99,
+                        "fare": 40
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey QR Ticket",
+                        "hi": "सिंगल जर्नी क्यूआर टिकट"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Kochi1 Smart Card (10% Off)",
+                        "hi": "कोच्चि1 स्मार्ट कार्ड (10% छूट)"
+                    }
+                },
+                "weekly_pass": {
+                    "type": "pass",
+                    "price": 180,
+                    "label": {
+                        "en": "Weekly Pass (12 Trips / ₹180)",
+                        "hi": "साप्ताहिक पास (12 यात्राएं / ₹180)"
+                    }
+                },
+                "monthly_pass": {
+                    "type": "pass",
+                    "price": 600,
+                    "label": {
+                        "en": "Monthly Pass (50 Trips / ₹600)",
+                        "hi": "मासिक पास (50 यात्राएं / ₹600)"
+                    }
+                },
+                "quarterly_pass": {
+                    "type": "pass",
+                    "price": 1500,
+                    "label": {
+                        "en": "Quarterly Pass (150 Trips / ₹1500)",
+                        "hi": "त्रैमासिक पास (150 यात्राएं / ₹1500)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 20,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

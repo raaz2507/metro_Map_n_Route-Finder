@@ -1,0 +1,77 @@
+{
+    "currency": "INR",
+    "networks": {
+        "metro_railway_kolkata": {
+            "operator": "Metro Railway, Kolkata (Indian Railways)",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        }
+    },
+    "policies": {
+        "kolkata_metro_standard": {
+            "network": "metro_railway_kolkata",
+            "effectiveFrom": "2019-12-05",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 2,
+                        "fare": 5
+                    },
+                    {
+                        "minKm": 2,
+                        "maxKm": 5,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 5,
+                        "maxKm": 10,
+                        "fare": 15
+                    },
+                    {
+                        "minKm": 10,
+                        "maxKm": 20,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 20,
+                        "maxKm": 99,
+                        "fare": 25
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Metro Smart Card (10% Recharge Bonus)",
+                        "hi": "मेट्रो स्मार्ट कार्ड (10% बोनस छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 5,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

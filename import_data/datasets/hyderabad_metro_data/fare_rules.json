@@ -1,0 +1,102 @@
+{
+    "currency": "INR",
+    "networks": {
+        "hmrl": {
+            "operator": "L&T Metro Rail (Hyderabad) Limited / HMRL",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        }
+    },
+    "policies": {
+        "hmrl_standard": {
+            "network": "hmrl",
+            "effectiveFrom": "2025-05-24",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 2,
+                        "fare": 12
+                    },
+                    {
+                        "minKm": 2,
+                        "maxKm": 4,
+                        "fare": 18
+                    },
+                    {
+                        "minKm": 4,
+                        "maxKm": 6,
+                        "fare": 30
+                    },
+                    {
+                        "minKm": 6,
+                        "maxKm": 9,
+                        "fare": 40
+                    },
+                    {
+                        "minKm": 9,
+                        "maxKm": 12,
+                        "fare": 50
+                    },
+                    {
+                        "minKm": 12,
+                        "maxKm": 15,
+                        "fare": 55
+                    },
+                    {
+                        "minKm": 15,
+                        "maxKm": 18,
+                        "fare": 60
+                    },
+                    {
+                        "minKm": 18,
+                        "maxKm": 21,
+                        "fare": 66
+                    },
+                    {
+                        "minKm": 21,
+                        "maxKm": 24,
+                        "fare": 70
+                    },
+                    {
+                        "minKm": 24,
+                        "maxKm": 99,
+                        "fare": 75
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Nebula Smart Card / TSavaari QR (10% Off)",
+                        "hi": "स्मार्ट कार्ड / टीसवारी क्यूआर (10% छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 12,
+                "sameStationTimeLimitMinutes": 30,
+                "differentStationTimeLimitMinutes": 90,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "currency": "INR",
+    "networks": {
+        "mahametro_pune": {
+            "operator": "Maharashtra Metro Rail Corporation Limited (MahaMetro)",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        }
+    },
+    "policies": {
+        "pune_metro_standard": {
+            "network": "mahametro_pune",
+            "effectiveFrom": "2022-03-06",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 2,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 2,
+                        "maxKm": 4,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 4,
+                        "maxKm": 12,
+                        "fare": 30
+                    },
+                    {
+                        "minKm": 12,
+                        "maxKm": 18,
+                        "fare": 40
+                    },
+                    {
+                        "minKm": 18,
+                        "maxKm": 99,
+                        "fare": 50
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "One Pune Smart Card (10% Off Weekdays)",
+                        "hi": "वन पुणे स्मार्ट कार्ड (सप्ताह के दिनों में 10% छूट)"
+                    }
+                },
+                "smart_card_weekend": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 30,
+                    "timeRule": null,
+                    "label": {
+                        "en": "One Pune Weekend Discount (30% Off Sat & Sun)",
+                        "hi": "वन पुणे वीकेंड डिस्काउंट (शनि-रवि 30% छूट)"
+                    }
+                },
+                "student_pass": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 30,
+                    "timeRule": null,
+                    "label": {
+                        "en": "One Pune Vidyarthi Student Pass (30% Off Daily)",
+                        "hi": "वन पुणे विद्यार्थी पास (प्रतिदिन 30% छात्र छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

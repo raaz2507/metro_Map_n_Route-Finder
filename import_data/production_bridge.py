@@ -106,8 +106,33 @@ class ProductionBridgeEngine:
 		UniversalPipelineLogger.log("SUPPORT", "Aggregating multi-operator passenger helplines...")
 		aggregated_support = PassengerSupportAggregator.aggregate(city_id, city_name, networks)
 
-		# 7. Construct Transit Network Delta
+		# 7. Construct Transit Network Delta (Extract authentic lines, transfers & fareRules)
 		iso_today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+		combined_lines: Dict[str, Any] = {}
+		combined_transfers: Dict[str, Any] = {}
+		combined_fare_rules: Dict[str, Any] = {}
+
+		for net in networks:
+			m_file = net.get("master_file")
+			f_file = net.get("fare_file")
+			if m_file and m_file.exists():
+				try:
+					with open(m_file, "r", encoding="utf-8") as mf:
+						m_data = json.load(mf)
+					if "lines" in m_data and isinstance(m_data["lines"], dict):
+						combined_lines.update(m_data["lines"])
+					if "transfers" in m_data and isinstance(m_data["transfers"], dict):
+						combined_transfers.update(m_data["transfers"])
+				except Exception as ex:
+					UniversalPipelineLogger.log("WARN", f"Could not load lines from master: {ex}")
+
+			if f_file and f_file.exists() and not combined_fare_rules:
+				try:
+					with open(f_file, "r", encoding="utf-8") as ff:
+						combined_fare_rules = json.load(ff)
+				except Exception as ex:
+					UniversalPipelineLogger.log("WARN", f"Could not load fare rules: {ex}")
+
 		transit_network_delta = {
 			"_meta": {
 				"city": city_id,
@@ -115,7 +140,9 @@ class ProductionBridgeEngine:
 				"total_new_stations": len(new_graph_stns)
 			},
 			"stations": new_graph_stns,
-			"lines": {}
+			"lines": combined_lines,
+			"transfers": combined_transfers,
+			"fareRules": combined_fare_rules
 		}
 
 		# 8. Emit Output via Atomic Emitter

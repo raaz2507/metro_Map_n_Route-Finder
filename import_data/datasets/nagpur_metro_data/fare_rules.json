@@ -1,0 +1,115 @@
+{
+    "currency": "INR",
+    "networks": {
+        "mahametro_nagpur": {
+            "operator": "Maharashtra Metro Rail Corporation Limited (MahaMetro)",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        }
+    },
+    "policies": {
+        "nagpur_metro_standard": {
+            "network": "mahametro_nagpur",
+            "effectiveFrom": "2019-03-08",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 2,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 2,
+                        "maxKm": 5,
+                        "fare": 15
+                    },
+                    {
+                        "minKm": 5,
+                        "maxKm": 8,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 8,
+                        "maxKm": 12,
+                        "fare": 25
+                    },
+                    {
+                        "minKm": 12,
+                        "maxKm": 16,
+                        "fare": 30
+                    },
+                    {
+                        "minKm": 16,
+                        "maxKm": 20,
+                        "fare": 35
+                    },
+                    {
+                        "minKm": 20,
+                        "maxKm": 99,
+                        "fare": 40
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Maha Card (10% Off Daily)",
+                        "hi": "महा कार्ड (प्रतिदिन 10% छूट)"
+                    }
+                },
+                "weekend_holiday_discount": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 30,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Weekend & Holiday Special (30% Off Sat, Sun & Holidays)",
+                        "hi": "वीकेंड एवं अवकाश विशेष (शनिवार, रविवार एवं छुट्टियों पर 30% छूट)"
+                    }
+                },
+                "student_pass": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 30,
+                    "timeRule": null,
+                    "label": {
+                        "en": "Maha Card Student Concession (30% Off Daily)",
+                        "hi": "महा कार्ड छात्र रियायत (प्रतिदिन 30% छात्र छूट)"
+                    }
+                },
+                "daily_pass": {
+                    "type": "pass",
+                    "price": 100,
+                    "label": {
+                        "en": "1-Day Unlimited Metro Pass (₹100)",
+                        "hi": "1-दिवसीय असीमित मेट्रो पास (₹100)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 10,
+                "sameStationTimeLimitMinutes": 60,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+{
+    "currency": "INR",
+    "networks": {
+        "gmrc": {
+            "operator": "Gujarat Metro Rail Corporation (GMRC)",
+            "avgSpeedMetersPerMin": 550,
+            "stationHaltMinutes": 0.5
+        }
+    },
+    "policies": {
+        "gmrc_standard": {
+            "network": "gmrc",
+            "effectiveFrom": "2022-09-30",
+            "fareModel": "distance_based",
+            "calculation": {
+                "distanceUnit": "km",
+                "rounding": "nearest"
+            },
+            "fareTables": {
+                "weekday": [
+                    {
+                        "minKm": 0,
+                        "maxKm": 2.5,
+                        "fare": 5
+                    },
+                    {
+                        "minKm": 2.5,
+                        "maxKm": 7.5,
+                        "fare": 10
+                    },
+                    {
+                        "minKm": 7.5,
+                        "maxKm": 12.5,
+                        "fare": 15
+                    },
+                    {
+                        "minKm": 12.5,
+                        "maxKm": 17.5,
+                        "fare": 20
+                    },
+                    {
+                        "minKm": 17.5,
+                        "maxKm": 22.5,
+                        "fare": 25
+                    },
+                    {
+                        "minKm": 22.5,
+                        "maxKm": 99,
+                        "fare": 30
+                    }
+                ]
+            },
+            "products": {
+                "token": {
+                    "type": "base",
+                    "label": {
+                        "en": "Single Journey Token / Paper QR",
+                        "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+                    }
+                },
+                "smart_card": {
+                    "type": "discount",
+                    "baseProduct": "token",
+                    "discountPercent": 10,
+                    "timeRule": null,
+                    "label": {
+                        "en": "GMRC Smart Card / NCMC (10% Off)",
+                        "hi": "जीएमआरसी स्मार्ट कार्ड / एनसीएमसी (10% छूट)"
+                    }
+                }
+            },
+            "timeRules": null,
+            "stationStayRules": {
+                "sameStationExitFare": 5,
+                "sameStationTimeLimitMinutes": 20,
+                "differentStationTimeLimitMinutes": 120,
+                "overstayPenaltyPerHour": 10,
+                "maxOverstayPenalty": 50
+            }
+        }
+    }
+}

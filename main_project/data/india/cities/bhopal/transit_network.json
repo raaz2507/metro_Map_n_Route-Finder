@@ -1,0 +1,349 @@
+{
+	"defaults": {"stationType": "normal", "layout": "elevated"},
+	"lines": {
+		"mpmrcl.orange": {
+			"id": "mpmrcl.orange",
+			"network": "bhopal_metro",
+			"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+			"label": "O",
+			"short_name": {"en": "Orange Line", "hi": "ऑरेंज लाइन"},
+			"color": "#FF7A00",
+			"color_name": "orange",
+			"style": "solid",
+			"route": {"from": "aiims", "to": "ratnagiri_tiraha"},
+			"stations": [
+				"aiims",
+				"alkapuri",
+				"drm_office",
+				"rani_kamlapati_railway_station",
+				"mp_nagar",
+				"board_office_chauraha",
+				"kendriya_vidalaya",
+				"subhash_nagar",
+				"pul_bogda",
+				"aishbagh",
+				"railway_station",
+				"nadra_bus_stand",
+				"sindhi_colony",
+				"dig_bungalow",
+				"krishi_upaj_mandi",
+				"karond_chauraha",
+				"bhadbhada_chauraha",
+				"jawahar_chowk",
+				"roshanpura_chauraha",
+				"kushabhau_thakre_hall",
+				"parade_ground",
+				"prabhat_chauraha",
+				"govindpura",
+				"govindpura_industrial_area",
+				"jk_road",
+				"indrapuri",
+				"piplani",
+				"ratnagiri_tiraha"
+			]
+		}
+	},
+	"transfers": {},
+	"stationData": {
+		"aiims": {
+			"id": "aiims",
+			"name": {"en": "AIIMS"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "alkapuri", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.20982740351736, "lon": 77.45605526949295}}
+		},
+		"alkapuri": {
+			"id": "alkapuri",
+			"name": {"en": "Alkapuri"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "aiims", "line": "mpmrcl.orange"}, {"station": "drm_office", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.21646805779927, "lon": 77.45107821264921}}
+		},
+		"drm_office": {
+			"id": "drm_office",
+			"name": {"en": "DRM Office"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "alkapuri", "line": "mpmrcl.orange"}, {"station": "rani_kamlapati_railway_station", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.21613768894856, "lon": 77.4433071762306}}
+		},
+		"rani_kamlapati_railway_station": {
+			"id": "rani_kamlapati_railway_station",
+			"name": {"en": "Rani Kamlapati Railway Station"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "drm_office", "line": "mpmrcl.orange"}, {"station": "mp_nagar", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.22127007926616, "lon": 77.43835068905813}}
+		},
+		"mp_nagar": {
+			"id": "mp_nagar",
+			"name": {"en": "Mp Nagar"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [
+				{"station": "rani_kamlapati_railway_station", "line": "mpmrcl.orange"},
+				{"station": "board_office_chauraha", "line": "mpmrcl.orange"}
+			],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.22763800020192, "lon": 77.43521358452836}}
+		},
+		"board_office_chauraha": {
+			"id": "board_office_chauraha",
+			"name": {"en": "Board Office Chauraha"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mp_nagar", "line": "mpmrcl.orange"}, {"station": "kendriya_vidalaya", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.23243194613437, "lon": 77.43169600167894}}
+		},
+		"kendriya_vidalaya": {
+			"id": "kendriya_vidalaya",
+			"name": {"en": "Kendriya Vidalaya"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "board_office_chauraha", "line": "mpmrcl.orange"}, {"station": "subhash_nagar", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.240224304442, "lon": 77.43159305342319}}
+		},
+		"subhash_nagar": {
+			"id": "subhash_nagar",
+			"name": {"en": "Subhash Nagar"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kendriya_vidalaya", "line": "mpmrcl.orange"}, {"station": "pul_bogda", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.24776949675169, "lon": 77.42996158257692}}
+		},
+		"pul_bogda": {
+			"id": "pul_bogda",
+			"name": {"en": "Pul Bogda"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "subhash_nagar", "line": "mpmrcl.orange"}, {"station": "aishbagh", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.25140886491019, "lon": 77.42462476353273}}
+		},
+		"aishbagh": {
+			"id": "aishbagh",
+			"name": {"en": "Aishbagh"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "pul_bogda", "line": "mpmrcl.orange"}, {"station": "railway_station", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.25579265206385, "lon": 77.41842175841356}}
+		},
+		"railway_station": {
+			"id": "railway_station",
+			"name": {"en": "Railway Station"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "aishbagh", "line": "mpmrcl.orange"}, {"station": "nadra_bus_stand", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.2653293939077, "lon": 77.4117346419265}}
+		},
+		"nadra_bus_stand": {
+			"id": "nadra_bus_stand",
+			"name": {"en": "Nadra Bus Stand"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "railway_station", "line": "mpmrcl.orange"}, {"station": "sindhi_colony", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.26697446337026, "lon": 77.40689820508734}}
+		},
+		"sindhi_colony": {
+			"id": "sindhi_colony",
+			"name": {"en": "Sindhi Colony"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "nadra_bus_stand", "line": "mpmrcl.orange"}, {"station": "dig_bungalow", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.27218896909405, "lon": 77.40182274946346}}
+		},
+		"dig_bungalow": {
+			"id": "dig_bungalow",
+			"name": {"en": "DIG Bungalow"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "sindhi_colony", "line": "mpmrcl.orange"}, {"station": "krishi_upaj_mandi", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.28061814848179, "lon": 77.40376230699958}}
+		},
+		"krishi_upaj_mandi": {
+			"id": "krishi_upaj_mandi",
+			"name": {"en": "Krishi Upaj Mandi"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "dig_bungalow", "line": "mpmrcl.orange"}, {"station": "karond_chauraha", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.29055916407415, "lon": 77.40365747983164}}
+		},
+		"karond_chauraha": {
+			"id": "karond_chauraha",
+			"name": {"en": "Karond Chauraha"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "krishi_upaj_mandi", "line": "mpmrcl.orange"}, {"station": "bhadbhada_chauraha", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.30370036947046, "lon": 77.40444102244402}}
+		},
+		"bhadbhada_chauraha": {
+			"id": "bhadbhada_chauraha",
+			"name": {"en": "Bhadbhada Chauraha"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "karond_chauraha", "line": "mpmrcl.orange"}, {"station": "jawahar_chowk", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.21925804347403, "lon": 77.38117299632995}}
+		},
+		"jawahar_chowk": {
+			"id": "jawahar_chowk",
+			"name": {"en": "Jawahar Chowk"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "bhadbhada_chauraha", "line": "mpmrcl.orange"}, {"station": "roshanpura_chauraha", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.2324105137005, "lon": 77.39489707492841}}
+		},
+		"roshanpura_chauraha": {
+			"id": "roshanpura_chauraha",
+			"name": {"en": "Roshanpura Chauraha"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jawahar_chowk", "line": "mpmrcl.orange"}, {"station": "kushabhau_thakre_hall", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.23835413244276, "lon": 77.40235937972083}}
+		},
+		"kushabhau_thakre_hall": {
+			"id": "kushabhau_thakre_hall",
+			"name": {"en": "Kushabhau Thakre Hall"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "roshanpura_chauraha", "line": "mpmrcl.orange"}, {"station": "parade_ground", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.24210696627915, "lon": 77.40783886248663}}
+		},
+		"parade_ground": {
+			"id": "parade_ground",
+			"name": {"en": "Parade Ground"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kushabhau_thakre_hall", "line": "mpmrcl.orange"}, {"station": "prabhat_chauraha", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.2472482099938, "lon": 77.41224943027206}}
+		},
+		"prabhat_chauraha": {
+			"id": "prabhat_chauraha",
+			"name": {"en": "Prabhat Chauraha"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "parade_ground", "line": "mpmrcl.orange"}, {"station": "govindpura", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.25295811834525, "lon": 77.43476482196378}}
+		},
+		"govindpura": {
+			"id": "govindpura",
+			"name": {"en": "Govindpura"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "prabhat_chauraha", "line": "mpmrcl.orange"}, {"station": "govindpura_industrial_area", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.25309941376333, "lon": 77.44019953627955}}
+		},
+		"govindpura_industrial_area": {
+			"id": "govindpura_industrial_area",
+			"name": {"en": "Govindpura Industrial Area"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "govindpura", "line": "mpmrcl.orange"}, {"station": "jk_road", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.25286978381207, "lon": 77.44625275728016}}
+		},
+		"jk_road": {
+			"id": "jk_road",
+			"name": {"en": "Jk Road"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "govindpura_industrial_area", "line": "mpmrcl.orange"}, {"station": "indrapuri", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.25129518529755, "lon": 77.45747887815752}}
+		},
+		"indrapuri": {
+			"id": "indrapuri",
+			"name": {"en": "Indrapuri"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jk_road", "line": "mpmrcl.orange"}, {"station": "piplani", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.25004288730066, "lon": 77.46537914772826}}
+		},
+		"piplani": {
+			"id": "piplani",
+			"name": {"en": "Piplani"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "indrapuri", "line": "mpmrcl.orange"}, {"station": "ratnagiri_tiraha", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.24893926643096, "lon": 77.47241248995097}}
+		},
+		"ratnagiri_tiraha": {
+			"id": "ratnagiri_tiraha",
+			"name": {"en": "Ratnagiri Tiraha"},
+			"lines": ["mpmrcl.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "piplani", "line": "mpmrcl.orange"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 23.25048226442008, "lon": 77.47875215557788}}
+		}
+	},
+	"fareRules": {
+		"currency": "INR",
+		"networks": {
+			"mpmrcl_bhopal": {"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)", "avgSpeedMetersPerMin": 530, "stationHaltMinutes": 0.5}
+		},
+		"policies": {
+			"bhopal_metro_standard": {
+				"network": "mpmrcl_bhopal",
+				"effectiveFrom": "2024-01-01",
+				"fareModel": "distance_based",
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"fareTables": {
+					"weekday": [
+						{"minKm": 0, "maxKm": 2, "fare": 10},
+						{"minKm": 2, "maxKm": 5, "fare": 15},
+						{"minKm": 5, "maxKm": 8, "fare": 20},
+						{"minKm": 8, "maxKm": 12, "fare": 25},
+						{"minKm": 12, "maxKm": 16, "fare": 30},
+						{"minKm": 16, "maxKm": 99, "fare": 40}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"timeRule": null,
+						"label": {"en": "MPMRCL NCMC Smart Card (10% Off)", "hi": "एमपीएमआरसीएल एनसीएमसी स्मार्ट कार्ड (10% छूट)"}
+					}
+				},
+				"timeRules": null,
+				"stationStayRules": {
+					"sameStationExitFare": 10,
+					"sameStationTimeLimitMinutes": 20,
+					"differentStationTimeLimitMinutes": 120,
+					"overstayPenaltyPerHour": 10,
+					"maxOverstayPenalty": 50
+				}
+			}
+		}
+	}
+}

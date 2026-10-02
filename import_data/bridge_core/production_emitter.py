@@ -135,22 +135,45 @@ class ProductionEmitter:
 
 		# --- कंडीशन 2: transit_network.json की हैंडलिंग ---
 		# अगर बेस transit_network.json मौजूद नहीं है, तो auto बफ़र से बेस नेटवर्क तैयार करें
-		if not transit_base_file.exists() and transit_auto_file.exists():
+		if transit_auto_file.exists():
 			try:
 				with open(transit_auto_file, "r", encoding="utf-8") as f:
 					transit_auto_data = json.load(f)
 				
-				# क्लीन बेस स्ट्रक्चर (बिना _meta के)
-				base_network = {
-					"defaults": {"stationType": "normal", "layout": "elevated"},
-					"lines": transit_auto_data.get("lines", {}),
-					"transfers": transit_auto_data.get("transfers", {}),
-					"stationData": transit_auto_data.get("stations", {})
-				}
-				UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_network, compact=True)
-				UniversalPipelineLogger.log("PROMOTE", f"Initialized new base transit network: {transit_base_file.name}")
+				auto_lines = transit_auto_data.get("lines", {})
+				auto_transfers = transit_auto_data.get("transfers", {})
+				auto_stns = transit_auto_data.get("stations", {})
+				auto_fares = transit_auto_data.get("fareRules", {})
+
+				if not transit_base_file.exists():
+					base_network = {
+						"defaults": {"stationType": "normal", "layout": "elevated"},
+						"fareRules": auto_fares,
+						"lines": auto_lines,
+						"transfers": auto_transfers,
+						"stationData": auto_stns
+					}
+					UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_network, compact=True)
+					UniversalPipelineLogger.log("PROMOTE", f"Initialized new base transit network: {transit_base_file.name}")
+				else:
+					# यदि बेस फ़ाइल है लेकिन लाइन्स, ट्रांसफ़र या फेयर रूल्स अपडेट करने हैं
+					with open(transit_base_file, "r", encoding="utf-8") as bf:
+						base_net = json.load(bf)
+					updated = False
+					if not base_net.get("lines") and auto_lines:
+						base_net["lines"] = auto_lines
+						updated = True
+					if not base_net.get("transfers") and auto_transfers:
+						base_net["transfers"] = auto_transfers
+						updated = True
+					if not base_net.get("fareRules") and auto_fares:
+						base_net["fareRules"] = auto_fares
+						updated = True
+					if updated:
+						UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_net, compact=True)
+						UniversalPipelineLogger.log("PROMOTE", f"Updated base transit network with lines/transfers/fares: {transit_base_file.name}")
 			except Exception as ex:
-				UniversalPipelineLogger.log("ERROR", f"Failed initializing base transit network: {ex}")
+				UniversalPipelineLogger.log("ERROR", f"Failed handling base transit network: {ex}")
 
 		# --- बफ़र रीसेट: प्रमोशन के बाद _auto.json को क्लीन स्टेट में लाएँ ---
 		reset_buffer = {
