@@ -747,7 +747,14 @@
 			"Religious": [
 				{"name": "St. John The Evangelist Church", "connected": false, "walking_min": 8.928571428571429}
 			]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
+			"2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"},
+			"3": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+			"4": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
+		},
+		"id": "marol_naka"
 	},
 	"csmi_airport_t2": {
 		"name": {"en": "Csmi-airport - T2", "mr": "सी. एस. एम. आय विमानतळ - T2", "hi": "सी. एस. एम. आय विमानतळ - T2"},
@@ -6900,7 +6907,13 @@
 		"nearby_places": {
 			"Transit": [{"name": "Dahisar Toll Naka (Check Naka)", "walking_min": 5}, {"name": "Dahisar Railway Station East Link", "walking_min": 12}],
 			"Institutional": [{"name": "Shailendra Education Society High School", "walking_min": 8}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"3": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"}
+		},
+		"id": "mmmocl_2a_dahisareast"
 	},
 	"mmmocl_2a_anandnagar": {
 		"name": {"en": "Anand Nagar", "mr": "आनंद नगर", "hi": "आनंद नगर"},
@@ -6984,7 +6997,12 @@
 		},
 		"nearby_places": {
 			"Civic": [{"name": "Anand Nagar Municipal Ground", "walking_min": 4}, {"name": "Dahisar Subway Link", "walking_min": 8}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_anandnagar"
 	},
 	"mmmocl_2a_kandarpada": {
 		"name": {"en": "Kandarpada", "mr": "कांदरपाडा", "hi": "कांदरपाड़ा"},
@@ -7069,7 +7087,12 @@
 		"nearby_places": {
 			"Education": [{"name": "Rustomjee Cambridge International School", "walking_min": 5}],
 			"Landmarks": [{"name": "Kandarpada Talav & Garden", "walking_min": 6}, {"name": "Holy Cross Church", "walking_min": 7}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_kandarpada"
 	},
 	"mmmocl_2a_mandapeshwariccolony": {
 		"name": {"en": "Mandapeshwar (I.C. Colony)", "mr": "मंडपेश्वर (आय. सी. कॉलनी)", "hi": "मंडपेश्वर (आई. सी. कॉलोनी)"},
@@ -7157,7 +7180,12 @@
 				{"name": "Our Lady of Immaculate Conception (I.C.) Church", "walking_min": 6}
 			],
 			"Education": [{"name": "St. Francis D'Assisi High School & College", "walking_min": 7}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_mandapeshwariccolony"
 	},
 	"mmmocl_2a_eksar": {
 		"name": {"en": "Eksar", "mr": "एकसर", "hi": "एकसर"},
@@ -7245,7 +7273,12 @@
 				{"name": "Borivali Sports Club Ground", "walking_min": 6}
 			],
 			"Nature": [{"name": "Eksar Talav & Joggers Park", "walking_min": 4}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_eksar"
 	},
 	"mmmocl_2a_borivaliwest": {
 		"name": {"en": "Borivali West", "mr": "बोरिवली पश्चिम", "hi": "बोरीवली पश्चिम"},
@@ -7330,7 +7363,12 @@
 		"nearby_places": {
 			"Transit": [{"name": "Borivali Suburban Railway Station West (Walkable)", "walking_min": 8}],
 			"Shopping": [{"name": "Moksh Plaza Shopping Mall", "walking_min": 3}, {"name": "Indraprastha Shopping Center", "walking_min": 5}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_borivaliwest"
 	},
 	"mmmocl_2a_shimpoli": {
 		"name": {"en": "Pahadi Shimpoli", "mr": "पहाडी शिंपोली", "hi": "पहाड़ी शिंपोली"},
@@ -7414,7 +7452,12 @@
 		},
 		"nearby_places": {
 			"Recreation": [{"name": "Chikuwadi Joggers Park", "walking_min": 5}, {"name": "Shimpoli Municipal Ground", "walking_min": 4}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_shimpoli"
 	},
 	"mmmocl_2a_kandivaliwest": {
 		"name": {"en": "Kandivali West", "mr": "कांदिवली पश्चिम", "hi": "कांदिवली पश्चिम"},
@@ -7502,7 +7545,12 @@
 				{"name": "Shatabdi Municipal General Hospital", "walking_min": 9}
 			],
 			"Education": [{"name": "KES Shroff College", "walking_min": 7}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_kandivaliwest"
 	},
 	"mmmocl_2a_dahanukarwadi": {
 		"name": {"en": "Dahanukarwadi", "mr": "डहाणूकरवाडी", "hi": "डहाणूकरवाड़ी"},
@@ -7586,7 +7634,12 @@
 		},
 		"nearby_places": {
 			"Food & Lifestyle": [{"name": "Mahavir Nagar Food & Cafe Street", "walking_min": 3}, {"name": "Kora Kendra Grounds", "walking_min": 12}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_dahanukarwadi"
 	},
 	"mmmocl_2a_valnaimeethchowky": {
 		"name": {"en": "Valnai (Meeth Chowky)", "mr": "वलनाई (मीठ चौकी)", "hi": "वलनाई (मीठ चौकी)"},
@@ -7673,7 +7726,12 @@
 				{"name": "Marve Road Coastal Junction (Buses to Aksa Beach)", "walking_min": 2},
 				{"name": "Our Lady of Lourdes Church (Orlem)", "walking_min": 8}
 			]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_valnaimeethchowky"
 	},
 	"mmmocl_2a_maladwest": {
 		"name": {"en": "Malad West", "mr": "मालाड पश्चिम", "hi": "मलाड पश्चिम"},
@@ -7758,7 +7816,12 @@
 		"nearby_places": {
 			"Shopping": [{"name": "Infiniti Mall Malad", "walking_min": 4}],
 			"Transit": [{"name": "Malad Suburban Railway Station West", "walking_min": 10}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_maladwest"
 	},
 	"mmmocl_2a_lowermalad": {
 		"name": {"en": "Lower Malad", "mr": "लोअर मालाड", "hi": "लोअर मलाड"},
@@ -7843,7 +7906,12 @@
 		"nearby_places": {
 			"Corporate IT": [{"name": "Mindspace IT Park Malad", "walking_min": 3}],
 			"Shopping & Retail": [{"name": "Inorbit Mall Malad", "walking_min": 2}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_lowermalad"
 	},
 	"mmmocl_2a_bangurnagar": {
 		"name": {"en": "Bangur Nagar", "mr": "बांगूर नगर", "hi": "बांगुर नगर"},
@@ -7927,7 +7995,12 @@
 		},
 		"nearby_places": {
 			"Sports & Education": [{"name": "Goregaon Sports Club", "walking_min": 7}, {"name": "Bangur Nagar Vidya Bhavan", "walking_min": 4}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_bangurnagar"
 	},
 	"mmmocl_2a_goregaonwest": {
 		"name": {"en": "Pahadi Goregaon", "mr": "पहाडी गोरेगाव", "hi": "पहाड़ी गोरेगांव"},
@@ -8012,7 +8085,12 @@
 		"nearby_places": {
 			"Education": [{"name": "Chikitsak Samuha Patkar Varde College", "walking_min": 5}],
 			"Transit": [{"name": "Goregaon Suburban Railway Station West", "walking_min": 11}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_goregaonwest"
 	},
 	"mmmocl_2a_oshiwara": {
 		"name": {"en": "Oshiwara (Adarsh Nagar)", "mr": "ओशिवरा", "hi": "ओशिवरा"},
@@ -8097,7 +8175,12 @@
 		"nearby_places": {
 			"Commercial": [{"name": "Mega Mall Oshiwara", "walking_min": 4}, {"name": "Oshiwara Famous Furniture Market", "walking_min": 3}],
 			"Civic": [{"name": "Oshiwara Police Station", "walking_min": 6}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_oshiwara"
 	},
 	"mmmocl_2a_loweroshiwara": {
 		"name": {"en": "Lower Oshiwara", "mr": "लोअर ओशिवरा", "hi": "लोअर ओशिवरा"},
@@ -8185,7 +8268,12 @@
 				{"name": "Lokhandwala Market Food & Fashion Street", "walking_min": 5},
 				{"name": "Yash Raj Films (YRF) Studios", "walking_min": 12}
 			]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_loweroshiwara"
 	},
 	"mmmocl_2a_andheriwest": {
 		"name": {"en": "Andheri West", "mr": "अंधेरी पश्चिम", "hi": "अंधेरी पश्चिम"},
@@ -8272,7 +8360,12 @@
 				{"name": "Line 1 D.N. Nagar Metro Station (Connected via Skywalk)", "walking_min": 2}
 			],
 			"Heritage & Education": [{"name": "Historic Gilbert Hill Monolith", "walking_min": 10}, {"name": "Bhavan's College Andheri", "walking_min": 7}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"},
+			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_2a_andheriwest"
 	},
 	"mmmocl_7_gundavali": {
 		"name": {"en": "Gundavali", "mr": "गुंदवली", "hi": "गुंदावली"},
@@ -8357,7 +8450,12 @@
 		"nearby_places": {
 			"Transit": [{"name": "Line 1 WEH Metro Station (Direct Skywalk)", "walking_min": 2}],
 			"Corporate": [{"name": "Bisleri Corporate Headquarters", "walking_min": 3}, {"name": "Solitaire Corporate Park", "walking_min": 5}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_gundavali"
 	},
 	"mmmocl_7_mogra": {
 		"name": {"en": "Mogra", "mr": "मोगरा", "hi": "मोगरा"},
@@ -8441,7 +8539,12 @@
 		},
 		"nearby_places": {
 			"Civic & Education": [{"name": "Holy Family High School & Church", "walking_min": 8}, {"name": "Mogra Municipal Health Post", "walking_min": 4}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_mogra"
 	},
 	"mmmocl_7_jogeshwarieast": {
 		"name": {"en": "Jogeshwari East", "mr": "जोगेश्वरी पूर्व", "hi": "जोगेश्वरी पूर्व"},
@@ -8527,7 +8630,12 @@
 			"Heritage": [{"name": "Ancient Jogeshwari Caves (C. 6th Century)", "walking_min": 10}],
 			"Transit": [{"name": "Majas BEST Bus Depot", "walking_min": 8}],
 			"Education": [{"name": "Ismail Yusuf College", "walking_min": 7}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_jogeshwarieast"
 	},
 	"mmmocl_7_goregaoneast": {
 		"name": {"en": "Goregaon East", "mr": "गोरेगाव पूर्व", "hi": "गोरेगांव पूर्व"},
@@ -8612,7 +8720,12 @@
 		"nearby_places": {
 			"Exhibitions & Events": [{"name": "NESCO Bombay Exhibition Centre", "walking_min": 10}],
 			"Shopping": [{"name": "The Hub Mall Goregaon", "walking_min": 3}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_goregaoneast"
 	},
 	"mmmocl_7_aarey": {
 		"name": {"en": "Aarey", "mr": "आरे", "hi": "आरे"},
@@ -8697,7 +8810,12 @@
 		"nearby_places": {
 			"Corporate IT": [{"name": "Nirlon Knowledge Park (NKP)", "walking_min": 3}, {"name": "Commerz II International Business Park", "walking_min": 6}],
 			"Nature & Recreation": [{"name": "Aarey Forest Green Belt Entrance", "walking_min": 4}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_aarey"
 	},
 	"mmmocl_7_dindoshi": {
 		"name": {"en": "Dindoshi", "mr": "दिंडोशी", "hi": "डिंडोशी"},
@@ -8782,7 +8900,12 @@
 		"nearby_places": {
 			"Shopping & Entertainment": [{"name": "Oberoi Mall Dindoshi", "walking_min": 2}, {"name": "PVR Cinemas Oberoi Mall", "walking_min": 3}],
 			"Transit & Judiciary": [{"name": "Dindoshi BEST Bus Depot", "walking_min": 4}, {"name": "Dindoshi Sessions Court", "walking_min": 7}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_dindoshi"
 	},
 	"mmmocl_7_kurar": {
 		"name": {"en": "Kurar", "mr": "कुरार", "hi": "कुरार"},
@@ -8866,7 +8989,12 @@
 		},
 		"nearby_places": {
 			"Civic & Police": [{"name": "Kurar Police Station", "walking_min": 6}, {"name": "BMC P/North Ward Municipal Office", "walking_min": 10}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_kurar"
 	},
 	"mmmocl_7_akurli": {
 		"name": {"en": "Akurli", "mr": "आकुर्ली", "hi": "आकुर्ली"},
@@ -8951,7 +9079,12 @@
 		"nearby_places": {
 			"Commercial": [{"name": "Growel's 101 Mall", "walking_min": 8}, {"name": "Centrium Shopping Centre", "walking_min": 4}],
 			"Transit": [{"name": "Kandivali Suburban Railway Station East", "walking_min": 14}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_akurli"
 	},
 	"mmmocl_7_poisar": {
 		"name": {"en": "Poisar", "mr": "पोईसर", "hi": "पोइसर"},
@@ -9037,7 +9170,12 @@
 			"Industrial": [{"name": "Mahindra & Mahindra Plant", "walking_min": 3}],
 			"Transit": [{"name": "Poisar BEST Bus Depot", "walking_min": 4}],
 			"Residential": [{"name": "Thakur Complex Western Entry", "walking_min": 7}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_poisar"
 	},
 	"mmmocl_7_magathane": {
 		"name": {"en": "Magathane", "mr": "मागाठाणे", "hi": "मागाठाणे"},
@@ -9122,7 +9260,12 @@
 		"nearby_places": {
 			"Transit": [{"name": "Magathane BEST Bus Depot", "walking_min": 2}],
 			"Commercial": [{"name": "Dattani Park Mall", "walking_min": 5}, {"name": "Tata Steel Wire Division", "walking_min": 4}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_magathane"
 	},
 	"mmmocl_7_devipada": {
 		"name": {"en": "Devipada", "mr": "देवीपाडा", "hi": "देवीपाड़ा"},
@@ -9207,7 +9350,12 @@
 		"nearby_places": {
 			"Transit": [{"name": "Sukurwadi BEST Bus Terminal", "walking_min": 6}, {"name": "Borivali Railway Station East Approach", "walking_min": 12}],
 			"Security": [{"name": "Kasturba Police Station", "walking_min": 8}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_devipada"
 	},
 	"mmmocl_7_nationalpark": {
 		"name": {"en": "Rashtriya Udyan (National Park)", "mr": "राष्ट्रीय उद्यान", "hi": "राष्ट्रीय उद्यान"},
@@ -9295,7 +9443,12 @@
 				{"name": "Kanheri Caves Safari Booking Counter", "walking_min": 4}
 			],
 			"Transit": [{"name": "Kulupwadi BEST Bus Stop", "walking_min": 3}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_nationalpark"
 	},
 	"mmmocl_7_ovaripada": {
 		"name": {"en": "Ovaripada", "mr": "ओवरीपाडा", "hi": "ओवरीपाड़ा"},
@@ -9379,7 +9532,12 @@
 		},
 		"nearby_places": {
 			"Civic & Community": [{"name": "Ovaripada BMC Garden", "walking_min": 3}, {"name": "Dahisar Post Office", "walking_min": 6}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
+			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
+		},
+		"id": "mmmocl_7_ovaripada"
 	},
 	"mmopl_1_versova": {
 		"name": {"en": "Versova", "mr": "वर्सोवा", "hi": "वर्सोवा"},
@@ -9455,7 +9613,12 @@
 		"nearby_places": {
 			"Transit": [{"name": "Seven Bungalows BEST Bus Depot", "walking_min": 3}, {"name": "Versova Jetty", "walking_min": 15}],
 			"Landmarks": [{"name": "Versova Beach", "walking_min": 12}, {"name": "Nana Nani Park", "walking_min": 4}]
-		}
+		},
+		"platforms": {
+			"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
+			"2": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}
+		},
+		"id": "mmopl_1_versova"
 	},
 	"mmopl_1_dnnagar": {
 		"name": {"en": "D.N. Nagar", "mr": "डी. एन. नगर", "hi": "डी. एन. नगर"},
@@ -9532,7 +9695,9 @@
 			"Institutional": [{"name": "Bhavan's College", "walking_min": 6}, {"name": "S.P. Jain Institute (SPJIMR)", "walking_min": 8}],
 			"Transit": [{"name": "Line 2A Andheri West Metro Station (Skywalk)", "walking_min": 2}],
 			"Health": [{"name": "Dr. R.N. Cooper Municipal Hospital", "walking_min": 14}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_dnnagar"
 	},
 	"mmopl_1_azadnagar": {
 		"name": {"en": "Azad Nagar", "mr": "आझाद नगर", "hi": "आज़ाद नगर"},
@@ -9608,7 +9773,9 @@
 		"nearby_places": {
 			"Sports & Recreation": [{"name": "Andheri Sports Complex (Shahaji Raje Krida Sankul)", "walking_min": 5}, {"name": "The Club Mumbai", "walking_min": 10}],
 			"Commercial": [{"name": "Veera Desai Industrial Estate", "walking_min": 8}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_azadnagar"
 	},
 	"mmopl_1_andheri": {
 		"name": {"en": "Andheri", "mr": "अंधेरी", "hi": "अंधेरी"},
@@ -9687,7 +9854,9 @@
 				{"name": "Andheri West BEST Bus Depot", "walking_min": 3}
 			],
 			"Commercial": [{"name": "Shoppers Stop Andheri West", "walking_min": 4}, {"name": "S.V. Road Commercial Market", "walking_min": 2}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_andheri"
 	},
 	"mmopl_1_westernexpresshighway": {
 		"name": {"en": "Western Express Highway", "mr": "वेस्टर्न एक्सप्रेस हायवे", "hi": "वेस्टर्न एक्सप्रेस हाईवे"},
@@ -9777,7 +9946,9 @@
 				{"name": "Line 7 Gundavali Metro Station (Connected via Walkway)", "walking_min": 2}
 			],
 			"Commercial": [{"name": "Solitaire Corporate Park", "walking_min": 6}, {"name": "Bisleri Corporate Headquarters", "walking_min": 4}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_westernexpresshighway"
 	},
 	"mmopl_1_chakala": {
 		"name": {"en": "Chakala (J.B. Nagar)", "mr": "चकाला (जे. बी. नगर)", "hi": "चकाला (जे. बी. नगर)"},
@@ -9853,7 +10024,9 @@
 		"nearby_places": {
 			"Hotels": [{"name": "Courtyard by Marriott Mumbai", "walking_min": 5}, {"name": "The Mirador Hotel", "walking_min": 6}],
 			"Commercial": [{"name": "MIDC Cross Road Commercial Hub", "walking_min": 8}, {"name": "Holy Family Church Chakala", "walking_min": 5}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_chakala"
 	},
 	"mmopl_1_airportroad": {
 		"name": {"en": "Airport Road", "mr": "एअरपोर्ट रोड", "hi": "एयरपोर्ट रोड"},
@@ -9929,7 +10102,9 @@
 		"nearby_places": {
 			"Hotels": [{"name": "The Leela Mumbai", "walking_min": 4}, {"name": "Hilton Mumbai International Airport", "walking_min": 8}],
 			"Commercial": [{"name": "Kanakia Boomerang Corporate Park", "walking_min": 12}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_airportroad"
 	},
 	"mmopl_1_sakinaka": {
 		"name": {"en": "Saki Naka", "mr": "साकी नाका", "hi": "साकी नाका"},
@@ -10005,7 +10180,9 @@
 		"nearby_places": {
 			"Hotels": [{"name": "Holiday Inn Mumbai International Airport", "walking_min": 2}, {"name": "Peninsula Grand Hotel", "walking_min": 1}],
 			"Transit": [{"name": "Saki Naka BEST Junction Stop", "walking_min": 1}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_sakinaka"
 	},
 	"mmopl_1_asalpha": {
 		"name": {"en": "Asalpha", "mr": "असल्फा", "hi": "असल्फा"},
@@ -10080,7 +10257,9 @@
 		},
 		"nearby_places": {
 			"Landmarks": [{"name": "Subhash Nagar Ground", "walking_min": 4}, {"name": "Asalpha Ganesh Mandir", "walking_min": 3}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_asalpha"
 	},
 	"mmopl_1_jagrutinagar": {
 		"name": {"en": "Jagruti Nagar", "mr": "जागृती नगर", "hi": "जागृती नगर"},
@@ -10156,7 +10335,9 @@
 		"nearby_places": {
 			"Health": [{"name": "Sarvodaya Hospital Ghatkopar", "walking_min": 8}],
 			"Institutional": [{"name": "Hindi High School Ghatkopar", "walking_min": 5}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_jagrutinagar"
 	},
 	"mmopl_1_ghatkopar": {
 		"name": {"en": "Ghatkopar", "mr": "घाटकोपर", "hi": "घाटकोपर"},
@@ -10235,9 +10416,11 @@
 				{"name": "Ghatkopar West BEST Bus Station", "walking_min": 2}
 			],
 			"Commercial": [{"name": "R-City Mall Ghatkopar", "walking_min": 15}, {"name": "Ghatkopar West Market (LBS Marg)", "walking_min": 3}]
-		}
+		},
+		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
+		"id": "mmopl_1_ghatkopar"
 	},
-	"nmm_1_belapur": {
+	"belapur": {
 		"name": {"en": "CBD Belapur", "mr": "सी.बी.डी. बेलापूर", "hi": "सी.बी.डी. बेलापूर"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Sion-Panvel Expressway, Belapur Railway Station FOB Link"},
@@ -10313,7 +10496,7 @@
 			"Commercial": [{"name": "Sakal Bhavan Corporate Area", "walking_min": 4}, {"name": "CIDCO Bhavan", "walking_min": 8}]
 		}
 	},
-	"nmm_1_sector7": {
+	"sector7": {
 		"name": {"en": "Sector 7 (Belapur)", "mr": "सेक्टर ७ (बेलापूर)", "hi": "सेक्टर ७ (बेलापूर)"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Sector 7 Main Road, Belapur"},
@@ -10389,7 +10572,7 @@
 			"Civic": [{"name": "Belapur Police Station", "walking_min": 6}]
 		}
 	},
-	"nmm_1_sciencepark": {
+	"sciencepark": {
 		"name": {"en": "CIDCO Science Park", "mr": "सिडको सायन्स पार्क", "hi": "सिडको साइंस पार्क"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "CIDCO Science Park Campus Entrance"},
@@ -10465,7 +10648,7 @@
 			"Parks": [{"name": "Kharghar Valley Golf Course Access", "walking_min": 12}]
 		}
 	},
-	"nmm_1_utsavchowk": {
+	"utsavchowk": {
 		"name": {"en": "Utsav Chowk (Kharghar)", "mr": "उत्सव चौक (खारघर)", "hi": "उत्सव चौक (खारघर)"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Utsav Chowk Iconic Roundabout & Pravesh Marg"},
@@ -10553,7 +10736,7 @@
 			"Commercial": [{"name": "Hiranandani Kharghar Shopping Plaza", "walking_min": 5}]
 		}
 	},
-	"nmm_1_sector11": {
+	"sector11": {
 		"name": {"en": "Sector 11 (Kharghar)", "mr": "सेक्टर ११ (खारघर)", "hi": "सेक्टर ११ (खारघर)"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Sector 11 Market Road, Kharghar"},
@@ -10641,7 +10824,7 @@
 			"Education": [{"name": "NIFT Mumbai Campus", "walking_min": 10}]
 		}
 	},
-	"nmm_1_sector14": {
+	"sector14": {
 		"name": {"en": "Sector 14 (Kharghar)", "mr": "सेक्टर १४ (खारघर)", "hi": "सेक्टर १४ (खारघर)"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Sector 14 Main Avenue, Kharghar"},
@@ -10728,7 +10911,7 @@
 			"Residential": [{"name": "Kendriya Vihar Complex", "walking_min": 3}, {"name": "Jalvayu Vihar", "walking_min": 5}]
 		}
 	},
-	"nmm_1_centralpark": {
+	"centralpark": {
 		"name": {"en": "Central Park (Kharghar)", "mr": "सेंट्रल पार्क (खारघर)", "hi": "सेंट्रल पार्क (खारघर)"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Central Park Main Public Entrance"},
@@ -10816,7 +10999,7 @@
 			"Spiritual": [{"name": "ISKCON Temple Kharghar", "walking_min": 6}]
 		}
 	},
-	"nmm_1_pethpada": {
+	"pethpada": {
 		"name": {"en": "Pethpada", "mr": "पेठपाडा", "hi": "पेठपाड़ा"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Pethpada Village & Sector 30, Kharghar"},
@@ -10892,7 +11075,7 @@
 			"Nature": [{"name": "Kharghar Hills View Point", "walking_min": 10}]
 		}
 	},
-	"nmm_1_sector34": {
+	"sector34": {
 		"name": {"en": "Sector 34 (Kharghar)", "mr": "सेक्टर ३४ (खारघर)", "hi": "सेक्टर ३४ (खारघर)"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Sector 34 Main Road, Kharghar"},
@@ -10979,7 +11162,7 @@
 			"Residential": [{"name": "Valley Shilp CIDCO Housing", "walking_min": 4}, {"name": "Swapnapurti Township", "walking_min": 8}]
 		}
 	},
-	"nmm_1_panchanand": {
+	"panchanand": {
 		"name": {"en": "Panchanand", "mr": "पंचानंद", "hi": "पंचानंद"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Panchanand Colony, Taloja Link Road"},
@@ -11052,7 +11235,7 @@
 		},
 		"nearby_places": {"Civic": [{"name": "Panchanand Municipal School", "walking_min": 5}]}
 	},
-	"nmm_1_pendhar": {
+	"pendhar": {
 		"name": {"en": "Pendhar", "mr": "पेंधर", "hi": "पेंधर"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Pendhar Village & Taloja Industrial MIDC Road"},
@@ -11128,7 +11311,7 @@
 			"Industrial": [{"name": "Taloja MIDC Phase 1", "walking_min": 6}]
 		}
 	},
-	"mm_mono_chembur": {
+	"chembur": {
 		"name": {"en": "Chembur", "mr": "चेंबूर", "hi": "चेंबूर"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Direct Concourse Walkway to Chembur Harbour Line Railway Station"},
@@ -11202,7 +11385,7 @@
 			"Commercial": [{"name": "Chembur Station Market", "walking_min": 2}]
 		}
 	},
-	"mm_mono_vnp_rcmarg": {
+	"vnp_rcmarg": {
 		"name": {"en": "V.N. Purav Marg (RC Marg)", "mr": "व्ही. एन. पुरव मार्ग", "hi": "वी. एन. पुरव मार्ग"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "RC Marg Junction & VN Purav Marg, Chembur"},
@@ -11287,7 +11470,7 @@
 			"Education": [{"name": "Tata Institute of Social Sciences (TISS)", "walking_min": 8}]
 		}
 	},
-	"mm_mono_fertiliser": {
+	"fertiliser": {
 		"name": {"en": "Fertiliser Township", "mr": "फर्टिलायझर टाउनशिप", "hi": "फर्टिलाइजर टाउनशिप"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "RCF Colony Main Gate, Chembur East"},
@@ -11370,7 +11553,7 @@
 		},
 		"nearby_places": {"Industrial Township": [{"name": "RCF Police Colony & Township", "walking_min": 3}]}
 	},
-	"mm_mono_bharat_petroleum": {
+	"bharat_petroleum": {
 		"name": {"en": "Bharat Petroleum", "mr": "भारत पेट्रोलियम", "hi": "भारत पेट्रोलियम"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "BPCL Refinery Main Entrance Gate"},
@@ -11441,7 +11624,7 @@
 		},
 		"nearby_places": {"Industrial": [{"name": "BPCL Mumbai Refinery", "walking_min": 4}]}
 	},
-	"mm_mono_mysore_colony": {
+	"mysore_colony": {
 		"name": {"en": "Mysore Colony", "mr": "म्हैसूर कॉलनी", "hi": "मैसूर कॉलोनी"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Mysore Colony Road, Chembur South"},
@@ -11512,7 +11695,7 @@
 		},
 		"nearby_places": {"Residential": [{"name": "Mysore Colony Garden", "walking_min": 3}]}
 	},
-	"mm_mono_bhakti_park": {
+	"bhakti_park": {
 		"name": {"en": "Bhakti Park", "mr": "भक्ती पार्क", "hi": "भक्ति पार्क"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Bhakti Park Complex & IMAX Dome Theatre"},
@@ -11586,7 +11769,7 @@
 			"Transit": [{"name": "Eastern Freeway Wadala Ramp", "walking_min": 6}]
 		}
 	},
-	"mm_mono_wadala_depot": {
+	"wadala_depot": {
 		"name": {"en": "Wadala Depot", "mr": "वडाळा आगार", "hi": "वडाला डिपो"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "MMRDA Monorail Central Car Depot & Headquarters"},
@@ -11660,7 +11843,7 @@
 			"Residential": [{"name": "Pratiksha Nagar Housing Colony", "walking_min": 5}]
 		}
 	},
-	"mm_mono_gtb_nagar": {
+	"gtb_nagar": {
 		"name": {"en": "GTB Nagar", "mr": "जी.टी.बी. नगर", "hi": "जी.टी.बी. नगर"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Guru Tegh Bahadur Nagar Road, Sion Koliwada"},
@@ -11734,7 +11917,7 @@
 			"Landmarks": [{"name": "Sion Koliwada Market", "walking_min": 4}]
 		}
 	},
-	"mm_mono_antop_hill": {
+	"antop_hill": {
 		"name": {"en": "Antop Hill", "mr": "अंटॉप हिल", "hi": "अंटॉप हिल"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Antop Hill Warehousing Complex & Post Office"},
@@ -11807,7 +11990,7 @@
 			"Civic": [{"name": "Antop Hill Post Office", "walking_min": 3}, {"name": "Barkat Ali Dargah", "walking_min": 5}]
 		}
 	},
-	"mm_mono_acharya_atre": {
+	"acharya_atre": {
 		"name": {"en": "Acharya Atre Nagar", "mr": "आचार्य अत्रे नगर", "hi": "आचार्य अत्रे नगर"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Acharya Atre Nagar Main Road, Wadala East"},
@@ -11878,7 +12061,7 @@
 		},
 		"nearby_places": {"Community": [{"name": "Acharya Atre Ground", "walking_min": 4}]}
 	},
-	"mm_mono_wadala_bridge": {
+	"wadala_bridge": {
 		"name": {"en": "Wadala Bridge", "mr": "वडाळा ब्रिज", "hi": "वडाला ब्रिज"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Wadala Railway Overbridge (ROB), Wadala West Link"},
@@ -11951,7 +12134,7 @@
 			"Transit": [{"name": "Wadala Suburban Railway Station East", "walking_min": 5}]
 		}
 	},
-	"mm_mono_dadar_east": {
+	"dadar_east": {
 		"name": {"en": "Dadar East", "mr": "दादर पूर्व", "hi": "दादर पूर्व"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Dadasaheb Phalke Road, Dadar East"},
@@ -12025,7 +12208,7 @@
 			"Transit": [{"name": "Dadar Central Railway Station East Link", "walking_min": 12}]
 		}
 	},
-	"mm_mono_naigaon": {
+	"naigaon": {
 		"name": {"en": "Naigaon", "mr": "नायगाव", "hi": "नायगांव"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "Spring Mills Road, Naigaon BDD Chawls"},
@@ -12098,7 +12281,7 @@
 			"Civic": [{"name": "Naigaon Police Training Ground", "walking_min": 3}]
 		}
 	},
-	"mm_mono_ambedkar_nagar": {
+	"ambedkar_nagar": {
 		"name": {"en": "Ambedkar Nagar", "mr": "आंबेडकर नगर", "hi": "आंबेडकर नगर"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "G.D. Ambekar Marg, Parel East"},
@@ -12171,7 +12354,7 @@
 			"Health": [{"name": "KEM Municipal Hospital Parel", "walking_min": 8}, {"name": "Tata Memorial Cancer Hospital", "walking_min": 10}]
 		}
 	},
-	"mm_mono_mint_colony": {
+	"mint_colony": {
 		"name": {"en": "Mint Colony", "mr": "मिंट कॉलनी", "hi": "मिंट कॉलोनी"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "India Government Mint Quarters Road, Parel"},
@@ -12245,7 +12428,7 @@
 			"Heritage": [{"name": "India Government Mint Estate", "walking_min": 3}]
 		}
 	},
-	"mm_mono_lower_parel": {
+	"lower_parel": {
 		"name": {"en": "Lower Parel", "mr": "लोअर परळ", "hi": "लोअर परेल"},
 		"gates": {
 			"1": {"name": "Gate 1", "location": "N.M. Joshi Marg, Lower Parel West"},
@@ -12319,7 +12502,7 @@
 			"Transit": [{"name": "Lower Parel Western Railway Station", "walking_min": 8}]
 		}
 	},
-	"mm_mono_jacob_circle": {
+	"jacob_circle": {
 		"name": {
 			"en": "Sant Gadge Maharaj Chowk (Jacob Circle)",
 			"mr": "संत गाडगे महाराज चौक (जेकब सर्कल)",

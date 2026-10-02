@@ -4,35 +4,37 @@ export const obj = {
 		// 1. DELHI NCR (6 Lines)
 		// =========================================================================
 		delhi_ncr: {
-			1.1: {
-				name: "Delhi Metro Main Network",
-				operator: "DMRC",
-				fareType: "distance_slab",
-			},
-			1.2: {
-				name: "Airport Express Line",
-				operator: "DMRC",
-				fareType: "matrix",
-			},
-			1.3: {
-				name: "Noida Metro Aqua Line",
-				operator: "NMRC",
-				fareType: "distance_slab",
-			},
-			1.4: {
-				name: "Rapid Metro Gurugram",
-				operator: "GMDA",
-				fareType: "distance_slab",
-			},
-			1.5: {
-				name: "Namo Bharat RRTS Delhi–Meerut",
-				operator: "NCRTC",
-				fareType: "matrix",
-			},
-			1.6: {
-				name: "Meerut Metro",
-				operator: "NCRTC",
-				fareType: "distance_slab",
+			networks: {
+				dmrc_main: {
+					name: "Delhi Metro Main Network",
+					operator: "DMRC",
+					fareType: "distance_slab",
+				},
+				airport_express: {
+					name: "Airport Express Line",
+					operator: "DMRC",
+					fareType: "matrix",
+				},
+				noida_aqua: {
+					name: "Noida Metro Aqua Line",
+					operator: "NMRC",
+					fareType: "distance_slab",
+				},
+				rapid_metro: {
+					name: "Rapid Metro Gurugram",
+					operator: "HMRTC / GMDA / DMRC",
+					fareType: "distance_slab",
+				},
+				namo_bharat_rrts: {
+					name: "Namo Bharat RRTS Delhi–Meerut",
+					operator: "NCRTC",
+					fareType: "matrix",
+				},
+				meerut_metro: {
+					name: "Meerut Metro",
+					operator: "NCRTC",
+					fareType: "distance_slab",
+				},
 			},
 
 			fareRules: {
@@ -303,65 +305,1255 @@ export const obj = {
 							}
 					},
 
-					// 1.5 Namo Bharat RRTS (Standard vs Premium Tiers)
-					// NOTE: Premium Coach uses a multiplier of 1.2 on the base ticket price
-					namo_bharat_rrts: {
-						network: "ncrtc",
-						effectiveFrom: "2023-10-21",
-						fareModel: "distance_based",
-						calculation: {
-							distanceUnit: "km",
-							rounding: "nearest",
-						},
-						fareTables: {
-							weekday: [
-								{ minKm: 0, maxKm: 5, fare: 20 },
-								{ minKm: 5, maxKm: 15, fare: 30 },
-								{ minKm: 15, maxKm: 25, fare: 40 },
-								{ minKm: 25, maxKm: 35, fare: 60 },
-								{ minKm: 35, maxKm: 45, fare: 90 },
-								{ minKm: 45, maxKm: 60, fare: 110 },
-								{ minKm: 60, maxKm: 99, fare: 210 },
-							],
-						},
-						products: {
-							standard_qr: {
-								type: "base",
-								label: {
-									en: "Standard Coach Ticket / eQR",
-									hi: "स्टैंडर्ड कोच टिकट / ई-क्यूआर",
-								},
-							},
-							premium_coach: {
-								type: "concession",
-								baseProduct: "standard_qr",
-								multiplier: 1.2, // 20% surcharge for Premium Class
-								label: {
-									en: "Premium Lounge & Coach",
-									hi: "प्रीमियम लाउंज एवं कोच",
-								},
-							},
-							smart_card: {
-								type: "discount",
-								baseProduct: "standard_qr",
-								discountPercent: 10,
-								timeRule: null,
-								label: {
-									en: "Namo Bharat Smart Card",
-									hi: "नमो भारत स्मार्ट कार्ड",
-								},
-							},
-						},
-						"timeRules": null,
-						// Stay rules for Namo Bharat High-Speed RRTS
-						"stationStayRules": {
-							"sameStationExitFare": 20,              // मिनिमम टिकट ₹20
-							"sameStationTimeLimitMinutes": 30,       // 30 मिनट का स्टेशन स्टे
-							"differentStationTimeLimitMinutes": 120, // 120 मिनट की कॉरिडोर यात्रा
-							"overstayPenaltyPerHour": 20,           // ₹20 प्रति घंटा पेनल्टी
-							"maxOverstayPenalty": 100
-						}
-					},
+					// 1.5 Namo Bharat RRTS (23x23 Canonical 2D Matrix matching FareCalculator)
+					ncrtc_standard: {
+      "network": "delhi_meerut_rrts",
+      "effectiveFrom": "2025-01-01",
+      "fareModel": "station_pair",
+      "calculation": {
+            "rounding": "exact"
+      },
+      "stations": [
+            "sarai_kale_khan_hazrat_nizamuddin",
+            "new_ashok_nagar",
+            "anand_vihar_isbt",
+            "sahibabad",
+            "ghaziabad",
+            "guldhar",
+            "duhai",
+            "duhai_depot",
+            "murad_nagar",
+            "modi_nagar_south",
+            "modi_nagar_north",
+            "meerut_south",
+            "partapur",
+            "rithani",
+            "shatabdi_nagar",
+            "brahampuri",
+            "meerut_central",
+            "bhaisali",
+            "begumpul",
+            "mes_colony",
+            "daurli",
+            "meerut_north",
+            "modipuram"
+      ],
+      "fareMatrix": [
+            [
+                  0,
+                  30,
+                  50,
+                  60,
+                  80,
+                  90,
+                  100,
+                  110,
+                  120,
+                  140,
+                  140,
+                  160,
+                  170,
+                  180,
+                  180,
+                  190,
+                  190,
+                  200,
+                  200,
+                  210,
+                  210,
+                  210,
+                  210
+            ],
+            [
+                  30,
+                  0,
+                  30,
+                  50,
+                  60,
+                  70,
+                  80,
+                  90,
+                  100,
+                  120,
+                  130,
+                  150,
+                  160,
+                  160,
+                  160,
+                  170,
+                  170,
+                  180,
+                  180,
+                  190,
+                  200,
+                  200,
+                  200
+            ],
+            [
+                  50,
+                  30,
+                  0,
+                  30,
+                  40,
+                  50,
+                  60,
+                  70,
+                  80,
+                  90,
+                  100,
+                  130,
+                  140,
+                  140,
+                  140,
+                  160,
+                  160,
+                  160,
+                  160,
+                  170,
+                  180,
+                  180,
+                  180
+            ],
+            [
+                  60,
+                  50,
+                  30,
+                  0,
+                  30,
+                  30,
+                  40,
+                  50,
+                  60,
+                  80,
+                  90,
+                  110,
+                  120,
+                  130,
+                  130,
+                  140,
+                  140,
+                  140,
+                  140,
+                  160,
+                  160,
+                  160,
+                  160
+            ],
+            [
+                  80,
+                  60,
+                  40,
+                  30,
+                  0,
+                  20,
+                  30,
+                  30,
+                  40,
+                  60,
+                  80,
+                  90,
+                  100,
+                  110,
+                  110,
+                  120,
+                  120,
+                  120,
+                  120,
+                  140,
+                  140,
+                  150,
+                  150
+            ],
+            [
+                  90,
+                  70,
+                  50,
+                  30,
+                  20,
+                  0,
+                  20,
+                  30,
+                  30,
+                  50,
+                  60,
+                  80,
+                  100,
+                  100,
+                  100,
+                  110,
+                  110,
+                  120,
+                  120,
+                  130,
+                  140,
+                  140,
+                  140
+            ],
+            [
+                  100,
+                  80,
+                  60,
+                  40,
+                  30,
+                  20,
+                  0,
+                  20,
+                  20,
+                  40,
+                  50,
+                  70,
+                  80,
+                  90,
+                  90,
+                  100,
+                  100,
+                  100,
+                  100,
+                  120,
+                  120,
+                  120,
+                  120
+            ],
+            [
+                  110,
+                  90,
+                  70,
+                  50,
+                  30,
+                  30,
+                  20,
+                  0,
+                  30,
+                  40,
+                  60,
+                  80,
+                  90,
+                  100,
+                  100,
+                  110,
+                  110,
+                  110,
+                  110,
+                  120,
+                  130,
+                  130,
+                  130
+            ],
+            [
+                  120,
+                  100,
+                  80,
+                  60,
+                  40,
+                  30,
+                  20,
+                  30,
+                  0,
+                  20,
+                  30,
+                  60,
+                  70,
+                  70,
+                  70,
+                  80,
+                  80,
+                  90,
+                  90,
+                  100,
+                  110,
+                  110,
+                  110
+            ],
+            [
+                  140,
+                  120,
+                  90,
+                  80,
+                  60,
+                  50,
+                  40,
+                  40,
+                  20,
+                  0,
+                  20,
+                  40,
+                  50,
+                  60,
+                  60,
+                  70,
+                  70,
+                  70,
+                  70,
+                  80,
+                  90,
+                  90,
+                  90
+            ],
+            [
+                  140,
+                  130,
+                  100,
+                  90,
+                  80,
+                  60,
+                  50,
+                  60,
+                  30,
+                  20,
+                  0,
+                  30,
+                  40,
+                  50,
+                  50,
+                  60,
+                  60,
+                  60,
+                  60,
+                  70,
+                  80,
+                  80,
+                  80
+            ],
+            [
+                  160,
+                  150,
+                  130,
+                  110,
+                  90,
+                  80,
+                  70,
+                  80,
+                  60,
+                  40,
+                  30,
+                  0,
+                  20,
+                  20,
+                  30,
+                  30,
+                  30,
+                  40,
+                  40,
+                  50,
+                  50,
+                  50,
+                  60
+            ],
+            [
+                  170,
+                  160,
+                  140,
+                  120,
+                  100,
+                  100,
+                  80,
+                  90,
+                  70,
+                  50,
+                  40,
+                  20,
+                  0,
+                  20,
+                  20,
+                  20,
+                  30,
+                  30,
+                  30,
+                  40,
+                  50,
+                  50,
+                  50
+            ],
+            [
+                  180,
+                  160,
+                  140,
+                  130,
+                  110,
+                  100,
+                  90,
+                  100,
+                  70,
+                  60,
+                  50,
+                  20,
+                  20,
+                  0,
+                  20,
+                  20,
+                  20,
+                  30,
+                  30,
+                  30,
+                  50,
+                  50,
+                  50
+            ],
+            [
+                  180,
+                  160,
+                  140,
+                  130,
+                  110,
+                  100,
+                  90,
+                  100,
+                  70,
+                  60,
+                  50,
+                  30,
+                  20,
+                  20,
+                  0,
+                  20,
+                  20,
+                  20,
+                  30,
+                  30,
+                  40,
+                  40,
+                  50
+            ],
+            [
+                  190,
+                  170,
+                  160,
+                  140,
+                  120,
+                  110,
+                  100,
+                  110,
+                  80,
+                  70,
+                  60,
+                  30,
+                  20,
+                  20,
+                  20,
+                  0,
+                  20,
+                  20,
+                  20,
+                  30,
+                  30,
+                  30,
+                  50
+            ],
+            [
+                  190,
+                  170,
+                  160,
+                  140,
+                  120,
+                  110,
+                  100,
+                  110,
+                  80,
+                  70,
+                  60,
+                  30,
+                  30,
+                  20,
+                  20,
+                  20,
+                  0,
+                  20,
+                  20,
+                  20,
+                  30,
+                  30,
+                  40
+            ],
+            [
+                  200,
+                  180,
+                  160,
+                  140,
+                  120,
+                  120,
+                  100,
+                  110,
+                  90,
+                  70,
+                  60,
+                  40,
+                  30,
+                  30,
+                  20,
+                  20,
+                  20,
+                  0,
+                  20,
+                  20,
+                  20,
+                  30,
+                  30
+            ],
+            [
+                  200,
+                  180,
+                  160,
+                  140,
+                  120,
+                  120,
+                  100,
+                  110,
+                  90,
+                  70,
+                  60,
+                  40,
+                  30,
+                  30,
+                  30,
+                  20,
+                  20,
+                  20,
+                  0,
+                  20,
+                  20,
+                  30,
+                  30
+            ],
+            [
+                  210,
+                  190,
+                  170,
+                  160,
+                  140,
+                  130,
+                  120,
+                  120,
+                  100,
+                  80,
+                  70,
+                  50,
+                  40,
+                  30,
+                  30,
+                  30,
+                  20,
+                  20,
+                  20,
+                  0,
+                  20,
+                  20,
+                  30
+            ],
+            [
+                  210,
+                  200,
+                  180,
+                  160,
+                  140,
+                  140,
+                  120,
+                  130,
+                  110,
+                  90,
+                  80,
+                  50,
+                  50,
+                  50,
+                  40,
+                  30,
+                  30,
+                  20,
+                  20,
+                  20,
+                  0,
+                  20,
+                  20
+            ],
+            [
+                  210,
+                  200,
+                  180,
+                  160,
+                  150,
+                  140,
+                  120,
+                  130,
+                  110,
+                  90,
+                  80,
+                  50,
+                  50,
+                  50,
+                  40,
+                  30,
+                  30,
+                  30,
+                  30,
+                  20,
+                  20,
+                  0,
+                  20
+            ],
+            [
+                  210,
+                  200,
+                  180,
+                  160,
+                  150,
+                  140,
+                  120,
+                  130,
+                  110,
+                  90,
+                  80,
+                  60,
+                  50,
+                  50,
+                  50,
+                  50,
+                  40,
+                  30,
+                  30,
+                  30,
+                  20,
+                  20,
+                  0
+            ]
+      ],
+      "products": {
+            "standard_qr": {
+                  "type": "base",
+                  "label": {
+                        "en": "Standard Class Ticket",
+                        "hi": "\u0938\u094d\u091f\u0948\u0902\u0921\u0930\u094d\u0921 \u0915\u094d\u0932\u093e\u0938 \u091f\u093f\u0915\u091f"
+                  }
+            },
+            "premium_coach": {
+                  "type": "concession",
+                  "baseProduct": "standard_qr",
+                  "multiplier": 1.2,
+                  "label": {
+                        "en": "Premium Lounge & Coach",
+                        "hi": "\u092a\u094d\u0930\u0940\u092e\u093f\u092f\u092e \u0932\u093e\u0909\u0902\u091c \u090f\u0935\u0902 \u0915\u094b\u091a"
+                  }
+            }
+      }
+},
+
+					ncrtc_premium: {
+      "network": "delhi_meerut_rrts",
+      "effectiveFrom": "2025-01-01",
+      "fareModel": "station_pair",
+      "calculation": {
+            "rounding": "exact"
+      },
+      "stations": [
+            "sarai_kale_khan_hazrat_nizamuddin",
+            "new_ashok_nagar",
+            "anand_vihar_isbt",
+            "sahibabad",
+            "ghaziabad",
+            "guldhar",
+            "duhai",
+            "duhai_depot",
+            "murad_nagar",
+            "modi_nagar_south",
+            "modi_nagar_north",
+            "meerut_south",
+            "partapur",
+            "rithani",
+            "shatabdi_nagar",
+            "brahampuri",
+            "meerut_central",
+            "bhaisali",
+            "begumpul",
+            "mes_colony",
+            "daurli",
+            "meerut_north",
+            "modipuram"
+      ],
+      "fareMatrix": [
+            [
+                  0,
+                  35,
+                  60,
+                  70,
+                  95,
+                  110,
+                  120,
+                  130,
+                  145,
+                  170,
+                  170,
+                  190,
+                  200,
+                  210,
+                  215,
+                  225,
+                  225,
+                  235,
+                  240,
+                  250,
+                  250,
+                  250,
+                  250
+            ],
+            [
+                  35,
+                  0,
+                  35,
+                  60,
+                  70,
+                  85,
+                  95,
+                  110,
+                  120,
+                  145,
+                  155,
+                  180,
+                  190,
+                  190,
+                  190,
+                  200,
+                  200,
+                  210,
+                  215,
+                  225,
+                  235,
+                  235,
+                  240
+            ],
+            [
+                  60,
+                  35,
+                  0,
+                  35,
+                  50,
+                  60,
+                  70,
+                  85,
+                  95,
+                  110,
+                  120,
+                  155,
+                  165,
+                  165,
+                  170,
+                  190,
+                  190,
+                  190,
+                  190,
+                  200,
+                  210,
+                  210,
+                  215
+            ],
+            [
+                  70,
+                  60,
+                  35,
+                  0,
+                  35,
+                  35,
+                  50,
+                  60,
+                  70,
+                  95,
+                  110,
+                  130,
+                  140,
+                  150,
+                  155,
+                  165,
+                  165,
+                  165,
+                  170,
+                  190,
+                  190,
+                  190,
+                  190
+            ],
+            [
+                  95,
+                  70,
+                  50,
+                  35,
+                  0,
+                  25,
+                  35,
+                  35,
+                  50,
+                  70,
+                  95,
+                  110,
+                  120,
+                  130,
+                  130,
+                  140,
+                  140,
+                  140,
+                  145,
+                  165,
+                  165,
+                  175,
+                  180
+            ],
+            [
+                  110,
+                  85,
+                  60,
+                  35,
+                  25,
+                  0,
+                  25,
+                  35,
+                  35,
+                  60,
+                  70,
+                  95,
+                  115,
+                  115,
+                  120,
+                  130,
+                  130,
+                  140,
+                  145,
+                  155,
+                  165,
+                  165,
+                  170
+            ],
+            [
+                  120,
+                  95,
+                  70,
+                  50,
+                  35,
+                  25,
+                  0,
+                  25,
+                  25,
+                  50,
+                  60,
+                  85,
+                  95,
+                  105,
+                  110,
+                  120,
+                  120,
+                  120,
+                  120,
+                  140,
+                  140,
+                  140,
+                  145
+            ],
+            [
+                  130,
+                  110,
+                  85,
+                  60,
+                  35,
+                  35,
+                  25,
+                  0,
+                  35,
+                  50,
+                  70,
+                  95,
+                  105,
+                  115,
+                  120,
+                  130,
+                  130,
+                  130,
+                  130,
+                  140,
+                  150,
+                  150,
+                  155
+            ],
+            [
+                  145,
+                  120,
+                  95,
+                  70,
+                  50,
+                  35,
+                  25,
+                  35,
+                  0,
+                  25,
+                  35,
+                  70,
+                  80,
+                  80,
+                  85,
+                  95,
+                  95,
+                  105,
+                  110,
+                  120,
+                  130,
+                  130,
+                  130
+            ],
+            [
+                  170,
+                  145,
+                  110,
+                  95,
+                  70,
+                  60,
+                  50,
+                  50,
+                  25,
+                  0,
+                  25,
+                  50,
+                  60,
+                  70,
+                  70,
+                  80,
+                  80,
+                  80,
+                  85,
+                  95,
+                  105,
+                  105,
+                  110
+            ],
+            [
+                  170,
+                  155,
+                  120,
+                  110,
+                  95,
+                  70,
+                  60,
+                  70,
+                  35,
+                  25,
+                  0,
+                  35,
+                  45,
+                  55,
+                  60,
+                  70,
+                  70,
+                  70,
+                  70,
+                  80,
+                  90,
+                  90,
+                  95
+            ],
+            [
+                  190,
+                  180,
+                  155,
+                  130,
+                  110,
+                  95,
+                  85,
+                  95,
+                  70,
+                  50,
+                  35,
+                  0,
+                  45,
+                  45,
+                  35,
+                  35,
+                  35,
+                  45,
+                  50,
+                  60,
+                  60,
+                  60,
+                  70
+            ],
+            [
+                  200,
+                  190,
+                  165,
+                  140,
+                  120,
+                  115,
+                  95,
+                  105,
+                  80,
+                  60,
+                  45,
+                  45,
+                  0,
+                  20,
+                  45,
+                  20,
+                  30,
+                  30,
+                  35,
+                  45,
+                  55,
+                  55,
+                  60
+            ],
+            [
+                  210,
+                  190,
+                  165,
+                  150,
+                  130,
+                  115,
+                  105,
+                  115,
+                  80,
+                  70,
+                  55,
+                  45,
+                  20,
+                  0,
+                  45,
+                  20,
+                  20,
+                  30,
+                  35,
+                  35,
+                  55,
+                  55,
+                  60
+            ],
+            [
+                  215,
+                  190,
+                  170,
+                  155,
+                  130,
+                  120,
+                  110,
+                  120,
+                  85,
+                  70,
+                  60,
+                  35,
+                  45,
+                  45,
+                  0,
+                  45,
+                  45,
+                  45,
+                  35,
+                  35,
+                  45,
+                  45,
+                  60
+            ],
+            [
+                  225,
+                  200,
+                  190,
+                  165,
+                  140,
+                  130,
+                  120,
+                  130,
+                  95,
+                  80,
+                  70,
+                  35,
+                  20,
+                  20,
+                  45,
+                  0,
+                  20,
+                  20,
+                  45,
+                  30,
+                  30,
+                  30,
+                  55
+            ],
+            [
+                  225,
+                  200,
+                  190,
+                  165,
+                  140,
+                  130,
+                  120,
+                  130,
+                  95,
+                  80,
+                  70,
+                  35,
+                  30,
+                  20,
+                  45,
+                  20,
+                  0,
+                  20,
+                  45,
+                  20,
+                  30,
+                  30,
+                  45
+            ],
+            [
+                  235,
+                  210,
+                  190,
+                  165,
+                  140,
+                  140,
+                  120,
+                  130,
+                  105,
+                  80,
+                  70,
+                  45,
+                  30,
+                  30,
+                  45,
+                  20,
+                  20,
+                  0,
+                  45,
+                  20,
+                  20,
+                  30,
+                  35
+            ],
+            [
+                  240,
+                  215,
+                  190,
+                  170,
+                  145,
+                  145,
+                  120,
+                  130,
+                  110,
+                  85,
+                  70,
+                  50,
+                  35,
+                  35,
+                  35,
+                  45,
+                  45,
+                  45,
+                  0,
+                  45,
+                  45,
+                  55,
+                  35
+            ],
+            [
+                  250,
+                  225,
+                  200,
+                  190,
+                  165,
+                  155,
+                  140,
+                  140,
+                  120,
+                  95,
+                  80,
+                  60,
+                  45,
+                  35,
+                  35,
+                  30,
+                  20,
+                  20,
+                  45,
+                  0,
+                  20,
+                  20,
+                  55
+            ],
+            [
+                  250,
+                  235,
+                  210,
+                  190,
+                  165,
+                  165,
+                  140,
+                  150,
+                  130,
+                  105,
+                  90,
+                  60,
+                  55,
+                  55,
+                  45,
+                  30,
+                  30,
+                  20,
+                  45,
+                  20,
+                  0,
+                  20,
+                  45
+            ],
+            [
+                  250,
+                  235,
+                  210,
+                  190,
+                  175,
+                  165,
+                  140,
+                  150,
+                  130,
+                  105,
+                  90,
+                  60,
+                  55,
+                  55,
+                  45,
+                  30,
+                  30,
+                  30,
+                  55,
+                  20,
+                  20,
+                  0,
+                  45
+            ],
+            [
+                  250,
+                  240,
+                  215,
+                  190,
+                  180,
+                  170,
+                  145,
+                  155,
+                  130,
+                  110,
+                  95,
+                  70,
+                  60,
+                  60,
+                  60,
+                  55,
+                  45,
+                  35,
+                  35,
+                  55,
+                  45,
+                  45,
+                  0
+            ]
+      ],
+      "products": {
+            "premium_qr": {
+                  "type": "base",
+                  "label": {
+                        "en": "Premium Class Ticket",
+                        "hi": "\u092a\u094d\u0930\u0940\u092e\u093f\u092f\u092e \u0915\u094d\u0932\u093e\u0938 \u091f\u093f\u0915\u091f"
+                  }
+            }
+      }
+},
 
 					// 1.6 Meerut Metro
 					meerut_metro: {
@@ -408,31 +1600,33 @@ export const obj = {
 		// 2. MUMBAI (4 Lines)
 		// =========================================================================
 		mumbai: {
-			2.1: {
-				name: "Mumbai Metro Line 1",
-				operator: "MMOPL",
-				fareType: "distance_slab",
-			},
-			2.2: {
-				name: "Mumbai Metro Lines 2A & 7",
-				operator: "MMMOCL",
-				fareType: "distance_slab",
-			},
-			2.3: {
-				name: "Mumbai Metro Line 3 Aqua Line",
-				operator: "MMRCL",
-				fareType: "distance_slab",
-			},
-			2.4: {
-				name: "Navi Mumbai Metro",
-				operator: "Maha Mumbai Metro / CIDCO",
-				fareType: "distance_slab",
-			},
-			2.5: {
-				name: "Mumbai Monorail",
-				operator: "MMRDA",
-				fareType: "distance_slab",
-				status: "suspended", // ⚠️ Suspended since 20 Sep 2025
+			networks: {
+				line1_blue: {
+					name: "Mumbai Metro Line 1",
+					operator: "MMOPL",
+					fareType: "distance_slab",
+				},
+				lines_2a_7: {
+					name: "Mumbai Metro Lines 2A & 7",
+					operator: "MMMOCL",
+					fareType: "distance_slab",
+				},
+				line3_aqua: {
+					name: "Mumbai Metro Line 3 Aqua Line",
+					operator: "MMRCL",
+					fareType: "distance_slab",
+				},
+				navi_mumbai: {
+					name: "Navi Mumbai Metro",
+					operator: "Maha Mumbai Metro / CIDCO",
+					fareType: "distance_slab",
+				},
+				monorail: {
+					name: "Mumbai Monorail",
+					operator: "MMRDA",
+					fareType: "distance_slab",
+					status: "suspended", // ⚠️ Suspended since 20 Sep 2025
+				},
 			},
 			fareRules: {
 				currency: "INR",
@@ -657,10 +1851,12 @@ export const obj = {
 		// 3. KOLKATA (1 Line)
 		// =========================================================================
 		kolkata: {
-			3.1: {
+			networks: {
+				main_metro: {
 				name: "Kolkata Metro",
 				operator: "Metro Railway Kolkata",
 				fareType: "distance_slab",
+			},
 			},
 
 			fareRules: {
@@ -737,10 +1933,12 @@ export const obj = {
 		// 4. BENGALURU (1 Line)
 		// =========================================================================
 		bengaluru: {
-			4.1: {
+			networks: {
+				namma_metro: {
 				name: "Namma Metro",
 				operator: "BMRCL",
 				fareType: "distance_slab",
+			},
 			},
 
 			fareRules: {
@@ -845,10 +2043,12 @@ export const obj = {
 		// 5. HYDERABAD (1 Line)
 		// =========================================================================
 		hyderabad: {
-			5.1: {
+			networks: {
+				lt_metro: {
 				name: "Hyderabad Metro",
 				operator: "HMRL",
 				fareType: "distance_slab",
+			},
 			},
 
 			fareRules: {
@@ -931,14 +2131,16 @@ export const obj = {
 		// =========================================================================
 		// 6. CHENNAI (1 Line)
 		// =========================================================================
-		"chennai": {
-			"6.1": {
+		chennai: {
+			networks: {
+				cmrl_metro: {
 				"name": "Chennai Metro",
 				"operator": "CMRL",
 				"fareType": "distance_slab"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Chennai Metro Rail Limited)
@@ -1011,19 +2213,21 @@ export const obj = {
 		// =========================================================================
 		// 7. KOCHI (2 Lines: Rail + Water Metro)
 		// =========================================================================
-		"kochi": {
-			"7.1": {
-				"name": "Kochi Metro",
-				"operator": "KMRL",
-				"fareType": "distance_slab"
-			},
-			"7.2": {
-				"name": "Kochi Water Metro",
-				"operator": "KWML / KMRL",
-				"fareType": "distance_slab"
+		kochi: {
+			networks: {
+				rail_metro: {
+					name: "Kochi Metro",
+					operator: "KMRL",
+					fareType: "distance_slab"
+				},
+				water_metro: {
+					name: "Kochi Water Metro",
+					operator: "KWML / KMRL",
+					fareType: "distance_slab"
+				}
 			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY
@@ -1181,14 +2385,16 @@ export const obj = {
 		// =========================================================================
 		// 8. AHMEDABAD (1 Line)
 		// =========================================================================
-		"ahmedabad": {
-			"8.1": {
+		ahmedabad: {
+			networks: {
+				gmrc_metro: {
 				"name": "Ahmedabad Metro",
 				"operator": "GMRC",
 				"fareType": "distance_slab"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Gujarat Metro Rail Corporation)
@@ -1260,14 +2466,16 @@ export const obj = {
 		// =========================================================================
 		// 9. PUNE (1 Line)
 		// =========================================================================
-		"pune": {
-			"9.1": {
+		pune: {
+			networks: {
+				maha_metro: {
 				"name": "Pune Metro",
 				"operator": "MahaMetro",
 				"fareType": "distance_slab"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Maharashtra Metro Rail Corporation Limited)
@@ -1361,14 +2569,16 @@ export const obj = {
 		// =========================================================================
 		// 10. NAGPUR (1 Line)
 		// =========================================================================
-		 "nagpur": {
-			"10.1": {
+		 nagpur: {
+			networks: {
+				maha_metro: {
 				"name": "Nagpur Metro",
 				"operator": "MahaMetro",
 				"fareType": "distance_slab"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Maharashtra Metro Rail Corporation Limited)
@@ -1475,14 +2685,16 @@ export const obj = {
 		// =========================================================================
 		// 11. JAIPUR (1 Line)
 		// =========================================================================
-		"jaipur": {
-			"11.1": {
+		jaipur: {
+			networks: {
+				jmrc_metro: {
 				"name": "Jaipur Metro",
 				"operator": "JMRC",
 				"fareType": "station_count_based"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Jaipur Metro Rail Corporation)
@@ -1562,14 +2774,16 @@ export const obj = {
 		// =========================================================================
 		// 12. LUCKNOW (1 Line)
 		// =========================================================================
-		"lucknow": {
-			"12.1": {
+		lucknow: {
+			networks: {
+				upmrc_metro: {
 				"name": "Lucknow Metro",
 				"operator": "UPMRC",
 				"fareType": "station_count_based"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Uttar Pradesh Metro Rail Corporation)
@@ -1662,14 +2876,16 @@ export const obj = {
 		// =========================================================================
 		// 13. KANPUR (1 Line)
 		// =========================================================================
-		"kanpur": {
-			"13.1": {
+		kanpur: {
+			networks: {
+				upmrc_metro: {
 				"name": "Kanpur Metro",
 				"operator": "UPMRC",
 				"fareType": "station_count_based"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Uttar Pradesh Metro Rail Corporation)
@@ -1744,14 +2960,16 @@ export const obj = {
 		// =========================================================================
 		// 14. AGRA (1 Line)
 		// =========================================================================
-		"agra": {
-			"14.1": {
+		agra: {
+			networks: {
+				upmrc_metro: {
 				"name": "Agra Metro",
 				"operator": "UPMRC",
 				"fareType": "station_count_based"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Uttar Pradesh Metro Rail Corporation)
@@ -1825,14 +3043,16 @@ export const obj = {
 		// =========================================================================
 		// 15. INDORE (1 Line)
 		// =========================================================================
-		"indore": {
-			"15.1": {
+		indore: {
+			networks: {
+				mpmrcl_metro: {
 				"name": "Indore Metro",
 				"operator": "Madhya Pradesh Metro Rail Corporation",
 				"fareType": "distance_slab"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Madhya Pradesh Metro Rail Corporation Limited)
@@ -1905,14 +3125,16 @@ export const obj = {
 		// =========================================================================
 		// 16. BHOPAL (1 Line)
 		// =========================================================================
-		"bhopal": {
-			"16.1": {
+		bhopal: {
+			networks: {
+				mpmrcl_metro: {
 				"name": "Bhopal Metro",
 				"operator": "Madhya Pradesh Metro Rail Corporation",
 				"fareType": "distance_slab"
 			},
+			},
 
-			"fareRules": {
+			fareRules: {
 				"currency": "INR", // ISO 4217 Currency Code
 
 				// OPERATOR REGISTRY (Madhya Pradesh Metro Rail Corporation Limited)

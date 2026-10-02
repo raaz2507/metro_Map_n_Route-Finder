@@ -70,11 +70,25 @@ class ProductionEmitter:
 	@staticmethod
 	def promote_buffer_to_base(city_id: str, target_city_dir: Path) -> bool:
 		"""
-		Supervised Promotion: Merges verified station_details_auto.json
-		into station_details.json and resets the buffer.
+		नियम और लॉजिक (Promotion & Base Creation Logic):
+		-------------------------------------------------------------------------
+		1. यदि बेस फ़ाइलें (station_details.json और transit_network.json) पहले से मौजूद नहीं हैं (यानी नया शहर):
+		   - तो यह इंजन सीधे बेस फ़ाइलें बना देगा (Base Initialization)।
+		   - station_details_auto.json से station_details.json बनेगा।
+		   - transit_network_auto.json से transit_network.json बनेगा।
+		
+		2. यदि बेस फ़ाइलें पहले से मौजूद हैं (Existing City):
+		   - तो बेस फ़ाइलों को कभी भी सीधे ओवरराइट नहीं किया जाएगा (Zero Blast Radius)।
+		   - केवल station_details_auto.json का सत्यापित डेल्टा मौजूदा बेस में सुरक्षित रूप से मर्ज (Update) होगा।
+		
+		3. प्रमोशन के बाद:
+		   - दोनों *_auto.json बफ़र फ़ाइलों को क्लीन/रीसेट कर दिया जाएगा।
+		-------------------------------------------------------------------------
 		"""
 		details_auto_file = target_city_dir / "station_details_auto.json"
 		details_base_file = target_city_dir / "station_details.json"
+		transit_auto_file = target_city_dir / "transit_network_auto.json"
+		transit_base_file = target_city_dir / "transit_network.json"
 
 		if not details_auto_file.exists():
 			UniversalPipelineLogger.log("WARN", f"No staging buffer found to promote at: {details_auto_file}")
@@ -87,14 +101,20 @@ class ProductionEmitter:
 			UniversalPipelineLogger.log("ERROR", f"Failed reading auto buffer: {ex}")
 			return False
 
+		# --- कंडीशन 1: station_details.json की हैंडलिंग ---
 		base_data: Dict[str, Any] = {}
-		if details_base_file.exists():
+		is_new_city_details = not details_base_file.exists()
+
+		if not is_new_city_details:
+			# बेस फ़ाइल पहले से मौजूद है - इसे लोड करके सिर्फ नया/अपडेटेड डेल्टा मर्ज करेंगे
 			try:
 				with open(details_base_file, "r", encoding="utf-8") as f:
 					base_data = json.load(f)
 			except Exception as ex:
 				UniversalPipelineLogger.log("ERROR", f"Failed reading base file: {ex}")
 				return False
+		else:
+			UniversalPipelineLogger.log("INFO", f"Base station_details.json not found for [{city_id}]. Initializing as new city base.")
 
 		promoted_count = 0
 		for slug, patch in auto_data.items():
@@ -108,11 +128,31 @@ class ProductionEmitter:
 				base_data[slug].update(clean_patch)
 			promoted_count += 1
 
-		# Atomically update base file with compact serializer
+		# बेस फ़ाइल को सुरक्षित रूप से सेव करें
 		UniversalFileSystemManager.save_atomic_tab_json(details_base_file, base_data, compact=True)
-		UniversalPipelineLogger.log("PROMOTE", f"Successfully baked {promoted_count} stations into: {details_base_file.name}")
+		action_label = "Initialized new base with" if is_new_city_details else "Successfully baked"
+		UniversalPipelineLogger.log("PROMOTE", f"{action_label} {promoted_count} stations into: {details_base_file.name}")
 
-		# Reset auto buffer to clean state
+		# --- कंडीशन 2: transit_network.json की हैंडलिंग ---
+		# अगर बेस transit_network.json मौजूद नहीं है, तो auto बफ़र से बेस नेटवर्क तैयार करें
+		if not transit_base_file.exists() and transit_auto_file.exists():
+			try:
+				with open(transit_auto_file, "r", encoding="utf-8") as f:
+					transit_auto_data = json.load(f)
+				
+				# क्लीन बेस स्ट्रक्चर (बिना _meta के)
+				base_network = {
+					"defaults": {"stationType": "normal", "layout": "elevated"},
+					"lines": transit_auto_data.get("lines", {}),
+					"transfers": transit_auto_data.get("transfers", {}),
+					"stationData": transit_auto_data.get("stations", {})
+				}
+				UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_network, compact=True)
+				UniversalPipelineLogger.log("PROMOTE", f"Initialized new base transit network: {transit_base_file.name}")
+			except Exception as ex:
+				UniversalPipelineLogger.log("ERROR", f"Failed initializing base transit network: {ex}")
+
+		# --- बफ़र रीसेट: प्रमोशन के बाद _auto.json को क्लीन स्टेट में लाएँ ---
 		reset_buffer = {
 			"_meta": {
 				"generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat() + "Z",
@@ -122,7 +162,6 @@ class ProductionEmitter:
 		}
 		UniversalFileSystemManager.save_atomic_tab_json(details_auto_file, reset_buffer)
 
-		transit_auto_file = target_city_dir / "transit_network_auto.json"
 		if transit_auto_file.exists():
 			reset_transit = {
 				"_meta": {
@@ -131,7 +170,7 @@ class ProductionEmitter:
 					"status": "buffer_promoted_and_reset"
 				},
 				"stations": {},
-				"lines": []
+				"lines": {}
 			}
 			UniversalFileSystemManager.save_atomic_tab_json(transit_auto_file, reset_transit)
 

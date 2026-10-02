@@ -43,18 +43,31 @@ class MultiAgencyCandidateAggregator:
 						continue
 
 					canonical_slug = reconciler.resolve(raw_slug)
+					stn_copy = cand_stn.copy()
+
+					# Reconcile platform destinations (e.g. phase_3 -> dlf_phase_3)
+					if "platforms" in stn_copy and isinstance(stn_copy["platforms"], dict):
+						norm_platforms = {}
+						for p_key, p_val in stn_copy["platforms"].items():
+							if isinstance(p_val, dict) and "destination" in p_val:
+								p_copy = p_val.copy()
+								p_copy["destination"] = reconciler.resolve(p_val["destination"])
+								norm_platforms[p_key] = p_copy
+							else:
+								norm_platforms[p_key] = p_val
+						stn_copy["platforms"] = norm_platforms
 
 					if canonical_slug not in combined:
-						combined[canonical_slug] = cand_stn.copy()
+						combined[canonical_slug] = stn_copy
 					else:
 						# Deep-merge multi-agency attributes (Gates, Platforms, Facilities)
 						existing = combined[canonical_slug]
-						if "gates" in cand_stn and isinstance(cand_stn["gates"], dict):
-							existing.setdefault("gates", {}).update(cand_stn["gates"])
-						if "platforms" in cand_stn and isinstance(cand_stn["platforms"], dict):
-							existing.setdefault("platforms", {}).update(cand_stn["platforms"])
-						if "facilities" in cand_stn and isinstance(cand_stn["facilities"], dict):
-							for fac_cat, fac_list in cand_stn["facilities"].items():
+						if "gates" in stn_copy and isinstance(stn_copy["gates"], dict):
+							existing.setdefault("gates", {}).update(stn_copy["gates"])
+						if "platforms" in stn_copy and isinstance(stn_copy["platforms"], dict):
+							existing.setdefault("platforms", {}).update(stn_copy["platforms"])
+						if "facilities" in stn_copy and isinstance(stn_copy["facilities"], dict):
+							for fac_cat, fac_list in stn_copy["facilities"].items():
 								if isinstance(fac_list, list):
 									existing.setdefault("facilities", {}).setdefault(fac_cat, []).extend(fac_list)
 
