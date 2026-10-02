@@ -29,6 +29,7 @@ import uvicorn
 # Imports from pipeline core
 from pipeline_core.file_manager import UniversalFileSystemManager
 from pipeline_core.constants import DEFAULT_USER_AGENT
+from bridge_core.city_resolver import CityRegistryResolver
 
 # UTF-8 encoding configuration
 try:
@@ -287,9 +288,37 @@ def api_dataset(network: str, stage: str = "cleaned"):
         return JSONResponse({"error": f"No {stage} dataset found for {network}"}, status_code=404)
     return data
 
+@app.get("/api/bridge/cities")
+def api_bridge_cities():
+    resolver = CityRegistryResolver(BASE_DIR, BASE_DIR / "india_transit_registry.json")
+    active_keys = resolver.get_active_cities()
+    reg = {}
+    reg_path = BASE_DIR / "india_transit_registry.json"
+    if reg_path.exists():
+        try:
+            with open(reg_path, "r", encoding="utf-8") as f:
+                reg = json.load(f).get("cities", {})
+        except Exception:
+            pass
+
+    cities_info = []
+    for cid in active_keys:
+        cdata = reg.get(cid, {})
+        city_dir = (BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / cid).resolve()
+        staging_dir = (BASE_DIR / ".staging_temp" / cid).resolve()
+        t_exists = (city_dir / "transit_network_auto.json").exists() or (staging_dir / "transit_network_auto.json").exists()
+        d_exists = (city_dir / "station_details_auto.json").exists() or (staging_dir / "station_details_auto.json").exists()
+        cities_info.append({
+            "id": cid,
+            "name": cdata.get("name", cid),
+            "state": cdata.get("state", ""),
+            "has_delta": t_exists or d_exists
+        })
+    return cities_info
+
 @app.get("/api/bridge/status")
 def api_bridge_status(city: str = "delhi_ncr"):
-    city_dir = (BASE_DIR.parent / "main_project" / "data" / "cities" / city).resolve()
+    city_dir = (BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / city).resolve()
     staging_dir = (BASE_DIR / ".staging_temp" / city).resolve()
 
     transit_file = city_dir / "transit_network_auto.json"
@@ -316,7 +345,7 @@ def api_bridge_status(city: str = "delhi_ncr"):
 def api_bridge_inspect(city: str = "delhi_ncr", network: Optional[str] = None, station: Optional[str] = None):
     net_id = UniversalFileSystemManager.resolve_network_for_city(city, network)
     master_file = UniversalFileSystemManager.get_stage_path(net_id, "master")
-    city_dir = (BASE_DIR.parent / "main_project" / "data" / "cities" / city).resolve()
+    city_dir = (BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / city).resolve()
     staging_dir = (BASE_DIR / ".staging_temp" / city).resolve()
 
     details_auto_file = next((f for f in [staging_dir / "station_details_auto.json", city_dir / "station_details_auto.json"] if f.exists()), None)
@@ -367,7 +396,7 @@ def api_bridge_inspect(city: str = "delhi_ncr", network: Optional[str] = None, s
 
 @app.get("/api/bridge/merge_station")
 def api_bridge_merge_station(city: str, station: str):
-    city_dir = (BASE_DIR.parent / "main_project" / "data" / "cities" / city).resolve()
+    city_dir = (BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / city).resolve()
     details_auto_file = city_dir / "station_details_auto.json"
     details_base_file = city_dir / "station_details.json"
     transit_auto_file = city_dir / "transit_network_auto.json"

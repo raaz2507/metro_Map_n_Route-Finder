@@ -1,0 +1,1354 @@
+{
+	"vastral_gam": {
+		"id": "vastral_gam",
+		"station_code": "",
+		"station_name_en": "Vastral Gam",
+		"station_name_gu": "વસ્ત્રાલ ગામ",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 1,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 1,
+		"coordinates": {
+			"latitude": 22.997218,
+			"longitude": 72.667415
+		},
+		"meta_raw": {
+			"dropdown_id": 1,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"nirant_cross_road": {
+		"id": "nirant_cross_road",
+		"station_code": "",
+		"station_name_en": "Nirant Cross Road",
+		"station_name_gu": "નિરાંત ક્રોસ રોડ",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 2,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 2,
+		"coordinates": {
+			"latitude": 23.000442,
+			"longitude": 72.658886
+		},
+		"meta_raw": {
+			"dropdown_id": 2,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"vastral": {
+		"id": "vastral",
+		"station_code": "",
+		"station_name_en": "Vastral",
+		"station_name_gu": "વસ્ત્રાલ",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 3,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 3,
+		"coordinates": {
+			"latitude": 23.003801,
+			"longitude": 72.646869
+		},
+		"meta_raw": {
+			"dropdown_id": 3,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"rabari_colony": {
+		"id": "rabari_colony",
+		"station_code": "",
+		"station_name_en": "Rabari Colony",
+		"station_name_gu": "રબારી કોલોની",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 4,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 4,
+		"coordinates": {
+			"latitude": 23.005513,
+			"longitude": 72.635463
+		},
+		"meta_raw": {
+			"dropdown_id": 4,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"amraivadi": {
+		"id": "amraivadi",
+		"station_code": "",
+		"station_name_en": "Amraivadi",
+		"station_name_gu": "Amraivadi",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 5,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 5,
+		"meta_raw": {
+			"dropdown_id": 5,
+			"coordinates_found": false,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"apparel_park": {
+		"id": "apparel_park",
+		"station_code": "",
+		"station_name_en": "Apparel Park",
+		"station_name_gu": "એપેરલ પાર્ક",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 6,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 6,
+		"coordinates": {
+			"latitude": 23.01085,
+			"longitude": 72.61746
+		},
+		"meta_raw": {
+			"dropdown_id": 6,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"kankaria_east": {
+		"id": "kankaria_east",
+		"station_code": "",
+		"station_name_en": "Kankaria East",
+		"station_name_gu": "કાંકરિયા પૂર્વ",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 7,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 7,
+		"coordinates": {
+			"latitude": 23.015185,
+			"longitude": 72.606984
+		},
+		"meta_raw": {
+			"dropdown_id": 7,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"kalupur": {
+		"id": "kalupur",
+		"station_code": "",
+		"station_name_en": "Kalupur",
+		"station_name_gu": "કાલુપુર રેલ્વે સ્ટેશન",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 8,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 8,
+		"coordinates": {
+			"latitude": 23.024785,
+			"longitude": 72.602903
+		},
+		"meta_raw": {
+			"dropdown_id": 8,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"gheekanta": {
+		"id": "gheekanta",
+		"station_code": "",
+		"station_name_en": "Gheekanta",
+		"station_name_gu": "ઘીકાંટા",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 9,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 9,
+		"coordinates": {
+			"latitude": 23.028383,
+			"longitude": 72.586332
+		},
+		"meta_raw": {
+			"dropdown_id": 9,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"shahpur": {
+		"id": "shahpur",
+		"station_code": "",
+		"station_name_en": "Shahpur",
+		"station_name_gu": "શાહપુર",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 10,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 10,
+		"coordinates": {
+			"latitude": 23.17482,
+			"longitude": 72.673594
+		},
+		"meta_raw": {
+			"dropdown_id": 10,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"old_high_court": {
+		"id": "old_high_court",
+		"station_code": "",
+		"station_name_en": "Old High Court",
+		"station_name_gu": "જૂની હાઇ કોર્ટ",
+		"line": "Red LineBlue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 11,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 11,
+		"coordinates": {
+			"latitude": 23.037622,
+			"longitude": 72.566988
+		},
+		"meta_raw": {
+			"dropdown_id": 11,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sp_stadium": {
+		"id": "sp_stadium",
+		"station_code": "",
+		"station_name_en": "SP Stadium",
+		"station_name_gu": "એસ પી સ્ટેડિયમ",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 12,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 12,
+		"coordinates": {
+			"latitude": 23.039854,
+			"longitude": 72.561807
+		},
+		"meta_raw": {
+			"dropdown_id": 12,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"commerce_six_road": {
+		"id": "commerce_six_road",
+		"station_code": "",
+		"station_name_en": "Commerce Six Road",
+		"station_name_gu": "કોમર્સ છ રસ્તા",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 13,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 13,
+		"meta_raw": {
+			"dropdown_id": 13,
+			"coordinates_found": false,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"gujarat_university": {
+		"id": "gujarat_university",
+		"station_code": "",
+		"station_name_en": "Gujarat University",
+		"station_name_gu": "ગુજરાત યુનિવર્સિટી",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 14,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 14,
+		"coordinates": {
+			"latitude": 23.044902,
+			"longitude": 72.543374
+		},
+		"meta_raw": {
+			"dropdown_id": 14,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"gurukul_road": {
+		"id": "gurukul_road",
+		"station_code": "",
+		"station_name_en": "Gurukul Road",
+		"station_name_gu": "ગુરુકુળ રોડ",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 15,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 15,
+		"coordinates": {
+			"latitude": 23.046007,
+			"longitude": 72.53505
+		},
+		"meta_raw": {
+			"dropdown_id": 15,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"doordarshan_kendra": {
+		"id": "doordarshan_kendra",
+		"station_code": "",
+		"station_name_en": "Doordarshan Kendra",
+		"station_name_gu": "દૂરદર્શન કેન્દ્ર",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 16,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 16,
+		"coordinates": {
+			"latitude": 23.048086,
+			"longitude": 72.524867
+		},
+		"meta_raw": {
+			"dropdown_id": 16,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"thaltej": {
+		"id": "thaltej",
+		"station_code": "",
+		"station_name_en": "Thaltej",
+		"station_name_gu": "થલતેજ",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 17,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 17,
+		"coordinates": {
+			"latitude": 23.0497376,
+			"longitude": 72.515931
+		},
+		"meta_raw": {
+			"dropdown_id": 17,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"thaltej_gam": {
+		"id": "thaltej_gam",
+		"station_code": "",
+		"station_name_en": "Thaltej Gam",
+		"station_name_gu": "થલતેજ ગામ",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 18,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 18,
+		"coordinates": {
+			"latitude": 23.0501558,
+			"longitude": 72.5070294
+		},
+		"meta_raw": {
+			"dropdown_id": 18,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"apmc": {
+		"id": "apmc",
+		"station_code": "",
+		"station_name_en": "APMC",
+		"station_name_gu": "એ પી એમ સી",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 19,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 19,
+		"coordinates": {
+			"latitude": 22.997729,
+			"longitude": 72.537201
+		},
+		"meta_raw": {
+			"dropdown_id": 19,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"jivraj_park": {
+		"id": "jivraj_park",
+		"station_code": "",
+		"station_name_en": "Jivraj Park",
+		"station_name_gu": "જીવરાજ પાર્ક",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 20,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 20,
+		"coordinates": {
+			"latitude": 23.005481,
+			"longitude": 72.53355
+		},
+		"meta_raw": {
+			"dropdown_id": 20,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"rajivnagar": {
+		"id": "rajivnagar",
+		"station_code": "",
+		"station_name_en": "Rajivnagar",
+		"station_name_gu": "રાજીવ નગર",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 21,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 21,
+		"coordinates": {
+			"latitude": 23.009701,
+			"longitude": 72.53673
+		},
+		"meta_raw": {
+			"dropdown_id": 21,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"shreyas": {
+		"id": "shreyas",
+		"station_code": "",
+		"station_name_en": "Shreyas",
+		"station_name_gu": "શ્રેયસ",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 22,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 22,
+		"coordinates": {
+			"latitude": 23.013778,
+			"longitude": 72.549295
+		},
+		"meta_raw": {
+			"dropdown_id": 22,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"paldi": {
+		"id": "paldi",
+		"station_code": "",
+		"station_name_en": "Paldi",
+		"station_name_gu": "પાલડી",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 23,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 23,
+		"coordinates": {
+			"latitude": 23.018566,
+			"longitude": 72.562385
+		},
+		"meta_raw": {
+			"dropdown_id": 23,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"gandhigram": {
+		"id": "gandhigram",
+		"station_code": "",
+		"station_name_en": "Gandhigram",
+		"station_name_gu": "ગાંધીગ્રામ",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 24,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 24,
+		"coordinates": {
+			"latitude": 23.027234,
+			"longitude": 72.56892
+		},
+		"meta_raw": {
+			"dropdown_id": 24,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"usmanpura": {
+		"id": "usmanpura",
+		"station_code": "",
+		"station_name_en": "Usmanpura",
+		"station_name_gu": "ઉસ્માનપુરા",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 25,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 25,
+		"coordinates": {
+			"latitude": 23.045889,
+			"longitude": 72.565015
+		},
+		"meta_raw": {
+			"dropdown_id": 25,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"vijaynagar": {
+		"id": "vijaynagar",
+		"station_code": "",
+		"station_name_en": "Vijaynagar",
+		"station_name_gu": "વિજય નગર",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 26,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 26,
+		"coordinates": {
+			"latitude": 23.056222,
+			"longitude": 72.562468
+		},
+		"meta_raw": {
+			"dropdown_id": 26,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"vadaj": {
+		"id": "vadaj",
+		"station_code": "",
+		"station_name_en": "Vadaj",
+		"station_name_gu": "વાડજ",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 27,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 27,
+		"coordinates": {
+			"latitude": 23.06773,
+			"longitude": 72.565822
+		},
+		"meta_raw": {
+			"dropdown_id": 27,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"ranip": {
+		"id": "ranip",
+		"station_code": "",
+		"station_name_en": "Ranip",
+		"station_name_gu": "રાણીપ",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 28,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 28,
+		"coordinates": {
+			"latitude": 23.067675,
+			"longitude": 72.574009
+		},
+		"meta_raw": {
+			"dropdown_id": 28,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sabarmati_railway_station": {
+		"id": "sabarmati_railway_station",
+		"station_code": "",
+		"station_name_en": "Sabarmati Railway Station",
+		"station_name_gu": "સાબરમતી રેલવે સ્ટેશન",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 29,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 29,
+		"coordinates": {
+			"latitude": 23.085675,
+			"longitude": 72.592206
+		},
+		"meta_raw": {
+			"dropdown_id": 29,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"aec": {
+		"id": "aec",
+		"station_code": "",
+		"station_name_en": "AEC",
+		"station_name_gu": "એ ઇ સી",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 30,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 30,
+		"coordinates": {
+			"latitude": 23.075157,
+			"longitude": 72.593291
+		},
+		"meta_raw": {
+			"dropdown_id": 30,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sabarmati": {
+		"id": "sabarmati",
+		"station_code": "",
+		"station_name_en": "Sabarmati",
+		"station_name_gu": "સાબરમતી",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 31,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 31,
+		"coordinates": {
+			"latitude": 23.085675,
+			"longitude": 72.592206
+		},
+		"meta_raw": {
+			"dropdown_id": 31,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"motera_stadium": {
+		"id": "motera_stadium",
+		"station_code": "",
+		"station_name_en": "Motera Stadium",
+		"station_name_gu": "મોટેરા સ્ટેડિયમ",
+		"line": "Red LineYellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 32,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 32,
+		"coordinates": {
+			"latitude": 23.096694,
+			"longitude": 72.596655
+		},
+		"meta_raw": {
+			"dropdown_id": 32,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"koteshwar_road": {
+		"id": "koteshwar_road",
+		"station_code": "",
+		"station_name_en": "Koteshwar Road",
+		"station_name_gu": "કોટેશ્વર રોડ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 33,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 33,
+		"coordinates": {
+			"latitude": 23.105398,
+			"longitude": 72.6031113
+		},
+		"meta_raw": {
+			"dropdown_id": 33,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"vishwakarma_college": {
+		"id": "vishwakarma_college",
+		"station_code": "",
+		"station_name_en": "Vishwakarma College",
+		"station_name_gu": "વિશ્વકર્મા કોલેજ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 34,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 34,
+		"coordinates": {
+			"latitude": 23.11431,
+			"longitude": 72.608569
+		},
+		"meta_raw": {
+			"dropdown_id": 34,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"tapovan_circle": {
+		"id": "tapovan_circle",
+		"station_code": "",
+		"station_name_en": "Tapovan Circle",
+		"station_name_gu": "તપોવન સર્કલ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 35,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 35,
+		"coordinates": {
+			"latitude": 23.1199142,
+			"longitude": 72.6165966
+		},
+		"meta_raw": {
+			"dropdown_id": 35,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"narmada_canal": {
+		"id": "narmada_canal",
+		"station_code": "",
+		"station_name_en": "Narmada Canal",
+		"station_name_gu": "નર્મદા કેનાલ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 36,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 36,
+		"coordinates": {
+			"latitude": 23.125338,
+			"longitude": 72.622327
+		},
+		"meta_raw": {
+			"dropdown_id": 36,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"koba_circle": {
+		"id": "koba_circle",
+		"station_code": "",
+		"station_name_en": "Koba Circle",
+		"station_name_gu": "કોબા સર્કલ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 37,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 37,
+		"coordinates": {
+			"latitude": 23.132206,
+			"longitude": 72.630952
+		},
+		"meta_raw": {
+			"dropdown_id": 37,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"juna_koba": {
+		"id": "juna_koba",
+		"station_code": "",
+		"station_name_en": "Juna Koba",
+		"station_name_gu": "જૂના કોબા",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 38,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 38,
+		"coordinates": {
+			"latitude": 23.141811,
+			"longitude": 72.638453
+		},
+		"meta_raw": {
+			"dropdown_id": 38,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"koba_gam": {
+		"id": "koba_gam",
+		"station_code": "",
+		"station_name_en": "Koba Gam",
+		"station_name_gu": "કોબા ગામ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 39,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 39,
+		"coordinates": {
+			"latitude": 23.147469,
+			"longitude": 72.643825
+		},
+		"meta_raw": {
+			"dropdown_id": 39,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"gnlu": {
+		"id": "gnlu",
+		"station_code": "",
+		"station_name_en": "GNLU",
+		"station_name_gu": "જી એન એલ યુ",
+		"line": "Yellow LineViolet Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 40,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 40,
+		"coordinates": {
+			"latitude": 23.154344,
+			"longitude": 72.647375
+		},
+		"meta_raw": {
+			"dropdown_id": 40,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"raysan": {
+		"id": "raysan",
+		"station_code": "",
+		"station_name_en": "Raysan",
+		"station_name_gu": "રાયસણ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 41,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 41,
+		"coordinates": {
+			"latitude": 23.166206,
+			"longitude": 72.648367
+		},
+		"meta_raw": {
+			"dropdown_id": 41,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"randesan": {
+		"id": "randesan",
+		"station_code": "",
+		"station_name_en": "Randesan",
+		"station_name_gu": "રાંદેસણ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 42,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 42,
+		"coordinates": {
+			"latitude": 23.178853,
+			"longitude": 72.647333
+		},
+		"meta_raw": {
+			"dropdown_id": 42,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"dholakuva_circle": {
+		"id": "dholakuva_circle",
+		"station_code": "",
+		"station_name_en": "Dholakuva Circle",
+		"station_name_gu": "ધોળાકુવા સર્કલ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 43,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 43,
+		"coordinates": {
+			"latitude": 23.185698,
+			"longitude": 72.643363
+		},
+		"meta_raw": {
+			"dropdown_id": 43,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"infocity": {
+		"id": "infocity",
+		"station_code": "",
+		"station_name_en": "Infocity",
+		"station_name_gu": "ઇન્ફોસિટી",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 44,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 44,
+		"coordinates": {
+			"latitude": 23.192418,
+			"longitude": 72.639748
+		},
+		"meta_raw": {
+			"dropdown_id": 44,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sector_1": {
+		"id": "sector_1",
+		"station_code": "",
+		"station_name_en": "Sector-1",
+		"station_name_gu": "Sector-1",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 45,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 45,
+		"coordinates": {
+			"latitude": 23.205186,
+			"longitude": 72.643387
+		},
+		"meta_raw": {
+			"dropdown_id": 45,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sector_10a": {
+		"id": "sector_10a",
+		"station_code": "",
+		"station_name_en": "Sector 10A",
+		"station_name_gu": "Sector 10A",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 46,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 46,
+		"coordinates": {
+			"latitude": 23.210558,
+			"longitude": 72.651751
+		},
+		"meta_raw": {
+			"dropdown_id": 46,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sachivalaya": {
+		"id": "sachivalaya",
+		"station_code": "",
+		"station_name_en": "Sachivalaya",
+		"station_name_gu": "સચિવાલય",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 47,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 47,
+		"coordinates": {
+			"latitude": 23.214883,
+			"longitude": 72.658712
+		},
+		"meta_raw": {
+			"dropdown_id": 47,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"akshardham": {
+		"id": "akshardham",
+		"station_code": "",
+		"station_name_en": "Akshardham",
+		"station_name_gu": "અક્ષરધામ",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 48,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 48,
+		"coordinates": {
+			"latitude": 23.223491,
+			"longitude": 72.664241
+		},
+		"meta_raw": {
+			"dropdown_id": 48,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"juna_sachivalaya": {
+		"id": "juna_sachivalaya",
+		"station_code": "",
+		"station_name_en": "Juna Sachivalaya",
+		"station_name_gu": "જૂના સચિવાલય",
+		"line": "Yellow Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 49,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 49,
+		"coordinates": {
+			"latitude": 23.228877,
+			"longitude": 72.659482
+		},
+		"meta_raw": {
+			"dropdown_id": 49,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sector_16": {
+		"id": "sector_16",
+		"station_code": "",
+		"station_name_en": "Sector-16",
+		"station_name_gu": "Sector-16",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 50,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 50,
+		"coordinates": {
+			"latitude": 23.233805,
+			"longitude": 72.650208
+		},
+		"meta_raw": {
+			"dropdown_id": 50,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sector_24": {
+		"id": "sector_24",
+		"station_code": "",
+		"station_name_en": "Sector-24",
+		"station_name_gu": "Sector-24",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 51,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 51,
+		"coordinates": {
+			"latitude": 23.238425,
+			"longitude": 72.641564
+		},
+		"meta_raw": {
+			"dropdown_id": 51,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"mahatama_mandir": {
+		"id": "mahatama_mandir",
+		"station_code": "",
+		"station_name_en": "Mahatama Mandir",
+		"station_name_gu": "Mahatama Mandir",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 52,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 52,
+		"meta_raw": {
+			"dropdown_id": 52,
+			"coordinates_found": false,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"pdeu": {
+		"id": "pdeu",
+		"station_code": "",
+		"station_name_en": "PDEU",
+		"station_name_gu": "પી ડી ઈ યુ",
+		"line": "Violet Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 53,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 53,
+		"coordinates": {
+			"latitude": 23.154792,
+			"longitude": 72.661297
+		},
+		"meta_raw": {
+			"dropdown_id": 53,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"gift_city": {
+		"id": "gift_city",
+		"station_code": "",
+		"station_name_en": "Gift City",
+		"station_name_gu": "ગિફ્ટ સિટી",
+		"line": "Violet Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 54,
+		"layout": "Elevated",
+		"status": "Operational",
+		"is_operational": true,
+		"order": 54,
+		"coordinates": {
+			"latitude": 23.153264,
+			"longitude": 72.685575
+		},
+		"meta_raw": {
+			"dropdown_id": 54,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"ashram_road": {
+		"id": "ashram_road",
+		"station_code": "",
+		"station_name_en": "Ashram Road",
+		"station_name_gu": "Ashram Road",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 55,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 55,
+		"coordinates": {
+			"latitude": 23.099978,
+			"longitude": 72.605369
+		},
+		"meta_raw": {
+			"dropdown_id": 55,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"koteshwar_prachin_mandir": {
+		"id": "koteshwar_prachin_mandir",
+		"station_code": "",
+		"station_name_en": "Koteshwar Prachin Mandir",
+		"station_name_gu": "Koteshwar Prachin Mandir",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 56,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 56,
+		"coordinates": {
+			"latitude": 23.094403,
+			"longitude": 72.614922
+		},
+		"meta_raw": {
+			"dropdown_id": 56,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sabarmati_river": {
+		"id": "sabarmati_river",
+		"station_code": "",
+		"station_name_en": "Sabarmati River",
+		"station_name_gu": "સાબરમતી",
+		"line": "Red Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 57,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 57,
+		"coordinates": {
+			"latitude": 23.094592,
+			"longitude": 72.622158
+		},
+		"meta_raw": {
+			"dropdown_id": 57,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"sardarnagar": {
+		"id": "sardarnagar",
+		"station_code": "",
+		"station_name_en": "Sardarnagar",
+		"station_name_gu": "Sardarnagar",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 58,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 58,
+		"coordinates": {
+			"latitude": 23.084411,
+			"longitude": 72.620817
+		},
+		"meta_raw": {
+			"dropdown_id": 58,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"airport": {
+		"id": "airport",
+		"station_code": "",
+		"station_name_en": "Airport",
+		"station_name_gu": "Airport",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 59,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 59,
+		"coordinates": {
+			"latitude": 23.073433,
+			"longitude": 72.621911
+		},
+		"meta_raw": {
+			"dropdown_id": 59,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"gift_city_house": {
+		"id": "gift_city_house",
+		"station_code": "",
+		"station_name_en": "GIFT City House",
+		"station_name_gu": "ગિફ્ટ સિટી",
+		"line": "Violet Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 60,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 60,
+		"coordinates": {
+			"latitude": 23.16321,
+			"longitude": 72.683247
+		},
+		"meta_raw": {
+			"dropdown_id": 60,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"gujarat_biotechnology_university": {
+		"id": "gujarat_biotechnology_university",
+		"station_code": "",
+		"station_name_en": "Gujarat Biotechnology University",
+		"station_name_gu": "Gujarat Biotechnology University",
+		"line": null,
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 61,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 61,
+		"coordinates": {
+			"latitude": 23.16821,
+			"longitude": 72.67365
+		},
+		"meta_raw": {
+			"dropdown_id": 61,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	},
+	"shahpur(1)": {
+		"id": "shahpur(1)",
+		"station_code": "",
+		"station_name_en": "Shahpur",
+		"station_name_gu": "શાહપુર",
+		"line": "Blue Line",
+		"operator": "Gujarat Metro Rail Corporation (GMRC)",
+		"station_id": 62,
+		"layout": "Elevated",
+		"status": "Work in Progress",
+		"is_operational": false,
+		"order": 62,
+		"coordinates": {
+			"latitude": 23.17482,
+			"longitude": 72.673594
+		},
+		"meta_raw": {
+			"dropdown_id": 62,
+			"coordinates_found": true,
+			"source": "official_gmrc_portal"
+		}
+	}
+}

@@ -174,9 +174,9 @@
 			z-index: var(--z-modal);
 		}
 
-		/* Hide footer only on interactive map view with floating bottom nav */
-		body:has(.floating-nav) footer,
-		body:has(#map) footer {
+		/* Hide main site footer only on interactive map view with floating bottom nav */
+		body:has(.floating-nav) footer.site-footer,
+		body:has(#map) footer.site-footer {
 			display: none;
 		}
 	}

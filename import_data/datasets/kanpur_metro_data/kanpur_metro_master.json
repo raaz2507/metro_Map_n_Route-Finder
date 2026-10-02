@@ -1,0 +1,295 @@
+{
+	"defaults": {"stationType": "normal", "layout": "elevated"},
+	"lines": {
+		"upmrc_kanpur.orange": {
+			"id": "upmrc_kanpur.orange",
+			"network": "kanpur_metro",
+			"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
+			"label": "O",
+			"short_name": {"en": "Orange Line (Line 1)", "hi": "ऑरेंज लाइन"},
+			"color": "#FF7A00",
+			"color_name": "orange",
+			"style": "solid",
+			"route": {"from": "iit_kanpur", "to": "kanpur_central"},
+			"stations": [
+				"iit_kanpur",
+				"kalyanpur_metro",
+				"spm_hospital",
+				"vishwavidyalaya_metro",
+				"gurudev_chauraha",
+				"geeta_nagar",
+				"rawatpur_metro",
+				"llr_hospital",
+				"motijheel_metro",
+				"chunni_ganj",
+				"naveen_market",
+				"bada_chauraha",
+				"naya_ganj",
+				"kanpur_central"
+			]
+		}
+	},
+	"transfers": {},
+	"stationData": {
+		"iit_kanpur": {
+			"id": "iit_kanpur",
+			"name": {"en": "IIT Kanpur", "hi": "आईआईटी कानपुर"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "IITK",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "kalyanpur_metro", "line": "upmrc_kanpur.orange"}]
+		},
+		"kalyanpur_metro": {
+			"id": "kalyanpur_metro",
+			"name": {"en": "Kalyanpur Metro", "hi": "कल्याणपुर मेट्रो"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "KLNM",
+			"location": {"decimal": {"lat": 26.5036, "lon": 26.5036}},
+			"neighbors": [{"station": "iit_kanpur", "line": "upmrc_kanpur.orange"}, {"station": "spm_hospital", "line": "upmrc_kanpur.orange"}]
+		},
+		"spm_hospital": {
+			"id": "spm_hospital",
+			"name": {"en": "SPM Hospital", "hi": "एसपीएम हॉस्पिटल"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "SPMH",
+			"location": {"decimal": {"lat": 26.49887, "lon": 26.49887}},
+			"neighbors": [
+				{"station": "kalyanpur_metro", "line": "upmrc_kanpur.orange"},
+				{"station": "vishwavidyalaya_metro", "line": "upmrc_kanpur.orange"}
+			]
+		},
+		"vishwavidyalaya_metro": {
+			"id": "vishwavidyalaya_metro",
+			"name": {"en": "Vishwavidyalaya Metro", "hi": "विश्व विद्यालय मेट्रो"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "VWLM",
+			"location": {"decimal": {"lat": 26.49662, "lon": 80.26744}},
+			"neighbors": [{"station": "spm_hospital", "line": "upmrc_kanpur.orange"}, {"station": "gurudev_chauraha", "line": "upmrc_kanpur.orange"}]
+		},
+		"gurudev_chauraha": {
+			"id": "gurudev_chauraha",
+			"name": {"en": "Gurudev Chauraha", "hi": "गुरुदेव चौराहा"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "GDCH",
+			"location": {"decimal": {"lat": 26.4916, "lon": 80.28475}},
+			"neighbors": [{"station": "vishwavidyalaya_metro", "line": "upmrc_kanpur.orange"}, {"station": "geeta_nagar", "line": "upmrc_kanpur.orange"}]
+		},
+		"geeta_nagar": {
+			"id": "geeta_nagar",
+			"name": {"en": "Geeta Nagar", "hi": "गीतानगर"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "GTNG",
+			"location": {"decimal": {"lat": 26.48716, "lon": 80.29206}},
+			"neighbors": [{"station": "gurudev_chauraha", "line": "upmrc_kanpur.orange"}, {"station": "rawatpur_metro", "line": "upmrc_kanpur.orange"}]
+		},
+		"rawatpur_metro": {
+			"id": "rawatpur_metro",
+			"name": {"en": "Rawatpur Metro", "hi": "रावतपुर मेट्रो"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "RWPM",
+			"location": {"decimal": {"lat": 26.48297, "lon": 80.29989}},
+			"neighbors": [{"station": "geeta_nagar", "line": "upmrc_kanpur.orange"}, {"station": "llr_hospital", "line": "upmrc_kanpur.orange"}]
+		},
+		"llr_hospital": {
+			"id": "llr_hospital",
+			"name": {"en": "LLR Hospital", "hi": "एलएलआर अस्पताल"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "LLRH",
+			"location": {"decimal": {"lat": 26.47926, "lon": 80.31151}},
+			"neighbors": [{"station": "rawatpur_metro", "line": "upmrc_kanpur.orange"}, {"station": "motijheel_metro", "line": "upmrc_kanpur.orange"}]
+		},
+		"motijheel_metro": {
+			"id": "motijheel_metro",
+			"name": {"en": "Motijheel Metro", "hi": "मोतीझील मेट्रो"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "MTJM",
+			"location": {"decimal": {"lat": 26.47903, "lon": 80.31802}},
+			"neighbors": [{"station": "llr_hospital", "line": "upmrc_kanpur.orange"}, {"station": "chunni_ganj", "line": "upmrc_kanpur.orange"}]
+		},
+		"chunni_ganj": {
+			"id": "chunni_ganj",
+			"name": {"en": "Chunni Ganj", "hi": "चुन्नी गंज"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "CHGJ",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "motijheel_metro", "line": "upmrc_kanpur.orange"}, {"station": "naveen_market", "line": "upmrc_kanpur.orange"}]
+		},
+		"naveen_market": {
+			"id": "naveen_market",
+			"name": {"en": "Naveen Market", "hi": "नवीन मार्केट"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "NMKT",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "chunni_ganj", "line": "upmrc_kanpur.orange"}, {"station": "bada_chauraha", "line": "upmrc_kanpur.orange"}]
+		},
+		"bada_chauraha": {
+			"id": "bada_chauraha",
+			"name": {"en": "Bada Chauraha", "hi": "बड़ा चौराहा"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "BDCH",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "naveen_market", "line": "upmrc_kanpur.orange"}, {"station": "naya_ganj", "line": "upmrc_kanpur.orange"}]
+		},
+		"naya_ganj": {
+			"id": "naya_ganj",
+			"name": {"en": "Naya Ganj", "hi": "नया गंज"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "NYGJ",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "bada_chauraha", "line": "upmrc_kanpur.orange"}, {"station": "kanpur_central", "line": "upmrc_kanpur.orange"}]
+		},
+		"kanpur_central": {
+			"id": "kanpur_central",
+			"name": {"en": "Kanpur Central", "hi": "कानपुर सेंट्रल"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "KNCM",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "naya_ganj", "line": "upmrc_kanpur.orange"}]
+		}
+	},
+	"stations": {
+		"iit_kanpur": {
+			"id": "iit_kanpur",
+			"name": {"en": "IIT Kanpur", "hi": "आईआईटी कानपुर"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "IITK",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "kalyanpur_metro", "line": "upmrc_kanpur.orange"}]
+		},
+		"kalyanpur_metro": {
+			"id": "kalyanpur_metro",
+			"name": {"en": "Kalyanpur Metro", "hi": "कल्याणपुर मेट्रो"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "KLNM",
+			"location": {"decimal": {"lat": 26.5036, "lon": 26.5036}},
+			"neighbors": [{"station": "iit_kanpur", "line": "upmrc_kanpur.orange"}, {"station": "spm_hospital", "line": "upmrc_kanpur.orange"}]
+		},
+		"spm_hospital": {
+			"id": "spm_hospital",
+			"name": {"en": "SPM Hospital", "hi": "एसपीएम हॉस्पिटल"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "SPMH",
+			"location": {"decimal": {"lat": 26.49887, "lon": 26.49887}},
+			"neighbors": [
+				{"station": "kalyanpur_metro", "line": "upmrc_kanpur.orange"},
+				{"station": "vishwavidyalaya_metro", "line": "upmrc_kanpur.orange"}
+			]
+		},
+		"vishwavidyalaya_metro": {
+			"id": "vishwavidyalaya_metro",
+			"name": {"en": "Vishwavidyalaya Metro", "hi": "विश्व विद्यालय मेट्रो"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "VWLM",
+			"location": {"decimal": {"lat": 26.49662, "lon": 80.26744}},
+			"neighbors": [{"station": "spm_hospital", "line": "upmrc_kanpur.orange"}, {"station": "gurudev_chauraha", "line": "upmrc_kanpur.orange"}]
+		},
+		"gurudev_chauraha": {
+			"id": "gurudev_chauraha",
+			"name": {"en": "Gurudev Chauraha", "hi": "गुरुदेव चौराहा"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "GDCH",
+			"location": {"decimal": {"lat": 26.4916, "lon": 80.28475}},
+			"neighbors": [{"station": "vishwavidyalaya_metro", "line": "upmrc_kanpur.orange"}, {"station": "geeta_nagar", "line": "upmrc_kanpur.orange"}]
+		},
+		"geeta_nagar": {
+			"id": "geeta_nagar",
+			"name": {"en": "Geeta Nagar", "hi": "गीतानगर"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "GTNG",
+			"location": {"decimal": {"lat": 26.48716, "lon": 80.29206}},
+			"neighbors": [{"station": "gurudev_chauraha", "line": "upmrc_kanpur.orange"}, {"station": "rawatpur_metro", "line": "upmrc_kanpur.orange"}]
+		},
+		"rawatpur_metro": {
+			"id": "rawatpur_metro",
+			"name": {"en": "Rawatpur Metro", "hi": "रावतपुर मेट्रो"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "RWPM",
+			"location": {"decimal": {"lat": 26.48297, "lon": 80.29989}},
+			"neighbors": [{"station": "geeta_nagar", "line": "upmrc_kanpur.orange"}, {"station": "llr_hospital", "line": "upmrc_kanpur.orange"}]
+		},
+		"llr_hospital": {
+			"id": "llr_hospital",
+			"name": {"en": "LLR Hospital", "hi": "एलएलआर अस्पताल"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "LLRH",
+			"location": {"decimal": {"lat": 26.47926, "lon": 80.31151}},
+			"neighbors": [{"station": "rawatpur_metro", "line": "upmrc_kanpur.orange"}, {"station": "motijheel_metro", "line": "upmrc_kanpur.orange"}]
+		},
+		"motijheel_metro": {
+			"id": "motijheel_metro",
+			"name": {"en": "Motijheel Metro", "hi": "मोतीझील मेट्रो"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "MTJM",
+			"location": {"decimal": {"lat": 26.47903, "lon": 80.31802}},
+			"neighbors": [{"station": "llr_hospital", "line": "upmrc_kanpur.orange"}, {"station": "chunni_ganj", "line": "upmrc_kanpur.orange"}]
+		},
+		"chunni_ganj": {
+			"id": "chunni_ganj",
+			"name": {"en": "Chunni Ganj", "hi": "चुन्नी गंज"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "CHGJ",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "motijheel_metro", "line": "upmrc_kanpur.orange"}, {"station": "naveen_market", "line": "upmrc_kanpur.orange"}]
+		},
+		"naveen_market": {
+			"id": "naveen_market",
+			"name": {"en": "Naveen Market", "hi": "नवीन मार्केट"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "NMKT",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "chunni_ganj", "line": "upmrc_kanpur.orange"}, {"station": "bada_chauraha", "line": "upmrc_kanpur.orange"}]
+		},
+		"bada_chauraha": {
+			"id": "bada_chauraha",
+			"name": {"en": "Bada Chauraha", "hi": "बड़ा चौराहा"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "BDCH",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "naveen_market", "line": "upmrc_kanpur.orange"}, {"station": "naya_ganj", "line": "upmrc_kanpur.orange"}]
+		},
+		"naya_ganj": {
+			"id": "naya_ganj",
+			"name": {"en": "Naya Ganj", "hi": "नया गंज"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "NYGJ",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "bada_chauraha", "line": "upmrc_kanpur.orange"}, {"station": "kanpur_central", "line": "upmrc_kanpur.orange"}]
+		},
+		"kanpur_central": {
+			"id": "kanpur_central",
+			"name": {"en": "Kanpur Central", "hi": "कानपुर सेंट्रल"},
+			"lines": ["upmrc_kanpur.orange"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "KNCM",
+			"location": {"decimal": {"lat": 26.50924, "lon": 80.24825}},
+			"neighbors": [{"station": "naya_ganj", "line": "upmrc_kanpur.orange"}]
+		}
+	}
+}

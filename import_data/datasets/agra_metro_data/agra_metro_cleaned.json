@@ -1,0 +1,378 @@
+{
+	"taj_east_gate": {
+		"id": "taj_east_gate",
+		"station_code": "TEGT",
+		"station_name_en": "TAJ EAST GATE",
+		"station_name_hi": "ताज पूर्वी गेट",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 27.1583959,
+			"longitude": 78.0578603
+		},
+		"meta_raw": {
+			"id": 1,
+			"st_name": "TAJ EAST GATE",
+			"st_code": "TEGT",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_dG72WlU.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_3BNQky9.png"
+			},
+			"latitude": "27.1583959",
+			"longitude": "78.0578603",
+			"x_coords": 1270.43,
+			"y_coords": 1047.45,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"shaheed_captain_shubham_gupta": {
+		"id": "shaheed_captain_shubham_gupta",
+		"station_code": "SCSG",
+		"station_name_en": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+		"station_name_hi": "शहीद कैप्टन शुभम गुप्ता",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 27.1583959,
+			"longitude": 78.0578603
+		},
+		"meta_raw": {
+			"id": 2,
+			"st_name": "SHAHEED CAPTAIN SHUBHAM GUPTA",
+			"st_code": "SCSG",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_ixSr4xc.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_FkGaBl7.png"
+			},
+			"latitude": "27.1583959",
+			"longitude": "78.0578603",
+			"x_coords": 1.0,
+			"y_coords": 2.0,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"fatehabad_road": {
+		"id": "fatehabad_road",
+		"station_code": "FTBR",
+		"station_name_en": "FATEHABAD ROAD",
+		"station_name_hi": "फ़तेहाबाद रोड",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 27.1583959,
+			"longitude": 78.0578603
+		},
+		"meta_raw": {
+			"id": 3,
+			"st_name": "FATEHABAD ROAD",
+			"st_code": "FTBR",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_yT0kliA.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_3C4fPxz.png"
+			},
+			"latitude": "27.1583959",
+			"longitude": "78.0578603",
+			"x_coords": 1084.32,
+			"y_coords": 1002.73,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"taj_mahal": {
+		"id": "taj_mahal",
+		"station_code": "TJML",
+		"station_name_en": "TAJ MAHAL",
+		"station_name_hi": "ताज महल",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 27.168378,
+			"longitude": 78.0358742
+		},
+		"meta_raw": {
+			"id": 34,
+			"st_name": "TAJ MAHAL",
+			"st_code": "TJML",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_5bYJfpn.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_hQ4b2F8.png"
+			},
+			"latitude": "27.168378",
+			"longitude": "78.0358742",
+			"x_coords": 1017.67,
+			"y_coords": 959.52,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"agra_fort": {
+		"id": "agra_fort",
+		"station_code": "AFTM",
+		"station_name_en": "AGRA FORT",
+		"station_name_hi": "आगरा किला",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 27.175207,
+			"longitude": 78.0224515
+		},
+		"meta_raw": {
+			"id": 35,
+			"st_name": "AGRA FORT",
+			"st_code": "AFTM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_z8ZvEH6.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_Gpah3Ya.png"
+			},
+			"latitude": "27.175207",
+			"longitude": "78.0224515",
+			"x_coords": 922.4,
+			"y_coords": 965.09,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"mankameshwar_mandir": {
+		"id": "mankameshwar_mandir",
+		"station_code": "MKM",
+		"station_name_en": "MANKAMESHWAR MANDIR",
+		"station_name_hi": "मनकामेश्वर मंदिर",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 27.178123,
+			"longitude": 78.0172131
+		},
+		"meta_raw": {
+			"id": 36,
+			"st_name": "MANKAMESHWAR MANDIR",
+			"st_code": "MKM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_IWeRWkp.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_naxgaiC.png"
+			},
+			"latitude": "27.178123",
+			"longitude": "78.0172131",
+			"x_coords": 1.0,
+			"y_coords": 2.0,
+			"metro_line": [
+				{
+					"id": 1,
+					"ln_name": "Line 1",
+					"ln_code": "LN1",
+					"ln_color": "#c1282b"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	}
+}

@@ -1,0 +1,777 @@
+{
+	"aluva": {
+		"id": "aluva",
+		"station_code": "ALVA",
+		"station_name_en": "Aluva",
+		"station_name_ml": "ആലുവ",
+		"station_name_hi": "आलुवा",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 1,
+		"zone_id": "ALVA",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.1099,
+			"longitude": 76.3495
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "ALVA",
+				"stop_lat": "10.1099",
+				"stop_lon": "76.3495",
+				"stop_name": "Aluva",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "ALVA",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"pulinchodu": {
+		"id": "pulinchodu",
+		"station_code": "PNCU",
+		"station_name_en": "Pulinchodu",
+		"station_name_ml": "പുളിഞ്ചോട്",
+		"station_name_hi": "पुलिनचोडु",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 2,
+		"zone_id": "PNCU",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0951,
+			"longitude": 76.3466
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "PNCU",
+				"stop_lat": "10.0951",
+				"stop_lon": "76.3466",
+				"stop_name": "Pulinchodu",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "PNCU",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"companypady": {
+		"id": "companypady",
+		"station_code": "CPPY",
+		"station_name_en": "Companypady",
+		"station_name_ml": "കമ്പനിപ്പടി",
+		"station_name_hi": "कंपनीपडी",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 3,
+		"zone_id": "CPPY",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0873,
+			"longitude": 76.3428
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "CPPY",
+				"stop_lat": "10.0873",
+				"stop_lon": "76.3428",
+				"stop_name": "Companypady",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "CPPY",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"ambattukavu": {
+		"id": "ambattukavu",
+		"station_code": "ATTK",
+		"station_name_en": "Ambattukavu",
+		"station_name_ml": "അമ്പാട്ടുകാവ്",
+		"station_name_hi": "अम्बाटुकाव्",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 4,
+		"zone_id": "ATTK",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0793,
+			"longitude": 76.3389
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "ATTK",
+				"stop_lat": "10.0793",
+				"stop_lon": "76.3389",
+				"stop_name": "Ambattukavu",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "ATTK",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"muttom": {
+		"id": "muttom",
+		"station_code": "MUTT",
+		"station_name_en": "Muttom",
+		"station_name_ml": "മുട്ടം",
+		"station_name_hi": "मुट्टम",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 5,
+		"zone_id": "MUTT",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0727,
+			"longitude": 76.3336
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "MUTT",
+				"stop_lat": "10.0727",
+				"stop_lon": "76.3336",
+				"stop_name": "Muttom",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "MUTT",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"kalamassery": {
+		"id": "kalamassery",
+		"station_code": "KLMT",
+		"station_name_en": "Kalamassery",
+		"station_name_ml": "കളമശ്ശേരി",
+		"station_name_hi": "कलमशेरी",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 6,
+		"zone_id": "KLMT",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0586,
+			"longitude": 76.322
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "KLMT",
+				"stop_lat": "10.0586",
+				"stop_lon": "76.322",
+				"stop_name": "Kalamassery",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "KLMT",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"cochin_university": {
+		"id": "cochin_university",
+		"station_code": "CCUV",
+		"station_name_en": "Cochin University",
+		"station_name_ml": "കൊച്ചിൻ യൂണിവേഴ്സിറ്റി",
+		"station_name_hi": "कोच्चिन यूनिवर्सिटी",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 7,
+		"zone_id": "CCUV",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0467,
+			"longitude": 76.3182
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "CCUV",
+				"stop_lat": "10.0467",
+				"stop_lon": "76.3182",
+				"stop_name": "Cochin University",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "CCUV",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"pathadipalam": {
+		"id": "pathadipalam",
+		"station_code": "PDPM",
+		"station_name_en": "Pathadipalam",
+		"station_name_ml": "പത്തടിപ്പോലം",
+		"station_name_hi": "पत्तडिप्पालम",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 8,
+		"zone_id": "PDPM",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0361,
+			"longitude": 76.3144
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "PDPM",
+				"stop_lat": "10.0361",
+				"stop_lon": "76.3144",
+				"stop_name": "Pathadipalam",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "PDPM",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"edapally": {
+		"id": "edapally",
+		"station_code": "EDAP",
+		"station_name_en": "Edapally",
+		"station_name_ml": "ഇടപ്പള്ളി",
+		"station_name_hi": "इडप्पल्ली",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 9,
+		"zone_id": "EDAP",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0251,
+			"longitude": 76.3083
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "EDAP",
+				"stop_lat": "10.0251",
+				"stop_lon": "76.3083",
+				"stop_name": "Edapally",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "EDAP",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"changampuzha_park": {
+		"id": "changampuzha_park",
+		"station_code": "CGPP",
+		"station_name_en": "Changampuzha Park",
+		"station_name_ml": "ചങ്ങമ്പുഴ പാർക്ക്",
+		"station_name_hi": "चंगमपुष़ा पार्क",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 10,
+		"zone_id": "CGPP",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0152,
+			"longitude": 76.3023
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "CGPP",
+				"stop_lat": "10.0152",
+				"stop_lon": "76.3023",
+				"stop_name": "Changampuzha Park",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "CGPP",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"palarivattom": {
+		"id": "palarivattom",
+		"station_code": "PARV",
+		"station_name_en": "Palarivattom",
+		"station_name_ml": "പാലാരിവട്ടം",
+		"station_name_hi": "पालारिवट्टम",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 11,
+		"zone_id": "PARV",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0064,
+			"longitude": 76.3048
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "PARV",
+				"stop_lat": "10.0064",
+				"stop_lon": "76.3048",
+				"stop_name": "Palarivattom",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "PARV",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"jln_stadium": {
+		"id": "jln_stadium",
+		"station_code": "JLSD",
+		"station_name_en": "JLN Stadium",
+		"station_name_ml": "ജെ എൽ എൻ സ്റ്റേഡിയം",
+		"station_name_hi": "जे.एल.एन स्टेडियम",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 12,
+		"zone_id": "JLSD",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 10.0002,
+			"longitude": 76.2989
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "JLSD",
+				"stop_lat": "10.0002",
+				"stop_lon": "76.2989",
+				"stop_name": "JLN Stadium",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "JLSD",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"kaloor": {
+		"id": "kaloor",
+		"station_code": "KALR",
+		"station_name_en": "Kaloor",
+		"station_name_ml": "കലൂർ",
+		"station_name_hi": "कलूर",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 13,
+		"zone_id": "KALR",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9943,
+			"longitude": 76.2914
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "KALR",
+				"stop_lat": "9.9943",
+				"stop_lon": "76.2914",
+				"stop_name": "Kaloor",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "KALR",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"town_hall": {
+		"id": "town_hall",
+		"station_code": "TNHL",
+		"station_name_en": "Town Hall",
+		"station_name_ml": "ടൗൺ ഹാൾ",
+		"station_name_hi": "टाउन हॉल",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 14,
+		"zone_id": "TNHL",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9913775,
+			"longitude": 76.2883601
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "TNHL",
+				"stop_lat": "9.9913775",
+				"stop_lon": "76.2883601",
+				"stop_name": "Town Hall",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "TNHL",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"mg_road": {
+		"id": "mg_road",
+		"station_code": "MGRD",
+		"station_name_en": "MG Road",
+		"station_name_ml": "എം.ജി റോഡ്",
+		"station_name_hi": "एम जी रोड",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 15,
+		"zone_id": "MGRD",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9834,
+			"longitude": 76.2823
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "MGRD",
+				"stop_lat": "9.9834",
+				"stop_lon": "76.2823",
+				"stop_name": "MG Road",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "MGRD",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"maharajas_college": {
+		"id": "maharajas_college",
+		"station_code": "MACE",
+		"station_name_en": "Maharajas College",
+		"station_name_ml": "മഹാരാജാസ് കോളേജ്",
+		"station_name_hi": "महाराजास् कॉलज",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 16,
+		"zone_id": "MACE",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9732,
+			"longitude": 76.2851
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "MACE",
+				"stop_lat": "9.9732",
+				"stop_lon": "76.2851",
+				"stop_name": "Maharajas College",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "MACE",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"ernakulam_south": {
+		"id": "ernakulam_south",
+		"station_code": "ERSH",
+		"station_name_en": "Ernakulam South",
+		"station_name_ml": "എറണാകുളം സൗത്ത്",
+		"station_name_hi": "एर्नाकुलम साउथ",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 17,
+		"zone_id": "ERSH",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9686042,
+			"longitude": 76.2895744
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "ERSH",
+				"stop_lat": "9.9686042",
+				"stop_lon": "76.2895744",
+				"stop_name": "Ernakulam South",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "ERSH",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"kadavanthra": {
+		"id": "kadavanthra",
+		"station_code": "KVTR",
+		"station_name_en": "Kadavanthra",
+		"station_name_ml": "കടവന്ത്ര",
+		"station_name_hi": "कडवान्त्र",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 18,
+		"zone_id": "KVTR",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9665809,
+			"longitude": 76.2981877
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "KVTR",
+				"stop_lat": "9.9665809",
+				"stop_lon": "76.2981877",
+				"stop_name": "Kadavanthra",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "KVTR",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"elamkulam": {
+		"id": "elamkulam",
+		"station_code": "EMKM",
+		"station_name_en": "Elamkulam",
+		"station_name_ml": "ഇളങ്കുളം",
+		"station_name_hi": "एलमकुलम",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 19,
+		"zone_id": "EMKM",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9671248,
+			"longitude": 76.3084899
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "EMKM",
+				"stop_lat": "9.9671248",
+				"stop_lon": "76.3084899",
+				"stop_name": "Elamkulam",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "EMKM",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"vyttila": {
+		"id": "vyttila",
+		"station_code": "VYTA",
+		"station_name_en": "Vyttila",
+		"station_name_ml": "വൈറ്റില",
+		"station_name_hi": "व्यत्तिला",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 20,
+		"zone_id": "VYTA",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9675457,
+			"longitude": 76.3203664
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "VYTA",
+				"stop_lat": "9.9675457",
+				"stop_lon": "76.3203664",
+				"stop_name": "Vyttila",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "VYTA",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"thykoodam": {
+		"id": "thykoodam",
+		"station_code": "THYK",
+		"station_name_en": "Thykoodam",
+		"station_name_ml": "തൈക്കൂടം",
+		"station_name_hi": "थाईकूडम",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 21,
+		"zone_id": "THYK",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9600311,
+			"longitude": 76.3236762
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "THYK",
+				"stop_lat": "9.9600311",
+				"stop_lon": "76.3236762",
+				"stop_name": "Thykoodam",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "THYK",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"pettah": {
+		"id": "pettah",
+		"station_code": "PETT",
+		"station_name_en": "Pettah",
+		"station_name_ml": "പേട്ട",
+		"station_name_hi": "पेट्टा",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 22,
+		"zone_id": "PETT",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9524842,
+			"longitude": 76.3302101
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "PETT",
+				"stop_lat": "9.9524842",
+				"stop_lon": "76.3302101",
+				"stop_name": "Pettah",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "PETT",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"vadakkekotta": {
+		"id": "vadakkekotta",
+		"station_code": "VAKK",
+		"station_name_en": "Vadakkekotta",
+		"station_name_ml": "വടക്കേക്കോട്ട",
+		"station_name_hi": "वडक्केकोटा",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 23,
+		"zone_id": "VAKK",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.952838,
+			"longitude": 76.3394827
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "VAKK",
+				"stop_lat": "9.952838",
+				"stop_lon": "76.3394827",
+				"stop_name": "Vadakkekotta",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "VAKK",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"sn_junction": {
+		"id": "sn_junction",
+		"station_code": "SNJN",
+		"station_name_en": "SN Junction",
+		"station_name_ml": "എസ്. എൻ. ജംഗ്ഷൻ",
+		"station_name_hi": "एस.एन. जंक्शन",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 24,
+		"zone_id": "SNJN",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.9547532,
+			"longitude": 76.3458505
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "SNJN",
+				"stop_lat": "9.9547532",
+				"stop_lon": "76.3458505",
+				"stop_name": "SN Junction",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "SNJN",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	},
+	"tripunithura": {
+		"id": "tripunithura",
+		"station_code": "TPHT",
+		"station_name_en": "Tripunithura",
+		"station_name_ml": "തൃപ്പൂണിത്തുറ",
+		"station_name_hi": "त्रिपुनिथुरा",
+		"line": "Blue Line",
+		"operator": "Kochi Metro Rail Limited (KMRL)",
+		"layout": "Elevated",
+		"order": 25,
+		"zone_id": "TPHT",
+		"wheelchair_boarding": true,
+		"coordinates": {
+			"latitude": 9.95078,
+			"longitude": 76.35183
+		},
+		"meta_raw": {
+			"source": "official_gtfs_kmrl",
+			"gtfs_record": {
+				"stop_id": "TPHT",
+				"stop_lat": "9.95078",
+				"stop_lon": "76.35183",
+				"stop_name": "Tripunithura",
+				"stop_desc": "",
+				"location_type": "0",
+				"zone_id": "TPHT",
+				"wheelchair_boarding": "1"
+			},
+			"coordinates_found": true
+		}
+	}
+}

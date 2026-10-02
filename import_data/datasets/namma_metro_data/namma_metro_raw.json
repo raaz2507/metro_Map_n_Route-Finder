@@ -202,6 +202,31 @@
 			"coordinates_found": false
 		}
 	},
+	"central_silk_board": {
+		"id": "central_silk_board",
+		"station_code": "SBJT",
+		"station_name_en": "Central Silk Board",
+		"station_name_kn": "ಕೇಂದ್ರ ರೇಷ್ಮೆ ಮಂಡಳಿ",
+		"line": "Yellow LineBlue Line",
+		"layout": "Elevated",
+		"opened_date": "10 August 2025Under construction",
+		"operator": "BMRCL",
+		"order": 9,
+		"coordinates": null,
+		"meta_raw": {
+			"parsed_fields": {
+				"name_en": "Central Silk Board",
+				"name_kn": "ಕೇಂದ್ರ ರೇಷ್ಮೆ ಮಂಡಳಿ",
+				"line": "Yellow LineBlue Line",
+				"opened": "10 August 2025Under construction",
+				"layout": "Elevated",
+				"code": "SBJT",
+				"page": "Central_Silk_Board_metro_station"
+			},
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Namma_Metro_stations",
+			"coordinates_found": false
+		}
+	},
 	"challaghatta": {
 		"id": "challaghatta",
 		"station_code": "CLGA",
@@ -211,7 +236,7 @@
 		"layout": "Elevated",
 		"opened_date": "9 October 2023",
 		"operator": "BMRCL",
-		"order": 9,
+		"order": 10,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -236,7 +261,7 @@
 		"layout": "Underground",
 		"opened_date": "18 June 2017",
 		"operator": "BMRCL",
-		"order": 10,
+		"order": 11,
 		"coordinates": {
 			"latitude": 12.966759,
 			"longitude": 77.574782
@@ -264,7 +289,7 @@
 		"layout": "Elevated",
 		"opened_date": "7 November 2024",
 		"operator": "BMRCL",
-		"order": 11,
+		"order": 12,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -289,7 +314,7 @@
 		"layout": "Underground",
 		"opened_date": "29 April 2016",
 		"operator": "BMRCL",
-		"order": 12,
+		"order": 13,
 		"coordinates": {
 			"latitude": 12.981095,
 			"longitude": 77.59686
@@ -317,7 +342,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 May 2015",
 		"operator": "BMRCL",
-		"order": 13,
+		"order": 14,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -342,7 +367,7 @@
 		"layout": "Elevated",
 		"opened_date": "16 November 2015",
 		"operator": "BMRCL",
-		"order": 14,
+		"order": 15,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -367,7 +392,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 15,
+		"order": 16,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -392,7 +417,7 @@
 		"layout": "Elevated",
 		"opened_date": "15 January 2021",
 		"operator": "BMRCL",
-		"order": 16,
+		"order": 17,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -417,7 +442,7 @@
 		"layout": "Underground",
 		"opened_date": "29 April 2016",
 		"operator": "BMRCL",
-		"order": 17,
+		"order": 18,
 		"coordinates": {
 			"latitude": 12.979823,
 			"longitude": 77.592745
@@ -445,7 +470,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 18,
+		"order": 19,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -470,7 +495,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 19,
+		"order": 20,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -495,7 +520,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 20,
+		"order": 21,
 		"coordinates": {
 			"latitude": 13.02837,
 			"longitude": 77.540753
@@ -523,7 +548,7 @@
 		"layout": "Elevated",
 		"opened_date": "20 October 2011",
 		"operator": "BMRCL",
-		"order": 21,
+		"order": 22,
 		"coordinates": {
 			"latitude": 12.97566,
 			"longitude": 77.62628
@@ -551,7 +576,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 22,
+		"order": 23,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -576,7 +601,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 23,
+		"order": 24,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -601,7 +626,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 24,
+		"order": 25,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -626,7 +651,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 25,
+		"order": 26,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -651,7 +676,7 @@
 		"layout": "Elevated",
 		"opened_date": "16 November 2015",
 		"operator": "BMRCL",
-		"order": 26,
+		"order": 27,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -676,7 +701,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 27,
+		"order": 28,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -701,7 +726,7 @@
 		"layout": "Elevated",
 		"opened_date": "20 October 2011",
 		"operator": "BMRCL",
-		"order": 28,
+		"order": 29,
 		"coordinates": {
 			"latitude": 12.9786,
 			"longitude": 77.6388
@@ -729,7 +754,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 29,
+		"order": 30,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -754,7 +779,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 May 2015",
 		"operator": "BMRCL",
-		"order": 30,
+		"order": 31,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -770,6 +795,31 @@
 			"coordinates_found": false
 		}
 	},
+	"jayadeva_hospital": {
+		"id": "jayadeva_hospital",
+		"station_code": "JDHP",
+		"station_name_en": "Jayadeva Hospital",
+		"station_name_kn": "ಜಯದೇವ ಆಸ್ಪತ್ರೆ",
+		"line": "Yellow LinePink Line",
+		"layout": "Elevated",
+		"opened_date": "10 August 2025Under construction",
+		"operator": "BMRCL",
+		"order": 32,
+		"coordinates": null,
+		"meta_raw": {
+			"parsed_fields": {
+				"name_en": "Jayadeva Hospital",
+				"name_kn": "ಜಯದೇವ ಆಸ್ಪತ್ರೆ",
+				"line": "Yellow LinePink Line",
+				"opened": "10 August 2025Under construction",
+				"layout": "Elevated",
+				"code": "JDHP",
+				"page": "Jayadeva_Hospital_metro_station"
+			},
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Namma_Metro_stations",
+			"coordinates_found": false
+		}
+	},
 	"jayanagar": {
 		"id": "jayanagar",
 		"station_code": "JYN",
@@ -779,7 +829,7 @@
 		"layout": "Elevated",
 		"opened_date": "18 June 2017",
 		"operator": "BMRCL",
-		"order": 31,
+		"order": 33,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -804,7 +854,7 @@
 		"layout": "Elevated",
 		"opened_date": "18 June 2017",
 		"operator": "BMRCL",
-		"order": 32,
+		"order": 34,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -829,7 +879,7 @@
 		"layout": "Elevated",
 		"opened_date": "31 August 2021",
 		"operator": "BMRCL",
-		"order": 33,
+		"order": 35,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -854,7 +904,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 34,
+		"order": 36,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -879,7 +929,7 @@
 		"layout": "Elevated",
 		"opened_date": "31 August 2021",
 		"operator": "BMRCL",
-		"order": 35,
+		"order": 37,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -904,7 +954,7 @@
 		"layout": "Elevated",
 		"opened_date": "31 August 2021",
 		"operator": "BMRCL",
-		"order": 36,
+		"order": 38,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -929,7 +979,7 @@
 		"layout": "Elevated",
 		"opened_date": "15 January 2021",
 		"operator": "BMRCL",
-		"order": 37,
+		"order": 39,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -954,7 +1004,7 @@
 		"layout": "Underground",
 		"opened_date": "29 April 2016",
 		"operator": "BMRCL",
-		"order": 38,
+		"order": 40,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -979,7 +1029,7 @@
 		"layout": "Underground",
 		"opened_date": "18 June 2017",
 		"operator": "BMRCL",
-		"order": 39,
+		"order": 41,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -995,6 +1045,31 @@
 			"coordinates_found": false
 		}
 	},
+	"krishnarajapura": {
+		"id": "krishnarajapura",
+		"station_code": "KRAM",
+		"station_name_en": "Krishnarajapura",
+		"station_name_kn": "ಕೃಷ್ಣರಾಜಪುರ",
+		"line": "Purple LineBlue Line",
+		"layout": "Elevated",
+		"opened_date": "26 March 2023Under construction",
+		"operator": "BMRCL",
+		"order": 42,
+		"coordinates": null,
+		"meta_raw": {
+			"parsed_fields": {
+				"name_en": "Krishnarajapura",
+				"name_kn": "ಕೃಷ್ಣರಾಜಪುರ",
+				"line": "Purple LineBlue Line",
+				"opened": "26 March 2023Under construction",
+				"layout": "Elevated",
+				"code": "KRAM",
+				"page": "Krishnarajapura_metro_station"
+			},
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Namma_Metro_stations",
+			"coordinates_found": false
+		}
+	},
 	"kudlu_gate": {
 		"id": "kudlu_gate",
 		"station_code": "MSRN",
@@ -1004,7 +1079,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 40,
+		"order": 43,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1029,7 +1104,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 41,
+		"order": 44,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1054,7 +1129,7 @@
 		"layout": "Elevated",
 		"opened_date": "18 June 2017",
 		"operator": "BMRCL",
-		"order": 42,
+		"order": 45,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1079,7 +1154,7 @@
 		"layout": "Elevated",
 		"opened_date": "7 November 2024",
 		"operator": "BMRCL",
-		"order": 43,
+		"order": 46,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1104,7 +1179,7 @@
 		"layout": "Elevated",
 		"opened_date": "16 November 2015",
 		"operator": "BMRCL",
-		"order": 44,
+		"order": 47,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1129,7 +1204,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 45,
+		"order": 48,
 		"coordinates": {
 			"latitude": 12.998456,
 			"longitude": 77.556951
@@ -1157,7 +1232,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 46,
+		"order": 49,
 		"coordinates": {
 			"latitude": 13.008217,
 			"longitude": 77.548821
@@ -1176,6 +1251,34 @@
 			"coordinates_found": true
 		}
 	},
+	"mahatma_gandhi_road": {
+		"id": "mahatma_gandhi_road",
+		"station_code": "MAGR",
+		"station_name_en": "Mahatma Gandhi Road",
+		"station_name_kn": "ಮಹಾತ್ಮಾ ಗಾಂಧಿ ರಸ್ತೆ",
+		"line": "Purple LinePink Line",
+		"layout": "ElevatedUnderground",
+		"opened_date": "20 October 2011Under construction",
+		"operator": "BMRCL",
+		"order": 50,
+		"coordinates": {
+			"latitude": 12.975536,
+			"longitude": 77.60683
+		},
+		"meta_raw": {
+			"parsed_fields": {
+				"name_en": "Mahatma Gandhi Road",
+				"name_kn": "ಮಹಾತ್ಮಾ ಗಾಂಧಿ ರಸ್ತೆ",
+				"line": "Purple LinePink Line",
+				"opened": "20 October 2011Under construction",
+				"layout": "ElevatedUnderground",
+				"code": "MAGR",
+				"page": "Mahatma_Gandhi_Road_metro_station_(Bengaluru)"
+			},
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Namma_Metro_stations",
+			"coordinates_found": true
+		}
+	},
 	"manjunathanagara": {
 		"id": "manjunathanagara",
 		"station_code": "MNJN",
@@ -1185,7 +1288,7 @@
 		"layout": "Elevated",
 		"opened_date": "7 November 2024",
 		"operator": "BMRCL",
-		"order": 47,
+		"order": 51,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1210,7 +1313,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 48,
+		"order": 52,
 		"coordinates": {
 			"latitude": 12.990508,
 			"longitude": 77.570729
@@ -1238,7 +1341,7 @@
 		"layout": "Elevated",
 		"opened_date": "16 November 2015",
 		"operator": "BMRCL",
-		"order": 49,
+		"order": 53,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1263,7 +1366,7 @@
 		"layout": "Underground",
 		"opened_date": "29 April 201618 June 2017",
 		"operator": "BMRCL",
-		"order": 50,
+		"order": 54,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1288,7 +1391,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 May 2015",
 		"operator": "BMRCL",
-		"order": 51,
+		"order": 55,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1313,7 +1416,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 52,
+		"order": 56,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1338,11 +1441,8 @@
 		"layout": "Elevated",
 		"opened_date": "18 June 2017",
 		"operator": "BMRCL",
-		"order": 53,
-		"coordinates": {
-			"latitude": 12.950548,
-			"longitude": 77.573712
-		},
+		"order": 57,
+		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
 				"name_en": "National College",
@@ -1354,7 +1454,7 @@
 				"page": "National_College_metro_station"
 			},
 			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Namma_Metro_stations",
-			"coordinates_found": true
+			"coordinates_found": false
 		}
 	},
 	"pantharapalyanayandahalli": {
@@ -1366,7 +1466,7 @@
 		"layout": "Elevated",
 		"opened_date": "31 August 2021",
 		"operator": "BMRCL",
-		"order": 54,
+		"order": 58,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1391,7 +1491,7 @@
 		"layout": "Elevated",
 		"opened_date": "31 August 2021",
 		"operator": "BMRCL",
-		"order": 55,
+		"order": 59,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1416,7 +1516,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 56,
+		"order": 60,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1441,7 +1541,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 57,
+		"order": 61,
 		"coordinates": {
 			"latitude": 13.032921,
 			"longitude": 77.533297
@@ -1469,7 +1569,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 58,
+		"order": 62,
 		"coordinates": {
 			"latitude": 13.036341,
 			"longitude": 77.525465
@@ -1497,7 +1597,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 59,
+		"order": 63,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1522,7 +1622,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 60,
+		"order": 64,
 		"coordinates": {
 			"latitude": 13.000334,
 			"longitude": 77.549701
@@ -1550,7 +1650,7 @@
 		"layout": "Elevated",
 		"opened_date": "31 August 2021",
 		"operator": "BMRCL",
-		"order": 61,
+		"order": 65,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1575,7 +1675,7 @@
 		"layout": "Elevated",
 		"opened_date": "18 June 201710 August 2025",
 		"operator": "BMRCL",
-		"order": 62,
+		"order": 66,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1600,7 +1700,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 63,
+		"order": 67,
 		"coordinates": {
 			"latitude": 13.014707,
 			"longitude": 77.553962
@@ -1628,7 +1728,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 64,
+		"order": 68,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1653,7 +1753,7 @@
 		"layout": "Elevated",
 		"opened_date": "15 January 2021",
 		"operator": "BMRCL",
-		"order": 65,
+		"order": 69,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1678,7 +1778,7 @@
 		"layout": "Elevated",
 		"opened_date": "10 August 2025",
 		"operator": "BMRCL",
-		"order": 66,
+		"order": 70,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1703,7 +1803,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 67,
+		"order": 71,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1728,7 +1828,7 @@
 		"layout": "Underground",
 		"opened_date": "29 April 2016",
 		"operator": "BMRCL",
-		"order": 68,
+		"order": 72,
 		"coordinates": {
 			"latitude": 12.974104,
 			"longitude": 77.584017
@@ -1756,7 +1856,7 @@
 		"layout": "Elevated",
 		"opened_date": "18 June 2017",
 		"operator": "BMRCL",
-		"order": 69,
+		"order": 73,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1781,7 +1881,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 70,
+		"order": 74,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1806,7 +1906,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 71,
+		"order": 75,
 		"coordinates": {
 			"latitude": 12.996508,
 			"longitude": 77.563283
@@ -1834,7 +1934,7 @@
 		"layout": "Elevated",
 		"opened_date": "20 October 2011",
 		"operator": "BMRCL",
-		"order": 72,
+		"order": 76,
 		"coordinates": {
 			"latitude": 12.985958,
 			"longitude": 77.64494
@@ -1862,7 +1962,7 @@
 		"layout": "Elevated",
 		"opened_date": "15 January 2021",
 		"operator": "BMRCL",
-		"order": 73,
+		"order": 77,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1887,7 +1987,7 @@
 		"layout": "Elevated",
 		"opened_date": "20 October 2011",
 		"operator": "BMRCL",
-		"order": 74,
+		"order": 78,
 		"coordinates": {
 			"latitude": 12.972953,
 			"longitude": 77.617044
@@ -1915,7 +2015,7 @@
 		"layout": "Elevated",
 		"opened_date": "15 January 2021",
 		"operator": "BMRCL",
-		"order": 75,
+		"order": 79,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1940,7 +2040,7 @@
 		"layout": "Elevated",
 		"opened_date": "16 November 2015",
 		"operator": "BMRCL",
-		"order": 76,
+		"order": 80,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1965,7 +2065,7 @@
 		"layout": "Elevated",
 		"opened_date": "26 March 2023",
 		"operator": "BMRCL",
-		"order": 77,
+		"order": 81,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -1990,7 +2090,7 @@
 		"layout": "Elevated",
 		"opened_date": "18 June 2017",
 		"operator": "BMRCL",
-		"order": 78,
+		"order": 82,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2015,7 +2115,7 @@
 		"layout": "Elevated",
 		"opened_date": "1 March 2014",
 		"operator": "BMRCL",
-		"order": 79,
+		"order": 83,
 		"coordinates": {
 			"latitude": 13.023181,
 			"longitude": 77.549942
@@ -2043,7 +2143,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 80,
+		"order": 84,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2068,7 +2168,7 @@
 		"layout": "At-Grade",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 81,
+		"order": 85,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2093,7 +2193,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 82,
+		"order": 86,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2118,7 +2218,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 83,
+		"order": 87,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2143,7 +2243,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 84,
+		"order": 88,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2168,7 +2268,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 85,
+		"order": 89,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2193,7 +2293,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 86,
+		"order": 90,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2218,7 +2318,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 87,
+		"order": 91,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2243,7 +2343,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 88,
+		"order": 92,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2268,7 +2368,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 89,
+		"order": 93,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2293,7 +2393,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 90,
+		"order": 94,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2318,7 +2418,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 91,
+		"order": 95,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2343,7 +2443,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 92,
+		"order": 96,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2368,7 +2468,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 93,
+		"order": 97,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2393,7 +2493,7 @@
 		"layout": "Elevated",
 		"opened_date": "September 2026",
 		"operator": "BMRCL",
-		"order": 94,
+		"order": 98,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2418,7 +2518,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 95,
+		"order": 99,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2443,7 +2543,7 @@
 		"layout": "Elevated",
 		"opened_date": "September 2026",
 		"operator": "BMRCL",
-		"order": 96,
+		"order": 100,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2468,7 +2568,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 97,
+		"order": 101,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2493,7 +2593,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 98,
+		"order": 102,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2518,8 +2618,11 @@
 		"layout": "Elevated",
 		"opened_date": "September 2026",
 		"operator": "BMRCL",
-		"order": 99,
-		"coordinates": null,
+		"order": 103,
+		"coordinates": {
+			"latitude": 12.909841,
+			"longitude": 77.600237
+		},
 		"meta_raw": {
 			"parsed_fields": {
 				"name_en": "JP Nagar 4th Phase",
@@ -2531,7 +2634,7 @@
 				"page": "JP_Nagar_4th_Phase_metro_station"
 			},
 			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Namma_Metro_stations",
-			"coordinates_found": false
+			"coordinates_found": true
 		}
 	},
 	"kadugundanahalli": {
@@ -2543,7 +2646,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 100,
+		"order": 104,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2568,7 +2671,7 @@
 		"layout": "Elevated",
 		"opened_date": "September 2026",
 		"operator": "BMRCL",
-		"order": 101,
+		"order": 105,
 		"coordinates": {
 			"latitude": 12.87158,
 			"longitude": 77.59363
@@ -2596,7 +2699,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 102,
+		"order": 106,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2621,7 +2724,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 103,
+		"order": 107,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2646,7 +2749,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 104,
+		"order": 108,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2671,7 +2774,7 @@
 		"layout": "Underground",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 105,
+		"order": 109,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2696,7 +2799,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 106,
+		"order": 110,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2721,7 +2824,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 107,
+		"order": 111,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2746,7 +2849,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 108,
+		"order": 112,
 		"coordinates": {
 			"latitude": 12.9493354,
 			"longitude": 77.6030797
@@ -2774,7 +2877,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 109,
+		"order": 113,
 		"coordinates": {
 			"latitude": 12.9571364,
 			"longitude": 77.6061488
@@ -2802,7 +2905,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 110,
+		"order": 114,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2827,11 +2930,8 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 111,
-		"coordinates": {
-			"latitude": 13.04051,
-			"longitude": 77.62466
-		},
+		"order": 115,
+		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
 				"name_en": "Nagawara",
@@ -2843,7 +2943,7 @@
 				"page": "Nagawara_metro_station"
 			},
 			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/List_of_Namma_Metro_stations",
-			"coordinates_found": true
+			"coordinates_found": false
 		}
 	},
 	"national_military_school": {
@@ -2855,7 +2955,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 112,
+		"order": 116,
 		"coordinates": {
 			"latitude": 12.96443,
 			"longitude": 77.60704
@@ -2883,7 +2983,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 113,
+		"order": 117,
 		"coordinates": {
 			"latitude": 13.00049,
 			"longitude": 77.60934
@@ -2911,7 +3011,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 114,
+		"order": 118,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2936,7 +3036,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2026",
 		"operator": "BMRCL",
-		"order": 115,
+		"order": 119,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -2961,7 +3061,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 116,
+		"order": 120,
 		"coordinates": {
 			"latitude": 12.98358,
 			"longitude": 77.60306
@@ -2989,7 +3089,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 117,
+		"order": 121,
 		"coordinates": {
 			"latitude": 13.00899,
 			"longitude": 77.613491
@@ -3017,7 +3117,7 @@
 		"layout": "Elevated",
 		"opened_date": "September 2026",
 		"operator": "BMRCL",
-		"order": 118,
+		"order": 122,
 		"coordinates": {
 			"latitude": 12.92942,
 			"longitude": 77.60049
@@ -3045,7 +3145,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 119,
+		"order": 123,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {
@@ -3070,7 +3170,7 @@
 		"layout": "Underground",
 		"opened_date": "March 2027",
 		"operator": "BMRCL",
-		"order": 120,
+		"order": 124,
 		"coordinates": {
 			"latitude": 13.01757,
 			"longitude": 77.61789
@@ -3098,7 +3198,7 @@
 		"layout": "Elevated",
 		"opened_date": "December 2027",
 		"operator": "BMRCL",
-		"order": 121,
+		"order": 125,
 		"coordinates": null,
 		"meta_raw": {
 			"parsed_fields": {

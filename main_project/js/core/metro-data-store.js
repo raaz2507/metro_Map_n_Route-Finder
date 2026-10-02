@@ -282,9 +282,10 @@ class MetroDataStore {
 		this.#detailsAbortController = new AbortController();
 		const signal = this.#detailsAbortController.signal;
 
-		const basePath = `data/cities/${resolvedCity}/station_details.json`;
-		const autoPath = `data/cities/${resolvedCity}/station_details_auto.json`;
-
+		const activeCountry = localStorage.getItem("active_country") || "india";
+		const basePath = `data/${activeCountry}/cities/${resolvedCity}/station_details.json`;
+		const autoPath = `data/${activeCountry}/cities/${resolvedCity}/station_details_auto.json`;
+		
 		try {
 			console.log(`[MetroDataStore] Fetching station details (Base + Auto) for "${resolvedCity}"...`);
 			

@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Bangers&family=Inter:wght@600;700&display=swap');
 
 @layer themes {
-	[data-theme="spiderman"] {
+	[data-theme="makad-manav"] {
 		--font-title: 'Teko', 'Bangers', sans-serif;
 		--font-main: 'Inter', -apple-system, sans-serif;
 		--map-font: 'Teko', sans-serif;
@@ -15,12 +15,12 @@
 		--radius-lg: 12px;
 		--radius-xl: 16px;
 		--radius-full: 9999px;
-		--theme-bg-image: url('../../themes/bundled/spiderman/assets/images/background.svg');
+		--theme-bg-image: url('../../themes/bundled/makad-manav/assets/images/background.svg');
 	}
 
 	/* ☀️ DAILY BUGLE LIGHT (Queens Transit Red & Blue) */
-	[data-theme="spiderman"][data-mode="light"],
-	[data-theme="spiderman"] {
+	[data-theme="makad-manav"][data-mode="light"],
+	[data-theme="makad-manav"] {
 		--color-bg-base-rgb: 254, 242, 242;
 		--color-primary-rgb: 220, 38, 38;
 		--color-accent-rgb: 29, 78, 216;
@@ -58,7 +58,7 @@
 	}
 
 	/* 🌙 MILES STEALTH DARK (Spider-Verse Black, Crimson & Cyan Web) */
-	[data-theme="spiderman"][data-mode="dark"] {
+	[data-theme="makad-manav"][data-mode="dark"] {
 		--color-bg-base-rgb: 10, 11, 20;
 		--color-primary-rgb: 239, 68, 68;
 		--color-accent-rgb: 37, 99, 235;
@@ -95,18 +95,18 @@
 	}
 
 	/* 🕷️ KINETIC WEB-SLINGER OVERRIDES */
-	[data-theme="spiderman"] .card,
-	[data-theme="spiderman"] .custom-dropdown-menu,
-	[data-theme="spiderman"] .share-modal-card {
+	[data-theme="makad-manav"] .card,
+	[data-theme="makad-manav"] .custom-dropdown-menu,
+	[data-theme="makad-manav"] .share-modal-card {
 		border: 2px solid var(--border-color) !important;
 		border-radius: var(--radius-lg) !important;
 		box-shadow: var(--shadow-md) !important;
 	}
 
-	[data-theme="spiderman"] .btn-25d,
-	[data-theme="spiderman"] .btn-stepper,
-	[data-theme="spiderman"] .pill-btn,
-	[data-theme="spiderman"] button.sidebar-link {
+	[data-theme="makad-manav"] .btn-25d,
+	[data-theme="makad-manav"] .btn-stepper,
+	[data-theme="makad-manav"] .pill-btn,
+	[data-theme="makad-manav"] button.sidebar-link {
 		font-family: var(--font-title) !important;
 		font-size: 16px !important;
 		letter-spacing: 1px !important;
@@ -114,7 +114,7 @@
 		border-radius: var(--radius-sm) !important;
 	}
 
-	[data-theme="spiderman"] .custom-dropdown-item.active {
+	[data-theme="makad-manav"] .custom-dropdown-item.active {
 		background-color: #ef4444 !important;
 		color: #ffffff !important;
 		font-family: var(--font-title) !important;

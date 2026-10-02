@@ -23,8 +23,8 @@ import subprocess
 import sys
 import threading
 import urllib.parse
-from typing import Dict, Any, List, Optional, Tuple
 from pipeline_core.file_manager import UniversalFileSystemManager
+from bridge_core.city_resolver import CityRegistryResolver
 
 # UTF-8 encoding configuration for Windows terminals & stdout
 try:
@@ -98,6 +98,10 @@ class MetroServerHandler(http.server.SimpleHTTPRequestHandler):
 		if path == "/api/delta":
 			query_params = dict(urllib.parse.parse_qsl(parsed.query))
 			self._handle_delta(query_params)
+			return
+
+		if path == "/api/bridge/cities":
+			self._handle_bridge_cities()
 			return
 
 		if path == "/api/bridge/status":
@@ -624,8 +628,39 @@ class MetroServerHandler(http.server.SimpleHTTPRequestHandler):
 				except Exception:
 					pass
 
+	def _handle_bridge_cities(self):
+		resolver = CityRegistryResolver(BASE_DIR, BASE_DIR / "india_transit_registry.json")
+		active_keys = resolver.get_active_cities()
+		reg = {}
+		reg_path = BASE_DIR / "india_transit_registry.json"
+		if reg_path.exists():
+			try:
+				with open(reg_path, "r", encoding="utf-8") as f:
+					reg = json.load(f).get("cities", {})
+			except Exception:
+				pass
+
+		cities_info = []
+		for cid in active_keys:
+			cdata = reg.get(cid, {})
+			city_dir = (BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / cid).resolve()
+			staging_dir = (BASE_DIR / ".staging_temp" / cid).resolve()
+			t_exists = (city_dir / "transit_network_auto.json").exists() or (staging_dir / "transit_network_auto.json").exists()
+			d_exists = (city_dir / "station_details_auto.json").exists() or (staging_dir / "station_details_auto.json").exists()
+			cities_info.append({
+				"id": cid,
+				"name": cdata.get("name", cid),
+				"state": cdata.get("state", ""),
+				"has_delta": t_exists or d_exists
+			})
+
+		self.send_response(200)
+		self.send_header("Content-Type", "application/json")
+		self.end_headers()
+		self.wfile.write(json.dumps(cities_info).encode("utf-8"))
+
 	def _handle_bridge_status(self, city_id: str):
-		city_dir = (BASE_DIR.parent / "main_project" / "data" / "cities" / city_id).resolve()
+		city_dir = (BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / city_id).resolve()
 		staging_dir = (BASE_DIR / ".staging_temp" / city_id).resolve()
 
 		# Check production files
@@ -669,7 +704,7 @@ class MetroServerHandler(http.server.SimpleHTTPRequestHandler):
 		net_id = UniversalFileSystemManager.resolve_network_for_city(city_id, network_id)
 		master_file = UniversalFileSystemManager.get_stage_path(net_id, "master")
 
-		city_dir = (BASE_DIR.parent / "main_project" / "data" / "cities" / city_id).resolve()
+		city_dir = (BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / city_id).resolve()
 		staging_dir = (BASE_DIR / ".staging_temp" / city_id).resolve()
 
 		# Resolve auto files
@@ -800,7 +835,7 @@ class MetroServerHandler(http.server.SimpleHTTPRequestHandler):
 			self.wfile.write(json.dumps({"success": False, "error": "Missing 'station' parameter"}).encode("utf-8"))
 			return
 
-		city_dir = (BASE_DIR.parent / "main_project" / "data" / "cities" / city_id).resolve()
+		city_dir = (BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / city_id).resolve()
 		details_auto_file = city_dir / "station_details_auto.json"
 		details_base_file = city_dir / "station_details.json"
 		transit_auto_file = city_dir / "transit_network_auto.json"

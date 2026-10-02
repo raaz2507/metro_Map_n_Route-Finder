@@ -1,0 +1,193 @@
+{
+	"cbd_belapur": {
+		"id": "cbd_belapur",
+		"station_code": "NMM_01",
+		"station_name_en": "CBD Belapur",
+		"station_name_mr": "सी.बी.डी. बेलापूर)",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 1,
+		"connections": "CBD Belapur",
+		"inter_station_km": 0.06,
+		"cumulative_km": 0.06,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"rbi_colony": {
+		"id": "rbi_colony",
+		"station_code": "NMM_02",
+		"station_name_en": "RBI Colony",
+		"station_name_mr": "आर.बी.आय. कॉलनी",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 2,
+		"inter_station_km": 0.71,
+		"cumulative_km": 0.77,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"belpada": {
+		"id": "belpada",
+		"station_code": "NMM_03",
+		"station_name_en": "Belpada",
+		"station_name_mr": "बेलपाडा",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 3,
+		"connections": "Kharghar",
+		"inter_station_km": 1.27,
+		"cumulative_km": 2.04,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"utsav_chowk_kharghar": {
+		"id": "utsav_chowk_kharghar",
+		"station_code": "NMM_04",
+		"station_name_en": "Utsav Chowk (Kharghar)",
+		"station_name_mr": "उत्सव चौक (खारघर)",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 4,
+		"inter_station_km": 1.37,
+		"cumulative_km": 3.41,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"kendriya_vihar": {
+		"id": "kendriya_vihar",
+		"station_code": "NMM_05",
+		"station_name_en": "Kendriya Vihar",
+		"station_name_mr": "केंद्रीय विहार",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 5,
+		"inter_station_km": 0.71,
+		"cumulative_km": 4.12,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"kharghar_village": {
+		"id": "kharghar_village",
+		"station_code": "NMM_06",
+		"station_name_en": "Kharghar Village",
+		"station_name_mr": "खारघर गाव",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 6,
+		"inter_station_km": 1.0,
+		"cumulative_km": 5.12,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"central_park_kharghar": {
+		"id": "central_park_kharghar",
+		"station_code": "NMM_07",
+		"station_name_en": "Central Park (Kharghar)",
+		"station_name_mr": "सेंट्रल पार्क (खारघर)",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 7,
+		"inter_station_km": 1.0,
+		"cumulative_km": 6.12,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"pethpada_kharghar": {
+		"id": "pethpada_kharghar",
+		"station_code": "NMM_08",
+		"station_name_en": "Pethpada (Kharghar)",
+		"station_name_mr": "पेठपाडा (खारघर)",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 8,
+		"inter_station_km": 1.32,
+		"cumulative_km": 7.44,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"amandoot": {
+		"id": "amandoot",
+		"station_code": "NMM_09",
+		"station_name_en": "Amandoot",
+		"station_name_mr": "अमनदूत",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 9,
+		"connections": "Line 5",
+		"inter_station_km": 1.23,
+		"cumulative_km": 8.67,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"pethali_taloja": {
+		"id": "pethali_taloja",
+		"station_code": "NMM_10",
+		"station_name_en": "Pethali - Taloja",
+		"station_name_mr": "पेठाली - तळोजा",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 10,
+		"connections": "Taloje Panchnand",
+		"inter_station_km": 1.48,
+		"cumulative_km": 10.67,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	},
+	"pendhar": {
+		"id": "pendhar",
+		"station_code": "NMM_11",
+		"station_name_en": "Pendhar",
+		"station_name_mr": "पेणधर",
+		"line": "Line 1",
+		"operator": "CIDCO / Maha Metro",
+		"layout": "Elevated",
+		"opened_date": "17 November 2023",
+		"order": 11,
+		"inter_station_km": 0.95,
+		"cumulative_km": 11.1,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Line_1_(Navi_Mumbai_Metro)",
+			"coordinates_found": false
+		}
+	}
+}

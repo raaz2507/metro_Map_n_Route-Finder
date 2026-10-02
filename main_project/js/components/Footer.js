@@ -30,11 +30,11 @@ export class FooterComponent {
 					<!-- COLUMN 2: TACTILE 2.5D MOBILE PASS CARD -->
 					<div class="footer-pass-col">
 						<div class="footer-pass-card">
-							<button type="button" class="footer-qr-btn" id="footerQrTriggerBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="footerQrModal" aria-label="Click to enlarge QR code">
+							<button type="button" class="footer-qr-btn" id="footerQrTriggerBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="footerQrModal" data-i18n-aria-label="footer.enlargeQrAria" aria-label="Click to enlarge QR code">
 								<span class="footer-qr-wrapper">
 									<img src="./assets/images/qr-code.png" alt="Scan QR for YatraMarg" class="footer-qr-img">
 								</span>
-								<span class="footer-qr-expand-badge" aria-hidden="true">🔍 Tap to Zoom</span>
+								<span class="footer-qr-expand-badge" data-i18n="footer.tapToZoom" aria-hidden="true">🔍 Tap to Zoom</span>
 							</button>
 							<div class="footer-pass-info">
 								<span class="footer-pass-chip">Scan &amp; Ride</span>

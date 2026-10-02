@@ -23,8 +23,10 @@ export const TransitNetworkMasterSchema = {
 	// ------------------------------------------------------------------------
 	// Fallback attributes applied when individual stations omit specific values.
 	defaults: {
-		// Open Location Code 4-character regional prefix
-		// MULTIPLE VALUES: "7JWV" (Delhi NCR), "7JFJ" (Mumbai), "7J4V" (Bengaluru), "7MR8" (Kolkata)
+		// Open Location Code 4-character regional prefix (Dynamic per city)
+		// Delhi NCR: "7JWV" | Mumbai: "7JFJ" | Bengaluru: "7J4V" | Kolkata: "7MR8"
+		// Chennai: "7M58"   | Hyderabad: "7J9W" | Kochi: "7J2W"  | Ahmedabad: "7JMJ"
+		// Pune: "7JCM"      | Lucknow/Kanpur: "7MV5" | Jaipur: "7JRV"
 		defaultPlusCodePrefix: "<string: 4_char_regional_olc_prefix>",
 
 		// Baseline station classification
@@ -241,12 +243,13 @@ export const TransitNetworkMasterSchema = {
 			// MULTIPLE VALUES: "<string: 2_to_4_char_agency_code>" (NCRTC: "Z00", Mumbai: "CUP") | omit
 			code: "<string_or_omit: agency_code>",
 
-			// MULTI-LANGUAGE BILINGUAL TAXONOMY
+			// MULTI-LANGUAGE BILINGUAL / MULTILINGUAL TAXONOMY
 			name: {
-				en: "<string: latin_english_name>",
-				hi: "<string: devanagari_hindi_name>",
-				// Optional regional script extensions (mr: Marathi, ta: Tamil, kn: Kannada, bn: Bengali)
-				regional: "<string_or_omit>"
+				en: "<string: latin_english_name>",              // Mandatory
+				hi: "<string_or_omit: devanagari_hindi_name>",  // Optional (North/Central/National)
+				// Regional script (e.g. Tamil, Kannada, Bengali, Malayalam, Telugu, Gujarati, Marathi)
+				regional: "<string_or_omit: native_regional_script>",
+				regional_lang: "<string_or_omit: iso_code>"     // "ta"|"kn"|"bn"|"ml"|"te"|"gu"|"mr"
 			},
 			
 			// SEARCH SYNONYMS & COLLOQUIAL ALIASES (Optional: for fuzzy search UX)
@@ -307,26 +310,16 @@ export const TransitNetworkMasterSchema = {
 				{
 					station: "<string: adjacent_station_id>",
 					line: "<string: traversing_line_id>",
-					distance: "<integer: track_distance_meters>",     // e.g. 1117, 5290
-					travel_time_sec: "<integer: nominal_seconds_run>" // e.g. 120, 360
+					// Distance & Travel Time: STRICTLY OPTIONAL (Omit if agency does not provide authentic track meters)
+					distance: "<integer_or_omit: track_distance_meters>",
+					travel_time_sec: "<integer_or_omit: nominal_seconds_run>"
 				}
 			],
 
 			// AUTHENTIC TRI-COORDINATE GIS CONTAINER
-			location: {
-				decimal: {
-					lat: "<float: high_precision_wgs84_latitude>",  // e.g. 28.5882474
-					lon: "<float: high_precision_wgs84_longitude>"  // e.g. 77.2556673
-				},
-				// Official Open Location Code (PlusCode) if supplied directly by transit authority
-				// MULTIPLE VALUES: "<string: 8_to_11_char_pluscode>" | ""
-				plusCode: "<string: plus_code_or_empty>",
-				// Official DMS (Degrees, Minutes, Seconds) if supplied directly by transit authority
-				dms: {
-					lat: "<string: formatted_dms_or_empty>",        // e.g. "28°35'17.7\" N"
-					lon: "<string: formatted_dms_or_empty>"         // e.g. "77°15'20.4\" E"
-				}
-			},
+			// STRICT GOVERNANCE: If transit authority does NOT provide official GPS coordinates,
+			// the entire 'location' key MUST BE OMITTED. Zero synthetic or guessed coordinates allowed.
+			location: "<object_or_omit: { decimal: { lat: float, lon: float }, plusCode?: string, dms?: { lat: string, lon: string } }>",
 
 			// REVENUE TRAIN SERVICE TIMINGS
 			train_schedule: {

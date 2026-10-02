@@ -1,0 +1,304 @@
+{
+	"chembur": {
+		"id": "chembur",
+		"station_code": "MMR_01",
+		"station_name_en": "Chembur",
+		"station_name_mr": "चेंबूर",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "2 February 2014",
+		"order": 1,
+		"connections": "HarbourChembur",
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": false
+		}
+	},
+	"vnp_and_rc_marg_junction": {
+		"id": "vnp_and_rc_marg_junction",
+		"station_code": "MMR_02",
+		"station_name_en": "VNP and RC Marg Junction",
+		"station_name_mr": "व्हीएनपी आणि आरसी मार्ग जंक्शन",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "2 February 2014",
+		"order": 2,
+		"connections": "Line 2",
+		"coordinates": {
+			"latitude": 19.0527,
+			"longitude": 72.894199
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"fertiliser_township": {
+		"id": "fertiliser_township",
+		"station_code": "MMR_03",
+		"station_name_en": "Fertiliser Township",
+		"station_name_mr": "फर्टीलाइझर टाउनशिप",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "2 February 2014",
+		"order": 3,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": false
+		}
+	},
+	"bharat_petroleum": {
+		"id": "bharat_petroleum",
+		"station_code": "MMR_04",
+		"station_name_en": "Bharat Petroleum",
+		"station_name_mr": "भारत पेट्रोलियम",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "2 February 2014",
+		"order": 4,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": false
+		}
+	},
+	"mysore_colony": {
+		"id": "mysore_colony",
+		"station_code": "MMR_05",
+		"station_name_en": "Mysore Colony",
+		"station_name_mr": "मैसूर कॉलनी",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "2 February 2014",
+		"order": 5,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": false
+		}
+	},
+	"bhakti_park": {
+		"id": "bhakti_park",
+		"station_code": "MMR_06",
+		"station_name_en": "Bhakti Park",
+		"station_name_mr": "भक्ती पार्क",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "2 February 2014",
+		"order": 6,
+		"connections": "Line 4(Under construction)",
+		"coordinates": {
+			"latitude": 19.029072,
+			"longitude": 72.877532
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"wadala_depot": {
+		"id": "wadala_depot",
+		"station_code": "MMR_07",
+		"station_name_en": "Wadala Depot",
+		"station_name_mr": "वडाळा डेपो",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "2 February 2014",
+		"order": 7,
+		"coordinates": {
+			"latitude": 19.0388,
+			"longitude": 72.8748
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"guru_tegh_bahadur_nagar": {
+		"id": "guru_tegh_bahadur_nagar",
+		"station_code": "MMR_08",
+		"station_name_en": "Guru Tegh Bahadur Nagar",
+		"station_name_mr": "गुरू तेग बहादुर नगर",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 8,
+		"connections": "HarbourGuru Tegh Bahadur Nagar",
+		"coordinates": {
+			"latitude": 19.036783,
+			"longitude": 72.87082
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"antop_hill": {
+		"id": "antop_hill",
+		"station_code": "MMR_09",
+		"station_name_en": "Antop Hill",
+		"station_name_mr": "अँटॉप हिल",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 9,
+		"coordinates": {
+			"latitude": 19.030203,
+			"longitude": 72.866988
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"acharya_atre_nagar": {
+		"id": "acharya_atre_nagar",
+		"station_code": "MMR_10",
+		"station_name_en": "Acharya Atre Nagar",
+		"station_name_mr": "आचार्य अत्रे नगर",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 10,
+		"coordinates": {
+			"latitude": 19.02378,
+			"longitude": 72.86381
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"wadala_bridge": {
+		"id": "wadala_bridge",
+		"station_code": "MMR_11",
+		"station_name_en": "Wadala Bridge",
+		"station_name_mr": "वडाळा ब्रिज",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 11,
+		"connections": "HarbourWadala Road",
+		"coordinates": {
+			"latitude": 19.017431,
+			"longitude": 72.859315
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"dadar_east": {
+		"id": "dadar_east",
+		"station_code": "MMR_12",
+		"station_name_en": "Dadar (East)",
+		"station_name_mr": "दादर (पूर्व)",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 12,
+		"coordinates": {
+			"latitude": 19.016311,
+			"longitude": 72.852302
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"naigaon": {
+		"id": "naigaon",
+		"station_code": "MMR_13",
+		"station_name_en": "Naigaon",
+		"station_name_mr": "नायगाव",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 13,
+		"coordinates": {
+			"latitude": 19.009529,
+			"longitude": 72.847878
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"ambedkar_nagar": {
+		"id": "ambedkar_nagar",
+		"station_code": "MMR_14",
+		"station_name_en": "Ambedkar Nagar",
+		"station_name_mr": "आंबेडकर नगर",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 14,
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": false
+		}
+	},
+	"mint_colony": {
+		"id": "mint_colony",
+		"station_code": "MMR_15",
+		"station_name_en": "Mint Colony",
+		"station_name_mr": "मिंट कॉलनी",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 15,
+		"coordinates": {
+			"latitude": 18.994503,
+			"longitude": 72.843311
+		},
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": true
+		}
+	},
+	"lower_parel": {
+		"id": "lower_parel",
+		"station_code": "MMR_16",
+		"station_name_en": "Lower Parel",
+		"station_name_mr": "लोअर परळ",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 16,
+		"connections": "WesternLower Parel",
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": false
+		}
+	},
+	"sant_gadge_maharaj_chowk": {
+		"id": "sant_gadge_maharaj_chowk",
+		"station_code": "MMR_17",
+		"station_name_en": "Sant Gadge Maharaj Chowk",
+		"station_name_mr": "संत गाडगे महाराज चौक",
+		"line": "Line 1 (Monorail)",
+		"operator": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+		"layout": "Elevated",
+		"opened_date": "3 March 2019",
+		"order": 17,
+		"connections": "Line 3",
+		"meta_raw": {
+			"source_url": "https://en.wikipedia.org/api/rest_v1/page/html/Mumbai_Monorail",
+			"coordinates_found": false
+		}
+	}
+}

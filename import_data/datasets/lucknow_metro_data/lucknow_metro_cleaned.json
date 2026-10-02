@@ -1,0 +1,821 @@
+{
+	"ccs_airport": {
+		"id": "ccs_airport",
+		"station_code": "CCAP",
+		"station_name_en": "CCS AIRPORT",
+		"station_name_hi": "चौधरी चरण सिंह हवाई अड्डा मेट्रो स्टेशन",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.766253,
+			"longitude": 80.882198
+		},
+		"meta_raw": {
+			"id": 4,
+			"st_name": "CCS AIRPORT",
+			"st_code": "CCAP",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_tlA8gCV.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_0PhvqjE.png"
+			},
+			"latitude": "26.766253",
+			"longitude": "80.882198",
+			"x_coords": 510.09,
+			"y_coords": 1099.92,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"amausi": {
+		"id": "amausi",
+		"station_code": "AMSM",
+		"station_name_en": "AMAUSI",
+		"station_name_hi": "अमौसी",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.77137,
+			"longitude": 80.87868
+		},
+		"meta_raw": {
+			"id": 5,
+			"st_name": "AMAUSI",
+			"st_code": "AMSM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_R0P4vPl.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_xRQxzGP.png"
+			},
+			"latitude": "26.77137",
+			"longitude": "80.87868",
+			"x_coords": 471.61,
+			"y_coords": 1063.99,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"transport_nagar": {
+		"id": "transport_nagar",
+		"station_code": "TPNR",
+		"station_name_en": "TRANSPORT NAGAR",
+		"station_name_hi": "ट्रांसपोर्ट नगर",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.77788,
+			"longitude": 80.88259
+		},
+		"meta_raw": {
+			"id": 6,
+			"st_name": "TRANSPORT NAGAR",
+			"st_code": "TPNR",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_NQRBZre.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_JEnxfxq.png"
+			},
+			"latitude": "26.77788",
+			"longitude": "80.88259",
+			"x_coords": 500.49,
+			"y_coords": 1000.39,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"krishna_nagar": {
+		"id": "krishna_nagar",
+		"station_code": "KRNM",
+		"station_name_en": "KRISHNA NAGAR",
+		"station_name_hi": "कृष्णा नगर",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.794395,
+			"longitude": 80.891714
+		},
+		"meta_raw": {
+			"id": 7,
+			"st_name": "KRISHNA NAGAR",
+			"st_code": "KRNM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_KUo3bU7.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_oU204dx.png"
+			},
+			"latitude": "26.794395",
+			"longitude": "80.891714",
+			"x_coords": 540.86,
+			"y_coords": 929.51,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"singar_nagar": {
+		"id": "singar_nagar",
+		"station_code": "SGNG",
+		"station_name_en": "SINGAR NAGAR",
+		"station_name_hi": "सिंगर नगर‌",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.80311,
+			"longitude": 80.89638
+		},
+		"meta_raw": {
+			"id": 8,
+			"st_name": "SINGAR NAGAR",
+			"st_code": "SGNG",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_lURGHiu.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_RZl35kS.png"
+			},
+			"latitude": "26.80311",
+			"longitude": "80.89638",
+			"x_coords": 564.71,
+			"y_coords": 886.97,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"alambagh": {
+		"id": "alambagh",
+		"station_code": "ALMB",
+		"station_name_en": "ALAMBAGH",
+		"station_name_hi": "आलमबाग",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.81395,
+			"longitude": 80.90243
+		},
+		"meta_raw": {
+			"id": 9,
+			"st_name": "ALAMBAGH",
+			"st_code": "ALMB",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_HK9rb7B.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_LaxIXI8.png"
+			},
+			"latitude": "26.81395",
+			"longitude": "80.90243",
+			"x_coords": 609.89,
+			"y_coords": 792.34,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"alambagh_bus_stand": {
+		"id": "alambagh_bus_stand",
+		"station_code": "ABST",
+		"station_name_en": "ALAMBAGH BUS STAND",
+		"station_name_hi": "आलमबाग बस स्टैंड",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.81852,
+			"longitude": 80.90742
+		},
+		"meta_raw": {
+			"id": 10,
+			"st_name": "ALAMBAGH BUS STAND",
+			"st_code": "ABST",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_DiuGZtv.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_MLeZ4J9.png"
+			},
+			"latitude": "26.81852",
+			"longitude": "80.90742",
+			"x_coords": 624.79,
+			"y_coords": 762.92,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"mawaiya": {
+		"id": "mawaiya",
+		"station_code": "MWYA",
+		"station_name_en": "MAWAIYA",
+		"station_name_hi": "मवैया",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.82535,
+			"longitude": 80.90989
+		},
+		"meta_raw": {
+			"id": 11,
+			"st_name": "MAWAIYA",
+			"st_code": "MWYA",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_D3bwW0k.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_I0COA4O.png"
+			},
+			"latitude": "26.82535",
+			"longitude": "80.90989",
+			"x_coords": 661.53,
+			"y_coords": 700.59,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"durgapuri": {
+		"id": "durgapuri",
+		"station_code": "DGPI",
+		"station_name_en": "DURGAPURI",
+		"station_name_hi": "दुर्गापुरी",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8319795432,
+			"longitude": 80.9153831272
+		},
+		"meta_raw": {
+			"id": 12,
+			"st_name": "DURGAPURI",
+			"st_code": "DGPI",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_qrplbcF.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_upP4h9y.png"
+			},
+			"latitude": "26.8319795432",
+			"longitude": "80.9153831272",
+			"x_coords": 671.77,
+			"y_coords": 658.99,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"charbagh": {
+		"id": "charbagh",
+		"station_code": "CHBG",
+		"station_name_en": "CHARBAGH",
+		"station_name_hi": "चारबाग",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.83238,
+			"longitude": 80.92315
+		},
+		"meta_raw": {
+			"id": 13,
+			"st_name": "CHARBAGH",
+			"st_code": "CHBG",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_c2ERfZu.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_O4CJLv6.png"
+			},
+			"latitude": "26.83238",
+			"longitude": "80.92315",
+			"x_coords": 751.79,
+			"y_coords": 639.36,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"hussainganj": {
+		"id": "hussainganj",
+		"station_code": "HSGJ",
+		"station_name_en": "HUSSAINGANJ",
+		"station_name_hi": "हुसैनगंज",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8726754,
+			"longitude": 80.9918563
+		},
+		"meta_raw": {
+			"id": 14,
+			"st_name": "HUSSAINGANJ",
+			"st_code": "HSGJ",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_jCPPdTG.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_Hkz2BFB.png"
+			},
+			"latitude": "26.8726754",
+			"longitude": "80.9918563",
+			"x_coords": 809.29,
+			"y_coords": 597.26,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"sachivalaya": {
+		"id": "sachivalaya",
+		"station_code": "SHVA",
+		"station_name_en": "SACHIVALAYA",
+		"station_name_hi": "सचिवालय",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8420469569,
+			"longitude": 80.9408293989
+		},
+		"meta_raw": {
+			"id": 15,
+			"st_name": "SACHIVALAYA",
+			"st_code": "SHVA",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_tD1nkFV.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_PbZgziu.png"
+			},
+			"latitude": "26.8420469569",
+			"longitude": "80.9408293989",
+			"x_coords": 863.56,
+			"y_coords": 569.07,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"hazratganj": {
+		"id": "hazratganj",
+		"station_code": "HZNJ",
+		"station_name_en": "HAZRATGANJ",
+		"station_name_hi": "हजरतगंज",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.849086,
+			"longitude": 80.942796
+		},
+		"meta_raw": {
+			"id": 16,
+			"st_name": "HAZRATGANJ",
+			"st_code": "HZNJ",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_WyceFt8.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_oPnDUXy.png"
+			},
+			"latitude": "26.849086",
+			"longitude": "80.942796",
+			"x_coords": 858.81,
+			"y_coords": 523.03,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"kd_singh_babu_stadium": {
+		"id": "kd_singh_babu_stadium",
+		"station_code": "KDSS",
+		"station_name_en": "KD SINGH BABU STADIUM",
+		"station_name_hi": "के डी सिंह बाबू स्टेडियम",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8539994753,
+			"longitude": 80.9369457296
+		},
+		"meta_raw": {
+			"id": 17,
+			"st_name": "KD SINGH BABU STADIUM",
+			"st_code": "KDSS",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_oqBpJsI.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_TVsG0UG.png"
+			},
+			"latitude": "26.8539994753",
+			"longitude": "80.9369457296",
+			"x_coords": 825.34,
+			"y_coords": 484.21,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"vishvavidyalaya": {
+		"id": "vishvavidyalaya",
+		"station_code": "VSVM",
+		"station_name_en": "VISHVAVIDYALAYA",
+		"station_name_hi": "विश्वविद्यालय",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8654926565,
+			"longitude": 80.9395927981
+		},
+		"meta_raw": {
+			"id": 18,
+			"st_name": "VISHVAVIDYALAYA",
+			"st_code": "VSVM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_9gmej2v.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_EiRT1pc.png"
+			},
+			"latitude": "26.8654926565",
+			"longitude": "80.9395927981",
+			"x_coords": 684.33,
+			"y_coords": 682.46,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"it_college": {
+		"id": "it_college",
+		"station_code": "ITC",
+		"station_name_en": "IT COLLEGE",
+		"station_name_hi": "आईटी कॉलेज",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8710134536,
+			"longitude": 80.9456395251
+		},
+		"meta_raw": {
+			"id": 19,
+			"st_name": "IT COLLEGE",
+			"st_code": "ITC",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_QYSaLZB.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_uM976yg.png"
+			},
+			"latitude": "26.8710134536",
+			"longitude": "80.9456395251",
+			"x_coords": 860.54,
+			"y_coords": 386.96,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"badshah_nagar": {
+		"id": "badshah_nagar",
+		"station_code": "BSNM",
+		"station_name_en": "BADSHAH NAGAR",
+		"station_name_hi": "बादशाह नगर",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8707654488,
+			"longitude": 80.9614467777
+		},
+		"meta_raw": {
+			"id": 20,
+			"st_name": "BADSHAH NAGAR",
+			"st_code": "BSNM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_UgFfgiZ.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_WtJjdrf.png"
+			},
+			"latitude": "26.8707654488",
+			"longitude": "80.9614467777",
+			"x_coords": 925.0,
+			"y_coords": 380.69,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"lekhraj_market": {
+		"id": "lekhraj_market",
+		"station_code": "LHMT",
+		"station_name_en": "LEKHRAJ MARKET",
+		"station_name_hi": "लेखराज मार्केट",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8708650271,
+			"longitude": 80.9737782557
+		},
+		"meta_raw": {
+			"id": 21,
+			"st_name": "LEKHRAJ MARKET",
+			"st_code": "LHMT",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_mZ4OHqo.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_OuUA1VL.png"
+			},
+			"latitude": "26.8708650271",
+			"longitude": "80.9737782557",
+			"x_coords": 994.6,
+			"y_coords": 380.69,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"bhootnath_market": {
+		"id": "bhootnath_market",
+		"station_code": "BTNT",
+		"station_name_en": "BHOOTNATH MARKET",
+		"station_name_hi": "भूतनाथ मार्केट",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8722728513,
+			"longitude": 80.9825044468
+		},
+		"meta_raw": {
+			"id": 22,
+			"st_name": "BHOOTNATH MARKET",
+			"st_code": "BTNT",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_5cScceq.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_pWfGBLw.png"
+			},
+			"latitude": "26.8722728513",
+			"longitude": "80.9825044468",
+			"x_coords": 1063.67,
+			"y_coords": 376.32,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"indira_nagar": {
+		"id": "indira_nagar",
+		"station_code": "IDNM",
+		"station_name_en": "INDIRA NAGAR",
+		"station_name_hi": "इंदिरा नगर",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.8727587729,
+			"longitude": 80.9910101665
+		},
+		"meta_raw": {
+			"id": 23,
+			"st_name": "INDIRA NAGAR",
+			"st_code": "IDNM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_l7l540d.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_kpGMVNA.png"
+			},
+			"latitude": "26.8727587729",
+			"longitude": "80.9910101665",
+			"x_coords": 1151.32,
+			"y_coords": 360.21,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"munshipulia": {
+		"id": "munshipulia",
+		"station_code": "MSPA",
+		"station_name_en": "MUNSHIPULIA",
+		"station_name_hi": "मुंशी पुलिया",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.88792,
+			"longitude": 80.99593
+		},
+		"meta_raw": {
+			"id": 24,
+			"st_name": "MUNSHIPULIA",
+			"st_code": "MSPA",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_wjkGqTt.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_tALLZPd.png"
+			},
+			"latitude": "26.88792",
+			"longitude": "80.99593",
+			"x_coords": 1151.32,
+			"y_coords": 288.15,
+			"metro_line": [
+				{
+					"id": 2,
+					"ln_name": "Line 1",
+					"ln_code": "LN2",
+					"ln_color": "#f5d618"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	}
+}

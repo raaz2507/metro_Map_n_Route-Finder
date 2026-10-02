@@ -32,7 +32,7 @@ export default {
 		"help": "सहायता",
 		"about": "जानकारी"
 	},
-	"footer": {
+		"footer": {
 		"footerNavigation": "नेविगेशन",
 		"about": "जानकारी",
 		"bookTicket": "टिकट बुक करें",
@@ -48,7 +48,9 @@ export default {
 		"brandTitle": "मेट्रो मैप जनरेटर",
 		"brandDescription": "शहर में आसान और स्मार्ट मेट्रो सफर के लिए तैयार किया गया।",
 		"disclaimer": "रूट, किराया और समय की जानकारी केवल आपकी सुविधा के लिए है।",
-		"developedBy": "❤️ के साथ विकसित"
+		"developedBy": "❤️ के साथ विकसित",
+		"tapToZoom": "🔍 बड़ा करने के लिए टैप करें",
+		"enlargeQrAria": "QR कोड बड़ा करने के लिए क्लिक करें"
 	},
 	"rechargeModal": {
 		"title": "स्मार्ट कार्ड त्वरित टॉप-अप",

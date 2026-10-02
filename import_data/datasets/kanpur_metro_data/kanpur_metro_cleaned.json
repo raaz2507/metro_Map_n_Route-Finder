@@ -1,0 +1,673 @@
+{
+	"iit_kanpur": {
+		"id": "iit_kanpur",
+		"station_code": "IITK",
+		"station_name_en": "IIT KANPUR",
+		"station_name_hi": "आईआईटी कानपुर",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.50924,
+			"longitude": 80.24825
+		},
+		"meta_raw": {
+			"id": 25,
+			"st_name": "IIT KANPUR",
+			"st_code": "IITK",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_D99eRwt.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_JaaL9Kn.png"
+			},
+			"latitude": "26.50924",
+			"longitude": "80.24825",
+			"x_coords": 475.71,
+			"y_coords": 518.99,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"kalyanpur_metro": {
+		"id": "kalyanpur_metro",
+		"station_code": "KLNM",
+		"station_name_en": "KALYANPUR METRO",
+		"station_name_hi": "कल्याणपुर मेट्रो",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.5036,
+			"longitude": 26.5036
+		},
+		"meta_raw": {
+			"id": 26,
+			"st_name": "KALYANPUR METRO",
+			"st_code": "KLNM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_F9OFf9l.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_INntWiN.png"
+			},
+			"latitude": "26.5036",
+			"longitude": "26.5036",
+			"x_coords": 538.69,
+			"y_coords": 608.75,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"spm_hospital": {
+		"id": "spm_hospital",
+		"station_code": "SPMH",
+		"station_name_en": "SPM HOSPITAL",
+		"station_name_hi": "एसपीएम हॉस्पिटल",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.49887,
+			"longitude": 26.49887
+		},
+		"meta_raw": {
+			"id": 27,
+			"st_name": "SPM HOSPITAL",
+			"st_code": "SPMH",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_HR5j5pz.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_0pmPFkB.png"
+			},
+			"latitude": "26.49887",
+			"longitude": "26.49887",
+			"x_coords": 595.83,
+			"y_coords": 655.73,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"vishwavidyalaya_metro": {
+		"id": "vishwavidyalaya_metro",
+		"station_code": "VWLM",
+		"station_name_en": "VISHWAVIDYALAYA METRO",
+		"station_name_hi": "विश्व विद्यालय मेट्रो",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.49662,
+			"longitude": 80.26744
+		},
+		"meta_raw": {
+			"id": 28,
+			"st_name": "VISHWAVIDYALAYA METRO",
+			"st_code": "VWLM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_N273Ca5.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_Zs8IwQ6.png"
+			},
+			"latitude": "26.49662",
+			"longitude": "80.26744",
+			"x_coords": 839.83,
+			"y_coords": 426.24,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"gurudev_chauraha": {
+		"id": "gurudev_chauraha",
+		"station_code": "GDCH",
+		"station_name_en": "GURUDEV CHAURAHA",
+		"station_name_hi": "गुरुदेव चौराहा",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.4916,
+			"longitude": 80.28475
+		},
+		"meta_raw": {
+			"id": 29,
+			"st_name": "GURUDEV CHAURAHA",
+			"st_code": "GDCH",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_RSka88R.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_yo5Bd88.png"
+			},
+			"latitude": "26.4916",
+			"longitude": "80.28475",
+			"x_coords": 780.71,
+			"y_coords": 716.88,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"geeta_nagar": {
+		"id": "geeta_nagar",
+		"station_code": "GTNG",
+		"station_name_en": "GEETA NAGAR",
+		"station_name_hi": "गीतानगर",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.48716,
+			"longitude": 80.29206
+		},
+		"meta_raw": {
+			"id": 30,
+			"st_name": "GEETA NAGAR",
+			"st_code": "GTNG",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_sBgAtNt.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_e6WB6yb.png"
+			},
+			"latitude": "26.48716",
+			"longitude": "80.29206",
+			"x_coords": 852.69,
+			"y_coords": 765.01,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"rawatpur_metro": {
+		"id": "rawatpur_metro",
+		"station_code": "RWPM",
+		"station_name_en": "RAWATPUR METRO",
+		"station_name_hi": "रावतपुर मेट्रो",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.48297,
+			"longitude": 80.29989
+		},
+		"meta_raw": {
+			"id": 31,
+			"st_name": "RAWATPUR METRO",
+			"st_code": "RWPM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_fgRsz00.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_6Kt7rex.png"
+			},
+			"latitude": "26.48297",
+			"longitude": "80.29989",
+			"x_coords": 886.35,
+			"y_coords": 784.61,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": true,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"llr_hospital": {
+		"id": "llr_hospital",
+		"station_code": "LLRH",
+		"station_name_en": "LLR HOSPITAL",
+		"station_name_hi": "एलएलआर अस्पताल",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.47926,
+			"longitude": 80.31151
+		},
+		"meta_raw": {
+			"id": 32,
+			"st_name": "LLR HOSPITAL",
+			"st_code": "LLRH",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_gGbcynB.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_ZXEux4K.png"
+			},
+			"latitude": "26.47926",
+			"longitude": "80.31151",
+			"x_coords": 945.13,
+			"y_coords": 823.8,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"motijheel_metro": {
+		"id": "motijheel_metro",
+		"station_code": "MTJM",
+		"station_name_en": "MOTIJHEEL METRO",
+		"station_name_hi": "मोतीझील मेट्रो",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.47903,
+			"longitude": 80.31802
+		},
+		"meta_raw": {
+			"id": 33,
+			"st_name": "MOTIJHEEL METRO",
+			"st_code": "MTJM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_nJbEOHx.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_ZCKUfJA.png"
+			},
+			"latitude": "26.47903",
+			"longitude": "80.31802",
+			"x_coords": 992.84,
+			"y_coords": 866.39,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [],
+			"status": "Station Open"
+		}
+	},
+	"chunni_ganj": {
+		"id": "chunni_ganj",
+		"station_code": "CHGJ",
+		"station_name_en": "CHUNNI GANJ",
+		"station_name_hi": "चुन्नी गंज",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.50924,
+			"longitude": 80.24825
+		},
+		"meta_raw": {
+			"id": 37,
+			"st_name": "CHUNNI GANJ",
+			"st_code": "CHGJ",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_4GclM4Z.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_AHz076W.png"
+			},
+			"latitude": "26.50924",
+			"longitude": "80.24825",
+			"x_coords": 475.71,
+			"y_coords": 518.99,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"naveen_market": {
+		"id": "naveen_market",
+		"station_code": "NMKT",
+		"station_name_en": "NAVEEN MARKET",
+		"station_name_hi": "नवीन मार्केट",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.50924,
+			"longitude": 80.24825
+		},
+		"meta_raw": {
+			"id": 38,
+			"st_name": "NAVEEN MARKET",
+			"st_code": "NMKT",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_Kogz1nK.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_Kik3aLU.png"
+			},
+			"latitude": "26.50924",
+			"longitude": "80.24825",
+			"x_coords": 475.71,
+			"y_coords": 518.99,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"bada_chauraha": {
+		"id": "bada_chauraha",
+		"station_code": "BDCH",
+		"station_name_en": "BADA CHAURAHA",
+		"station_name_hi": "बड़ा चौराहा",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.50924,
+			"longitude": 80.24825
+		},
+		"meta_raw": {
+			"id": 39,
+			"st_name": "BADA CHAURAHA",
+			"st_code": "BDCH",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_VBREdWm.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_xCHVUqO.png"
+			},
+			"latitude": "26.50924",
+			"longitude": "80.24825",
+			"x_coords": 475.71,
+			"y_coords": 518.99,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"naya_ganj": {
+		"id": "naya_ganj",
+		"station_code": "NYGJ",
+		"station_name_en": "NAYA GANJ",
+		"station_name_hi": "नया गंज",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.50924,
+			"longitude": 80.24825
+		},
+		"meta_raw": {
+			"id": 40,
+			"st_name": "NAYA GANJ",
+			"st_code": "NYGJ",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero_nBD0SWp.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr_Q4uaPlj.png"
+			},
+			"latitude": "26.50924",
+			"longitude": "80.24825",
+			"x_coords": 475.71,
+			"y_coords": 518.99,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	},
+	"kanpur_central": {
+		"id": "kanpur_central",
+		"station_code": "KNCM",
+		"station_name_en": "KANPUR CENTRAL",
+		"station_name_hi": "कानपुर सेंट्रल",
+		"operator": "UPMRC",
+		"coordinates": {
+			"latitude": 26.50924,
+			"longitude": 80.24825
+		},
+		"meta_raw": {
+			"id": 41,
+			"st_name": "KANPUR CENTRAL",
+			"st_code": "KNCM",
+			"st_image": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Image_Hero.png"
+			},
+			"st_image_small": {
+				"title": "",
+				"file": "https://upmrcl-media.s3.amazonaws.com/media/images/Rectangle_2202_vziuifr.png"
+			},
+			"latitude": "26.50924",
+			"longitude": "80.24825",
+			"x_coords": 475.71,
+			"y_coords": 518.99,
+			"metro_line": [
+				{
+					"id": 3,
+					"ln_name": "Line 1",
+					"ln_code": "LN3",
+					"ln_color": "#3e77bc"
+				}
+			],
+			"interchange": false,
+			"st_key_info": [
+				{
+					"name": "Divyang Friendly Station",
+					"class_name": "Divyang",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/accessible_hsEdlzx_nVjjDF3.png"
+					}
+				},
+				{
+					"name": "Lift / Escalator Available",
+					"class_name": "Lift",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/escalator_fH6BZeS_oDqmyn6.png"
+					}
+				},
+				{
+					"name": "Parking Available",
+					"class_name": "Parking",
+					"image": {
+						"title": "",
+						"file": "https://upmrcl-media.s3.amazonaws.com/media/images/local_parking_3F12UYm_1YKgGZR.png"
+					}
+				}
+			],
+			"status": "Station Open"
+		}
+	}
+}

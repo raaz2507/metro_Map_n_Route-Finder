@@ -2,7 +2,7 @@
    GHIBLI NOSTALGIA THEME - COACH MODULE (DESIGN 13)
    ========================================================================== */
 @layer themes {
-	[data-theme="ghibli"] {
+	[data-theme="anime"] {
 		--coach-font-title: 'Georgia', 'Palatino', serif;
 		--coach-font-mono: 'Georgia', serif;
 		--coach-text-title: #fef3c7;
@@ -22,19 +22,19 @@
 	}
 
 	/* Coach: Ghibli Serif Lettering & Glow on Hover */
-	[data-theme="ghibli"] .station-name-title {
+	[data-theme="anime"] .station-name-title {
 		font-family: 'Georgia', 'Cinzel', serif;
 		letter-spacing: 0.12em;
 		text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 		transition: color 0.3s ease, text-shadow 0.3s ease;
 	}
 
-	[data-theme="ghibli"] .real-coach-card:hover .station-name-title {
+	[data-theme="anime"] .real-coach-card:hover .station-name-title {
 		color: #fef08a;
 		text-shadow: 0 0 14px rgba(254, 240, 138, 0.65), 0 2px 6px #000000;
 	}
 
-	[data-theme="ghibli"] .real-coach-card:hover .coach-center-badge {
+	[data-theme="anime"] .real-coach-card:hover .coach-center-badge {
 		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(245, 158, 11, 0.6);
 	}
 }

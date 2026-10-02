@@ -59,7 +59,9 @@ class BMRCLEcosystemAdapter(BaseTransitAdapter):
 				code = cols[5].strip()
 
 				# Filter strictly operational stations (exclude unbuilt/planned)
-				if "planned" in opened.lower() or "under construction" in opened.lower():
+				# Retain stations that have a historical opening year even if an extension/interchange is under construction
+				has_operational_date = any(yr in opened for yr in ["2011", "2014", "2015", "2016", "2017", "2021", "2023", "2024", "2025"])
+				if not has_operational_date and ("planned" in opened.lower() or "under construction" in opened.lower()):
 					continue
 
 				page_title = m_page.group(1)

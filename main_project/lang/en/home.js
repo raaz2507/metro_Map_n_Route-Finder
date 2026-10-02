@@ -121,14 +121,15 @@ export default {
 			interchangeAlertDesc: "Alerts you 1 station before you need to switch train lines.",
 			audioHeading: "🔊 Sound & Volume",
 			toneLabel: "Alarm Ringtone",
-			toneOptions: {
+			tones: {
 				chime: "🔔 Metro Chime (Soft)",
-				loud: "🚨 Loud Siren (Awakening)",
-				subtle: "🎵 Subtle Marimba",
-				ping: "📍 Single Proximity Ping"
+				beep: "⚠️ Warning Beep (Pulse)",
+				siren: "🚨 Emergency Siren",
+				custom: "📁 Custom Audio (MP3)"
 			},
-			testToneBtn: "Preview Sound",
+			uploadMp3Label: "Choose Custom Audio File",
 			volumeLabel: "Alarm Volume",
+			testSoundBtn: "Test Sound",
 			vibeHeading: "📳 Haptics & Vibration",
 			vibeLabel: "Vibration Pattern",
 			vibePatterns: {
@@ -141,30 +142,23 @@ export default {
 			voiceHeading: "🗣️ Offline Voice Alerts",
 			voiceLabel: "Voice Announcements (TTS)",
 			voiceDesc: "Announces upcoming station names and line change reminders aloud offline.",
-			voiceSelectLabel: "Announcement Voice"
+			voiceSelectLabel: "Announcement Voice",
+			testVoiceBtn: "Test Voice",
+			resetBtn: "Reset to Default"
 		},
 		map: {
-			title: "Map & Display",
-			subtitle: "Canvas & visual styling",
-			heading: "🗺️ Canvas Display Options",
-			autoCenterLabel: "Auto-Center Station on Search",
-			autoCenterDesc: "Smoothly pans map when you pick origin/destination.",
-			stationLabelsLabel: "Show Intermediate Station Names",
-			stationLabelsDesc: "Displays labels permanently along route tracks.",
-			walkwaysLabel: "Draw Interchange Footpaths",
-			walkwaysDesc: "Renders dashed interchange connectors on the map.",
-			resetMapBtn: "Reset Map View & Zoom"
+			heading: "🗺️ Map Display & View",
+			underConstructionLabel: "Show Under Construction",
+			underConstructionDesc: "Display upcoming and under-construction lines (dashed) and stations on the map.",
+			approvedLabel: "Show Approved & Planned",
+			approvedDesc: "Display approved and proposed future transit corridors (dotted) on the map."
 		},
 		backup: {
-			title: "Backup & Restore",
-			subtitle: "Data persistence",
-			heading: "💾 Local Application Data",
-			desc: "Export your recent searches, favorite routes, and custom settings as an offline backup.",
+			title: "💾 Backup & Restore Data",
+			desc: "Manage your saved routes, alarms, and preferences.",
 			exportBtn: "Download",
-			importBtn: "Import",
-			resetHeading: "⚠️ Reset App State",
-			resetDesc: "Clear all saved routes, preferences, and reset the application to fresh factory state.",
-			resetBtn: "Clear Storage"
+			shareBtn: "Share",
+			importBtn: "Import"
 		}
 	},
 
@@ -226,11 +220,18 @@ export default {
 	// 7. Live Journey Speedometer
 	speedometer: {
 		title: "Live Transit Speedometer",
-		speedUnit: "KM/H",
+		topSpeed: "Top Speed:",
+		gpsAccuracy: "GPS Accuracy:",
+		statusLabel: "Status:",
+		speedUnit: "km/h",
 		maxSpeed: "Max Speed: {speed} km/h",
 		avgSpeed: "Avg Speed: {speed} km/h",
 		motionStatus: "Motion Status",
+		statusHalted: "Stationary",
+		statusDeparting: "Departing Station",
+		statusCruising: "Cruising",
 		statusStates: {
+			halted: "Stationary",
 			departing: "Departing Station",
 			cruising: "Cruising",
 			decelerating: "Decelerating / Halting",
@@ -240,15 +241,24 @@ export default {
 
 	// 8. Alarm Dynamic Banner Bar
 	alarmBanner: {
-		title: "यात्रा अलार्म सक्रिय है",
-		approachingNotice: "~{dist}m में {station} आ रहा है",
-		interchangeNotice: "{station} पर लाइन बदलें!",
-		destinationNotice: "गंतव्य {station} अगला स्टेशन है! उतरने की तैयारी करें।",
-		snoozeBtn: "2 मिनट स्नूज़",
-		dismissBtn: "मैं पहुँच गया",
-		enabledToast: "🔔 लाइव यात्रा अलार्म सक्रिय हो गया!",
-		stoppedToast: "🛑 लाइव अलार्म बंद कर दिया गया।"
+		title: "Live Journey Alarm Active",
+		approachingNotice: "Approaching {station} in ~{dist}m",
+		interchangeNotice: "Change line at {station}!",
+		destinationNotice: "Destination {station} is next! Prepare to deboard.",
+		approaching: "Approaching Station",
+		interchangeAlert: "Prepare to change line",
+		destinationAlert: "Approaching destination! Prepare to deboard",
+		trackingActive: "🛰️ Live Tracking Active",
+		snoozeBtn: "⏱️ Snooze",
+		dismissBtn: "🔕 Dismiss",
+		stopAlarmBtn: "🛑 Stop",
+		dismissToast: "🔔 Next alert: Destination station",
+		snoozeToast: "⏱️ Alarm snoozed for 2 minutes",
+		enabledToast: "🔔 Live journey alarm enabled!",
+		stoppedToast: "🛑 Live alarm disabled."
 	},
+
+	// 8.1 GPS & Location Status Messages
 	gps: {
 		permissionDenied: "📍 Location permission is denied. Please allow location in browser settings.",
 		unavailable: "⚠️ GPS signal unavailable. Alarm will rely on estimated travel time.",

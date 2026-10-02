@@ -22,37 +22,11 @@
 			<div class="sidebar-scroll-area custom-scrollbar">
 				<div class="networks-list-header">
 					<span data-i18n="bridge.target_city">Target Cities</span>
-					<span class="active-count-label">2 Active</span>
+					<span class="active-count-label" id="bridgeCityCount">Loading...</span>
 				</div>
 				
 				<div class="network-items-container" id="bridgeCityList">
-					<div class="network-item active" data-city="delhi_ncr">
-						<div class="network-item-info">
-							<span class="network-icon">🏛️</span>
-							<div class="network-text">
-								<div class="network-name">Delhi NCR</div>
-								<div class="network-city">delhi_ncr</div>
-							</div>
-						</div>
-						<div class="network-badges">
-							<span class="status-indicator-dot dot-emerald"></span>
-							<span class="badge-stage font-mono">Stage 4</span>
-						</div>
-					</div>
-
-					<div class="network-item" data-city="mumbai">
-						<div class="network-item-info">
-							<span class="network-icon">🌊</span>
-							<div class="network-text">
-								<div class="network-name">Mumbai</div>
-								<div class="network-city">mumbai</div>
-							</div>
-						</div>
-						<div class="network-badges">
-							<span class="status-indicator-dot dot-amber"></span>
-							<span class="badge-stage font-mono">Stage 4</span>
-						</div>
-					</div>
+					<!-- Dynamically populated via /api/bridge/cities -->
 				</div>
 			</div>
 		</aside>

@@ -25,6 +25,7 @@ class ProductionBridgeController {
 
 		this.#dom = getElements({
 			cityList: '#bridgeCityList',
+			cityCount: '#bridgeCityCount',
 			headerCityName: '#headerCityName',
 			headerCityIcon: '#headerCityIcon',
 			btnRefresh: '#btnRefreshBridge',
@@ -66,29 +67,77 @@ class ProductionBridgeController {
 		});
 
 		this.#bindEvents();
-		this.loadCityDiagnostics();
+		this.loadCities();
+	}
+
+	async loadCities() {
+		try {
+			const res = await fetch('/api/bridge/cities');
+			if (!res.ok) throw new Error('Failed to load cities');
+			const cities = await res.json();
+
+			if (this.#dom.cityCount) {
+				this.#dom.cityCount.textContent = `${cities.length} Active`;
+			}
+
+			if (this.#dom.cityList) {
+				this.#dom.cityList.innerHTML = '';
+				cities.forEach((c, idx) => {
+					const displayName = typeof c.name === 'object' && c.name !== null ? (c.name.en || Object.values(c.name)[0]) : String(c.name || c.id);
+					const item = document.createElement('div');
+					item.className = `network-item ${c.id === this.#activeCity ? 'active' : ''}`;
+					item.setAttribute('data-city', c.id);
+					item.setAttribute('data-name', displayName);
+
+					const icon = c.id === 'delhi_ncr' ? '🏛️' : (c.id === 'mumbai' ? '🌊' : '🚇');
+					item.innerHTML = `
+						<div class="network-item-info">
+							<span class="network-icon">${icon}</span>
+							<div class="network-text">
+								<div class="network-name">${escapeHtml(displayName)}</div>
+								<div class="network-city">${escapeHtml(c.id)}</div>
+							</div>
+						</div>
+						<div class="network-badges">
+							<span class="status-indicator-dot ${c.has_delta ? 'dot-emerald' : 'dot-amber'}"></span>
+							<span class="badge-stage font-mono">Stage 4</span>
+						</div>
+					`;
+
+					item.addEventListener('click', () => {
+						if (this.#activeCity === c.id) return;
+						this.#activeCity = c.id;
+						this.#selectedStation = '__all__';
+
+						this.#dom.cityList.querySelectorAll('.network-item').forEach(i => i.classList.remove('active'));
+						item.classList.add('active');
+
+						if (this.#dom.headerCityName) this.#dom.headerCityName.textContent = `${displayName} (${c.id})`;
+						if (this.#dom.headerCityIcon) this.#dom.headerCityIcon.textContent = icon;
+
+						this.loadCityDiagnostics();
+					});
+
+					this.#dom.cityList.appendChild(item);
+				});
+			}
+
+			// Initial diagnostics load for default city
+			const defaultCity = cities.find(c => c.id === this.#activeCity) || cities[0];
+			if (defaultCity) {
+				this.#activeCity = defaultCity.id;
+				const defName = typeof defaultCity.name === 'object' && defaultCity.name !== null ? (defaultCity.name.en || Object.values(defaultCity.name)[0]) : String(defaultCity.name || defaultCity.id);
+				if (this.#dom.headerCityName) this.#dom.headerCityName.textContent = `${defName} (${defaultCity.id})`;
+				if (this.#dom.headerCityIcon) this.#dom.headerCityIcon.textContent = defaultCity.id === 'delhi_ncr' ? '🏛️' : (defaultCity.id === 'mumbai' ? '🌊' : '🚇');
+			}
+			this.loadCityDiagnostics();
+		} catch (err) {
+			console.error(err);
+			ToastManager.error(`Failed to load cities: ${err.message}`);
+		}
 	}
 
 	#bindEvents() {
-		// City Switcher Items (Admin Sidebar Card Style)
-		this.#dom.cityList?.querySelectorAll('.network-item').forEach(item => {
-			item.addEventListener('click', () => {
-				const city = item.getAttribute('data-city');
-				if (!city || city === this.#activeCity) return;
-				this.#activeCity = city;
-				this.#selectedStation = '__all__';
-				
-				this.#dom.cityList.querySelectorAll('.network-item').forEach(i => i.classList.remove('active'));
-				item.classList.add('active');
-
-				const isDelhi = city === 'delhi_ncr';
-				if (this.#dom.headerCityName) this.#dom.headerCityName.textContent = isDelhi ? 'Delhi NCR (delhi_ncr)' : 'Mumbai (mumbai)';
-				if (this.#dom.headerCityIcon) this.#dom.headerCityIcon.textContent = isDelhi ? '🏛️' : '🌊';
-
-				this.loadCityDiagnostics();
-			});
-		});
-
 		this.#dom.btnRefresh?.addEventListener('click', () => this.loadCityDiagnostics());
 
 		this.#dom.closeModalBtn?.addEventListener('click', () => this.#closeModal());
@@ -220,7 +269,7 @@ class ProductionBridgeController {
 	async loadCityDiagnostics() {
 		try {
 			if (this.#dom.targetRootPath) {
-				this.#dom.targetRootPath.textContent = `main_project/data/cities/${this.#activeCity}/`;
+				this.#dom.targetRootPath.textContent = `main_project/data/india/cities/${this.#activeCity}/`;
 			}
 			const res = await fetch(`/api/bridge/status?city=${encodeURIComponent(this.#activeCity)}`);
 			if (!res.ok) throw new Error('Status fetch failed');

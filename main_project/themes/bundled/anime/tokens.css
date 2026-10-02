@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,600&display=swap');
 
 @layer themes {
-	[data-theme="ghibli"] {
+	[data-theme="anime"] {
 		--font-title: 'Cinzel', 'Georgia', serif;
 		--font-main: 'Cormorant Garamond', 'Georgia', serif;
 		--map-font: 'Cinzel', serif;
@@ -20,12 +20,12 @@
 		--radius-lg: 12px;
 		--radius-xl: 16px;
 		--radius-full: 9999px;
-		--theme-bg-image: url('../../themes/bundled/ghibli/assets/images/background.webp');
+		--theme-bg-image: url('../../themes/bundled/anime/assets/images/background.webp');
 	}
 
 	/* ☀️ SPIRITED DAY (Antique Gouache Watercolor Paper #faf7ea) */
-	[data-theme="ghibli"][data-mode="light"],
-	[data-theme="ghibli"] {
+	[data-theme="anime"][data-mode="light"],
+	[data-theme="anime"] {
 		--color-bg-base-rgb: 250, 247, 234;
 		--color-primary-rgb: 180, 83, 9;
 		--color-accent-rgb: 217, 119, 6;
@@ -64,7 +64,7 @@
 	}
 
 	/* 🌙 SPIRITED TWILIGHT (Sixth Station Sea-Railway Twilight #152232) */
-	[data-theme="ghibli"][data-mode="dark"] {
+	[data-theme="anime"][data-mode="dark"] {
 		--color-bg-base-rgb: 21, 34, 50;
 		--color-primary-rgb: 217, 119, 6;
 		--color-accent-rgb: 245, 158, 11;
@@ -103,9 +103,9 @@
 	/* 🚂 OPTION 1: SPIRITED SEA-RAILWAY OVERRIDES */
 
 	/* Cards & Modals: Antique Double Border with Brass Tint */
-	[data-theme="ghibli"] .card,
-	[data-theme="ghibli"] .custom-dropdown-menu,
-	[data-theme="ghibli"] .share-modal-card {
+	[data-theme="anime"] .card,
+	[data-theme="anime"] .custom-dropdown-menu,
+	[data-theme="anime"] .share-modal-card {
 		border: 2px solid var(--border-color) !important;
 		border-radius: var(--radius-lg) !important;
 		background-color: var(--card-bg) !important;
@@ -113,7 +113,7 @@
 	}
 
 	/* Header: Vintage Station Master Arch */
-	[data-theme="ghibli"] header.main-header {
+	[data-theme="anime"] header.main-header {
 		background: var(--card-bg) !important;
 		border: 2px solid var(--border-color) !important;
 		box-shadow: var(--shadow-md) !important;
@@ -121,7 +121,7 @@
 	}
 
 	/* Nav Bogie Links: Antique Railway Timetable Tabs */
-	[data-theme="ghibli"] .header-nav-item .nav-link {
+	[data-theme="anime"] .header-nav-item .nav-link {
 		border: 1.5px solid var(--border-color) !important;
 		border-radius: var(--radius-md) !important;
 		background: var(--card-bg) !important;
@@ -130,7 +130,7 @@
 		color: var(--text-primary) !important;
 	}
 
-	[data-theme="ghibli"] .header-nav-item .nav-link.active {
+	[data-theme="anime"] .header-nav-item .nav-link.active {
 		background: var(--btn-primary-bg) !important;
 		color: var(--btn-primary-text) !important;
 		border-color: var(--border-color) !important;
@@ -138,10 +138,10 @@
 	}
 
 	/* 2.5D Button Controls: Embossed Vintage Brass Plate with Top Light Rim */
-	[data-theme="ghibli"] .btn-25d,
-	[data-theme="ghibli"] .btn-stepper,
-	[data-theme="ghibli"] .pill-btn,
-	[data-theme="ghibli"] button.sidebar-link {
+	[data-theme="anime"] .btn-25d,
+	[data-theme="anime"] .btn-stepper,
+	[data-theme="anime"] .pill-btn,
+	[data-theme="anime"] button.sidebar-link {
 		font-family: var(--font-title) !important;
 		letter-spacing: 0.8px !important;
 		border: 1.5px solid var(--border-color) !important;
@@ -152,23 +152,23 @@
 		transition: transform 0.15s ease, box-shadow 0.15s ease !important;
 	}
 
-	[data-theme="ghibli"] .btn-25d:hover,
-	[data-theme="ghibli"] .btn-stepper:hover:not(:disabled),
-	[data-theme="ghibli"] .pill-btn:hover {
+	[data-theme="anime"] .btn-25d:hover,
+	[data-theme="anime"] .btn-stepper:hover:not(:disabled),
+	[data-theme="anime"] .pill-btn:hover {
 		transform: translateY(-1px) !important;
 		box-shadow: 0 4px 10px rgba(180, 83, 9, 0.25) !important;
 	}
 
-	[data-theme="ghibli"] .btn-25d:active,
-	[data-theme="ghibli"] .btn-stepper:active:not(:disabled),
-	[data-theme="ghibli"] .pill-btn:active {
+	[data-theme="anime"] .btn-25d:active,
+	[data-theme="anime"] .btn-stepper:active:not(:disabled),
+	[data-theme="anime"] .pill-btn:active {
 		transform: translateY(1.5px) !important;
 		border-bottom-width: 1px !important;
 		box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 	}
 
 	/* Dropdown Active State */
-	[data-theme="ghibli"] .custom-dropdown-item.active {
+	[data-theme="anime"] .custom-dropdown-item.active {
 		background-color: rgba(180, 83, 9, 0.15) !important;
 		color: var(--border-color) !important;
 		font-weight: 700 !important;

@@ -48,7 +48,9 @@ export default {
 		"brandTitle": "Metro Map Generator",
 		"brandDescription": "Built for smarter urban transit navigation.",
 		"disclaimer": "Route, fare and travel information are provided for reference only.",
-		"developedBy": "Developed with ❤️"
+		"developedBy": "Developed with ❤️",
+		"tapToZoom": "🔍 Tap to Zoom",
+		"enlargeQrAria": "Click to enlarge QR code"
 	},
 	"rechargeModal": {
 		"title": "Smart Card Quick Top-Up",

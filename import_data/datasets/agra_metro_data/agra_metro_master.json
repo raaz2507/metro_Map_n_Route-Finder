@@ -1,0 +1,130 @@
+{
+	"defaults": {"stationType": "normal", "layout": "elevated"},
+	"lines": {
+		"upmrc_agra.yellow": {
+			"id": "upmrc_agra.yellow",
+			"network": "agra_metro",
+			"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
+			"label": "Y",
+			"short_name": {"en": "Yellow Line (Line 1)", "hi": "यलो लाइन"},
+			"color": "#FBC02D",
+			"color_name": "yellow",
+			"style": "solid",
+			"route": {"from": "taj_east_gate", "to": "mankameshwar_mandir"},
+			"stations": ["taj_east_gate", "shaheed_captain_shubham_gupta", "fatehabad_road", "taj_mahal", "agra_fort", "mankameshwar_mandir"]
+		}
+	},
+	"transfers": {},
+	"stationData": {
+		"taj_east_gate": {
+			"id": "taj_east_gate",
+			"name": {"en": "Taj East Gate", "hi": "ताज पूर्वी गेट"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "TEGT",
+			"location": {"decimal": {"lat": 27.1583959, "lon": 78.0578603}},
+			"neighbors": [{"station": "shaheed_captain_shubham_gupta", "line": "upmrc_agra.yellow"}]
+		},
+		"shaheed_captain_shubham_gupta": {
+			"id": "shaheed_captain_shubham_gupta",
+			"name": {"en": "Shaheed Captain Shubham Gupta", "hi": "शहीद कैप्टन शुभम गुप्ता"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "SCSG",
+			"location": {"decimal": {"lat": 27.1583959, "lon": 78.0578603}},
+			"neighbors": [{"station": "taj_east_gate", "line": "upmrc_agra.yellow"}, {"station": "fatehabad_road", "line": "upmrc_agra.yellow"}]
+		},
+		"fatehabad_road": {
+			"id": "fatehabad_road",
+			"name": {"en": "Fatehabad Road", "hi": "फ़तेहाबाद रोड"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "FTBR",
+			"location": {"decimal": {"lat": 27.1583959, "lon": 78.0578603}},
+			"neighbors": [{"station": "shaheed_captain_shubham_gupta", "line": "upmrc_agra.yellow"}, {"station": "taj_mahal", "line": "upmrc_agra.yellow"}]
+		},
+		"taj_mahal": {
+			"id": "taj_mahal",
+			"name": {"en": "Taj Mahal", "hi": "ताज महल"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "TJML",
+			"location": {"decimal": {"lat": 27.168378, "lon": 78.0358742}},
+			"neighbors": [{"station": "fatehabad_road", "line": "upmrc_agra.yellow"}, {"station": "agra_fort", "line": "upmrc_agra.yellow"}]
+		},
+		"agra_fort": {
+			"id": "agra_fort",
+			"name": {"en": "Agra Fort", "hi": "आगरा किला"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "AFTM",
+			"location": {"decimal": {"lat": 27.175207, "lon": 78.0224515}},
+			"neighbors": [{"station": "taj_mahal", "line": "upmrc_agra.yellow"}, {"station": "mankameshwar_mandir", "line": "upmrc_agra.yellow"}]
+		},
+		"mankameshwar_mandir": {
+			"id": "mankameshwar_mandir",
+			"name": {"en": "Mankameshwar Mandir", "hi": "मनकामेश्वर मंदिर"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "MKM",
+			"location": {"decimal": {"lat": 27.178123, "lon": 78.0172131}},
+			"neighbors": [{"station": "agra_fort", "line": "upmrc_agra.yellow"}]
+		}
+	},
+	"stations": {
+		"taj_east_gate": {
+			"id": "taj_east_gate",
+			"name": {"en": "Taj East Gate", "hi": "ताज पूर्वी गेट"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "TEGT",
+			"location": {"decimal": {"lat": 27.1583959, "lon": 78.0578603}},
+			"neighbors": [{"station": "shaheed_captain_shubham_gupta", "line": "upmrc_agra.yellow"}]
+		},
+		"shaheed_captain_shubham_gupta": {
+			"id": "shaheed_captain_shubham_gupta",
+			"name": {"en": "Shaheed Captain Shubham Gupta", "hi": "शहीद कैप्टन शुभम गुप्ता"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "SCSG",
+			"location": {"decimal": {"lat": 27.1583959, "lon": 78.0578603}},
+			"neighbors": [{"station": "taj_east_gate", "line": "upmrc_agra.yellow"}, {"station": "fatehabad_road", "line": "upmrc_agra.yellow"}]
+		},
+		"fatehabad_road": {
+			"id": "fatehabad_road",
+			"name": {"en": "Fatehabad Road", "hi": "फ़तेहाबाद रोड"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "FTBR",
+			"location": {"decimal": {"lat": 27.1583959, "lon": 78.0578603}},
+			"neighbors": [{"station": "shaheed_captain_shubham_gupta", "line": "upmrc_agra.yellow"}, {"station": "taj_mahal", "line": "upmrc_agra.yellow"}]
+		},
+		"taj_mahal": {
+			"id": "taj_mahal",
+			"name": {"en": "Taj Mahal", "hi": "ताज महल"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "TJML",
+			"location": {"decimal": {"lat": 27.168378, "lon": 78.0358742}},
+			"neighbors": [{"station": "fatehabad_road", "line": "upmrc_agra.yellow"}, {"station": "agra_fort", "line": "upmrc_agra.yellow"}]
+		},
+		"agra_fort": {
+			"id": "agra_fort",
+			"name": {"en": "Agra Fort", "hi": "आगरा किला"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "AFTM",
+			"location": {"decimal": {"lat": 27.175207, "lon": 78.0224515}},
+			"neighbors": [{"station": "taj_mahal", "line": "upmrc_agra.yellow"}, {"station": "mankameshwar_mandir", "line": "upmrc_agra.yellow"}]
+		},
+		"mankameshwar_mandir": {
+			"id": "mankameshwar_mandir",
+			"name": {"en": "Mankameshwar Mandir", "hi": "मनकामेश्वर मंदिर"},
+			"lines": ["upmrc_agra.yellow"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"code": "MKM",
+			"location": {"decimal": {"lat": 27.178123, "lon": 78.0172131}},
+			"neighbors": [{"station": "agra_fort", "line": "upmrc_agra.yellow"}]
+		}
+	}
+}

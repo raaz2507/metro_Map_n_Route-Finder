@@ -2,7 +2,7 @@
    GHIBLI NOSTALGIA THEME - TVM MODULE (DESIGN 5: SPIRITED VOYAGE)
    ========================================================================== */
 @layer themes {
-	[data-theme="ghibli"] .tvm-kiosk-unit {
+	[data-theme="anime"] .tvm-kiosk-unit {
 		background: #1e3a5f;
 		border: 2px solid #0f1c2e;
 		border-radius: var(--radius-xl);
@@ -11,14 +11,14 @@
 			inset 0 0 40px rgba(245, 158, 11, 0.15);
 	}
 
-	[data-theme="ghibli"] .tvm-hood {
+	[data-theme="anime"] .tvm-hood {
 		background: linear-gradient(to bottom, #2b4c7e, #1e3a5f);
 		border: none;
 		border-bottom: 2px solid #0f1c2e;
 		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 2px 0 rgba(251, 191, 36, 0.35);
 	}
 
-	[data-theme="ghibli"] .tvm-device-id {
+	[data-theme="anime"] .tvm-device-id {
 		color: #fef08a;
 		font-family: 'Georgia', serif;
 		font-style: italic;
@@ -26,7 +26,7 @@
 		text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
 	}
 
-	[data-theme="ghibli"] .dispenser-slot-bezel {
+	[data-theme="anime"] .dispenser-slot-bezel {
 		background: #0f1c2e;
 		border: 1px solid #3b82f6;
 		box-shadow: 
@@ -36,7 +36,7 @@
 		border-radius: var(--radius-md);
 	}
 
-	[data-theme="ghibli"] .dispenser-label {
+	[data-theme="anime"] .dispenser-label {
 		color: #93c5fd;
 		font-family: 'Georgia', serif;
 		letter-spacing: 1.5px;
@@ -44,23 +44,23 @@
 		font-size: 0.75rem;
 	}
 
-	[data-theme="ghibli"] .mechanical-slit {
+	[data-theme="anime"] .mechanical-slit {
 		background: #020617;
 		border: 1px solid #1e3a5f;
 		box-shadow: inset 0 5px 10px #000000, 0 1px 0 rgba(147, 197, 253, 0.3);
 	}
 
-	[data-theme="ghibli"] .tvm-round-btn {
+	[data-theme="anime"] .tvm-round-btn {
 		background: radial-gradient(circle, #b45309, #78350f);
 		border: 2px solid #0f1c2e;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6), inset 0 2px 2px rgba(251, 191, 36, 0.6);
 	}
 
-	[data-theme="ghibli"] .tvm-round-btn:active {
+	[data-theme="anime"] .tvm-round-btn:active {
 		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.6), inset 0 2px 2px rgba(251, 191, 36, 0.6);
 	}
 
-	[data-theme="ghibli"] .tvm-action-btn {
+	[data-theme="anime"] .tvm-action-btn {
 		background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
 		color: #fef08a;
 		border: 1px solid #1e3a5f;
@@ -69,33 +69,33 @@
 		box-shadow: 0 5px 0 #0f1c2e, 0 6px 15px rgba(0, 0, 0, 0.5), inset 0 2px 3px rgba(147, 197, 253, 0.3);
 	}
 
-	[data-theme="ghibli"] .tvm-action-btn:active {
+	[data-theme="anime"] .tvm-action-btn:active {
 		box-shadow: 0 0px 0 #0f1c2e, 0 2px 5px rgba(0, 0, 0, 0.5);
 	}
 
-	[data-theme="ghibli"] .ticket-dispense-bay {
+	[data-theme="anime"] .ticket-dispense-bay {
 		background: transparent;
 	}
 
-	[data-theme="ghibli"] .ticket-paper-wrapper img,
-	[data-theme="ghibli"] .ticket-paper-wrapper svg {
+	[data-theme="anime"] .ticket-paper-wrapper img,
+	[data-theme="anime"] .ticket-paper-wrapper svg {
 		filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 20px rgba(251, 191, 36, 0.25)) !important;
 	}
 
-	[data-theme="ghibli"] .tvm-bottom-chassis {
+	[data-theme="anime"] .tvm-bottom-chassis {
 		background: #0f1c2e;
 		border: none;
 		border-top: 2px solid #1e3a5f;
 		box-shadow: inset 0 15px 30px rgba(0, 0, 0, 0.4);
 	}
 
-	[data-theme="ghibli"] .kiosk-tray-well {
+	[data-theme="anime"] .kiosk-tray-well {
 		background: #1e3a5f;
 		border: 1px solid #3b82f6;
 		box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.2);
 	}
 
-	[data-theme="ghibli"] .tray-instructions {
+	[data-theme="anime"] .tray-instructions {
 		color: #93c5fd;
 		font-family: 'Georgia', serif;
 	}

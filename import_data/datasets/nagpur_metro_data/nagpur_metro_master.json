@@ -1,0 +1,869 @@
+{
+	"defaults": {"stationType": "normal", "layout": "elevated"},
+	"lines": {
+		"mahametro_nagpur.orange": {
+			"id": "mahametro_nagpur.orange",
+			"network": "nagpur_metro",
+			"operator": "Maharashtra Metro Rail Corporation Limited (MahaMetro)",
+			"label": "O",
+			"short_name": {"en": "Orange Line", "mr": "ऑरेंज लाइन"},
+			"color": "#FF7A00",
+			"color_name": "orange",
+			"style": "solid",
+			"route": {"from": "automotive_square", "to": "khapri"},
+			"stations": [
+				"automotive_square",
+				"nari_road",
+				"indora_square",
+				"kadbi_square",
+				"gaddi_godam_square",
+				"kasturchand_park",
+				"zero_mile_freedom_park",
+				"sitabuldi",
+				"congress_nagar",
+				"rahate_colony",
+				"ajni_square",
+				"chhatrapati_square",
+				"jaiprakash_nagar",
+				"ujwal_nagar",
+				"airport",
+				"south_airport",
+				"new_airport",
+				"khapri"
+			]
+		},
+		"mahametro_nagpur.aqua": {
+			"id": "mahametro_nagpur.aqua",
+			"network": "nagpur_metro",
+			"operator": "Maharashtra Metro Rail Corporation Limited (MahaMetro)",
+			"label": "A",
+			"short_name": {"en": "Aqua Line", "mr": "एक्वा लाइन"},
+			"color": "#00A8B5",
+			"color_name": "aqua",
+			"style": "solid",
+			"route": {"from": "prajapati_nagar", "to": "lokmanya_nagar_open"},
+			"stations": [
+				"prajapati_nagar",
+				"vaishno_devi_chowk",
+				"ambedkar_square",
+				"telephone_exchange",
+				"chitar_oli_square",
+				"agrasen_square",
+				"dosar_vaisya_square",
+				"nagpur_railway",
+				"cotton_market",
+				"sitabuldi",
+				"jhansi_rani_square",
+				"institution_of_engineers",
+				"shankar_nagar",
+				"lad_square",
+				"dharampeth_college",
+				"subhash_nagar",
+				"rachana_ring_road_junction",
+				"vasudev_nagar",
+				"bansi_nagar",
+				"lokmanya_nagar_open"
+			]
+		}
+	},
+	"transfers": {
+		"sitabuldi": {
+			"mahametro_nagpur.orange": {"sitabuldi:mahametro_nagpur.aqua": {"type": "interchange", "transfer_mode": "vertical"}},
+			"mahametro_nagpur.aqua": {"sitabuldi:mahametro_nagpur.orange": {"type": "interchange", "transfer_mode": "vertical"}}
+		}
+	},
+	"stationData": {
+		"automotive_square": {
+			"id": "automotive_square",
+			"name": {"en": "Automotive Square", "mr": "ऑटोमोटिव्ह चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_21",
+			"location": {"decimal": {"lat": 21.185631, "lon": 79.119601}},
+			"neighbors": [{"station": "nari_road", "line": "mahametro_nagpur.orange"}]
+		},
+		"nari_road": {
+			"id": "nari_road",
+			"name": {"en": "Nari Road", "mr": "नारी रोड"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_22",
+			"location": {"decimal": {"lat": 21.179432, "lon": 79.109796}},
+			"neighbors": [
+				{"station": "automotive_square", "line": "mahametro_nagpur.orange"},
+				{"station": "indora_square", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"indora_square": {
+			"id": "indora_square",
+			"name": {"en": "Indora Square", "mr": "इंदोरा चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_39",
+			"location": {"decimal": {"lat": 21.1735903, "lon": 79.1005659}},
+			"neighbors": [{"station": "nari_road", "line": "mahametro_nagpur.orange"}, {"station": "kadbi_square", "line": "mahametro_nagpur.orange"}]
+		},
+		"kadbi_square": {
+			"id": "kadbi_square",
+			"name": {"en": "Kadbi Square", "mr": "Kadbi Square"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_23",
+			"location": {"decimal": {"lat": 21.16864, "lon": 79.09231}},
+			"neighbors": [
+				{"station": "indora_square", "line": "mahametro_nagpur.orange"},
+				{"station": "gaddi_godam_square", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"gaddi_godam_square": {
+			"id": "gaddi_godam_square",
+			"name": {"en": "Gaddi Godam Square", "mr": "गड्डीगोदाम चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_24",
+			"location": {"decimal": {"lat": 21.161486, "lon": 79.083679}},
+			"neighbors": [
+				{"station": "kadbi_square", "line": "mahametro_nagpur.orange"},
+				{"station": "kasturchand_park", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"kasturchand_park": {
+			"id": "kasturchand_park",
+			"name": {"en": "Kasturchand Park", "mr": "कस्तुरचंद पार्क"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_25",
+			"location": {"decimal": {"lat": 21.154272, "lon": 79.081341}},
+			"neighbors": [
+				{"station": "gaddi_godam_square", "line": "mahametro_nagpur.orange"},
+				{"station": "zero_mile_freedom_park", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"zero_mile_freedom_park": {
+			"id": "zero_mile_freedom_park",
+			"name": {"en": "Zero Mile Freedom Park", "mr": "झिरो माइल फ्रीडम पार्क"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_26",
+			"location": {"decimal": {"lat": 21.146518, "lon": 79.080517}},
+			"neighbors": [{"station": "kasturchand_park", "line": "mahametro_nagpur.orange"}, {"station": "sitabuldi", "line": "mahametro_nagpur.orange"}]
+		},
+		"sitabuldi": {
+			"id": "sitabuldi",
+			"name": {"en": "Sitabuldi Interchange", "mr": "सीताबर्डी"},
+			"lines": ["mahametro_nagpur.orange", "mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_SIT",
+			"location": {"decimal": {"lat": 21.141652, "lon": 79.08369}},
+			"neighbors": [
+				{"station": "zero_mile_freedom_park", "line": "mahametro_nagpur.orange"},
+				{"station": "congress_nagar", "line": "mahametro_nagpur.orange"},
+				{"station": "cotton_market", "line": "mahametro_nagpur.aqua"},
+				{"station": "jhansi_rani_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"congress_nagar": {
+			"id": "congress_nagar",
+			"name": {"en": "Congress Nagar", "mr": "काँग्रेस नगर"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_4",
+			"location": {"decimal": {"lat": 21.12776, "lon": 79.082523}},
+			"neighbors": [{"station": "sitabuldi", "line": "mahametro_nagpur.orange"}, {"station": "rahate_colony", "line": "mahametro_nagpur.orange"}]
+		},
+		"rahate_colony": {
+			"id": "rahate_colony",
+			"name": {"en": "Rahate Colony", "mr": "रहाटे कॉलनी"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_1",
+			"location": {"decimal": {"lat": 21.127714, "lon": 79.075676}},
+			"neighbors": [{"station": "congress_nagar", "line": "mahametro_nagpur.orange"}, {"station": "ajni_square", "line": "mahametro_nagpur.orange"}]
+		},
+		"ajni_square": {
+			"id": "ajni_square",
+			"name": {"en": "Ajni Square", "mr": "अजनी चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_28",
+			"location": {"decimal": {"lat": 21.118377, "lon": 79.072088}},
+			"neighbors": [
+				{"station": "rahate_colony", "line": "mahametro_nagpur.orange"},
+				{"station": "chhatrapati_square", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"chhatrapati_square": {
+			"id": "chhatrapati_square",
+			"name": {"en": "Chhatrapati Square", "mr": "छत्रपती चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_29",
+			"location": {"decimal": {"lat": 21.109055, "lon": 79.06955}},
+			"neighbors": [
+				{"station": "ajni_square", "line": "mahametro_nagpur.orange"},
+				{"station": "jaiprakash_nagar", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"jaiprakash_nagar": {
+			"id": "jaiprakash_nagar",
+			"name": {"en": "Jaiprakash Nagar", "mr": "जयप्रकाश नगर"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_30",
+			"location": {"decimal": {"lat": 21.103489, "lon": 79.068166}},
+			"neighbors": [
+				{"station": "chhatrapati_square", "line": "mahametro_nagpur.orange"},
+				{"station": "ujwal_nagar", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"ujwal_nagar": {
+			"id": "ujwal_nagar",
+			"name": {"en": "Ujwal Nagar", "mr": "Ujwal Nagar"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_31",
+			"location": {"decimal": {"lat": 21.096461, "lon": 79.066425}},
+			"neighbors": [{"station": "jaiprakash_nagar", "line": "mahametro_nagpur.orange"}, {"station": "airport", "line": "mahametro_nagpur.orange"}]
+		},
+		"airport": {
+			"id": "airport",
+			"name": {"en": "Airport", "mr": "एअरपोर्ट"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_32",
+			"location": {"decimal": {"lat": 21.086108, "lon": 79.063905}},
+			"neighbors": [{"station": "ujwal_nagar", "line": "mahametro_nagpur.orange"}, {"station": "south_airport", "line": "mahametro_nagpur.orange"}]
+		},
+		"south_airport": {
+			"id": "south_airport",
+			"name": {"en": "South Airport", "mr": "South Airport"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_2",
+			"location": {"decimal": {"lat": 21.078942, "lon": 79.060579}},
+			"neighbors": [{"station": "airport", "line": "mahametro_nagpur.orange"}, {"station": "new_airport", "line": "mahametro_nagpur.orange"}]
+		},
+		"new_airport": {
+			"id": "new_airport",
+			"name": {"en": "New Airport", "mr": "न्यू एअरपोर्ट"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_33",
+			"location": {"decimal": {"lat": 21.066008, "lon": 79.055884}},
+			"neighbors": [{"station": "south_airport", "line": "mahametro_nagpur.orange"}, {"station": "khapri", "line": "mahametro_nagpur.orange"}]
+		},
+		"khapri": {
+			"id": "khapri",
+			"name": {"en": "Khapri", "mr": "खापरी"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_34",
+			"location": {"decimal": {"lat": 21.049278, "lon": 79.047962}},
+			"neighbors": [{"station": "new_airport", "line": "mahametro_nagpur.orange"}]
+		},
+		"prajapati_nagar": {
+			"id": "prajapati_nagar",
+			"name": {"en": "Prajapati Nagar", "mr": "प्रजापती नगर"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_5",
+			"location": {"decimal": {"lat": 21.149958, "lon": 79.148652}},
+			"neighbors": [{"station": "vaishno_devi_chowk", "line": "mahametro_nagpur.aqua"}]
+		},
+		"vaishno_devi_chowk": {
+			"id": "vaishno_devi_chowk",
+			"name": {"en": "Vaishno Devi Chowk", "mr": "Vaishno Devi Chowk"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_37",
+			"location": {"decimal": {"lat": 21.147915, "lon": 79.136438}},
+			"neighbors": [{"station": "prajapati_nagar", "line": "mahametro_nagpur.aqua"}, {"station": "ambedkar_square", "line": "mahametro_nagpur.aqua"}]
+		},
+		"ambedkar_square": {
+			"id": "ambedkar_square",
+			"name": {"en": "Ambedkar Square", "mr": "आंबेडकर चौक"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_6",
+			"location": {"decimal": {"lat": 21.148247, "lon": 79.12941}},
+			"neighbors": [
+				{"station": "vaishno_devi_chowk", "line": "mahametro_nagpur.aqua"},
+				{"station": "telephone_exchange", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"telephone_exchange": {
+			"id": "telephone_exchange",
+			"name": {"en": "Telephone Exchange", "mr": "टेलिफोन एक्स्चेंज"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_7",
+			"location": {"decimal": {"lat": 21.148711, "lon": 79.118173}},
+			"neighbors": [
+				{"station": "ambedkar_square", "line": "mahametro_nagpur.aqua"},
+				{"station": "chitar_oli_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"chitar_oli_square": {
+			"id": "chitar_oli_square",
+			"name": {"en": "Chitar Oli Square", "mr": "Chitar Oli Square"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_8",
+			"location": {"decimal": {"lat": 21.149711, "lon": 79.110408}},
+			"neighbors": [
+				{"station": "telephone_exchange", "line": "mahametro_nagpur.aqua"},
+				{"station": "agrasen_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"agrasen_square": {
+			"id": "agrasen_square",
+			"name": {"en": "Agrasen Square", "mr": "अग्रसेन चौक"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_9",
+			"location": {"decimal": {"lat": 21.150921, "lon": 79.102947}},
+			"neighbors": [
+				{"station": "chitar_oli_square", "line": "mahametro_nagpur.aqua"},
+				{"station": "dosar_vaisya_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"dosar_vaisya_square": {
+			"id": "dosar_vaisya_square",
+			"name": {"en": "Dosar Vaisya Square", "mr": "Dosar Vaisya Square"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_10",
+			"location": {"decimal": {"lat": 21.152819, "lon": 79.094827}},
+			"neighbors": [{"station": "agrasen_square", "line": "mahametro_nagpur.aqua"}, {"station": "nagpur_railway", "line": "mahametro_nagpur.aqua"}]
+		},
+		"nagpur_railway": {
+			"id": "nagpur_railway",
+			"name": {"en": "Nagpur Railway", "mr": "Nagpur Railway"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_11",
+			"location": {"decimal": {"lat": 21.151131, "lon": 79.090268}},
+			"neighbors": [
+				{"station": "dosar_vaisya_square", "line": "mahametro_nagpur.aqua"},
+				{"station": "cotton_market", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"cotton_market": {
+			"id": "cotton_market",
+			"name": {"en": "Cotton Market", "mr": "कॉटन मार्केट"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_35",
+			"location": {"decimal": {"lat": 21.1459004, "lon": 79.0896871}},
+			"neighbors": [{"station": "nagpur_railway", "line": "mahametro_nagpur.aqua"}, {"station": "sitabuldi", "line": "mahametro_nagpur.aqua"}]
+		},
+		"jhansi_rani_square": {
+			"id": "jhansi_rani_square",
+			"name": {"en": "Jhansi Rani Square", "mr": "झाशी राणी चौक"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_13",
+			"location": {"decimal": {"lat": 21.140694, "lon": 79.077621}},
+			"neighbors": [
+				{"station": "sitabuldi", "line": "mahametro_nagpur.aqua"},
+				{"station": "institution_of_engineers", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"institution_of_engineers": {
+			"id": "institution_of_engineers",
+			"name": {"en": "Institution Of Engineers", "mr": "इन्स्टिट्युशन ऑफ इंजिनिअर्स"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_14",
+			"location": {"decimal": {"lat": 21.138112, "lon": 79.069945}},
+			"neighbors": [
+				{"station": "jhansi_rani_square", "line": "mahametro_nagpur.aqua"},
+				{"station": "shankar_nagar", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"shankar_nagar": {
+			"id": "shankar_nagar",
+			"name": {"en": "Shankar Nagar", "mr": "Shankar Nagar"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_15",
+			"location": {"decimal": {"lat": 21.136053, "lon": 79.061651}},
+			"neighbors": [
+				{"station": "institution_of_engineers", "line": "mahametro_nagpur.aqua"},
+				{"station": "lad_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"lad_square": {
+			"id": "lad_square",
+			"name": {"en": "Lad Square", "mr": "एलएडी चौक"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_16",
+			"location": {"decimal": {"lat": 21.132798, "lon": 79.054744}},
+			"neighbors": [
+				{"station": "shankar_nagar", "line": "mahametro_nagpur.aqua"},
+				{"station": "dharampeth_college", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"dharampeth_college": {
+			"id": "dharampeth_college",
+			"name": {"en": "Dharampeth College", "mr": "धरमपेठ महाविद्यालय"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_3",
+			"location": {"decimal": {"lat": 21.128453, "lon": 79.04581}},
+			"neighbors": [{"station": "lad_square", "line": "mahametro_nagpur.aqua"}, {"station": "subhash_nagar", "line": "mahametro_nagpur.aqua"}]
+		},
+		"subhash_nagar": {
+			"id": "subhash_nagar",
+			"name": {"en": "Subhash Nagar", "mr": "सुभाष नगर"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_17",
+			"location": {"decimal": {"lat": 21.123229, "lon": 79.041922}},
+			"neighbors": [
+				{"station": "dharampeth_college", "line": "mahametro_nagpur.aqua"},
+				{"station": "rachana_ring_road_junction", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"rachana_ring_road_junction": {
+			"id": "rachana_ring_road_junction",
+			"name": {"en": "Rachana Ring Road Junction", "mr": "रचना रिंग रोड जंक्शन"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_18",
+			"location": {"decimal": {"lat": 21.121473, "lon": 79.029225}},
+			"neighbors": [{"station": "subhash_nagar", "line": "mahametro_nagpur.aqua"}, {"station": "vasudev_nagar", "line": "mahametro_nagpur.aqua"}]
+		},
+		"vasudev_nagar": {
+			"id": "vasudev_nagar",
+			"name": {"en": "Vasudev Nagar", "mr": "वासुदेव नगर"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_19",
+			"location": {"decimal": {"lat": 21.118758, "lon": 79.019503}},
+			"neighbors": [
+				{"station": "rachana_ring_road_junction", "line": "mahametro_nagpur.aqua"},
+				{"station": "bansi_nagar", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"bansi_nagar": {
+			"id": "bansi_nagar",
+			"name": {"en": "Bansi Nagar", "mr": "बंसी नगर"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_20",
+			"location": {"decimal": {"lat": 21.116071, "lon": 79.012526}},
+			"neighbors": [
+				{"station": "vasudev_nagar", "line": "mahametro_nagpur.aqua"},
+				{"station": "lokmanya_nagar_open", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"lokmanya_nagar_open": {
+			"id": "lokmanya_nagar_open",
+			"name": {"en": "Lokmanya Nagar (Open)", "mr": "Lokmanya Nagar (Open)"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_38",
+			"location": {"decimal": {"lat": 21.110576, "lon": 79.001501}},
+			"neighbors": [{"station": "bansi_nagar", "line": "mahametro_nagpur.aqua"}]
+		}
+	},
+	"stations": {
+		"automotive_square": {
+			"id": "automotive_square",
+			"name": {"en": "Automotive Square", "mr": "ऑटोमोटिव्ह चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_21",
+			"location": {"decimal": {"lat": 21.185631, "lon": 79.119601}},
+			"neighbors": [{"station": "nari_road", "line": "mahametro_nagpur.orange"}]
+		},
+		"nari_road": {
+			"id": "nari_road",
+			"name": {"en": "Nari Road", "mr": "नारी रोड"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_22",
+			"location": {"decimal": {"lat": 21.179432, "lon": 79.109796}},
+			"neighbors": [
+				{"station": "automotive_square", "line": "mahametro_nagpur.orange"},
+				{"station": "indora_square", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"indora_square": {
+			"id": "indora_square",
+			"name": {"en": "Indora Square", "mr": "इंदोरा चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_39",
+			"location": {"decimal": {"lat": 21.1735903, "lon": 79.1005659}},
+			"neighbors": [{"station": "nari_road", "line": "mahametro_nagpur.orange"}, {"station": "kadbi_square", "line": "mahametro_nagpur.orange"}]
+		},
+		"kadbi_square": {
+			"id": "kadbi_square",
+			"name": {"en": "Kadbi Square", "mr": "Kadbi Square"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_23",
+			"location": {"decimal": {"lat": 21.16864, "lon": 79.09231}},
+			"neighbors": [
+				{"station": "indora_square", "line": "mahametro_nagpur.orange"},
+				{"station": "gaddi_godam_square", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"gaddi_godam_square": {
+			"id": "gaddi_godam_square",
+			"name": {"en": "Gaddi Godam Square", "mr": "गड्डीगोदाम चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_24",
+			"location": {"decimal": {"lat": 21.161486, "lon": 79.083679}},
+			"neighbors": [
+				{"station": "kadbi_square", "line": "mahametro_nagpur.orange"},
+				{"station": "kasturchand_park", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"kasturchand_park": {
+			"id": "kasturchand_park",
+			"name": {"en": "Kasturchand Park", "mr": "कस्तुरचंद पार्क"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_25",
+			"location": {"decimal": {"lat": 21.154272, "lon": 79.081341}},
+			"neighbors": [
+				{"station": "gaddi_godam_square", "line": "mahametro_nagpur.orange"},
+				{"station": "zero_mile_freedom_park", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"zero_mile_freedom_park": {
+			"id": "zero_mile_freedom_park",
+			"name": {"en": "Zero Mile Freedom Park", "mr": "झिरो माइल फ्रीडम पार्क"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_26",
+			"location": {"decimal": {"lat": 21.146518, "lon": 79.080517}},
+			"neighbors": [{"station": "kasturchand_park", "line": "mahametro_nagpur.orange"}, {"station": "sitabuldi", "line": "mahametro_nagpur.orange"}]
+		},
+		"sitabuldi": {
+			"id": "sitabuldi",
+			"name": {"en": "Sitabuldi Interchange", "mr": "सीताबर्डी"},
+			"lines": ["mahametro_nagpur.orange", "mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_SIT",
+			"location": {"decimal": {"lat": 21.141652, "lon": 79.08369}},
+			"neighbors": [
+				{"station": "zero_mile_freedom_park", "line": "mahametro_nagpur.orange"},
+				{"station": "congress_nagar", "line": "mahametro_nagpur.orange"},
+				{"station": "cotton_market", "line": "mahametro_nagpur.aqua"},
+				{"station": "jhansi_rani_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"congress_nagar": {
+			"id": "congress_nagar",
+			"name": {"en": "Congress Nagar", "mr": "काँग्रेस नगर"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_4",
+			"location": {"decimal": {"lat": 21.12776, "lon": 79.082523}},
+			"neighbors": [{"station": "sitabuldi", "line": "mahametro_nagpur.orange"}, {"station": "rahate_colony", "line": "mahametro_nagpur.orange"}]
+		},
+		"rahate_colony": {
+			"id": "rahate_colony",
+			"name": {"en": "Rahate Colony", "mr": "रहाटे कॉलनी"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_1",
+			"location": {"decimal": {"lat": 21.127714, "lon": 79.075676}},
+			"neighbors": [{"station": "congress_nagar", "line": "mahametro_nagpur.orange"}, {"station": "ajni_square", "line": "mahametro_nagpur.orange"}]
+		},
+		"ajni_square": {
+			"id": "ajni_square",
+			"name": {"en": "Ajni Square", "mr": "अजनी चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_28",
+			"location": {"decimal": {"lat": 21.118377, "lon": 79.072088}},
+			"neighbors": [
+				{"station": "rahate_colony", "line": "mahametro_nagpur.orange"},
+				{"station": "chhatrapati_square", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"chhatrapati_square": {
+			"id": "chhatrapati_square",
+			"name": {"en": "Chhatrapati Square", "mr": "छत्रपती चौक"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_29",
+			"location": {"decimal": {"lat": 21.109055, "lon": 79.06955}},
+			"neighbors": [
+				{"station": "ajni_square", "line": "mahametro_nagpur.orange"},
+				{"station": "jaiprakash_nagar", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"jaiprakash_nagar": {
+			"id": "jaiprakash_nagar",
+			"name": {"en": "Jaiprakash Nagar", "mr": "जयप्रकाश नगर"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_30",
+			"location": {"decimal": {"lat": 21.103489, "lon": 79.068166}},
+			"neighbors": [
+				{"station": "chhatrapati_square", "line": "mahametro_nagpur.orange"},
+				{"station": "ujwal_nagar", "line": "mahametro_nagpur.orange"}
+			]
+		},
+		"ujwal_nagar": {
+			"id": "ujwal_nagar",
+			"name": {"en": "Ujwal Nagar", "mr": "Ujwal Nagar"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_31",
+			"location": {"decimal": {"lat": 21.096461, "lon": 79.066425}},
+			"neighbors": [{"station": "jaiprakash_nagar", "line": "mahametro_nagpur.orange"}, {"station": "airport", "line": "mahametro_nagpur.orange"}]
+		},
+		"airport": {
+			"id": "airport",
+			"name": {"en": "Airport", "mr": "एअरपोर्ट"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_32",
+			"location": {"decimal": {"lat": 21.086108, "lon": 79.063905}},
+			"neighbors": [{"station": "ujwal_nagar", "line": "mahametro_nagpur.orange"}, {"station": "south_airport", "line": "mahametro_nagpur.orange"}]
+		},
+		"south_airport": {
+			"id": "south_airport",
+			"name": {"en": "South Airport", "mr": "South Airport"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_2",
+			"location": {"decimal": {"lat": 21.078942, "lon": 79.060579}},
+			"neighbors": [{"station": "airport", "line": "mahametro_nagpur.orange"}, {"station": "new_airport", "line": "mahametro_nagpur.orange"}]
+		},
+		"new_airport": {
+			"id": "new_airport",
+			"name": {"en": "New Airport", "mr": "न्यू एअरपोर्ट"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_33",
+			"location": {"decimal": {"lat": 21.066008, "lon": 79.055884}},
+			"neighbors": [{"station": "south_airport", "line": "mahametro_nagpur.orange"}, {"station": "khapri", "line": "mahametro_nagpur.orange"}]
+		},
+		"khapri": {
+			"id": "khapri",
+			"name": {"en": "Khapri", "mr": "खापरी"},
+			"lines": ["mahametro_nagpur.orange"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_34",
+			"location": {"decimal": {"lat": 21.049278, "lon": 79.047962}},
+			"neighbors": [{"station": "new_airport", "line": "mahametro_nagpur.orange"}]
+		},
+		"prajapati_nagar": {
+			"id": "prajapati_nagar",
+			"name": {"en": "Prajapati Nagar", "mr": "प्रजापती नगर"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_5",
+			"location": {"decimal": {"lat": 21.149958, "lon": 79.148652}},
+			"neighbors": [{"station": "vaishno_devi_chowk", "line": "mahametro_nagpur.aqua"}]
+		},
+		"vaishno_devi_chowk": {
+			"id": "vaishno_devi_chowk",
+			"name": {"en": "Vaishno Devi Chowk", "mr": "Vaishno Devi Chowk"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_37",
+			"location": {"decimal": {"lat": 21.147915, "lon": 79.136438}},
+			"neighbors": [{"station": "prajapati_nagar", "line": "mahametro_nagpur.aqua"}, {"station": "ambedkar_square", "line": "mahametro_nagpur.aqua"}]
+		},
+		"ambedkar_square": {
+			"id": "ambedkar_square",
+			"name": {"en": "Ambedkar Square", "mr": "आंबेडकर चौक"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_6",
+			"location": {"decimal": {"lat": 21.148247, "lon": 79.12941}},
+			"neighbors": [
+				{"station": "vaishno_devi_chowk", "line": "mahametro_nagpur.aqua"},
+				{"station": "telephone_exchange", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"telephone_exchange": {
+			"id": "telephone_exchange",
+			"name": {"en": "Telephone Exchange", "mr": "टेलिफोन एक्स्चेंज"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_7",
+			"location": {"decimal": {"lat": 21.148711, "lon": 79.118173}},
+			"neighbors": [
+				{"station": "ambedkar_square", "line": "mahametro_nagpur.aqua"},
+				{"station": "chitar_oli_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"chitar_oli_square": {
+			"id": "chitar_oli_square",
+			"name": {"en": "Chitar Oli Square", "mr": "Chitar Oli Square"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_8",
+			"location": {"decimal": {"lat": 21.149711, "lon": 79.110408}},
+			"neighbors": [
+				{"station": "telephone_exchange", "line": "mahametro_nagpur.aqua"},
+				{"station": "agrasen_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"agrasen_square": {
+			"id": "agrasen_square",
+			"name": {"en": "Agrasen Square", "mr": "अग्रसेन चौक"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_9",
+			"location": {"decimal": {"lat": 21.150921, "lon": 79.102947}},
+			"neighbors": [
+				{"station": "chitar_oli_square", "line": "mahametro_nagpur.aqua"},
+				{"station": "dosar_vaisya_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"dosar_vaisya_square": {
+			"id": "dosar_vaisya_square",
+			"name": {"en": "Dosar Vaisya Square", "mr": "Dosar Vaisya Square"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_10",
+			"location": {"decimal": {"lat": 21.152819, "lon": 79.094827}},
+			"neighbors": [{"station": "agrasen_square", "line": "mahametro_nagpur.aqua"}, {"station": "nagpur_railway", "line": "mahametro_nagpur.aqua"}]
+		},
+		"nagpur_railway": {
+			"id": "nagpur_railway",
+			"name": {"en": "Nagpur Railway", "mr": "Nagpur Railway"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_11",
+			"location": {"decimal": {"lat": 21.151131, "lon": 79.090268}},
+			"neighbors": [
+				{"station": "dosar_vaisya_square", "line": "mahametro_nagpur.aqua"},
+				{"station": "cotton_market", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"cotton_market": {
+			"id": "cotton_market",
+			"name": {"en": "Cotton Market", "mr": "कॉटन मार्केट"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_35",
+			"location": {"decimal": {"lat": 21.1459004, "lon": 79.0896871}},
+			"neighbors": [{"station": "nagpur_railway", "line": "mahametro_nagpur.aqua"}, {"station": "sitabuldi", "line": "mahametro_nagpur.aqua"}]
+		},
+		"jhansi_rani_square": {
+			"id": "jhansi_rani_square",
+			"name": {"en": "Jhansi Rani Square", "mr": "झाशी राणी चौक"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_13",
+			"location": {"decimal": {"lat": 21.140694, "lon": 79.077621}},
+			"neighbors": [
+				{"station": "sitabuldi", "line": "mahametro_nagpur.aqua"},
+				{"station": "institution_of_engineers", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"institution_of_engineers": {
+			"id": "institution_of_engineers",
+			"name": {"en": "Institution Of Engineers", "mr": "इन्स्टिट्युशन ऑफ इंजिनिअर्स"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_14",
+			"location": {"decimal": {"lat": 21.138112, "lon": 79.069945}},
+			"neighbors": [
+				{"station": "jhansi_rani_square", "line": "mahametro_nagpur.aqua"},
+				{"station": "shankar_nagar", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"shankar_nagar": {
+			"id": "shankar_nagar",
+			"name": {"en": "Shankar Nagar", "mr": "Shankar Nagar"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_15",
+			"location": {"decimal": {"lat": 21.136053, "lon": 79.061651}},
+			"neighbors": [
+				{"station": "institution_of_engineers", "line": "mahametro_nagpur.aqua"},
+				{"station": "lad_square", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"lad_square": {
+			"id": "lad_square",
+			"name": {"en": "Lad Square", "mr": "एलएडी चौक"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_16",
+			"location": {"decimal": {"lat": 21.132798, "lon": 79.054744}},
+			"neighbors": [
+				{"station": "shankar_nagar", "line": "mahametro_nagpur.aqua"},
+				{"station": "dharampeth_college", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"dharampeth_college": {
+			"id": "dharampeth_college",
+			"name": {"en": "Dharampeth College", "mr": "धरमपेठ महाविद्यालय"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_3",
+			"location": {"decimal": {"lat": 21.128453, "lon": 79.04581}},
+			"neighbors": [{"station": "lad_square", "line": "mahametro_nagpur.aqua"}, {"station": "subhash_nagar", "line": "mahametro_nagpur.aqua"}]
+		},
+		"subhash_nagar": {
+			"id": "subhash_nagar",
+			"name": {"en": "Subhash Nagar", "mr": "सुभाष नगर"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_17",
+			"location": {"decimal": {"lat": 21.123229, "lon": 79.041922}},
+			"neighbors": [
+				{"station": "dharampeth_college", "line": "mahametro_nagpur.aqua"},
+				{"station": "rachana_ring_road_junction", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"rachana_ring_road_junction": {
+			"id": "rachana_ring_road_junction",
+			"name": {"en": "Rachana Ring Road Junction", "mr": "रचना रिंग रोड जंक्शन"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_18",
+			"location": {"decimal": {"lat": 21.121473, "lon": 79.029225}},
+			"neighbors": [{"station": "subhash_nagar", "line": "mahametro_nagpur.aqua"}, {"station": "vasudev_nagar", "line": "mahametro_nagpur.aqua"}]
+		},
+		"vasudev_nagar": {
+			"id": "vasudev_nagar",
+			"name": {"en": "Vasudev Nagar", "mr": "वासुदेव नगर"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_19",
+			"location": {"decimal": {"lat": 21.118758, "lon": 79.019503}},
+			"neighbors": [
+				{"station": "rachana_ring_road_junction", "line": "mahametro_nagpur.aqua"},
+				{"station": "bansi_nagar", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"bansi_nagar": {
+			"id": "bansi_nagar",
+			"name": {"en": "Bansi Nagar", "mr": "बंसी नगर"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_20",
+			"location": {"decimal": {"lat": 21.116071, "lon": 79.012526}},
+			"neighbors": [
+				{"station": "vasudev_nagar", "line": "mahametro_nagpur.aqua"},
+				{"station": "lokmanya_nagar_open", "line": "mahametro_nagpur.aqua"}
+			]
+		},
+		"lokmanya_nagar_open": {
+			"id": "lokmanya_nagar_open",
+			"name": {"en": "Lokmanya Nagar (Open)", "mr": "Lokmanya Nagar (Open)"},
+			"lines": ["mahametro_nagpur.aqua"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"code": "NGP_38",
+			"location": {"decimal": {"lat": 21.110576, "lon": 79.001501}},
+			"neighbors": [{"station": "bansi_nagar", "line": "mahametro_nagpur.aqua"}]
+		}
+	}
+}
