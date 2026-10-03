@@ -26,11 +26,11 @@ class AlarmSettingsController {
 		thresholdDistanceMeters: 500,
 		alertOnDestination: true,
 		alertOnInterchange: true,
-		soundType: "chime",          // chime | beep | siren | custom
+		soundType: "chime",  // chime | beep | siren | custom
 		customAudioUrl: null,
 		customAudioName: "",
-		volume: 80,                  // 0 - 100
-		vibrationPattern: "long",    // long | short | sos | continuous
+		volume: 80,  // 0 - 100
+		vibrationPattern: "long",// long | short | sos | continuous
 		enableVoiceAnnouncement: true
 	};
 

@@ -190,18 +190,18 @@ export class MetroMap {
 			// 1. जब 'Legend' बटन पर क्लिक हो
 			legendPanelElemts.legendToggleBtn.addEventListener("click", () => {
 				legendPanelElemts.legendToggleBtn.style.display = "none"; // बटन छुपाएं
-				legendPanelElemts.legendPanel.classList.add("active");    // लेजेंड पैनल दिखाएं
+				legendPanelElemts.legendPanel.classList.add("active");// लेजेंड पैनल दिखाएं
 			});
 			// 2. जब क्लोज़ बटन "×" पर क्लिक हो
 			legendPanelElemts.legendCloseBtn.addEventListener("click", (e) => {
 				e.stopPropagation(); // क्लिक इवेंट को पैरेंट (पैनल) तक जाने से रोकें
 				legendPanelElemts.legendPanel.classList.remove("active"); // पैनल छुपाएं
-				legendPanelElemts.legendToggleBtn.style.display = "";     // CSS flex layout ko natural restore karein
+				legendPanelElemts.legendToggleBtn.style.display = ""; // CSS flex layout ko natural restore karein
 			});
 			// 3. जब लेजेंड पैनल कंटेनर पर कहीं भी क्लिक हो
 			legendPanelElemts.legendPanel.addEventListener("click", () => {
 				legendPanelElemts.legendPanel.classList.remove("active");
-				legendPanelElemts.legendToggleBtn.style.display = "";     // CSS flex layout ko natural restore karein
+				legendPanelElemts.legendToggleBtn.style.display = ""; // CSS flex layout ko natural restore karein
 			});
 		}
 
@@ -791,10 +791,10 @@ export class MetroMap {
 			pin.innerHTML = `
 				<g class="pin-drop-anim">
 					<image href="assets/icons/${iconFile}" 
-					       xlink:href="assets/icons/${iconFile}" 
-					       x="${-58 * S}" y="${-58 * S}" 
-					       width="${116 * S}" height="${66 * S}" 
-					       preserveAspectRatio="xMidYMid meet" />
+					xlink:href="assets/icons/${iconFile}" 
+					x="${-58 * S}" y="${-58 * S}" 
+					width="${116 * S}" height="${66 * S}" 
+					preserveAspectRatio="xMidYMid meet" />
 				</g>
 			`;
 			return pin;

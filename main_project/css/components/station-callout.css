@@ -1,8 +1,8 @@
 @layer components {
 	/* =========================================================================
-	   💬 CYBERPUNK HUD STATION MAP CALLOUT (#2 Finalized)
-	   100% base.css Tokens & Multi-Theme Reactive (Light, Dark, Cyberpunk, Vintage, Mint, Ghibli)
-	   ========================================================================= */
+	💬 CYBERPUNK HUD STATION MAP CALLOUT (#2 Finalized)
+	100% base.css Tokens & Multi-Theme Reactive (Light, Dark, Cyberpunk, Vintage, Mint, Ghibli)
+	========================================================================= */
 	.station-map-callout {
 		position: absolute;
 		top: calc(50% - var(--space-2xl));
@@ -22,8 +22,8 @@
 		
 		/* 🎨 टोकन-रिएक्टिव ड्रॉप शैडो */
 		filter: drop-shadow(0 6px 12px rgba(var(--color-bg-base-rgb), var(--op-shadow)))
-		        drop-shadow(0 2px 4px rgba(var(--color-primary-rgb), var(--op-subtle)))
-		        drop-shadow(0 0 1px rgba(var(--color-primary-rgb), var(--op-translucent)));
+				drop-shadow(0 2px 4px rgba(var(--color-primary-rgb), var(--op-subtle)))
+				drop-shadow(0 0 1px rgba(var(--color-primary-rgb), var(--op-translucent)));
 		transition: filter var(--transition-smooth);
 	}
 
@@ -276,8 +276,8 @@
 	}
 
 	/* =========================================================================
-	   🗺️ IN-CALLOUT CONFIRMATION & REPLACE PROMPTS (100% Pure Tokens)
-	   ========================================================================= */
+	🗺️ IN-CALLOUT CONFIRMATION & REPLACE PROMPTS (100% Pure Tokens)
+	========================================================================= */
 	.callout-prompt-view {
 		display: flex;
 		flex-direction: column;
@@ -365,8 +365,8 @@
 		font-weight: var(--fw-bold);
 		cursor: pointer;
 		transition: transform var(--transition-fast), 
-		            background-color var(--transition-fast), 
-		            color var(--transition-fast);
+					background-color var(--transition-fast), 
+					color var(--transition-fast);
 	}
 
 	.btn-prompt-no {

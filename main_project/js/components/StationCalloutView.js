@@ -96,11 +96,11 @@ export class StationCalloutView {
 					<button type="button" class="callout-close-btn" aria-label="Close">✕</button>
 					<span class="callout-title" title="${stationName}">${stationName}</span>
 					<a href="station_info.html?id=${encodeURIComponent(stationId)}&city=${encodeURIComponent(currentCity)}" 
-					   target="_blank" 
-					   rel="noopener noreferrer" 
-					   class="callout-info-btn" 
-					   title="${btnText}"
-					   aria-label="${btnText}"></a>
+					target="_blank" 
+					rel="noopener noreferrer" 
+					class="callout-info-btn" 
+					title="${btnText}"
+					aria-label="${btnText}"></a>
 				</div>
 				${statusBadgeHtml}
 				<div class="callout-actions">

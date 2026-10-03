@@ -427,10 +427,10 @@ export class JourneyDetailsView {
 					</div>
 					<div class="station-info">
 						<a href="station_info.html?id=${encodeURIComponent(st.id)}&city=${encodeURIComponent(currentCity)}" 
-						   class="station-name-main" 
-						   target="_blank" 
-						   rel="noopener noreferrer" 
-						   title="${name}">
+						class="station-name-main" 
+						target="_blank" 
+						rel="noopener noreferrer" 
+						title="${name}">
 							${name}
 							${gateBadgeHtml}
 						</a>

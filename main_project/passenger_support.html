@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<!-- [METADATA_START] -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-	<title data-i18n="passengerSupport.pageTitle">Passenger Support &amp; Legal Directory | YatraMarg Metro</title>
-	
-	<!-- Favicon & PWA Icons -->
-	<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-	
-	<!-- Enterprise Design System CSS Pipeline -->
-	<link rel="stylesheet" href="css/base/base.css">
-	<link rel="stylesheet" href="css/layout/layout.css">
-	<link rel="stylesheet" href="css/layout/header.css">
-	<link rel="stylesheet" href="css/layout/navbar_header.css">
-	<link rel="stylesheet" href="css/layout/footer.css">
+
+	<!-- Open Graph / Social Sharing -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/passenger_support.html">
+	<meta property="og:title" content="Passenger Support & Legal Directory | YatraMarg Metro">
+	<meta property="og:description" content="Official commuter helpline directory, statutory compliance portals, baggage carriage limits, and station amenities.">
+	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
+
+	<!-- Twitter / X Cards -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/passenger_support.html">
+	<meta name="twitter:title" content="Passenger Support & Legal Directory | YatraMarg Metro">
+	<meta name="twitter:description" content="Official commuter helpline directory, statutory compliance portals, baggage carriage limits, and station amenities.">
+	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
+
+	<!-- Favicon & PWA App Standards -->
+	<link rel="icon" type="image/svg+xml" href="assets/images/site_icon.svg">
+	<link rel="manifest" href="manifest.webmanifest">
+	<meta name="theme-color" content="#0f172a">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<title data-i18n="passengerSupport.pageTitle">Passenger Support & Legal Directory | YatraMarg Metro</title>
+
+	<!-- 🎯 Single CSS Entry Point Architecture -->
 	<link rel="stylesheet" href="css/pages/passenger_support.css">
+	<!-- [METADATA_END] -->
 </head>
+<body data-page="passenger_support">
 <body data-page="passenger_support">
 
 	<!-- Global Fixed Header (Mounted by Header.js) -->
@@ -32,6 +51,9 @@
 			<h1 data-i18n="passengerSupport.hero.title">Passenger Support &amp; Legal Redirection</h1>
 			<p data-i18n="passengerSupport.hero.subtitle">Statutory compliance portals, station accessibility assistance, authorized baggage limitations, and immediate control room contacts.</p>
 		</header>
+
+		<!-- 🌐 Multi-Network Selector Pills (Delhi: DMRC, NMRC, Rapid Metro | Mumbai: Metro, Monorail) -->
+		<div id="network-selector-container" class="network-selector-pills hidden"></div>
 
 		<!-- 2. Section 1: Legal Redirection & Safety (Official Portals) -->
 		<section class="support-group tab-panel" id="tab-safety">

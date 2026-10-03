@@ -1,0 +1,73 @@
+{
+  "_global": {
+	"site_name": "YatraMarg Metro",
+	"base_url": "https://raaz2507.github.io/metro_Map_n_Route-Finder/",
+	"favicon": "assets/images/site_icon.svg",
+	"manifest": "manifest.webmanifest",
+	"theme_color": "#0f172a",
+	"og_image": "assets/images/share_image_com.png",
+	"twitter_card": "summary_large_image"
+  },
+  "pages": {
+	"index.html": {
+	  "title_key": "meta.title",
+	  "default_title": "Metro Map & Route Finder | YatraMarg",
+	  "description": "Find the best metro routes, ticket fares, travel time, and intermediate stations easily with interactive transit maps.",
+	  "css": "css/pages/index.css"
+	},
+	"all_stations.html": {
+	  "title_key": "pages.all_stations.meta.title",
+	  "default_title": "All Metro Stations Directory | YatraMarg",
+	  "description": "Complete line-wise directory of metro stations, operational routes, and platform details across networks.",
+	  "css": "css/pages/all_stations.css"
+	},
+	"station_info.html": {
+	  "title_key": "meta.title",
+	  "default_title": "Station Details & Facilities | YatraMarg Metro",
+	  "description": "First and last train timings, gate directions, platform layout, barrier-free amenities, and nearby landmarks.",
+	  "css": "css/pages/station_info.css"
+	},
+	"passenger_support.html": {
+	  "title_key": "passengerSupport.pageTitle",
+	  "default_title": "Passenger Support & Legal Directory | YatraMarg Metro",
+	  "description": "Official commuter helpline directory, statutory compliance portals, baggage carriage limits, and station amenities.",
+	  "css": "css/pages/passenger_support.css"
+	},
+	"TransitNetworkSelector.html": {
+	  "title_key": "pages.networks.pageTitle",
+	  "default_title": "Select Transit Network & City | YatraMarg",
+	  "description": "Explore operational metro lines, rapid rail, monorails, and light transit networks across major Indian cities.",
+	  "css": "css/pages/transit_network_selector.css"
+	},
+	"CountrySelector.html": {
+	  "title_key": "pages.country.pageTitle",
+	  "default_title": "Select Country & Global Regions | YatraMarg",
+	  "description": "Choose your country to access localized high-speed transit maps, fare structures, and multi-modal route guidance.",
+	  "css": "css/pages/country_selector.css"
+	},
+	"metro_QR_ticket.html": {
+	  "title_key": "qrTicket.pageTitle",
+	  "default_title": "Digital Metro QR Ticket & Mobile Pass | YatraMarg",
+	  "description": "Generate, validate, and download authentic high-resolution encrypted SVG/PNG metro QR transit passes.",
+	  "css": "css/pages/metro_QR_ticket.css"
+	},
+	"tvm_dispenser.html": {
+	  "title_key": "tvm.pageTitle",
+	  "default_title": "Interactive Ticket Vending Machine (TVM) | YatraMarg",
+	  "description": "Experience realistic 3D touch-screen TVM ticket generation, coin return, and token simulation for smart transit.",
+	  "css": "css/pages/tvm_dispenser.css"
+	},
+	"about.html": {
+	  "title_key": "about.pageTitle",
+	  "default_title": "About YatraMarg Platform & Open Transit Architecture",
+	  "description": "Learn about YatraMarg's zero-dependency offline-first transit algorithms, accessibility standards, and privacy mission.",
+	  "css": "css/pages/about.css"
+	},
+	"help.html": {
+	  "title_key": "help.pageTitle",
+	  "default_title": "Help & Commuter FAQ Guide | YatraMarg Metro",
+	  "description": "Step-by-step guidance on route finding, smart card recharge, alarm notifications, and offline PWA installation.",
+	  "css": "css/pages/help.css"
+	}
+  }
+}

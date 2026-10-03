@@ -62,6 +62,12 @@ export default {
 			freeERickshaw: "मुफ़्त ई-रिक्शा",
 			securityCheck: "सुरक्षा जांच",
 			accessible: "व्हीलचेयर सुलभ"
+		},
+		alerts: {
+			multimodalSecurity: "मल्टीमॉडल जंक्शन: अलग गेट एवं नई सुरक्षा जांच आवश्यक",
+			ncmcCard: "RuPay NCMC / स्मार्ट कार्ड गेट्स पर सीधे काम करता है",
+			sharedTrackNotice: "साझा ट्रैक: लोकल एवं एक्सप्रेस ट्रेनें एक ही प्लेटफॉर्म पर उपलब्ध",
+			walkwayNotice: "{distance}मी पैदल मार्ग (~{minutes} मिनट की चाल)"
 		}
 	},
 

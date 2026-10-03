@@ -1,34 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Soft Ambient Gradients for Subtle Depth -->
-    <linearGradient id="warmBase" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fff9f5" />
-      <stop offset="50%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#f5f8fc" />
-    </linearGradient>
+	<!-- Soft Ambient Gradients for Subtle Depth -->
+	<linearGradient id="warmBase" x1="0%" y1="0%" x2="100%" y2="100%">
+	  <stop offset="0%" stop-color="#fff9f5" />
+	  <stop offset="50%" stop-color="#ffffff" />
+	  <stop offset="100%" stop-color="#f5f8fc" />
+	</linearGradient>
 
-    <!-- Peach/Blush Organic Flow -->
-    <linearGradient id="peachBlob" x1="0%" y1="0%" x2="80%" y2="100%">
-      <stop offset="0%" stop-color="#ffdfd4" stop-opacity="0.85" />
-      <stop offset="100%" stop-color="#fcd3c7" stop-opacity="0.65" />
-    </linearGradient>
+	<!-- Peach/Blush Organic Flow -->
+	<linearGradient id="peachBlob" x1="0%" y1="0%" x2="80%" y2="100%">
+	  <stop offset="0%" stop-color="#ffdfd4" stop-opacity="0.85" />
+	  <stop offset="100%" stop-color="#fcd3c7" stop-opacity="0.65" />
+	</linearGradient>
 
-    <!-- Soft Sky/Ice Blue Organic Flow -->
-    <linearGradient id="skyBlob" x1="20%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a8cce4" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#c1dbed" stop-opacity="0.6" />
-    </linearGradient>
+	<!-- Soft Sky/Ice Blue Organic Flow -->
+	<linearGradient id="skyBlob" x1="20%" y1="0%" x2="100%" y2="100%">
+	  <stop offset="0%" stop-color="#a8cce4" stop-opacity="0.8" />
+	  <stop offset="100%" stop-color="#c1dbed" stop-opacity="0.6" />
+	</linearGradient>
 
-    <!-- Warm Cream/Sun Yellow Blob -->
-    <linearGradient id="sunBlob" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fde4b8" stop-opacity="0.85" />
-      <stop offset="100%" stop-color="#faedd5" stop-opacity="0.6" />
-    </linearGradient>
+	<!-- Warm Cream/Sun Yellow Blob -->
+	<linearGradient id="sunBlob" x1="0%" y1="0%" x2="100%" y2="100%">
+	  <stop offset="0%" stop-color="#fde4b8" stop-opacity="0.85" />
+	  <stop offset="100%" stop-color="#faedd5" stop-opacity="0.6" />
+	</linearGradient>
 
-    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
+	<filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+	  <feGaussianBlur stdDeviation="6" result="blur" />
+	  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+	</filter>
   </defs>
 
   <!-- Clean Canvas Background -->
@@ -62,7 +62,7 @@
 
   <!-- Mid-Right Playful Continuous Squiggle Loop (Line Art) -->
   <path d="M 1040 820 C 940 860 880 940 860 1020 C 840 1120 940 1180 970 1120 C 990 1060 920 980 840 1060 C 780 1120 730 1240 680 1340 C 620 1460 670 1580 720 1650 C 760 1710 740 1780 710 1840 C 680 1900 690 1960 700 1980" 
-        fill="none" stroke="#9ec5df" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+		fill="none" stroke="#9ec5df" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
 
   <!-- Floating Blush Dots Cluster (Bottom Left) -->
   <circle cx="210" cy="1180" r="18" fill="#fbc5b6" />
@@ -72,44 +72,44 @@
   <!-- ── 3. RHYTHMIC TEXTURE SPRINKLES (Dashes & Dots) ── -->
   <!-- Top Left Sky Rain Dashes (45 degree angled) -->
   <g stroke="#9ec5df" stroke-width="10" stroke-linecap="round" opacity="0.8">
-    <line x1="80" y1="120" x2="110" y2="80" />
-    <line x1="130" y1="130" x2="160" y2="90" />
-    <line x1="180" y1="140" x2="210" y2="100" />
-    <line x1="100" y1="180" x2="130" y2="140" />
-    <line x1="150" y1="190" x2="180" y2="150" />
-    <line x1="110" y1="240" x2="135" y2="205" />
+	<line x1="80" y1="120" x2="110" y2="80" />
+	<line x1="130" y1="130" x2="160" y2="90" />
+	<line x1="180" y1="140" x2="210" y2="100" />
+	<line x1="100" y1="180" x2="130" y2="140" />
+	<line x1="150" y1="190" x2="180" y2="150" />
+	<line x1="110" y1="240" x2="135" y2="205" />
   </g>
 
   <!-- Mid-Right Peach Stippling Dot Grid (3x3 Matrix) -->
   <g fill="#f8bfae" opacity="0.75">
-    <circle cx="980" cy="480" r="7" />
-    <circle cx="1015" cy="480" r="7" />
-    <circle cx="1050" cy="480" r="7" />
-    <circle cx="965" cy="515" r="7" />
-    <circle cx="1000" cy="515" r="7" />
-    <circle cx="1035" cy="515" r="7" />
-    <circle cx="985" cy="550" r="7" />
-    <circle cx="1020" cy="550" r="7" />
-    <circle cx="1055" cy="550" r="7" />
+	<circle cx="980" cy="480" r="7" />
+	<circle cx="1015" cy="480" r="7" />
+	<circle cx="1050" cy="480" r="7" />
+	<circle cx="965" cy="515" r="7" />
+	<circle cx="1000" cy="515" r="7" />
+	<circle cx="1035" cy="515" r="7" />
+	<circle cx="985" cy="550" r="7" />
+	<circle cx="1020" cy="550" r="7" />
+	<circle cx="1055" cy="550" r="7" />
   </g>
 
   <!-- Bottom Right Sky Rain Dashes -->
   <g stroke="#9ec5df" stroke-width="10" stroke-linecap="round" opacity="0.75">
-    <line x1="910" y1="1800" x2="940" y2="1750" />
-    <line x1="960" y1="1815" x2="990" y2="1765" />
-    <line x1="870" y1="1870" x2="900" y2="1820" />
-    <line x1="920" y1="1885" x2="950" y2="1835" />
-    <line x1="830" y1="1940" x2="860" y2="1890" />
-    <line x1="880" y1="1955" x2="910" y2="1905" />
+	<line x1="910" y1="1800" x2="940" y2="1750" />
+	<line x1="960" y1="1815" x2="990" y2="1765" />
+	<line x1="870" y1="1870" x2="900" y2="1820" />
+	<line x1="920" y1="1885" x2="950" y2="1835" />
+	<line x1="830" y1="1940" x2="860" y2="1890" />
+	<line x1="880" y1="1955" x2="910" y2="1905" />
   </g>
 
   <!-- Bottom Left Micro White Freckles inside Pebble -->
   <g fill="#ffffff" opacity="0.9">
-    <circle cx="50" cy="1800" r="4.5" />
-    <circle cx="85" cy="1780" r="4.5" />
-    <circle cx="120" cy="1820" r="5" />
-    <circle cx="65" cy="1870" r="5" />
-    <circle cx="105" cy="1890" r="4.5" />
-    <circle cx="135" cy="1920" r="4.5" />
+	<circle cx="50" cy="1800" r="4.5" />
+	<circle cx="85" cy="1780" r="4.5" />
+	<circle cx="120" cy="1820" r="5" />
+	<circle cx="65" cy="1870" r="5" />
+	<circle cx="105" cy="1890" r="4.5" />
+	<circle cx="135" cy="1920" r="4.5" />
   </g>
 </svg>

@@ -23,7 +23,7 @@ export class AlarmManager {
 	#audioPlayer = null;
 	#timeEstimator = null;
 
-   	// State Fields
+	// State Fields
 	#state = "INACTIVE"; // 'INACTIVE' | 'ARMED' | 'RINGING' | 'SNOOZED'
 	#journeyConfig = null;
 	#currentTargetStation = null;

@@ -16,60 +16,60 @@ class TelemetryService {
 		this.#initNetworkWatcher();
 	}
 
-	    /**
-     * 1. ब्राउज़र/OS की GPS परमिशन की सीधी जांच
-     */
-    async #initPermissionWatcher() {
-        if (typeof navigator === "undefined") return;
+		/**
+	 * 1. ब्राउज़र/OS की GPS परमिशन की सीधी जांच
+	 */
+	async #initPermissionWatcher() {
+		if (typeof navigator === "undefined") return;
 
-        // 🎯 1. शर्त हटाकर सीधे प्रोब करें ताकि परमिशन और एक्यूरेसी तुरंत लोड हो
-        this.#probeInitialLocation();
+		// 🎯 1. शर्त हटाकर सीधे प्रोब करें ताकि परमिशन और एक्यूरेसी तुरंत लोड हो
+		this.#probeInitialLocation();
 
-        if (navigator.permissions?.query) {
-            try {
-                const status = await navigator.permissions.query({ name: "geolocation" });
-                this.#gpsPermissionState = status.state;
+		if (navigator.permissions?.query) {
+			try {
+				const status = await navigator.permissions.query({ name: "geolocation" });
+				this.#gpsPermissionState = status.state;
 
-                status.onchange = () => {
-                    this.#gpsPermissionState = status.state;
-                    if (status.state === "granted") {
-                        this.#probeInitialLocation();
-                    } else {
-                        this.#notifySubscribers();
-                    }
-                };
-            } catch (e) {
-                console.warn("[TelemetryService] Permission query unsupported:", e);
-            }
-        }
-    }
+				status.onchange = () => {
+					this.#gpsPermissionState = status.state;
+					if (status.state === "granted") {
+						this.#probeInitialLocation();
+					} else {
+						this.#notifySubscribers();
+					}
+				};
+			} catch (e) {
+				console.warn("[TelemetryService] Permission query unsupported:", e);
+			}
+		}
+	}
 
-    /**
-     * 🛰️ तुरंत लोकेशन और एक्यूरेसी नापने के लिए कॉल (Desktop + Mobile)
-     */
-    #probeInitialLocation() {
-        if (typeof navigator === "undefined" || !navigator.geolocation) return;
+	/**
+	 * 🛰️ तुरंत लोकेशन और एक्यूरेसी नापने के लिए कॉल (Desktop + Mobile)
+	 */
+	#probeInitialLocation() {
+		if (typeof navigator === "undefined" || !navigator.geolocation) return;
 
-        navigator.geolocation.getCurrentPosition(
-            (pos) => {
-                if (pos?.coords) {
-                    this.#gpsPermissionState = "granted"; // ✅ परमिशन कन्फर्म
-                    this.#lastAccuracy = Math.round(pos.coords.accuracy || 15);
-                    this.#hasHardwareError = false;
-                    this.#notifySubscribers();
-                }
-            },
-            (err) => {
-                if (err.code === 1) {
-                    this.#gpsPermissionState = "denied"; // ब्लॉक है
-                } else if (err.code === 2) {
-                    this.#hasHardwareError = true; // डिवाइस GPS बंद
-                }
-                this.#notifySubscribers();
-            },
-            { enableHighAccuracy: false, timeout: 5000, maximumAge: 60000 }
-        );
-    }
+		navigator.geolocation.getCurrentPosition(
+			(pos) => {
+				if (pos?.coords) {
+					this.#gpsPermissionState = "granted"; // ✅ परमिशन कन्फर्म
+					this.#lastAccuracy = Math.round(pos.coords.accuracy || 15);
+					this.#hasHardwareError = false;
+					this.#notifySubscribers();
+				}
+			},
+			(err) => {
+				if (err.code === 1) {
+					this.#gpsPermissionState = "denied"; // ब्लॉक है
+				} else if (err.code === 2) {
+					this.#hasHardwareError = true; // डिवाइस GPS बंद
+				}
+				this.#notifySubscribers();
+			},
+			{ enableHighAccuracy: false, timeout: 5000, maximumAge: 60000 }
+		);
+	}
 
 	/**
 	 * 2. इंटरनेट नेटवर्क की निगरानी

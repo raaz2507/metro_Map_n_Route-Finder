@@ -3,10 +3,11 @@
 @import url("../layout/header.css");
 @import url("../layout/navbar_header.css");
 @import url("../layout/footer.css");
+@import url("../components/toast.css");
 
 /* ==========================================================================
-   PASSENGER SUPPORT PAGE STYLES (@layer components & utilities)
-   ========================================================================== */
+ PASSENGER SUPPORT PAGE STYLES (@layer components & utilities)
+ ========================================================================== */
 
 @layer components {
 	html,
@@ -18,8 +19,8 @@
 		scroll-margin-top: 90px;
 	}
 	/* -------------------------------------------------------------------------
-	   1. Universal Mask Icon Engine (Zero inline SVG clutter)
-	   ------------------------------------------------------------------------- */
+	 1. Universal Mask Icon Engine (Zero inline SVG clutter)
+	 ------------------------------------------------------------------------- */
 	.support-ico {
 		display: inline-block;
 		width: 18px;
@@ -41,19 +42,19 @@
 	}
 
 	/* CSS Mask Icon Definitions */
-	.ico-check        { --ico-url: url("../../assets/icons/ui/check_circle.svg"); }
-	.ico-shield       { --ico-url: url("../../assets/icons/ui/shield.svg"); }
-	.ico-scale        { --ico-url: url("../../assets/icons/ui/scale.svg"); }
-	.ico-box          { --ico-url: url("../../assets/icons/ui/box.svg"); }
-	.ico-women        { --ico-url: url("../../assets/icons/ui/women_safety.svg"); }
+	.ico-check { --ico-url: url("../../assets/icons/ui/check_circle.svg"); }
+	.ico-shield { --ico-url: url("../../assets/icons/ui/shield.svg"); }
+	.ico-scale { --ico-url: url("../../assets/icons/ui/scale.svg"); }
+	.ico-box { --ico-url: url("../../assets/icons/ui/box.svg"); }
+	.ico-women { --ico-url: url("../../assets/icons/ui/women_safety.svg"); }
 	.ico-accessibility{ --ico-url: url("../../assets/icons/ui/accessibility.svg"); }
-	.ico-parking      { --ico-url: url("../../assets/icons/ui/parking.svg"); }
-	.ico-external     { --ico-url: url("../../assets/icons/ui/external_link.svg"); }
-	.ico-globe        { --ico-url: url("../../assets/icons/ui/globe.svg"); }
-	.ico-metro        { --ico-url: url("../../assets/icons/ui/metro.svg"); }
-	.ico-phone        { --ico-url: url("../../assets/icons/ui/phone.svg"); }
-	.ico-mail         { --ico-url: url("../../assets/icons/ui/mail.svg"); }
-	.ico-info         { --ico-url: url("../../assets/icons/ui/info.svg"); }
+	.ico-parking { --ico-url: url("../../assets/icons/ui/parking.svg"); }
+	.ico-external { --ico-url: url("../../assets/icons/ui/external_link.svg"); }
+	.ico-globe { --ico-url: url("../../assets/icons/ui/globe.svg"); }
+	.ico-metro { --ico-url: url("../../assets/icons/ui/metro.svg"); }
+	.ico-phone { --ico-url: url("../../assets/icons/ui/phone.svg"); }
+	.ico-mail { --ico-url: url("../../assets/icons/ui/mail.svg"); }
+	.ico-info { --ico-url: url("../../assets/icons/ui/info.svg"); }
 
 	/* Accordion Item Chevron */
 	.item-chevron {
@@ -87,8 +88,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   2. Main Container (Strict Vertical Column Layout)
-	   ------------------------------------------------------------------------- */
+	 2. Main Container (Strict Vertical Column Layout)
+	 ------------------------------------------------------------------------- */
 	main.support-container {
 		display: flex;
 		flex-direction: column;
@@ -101,8 +102,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   3. Hero Card (Glassmorphic)
-	   ------------------------------------------------------------------------- */
+	 3. Hero Card (Glassmorphic)
+	 ------------------------------------------------------------------------- */
 	.support-hero {
 		width: 100%;
 		box-sizing: border-box;
@@ -153,8 +154,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   4. Group Headings (Pill Badges)
-	   ------------------------------------------------------------------------- */
+	 4. Group Headings (Pill Badges)
+	 ------------------------------------------------------------------------- */
 	.support-group {
 		width: 100%;
 		box-sizing: border-box;
@@ -188,8 +189,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   5. Cards & Drawers (Extended by Default)
-	   ------------------------------------------------------------------------- */
+	 5. Cards & Drawers (Extended by Default)
+	 ------------------------------------------------------------------------- */
 	.support-card {
 		background: var(--card-bg);
 		border: 1px solid var(--border-color);
@@ -241,13 +242,13 @@
 	}
 
 	/* Semantic Color Variants for Bullet Icons (Replaces inline styles) */
-	.item-bullet-icon.bullet-red    { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
-	.item-bullet-icon.bullet-blue   { background: rgba(37, 99, 235, 0.12); color: #2563eb; }
-	.item-bullet-icon.bullet-amber  { background: rgba(217, 119, 6, 0.12); color: #d97706; }
-	.item-bullet-icon.bullet-pink   { background: rgba(219, 39, 119, 0.12); color: #db2777; }
-	.item-bullet-icon.bullet-green  { background: rgba(5, 150, 105, 0.12); color: #059669; }
+	.item-bullet-icon.bullet-red { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
+	.item-bullet-icon.bullet-blue { background: rgba(37, 99, 235, 0.12); color: #2563eb; }
+	.item-bullet-icon.bullet-amber { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+	.item-bullet-icon.bullet-pink { background: rgba(219, 39, 119, 0.12); color: #db2777; }
+	.item-bullet-icon.bullet-green { background: rgba(5, 150, 105, 0.12); color: #059669; }
 	.item-bullet-icon.bullet-indigo { background: rgba(79, 70, 229, 0.12); color: #4f46e5; }
-	.item-bullet-icon.bullet-sky    { background: rgba(14, 165, 233, 0.12); color: #0ea5e9; }
+	.item-bullet-icon.bullet-sky { background: rgba(14, 165, 233, 0.12); color: #0ea5e9; }
 
 	/* Push button to end */
 	.drawer-btn-push {
@@ -326,11 +327,11 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   6. Floating Bottom Action Bar
-	   ------------------------------------------------------------------------- */
+	 6. Floating Bottom Action Bar
+	 ------------------------------------------------------------------------- */
 		/* -------------------------------------------------------------------------
-	   6. Floating Bottom Action Bar (Compact 2-Line Balanced Layout)
-	   ------------------------------------------------------------------------- */
+	 6. Floating Bottom Action Bar (Compact 2-Line Balanced Layout)
+	 ------------------------------------------------------------------------- */
 	.floating-bottom-bar {
 		position: sticky;
 		bottom: var(--space-lg);
@@ -387,8 +388,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   7. Network Selector Pills
-	   ------------------------------------------------------------------------- */
+	 7. Network Selector Pills
+	 ------------------------------------------------------------------------- */
 	.network-selector-pills {
 		display: flex;
 		flex-wrap: wrap;
@@ -419,9 +420,57 @@
 		box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.3);
 	}
 
+		/* -------------------------------------------------------------------------
+	 9. City Support Unavailable State (Zero Inline Styles)
+	 ------------------------------------------------------------------------- */
+	.support-unavailable-card {
+		background: var(--card-bg);
+		border: 1px dashed var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-3xl) var(--space-xl);
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-md);
+		max-width: 600px;
+		margin: var(--space-xl) auto;
+	}
+
+	.support-unavailable-icon {
+		font-size: var(--fs-4xl);
+	}
+
+	.support-unavailable-card h3 {
+		font-family: var(--font-title);
+		font-size: var(--fs-xl);
+		color: var(--text-primary);
+	}
+
+	.support-unavailable-card p {
+		color: var(--text-secondary);
+		font-size: var(--fs-sm);
+		max-width: 480px;
+		line-height: var(--lh-normal, 1.5);
+	}
+
+	.support-emergency-note {
+		background: rgba(var(--color-warning-bg-rgb, 254, 249, 195), var(--op-translucent));
+		border: 1px solid var(--border-color);
+		padding: var(--space-xs) var(--space-md);
+		border-radius: var(--radius-md);
+		color: var(--text-primary) !important;
+	}
+
+	.support-return-btn {
+		margin-top: var(--space-sm);
+		width: fit-content;
+		text-decoration: none;
+	}
+	
 	/* -------------------------------------------------------------------------
-	   8. Responsive Breakpoints
-	   ------------------------------------------------------------------------- */
+	 8. Responsive Breakpoints
+	 ------------------------------------------------------------------------- */
 	@media (max-width: 600px) {
 		.floating-bottom-bar {
 			bottom: var(--space-sm);

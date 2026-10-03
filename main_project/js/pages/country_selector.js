@@ -210,7 +210,7 @@ export class CountrySelector {
 		if (countries.length === 0) {
 			this.#dom.container.innerHTML = `
 				<div class="empty-state">
-					<span style="font-size: 2rem;">🔍</span>
+					<span class="empty-state-icon">🔍</span>
 					<h3>No Countries Found</h3>
 					<p>No transit regions match "${this.#escapeHTML(this.#searchQuery)}".</p>
 				</div>
@@ -250,8 +250,8 @@ export class CountrySelector {
 				<!-- Body: Country Name & Status -->
 				<div class="card-body">
 					<h2 class="country-name">${this.#escapeHTML(countryName)}</h2>
-					<div class="country-status-label" style="color: ${isOperational ? "#10B981" : "var(--text-secondary)"};">
-						${statusText}
+					<div class="country-status-label ${isOperational ? 'status-operational' : 'status-upcoming'}">
+						${this.#escapeHTML(statusText)}
 					</div>
 				</div>
 
@@ -276,7 +276,7 @@ export class CountrySelector {
 		if (!this.#dom.container) return;
 		this.#dom.container.innerHTML = `
 			<div class="empty-state">
-				<span style="font-size: 2rem;">⚠️</span>
+				<span class="empty-state-icon">🗺️</span>
 				<h3>Failed to Load Countries Manifest</h3>
 				<p>${this.#escapeHTML(msg)}</p>
 			</div>

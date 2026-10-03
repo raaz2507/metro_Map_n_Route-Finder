@@ -6,8 +6,8 @@
 @import url("../components/universal_search.css");
 
 /* ==========================================================================
-   HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
-   ========================================================================== */
+HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
+========================================================================== */
 
 @layer components {
 	/* Help page natural window scroll unlock */
@@ -18,8 +18,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   1. Universal Mask Icon Engine (Zero inline SVG clutter)
-	   ------------------------------------------------------------------------- */
+	1. Universal Mask Icon Engine (Zero inline SVG clutter)
+	------------------------------------------------------------------------- */
 	.help-ico {
 		display: inline-block;
 		width: 18px;
@@ -41,22 +41,22 @@
 	}
 
 	/* CSS Mask Icon Definitions (Linked to assets/icons/) */
-	.ico-help        { --ico-url: url("../../assets/icons/help.svg"); }
-	.ico-search      { --ico-url: url("../../assets/icons/ui/search.svg"); }
-	.ico-index       { --ico-url: url("../../assets/icons/list-solid-full.svg"); }
-	.ico-routes      { --ico-url: url("../../assets/icons/ui/search.svg"); }
-	.ico-activity    { --ico-url: url("../../assets/icons/ui/activity.svg"); }
-	.ico-transfer    { --ico-url: url("../../assets/icons/ui/transfer.svg"); }
-	.ico-alarm       { --ico-url: url("../../assets/icons/bell-solid-full.svg"); }
-	.ico-compass     { --ico-url: url("../../assets/icons/ui/compass.svg"); }
-	.ico-card        { --ico-url: url("../../assets/icons/ticket-solid-full.svg"); }
+	.ico-help { --ico-url: url("../../assets/icons/help.svg"); }
+	.ico-search  { --ico-url: url("../../assets/icons/ui/search.svg"); }
+	.ico-index{ --ico-url: url("../../assets/icons/list-solid-full.svg"); }
+	.ico-routes  { --ico-url: url("../../assets/icons/ui/search.svg"); }
+	.ico-activity{ --ico-url: url("../../assets/icons/ui/activity.svg"); }
+	.ico-transfer{ --ico-url: url("../../assets/icons/ui/transfer.svg"); }
+	.ico-alarm{ --ico-url: url("../../assets/icons/bell-solid-full.svg"); }
+	.ico-compass { --ico-url: url("../../assets/icons/ui/compass.svg"); }
+	.ico-card{ --ico-url: url("../../assets/icons/ticket-solid-full.svg"); }
 	.ico-calculator  { --ico-url: url("../../assets/icons/ui/calculator.svg"); }
-	.ico-clock       { --ico-url: url("../../assets/icons/clock.svg"); }
-	.ico-luggage     { --ico-url: url("../../assets/icons/ui/luggage.svg"); }
-	.ico-wifi        { --ico-url: url("../../assets/icons/ui/wifi.svg"); }
-	.ico-trash       { --ico-url: url("../../assets/icons/trash-can-solid-full.svg"); }
-	.ico-pin         { --ico-url: url("../../assets/icons/ui/pin.svg"); }
-	.ico-refresh     { --ico-url: url("../../assets/icons/ui/refresh.svg"); }
+	.ico-clock{ --ico-url: url("../../assets/icons/clock.svg"); }
+	.ico-luggage { --ico-url: url("../../assets/icons/ui/luggage.svg"); }
+	.ico-wifi{ --ico-url: url("../../assets/icons/ui/wifi.svg"); }
+	.ico-trash{ --ico-url: url("../../assets/icons/trash-can-solid-full.svg"); }
+	.ico-pin { --ico-url: url("../../assets/icons/ui/pin.svg"); }
+	.ico-refresh { --ico-url: url("../../assets/icons/ui/refresh.svg"); }
 
 	/* Accordion Chevron Icon */
 	.card-chevron {
@@ -80,8 +80,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   2. Main Container
-	   ------------------------------------------------------------------------- */
+	2. Main Container
+	------------------------------------------------------------------------- */
 	main.help-main-container {
 		display: flex;
 		flex-direction: column;
@@ -93,8 +93,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   3. Hero Section (Search & Filter Hub)
-	   ------------------------------------------------------------------------- */
+	3. Hero Section (Search & Filter Hub)
+	------------------------------------------------------------------------- */
 	.help-hero {
 		width: 100%;
 		background: var(--card-bg);
@@ -228,8 +228,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   4. 2-Column Responsive Layout Grid (Below Hero)
-	   ------------------------------------------------------------------------- */
+	4. 2-Column Responsive Layout Grid (Below Hero)
+	------------------------------------------------------------------------- */
 	.help-layout-grid {
 		width: 100%;
 		min-width: 0;
@@ -335,8 +335,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   5. Content Area & Section Groups
-	   ------------------------------------------------------------------------- */
+	5. Content Area & Section Groups
+	------------------------------------------------------------------------- */
 	.help-content-area {
 		display: flex;
 		flex-direction: column;
@@ -397,8 +397,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   6. Unified Knowledge-Base Accordion Container (Solution 1)
-	   ------------------------------------------------------------------------- */
+	6. Unified Knowledge-Base Accordion Container (Solution 1)
+	------------------------------------------------------------------------- */
 	.help-card-list {
 		display: flex;
 		flex-direction: column;
@@ -476,14 +476,14 @@
 		transform: scale(1.05);
 	}
 
-	.icon-blue    { background: rgba(59, 130, 246, 0.12); color: #3b82f6; }
+	.icon-blue{ background: rgba(59, 130, 246, 0.12); color: #3b82f6; }
 	.icon-indigo  { background: rgba(99, 102, 241, 0.12); color: #6366f1; }
 	.icon-purple  { background: rgba(168, 85, 247, 0.12); color: #a855f7; }
-	.icon-rose    { background: rgba(244, 63, 94, 0.12);  color: #f43f5e; }
-	.icon-amber   { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+	.icon-rose{ background: rgba(244, 63, 94, 0.12);  color: #f43f5e; }
+	.icon-amber{ background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
 	.icon-emerald { background: rgba(16, 185, 129, 0.12); color: #10b981; }
-	.icon-teal    { background: rgba(20, 184, 166, 0.12); color: #14b8a6; }
-	.icon-cyan    { background: rgba(6, 182, 212, 0.12);  color: #06b6d4; }
+	.icon-teal{ background: rgba(20, 184, 166, 0.12); color: #14b8a6; }
+	.icon-cyan{ background: rgba(6, 182, 212, 0.12);  color: #06b6d4; }
 
 	.card-heading-texts {
 		display: flex;
@@ -560,8 +560,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   7. Highlight Match in Search Results
-	   ------------------------------------------------------------------------- */
+	7. Highlight Match in Search Results
+	------------------------------------------------------------------------- */
 	mark.search-highlight {
 		background: rgba(245, 158, 11, 0.3);
 		color: var(--text-primary);
@@ -570,8 +570,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   8. Empty State Card
-	   ------------------------------------------------------------------------- */
+	8. Empty State Card
+	------------------------------------------------------------------------- */
 	.help-empty-state {
 		background: var(--card-bg);
 		border: 1px solid var(--border-color);
@@ -632,8 +632,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   9. MOBILE-FIRST RESPONSIVE MEDIA QUERIES (INSIDE @layer components)
-	   ------------------------------------------------------------------------- */
+	9. MOBILE-FIRST RESPONSIVE MEDIA QUERIES (INSIDE @layer components)
+	------------------------------------------------------------------------- */
 	@media (max-width: 768px) {
 		.help-sidebar {
 			position: static;
@@ -667,8 +667,8 @@
 }
 
 /* ==========================================================================
-   UTILITIES LAYER (@layer utilities)
-   ========================================================================== */
+UTILITIES LAYER (@layer utilities)
+========================================================================== */
 @layer utilities {
 	.hidden {
 		display: none !important;

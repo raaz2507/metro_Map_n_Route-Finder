@@ -1,7 +1,7 @@
 @layer components {
 	/* =========================================================================
-	   Interactive Map Workspace Layout & Visuals
-	   ========================================================================= */
+	Interactive Map Workspace Layout & Visuals
+	========================================================================= */
 	.map-section {
 		padding: var(--space-sm);
 		
@@ -45,8 +45,8 @@
 	}
 
 	/* =========================================================================
-	   SVG Map Elements Styling & Micro-interactions
-	   ========================================================================= */
+	SVG Map Elements Styling & Micro-interactions
+	========================================================================= */
 
 	/* स्टेशन के नाम (Labels) को थीम-फ्रेंडली बनाना */
 	.mapContainer svg text,
@@ -68,8 +68,8 @@
 	}
 
 	/* =========================================================================
-	   HIGH-PERFORMANCE 60 FPS MAP VISUAL STATE ENGINE (GPU Accelerated)
-	   ========================================================================= */
+	HIGH-PERFORMANCE 60 FPS MAP VISUAL STATE ENGINE (GPU Accelerated)
+	========================================================================= */
 	.mapContainer svg.map-dimmed circle,
 	.mapContainer svg.map-dimmed line,
 	.mapContainer svg.map-dimmed text {
@@ -78,7 +78,7 @@
 	}
 
 	/* =========================================================================
-	   1. LEGEND STATION TYPES & ROUTE CIRCLES - ROCK SOLID ACTIVE STATE
+	1. LEGEND STATION TYPES & ROUTE CIRCLES - ROCK SOLID ACTIVE STATE
 	========================================================================= */
 	.mapContainer svg.map-dimmed circle.highlighted,
 	.mapContainer svg.map-dimmed g.highlighted circle {
@@ -89,8 +89,8 @@
 	}
 
 	/* =========================================================================
-	   2. HIGHLIGHTED METRO TRACKS - 60 FPS FROM-TO-TO METRO FLOW
-	   ========================================================================= */
+	2. HIGHLIGHTED METRO TRACKS - 60 FPS FROM-TO-TO METRO FLOW
+	========================================================================= */
 	@keyframes metro-dash-forward {
 		from {
 			stroke-dashoffset: 0;
@@ -153,8 +153,8 @@
 	}
 
 	/* =========================================================================
-	   4. TARGET STATION (Single Destination from Search) - Pure Size Pulse
-	   ========================================================================= */
+	4. TARGET STATION (Single Destination from Search) - Pure Size Pulse
+	========================================================================= */
 	@keyframes pulse-target-station {
 		0%, 100% {
 			transform: scale(1.1);
@@ -173,8 +173,8 @@
 
 
 	/* =========================================================================
-	   5. STATION HOVER FOCUS (Zero !important - Pure CSS Specificity & Cascade)
-	   ========================================================================= */
+	5. STATION HOVER FOCUS (Zero !important - Pure CSS Specificity & Cascade)
+	========================================================================= */
 	/* 🔍 टेक्स्ट होवर: नॉर्मल मैप और एक्टिव रूट दोनों में नाम 500px बड़ा, बोल्ड और 260px स्ट्रोक हेलो में दिखेगा */
 	.mapContainer svg text.hovered-text,
 	.mapContainer svg text:hover,
@@ -229,8 +229,8 @@
 	}
 
 		/* =========================================================================
-	   📍 ROUTE PINS (Origin & Destination 3D Ribbon Sleeper Badges)
-	   ========================================================================= */
+	📍 ROUTE PINS (Origin & Destination 3D Ribbon Sleeper Badges)
+	========================================================================= */
 	.mapContainer svg .route-pin-badge {
 		cursor: default;
 		pointer-events: none;
@@ -268,8 +268,8 @@
 
 
 	/* =========================================================================
-	   Floating Glassmorphic Zoom Controls
-	   ========================================================================= */
+	Floating Glassmorphic Zoom Controls
+	========================================================================= */
 	#zoomControls {
 		position: absolute;
 		bottom: var(--space-xl);
@@ -331,9 +331,9 @@
 		transition: opacity var(--transition-smooth), r var(--transition-smooth), stroke-width var(--transition-smooth), font-weight var(--transition-smooth);
 	}
 
-    	/* =========================================================================
-	   Floating Glassmorphic Clear Route Highlight Overlay Button
-	   ========================================================================= */
+	/* =========================================================================
+	Floating Glassmorphic Clear Route Highlight Overlay Button
+	========================================================================= */
 	.clear-route-highlight-btn {
 		position: absolute;
 		top: 16px;
@@ -391,8 +391,8 @@
 	}
 
 	/* =========================================================================
-	   TRACK & STATION STATUS STYLING (Operational, Under Construction, Approved)
-	   ========================================================================= */
+	TRACK & STATION STATUS STYLING (Operational, Under Construction, Approved)
+	========================================================================= */
 	.mapContainer svg line.track-under-construction {
 		stroke-dasharray: 220 110;
 		stroke-linecap: round;
@@ -441,7 +441,7 @@
 			/* दाहिनी तरफ 12px का साफ़ मार्जिन दिया */
 			#zoomControls {
 				bottom: 90px;
-				right: 12px;                         /* 12px मार्जिन ताकि स्क्रीन से न चिपके */
+				right: 12px; /* 12px मार्जिन ताकि स्क्रीन से न चिपके */
 				padding: 4px;
 				gap: 4px;
 				border-radius: var(--radius-sm);

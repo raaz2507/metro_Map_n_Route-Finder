@@ -1,23 +1,40 @@
 """
-Universal Transit Search Index Pre-Computation Engine (Inverted Index DSA)
-==========================================================================
-Location: main_project/data/build_search_index.py
+====================================================================================================
+🚆 Universal Transit Search Index Pre-Computation Engine (Inverted Index DSA)
+====================================================================================================
+📁 Location:
+    main_project_scripts/data_pipeline/build_search_index.py
 
-Purpose:
---------
-Scans multi-city transit datasets (transit_network.json + station_details.json + auto deltas)
-and builds an O(1) Inverted Index JSON mapping:
-  - `tokens`: word -> [item_ids] (Instant token lookup)
-  - `cities`: cityKey -> [item_ids] (Instant city scoping)
-  - `items` : item_id -> item metadata
+🎯 Overview & Purpose:
+    Scans entire multi-city transit datasets across all configured cities in India (or any
+    given country). Pre-computes a high-performance, O(1) in-memory Inverted Index (Search Engine)
+    and dumps it as a compact JSON cache for client-side instant searches.
 
-Target Output:
---------------
-  - main_project/data/search_cache/transit_search_index.json (Production Frontend Cache)
+⚙️ Core Architectural Design (Inverted Index Data Structure):
+    1. `tokens`   : Inverted word token map -> { token_string: [item_id_1, item_id_2, ...] }
+                   Enables instant O(1) prefix/word matching for multi-language queries.
+    2. `cities`   : City scope map -> { cityKey: [item_id_1, item_id_2, ...] }
+                   Allows zero-latency filtering when a user searches within a selected city.
+    3. `items`    : Central dictionary -> { item_id: { ...metadata... } }
+                   Stores compact metadata payload (title, Hindi name, mode, icon, line, etc.).
 
-Usage:
-------
-	python main_project/data/build_search_index.py
+🌐 Multi-City & Entity Coverage:
+    - ✅ Works universally across ALL cities located in: main_project/data/<country>/cities/
+    - 🌐 Transit Networks (DMRC, Mumbai Metro, Namma Metro, RRTS, etc. from registry)
+    - 🚇 Stations (Names in English & Hindi, Line affiliations, Interchange flags)
+    - 📍 Nearby Places (Hospitals, Malls, Universities, Tourist Spots, etc. with distance in km)
+    - 🚪 Station Gates & Landmarks (Gate numbers and nearby prominent exit landmarks)
+
+📦 Target Output:
+    main_project/data/<country>/search_cache/transit_search_index.json
+
+💻 Execution & CLI Usage:
+    # 1. Run for default country (India) across ALL cities:
+    py build_search_index.py
+
+    # 2. Run for specific country dataset:
+    py build_search_index.py india
+====================================================================================================
 """
 
 import os
@@ -26,8 +43,9 @@ import re
 import sys
 import shutil
 
-# Configure UTF-8 for console output
-sys.stdout.reconfigure(encoding="utf-8")
+# Configure UTF-8 for console output on Windows terminals
+if hasattr(sys.stdout, "reconfigure"):
+	sys.stdout.reconfigure(encoding="utf-8")
 
 CATEGORY_ICONS = {
 	"Station": "🚇",
@@ -59,14 +77,22 @@ CATEGORY_ICONS = {
 }
 
 def tokenize(text):
+	"""
+	Extracts normalized search tokens from text.
+	Supports both English alphanumeric and Devanagari Hindi unicode characters.
+	Enforces minimum 2-character word length to ignore single-letter noise.
+	"""
 	if not text:
 		return []
-	# Tokenize English and Devanagari Hindi words (minimum 2 characters)
 	words = re.findall(r"[\w\u0900-\u097F]+", str(text).lower())
 	return [w for w in words if len(w) >= 2]
 
 def build_search_index(country_key="india"):
-	base_dir = os.path.dirname(os.path.abspath(__file__))
+	# Resolve robust paths relative to script location
+	script_dir = os.path.dirname(os.path.abspath(__file__))
+	project_root = os.path.abspath(os.path.join(script_dir, "..", "..", "main_project"))
+	base_dir = os.path.join(project_root, "data")
+
 	country_dir = os.path.join(base_dir, country_key)
 	registry_path = os.path.join(country_dir, f"{country_key}_transit_registry.json")
 	cities_dir = os.path.join(country_dir, "cities")
@@ -274,10 +300,10 @@ def build_search_index(country_key="india"):
 	size_kb = os.path.getsize(cache_output_path) / 1024
 	print("=" * 70)
 	print(f"✅ [SUCCESS] Inverted Search Index generated successfully!")
-	print(f"📦 Output Target          : {cache_output_path}")
+	print(f"📦 Output Target  : {cache_output_path}")
 	print(f"📊 Total Searchable Items : {len(items)}")
 	print(f"🔑 Unique Inverted Tokens : {len(tokens_index)}")
-	print(f"💾 File Size              : {size_kb:.2f} KB")
+	print(f"💾 File Size  : {size_kb:.2f} KB")
 	print("=" * 70)
 
 if __name__ == "__main__":

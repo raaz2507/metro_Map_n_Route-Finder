@@ -11,8 +11,8 @@
 @import url("../components/toast.css");
 
 /* ===========================================================================
-   1. BASE LAYER - TRANSPARENT PAGE CANVAS
-   =========================================================================== */
+1. BASE LAYER - TRANSPARENT PAGE CANVAS
+=========================================================================== */
 @layer base {
 	main.country-selector-page {
 		height: auto;
@@ -33,13 +33,13 @@
 }
 
 /* ===========================================================================
-   2. COMPONENTS LAYER - HERO, CONTROLS & COUNTRY CARDS
-   =========================================================================== */
+2. COMPONENTS LAYER - HERO, CONTROLS & COUNTRY CARDS
+=========================================================================== */
 @layer components {
 
 	/* =========================================================================
-	   HERO BANNER DECK
-	   ========================================================================= */
+	HERO BANNER DECK
+	========================================================================= */
 	.country-hero-deck {
 		background-color: var(--card-bg);
 		border: 1px solid var(--border-color);
@@ -62,7 +62,7 @@
 		color: var(--color-primary);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
-		border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+		border: 1px solid rgba(var(--color-primary-rgb), var(--op-subtle));
 	}
 
 	.country-hero-deck h1 {
@@ -71,7 +71,7 @@
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
 		margin: 0;
-		line-height: 1.2;
+		line-height: var(--lh-tight, 1.2);
 	}
 
 	.country-hero-deck p {
@@ -79,12 +79,12 @@
 		color: var(--text-secondary);
 		margin: 0;
 		max-width: 720px;
-		line-height: 1.5;
+		line-height: var(--lh-normal, 1.5);
 	}
 
 	/* =========================================================================
-	   CONTROLS DECK (Search + Filter Chips)
-	   ========================================================================= */
+	CONTROLS DECK (Search + Filter Chips)
+	========================================================================= */
 	.country-controls-deck {
 		background-color: var(--card-bg);
 		border: 1px solid var(--border-color);
@@ -115,8 +115,8 @@
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		min-width: 70px;
+		letter-spacing: 0.05em;
+		min-width: 72px;
 		flex-shrink: 0;
 	}
 
@@ -155,7 +155,7 @@
 		background-color: var(--btn-primary-bg);
 		color: var(--btn-primary-text);
 		border-color: var(--btn-primary-bg);
-		box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.35);
+		box-shadow: var(--shadow-md);
 	}
 
 	/* Stats Bar */
@@ -170,8 +170,8 @@
 	}
 
 	/* =========================================================================
-	   DYNAMIC COUNTRIES GRID & CARDS
-	   ========================================================================= */
+	DYNAMIC COUNTRIES GRID & CARDS
+	========================================================================= */
 	.country-grid-container {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
@@ -180,8 +180,12 @@
 
 	.country-card {
 		position: relative;
-		background: linear-gradient(160deg, color-mix(in srgb, var(--country-theme, #3B82F6) 12%, var(--card-bg)) 0%, var(--card-bg) 70%);
-		border: 2px solid color-mix(in srgb, var(--country-theme, #3B82F6) 40%, var(--border-color));
+		--card-border-tint: color-mix(in srgb, var(--country-theme, var(--btn-primary-bg)) 40%, var(--border-color));
+		--card-shadow-tint: color-mix(in srgb, var(--country-theme, var(--btn-primary-bg)) 50%, var(--text-secondary));
+		--card-shadow-hover: color-mix(in srgb, var(--country-theme, var(--btn-primary-bg)) 65%, var(--text-primary));
+
+		background: linear-gradient(160deg, color-mix(in srgb, var(--country-theme, var(--btn-primary-bg)) 12%, var(--card-bg)) 0%, var(--card-bg) 70%);
+		border: 2px solid var(--card-border-tint);
 		border-radius: var(--radius-xl);
 		padding: var(--space-lg);
 		display: flex;
@@ -191,37 +195,37 @@
 		cursor: pointer;
 		user-select: none;
 		overflow: hidden;
-		box-shadow: 2px 3px 0 color-mix(in srgb, var(--country-theme, #3B82F6) 50%, #8A7968);
+		box-shadow: var(--space-2xs) 3px 0 var(--card-shadow-tint);
 		transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 	}
 
 	.country-card:hover {
 		transform: translate(-1px, -2px);
-		box-shadow: 3px 6px 0 color-mix(in srgb, var(--country-theme, #3B82F6) 65%, #6E5D4F);
-		border-color: var(--country-theme, #3B82F6);
+		box-shadow: var(--space-xs) 6px 0 var(--card-shadow-hover);
+		border-color: var(--country-theme, var(--btn-primary-bg));
 	}
 
 	.country-card.upcoming {
 		cursor: default;
-		opacity: 0.85;
+		opacity: var(--op-glass);
 		filter: grayscale(0.2);
 	}
 
 	.country-card.upcoming:hover {
 		transform: none;
-		box-shadow: 2px 3px 0 color-mix(in srgb, var(--country-theme, #3B82F6) 50%, #8A7968);
+		box-shadow: var(--space-2xs) 3px 0 var(--card-shadow-tint);
 	}
 
 	/* Top Radial Hover Flare */
 	.country-card::before {
 		content: '';
 		position: absolute;
-		top: -40px;
-		left: -40px;
+		top: calc(-1 * var(--space-3xl));
+		left: calc(-1 * var(--space-3xl));
 		width: 140px;
 		height: 140px;
 		border-radius: var(--radius-full);
-		background: radial-gradient(circle, color-mix(in srgb, var(--country-theme, #3B82F6) 25%, transparent) 0%, transparent 70%);
+		background: radial-gradient(circle, color-mix(in srgb, var(--country-theme, var(--btn-primary-bg)) 25%, transparent) 0%, transparent 70%);
 		pointer-events: none;
 		transition: transform 0.5s ease, opacity 0.5s ease;
 		transform-origin: top left;
@@ -242,7 +246,7 @@
 		right: var(--space-md);
 		width: 80px;
 		height: 60px;
-		opacity: 0.14;
+		opacity: var(--op-subtle);
 		background-color: var(--country-theme, currentColor);
 		-webkit-mask-repeat: no-repeat;
 		mask-repeat: no-repeat;
@@ -255,7 +259,7 @@
 	}
 
 	.country-card:hover .landmark-silhouette {
-		opacity: 0.28;
+		opacity: var(--op-muted);
 		transform: scale(1.05);
 	}
 
@@ -265,41 +269,41 @@
 		justify-content: space-between;
 		align-items: center;
 		position: relative;
-		z-index: 1;
+		z-index: var(--z-base);
 	}
 
 	.country-card .flag-badge {
-		font-size: 2rem;
-		line-height: 1;
-		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+		font-size: var(--fs-2xl);
+		line-height: var(--lh-none, 1);
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, var(--op-subtle)));
 	}
 
 	.country-card .code-stamp {
-		font-family: 'Comfortaa', cursive, sans-serif;
+		font-family: var(--font-title);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-bold);
 		color: var(--country-theme, var(--text-primary));
 		border: 1.5px dashed var(--country-theme, var(--border-color));
-		background: color-mix(in srgb, var(--country-theme, #3B82F6) 8%, transparent);
+		background: color-mix(in srgb, var(--country-theme, var(--btn-primary-bg)) 8%, transparent);
 		padding: var(--space-2xs) var(--space-sm);
 		border-radius: var(--radius-full);
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
+		letter-spacing: 0.05em;
 	}
 
 	/* Card Body: Country Name */
 	.country-card .card-body {
 		margin: var(--space-sm) 0 var(--space-xs) 0;
 		position: relative;
-		z-index: 1;
+		z-index: var(--z-base);
 	}
 
 	.country-card .country-name {
-		font-family: 'Comfortaa', cursive, sans-serif;
+		font-family: var(--font-title);
 		font-size: var(--fs-lg);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
-		line-height: 1.25;
+		line-height: var(--lh-tight, 1.25);
 		margin: 0;
 	}
 
@@ -315,11 +319,10 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		font-size: var(--fs-xs);
 		position: relative;
-		z-index: 1;
+		z-index: var(--z-base);
 		margin-top: var(--space-xs);
-		border-top: 1px solid rgba(var(--color-bg-base-rgb), 0.1);
+		border-top: 1px solid rgba(var(--color-bg-base-rgb), var(--op-subtle));
 		padding-top: var(--space-xs);
 	}
 
@@ -341,19 +344,19 @@
 		color: var(--text-muted);
 		font-size: var(--fs-md);
 		transition: transform var(--transition-fast), color var(--transition-fast);
-		line-height: 1;
+		line-height: var(--lh-none, 1);
 	}
 
 	.country-card:hover .action-arrow {
-		transform: translateX(4px);
+		transform: translateX(var(--space-xs));
 		color: var(--country-theme, var(--color-primary));
 	}
 
 	/* Vector Icons */
 	.ui-vector-icon {
 		display: inline-block;
-		width: 14px;
-		height: 14px;
+		width: var(--fs-md);
+		height: var(--fs-md);
 		background-color: currentColor;
 		-webkit-mask: var(--icon-url) no-repeat center / contain;
 		mask: var(--icon-url) no-repeat center / contain;
@@ -383,12 +386,28 @@
 	}
 
 	.spinner {
-		width: 40px;
-		height: 40px;
-		border: 3px solid rgba(var(--color-primary-rgb), 0.2);
+		width: var(--space-3xl);
+		height: var(--space-3xl);
+		border: 3px solid rgba(var(--color-primary-rgb), var(--op-subtle));
 		border-top-color: var(--btn-primary-bg);
 		border-radius: var(--radius-full);
-		animation: spin 0.8s linear infinite;
+		animation: spin var(--transition-slow, 0.8s) linear infinite;
+	}
+
+	.country-status-label.status-operational {
+		color: rgb(var(--color-success-rgb, 16, 185, 129));
+	}
+
+	.country-status-label.status-upcoming {
+		color: var(--text-secondary);
+	}
+
+	.empty-state-icon {
+		font-size: var(--fs-3xl);
+	}
+
+	.empty-state-error {
+		border-color: rgb(var(--color-danger-rgb, 239, 68, 68));
 	}
 
 	@keyframes spin {

@@ -1,48 +1,55 @@
 r"""
-Master Data Compact JSON Formatter & Architecture Specification
-==============================================================
-Location: main_project/data/format_compact_data_json.py
+====================================================================================================
+📐 Master Data Compact JSON Formatter & Architecture Specification
+====================================================================================================
+📁 Location:
+    main_project_scripts/data_pipeline/format_compact_data_json.py
 
-Purpose:
---------
-Strictly a JSON formatting & indentation utility. Reads city transit dataset files:
-  1. transit_network.json
-  2. transit_network_auto.json
-  3. station_details.json
-  4. passenger_support.json
+🎯 Purpose & Scope:
+    Strictly a non-destructive JSON beautification & compaction engine.
+    Scans transit dataset files across ALL cities or specific target files and renders them into
+    clean, ultra-compact, production-grade JSON files suitable for Git diffs and web delivery.
 
-and formats them into ultra-clean, compact, production-grade JSON files.
+🛡️ Critical Engineering Principles:
+    1. ZERO KEY MUTATION:
+       Never adds, deletes, renames, or modifies any data values or keys.
+    2. 100% DATA EQUIVALENCE ASSERTION:
+       Every formatted output is parsed back and verified via `assert orig_data == parsed_check`.
+       If even a single byte of data meaning deviates, the write operation is aborted immediately.
+    3. PURE INDENTATION & READABILITY:
+       Uses tab indentation with intelligent single-line compaction for compact leaves (<= 130 chars).
+       Maintains full UTF-8 encoding (no escaped Unicode like \u0905).
 
-Critical Engineering Principles:
---------------------------------
-1. ZERO KEY MUTATION: Never add, remove, or modify ANY keys or data values.
-2. 100% DATA EQUIVALENCE ASSERTION: Verifies parsed JSON matches original before writing.
-3. PURE INDENTATION & READABILITY: Clean compact line breaks, tab indentation, UTF-8 preserved.
+🌐 Multi-City & File Targeting:
+    - Formats all core dataset files in every city folder:
+        • transit_network.json (Stations, lines, coordinates, connections)
+        • transit_network_auto.json (Auto-generated delta graphs)
+        • station_details.json (Gates, platforms, amenities, nearby places)
+        • passenger_support.json (Lost & found, helpline numbers, emergency contacts)
 
-Active Compact Formatting Rules:
---------------------------------
-1. Fare Tables & Slabs: Each slab item inside weekday/holiday is placed on 1 line.
-2. Time Rules: Each time rule item inside off_peak is placed on 1 line.
-3. Product Labels & Items: Leaf objects like "label" are placed on 1 line.
-4. Line Stations Array: "stations" array inside lines is placed on 1 line.
-5. Station Schedule & Geo: "decimal", "dms", "properties", "train_schedule" on 1 line.
-6. Station Details Leaf Objects: "coordinates", "contact", "timings", "landmark" on 1 line.
-7. Station Details Badges: "amenity_badges" array placed on 1 line.
-8. Fare Matrix Rows: Each 2D array row inside fareMatrix placed on 1 line.
-9. Small leaf entries (<= 130 chars) kept compact on 1 line.
+⚙️ Active Compact Formatting Rules:
+    1. Fare Tables & Slabs: Weekday/holiday distance & fare slabs on single lines.
+    2. Time Rules: Off-peak & operating time definitions on single lines.
+    3. Product Labels: Leaf translation objects {"en": "...", "hi": "..."} on single lines.
+    4. Line Stations Array: Station sequences `["st1", "st2", "st3"]` kept on single lines.
+    5. Geo & Coordinates: Decimal, DMS, properties, train timings compacted on single lines.
+    6. Amenity Badges: Icon badge lists kept compact on single lines.
+    7. Fare Matrix Rows: 2D integer fare matrix rows formatted horizontally.
+    8. Small leaf dictionaries (<= 130 chars) kept compact on 1 line.
 
-Usage:
-------
-    # Format all files for all cities:
-    python main_project/data/format_compact_data_json.py
-    python main_project/data/format_compact_data_json.py all
+💻 Execution & CLI Usage:
+    # 1. Format ALL files across ALL cities (Default):
+    py format_compact_data_json.py
+    py format_compact_data_json.py all
 
-    # Format all files for a specific city:
-    python main_project/data/format_compact_data_json.py delhi_ncr
-    python main_project/data/format_compact_data_json.py mumbai
+    # 2. Format ALL files for a specific city:
+    py format_compact_data_json.py delhi_ncr
+    py format_compact_data_json.py mumbai
+    py format_compact_data_json.py bangalore
 
-    # Format a specific JSON file:
-    python main_project/data/format_compact_data_json.py path/to/file.json
+    # 3. Format a single specific JSON file directly:
+    py format_compact_data_json.py "path/to/specific_file.json"
+====================================================================================================
 """
 
 import os
@@ -177,11 +184,15 @@ def format_city(city_dir):
 	return count
 
 def main():
-	base_dir = os.path.dirname(os.path.abspath(__file__))
+	# Resolve robust paths relative to script location
+	script_dir = os.path.dirname(os.path.abspath(__file__))
+	project_root = os.path.abspath(os.path.join(script_dir, "..", "..", "main_project"))
+	base_dir = os.path.join(project_root, "data")
 	
 	# Support country argument: python format_compact_data_json.py india [city]
 	country_key = "india"
 	cities_dir = os.path.join(base_dir, country_key, "cities")
+
 
 	arg = sys.argv[1] if len(sys.argv) > 1 else "all"
 	print("=" * 70)

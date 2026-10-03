@@ -69,9 +69,8 @@ class MetroDataStore {
 		this.#abortController = new AbortController();
 		const signal = this.#abortController.signal;
 
-		const activeCountry = localStorage.getItem("active_country") || "india";
-		const dataPath = `data/${activeCountry}/cities/${resolvedCity}/transit_network.json`;
-		const autoDataPath = `data/${activeCountry}/cities/${resolvedCity}/transit_network_auto.json`;
+		const dataPath = this.getCityFilePath("transit_network.json", resolvedCity);
+		const autoDataPath = this.getCityFilePath("transit_network_auto.json", resolvedCity);
 
 		try {
 			console.log(`[MetroDataStore] Loading transit graph (Base + Auto) for: "${resolvedCity}"...`);
@@ -282,9 +281,8 @@ class MetroDataStore {
 		this.#detailsAbortController = new AbortController();
 		const signal = this.#detailsAbortController.signal;
 
-		const activeCountry = localStorage.getItem("active_country") || "india";
-		const basePath = `data/${activeCountry}/cities/${resolvedCity}/station_details.json`;
-		const autoPath = `data/${activeCountry}/cities/${resolvedCity}/station_details_auto.json`;
+		const basePath = this.getCityFilePath("station_details.json", resolvedCity);
+		const autoPath = this.getCityFilePath("station_details_auto.json", resolvedCity);
 		
 		try {
 			console.log(`[MetroDataStore] Fetching station details (Base + Auto) for "${resolvedCity}"...`);
@@ -430,6 +428,42 @@ class MetroDataStore {
 		} catch (e) {}
 
 		return null;
+	}
+
+
+	/**
+	 * 🌐 Centralized City File Path Resolver (Single Source of Truth)
+	 * Resolves active country and returns normalized relative path.
+	 * @param {string} fileName - e.g. "passenger_support.json", "transit_network.json"
+	 * @param {string} cityKey - optional city key
+	 * @returns {string} e.g. "data/india/cities/delhi_ncr/passenger_support.json"
+	 */
+	getCityFilePath(fileName, cityKey = null) {
+		const resolvedCity = this.#resolveCityKey(cityKey);
+		const activeCountry = localStorage.getItem("active_country") || "india";
+		return `data/${activeCountry}/cities/${resolvedCity}/${fileName}`;
+	}
+
+	/**
+	 * 🛡️ Centralized Passenger Support Loader
+	 * Loads official city-specific support/helpline directory.
+	 * Returns null gracefully if unavailable (STRICTLY NO SILENT FALLBACK TO OTHER CITIES).
+	 */
+	async loadPassengerSupport(cityKey = null) {
+		const resolvedCity = this.#resolveCityKey(cityKey);
+		const dataPath = this.getCityFilePath("passenger_support.json", resolvedCity);
+
+		try {
+			const res = await fetch(dataPath);
+			if (!res.ok) {
+				console.warn(`[MetroDataStore] Passenger support directory not found for "${resolvedCity}" (${dataPath})`);
+				return null;
+			}
+			return await res.json();
+		} catch (err) {
+			console.warn(`[MetroDataStore] Error loading passenger support for "${resolvedCity}":`, err.message);
+			return null;
+		}
 	}
 
 	// Public Getters

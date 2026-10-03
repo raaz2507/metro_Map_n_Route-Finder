@@ -70,8 +70,8 @@
 		-webkit-mask-image: url("../../assets/icons/ticket-solid-full.svg");
 		mask-image: url("../../assets/icons/ticket-solid-full.svg");
 	}
-    .share-icon::after {
-        -webkit-mask-image: url("../../assets/icons/share-solid-full.svg");
-        mask-image: url("../../assets/icons/share-solid-full.svg");
-    }
+	.share-icon::after {
+		-webkit-mask-image: url("../../assets/icons/share-solid-full.svg");
+		mask-image: url("../../assets/icons/share-solid-full.svg");
+	}
 }

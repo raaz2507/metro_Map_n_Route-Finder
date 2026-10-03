@@ -5,8 +5,8 @@
 @import url("../layout/footer.css");
 
 /* ==========================================================================
-   ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
-   ========================================================================== */
+ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
+========================================================================== */
 
 @layer components {
 	/* 1. Main Container (Strict Vertical Column) */
@@ -166,9 +166,9 @@
 	}
 
 	.icon-emerald { background: rgba(16, 185, 129, 0.12); color: #10b981; }
-	.icon-cyan    { background: rgba(6, 182, 212, 0.12);  color: #06b6d4; }
-	.icon-blue    { background: rgba(59, 130, 246, 0.12); color: #3b82f6; }
-	.icon-rose    { background: rgba(244, 63, 94, 0.12);  color: #f43f5e; }
+	.icon-cyan	{ background: rgba(6, 182, 212, 0.12);  color: #06b6d4; }
+	.icon-blue{ background: rgba(59, 130, 246, 0.12); color: #3b82f6; }
+	.icon-rose{ background: rgba(244, 63, 94, 0.12);  color: #f43f5e; }
 	
 	.bento-icon-circle {
 		width: 40px;
@@ -916,8 +916,8 @@
 	}
 
 	/* ==========================================================================
-	   6. IN-APP FEEDBACK & SUGGESTIONS MODAL
-	   ========================================================================== */
+	6. IN-APP FEEDBACK & SUGGESTIONS MODAL
+	========================================================================== */
 	.feedback-modal-backdrop {
 		position: fixed;
 		inset: 0;
@@ -1100,8 +1100,8 @@
 	}
 
 	/* ==========================================================================
-	   7. MODULAR ICON ENGINE (CSS MASK ARCHITECTURE)
-	   ========================================================================== */
+	7. MODULAR ICON ENGINE (CSS MASK ARCHITECTURE)
+	========================================================================== */
 	.about-ico {
 		display: inline-block;
 		width: 1em;
@@ -1123,18 +1123,18 @@
 	.community-btn .about-ico { width: 16px; height: 16px; }
 
 	.ico-shield { -webkit-mask-image: url("../../assets/icons/ui/shield.svg"); mask-image: url("../../assets/icons/ui/shield.svg"); }
-	.ico-wifi   { -webkit-mask-image: url("../../assets/icons/ui/wifi.svg");   mask-image: url("../../assets/icons/ui/wifi.svg"); }
+	.ico-wifi{ -webkit-mask-image: url("../../assets/icons/ui/wifi.svg");mask-image: url("../../assets/icons/ui/wifi.svg"); }
 	.ico-globe  { -webkit-mask-image: url("../../assets/icons/ui/globe.svg");  mask-image: url("../../assets/icons/ui/globe.svg"); }
-	.ico-bell    { -webkit-mask-image: url("../../assets/icons/ui/bell.svg");    mask-image: url("../../assets/icons/ui/bell.svg"); }
-	.ico-code    { -webkit-mask-image: url("../../assets/icons/ui/code.svg");    mask-image: url("../../assets/icons/ui/code.svg"); }
-	.ico-info    { -webkit-mask-image: url("../../assets/icons/ui/info.svg");    mask-image: url("../../assets/icons/ui/info.svg"); }
+	.ico-bell{ -webkit-mask-image: url("../../assets/icons/ui/bell.svg");mask-image: url("../../assets/icons/ui/bell.svg"); }
+	.ico-code{ -webkit-mask-image: url("../../assets/icons/ui/code.svg");mask-image: url("../../assets/icons/ui/code.svg"); }
+	.ico-info{ -webkit-mask-image: url("../../assets/icons/ui/info.svg");mask-image: url("../../assets/icons/ui/info.svg"); }
 	.ico-github  { -webkit-mask-image: url("../../assets/icons/ui/github.svg");  mask-image: url("../../assets/icons/ui/github.svg"); }
 	.ico-compass { -webkit-mask-image: url("../../assets/icons/ui/compass.svg"); mask-image: url("../../assets/icons/ui/compass.svg"); }
 
 
 	/* ==========================================================================
-	   MOBILE-FIRST RESPONSIVE MEDIA QUERIES (INSIDE @layer components)
-	   ========================================================================== */
+	MOBILE-FIRST RESPONSIVE MEDIA QUERIES (INSIDE @layer components)
+	========================================================================== */
 	@media (max-width: 900px) {
 		.about-bento-grid {
 			grid-template-columns: 1fr;

@@ -1,111 +1,111 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="theme-coach-shape" viewBox="0 0 360 210">
   <style>
-      /* 🎡 पहियों का 100% सटीक स्पिन एनीमेशन (Direct inside Shadow DOM) */
-      .wheel-rotate {
-        transform-box: fill-box;
-        transform-origin: center;
-        transition: transform 0.2s ease-out;
-      }
-      :hover .wheel-rotate,
-      .real-coach-card:hover .wheel-rotate {
-        animation: spinWheelOnAxle 0.7s linear infinite !important;
-      }
-      @keyframes spinWheelOnAxle {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
-      }
-      /* ⚡ पट्टी में लाइट बीम का हाई-स्पीड स्वीप (Light Sweep) */
-      .d9-sheen-runner {
-        transform-box: fill-box;
-        transform-origin: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      :hover .d9-sheen-runner,
-      .real-coach-card:hover .d9-sheen-runner {
-        opacity: 0.95 !important;
-        animation: pattiLightSweep 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
-      }
-      @keyframes pattiLightSweep {
-        0% { transform: translateX(-140px); }
-        50%, 100% { transform: translateX(340px); }
-      }
-    </style>
-    <defs>
-      <linearGradient id="coach25dGradD9" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="var(--coach-body-grad-start)"/>
-        <stop offset="100%" stop-color="var(--coach-body-grad-end)"/>
-      </linearGradient>
-      <linearGradient id="glassSheenD9" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
-        <stop offset="45%" stop-color="#ffffff" stop-opacity="0.03"/>
-        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-      </linearGradient>
-      <linearGradient id="pattiBeamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-        <stop offset="45%" stop-color="#ffffff" stop-opacity="0.9"/>
-        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-      </linearGradient>
-      <clipPath id="pattiClipD9">
-        <rect x="22" y="156" width="316" height="18" rx="4"/>
-      </clipPath>
-    </defs>
+	  /* 🎡 पहियों का 100% सटीक स्पिन एनीमेशन (Direct inside Shadow DOM) */
+	  .wheel-rotate {
+		transform-box: fill-box;
+		transform-origin: center;
+		transition: transform 0.2s ease-out;
+	  }
+	  :hover .wheel-rotate,
+	  .real-coach-card:hover .wheel-rotate {
+		animation: spinWheelOnAxle 0.7s linear infinite !important;
+	  }
+	  @keyframes spinWheelOnAxle {
+		from { transform: rotate(0deg); }
+		to{ transform: rotate(360deg); }
+	  }
+	  /* ⚡ पट्टी में लाइट बीम का हाई-स्पीड स्वीप (Light Sweep) */
+	  .d9-sheen-runner {
+		transform-box: fill-box;
+		transform-origin: center;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	  }
+	  :hover .d9-sheen-runner,
+	  .real-coach-card:hover .d9-sheen-runner {
+		opacity: 0.95 !important;
+		animation: pattiLightSweep 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+	  }
+	  @keyframes pattiLightSweep {
+		0% { transform: translateX(-140px); }
+		50%, 100% { transform: translateX(340px); }
+	  }
+	</style>
+	<defs>
+	  <linearGradient id="coach25dGradD9" x1="0" y1="0" x2="0" y2="1">
+		<stop offset="0%" stop-color="var(--coach-body-grad-start)"/>
+		<stop offset="100%" stop-color="var(--coach-body-grad-end)"/>
+	  </linearGradient>
+	  <linearGradient id="glassSheenD9" x1="0" y1="0" x2="1" y2="1">
+		<stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+		<stop offset="45%" stop-color="#ffffff" stop-opacity="0.03"/>
+		<stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+	  </linearGradient>
+	  <linearGradient id="pattiBeamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+		<stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+		<stop offset="45%" stop-color="#ffffff" stop-opacity="0.9"/>
+		<stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+	  </linearGradient>
+	  <clipPath id="pattiClipD9">
+		<rect x="22" y="156" width="316" height="18" rx="4"/>
+	  </clipPath>
+	</defs>
 
-    <!-- 3D Coach Body Outline -->
-    <rect class="d9-body" x="14" y="22" width="332" height="162" rx="24" fill="url(#coach25dGradD9)" stroke="var(--coach-body-border)" stroke-width="2.5"/>
-    <path class="d9-top-glint" d="M38 24 L322 24" stroke="var(--coach-top-glint)" stroke-width="3" stroke-linecap="round"/>
-    
-    <!-- Smoked Glass Window Frame -->
-    <rect x="22" y="32" width="316" height="114" rx="16" fill="var(--coach-window-bg)" stroke="var(--coach-window-border)" stroke-width="2"/>
-    <rect id="d9-glass-sheen" class="d9-glass-sheen pointer-events-none" x="22" y="32" width="316" height="114" rx="16" fill="url(#glassSheenD9)"/>
-    
-    <!-- 2.5D Tactile Color Patti Group -->
-    <g id="d9-patti-group">
-      <rect x="22" y="172" width="316" height="4" rx="2" fill="rgba(0,0,0,0.3)"/>
-      <rect class="dynamic-line-stripe d9-patti" x="22" y="156" width="316" height="18" rx="4" fill="var(--line-color)"/>
-      <path class="d9-patti-bevel" d="M25 157.5 L335 157.5" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/>
-      <rect class="d9-patti-line" x="22" y="163" width="316" height="4" rx="1.5" fill="#ffffff" opacity="0.9"/>
-      <g clip-path="url(#pattiClipD9)">
-        <rect class="d9-sheen-runner pointer-events-none" x="22" y="156" width="90" height="18" fill="url(#pattiBeamGrad)"/>
-      </g>
-    </g>
+	<!-- 3D Coach Body Outline -->
+	<rect class="d9-body" x="14" y="22" width="332" height="162" rx="24" fill="url(#coach25dGradD9)" stroke="var(--coach-body-border)" stroke-width="2.5"/>
+	<path class="d9-top-glint" d="M38 24 L322 24" stroke="var(--coach-top-glint)" stroke-width="3" stroke-linecap="round"/>
+	
+	<!-- Smoked Glass Window Frame -->
+	<rect x="22" y="32" width="316" height="114" rx="16" fill="var(--coach-window-bg)" stroke="var(--coach-window-border)" stroke-width="2"/>
+	<rect id="d9-glass-sheen" class="d9-glass-sheen pointer-events-none" x="22" y="32" width="316" height="114" rx="16" fill="url(#glassSheenD9)"/>
+	
+	<!-- 2.5D Tactile Color Patti Group -->
+	<g id="d9-patti-group">
+	  <rect x="22" y="172" width="316" height="4" rx="2" fill="rgba(0,0,0,0.3)"/>
+	  <rect class="dynamic-line-stripe d9-patti" x="22" y="156" width="316" height="18" rx="4" fill="var(--line-color)"/>
+	  <path class="d9-patti-bevel" d="M25 157.5 L335 157.5" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round"/>
+	  <rect class="d9-patti-line" x="22" y="163" width="316" height="4" rx="1.5" fill="#ffffff" opacity="0.9"/>
+	  <g clip-path="url(#pattiClipD9)">
+		<rect class="d9-sheen-runner pointer-events-none" x="22" y="156" width="90" height="18" fill="url(#pattiBeamGrad)"/>
+	  </g>
+	</g>
 
-    <!-- Heavy Bottom Chassis Bar -->
-    <path d="M20 185 L340 185" stroke="var(--coach-chassis-color)" stroke-width="3.5" stroke-linecap="round"/>
+	<!-- Heavy Bottom Chassis Bar -->
+	<path d="M20 185 L340 185" stroke="var(--coach-chassis-color)" stroke-width="3.5" stroke-linecap="round"/>
 
-    <!-- Bogie Wheels 1 with Axle Hubs -->
-    <rect x="55" y="186" width="65" height="18" rx="4" fill="var(--coach-bogie-bg)" stroke="var(--coach-bogie-border)" stroke-width="1"/>
-    <g class="wheel-rotate">
-      <circle cx="72" cy="195" r="9" fill="var(--coach-wheel-fill)" stroke="var(--coach-wheel-rim)" stroke-width="2.5"/>
-      <circle cx="72" cy="195" r="6.5" fill="var(--coach-wheel-inner)"/>
-      <line x1="72" y1="187" x2="72" y2="203" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
-      <line x1="64" y1="195" x2="80" y2="195" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
-      <circle cx="72" cy="195" r="2.5" fill="var(--coach-axle-color)"/>
-    </g>
-    <g class="wheel-rotate">
-      <circle cx="102" cy="195" r="9" fill="var(--coach-wheel-fill)" stroke="var(--coach-wheel-rim)" stroke-width="2.5"/>
-      <circle cx="102" cy="195" r="6.5" fill="var(--coach-wheel-inner)"/>
-      <line x1="102" y1="187" x2="102" y2="203" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
-      <line x1="94" y1="195" x2="110" y2="195" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
-      <circle cx="102" cy="195" r="2.5" fill="var(--coach-axle-color)"/>
-    </g>
+	<!-- Bogie Wheels 1 with Axle Hubs -->
+	<rect x="55" y="186" width="65" height="18" rx="4" fill="var(--coach-bogie-bg)" stroke="var(--coach-bogie-border)" stroke-width="1"/>
+	<g class="wheel-rotate">
+	  <circle cx="72" cy="195" r="9" fill="var(--coach-wheel-fill)" stroke="var(--coach-wheel-rim)" stroke-width="2.5"/>
+	  <circle cx="72" cy="195" r="6.5" fill="var(--coach-wheel-inner)"/>
+	  <line x1="72" y1="187" x2="72" y2="203" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
+	  <line x1="64" y1="195" x2="80" y2="195" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
+	  <circle cx="72" cy="195" r="2.5" fill="var(--coach-axle-color)"/>
+	</g>
+	<g class="wheel-rotate">
+	  <circle cx="102" cy="195" r="9" fill="var(--coach-wheel-fill)" stroke="var(--coach-wheel-rim)" stroke-width="2.5"/>
+	  <circle cx="102" cy="195" r="6.5" fill="var(--coach-wheel-inner)"/>
+	  <line x1="102" y1="187" x2="102" y2="203" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
+	  <line x1="94" y1="195" x2="110" y2="195" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
+	  <circle cx="102" cy="195" r="2.5" fill="var(--coach-axle-color)"/>
+	</g>
 
-    <!-- Bogie Wheels 2 -->
-    <rect x="225" y="186" width="65" height="18" rx="4" fill="var(--coach-bogie-bg)" stroke="var(--coach-bogie-border)" stroke-width="1"/>
-    <g class="wheel-rotate">
-      <circle cx="242" cy="195" r="9" fill="var(--coach-wheel-fill)" stroke="var(--coach-wheel-rim)" stroke-width="2.5"/>
-      <circle cx="242" cy="195" r="6.5" fill="var(--coach-wheel-inner)"/>
-      <line x1="242" y1="187" x2="242" y2="203" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
-      <line x1="234" y1="195" x2="250" y2="195" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
-      <circle cx="242" cy="195" r="2.5" fill="var(--coach-axle-color)"/>
-    </g>
-    <g class="wheel-rotate">
-      <circle cx="272" cy="195" r="9" fill="var(--coach-wheel-fill)" stroke="var(--coach-wheel-rim)" stroke-width="2.5"/>
-      <circle cx="272" cy="195" r="6.5" fill="var(--coach-wheel-inner)"/>
-      <line x1="272" y1="187" x2="272" y2="203" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
-      <line x1="264" y1="195" x2="280" y2="195" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
-      <circle cx="272" cy="195" r="2.5" fill="var(--coach-axle-color)"/>
-    </g>
+	<!-- Bogie Wheels 2 -->
+	<rect x="225" y="186" width="65" height="18" rx="4" fill="var(--coach-bogie-bg)" stroke="var(--coach-bogie-border)" stroke-width="1"/>
+	<g class="wheel-rotate">
+	  <circle cx="242" cy="195" r="9" fill="var(--coach-wheel-fill)" stroke="var(--coach-wheel-rim)" stroke-width="2.5"/>
+	  <circle cx="242" cy="195" r="6.5" fill="var(--coach-wheel-inner)"/>
+	  <line x1="242" y1="187" x2="242" y2="203" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
+	  <line x1="234" y1="195" x2="250" y2="195" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
+	  <circle cx="242" cy="195" r="2.5" fill="var(--coach-axle-color)"/>
+	</g>
+	<g class="wheel-rotate">
+	  <circle cx="272" cy="195" r="9" fill="var(--coach-wheel-fill)" stroke="var(--coach-wheel-rim)" stroke-width="2.5"/>
+	  <circle cx="272" cy="195" r="6.5" fill="var(--coach-wheel-inner)"/>
+	  <line x1="272" y1="187" x2="272" y2="203" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
+	  <line x1="264" y1="195" x2="280" y2="195" stroke="var(--coach-spoke-color)" stroke-width="1.5"/>
+	  <circle cx="272" cy="195" r="2.5" fill="var(--coach-axle-color)"/>
+	</g>
   </symbol>
 </svg>

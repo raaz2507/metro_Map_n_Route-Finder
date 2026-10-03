@@ -1,4 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Comfortaa:wght@600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Outfit:wght@600;700&family=Share+Tech+Mono&display=swap');
+/* =================================================================================================
+🛑 CRITICAL SYSTEM ARCHITECTURE DIRECTIVE FOR AI & DEVELOPERS (ZERO HARDCODING RULE) 🛑
+-------------------------------------------------------------------------------------------------
+ALL pages, components, themes, and dynamic scripts MUST strictly adhere to this Master Design Token
+Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATION.
+
+1. 🚫 STRICT PROHIBITION ON RAW VALUES:
+	- ❌ Raw Font Families ('Comfortaa', 'Inter', monospace, etc.)
+		👉 ALWAYS use: var(--font-title), var(--font-main), var(--font-mono), var(--map-font)
+	- ❌ Raw Font Sizes (14px, 1.25rem, 20px, 2rem, etc.)
+		👉 ALWAYS use: var(--fs-2xs) to var(--fs-4xl)
+	- ❌ Raw Spacing / Padding / Margin / Gap (2px, 8px, 16px, 24px, 3rem, etc.)
+		👉 ALWAYS use: var(--space-2xs) to var(--space-3xl)
+	- ❌ Raw Colors / Hex / RGB (#ef4444, #10b981, rgba(0,0,0,0.5), etc.)
+		👉 ALWAYS use: var(--color-*), var(--text-*), var(--border-color), or theme tokens
+	- ❌ Raw Opacities (0.15, 0.85, 0.28, 0.5, etc.)
+		👉 ALWAYS use: var(--op-subtle), var(--op-glass), var(--op-translucent), etc.
+	- ❌ Raw Border Radius (4px, 12px, 24px, 9999px, 50%, etc.)
+		👉 ALWAYS use: var(--radius-2xs) to var(--radius-full)
+	- ❌ Raw Border Widths (1px, 2px, 3px, 4px)
+		👉 ALWAYS use: var(--bw-thin) to var(--bw-heavy)
+	- ❌ Raw Box Shadows, Transitions, or Z-Index
+		👉 ALWAYS use: var(--shadow-*), var(--transition-*), var(--z-*)
+
+2. 🚫 ZERO INLINE-CSS IN JAVASCRIPT:
+	- Dynamic JS templates MUST NEVER inject layout, typography, or color inline styles
+		(e.g., style="font-size: 14px; padding: 10px; color: #ef4444;").
+	- Only CSS Custom Properties for dynamic data hooks are permitted (e.g., style="--line-color: ${val};").
+	- All visual styling must reside in component/page CSS classes.
+
+3. 📐 EXPANSION PROTOCOL:
+	- If a specific design token, sizing hook, or utility does not exist, YOU MUST ADD IT HERE FIRST
+		under the appropriate token scale in base.css before using it in any component or page.
+	- NEVER create one-off inline hacks or local hardcoded shortcuts.
+================================================================================================= */
+
+
+@import url("fonts.css");
 
 @layer reset, tokens, base, layout, components, themes, utilities;
 
@@ -22,8 +59,8 @@
 
 @layer tokens {
 	/* =========================================================================
-	   GLOBAL DESIGN TOKENS
-	   ========================================================================= */
+	GLOBAL DESIGN TOKENS
+	========================================================================= */
 	:root {
 		/* Fonts System */
 		--font-title: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -40,14 +77,14 @@
 
 		/* Font Sizes System */
 		--fs-2xs: 0.625rem; /* 10px (Micro Sub-labels) */
-		--fs-xs: 0.75rem;   /* 12px */
-		--fs-sm: 0.875rem;  /* 14px */
-		--fs-md: 1rem;      /* 16px (Base) */
-		--fs-lg: 1.125rem;  /* 18px */
-		--fs-xl: 1.25rem;   /* 20px */
-		--fs-2xl: clamp(1.25rem, 1.5vw, 1.5rem);   /* 20px - 24px */
-		--fs-3xl: clamp(1.5rem, 2vw, 1.875rem);   /* 24px - 30px */
-		--fs-4xl: clamp(1.75rem, 2.5vw, 2.25rem);  /* 28px - 36px */
+		--fs-xs: 0.75rem;/* 12px */
+		--fs-sm: 0.875rem;/* 14px */
+		--fs-md: 1rem;/* 16px (Base) */
+		--fs-lg: 1.125rem;/* 18px */
+		--fs-xl: 1.25rem;/* 20px */
+		--fs-2xl: clamp(1.25rem, 1.5vw, 1.5rem);/* 20px - 24px */
+		--fs-3xl: clamp(1.5rem, 2vw, 1.875rem);/* 24px - 30px */
+		--fs-4xl: clamp(1.75rem, 2.5vw, 2.25rem);/* 28px - 36px */
 
 		/* Spacing System */
 		--space-2xs: 2px;
@@ -58,6 +95,21 @@
 		--space-xl: 24px;
 		--space-2xl: 32px;
 		--space-3xl: 48px;
+
+		/* Border Width System */
+		--bw-thin: 1px;
+		--bw-md: 2px;
+		--bw-thick: 3px;
+		--bw-heavy: 4px;
+
+		/* Dimensional Sizing System */
+		--size-icon-sm: 14px;
+		--size-icon-md: 18px;
+		--size-icon-lg: 24px;
+		--size-card-min-h: 160px;
+		--size-silhouette-w: 80px;
+		--size-silhouette-h: 60px;
+		--size-filter-min-w: 72px;
 
 		/* Border Radius System */
 		--radius-2xs: 4px;
@@ -85,8 +137,10 @@
 		--z-overlay: 1100;
 
 		/* ---------------------------------------------------------
-		   SEMANTIC OPACITY SCALE
-		   --------------------------------------------------------- */
+		SEMANTIC OPACITY SCALE
+		--------------------------------------------------------- */
+		--op-dim: 0.14;
+		--op-soft: 0.28;
 		--op-solid: 1.00;
 		--op-heavy: 0.95;
 		--op-semi-heavy: 0.88;
@@ -98,8 +152,8 @@
 		--op-glow: 0.08;
 
 		/* ---------------------------------------------------------
-		   DEFAULT COMPONENT OPACITY MAPPINGS
-		   --------------------------------------------------------- */
+		DEFAULT COMPONENT OPACITY MAPPINGS
+		--------------------------------------------------------- */
 		--op-header-bg: var(--op-glass);
 		--op-aside-bg: var(--op-translucent);
 		--op-focus-shadow: var(--op-subtle);
@@ -107,7 +161,7 @@
 		--op-interchange-bg: var(--op-solid);
 
 		/* ---------------------------------------------------------
-		   GLOBAL MICRO-BADGES & TAG SYSTEM TOKENS
+		GLOBAL MICRO-BADGES & TAG SYSTEM TOKENS
 		--------------------------------------------------------- */
 		--badge-height: 18px;
 		--badge-font-size: var(--fs-xs);
@@ -117,8 +171,8 @@
 	}
 
 	/* =========================================================================
-	   THEME 1: CLASSIC LIGHT THEME (Default)
-	   ========================================================================= */
+	THEME 1: CLASSIC LIGHT THEME (Default)
+	========================================================================= */
 	:root {
 		/* --bg-filter: blur(8px) brightness(1.05) contrast(0.95) saturate(0.9); */
 		--bg-filter: none;
@@ -161,12 +215,12 @@
 		--shadow-lg: 4px 0 24px rgba(0, 0, 0, 0.04);
 		--theme-glow-rgb: 46, 213, 116;
 
-		--color-success-rgb: 22, 163, 74;      /* Green-600 (#16a34a) */
-		--color-warning-rgb: 217, 119, 6;      /* Amber-600 (#d97706) */
+		--color-success-rgb: 22, 163, 74;/* Green-600 (#16a34a) */
+		--color-warning-rgb: 217, 119, 6;/* Amber-600 (#d97706) */
 		--warning-text-rgb: 120, 53, 15;
-		--color-danger-rgb: 220, 38, 38;       /* Red-600 (#dc2626) */
-		--color-info-rgb: 37, 99, 235;         /* Blue-600 (#2563eb) */
-		--color-accent-rgb: 147, 51, 234;      /* Purple-600 */
+		--color-danger-rgb: 220, 38, 38; /* Red-600 (#dc2626) */
+		--color-info-rgb: 37, 99, 235;/* Blue-600 (#2563eb) */
+		--color-accent-rgb: 147, 51, 234;/* Purple-600 */
 		--text-on-accent: #ffffff;
 
 
@@ -228,11 +282,11 @@
 		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 		--shadow-lg: 4px 0 24px rgba(0, 0, 0, 0.4);
 
-		--color-success-rgb: 74, 222, 128;     /* Green-400 (#4ade80) */
-		--color-warning-rgb: 251, 191, 36;     /* Amber-400 (#fbbf24) */
-		--color-danger-rgb: 248, 113, 113;     /* Red-400 (#f87171) */
-		--color-info-rgb: 96, 165, 250;        /* Blue-400 (#60a5fa) */
-		--color-accent-rgb: 192, 132, 252;     /* Purple-400 */
+		--color-success-rgb: 74, 222, 128;/* Green-400 (#4ade80) */
+		--color-warning-rgb: 251, 191, 36;/* Amber-400 (#fbbf24) */
+		--color-danger-rgb: 248, 113, 113;/* Red-400 (#f87171) */
+		--color-info-rgb: 96, 165, 250;/* Blue-400 (#60a5fa) */
+		--color-accent-rgb: 192, 132, 252;/* Purple-400 */
 		--text-on-accent: #ffffff;
 
 
@@ -255,8 +309,8 @@
 	}
 
 	/* 
-	   UNIVERSAL APP BACKGROUND IMAGE & THEME FILTER 
-	   (Applies automatically to ALL pages: index.html, help.html, about.html, etc.)
+	UNIVERSAL APP BACKGROUND IMAGE & THEME FILTER 
+	(Applies automatically to ALL pages: index.html, help.html, about.html, etc.)
 	*/
 	body::before {
 		content: "";
@@ -266,7 +320,7 @@
 		right: -20px;
 		bottom: -20px;
 		background-image: var(--theme-bg-image, none);
-		/* background-image: var(--theme-bg-image, url('../../assets/images/site_background.webp'));  */
+		/* background-image: var(--theme-bg-image, url('../../assets/images/site_background.webp'));*/
 		background-repeat: no-repeat; 
 		background-size: cover; 
 		background-position: center; 

@@ -3,10 +3,10 @@
  * Enterprise ES2022 OOP Class with Strategy Pattern & Private Encapsulation (#)
  * 
  * 📌 SUPPORTED FARE MODELS (STRATEGIES) [NO HARDCODED NETWORKS]:
- * 1. 'distance_based'       -> Slab based on distance (Km).
- * 2. 'station_pair'         -> Exact Point-to-Point 2D Matrix.
+ * 1. 'distance_based'-> Slab based on distance (Km).
+ * 2. 'station_pair' -> Exact Point-to-Point 2D Matrix.
  * 3. 'station_count_based'  -> Slab based on total stations crossed.
- * 4. 'flat_rate'            -> Fixed fare regardless of distance.
+ * 4. 'flat_rate'-> Fixed fare regardless of distance.
  */
 
 export class FareCalculator {
@@ -281,20 +281,20 @@ export class FareCalculator {
 				alerts.push({
 					type: "multimodal",
 					icon: "🛡️",
-					i18nKey: "pages.home.sidebar.findroute.route.alerts.multimodalSecurity",
+					i18nKey: "pages.home.findRoute.alerts.multimodalSecurity",
 					defaultText: "Multimodal Junction: Separate gate & fresh security check required"
 				});
 				alerts.push({
 					type: "ncmc",
 					icon: "💳",
-					i18nKey: "pages.home.sidebar.findroute.route.alerts.ncmcCard",
+					i18nKey: "pages.home.findRoute.alerts.ncmcCard",
 					defaultText: "RuPay NCMC / Smart Card works directly at gates"
 				});
 			} else if (leg.connectionType === "shared_track") {
 				alerts.push({
 					type: "shared_track",
 					icon: "🛤️",
-					i18nKey: "pages.home.sidebar.findroute.route.alerts.sharedTrackNotice",
+					i18nKey: "pages.home.findRoute.alerts.sharedTrackNotice",
 					defaultText: "Shared Track: Local & express trains available on same platform"
 				});
 			}
@@ -304,7 +304,7 @@ export class FareCalculator {
 				alerts.push({
 					type: "walkway",
 					icon: "🚶",
-					i18nKey: "pages.home.sidebar.findroute.route.alerts.walkwayNotice",
+					i18nKey: "pages.home.findRoute.alerts.walkwayNotice",
 					params: { distance: leg.walkwayAfter.distanceMeters, minutes: walkMin },
 					defaultText: `${leg.walkwayAfter.distanceMeters}m walkway (~${walkMin} min walk)`
 				});

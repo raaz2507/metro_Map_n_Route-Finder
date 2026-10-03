@@ -1,7 +1,7 @@
 @layer components {
 	/* =========================================================================
-	   Recent Searches Section Styles
-	   ========================================================================= */
+	 Recent Searches Section Styles
+	 ========================================================================= */
 
 	/* 1. Main container */
 	#recent-searches {
@@ -11,17 +11,17 @@
 		width: 100%;
 		height: 100%;
 		max-height: 100%;
-		overflow: hidden ; 
+		overflow: hidden;
 	}
 
 	/* Section Header (Title + Clear All button) */
-		/* Section Header (Title + Clear All button) */
+	/* Section Header (Title + Clear All button) */
 	#recent-searches .section-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		padding: 0 var(--space-xs); 
+		padding: 0 var(--space-xs);
 		flex-shrink: 0;
 		min-width: 0; /* 👈 हेडर को फ्लेक्स में सिकुड़ने की अनुमति */
 	}
@@ -48,13 +48,13 @@
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
 		cursor: pointer;
-		padding: 2px 8px;                       
+		padding: 2px 8px;
 		border-radius: var(--radius-md);
 		transition: all var(--transition-fast);
 		box-shadow: var(--shadow-sm);
 		flex-shrink: 0;
-        margin-top: 4px;
-        margin-right: var(--space-xs);
+		margin-top: 4px;
+		margin-right: var(--space-xs);
 	}
 
 	#clearRecentSearches:hover {
@@ -67,10 +67,10 @@
 
 	/* 3. List Container */
 	.recent-search-list-container {
-		background: transparent ;
-		border: none ;
-		padding: 0 ;
-		box-shadow: none ;
+		background: transparent;
+		border: none;
+		padding: 0;
+		box-shadow: none;
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-xs);
@@ -79,7 +79,7 @@
 		overflow: hidden;
 	}
 
-		/* 4. Filter Chips / Tabs (Recent, Most Used, A-Z) Style */
+	/* 4. Filter Chips / Tabs (Recent, Most Used, A-Z) Style */
 	.filter-chips {
 		display: flex;
 		gap: var(--space-xs);
@@ -138,7 +138,7 @@
 		flex-direction: column;
 		gap: var(--space-xs);
 		margin: 0;
-		padding: 0 8px 0 0;                             /* फालतू अंदरूनी पैडिंग और डिब्बा हटाया */
+		padding: 0 8px 0 0; /* फालतू अंदरूनी पैडिंग और डिब्बा हटाया */
 		background: transparent;
 		border: none;
 		box-shadow: none;
@@ -175,7 +175,7 @@
 		align-items: center;
 		justify-content: flex-start;
 		gap: var(--space-xs);
-		padding: 10px 14px;                       /* पिल की पैडिंग कम की */
+		padding: 10px 14px; /* पिल की पैडिंग कम की */
 		background: var(--input-bg);
 		border: 1px solid var(--input-border);
 		border-radius: var(--radius-md);
@@ -200,7 +200,7 @@
 		transform: translateY(0);
 	}
 
-		.recent-search-btn .from,
+	.recent-search-btn .from,
 	.recent-search-btn .to {
 		display: inline-flex;
 		align-items: center;
@@ -245,7 +245,7 @@
 		color: var(--btn-primary-bg);
 	}
 
-		/* Delete item button styling (Normal state me bhi Red Danger theme) */
+	/* Delete item button styling (Normal state me bhi Red Danger theme) */
 	.delete-search-btn {
 		display: flex;
 		align-items: center;
@@ -269,7 +269,6 @@
 		transform: translateY(-1px);
 	}
 
-
 	.delete-search-btn img {
 		width: 14px;
 		height: 14px;
@@ -281,28 +280,50 @@
 		opacity: 1;
 	}
 
+	/* Color accents for Journey Metrics Card (Theme Compatible) */
+	.metric-val.color-indigo {
+		color: #4f46e5;
+	}
+	.metric-val.color-emerald {
+		color: #059669;
+	}
+	.metric-val.color-sky {
+		color: #0284c7;
+	}
+	.metric-val.color-amber {
+		color: #d97706;
+	}
 
+	.metric-val.color-blue {
+		color: #2563eb;
+	}
+	.metric-val.color-purple {
+		color: #7c3aed;
+	}
+	.metric-val.color-green {
+		color: #16a34a;
+	}
 
-    /* Color accents for Journey Metrics Card (Theme Compatible) */
-.metric-val.color-indigo { color: #4f46e5; }
-.metric-val.color-emerald { color: #059669; }
-.metric-val.color-sky { color: #0284c7; }
-.metric-val.color-amber { color: #d97706; }
-
-.metric-val.color-blue { color: #2563eb; }
-.metric-val.color-purple { color: #7c3aed; }
-.metric-val.color-green { color: #16a34a; }
-
-/* Fare Discount Badges */
-.fare-badge {
-    display: inline-block;
-    font-size: 0.68rem;
-    font-weight: 600;
-    padding: 1px 5px;
-    border-radius: 4px;
-    margin-top: 2px;
-}
-.badge-blue { background: rgba(37, 99, 235, 0.1); color: #2563eb; }
-.badge-purple { background: rgba(124, 58, 237, 0.1); color: #7c3aed; }
-.badge-green { background: rgba(22, 163, 74, 0.12); color: #16a34a; font-weight: 700; }
+	/* Fare Discount Badges */
+	.fare-badge {
+		display: inline-block;
+		font-size: 0.68rem;
+		font-weight: 600;
+		padding: 1px 5px;
+		border-radius: 4px;
+		margin-top: 2px;
+	}
+	.badge-blue {
+		background: rgba(37, 99, 235, 0.1);
+		color: #2563eb;
+	}
+	.badge-purple {
+		background: rgba(124, 58, 237, 0.1);
+		color: #7c3aed;
+	}
+	.badge-green {
+		background: rgba(22, 163, 74, 0.12);
+		color: #16a34a;
+		font-weight: 700;
+	}
 }

@@ -2,6 +2,8 @@ import { HeaderComponent } from '../components/Header.js';
 import { FooterComponent } from '../components/Footer.js';
 import { appStateStore } from "../core/app-state-store.js";
 import i18n from "../core/i18n.js";
+import { metroDataStore } from "../core/metro-data-store.js";
+import { Toast } from "../components/Toast.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const controller = new PassengerSupportController();
@@ -20,10 +22,15 @@ class PassengerSupportController {
 		await HeaderComponent.render("passenger_support");
 		
 
-		// 2. Resolve Active City & Network (From URL or localStorage)
+		// 2. Strict URL Parameter Resolution (Zero Guesswork / Multi-user consistent)
 		const urlParams = new URLSearchParams(window.location.search);
-		this.#activeCity = urlParams.get("city") || localStorage.getItem("active_city") || "delhi_ncr";
+		this.#activeCity = urlParams.get("city");
 		this.#activeNetwork = urlParams.get("network") || null;
+
+		if (!this.#activeCity) {
+			this.#renderCitySelectionRequiredState();
+			return;
+		}
 
 		// 3. Bind Accordion Toggles
 		this.#bindAccordion();
@@ -48,8 +55,33 @@ class PassengerSupportController {
 	}
 
 	#bindAccordion() {
+		const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
 		document.querySelectorAll(".item-summary").forEach((item) => {
-			item.addEventListener("click", () => {
+			item.addEventListener("click", (e) => {
+				const callBtn = e.target.closest("a[href^='tel:']");
+
+				// 📞 Smart Call Handler for Desktop with i18n
+				if (callBtn) {
+					if (!isMobile) {
+						e.preventDefault();
+						const rawTel = callBtn.getAttribute("href").replace("tel:", "").trim();
+						try {
+							navigator.clipboard?.writeText(rawTel);
+						} catch (err) {}
+
+						const title = i18n.t("passengerSupport.toast.noDialerTitle") || "📞 Helpline Contact";
+						const message = i18n.t("passengerSupport.toast.noDialerMsg", { number: rawTel }) || 
+							`No dialer on desktop. Helpline number ${rawTel} copied to clipboard!`;
+
+						Toast.info(message, { title });
+					}
+					return; // Stop accordion toggle on call button click
+				}
+
+				// Accordion Toggle (Only when clicking outside buttons/links)
+				if (e.target.closest("a, button")) return;
+
 				const parent = item.closest(".support-item");
 				if (parent) {
 					parent.classList.toggle("collapsed");
@@ -100,22 +132,76 @@ class PassengerSupportController {
 	}
 
 	async #loadSupportData() {
-		try {
-			const response = await fetch(`./data/${this.#activeCity}/passenger_support.json`);
-			if (!response.ok) throw new Error(`HTTP ${response.status}`);
-			this.#supportData = await response.json();
+		this.#supportData = await metroDataStore.loadPassengerSupport(this.#activeCity);
+
+		const networks = this.#supportData?.networks || {};
+		const hasActualContent = Object.values(networks).some(net => 
+			(net.helplines && Object.keys(net.helplines).length > 0) || 
+			(net.portals && Object.keys(net.portals).length > 0)
+		);
+
+		if (this.#supportData && hasActualContent) {
 			this.#populateCityData();
-		} catch (error) {
-			console.warn("[PassengerSupport] Failed to load city support data, falling back to Delhi NCR.", error);
-			try {
-				const fallback = await fetch(`./data/delhi_ncr/passenger_support.json`);
-				this.#supportData = await fallback.json();
-				this.#populateCityData();
-			} catch (e) {
-				console.error("[PassengerSupport] Total fallback failed:", e);
-			}
+		} else {
+			this.#renderUnavailableState();
 		}
 	}
+
+	#renderUnavailableState() {
+		const mainContent = document.getElementById("main-content");
+		if (!mainContent) return;
+
+		const cityName = this.#activeCity.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+		mainContent.innerHTML = `
+			<header class="support-hero">
+				<div class="hero-badge">
+					<span class="support-ico ico-info ico-sm" aria-hidden="true"></span>
+					<span>Directory Notice</span>
+				</div>
+				<h1>Passenger Support Directory</h1>
+				<p>Support details, statutory contacts, and commuter facilities.</p>
+			</header>
+
+			<section class="support-unavailable-card">
+				<div class="support-unavailable-icon">📋</div>
+				<h3>Passenger Support Data Coming Soon</h3>
+				<p>Official commuter helpline and regulatory directory for <strong>${cityName}</strong> is currently being compiled.</p>
+				<p class="support-emergency-note">For immediate police or medical assistance, please dial National Emergency <strong>112</strong>.</p>
+				<a href="index.html?city=${encodeURIComponent(this.#activeCity)}" class="drawer-btn support-return-btn">
+					<span>Back to City Map</span>
+				</a>
+			</section>
+		`;
+	}
+
+
+	#renderCitySelectionRequiredState() {
+		const mainContent = document.getElementById("main-content");
+		if (!mainContent) return;
+
+		mainContent.innerHTML = `
+			<header class="support-hero">
+				<div class="hero-badge">
+					<span class="support-ico ico-info ico-sm" aria-hidden="true"></span>
+					<span>Directory Notice</span>
+				</div>
+				<h1>Passenger Support Directory</h1>
+				<p>Official helpline directory, statutory contacts, and commuter facilities.</p>
+			</header>
+
+			<section class="support-unavailable-card">
+				<div class="support-unavailable-icon">🏙️</div>
+				<h3>Select Transit Network / City</h3>
+				<p>Please choose a transit city from our official transit network directory to view authentic helplines and legal passenger support.</p>
+				<p class="support-emergency-note">For immediate nationwide assistance, dial <strong>112</strong> (Police/Ambulance) or <strong>1090</strong> (Women Helpline).</p>
+				<a href="TransitNetworkSelector.html" class="drawer-btn support-return-btn">
+					<span>Browse Transit Networks & Cities</span>
+				</a>
+			</section>
+		`;
+	}
+
 
 	#populateCityData() {
 		if (!this.#supportData || !this.#supportData.networks) return;
@@ -160,27 +246,33 @@ class PassengerSupportController {
 
 		const portals = net.portals || {};
 
-		// Helper to update external links safely (Zero inline style)
+		// Helper to bind link safely and prevent '#' reload jump
 		const setLink = (id, url) => {
 			const el = document.getElementById(id);
 			if (!el) return;
 			if (url && url !== "#") {
 				el.href = url;
-				el.hidden = false;
+				el.target = "_blank";
+				el.rel = "noopener noreferrer";
+				el.onclick = null;
 			} else {
-				el.hidden = true;
+				el.removeAttribute("href");
+				el.onclick = (e) => {
+					e.preventDefault();
+					Toast.info(i18n.t("passengerSupport.toast.noPortalLink") || "Official portal link not available for this network.");
+				};
 			}
 		};
 
-		// 1. Legal & Portals Links
+		// 1. Legal & Safety Portal Links (Exact HTML IDs)
 		setLink("btn-vigilance-url", portals.vigilance_portal);
-		setLink("btn-security-url", portals.contact_us || portals.official_website);
-		setLink("btn-lostfound-url", portals.lost_and_found);
+		setLink("btn-cisf-guidelines", portals.contact_us || portals.official_website);
+		setLink("btn-baggage-rules", portals.travel_advisory || portals.official_website);
 
-		// 2. Amenities Links
-		setLink("btn-women-url", portals.women_safety);
-		setLink("btn-divyang-url", portals.differently_abled);
-		setLink("btn-parking-url", portals.parking_facilities);
+		// 2. Commuter Amenities Links (Exact HTML IDs)
+		setLink("btn-women-safety", portals.women_safety);
+		setLink("btn-accessibility-guide", portals.differently_abled);
+		setLink("btn-parking-tariffs", portals.parking_facilities);
 
 		// 3. Render Dynamic Localized Strings
 		this.#renderLanguageStrings();

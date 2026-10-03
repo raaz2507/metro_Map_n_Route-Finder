@@ -21,7 +21,7 @@ export class RouteFinder {
 	#networks = null;
 	#walkingSpeed = 80; // Meters per minute (~4.8 km/h)
 	#dijkstraEngine = null;
-	#routeCache = new Map();     // ⚡ Full Journey Cache
+	#routeCache = new Map(); // ⚡ Full Journey Cache
 	#terminalCache = new Map();  // ⚡ Terminal Resolution Cache
 
 	/**

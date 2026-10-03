@@ -1,17 +1,17 @@
 /**
  * 🧠 CenterClass - Central Application Orchestrator & Mediator
  * Enterprise ES2022 OOP Singleton Class with Private Encapsulation (#)
- * 
+ *
  * विशेषताएँ:
  * 1. Single Point of Entry: डैशबोर्ड और अन्य सभी UI पेजेस केवल इसी क्लास से बात करते हैं।
- * 2. Complete Subsystem Mediation: 
- *    - Data Store (MetroDataStore)
- *    - Routing Engine (RouteFinder & DijkstraAlgo)
- *    - Pricing Engine (FareCalculator)
- *    - SVG Map Engine (MetroMap)
- *    - Multi-Sensor Alarm & Telemetry (AlarmManager & GPSTracker)
- *    - Recent History (RecentSearchService)
- *    - O(1) Fast Search (UniversalSearchEngine)
+ * 2. Complete Subsystem Mediation:
+ * - Data Store (MetroDataStore)
+ * - Routing Engine (RouteFinder & DijkstraAlgo)
+ * - Pricing Engine (FareCalculator)
+ * - SVG Map Engine (MetroMap)
+ * - Multi-Sensor Alarm & Telemetry (AlarmManager & GPSTracker)
+ * - Recent History (RecentSearchService)
+ * - O(1) Fast Search (UniversalSearchEngine)
  * 3. Race-Condition Safe: AbortController और Async State Management।
  */
 
@@ -26,7 +26,6 @@ import { StationSearchEngine } from "../services/search/StationSearchEngine.js";
 import { UniversalSearchEngine } from "../services/search/UniversalSearchEngine.js";
 import { getStationName } from "./data-utils.js";
 import { telemetryService } from "../services/sensors/TelemetryService.js";
-
 
 class CenterClass {
 	// Private Subsystem Instances
@@ -61,7 +60,7 @@ class CenterClass {
 
 			// 1. DataStore से डेटा लोड करें
 			this.#metroData = await metroDataStore.loadCity(cityKey, networkKey);
-			this.#currentCity = metroDataStore.getCurrentCity ? metroDataStore.getCurrentCity() : (cityKey || "delhi_ncr");
+			this.#currentCity = metroDataStore.getCurrentCity ? metroDataStore.getCurrentCity() : cityKey || "delhi_ncr";
 
 			// ⚠️ यदि कोई अधूरा शहर लोड हुआ और फ़ॉलबैक हुआ, तो ग्लोबल Toast दिखाएं
 			if (this.#metroData?._fallback) {
@@ -72,7 +71,7 @@ class CenterClass {
 					title: "City Under Construction",
 					message: `Transit data for "${formattedReq}" is not yet available. Showing ${formattedFallback} map.`,
 					type: "warning",
-					duration: 6000
+					duration: 6000,
 				});
 			}
 
@@ -83,7 +82,7 @@ class CenterClass {
 			// 3. Search और History सर्विसेज़
 			this.#recentSearchService = new RecentSearchService(this.#metroData, this.#currentCity);
 			this.#stationSearchEngine = new StationSearchEngine(this.#metroData);
-			
+
 			await this.#searchEngine.init();
 			this.#searchEngine.setScope("city", this.#currentCity);
 
@@ -98,7 +97,7 @@ class CenterClass {
 				if (typeof telemetry.accuracy === "number") {
 					telemetryService.updateGpsTelemetry({
 						accuracy: telemetry.accuracy,
-						isTracking: true
+						isTracking: true,
 					});
 				}
 
@@ -114,7 +113,7 @@ class CenterClass {
 				if (alarmState.state === "INACTIVE") {
 					telemetryService.updateGpsTelemetry({
 						accuracy: null,
-						isTracking: false
+						isTracking: false,
 					});
 				}
 
@@ -169,7 +168,7 @@ class CenterClass {
 					options.onStationClick(stationPayload);
 				}
 				eventBus.emit("STATION_CLICKED", stationPayload);
-			}
+			},
 		});
 
 		return this.#mapInstance;
@@ -216,7 +215,7 @@ class CenterClass {
 
 	/**
 	 * संपूर्ण रूट खोजें (Path + Fare + Map Highlight + History Save)
-	 * 
+	 *
 	 * @param {string} sourceName - शुरुआती स्टेशन का नाम
 	 * @param {string} destinationName - अंतिम स्टेशन का नाम
 	 * @param {Object} [options={}] - सेटिंग्स
@@ -249,7 +248,7 @@ class CenterClass {
 			coachClass: coachClass,
 			journeyDate: options.journeyDate || new Date(),
 			isHoliday: options.isHoliday ?? false,
-			customTime: options.customTime || null
+			customTime: options.customTime || null,
 		});
 
 		// 3. यदि कम से कम ट्रांसफर चुना है, तो तुलना के लिए सबसे छोटी दूरी का डेटा भी लाएं
@@ -271,10 +270,9 @@ class CenterClass {
 			...routeData,
 			fare: fareData,
 			alternative: alternativeRoute,
-			activeFilter: routeType
+			activeFilter: routeType,
 		};
 	}
-
 
 	// =========================================================================
 	// ⏰ LIVE JOURNEY & ALARM MANAGEMENT
@@ -293,7 +291,7 @@ class CenterClass {
 			interchanges: journeyConfig.interchanges || [],
 			destinationId: journeyConfig.destinationId,
 			estimatedDurationSeconds: journeyConfig.totalTravelTimeSeconds,
-			settings: journeyConfig.alarmSettings || {}
+			settings: journeyConfig.alarmSettings || {},
 		});
 	}
 
@@ -340,13 +338,12 @@ class CenterClass {
 		this.#onSpeedUpdateCallback = (telemetry) => {
 			// 1. स्पीडोमीटर को भेजें
 			if (typeof callback === "function") callback(telemetry);
-			
+
 			// 2. टेलीमेट्री सर्विस को लाइव एक्यूरेसी भेजें
 			telemetryService.updateGpsTelemetry(telemetry);
 		};
 	}
 
-	
 	/**
 	 * अलार्म स्टेट लिसनर बाइंड करें
 	 */
@@ -354,19 +351,18 @@ class CenterClass {
 		this.#onAlarmStateCallback = callback;
 	}
 
-
 	/**
-     * टेलीमेट्री स्ट्रीम से बाइंड करें
-     */
-    bindTelemetry(callback) {
-        return telemetryService.subscribe(callback);
-    }
-    /**
-     * GPS परमिशन का अनुरोध करें
-     */
-    requestGpsPermission(onGranted = null, onDenied = null) {
-        telemetryService.requestGpsPermission(onGranted, onDenied);
-    }
+	 * टेलीमेट्री स्ट्रीम से बाइंड करें
+	 */
+	bindTelemetry(callback) {
+		return telemetryService.subscribe(callback);
+	}
+	/**
+	 * GPS परमिशन का अनुरोध करें
+	 */
+	requestGpsPermission(onGranted = null, onDenied = null) {
+		telemetryService.requestGpsPermission(onGranted, onDenied);
+	}
 
 	// =========================================================================
 	// 🕒 RECENT SEARCHES & AUTOCOMPLETE SEARCH
@@ -421,8 +417,7 @@ class CenterClass {
 		return getStationName(station, lang);
 	}
 
-
-		// =========================================================================
+	// =========================================================================
 	// 📦 PACKS & OFFLINE ASSETS MANAGEMENT (PWA Cache & Android Sandboxed Storage)
 	// =========================================================================
 
@@ -437,8 +432,7 @@ class CenterClass {
 	 * चेक करें कि क्या ऐप PWA (Installed / Standalone) मोड में चल रही है
 	 */
 	isPwaMode() {
-		return window.matchMedia("(display-mode: standalone)").matches || 
-		       Boolean(window.navigator.standalone);
+		return window.matchMedia("(display-mode: standalone)").matches || Boolean(window.navigator.standalone);
 	}
 
 	/**
@@ -456,7 +450,7 @@ class CenterClass {
 				`./lang/india/hi/metro_network.js`,
 				`./lang/india/hi/metro_QR_ticket.js`,
 				`./lang/india/hi/station_info.js`,
-				`./lang/india/hi/tvm_dispenser.js`
+				`./lang/india/hi/tvm_dispenser.js`,
 			];
 		}
 		return [];
@@ -464,7 +458,7 @@ class CenterClass {
 
 	/**
 	 * चेक करें कि क्या कोई भाषा पैक ऑफ़लाइन उपलब्ध/इंस्टॉल है
-	 * @param {string} langCode 
+	 * @param {string} langCode
 	 */
 	isLanguagePackInstalled(langCode) {
 		if (langCode === "en") return true; // Core builtin default
@@ -474,7 +468,7 @@ class CenterClass {
 
 	/**
 	 * भाषा पैक को डाउनलोड करें (PWA: Cache Storage, Android: App Private Internal Storage)
-	 * @param {string} langCode 
+	 * @param {string} langCode
 	 */
 	async downloadLanguagePack(langCode) {
 		if (langCode === "en") return true;
@@ -489,15 +483,15 @@ class CenterClass {
 				if (!response.ok) throw new Error(`HTTP_${response.status}`);
 				const content = await response.text();
 				const fileName = fileUrl.split("/").pop();
-				
+
 				await Filesystem.writeFile({
 					path: `packs/lang/${langCode}/${fileName}`,
 					data: content,
 					directory: "DATA", // App Internal Sandboxed Storage only
-					recursive: true
+					recursive: true,
 				});
 			}
-		} 
+		}
 		// 2. PWA / Web Platform: Standard Browser Cache Storage
 		else if ("caches" in window) {
 			const cache = await caches.open("yatramarg-packs-v1");
@@ -506,7 +500,7 @@ class CenterClass {
 
 		// अनइंस्टॉल लिस्ट से निकालें और सिंक करें
 		const uninstalled = JSON.parse(localStorage.getItem("metro_uninstalled_packs") || "[]");
-		const updated = uninstalled.filter(code => code !== langCode);
+		const updated = uninstalled.filter((code) => code !== langCode);
 		localStorage.setItem("metro_uninstalled_packs", JSON.stringify(updated));
 
 		eventBus.emit("LANGUAGE_PACK_CHANGED", { lang: langCode, installed: true });
@@ -515,7 +509,7 @@ class CenterClass {
 
 	/**
 	 * भाषा पैक को अनइंस्टॉल करें और स्टोरेज खाली करें
-	 * @param {string} langCode 
+	 * @param {string} langCode
 	 */
 	async uninstallLanguagePack(langCode) {
 		if (langCode === "en") return false;
@@ -529,7 +523,7 @@ class CenterClass {
 				await Filesystem.rmdir({
 					path: `packs/lang/${langCode}`,
 					directory: "DATA",
-					recursive: true
+					recursive: true,
 				});
 			} catch (e) {
 				console.warn("[CenterClass] Error deleting native pack dir:", e);

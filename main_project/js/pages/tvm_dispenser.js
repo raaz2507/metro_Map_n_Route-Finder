@@ -38,8 +38,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   1. DOM CACHING (CENTRALIZED)
-	   ------------------------------------------------------------------------- */
+	1. DOM CACHING (CENTRALIZED)
+	------------------------------------------------------------------------- */
 	#cacheDom() {
 		const queries = {
 			dispenseBay: '#dispense-bay', dispenserLed: '#dispenser-led',
@@ -64,8 +64,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   2. LOCAL STORAGE (CORE ARCHITECTURE STYLE)
-	   ------------------------------------------------------------------------- */
+	2. LOCAL STORAGE (CORE ARCHITECTURE STYLE)
+	------------------------------------------------------------------------- */
 	#bootstrapFormFromStorage() {
 		try {
 			const saved = localStorage.getItem('tvm_kiosk_form_data');
@@ -84,8 +84,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   3. EVENT BINDING
-	   ------------------------------------------------------------------------- */
+	3. EVENT BINDING
+	------------------------------------------------------------------------- */
 	#bindEvents() {
 		const d = this.#dom;
 		const inputs = [d.inputPassenger, d.inputFrom, d.inputTo, d.inputPrice, d.inputTicketNum, d.inputStatus, d.inputDuration];
@@ -114,8 +114,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   4. SVG TICKET FETCH & INITIALIZATION
-	   ------------------------------------------------------------------------- */
+	4. SVG TICKET FETCH & INITIALIZATION
+	------------------------------------------------------------------------- */
 	async #initSvgFromLocalPath() {
 		let svgSource = '';
 		try {
@@ -145,8 +145,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   5. DYNAMIC LANGUAGE SUBSCRIPTION
-	   ------------------------------------------------------------------------- */
+	5. DYNAMIC LANGUAGE SUBSCRIPTION
+	------------------------------------------------------------------------- */
 	#subscribeLangChanges() {
 		this.#unsubscribeLang = appStateStore.subscribe('currentLang', () => {
 			this.#applyFormDataToTicket();
@@ -154,8 +154,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   6. DATA SYNC (WALLET & FORM & LOCAL STORAGE)
-	   ------------------------------------------------------------------------- */
+	6. DATA SYNC (WALLET & FORM & LOCAL STORAGE)
+	------------------------------------------------------------------------- */
 	#loadTicketFromWallet() {
 		try {
 			const rawData = localStorage.getItem('metro_ticket_wallet_store');
@@ -201,7 +201,7 @@ class TvmKioskApp {
 		this.#ticketCtrl.setPassengerDetails({
 			name:  dataToPersist.passenger,
 			from:  dataToPersist.from,
-			to:    dataToPersist.to,
+			to:dataToPersist.to,
 			price: dataToPersist.price
 		});
 		
@@ -224,8 +224,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   7. 2.5D REAL PARALLAX TILT EFFECT
-	   ------------------------------------------------------------------------- */
+	7. 2.5D REAL PARALLAX TILT EFFECT
+	------------------------------------------------------------------------- */
 	#init3DTiltEffect() {
 		const wrapper = this.#dom.ticketPaper;
 		const mount = this.#dom.ticketMountPoint;
@@ -282,8 +282,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   8. MODALS & POPUPS
-	   ------------------------------------------------------------------------- */
+	8. MODALS & POPUPS
+	------------------------------------------------------------------------- */
 	#openTvmSettings() {
 		this.#dom.rightPanelColumn?.classList.add('active');
 		this.#dom.tvmSettingsOverlay?.classList.add('active');
@@ -315,8 +315,8 @@ class TvmKioskApp {
 	}
 
 	/* -------------------------------------------------------------------------
-	   9. PRINTER & DISPENSE LOGIC
-	   ------------------------------------------------------------------------- */
+	9. PRINTER & DISPENSE LOGIC
+	------------------------------------------------------------------------- */
 	#setTicketDropDistance() {
 		const paper = this.#dom.ticketPaper;
 		const tray  = this.#dom.kioskTrayWell;

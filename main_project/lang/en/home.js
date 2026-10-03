@@ -62,6 +62,12 @@ export default {
 			freeERickshaw: "Free E-Rickshaw",
 			securityCheck: "Security Check",
 			accessible: "Wheelchair Accessible"
+		},
+		alerts: {
+			multimodalSecurity: "Multimodal Junction: Separate gate & fresh security check required",
+			ncmcCard: "RuPay NCMC / Smart Card works directly at gates",
+			sharedTrackNotice: "Shared Track: Local & express trains available on same platform",
+			walkwayNotice: "{distance}m walkway (~{minutes} min walk)"
 		}
 	},
 

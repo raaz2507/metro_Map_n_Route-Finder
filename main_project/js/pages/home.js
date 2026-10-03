@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 	pwaManager.bindBannerUI();
 
 	FooterComponent.render();
-    await HeaderComponent.render('home');
-    new HomePageController();
+	await HeaderComponent.render('home');
+	new HomePageController();
 	const settingsView = new SettingsView();
 	settingsView.init();
 	const alarmBannerView = new AlarmBannerView();

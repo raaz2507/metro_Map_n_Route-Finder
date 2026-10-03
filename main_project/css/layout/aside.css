@@ -3,8 +3,8 @@
 
 @layer components {
 	/* =========================================================================
-	   Aside / Floating Glassmorphic Sidebar
-	   ========================================================================= */
+	Aside / Floating Glassmorphic Sidebar
+	========================================================================= */
 	:root {
 		--sidebar-width: 440px; /* 🎯 Single Source of Truth for ALL sidebar sections */
 	}
@@ -50,12 +50,12 @@
 	}
 
 		/* =========================================================================
-	   Sidebar Circular Glass Close Button (Half-Out Top-Right & Red Danger Theme)
-	   ========================================================================= */
+	Sidebar Circular Glass Close Button (Half-Out Top-Right & Red Danger Theme)
+	========================================================================= */
 	.sidebar-close-btn {
 		--btn-size: 26px;
 		position: absolute;
-		top: calc(var(--btn-size) * -0.4);   /* 👈 आधा ऊपर बाहर (-10px) */
+		top: calc(var(--btn-size) * -0.4);/* 👈 आधा ऊपर बाहर (-10px) */
 		right: calc(var(--btn-size) * -0.4); /* 👈 आधा दाएँ बाहर (-10px) */
 		z-index: calc(var(--z-sidebar) + 2);
 
@@ -109,9 +109,9 @@
 
 	/* Route Finder Dynamic Height Overrides (अलग विड्थ हटा दी गई) */
 	#route-finder {
-		flex: 0 1 auto;                          /* शुरुआत में केवल फ़ॉर्म जितना छोटा रहेगा */
+		flex: 0 1 auto;  /* शुरुआत में केवल फ़ॉर्म जितना छोटा रहेगा */
 		height: auto;
-		overflow: visible;                       /* 👈 ड्रॉपडाउन को बाहर निकलने की अनुमति */
+		overflow: visible;/* 👈 ड्रॉपडाउन को बाहर निकलने की अनुमति */
 	}
 
 	/* जब रूट रिजल्ट (Journey Details) दिखेगा, केवल तभी 100% फैलेगा और स्क्रोल चालू होगा */
@@ -137,8 +137,8 @@
 	}
 
 	/* =========================================================================
-	   📱 MOBILE & ANDROID RESPONSIVENESS
-	   ========================================================================= */
+	📱 MOBILE & ANDROID RESPONSIVENESS
+	========================================================================= */
 	@media (max-width: 768px) {
 		aside {
 			flex-direction: column;

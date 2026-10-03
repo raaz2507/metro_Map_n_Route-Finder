@@ -81,5 +81,10 @@ export default {
 			title: "Women Commuter Emergency SOS",
 			note: "Women Commuter SOS: 112"
 		}
+	},
+	toast: {
+		noPortalLink: "Official portal link not available for this network.",
+		noDialerTitle: "📞 Helpline Contact",
+		noDialerMsg: "No dialer on desktop. Helpline number {number} copied to clipboard!"
 	}
 };

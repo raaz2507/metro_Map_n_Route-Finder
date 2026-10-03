@@ -1,9 +1,9 @@
 @layer components {
 	/* ==========================================================================
-	   HEADER NAVIGATION: 2.5D FLOATING GLASS BOGIE (100% PURE BASE.CSS TOKENS)
-	   - Features: Blueprint Stroke Draw + Animated Coupler Draw + 2.5D Bevel Depth
-	   - Fully Adaptive across All 6 Themes
-	   ========================================================================== */
+	HEADER NAVIGATION: 2.5D FLOATING GLASS BOGIE (100% PURE BASE.CSS TOKENS)
+	- Features: Blueprint Stroke Draw + Animated Coupler Draw + 2.5D Bevel Depth
+	- Fully Adaptive across All 6 Themes
+	========================================================================== */
 	.header-nav {
 		padding: var(--space-xs) var(--space-sm);
 	}
@@ -120,10 +120,10 @@
 		transform: translateY(0) rotate(0deg);
 		transform-origin: center center;
 		transition: transform var(--transition-spring),
-		            box-shadow var(--transition-smooth),
-		            background var(--transition-fast),
-		            border-color var(--transition-fast),
-		            color var(--transition-fast);
+		box-shadow var(--transition-smooth),
+		background var(--transition-fast),
+		border-color var(--transition-fast),
+		color var(--transition-fast);
 	}
 
 	/* Semicircular Bogie Coupler Sockets (Left & Right) */
@@ -162,8 +162,8 @@
 		transform: translateY(-50%) scaleX(1);
 		transform-origin: left center;
 		transition: transform var(--transition-spring),
-		            background var(--transition-fast),
-		            box-shadow var(--transition-fast);
+		background var(--transition-fast),
+		box-shadow var(--transition-fast);
 	}
 
 	/* Coupler Draw & Spring Stretch (Triggered on Hover) */
@@ -261,8 +261,8 @@
 	}
 
 	/* ==========================================================================
-	   HOVER & ACTIVE STATES (100% THEME COMPATIBLE & HIGH CONTRAST READABILITY)
-	   ========================================================================== */
+	HOVER & ACTIVE STATES (100% THEME COMPATIBLE & HIGH CONTRAST READABILITY)
+	========================================================================== */
 	.header-nav-item .nav-link:hover {
 		transform: rotate(-2.5deg) translateY(-4px) scale(1.03);
 		/* Solid card base retained - NEVER goes transparent on hover */

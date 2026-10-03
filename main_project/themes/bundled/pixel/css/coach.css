@@ -1,12 +1,12 @@
 /* ==========================================================================
-   RETRO 8-BIT PIXEL - COACH MODULE
-   ========================================================================== */
+RETRO 8-BIT PIXEL - COACH MODULE
+========================================================================== */
 @layer themes {
 	[data-theme="pixel"] {
 		--coach-font-title: 'Press Start 2P', monospace;
 		--coach-font-mono: 'VT323', monospace;
-		--coach-text-title: #0f380f;
-		--coach-text-time: #306230;
+		--coach-text-title: #9bbc0f;
+		--coach-text-time: #8bac0f;
 
 		/* 👾 8-Bit Pixel Block Badge */
 		--coach-badge-size: 26px;

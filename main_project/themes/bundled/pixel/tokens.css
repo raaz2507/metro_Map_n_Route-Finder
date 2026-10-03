@@ -1,11 +1,11 @@
 /* ==========================================================================
-   RETRO 8-BIT ARCADE PIXEL THEME - MASTER GLOBAL TOKENS
-   Directly derived from pixlate_degine.html:
-   - Font: 'Press Start 2P', monospace
-   - Zero-Lag Hardware Accelerated Architecture (No full-screen scanlines/blurs)
-   - Palette: Royal Arcade Blue, Electric Cyan, Arcade Gold Coin
-   ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+RETRO 8-BIT ARCADE PIXEL THEME - MASTER GLOBAL TOKENS
+Directly derived from pixlate_degine.html:
+- Font: 'Press Start 2P', monospace
+- Zero-Lag Hardware Accelerated Architecture (No full-screen scanlines/blurs)
+- Palette: Royal Arcade Blue, Electric Cyan, Arcade Gold Coin
+========================================================================== */
+
 
 @layer themes {
 	[data-theme="pixel"] {
@@ -13,6 +13,20 @@
 		--font-main: 'Press Start 2P', 'Courier New', monospace;
 		--map-font: 'Press Start 2P', monospace;
 		--theme-bg-image: url('../../themes/bundled/pixel/assets/images/background.svg');
+
+		/* 🎯 8-Bit Optical Size Normalization (सामान्य थीम जितना सटीक विज़ुअल आकार) */
+		--fs-2xs: 0.45rem;  /* ~7px */
+		--fs-xs: 0.55rem;/* ~9px */
+		--fs-sm: 0.65rem;/* ~10.5px */
+		--fs-md: 0.75rem;/* ~12px (Looks visually equal to standard 16px font) */
+		--fs-lg: 0.85rem;/* ~13.5px */
+		--fs-xl: 0.95rem;/* ~15px */
+		--fs-2xl: 1.1rem;/* ~17.5px */
+		--fs-3xl: 1.25rem;  /* ~20px */
+		--fs-4xl: 1.45rem;  /* ~23px */
+
+		line-height: 1.5;
+		letter-spacing: -0.3px;
 
 		/* Sharp pixelated zero-radius */
 		--radius-sm: 0px;

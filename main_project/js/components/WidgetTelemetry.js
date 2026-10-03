@@ -30,7 +30,7 @@ export class TelemetryWidget {
 		};
 	}
 
-   /**
+/**
 	 * 📡 टेलीमेट्री स्ट्रीम लिसनर (Zero Sensor Math - Pure i18n Display)
 	 */
 	#bindTelemetryStream() {

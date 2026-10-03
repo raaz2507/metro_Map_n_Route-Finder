@@ -1,13 +1,13 @@
 /**
  * 🚇 Dijkstra Algorithm - Pure State-Space Graph Solver
  * Enterprise ES2022 OOP Class with Private Encapsulation (#)
- * 
+ *
  * विशेषताएँ:
  * 1. State-Space Platform Routing: 'stationId-line' के आधार पर इंटरचेंज और पाथ को ट्रैक करता है।
  * 2. Binary Min-Heap Priority Queue: O((V + E) log V) टाइम कॉम्प्लेक्सिटी में तेज़ पाथफाइंडिंग।
  * 3. Dual Route Modes:
- *    - 'leastTransfers': न्यूनतम इंटरचेंज (कम से कम ट्रेन बदलना)।
- *    - 'shortestDistance': न्यूनतम भौगोलिक दूरी (किमी/मीटर)।
+ *	- 'leastTransfers': न्यूनतम इंटरचेंज (कम से कम ट्रेन बदलना)।
+ *	- 'shortestDistance': न्यूनतम भौगोलिक दूरी (किमी/मीटर)।
  */
 
 class PriorityQueue {
@@ -74,7 +74,7 @@ export class DijkstraAlgo {
 	#pathCache = new Map();
 
 	// Transfer Penalties (वर्चुअल पेनल्टी जिससे एल्गोरिद्म सही रूट चुने)
-	static LEAST_TRANSFER_PENALTY = 1000;      // 1000 मीटर की पेनल्टी ताकि लाइन न बदलनी पड़े
+	static LEAST_TRANSFER_PENALTY = 1000; // 1000 मीटर की पेनल्टी ताकि लाइन न बदलनी पड़े
 	static SHORT_ROUTE_TRANSFER_PENALTY = 0.5; // 0.5 मीटर की हल्की पेनल्टी ताकि व्यर्थ ट्रांसफर न हो
 
 	/**
@@ -85,7 +85,6 @@ export class DijkstraAlgo {
 	constructor(stationData = {}, transfers = {}, lines = {}) {
 		this.updateData(stationData, transfers, lines);
 	}
-
 
 	/**
 	 * नया डेटा अपडेट करें और ग्राफ नेबर्स की प्री-कंपाइलेशन करें
@@ -136,7 +135,7 @@ export class DijkstraAlgo {
 				totalDistanceMeters: 0,
 				interchanges: 0,
 				linesUsed: startLines.length > 0 ? [startLines[0]] : [],
-				segments: []
+				segments: [],
 			};
 			this.#pathCache.set(cacheKey, result);
 			return result;
@@ -159,7 +158,7 @@ export class DijkstraAlgo {
 				id: startStationId,
 				dist: 0,
 				interchanges: 0,
-				line: line
+				line: line,
 			});
 		});
 
@@ -172,7 +171,7 @@ export class DijkstraAlgo {
 					id: startStationId,
 					dist: 0,
 					interchanges: 0,
-					line: line
+					line: line,
 				});
 			});
 		}
@@ -217,14 +216,14 @@ export class DijkstraAlgo {
 						parentLine: curr.line,
 						edgeLine: curr.line,
 						isTransfer: false,
-						distance: weight
+						distance: weight,
 					};
 
 					queue.push({
 						id: neighborId,
 						dist: newDist,
 						interchanges: curr.interchanges,
-						line: curr.line
+						line: curr.line,
 					});
 				}
 			}
@@ -235,9 +234,7 @@ export class DijkstraAlgo {
 				for (const [targetKey, tData] of Object.entries(stationTransfers)) {
 					const [targetStationId, targetLine] = targetKey.split(":");
 					const transferDist = Number(tData.distance_meters) || 40;
-					const penalty = (routeType === "leastTransfers")
-						? DijkstraAlgo.LEAST_TRANSFER_PENALTY
-						: DijkstraAlgo.SHORT_ROUTE_TRANSFER_PENALTY;
+					const penalty = routeType === "leastTransfers" ? DijkstraAlgo.LEAST_TRANSFER_PENALTY : DijkstraAlgo.SHORT_ROUTE_TRANSFER_PENALTY;
 
 					const weight = transferDist + penalty;
 					const nextKey = `${targetStationId}-${targetLine}`;
@@ -251,14 +248,14 @@ export class DijkstraAlgo {
 							edgeLine: targetLine,
 							isTransfer: true,
 							transferData: tData,
-							distance: transferDist
+							distance: transferDist,
 						};
 
 						queue.push({
 							id: targetStationId,
 							dist: newDist,
 							interchanges: curr.interchanges + 1,
-							line: targetLine
+							line: targetLine,
 						});
 					}
 				}
@@ -268,7 +265,7 @@ export class DijkstraAlgo {
 		if (!endNodeReached) return null;
 
 		const finalResult = this.#reconstructPath(startStationId, endStationId, endNodeReached, prev);
-		
+
 		if (this.#pathCache.size >= 100) {
 			const oldestKey = this.#pathCache.keys().next().value;
 			this.#pathCache.delete(oldestKey);
@@ -310,7 +307,7 @@ export class DijkstraAlgo {
 					line: parentInfo.edgeLine,
 					distance: edgeDist,
 					isTransfer: parentInfo.isTransfer,
-					transferData: parentInfo.transferData || null
+					transferData: parentInfo.transferData || null,
 				});
 
 				tempState = `${parentInfo.parentId}-${parentInfo.parentLine}`;
@@ -324,7 +321,7 @@ export class DijkstraAlgo {
 			totalDistanceMeters: Math.round(totalRealDistance),
 			interchanges: endNode.interchanges,
 			linesUsed: Array.from(linesUsedSet),
-			segments
+			segments,
 		};
 	}
 }

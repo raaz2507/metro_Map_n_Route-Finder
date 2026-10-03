@@ -33,8 +33,8 @@
 
 @layer components {
 	/* =========================================================================
-	   1. Top-Level Elements Layout (Direct children of body/main)
-	   ========================================================================= */
+	1. Top-Level Elements Layout (Direct children of body/main)
+	========================================================================= */
 	header.main-header {
 		display: flex;
 		justify-content: space-between;
@@ -90,8 +90,8 @@
 }
 
 /* =========================================================================
-   2. Centralized Media Queries for Top-Level Layout
-   ========================================================================= */
+2. Centralized Media Queries for Top-Level Layout
+========================================================================= */
 
 /* Desktop Layout (min-width: 769px) */
 @media (min-width: 769px) {

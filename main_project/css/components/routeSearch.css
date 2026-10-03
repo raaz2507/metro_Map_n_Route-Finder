@@ -2,8 +2,8 @@
 
 @layer components {
 	/* =========================================================================
-	   Route Finder Form & Input Styling (100% Token-Compliant)
-	   ========================================================================= */
+	 Route Finder Form & Input Styling (100% Token-Compliant)
+	 ========================================================================= */
 
 	/* Route Priority Container */
 	.route-priority {
@@ -65,8 +65,8 @@
 	}
 
 	/* =========================================================================
-	   SHARE ROUTE CUSTOM MODAL & TOAST STYLING (Token-Compliant)
-	   ========================================================================= */
+	 SHARE ROUTE CUSTOM MODAL & TOAST STYLING (Token-Compliant)
+	 ========================================================================= */
 
 	/* Modal Backdrop Overlay */
 	.share-modal-backdrop {
@@ -269,8 +269,8 @@
 	}
 
 	/* =========================================================================
-	   Route Finder Section & Form Elements
-	   ========================================================================= */
+	 Route Finder Section & Form Elements
+	 ========================================================================= */
 	.route-finder-section {
 		overflow-y: auto;
 	}
@@ -438,8 +438,8 @@
 	}
 
 		/* =========================================================================
-	   Journey Details & Priority Switch Slider (100% Token-Compliant)
-	   ========================================================================= */
+	 Journey Details & Priority Switch Slider (100% Token-Compliant)
+	 ========================================================================= */
 	#journeyDetails {
 		display: none;
 		flex-direction: column;
@@ -577,8 +577,8 @@
 	
 
 	/* =========================================================================
-	   💰 Dynamic Fare Selectable Cards UI (100% Token-Compliant)
-	   ========================================================================= */
+	 💰 Dynamic Fare Selectable Cards UI (100% Token-Compliant)
+	 ========================================================================= */
 	.fare-cards-row {
 		display: flex;
 		position: relative;
@@ -681,8 +681,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   🎯 Layout Containers & Dividers (Zero Inline Styles)
-	   ------------------------------------------------------------------------- */
+	 🎯 Layout Containers & Dividers (Zero Inline Styles)
+	 ------------------------------------------------------------------------- */
 	.fare-metrics-divider {
 		margin-top: var(--space-md);
 		border-top: 1px dashed var(--border-color);
@@ -1248,8 +1248,8 @@
 	}
 
 	/* ===========================================================================
-	   STATION AUTOCOMPLETE DROPDOWN STYLING (Clean Single-Line UI)
-	   =========================================================================== */
+	 STATION AUTOCOMPLETE DROPDOWN STYLING (Clean Single-Line UI)
+	 =========================================================================== */
 	.input-autocomplete-wrapper {
 		position: relative;
 		width: 100%;
@@ -1310,7 +1310,7 @@
 		gap: var(--space-md);
 		border-bottom: 1px solid var(--border-color); /* 👈 हर स्टेशन के बीच स्पष्ट डिवाइडर */
 		transition: background-color var(--transition-fast);
-		user-select: none;           /* 👈 टेक्स्ट सेलेक्ट होना पूरी तरह बंद */
+		user-select: none; /* 👈 टेक्स्ट सेलेक्ट होना पूरी तरह बंद */
 		-webkit-user-select: none;
 	}
 
@@ -1385,8 +1385,8 @@
 	}
 
 	/* =========================================================================
-	   🎟️ Fare Multi-Leg Breakdown Styles (100% Token-Compliant)
-	   ========================================================================= */
+	 🎟️ Fare Multi-Leg Breakdown Styles (100% Token-Compliant)
+	 ========================================================================= */
 		.fare-breakdown-btn {
 		width: 100%;
 		background: var(--card-bg);
@@ -1510,8 +1510,8 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   🎯 Reusable Classes for Journey Details (Zero Inline Styles)
-	   ------------------------------------------------------------------------- */
+	 🎯 Reusable Classes for Journey Details (Zero Inline Styles)
+	 ------------------------------------------------------------------------- */
 	.unit-km {
 		font-weight: var(--fw-regular);
 		font-size: var(--fs-2xs);

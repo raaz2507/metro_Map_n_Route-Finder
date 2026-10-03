@@ -41,15 +41,16 @@ captures/
 # ==============================================================================
 # 3. PYTHON ARTIFACTS & VENV
 # ==============================================================================
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.tmp
+*.log
 venv/
+.venv/
 import_data/venv/
 .staging_temp/
 import_data/.staging_temp/
-import_data/**/__pycache__/
 
 # ==============================================================================
 # 4. TEMPORARY & HEAVY SCRAPING FILES

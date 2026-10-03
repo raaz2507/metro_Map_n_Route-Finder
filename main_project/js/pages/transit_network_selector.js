@@ -251,7 +251,7 @@ export class TransitNetworkSelector {
 				"track_07.svg", // Trunk & Merge Junction
 				"track_10.svg", // Sweeping Arc & Spoke Hub
 				"track_12.svg", // Transfer T-Junction
-				"track_13.svg"  // Multi-Line Master Grid
+				"track_13.svg"// Multi-Line Master Grid
 			];
 			const hash = this.#hashString(item.cityKey || "");
 			return `${trackBase}/${groupTracks[hash % groupTracks.length]}`;
@@ -275,7 +275,7 @@ export class TransitNetworkSelector {
 			"track_02.svg", // Cross Diagonal
 			"track_06.svg", // Underground Step
 			"track_08.svg", // Express Bypass Loop
-			"track_11.svg"  // Ascending 3-Step Corridor
+			"track_11.svg"// Ascending 3-Step Corridor
 		];
 		const hash = this.#hashString(item.networkKey || item.cityKey || "");
 		return `${trackBase}/${normalTracks[hash % normalTracks.length]}`;
@@ -447,7 +447,7 @@ export class TransitNetworkSelector {
 			const noMatchMsg = i18n.t("pages.networks.stats.noNetworksQuery", { query: this.#searchQuery }) || `No networks match "${this.#escapeHTML(this.#searchQuery)}".`;
 			this.#dom.container.innerHTML = `
 				<div class="empty-state">
-					<span style="font-size: 2rem;">🔍</span>
+					<span class="empty-state-icon">🔍</span>
 					<h3>${this.#escapeHTML(i18n.t("pages.networks.stats.noNetworksFound") || "No transit networks found")}</h3>
 					<p>${noMatchMsg}</p>
 				</div>
@@ -656,8 +656,8 @@ export class TransitNetworkSelector {
 		// 1. Status Blockers Lookup Dictionary
 		const STATUS_BLOCKERS = {
 			under_construction: { type: "warning", key: "underConstruction" },
-			proposed:           { type: "info",    key: "proposed" },
-			approved:           { type: "info",    key: "proposed" }
+			proposed:{ type: "info",key: "proposed" },
+			approved:{ type: "info",key: "proposed" }
 		};
 
 		const blocker = STATUS_BLOCKERS[status];
@@ -701,11 +701,11 @@ export class TransitNetworkSelector {
 
 	#getStatusMeta(status) {
 		const STATUS_MAP = {
-			operational:          { key: "operational",       fallback: "Operational",        css: "status-operational" },
-			operational_partial:  { key: "partial",           fallback: "Partial Service",   css: "status-operational_partial" },
-			under_construction:   { key: "underConstruction",  fallback: "Under Construction",css: "status-under_construction" },
-			approved:             { key: "approved",          fallback: "Approved",          css: "status-approved" },
-			proposed:             { key: "proposed",          fallback: "Proposed",          css: "status-proposed" }
+			operational:{ key: "operational",fallback: "Operational",css: "status-operational" },
+			operational_partial:{ key: "partial",fallback: "Partial Service",css: "status-operational_partial" },
+			under_construction:{ key: "underConstruction",fallback: "Under Construction",css: "status-under_construction" },
+			approved: { key: "approved",fallback: "Approved",css: "status-approved" },
+			proposed: { key: "proposed",fallback: "Proposed",css: "status-proposed" }
 		};
 
 		const meta = STATUS_MAP[status] || STATUS_MAP.proposed;
@@ -717,11 +717,11 @@ export class TransitNetworkSelector {
 
 	#getModeIcon(mode) {
 		const MODE_ICON_MAP = {
-			metro:     "icon-metro",
-			rrts:      "icon-rrts",
-			monorail:  "icon-monorail",
+			metro: "icon-metro",
+			rrts:"icon-rrts",
+			monorail:"icon-monorail",
 			metrolite: "icon-metrolite",
-			metroneo:  "icon-metroneo"
+			metroneo:"icon-metroneo"
 		};
 
 		const iconClass = MODE_ICON_MAP[(mode || "").toLowerCase()] || "icon-metro";
@@ -731,9 +731,8 @@ export class TransitNetworkSelector {
 	#renderErrorState(message) {
 		if (!this.#dom.container) return;
 		this.#dom.container.innerHTML = `
-			<div class="empty-state" style="border-color: #ef4444;">
-				<span style="font-size: 2rem;">⚠️</span>
-				<h3>Failed to load Transit Registry</h3>
+			<div class="empty-state empty-state-error">
+				<span class="empty-state-icon">⚠️</span>
 				<p>${this.#escapeHTML(message)}</p>
 			</div>
 		`;

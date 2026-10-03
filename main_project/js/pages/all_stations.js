@@ -68,22 +68,23 @@ export class AllStationsDirectory {
 		}
 
 		try {
-			// 1. Dynamically load transit data for the active/selected city
-			this.#metroData = await metroDataStore.loadCity();
+			// 1. Pehle URL Query Parameter ya localStorage se Active City aur Network resolve karein
+			const urlParams = new URLSearchParams(window.location.search);
+			this.#currentCity = urlParams.get("city") || localStorage.getItem("active_city") || "delhi_ncr";
+			const activeNetwork = urlParams.get("network") || localStorage.getItem("active_network") || null;
+
+			// 2. Central MetroDataStore se resolved city ka data load karein
+			this.#metroData = await metroDataStore.loadCity(this.#currentCity, activeNetwork);
 			this.#lines = this.#metroData.lines || {};
 			this.#stations = this.#metroData.stationData || {};
 
-			// Resolve active city
-			const urlParams = new URLSearchParams(window.location.search);
-			this.#currentCity = urlParams.get("city") || localStorage.getItem("active_city") || "delhi_ncr";
-
-			// 2. Initialize City-Scoped Universal Search Engine
+			// 3. Initialize City-Scoped Universal Search Engine
 			this.#searchEngine = new UniversalSearchEngine({
 				scope: "city",
 				activeCity: this.#currentCity
 			});
 			await this.#searchEngine.init().catch(err => console.warn("[SearchEngine] Init notice:", err));
-
+			
 			// 3. Render Filter Chips & Initial Grid
 			this.#renderFilterChips();
 			this.#render();
@@ -313,12 +314,11 @@ export class AllStationsDirectory {
 			group.lines.forEach(line => {
 				const shortName = line.short_name?.[this.#lang] || line.short_name?.en || line.name?.[this.#lang] || line.name?.en || line.id;
 				const activeClass = this.#activeFilter === line.id ? "active" : "";
-				const borderColor = line.color || "#007bff";
-				const bgTint = this.#hexToRgba(borderColor, 0.40);
+				const lineColor = line.color || "#007bff";
 				const count = (line.stations || []).length;
 
 				html += `
-					<button type="button" class="chip-btn ${activeClass}" data-line="${this.#escapeHTML(line.id)}" style="--line-color:${borderColor}; border-color:${borderColor}; background-color:${bgTint};">
+					<button type="button" class="chip-btn ${activeClass}" data-line="${this.#escapeHTML(line.id)}" style="--line-color: ${this.#escapeHTML(lineColor)};">
 						● ${this.#escapeHTML(shortName)} (${count})
 					</button>
 				`;
@@ -376,14 +376,14 @@ export class AllStationsDirectory {
 
 			html += `
 				<section class="line-directory-section" id="section-${this.#escapeHTML(line.id)}">
-					<div class="line-section-header" style="border-left-color: ${lineColor};">
+					<div class="line-section-header" style="--line-color: ${this.#escapeHTML(lineColor)};">
 						<span>${this.#escapeHTML(lineTitle)}</span>
-						<span style="font-size:var(--fs-xs); color:var(--text-secondary); background:var(--btn-reset-bg, rgba(255,255,255,0.08)); border:1px solid var(--border-color); padding:4px 12px; border-radius:var(--radius-full);">${stationCountText}</span>
+						<span class="line-station-count-badge">${stationCountText}</span>
 					</div>
 
 					<div class="train-track-row" style="--line-color: ${lineColor};">
 						${filteredStationIds.map(stId => this.#buildCoachCardHTML(stId, line)).join("")}
-					</div>    
+					</div>
 				</section>
 			`;
 		});
@@ -413,13 +413,11 @@ export class AllStationsDirectory {
 		// Guard against missing station data
 		if (!st) {
 			console.error(`[Data Integrity Error] Station ID "${stationId}" is referenced in line "${lineInfo.id}", but missing in stationData!`);
-			return `
-				<div class="real-coach-card missing-station-card" style="--line-color: #ef4444; border: 2px dashed #ef4444; background: rgba(239, 68, 68, 0.08); padding: 1rem; border-radius: var(--radius-lg, 12px); margin: 0.5rem;">
-					<div style="color: #ef4444; font-weight: bold; font-size: var(--fs-sm, 14px);">
+			return `<div class="real-coach-card missing-station-card">
+					<div class="missing-station-msg">
 						⚠️ Missing: <code>${this.#escapeHTML(stationId)}</code>
 					</div>
-				</div>
-			`;
+				</div>`;
 		}
 
 		let stationTitle = (st.name?.en || stationId).toUpperCase();
@@ -534,8 +532,8 @@ export class AllStationsDirectory {
 	#renderErrorState(message) {
 		if (!this.#dom.container) return;
 		this.#dom.container.innerHTML = `
-			<div class="directory-empty-state" style="border-color: #ef4444;">
-				<span style="font-size: 2rem;">⚠️</span>
+			<div class="directory-empty-state empty-state-error">
+				<span class="empty-state-icon">⚠️</span>
 				<h3>Failed to load Station Directory</h3>
 				<p>${this.#escapeHTML(message)}</p>
 			</div>

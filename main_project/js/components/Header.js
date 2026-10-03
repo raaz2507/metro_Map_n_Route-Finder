@@ -232,7 +232,10 @@ export class HeaderComponent {
 	}
 
 	static #HTMLStrucher(activePage, currentTheme, currentMode, currentLang, availableThemes = []) {
-		const isNative = Boolean(window.Capacitor?.isNativePlatform());
+		const isNative = window.Capacitor && window.Capacitor.isNativePlatform();
+		const urlParams = new URLSearchParams(window.location.search);
+		const currentCity = urlParams.get('city') || localStorage.getItem('active_city') || '';
+		const cityParam = currentCity ? `?city=${encodeURIComponent(currentCity)}` : '';
 		return `
 			<!-- Global SVG Symbol Sprite for Navigation (Zero External Requests) -->
 			<svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
@@ -414,13 +417,13 @@ export class HeaderComponent {
 						</a>
 					</li>
 					<li class="header-nav-item">
-						<a href="index.html" class="nav-link ${activePage === 'home' ? 'active' : ''}" data-target="home">
+						<a href="index.html${cityParam}" class="nav-link ${activePage === 'home' ? 'active' : ''}" data-target="home">
 							<span class="nav-icon"><svg><use href="#icon-home"></use></svg></span>
 							<span class="nav-label" data-i18n="nav-header.home">Home</span>
 						</a>
 					</li>
 					<li class="header-nav-item">
-						<a href="all_stations.html" class="nav-link ${activePage === 'stations' ? 'active' : ''}" data-target="stations">
+						<a href="all_stations.html${cityParam}" class="nav-link ${activePage === 'stations' ? 'active' : ''}" data-target="stations">
 							<span class="nav-icon"><svg><use href="#icon-stations"></use></svg></span>
 							<span class="nav-label" data-i18n="nav-header.stations">Stations</span>
 						</a>
@@ -432,7 +435,7 @@ export class HeaderComponent {
 						</a>
 					</li>
 					<li class="header-nav-item">
-						<a href="passenger_support.html" class="nav-link ${activePage === 'passenger_support' ? 'active' : ''}" data-target="support">
+						<a href="passenger_support.html${cityParam}" class="nav-link ${activePage === 'passenger_support' ? 'active' : ''}" data-target="support">
 							<span class="nav-icon"><svg><use href="#icon-support"></use></svg></span>
 							<span class="nav-label" data-i18n="nav-header.passengerSupport">Passenger Support</span>
 						</a>

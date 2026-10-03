@@ -1,76 +1,76 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="theme-coach-shape" viewBox="0 0 360 210">
-    <style>
-      .wheel-rotate {
-        transform-box: fill-box;
-        transform-origin: center;
-        transition: transform 0.2s steps(4);
-      }
-      :hover .wheel-rotate,
-      .real-coach-card:hover .wheel-rotate {
-        animation: spinPixelWheel 0.4s steps(8) infinite !important;
-      }
-      @keyframes spinPixelWheel {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
-      }
-    </style>
+	<style>
+	  .wheel-rotate {
+		transform-box: fill-box;
+		transform-origin: center;
+		transition: transform 0.2s steps(4);
+	  }
+	  :hover .wheel-rotate,
+	  .real-coach-card:hover .wheel-rotate {
+		animation: spinPixelWheel 0.4s steps(8) infinite !important;
+	  }
+	  @keyframes spinPixelWheel {
+		from { transform: rotate(0deg); }
+		to{ transform: rotate(360deg); }
+	  }
+	</style>
 
-    <!-- Hard 8-Bit Pixel Drop Shadow -->
-    <rect x="22" y="30" width="324" height="152" fill="#0f380f"/>
+	<!-- Hard 8-Bit Pixel Drop Shadow -->
+	<rect x="22" y="30" width="324" height="152" fill="#0f380f"/>
 
-    <!-- Main Stepped Pixel Body Outer -->
-    <rect x="16" y="24" width="324" height="152" fill="#306230" stroke="#0f380f" stroke-width="4"/>
-    <!-- Inner Stepped Body Surface -->
-    <rect x="22" y="30" width="312" height="140" fill="#8bac0f"/>
+	<!-- Main Stepped Pixel Body Outer -->
+	<rect x="16" y="24" width="324" height="152" fill="#306230" stroke="#0f380f" stroke-width="4"/>
+	<!-- Inner Stepped Body Surface -->
+	<rect x="22" y="30" width="312" height="140" fill="#8bac0f"/>
 
-    <!-- Stepped Pixel Roof Glint -->
-    <rect x="36" y="28" width="280" height="4" fill="#9bbc0f"/>
+	<!-- Stepped Pixel Roof Glint -->
+	<rect x="36" y="28" width="280" height="4" fill="#9bbc0f"/>
 
-    <!-- 8-Bit Smoked Cockpit/Passenger Window -->
-    <rect x="28" y="40" width="300" height="98" fill="#0f380f" stroke="#306230" stroke-width="3"/>
-    <!-- Pixel Window Glare Blocks -->
-    <rect x="36" y="48" width="20" height="20" fill="#306230" opacity="0.6"/>
-    <rect x="64" y="48" width="12" height="12" fill="#306230" opacity="0.4"/>
+	<!-- 8-Bit Smoked Cockpit/Passenger Window -->
+	<rect x="28" y="40" width="300" height="98" fill="#0f380f" stroke="#306230" stroke-width="3"/>
+	<!-- Pixel Window Glare Blocks -->
+	<rect x="36" y="48" width="20" height="20" fill="#306230" opacity="0.6"/>
+	<rect x="64" y="48" width="12" height="12" fill="#306230" opacity="0.4"/>
 
-    <!-- 8-Bit Dynamic Line Patti Stripe -->
-    <g id="pixel-patti-group">
-      <!-- Dark border block for patti -->
-      <rect x="24" y="148" width="308" height="18" fill="#0f380f"/>
-      <!-- Active Line Stripe -->
-      <rect class="dynamic-line-stripe" x="26" y="150" width="304" height="14" fill="var(--line-color, #facc15)"/>
-      <!-- Pixel Highlight Dash -->
-      <rect x="32" y="152" width="60" height="2" fill="#ffffff" opacity="0.8"/>
-      <rect x="110" y="152" width="90" height="2" fill="#ffffff" opacity="0.8"/>
-    </g>
+	<!-- 8-Bit Dynamic Line Patti Stripe -->
+	<g id="pixel-patti-group">
+	  <!-- Dark border block for patti -->
+	  <rect x="24" y="148" width="308" height="18" fill="#0f380f"/>
+	  <!-- Active Line Stripe -->
+	  <rect class="dynamic-line-stripe" x="26" y="150" width="304" height="14" fill="var(--line-color, #facc15)"/>
+	  <!-- Pixel Highlight Dash -->
+	  <rect x="32" y="152" width="60" height="2" fill="#ffffff" opacity="0.8"/>
+	  <rect x="110" y="152" width="90" height="2" fill="#ffffff" opacity="0.8"/>
+	</g>
 
-    <!-- Heavy Block Pixel Chassis Bar -->
-    <rect x="16" y="180" width="324" height="6" fill="#0f380f"/>
+	<!-- Heavy Block Pixel Chassis Bar -->
+	<rect x="16" y="180" width="324" height="6" fill="#0f380f"/>
 
-    <!-- 8-Bit Bogie 1 with Stepped Pixel Wheels -->
-    <rect x="54" y="186" width="68" height="18" fill="#0f380f"/>
-    <g class="wheel-rotate">
-      <rect x="62" y="188" width="16" height="16" fill="#9bbc0f" stroke="#0f380f" stroke-width="2"/>
-      <rect x="67" y="193" width="6" height="6" fill="#0f380f"/>
-      <rect x="68" y="194" width="4" height="4" fill="#306230"/>
-    </g>
-    <g class="wheel-rotate">
-      <rect x="96" y="188" width="16" height="16" fill="#9bbc0f" stroke="#0f380f" stroke-width="2"/>
-      <rect x="101" y="193" width="6" height="6" fill="#0f380f"/>
-      <rect x="102" y="194" width="4" height="4" fill="#306230"/>
-    </g>
+	<!-- 8-Bit Bogie 1 with Stepped Pixel Wheels -->
+	<rect x="54" y="186" width="68" height="18" fill="#0f380f"/>
+	<g class="wheel-rotate">
+	  <rect x="62" y="188" width="16" height="16" fill="#9bbc0f" stroke="#0f380f" stroke-width="2"/>
+	  <rect x="67" y="193" width="6" height="6" fill="#0f380f"/>
+	  <rect x="68" y="194" width="4" height="4" fill="#306230"/>
+	</g>
+	<g class="wheel-rotate">
+	  <rect x="96" y="188" width="16" height="16" fill="#9bbc0f" stroke="#0f380f" stroke-width="2"/>
+	  <rect x="101" y="193" width="6" height="6" fill="#0f380f"/>
+	  <rect x="102" y="194" width="4" height="4" fill="#306230"/>
+	</g>
 
-    <!-- 8-Bit Bogie 2 with Stepped Pixel Wheels -->
-    <rect x="228" y="186" width="68" height="18" fill="#0f380f"/>
-    <g class="wheel-rotate">
-      <rect x="236" y="188" width="16" height="16" fill="#9bbc0f" stroke="#0f380f" stroke-width="2"/>
-      <rect x="241" y="193" width="6" height="6" fill="#0f380f"/>
-      <rect x="242" y="194" width="4" height="4" fill="#306230"/>
-    </g>
-    <g class="wheel-rotate">
-      <rect x="270" y="188" width="16" height="16" fill="#9bbc0f" stroke="#0f380f" stroke-width="2"/>
-      <rect x="275" y="193" width="6" height="6" fill="#0f380f"/>
-      <rect x="276" y="194" width="4" height="4" fill="#306230"/>
-    </g>
+	<!-- 8-Bit Bogie 2 with Stepped Pixel Wheels -->
+	<rect x="228" y="186" width="68" height="18" fill="#0f380f"/>
+	<g class="wheel-rotate">
+	  <rect x="236" y="188" width="16" height="16" fill="#9bbc0f" stroke="#0f380f" stroke-width="2"/>
+	  <rect x="241" y="193" width="6" height="6" fill="#0f380f"/>
+	  <rect x="242" y="194" width="4" height="4" fill="#306230"/>
+	</g>
+	<g class="wheel-rotate">
+	  <rect x="270" y="188" width="16" height="16" fill="#9bbc0f" stroke="#0f380f" stroke-width="2"/>
+	  <rect x="275" y="193" width="6" height="6" fill="#0f380f"/>
+	  <rect x="276" y="194" width="4" height="4" fill="#306230"/>
+	</g>
   </symbol>
 </svg>

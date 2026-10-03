@@ -294,11 +294,11 @@ export class StationInfoManager {
 		if (sunFirst || sunLast) {
 			sundayHTML = `
 				<div class="compact-timing-row border-top-dashed">
-					<span style="font-weight:600;">🗓️ ${this.#escapeHTML(this.#t("timings.sundayTitle"))}:</span>
+					<span class="timing-day-header">🗓️ ${this.#escapeHTML(this.#t("timings.sundayTitle"))}:</span>
 				</div>
 				<div class="compact-timing-row">
-					<span>☀️ <strong>${this.#escapeHTML(this.#t("timings.first"))}:</strong> <span style="color:rgb(var(--color-success-rgb)); font-weight:700;">${this.#formatTo12Hour(sunFirst)}</span></span>
-					<span>🌙 <strong>${this.#escapeHTML(this.#t("timings.last"))}:</strong> <span style="color:rgb(var(--color-danger-rgb)); font-weight:700;">${this.#formatTo12Hour(sunLast)}</span></span>
+					<span>☀️ <strong>${this.#escapeHTML(this.#t("timings.first"))}:</strong> <span class="timing-value-success">${this.#formatTo12Hour(sunFirst)}</span></span>
+					<span>🌙 <strong>${this.#escapeHTML(this.#t("timings.last"))}:</strong> <span class="timing-value-danger">${this.#formatTo12Hour(sunLast)}</span></span>
 				</div>
 			`;
 		}
@@ -308,8 +308,8 @@ export class StationInfoManager {
 				<span>${this.#escapeHTML(this.#t("timings.title"))}</span>
 			</div>
 			<div class="compact-timing-row border-top-dashed">
-				<span>☀️ <strong>${this.#escapeHTML(this.#t("timings.first"))}:</strong> <span style="color:rgb(var(--color-success-rgb)); font-weight:700;">${firstTrain}</span></span>
-				<span>🌙 <strong>${this.#escapeHTML(this.#t("timings.last"))}:</strong> <span style="color:rgb(var(--color-danger-rgb)); font-weight:700;">${lastTrain}</span></span>
+				<span>☀️ <strong>${this.#escapeHTML(this.#t("timings.first"))}:</strong> <span class="timing-value-success">${firstTrain}</span></span>
+				<span>🌙 <strong>${this.#escapeHTML(this.#t("timings.last"))}:</strong> <span class="timing-value-danger">${lastTrain}</span></span>
 			</div>
 			${sundayHTML}
 		`;
@@ -331,7 +331,7 @@ export class StationInfoManager {
 				</div>
 				<div class="contact-box">
 					<strong>${this.#escapeHTML(this.#t("helplines.landline"))}</strong>
-					<div style="font-weight:700; color:var(--btn-primary-bg); margin-top:3px;">${this.#escapeHTML(landline)}</div>
+					<div class="contact-landline-val">${this.#escapeHTML(landline)}</div>
 				</div>
 				<div class="contact-box">
 					<strong>${this.#escapeHTML(this.#t("helplines.universal"))}</strong>
@@ -527,7 +527,7 @@ export class StationInfoManager {
 			const noticeTitle = this.#t("parking.authorisedNoticeTitle", { state: parkingCharges.state || "Active" });
 			const noticeDesc = this.#t("parking.authorisedNoticeDesc");
 			capacityContainer.innerHTML = `
-				<div class="facility-pill" style="width: 100%; border-left: 4px solid rgb(var(--color-success-rgb));">
+				<div class="facility-pill facility-pill-authorised">
 					<span class="facility-name">${this.#escapeHTML(noticeTitle)}</span>
 					<span class="facility-loc">${this.#escapeHTML(noticeDesc)}</span>
 				</div>
@@ -868,15 +868,11 @@ export class StationInfoManager {
 			const viewBtn = lay.layout_url ? `<a href="${lay.layout_url}" target="_blank" rel="noopener noreferrer" class="layout-level-btn">🗺️ ${this.#escapeHTML(this.#t("stationLayout.viewFloorPlan"))}</a>` : "";
 			const pdfBtn = lay.pdf_url ? `<a href="${lay.pdf_url}" target="_blank" rel="noopener noreferrer" class="layout-level-btn" aria-label="${this.#escapeHTML(this.#t("stationLayout.downloadPdfAria"))}">📄 ${this.#escapeHTML(this.#t("stationLayout.downloadPdf"))}</a>` : "";
 
-			html += `
-				<div class="layout-level-card">
-					<div class="layout-level-title">📐 ${this.#escapeHTML(title)}</div>
-					<div style="display:flex; gap:var(--space-xs); flex-wrap:wrap;">
-						${viewBtn}
-						${pdfBtn}
-					</div>
-				</div>
-			`;
+			html += `<div class="layout-level-title">📐 ${this.#escapeHTML(title)}</div>
+				<div class="layout-level-actions">
+					${viewBtn}
+					${pdfBtn}
+				</div>`;
 		});
 
 		container.innerHTML = html;
@@ -926,10 +922,10 @@ export class StationInfoManager {
 			const notFoundMsg = this.#t("notFound.message", { stationId: this.#stationId });
 
 			main.innerHTML = `
-				<div style="text-align:center; padding:5rem 1rem; color:var(--text-secondary);">
-					<h2 style="font-size:2rem; margin-bottom:1rem;">${this.#escapeHTML(notFoundTitle)}</h2>
+				<div class="station-not-found-state">
+					<h2>${this.#escapeHTML(notFoundTitle)}</h2>
 					<p>${this.#escapeHTML(notFoundMsg)}</p>
-					<a href="all_stations.html?city=${encodeURIComponent(this.#currentCity)}" class="back-btn" style="margin-top:1.5rem;">${this.#escapeHTML(this.#t("nav.backBtn"))}</a>
+					<a href="all_stations.html?city=${encodeURIComponent(this.#currentCity)}" class="back-btn mt-md">${this.#escapeHTML(this.#t("nav.backBtn"))}</a>
 				</div>
 			`;
 		}

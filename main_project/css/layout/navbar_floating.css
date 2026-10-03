@@ -1,7 +1,7 @@
 @layer components {
 	/* =========================================================================
-	   4. NAVIGATION (DESKTOP & MOBILE FLOATING MENU BAR) - Token-Compliant
-	   ========================================================================= */
+	4. NAVIGATION (DESKTOP & MOBILE FLOATING MENU BAR) - Token-Compliant
+	========================================================================= */
 	.nav-mask-svg {
 		position: absolute;
 		width: 0;
@@ -9,9 +9,9 @@
 		pointer-events: none;
 	}
 
-    .floating-nav-wrapper .floating-nav {
-        pointer-events: auto;
-    }
+	.floating-nav-wrapper .floating-nav {
+		pointer-events: auto;
+	}
 
 	.floating-nav {
 		--width: 60px;
@@ -90,22 +90,22 @@
 	}
 
 	/* Active Icon styling (Theme Primary Orange Glowing Circle) */
-    .floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon {
-        width: var(--icon-size);
-        height: var(--icon-size);
-        border-radius: var(--radius-full);
-        background-color: rgb(var(--color-primary-rgb)); /* ⬅️ ब्राइट ऑरेंज/ब्लू थीम गोला */
-        transform: translateY(-38px);
-        box-shadow: 
-            0 10px 20px rgba(0, 0, 0, 0.15),
-            0 0 15px rgba(var(--color-primary-rgb), 0.5),
-            0 0 30px rgba(var(--color-primary-rgb), 0.2);
-    }
+	.floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon {
+		width: var(--icon-size);
+		height: var(--icon-size);
+		border-radius: var(--radius-full);
+		background-color: rgb(var(--color-primary-rgb)); /* ⬅️ ब्राइट ऑरेंज/ब्लू थीम गोला */
+		transform: translateY(-38px);
+		box-shadow: 
+			0 10px 20px rgba(0, 0, 0, 0.15),
+			0 0 15px rgba(var(--color-primary-rgb), 0.5),
+			0 0 30px rgba(var(--color-primary-rgb), 0.2);
+	}
 
-    .floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon::after {
-        transform: scale(0.7);  
-        background-color: var(--btn-primary-text, #ffffff); /* ⬅️ गोले के अंदर का सॉलिड वाइट आइकॉन */
-    }
+	.floating-nav-wrapper .floating-nav .floating-nav-item.active a .icon::after {
+		transform: scale(0.7);  
+		background-color: var(--btn-primary-text, #ffffff); /* ⬅️ गोले के अंदर का सॉलिड वाइट आइकॉन */
+	}
 
 	.floating-nav-item a .text {
 		position: absolute;
@@ -159,9 +159,9 @@
 
 /* UNLAYERED OVERRIDE: Active Icon Circle Color (Unlayered beats @layer components naturally) */
 .floating-nav-item.active a .icon {
-    background-color: rgb(var(--color-primary-rgb)); /* ⬅️ ब्राइट ऑरेंज/ब्लू थीम गोला */
+	background-color: rgb(var(--color-primary-rgb)); /* ⬅️ ब्राइट ऑरेंज/ब्लू थीम गोला */
 }
 
 .floating-nav-item.active a .icon::after {
-    background-color: var(--btn-primary-text, #ffffff); /* ⬅️ अंदर का वाइट आइकॉन */
+	background-color: var(--btn-primary-text, #ffffff); /* ⬅️ अंदर का वाइट आइकॉन */
 }

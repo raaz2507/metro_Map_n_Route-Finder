@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Geometric Hexagonal Suit Mesh -->
-    <pattern id="spiderHex" width="30" height="52" patternUnits="userSpaceOnUse">
-      <path d="M 15,0 L 30,8.66 L 30,25.98 L 15,34.64 L 0,25.98 L 0,8.66 Z" fill="none" stroke="#1d4ed8" stroke-width="1.2" opacity="0.12" />
-      <path d="M 15,34.64 L 30,43.3 L 30,60.62 L 15,69.28 L 0,60.62 L 0,43.3 Z" fill="none" stroke="#1d4ed8" stroke-width="1.2" opacity="0.12" />
-    </pattern>
+	<!-- Geometric Hexagonal Suit Mesh -->
+	<pattern id="spiderHex" width="30" height="52" patternUnits="userSpaceOnUse">
+	  <path d="M 15,0 L 30,8.66 L 30,25.98 L 15,34.64 L 0,25.98 L 0,8.66 Z" fill="none" stroke="#1d4ed8" stroke-width="1.2" opacity="0.12" />
+	  <path d="M 15,34.64 L 30,43.3 L 30,60.62 L 15,69.28 L 0,60.62 L 0,43.3 Z" fill="none" stroke="#1d4ed8" stroke-width="1.2" opacity="0.12" />
+	</pattern>
 
-    <!-- Crimson Kinetic Gradient Base -->
-    <linearGradient id="spiderBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090a12" />
-      <stop offset="45%" stop-color="#0f1122" />
-      <stop offset="75%" stop-color="#1e0c18" />
-      <stop offset="100%" stop-color="#090a12" />
-    </linearGradient>
+	<!-- Crimson Kinetic Gradient Base -->
+	<linearGradient id="spiderBg" x1="0%" y1="0%" x2="100%" y2="100%">
+	  <stop offset="0%" stop-color="#090a12" />
+	  <stop offset="45%" stop-color="#0f1122" />
+	  <stop offset="75%" stop-color="#1e0c18" />
+	  <stop offset="100%" stop-color="#090a12" />
+	</linearGradient>
 
-    <!-- Kinetic Web-Glow -->
-    <radialGradient id="spiderGlow" cx="50%" cy="15%" r="65%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3" />
-      <stop offset="40%" stop-color="#2563eb" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#090a12" stop-opacity="0" />
-    </radialGradient>
+	<!-- Kinetic Web-Glow -->
+	<radialGradient id="spiderGlow" cx="50%" cy="15%" r="65%">
+	  <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3" />
+	  <stop offset="40%" stop-color="#2563eb" stop-opacity="0.15" />
+	  <stop offset="100%" stop-color="#090a12" stop-opacity="0" />
+	</radialGradient>
   </defs>
 
   <!-- Canvas -->
@@ -29,39 +29,39 @@
 
   <!-- ── 1. GEOMETRIC ARCHITECTURAL WEB-LINES (Top-Center Origin) ── -->
   <g stroke="#ffffff" stroke-width="1.5" opacity="0.22" fill="none">
-    <!-- Radiating Web Spindles from (540, 40) -->
-    <line x1="540" y1="40" x2="-200" y2="900" />
-    <line x1="540" y1="40" x2="0" y2="1300" />
-    <line x1="540" y1="40" x2="220" y2="1920" />
-    <line x1="540" y1="40" x2="540" y2="1920" stroke="#ef4444" stroke-width="2" opacity="0.35" />
-    <line x1="540" y1="40" x2="860" y2="1920" />
-    <line x1="540" y1="40" x2="1080" y2="1300" />
-    <line x1="540" y1="40" x2="1280" y2="900" />
+	<!-- Radiating Web Spindles from (540, 40) -->
+	<line x1="540" y1="40" x2="-200" y2="900" />
+	<line x1="540" y1="40" x2="0" y2="1300" />
+	<line x1="540" y1="40" x2="220" y2="1920" />
+	<line x1="540" y1="40" x2="540" y2="1920" stroke="#ef4444" stroke-width="2" opacity="0.35" />
+	<line x1="540" y1="40" x2="860" y2="1920" />
+	<line x1="540" y1="40" x2="1080" y2="1300" />
+	<line x1="540" y1="40" x2="1280" y2="900" />
 
-    <!-- Connecting Concentric Web Arcs -->
-    <path d="M 220 380 Q 540 520 860 380" stroke-width="1.8" />
-    <path d="M 60 720 Q 540 920 1020 720" stroke-width="2.2" />
-    <path d="M -80 1100 Q 540 1380 1160 1100" stroke-width="2.5" />
+	<!-- Connecting Concentric Web Arcs -->
+	<path d="M 220 380 Q 540 520 860 380" stroke-width="1.8" />
+	<path d="M 60 720 Q 540 920 1020 720" stroke-width="2.2" />
+	<path d="M -80 1100 Q 540 1380 1160 1100" stroke-width="2.5" />
   </g>
 
   <!-- ── 2. ORIGINAL GEOMETRIC WEB-NEXUS CORE (Zero Copyright) ── -->
   <g transform="translate(540, 240) scale(1.3)" opacity="0.45">
-    <!-- Diamond Kinetic Core -->
-    <polygon points="0,-45 40,0 0,45 -40,0" fill="none" stroke="#ef4444" stroke-width="3.5" />
-    <polygon points="0,-25 22,0 0,25 -22,0" fill="#ef4444" opacity="0.5" />
-    <!-- Angular Web Extension Rays -->
-    <line x1="-40" y1="0" x2="-90" y2="-30" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
-    <line x1="40" y1="0" x2="90" y2="-30" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
-    <line x1="-40" y1="0" x2="-80" y2="40" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
-    <line x1="40" y1="0" x2="80" y2="40" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
-    <line x1="0" y1="-45" x2="0" y2="-80" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
-    <line x1="0" y1="45" x2="0" y2="85" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+	<!-- Diamond Kinetic Core -->
+	<polygon points="0,-45 40,0 0,45 -40,0" fill="none" stroke="#ef4444" stroke-width="3.5" />
+	<polygon points="0,-25 22,0 0,25 -22,0" fill="#ef4444" opacity="0.5" />
+	<!-- Angular Web Extension Rays -->
+	<line x1="-40" y1="0" x2="-90" y2="-30" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+	<line x1="40" y1="0" x2="90" y2="-30" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+	<line x1="-40" y1="0" x2="-80" y2="40" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+	<line x1="40" y1="0" x2="80" y2="40" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+	<line x1="0" y1="-45" x2="0" y2="-80" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+	<line x1="0" y1="45" x2="0" y2="85" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
   </g>
 
   <!-- ── 3. METRO TRANSIT TELEMETRY (Safe Transit Branding) ── -->
   <g stroke="#2563eb" stroke-width="2" opacity="0.35" fill="none">
-    <path d="M 40 1860 L 160 1740 L 320 1740" />
-    <circle cx="160" cy="1740" r="4" fill="#ef4444" />
-    <text x="45" y="1880" fill="#ef4444" font-family="'Chakra Petch', monospace" font-size="11" letter-spacing="2">RAPID_TRANSIT // SECTOR_WEB</text>
+	<path d="M 40 1860 L 160 1740 L 320 1740" />
+	<circle cx="160" cy="1740" r="4" fill="#ef4444" />
+	<text x="45" y="1880" fill="#ef4444" font-family="'Chakra Petch', monospace" font-size="11" letter-spacing="2">RAPID_TRANSIT // SECTOR_WEB</text>
   </g>
 </svg>

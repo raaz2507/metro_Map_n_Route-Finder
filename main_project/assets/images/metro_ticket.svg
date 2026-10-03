@@ -95,9 +95,9 @@
 <!-- Transparent Canvas (Punch holes & scallops show true background through cutouts) -->
 
 <!-- =========================================================================
-     BASE TICKET SHAPE & UNTOUCHED CUTOUTS
-     Inside translate(500, 0) rotate(90) so all original curves are preserved!
-     ========================================================================= -->
+ BASE TICKET SHAPE & UNTOUCHED CUTOUTS
+ Inside translate(500, 0) rotate(90) so all original curves are preserved!
+ ========================================================================= -->
 <g id="layer-ticket-base-and-stub" transform="translate(500, 0) rotate(90)">
 	<!-- 1. Original Background Path with ALL corner cutouts & notches -->
 	<path id="ticket-parchment-card" style="fill:#DDD0B1;" d="M1100,17.973L1100,17.973C1100,8.047,1091.953,0,1082.027,0H841.235
@@ -116,10 +116,10 @@
 		s9.702-21.671,21.67-21.671V61.315c-11.968,0-21.67-9.702-21.67-21.671C1078.33,27.676,1088.032,17.973,1100,17.973z"/>
 
 	<!-- =========================================================================
-	     LAYER 1: EXACT NATURAL & MINIMAL GOLD LUSTER (IMAGE 1 + IMAGE 2)
-	     Strictly confined to middle body layer (X: 180..760)
-	     No harsh stripes—pure natural ambient 9s breathing sway & center glow!
-	     ========================================================================= -->
+	 LAYER 1: EXACT NATURAL & MINIMAL GOLD LUSTER (IMAGE 1 + IMAGE 2)
+	 Strictly confined to middle body layer (X: 180..760)
+	 No harsh stripes—pure natural ambient 9s breathing sway & center glow!
+	 ========================================================================= -->
 	<!-- Populated with the selected shine mode when the ticket is mounted. -->
 	<g id="layer-parchment-gold-luster" clip-path="url(#ticket-card-clip)" pointer-events="none"></g>
 
@@ -384,9 +384,9 @@
 	</g>
 
 	<!-- =========================================================================
-	     BOTTOM PART (STUB) - CREAM QR CODE
-	     Centered at Screen X = 135, Screen Y = 950 (X_orig = 950, Y_orig = 365)
-	     ========================================================================= -->
+	 BOTTOM PART (STUB) - CREAM QR CODE
+	 Centered at Screen X = 135, Screen Y = 950 (X_orig = 950, Y_orig = 365)
+	 ========================================================================= -->
 	<g id="section-bottom-stub">
 		<!-- Stub: Cream Vector QR Code (Centered at X=135, Y=950) -->
 		<g id="stub-qr-code" transform="translate(950, 365) scale(1.65) rotate(-90) translate(-948, -438)">
@@ -604,9 +604,9 @@
 </g>
 
 <!-- =========================================================================
-     UPPER PART OVERLAY (X: 0..500, Y: 0..809)
-     Header at Top, Footer above notch, Main Content in between, QR above footer
-     ========================================================================= -->
+ UPPER PART OVERLAY (X: 0..500, Y: 0..809)
+ Header at Top, Footer above notch, Main Content in between, QR above footer
+ ========================================================================= -->
 <g id="section-upper-part">
 
 	<!-- 1. BEAUTIFUL HEADER SECTION (Taller 180px with Top Margin, Option C Security Border) -->
@@ -891,9 +891,9 @@
 </g>
 
 <!-- =========================================================================
-     BOTTOM PART (STUB) - ELEGANT YATRA MARG BRAND EMBLEM (OPTION 1B)
-     Centered at Screen X = 365, Screen Y = 950
-     ========================================================================= -->
+ BOTTOM PART (STUB) - ELEGANT YATRA MARG BRAND EMBLEM (OPTION 1B)
+ Centered at Screen X = 365, Screen Y = 950
+ ========================================================================= -->
 <g id="stub-brand-badge" transform="translate(365, 950)">
 	<!-- Outer Elegant Rounded Frame Badge -->
 	<rect x="-85" y="-68" width="170" height="136" rx="10" style="fill:#516465; stroke:#B88D4B; stroke-width:1.8;"/>
@@ -915,8 +915,8 @@
 </g>
 
 <!-- =========================================================================
-     TEAR PERFORATION LINE & SCISSORS ICON (2. GENTLE SNIP ANIMATION)
-     ========================================================================= -->
+ TEAR PERFORATION LINE & SCISSORS ICON (2. GENTLE SNIP ANIMATION)
+ ========================================================================= -->
 <g id="tear-perforation-section">
 	<!-- Beige Perforation Gap (Equal 6px above and 6px below the dashed line) -->
 	<rect x="27" y="809" width="446" height="12" style="fill:#DDD0B1;"/>

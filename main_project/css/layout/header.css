@@ -2,9 +2,9 @@
 
 @layer components {
 	/* ==========================================================================
-	   2.5D FLOATING GLASS ISLAND HEADER (100% PURE BASE.CSS TOKENS)
-	   - Scalable Typography & Zero Hardcoded Pixel Units
-	   ========================================================================== */
+	2.5D FLOATING GLASS ISLAND HEADER (100% PURE BASE.CSS TOKENS)
+	- Scalable Typography & Zero Hardcoded Pixel Units
+	========================================================================== */
 	header.main-header {
 		display: flex;
 		flex-direction: column;
@@ -104,8 +104,8 @@
 	}
 
 	/* ==========================================================================
-	   FONT SIZE CONTINUOUS STEPPER (2.5D GLASS PILL)
-	   ========================================================================== */
+	FONT SIZE CONTINUOUS STEPPER (2.5D GLASS PILL)
+	========================================================================== */
 	header.main-header .font-scale-stepper {
 		display: inline-flex;
 		align-items: center;
@@ -169,8 +169,8 @@
 	}
 
 	/* ==========================================================================
-	   2.5D ACTION BUTTON TOKENS
-	   ========================================================================== */
+	2.5D ACTION BUTTON TOKENS
+	========================================================================== */
 	header.main-header .btn-25d {
 		position: relative;
 		display: inline-flex;
@@ -214,8 +214,8 @@
 	}
 
 	/* ==========================================================================
-	   DROPDOWN CONTAINERS & MENUS
-	   ========================================================================== */
+	DROPDOWN CONTAINERS & MENUS
+	========================================================================== */
 	header.main-header .dropdown-container {
 		position: relative;
 	}
@@ -298,8 +298,8 @@
 	}
 
 	/* ==========================================================================
-	   CATEGORIZED THEME & LANGUAGE MENUS (Pure Tokens)
-	   ========================================================================== */
+	CATEGORIZED THEME & LANGUAGE MENUS (Pure Tokens)
+	========================================================================== */
 		/* Theme Menu */
 	header.main-header #theme-menu {
 		right: 0;
@@ -387,8 +387,8 @@
 	}
 
 	/* ==========================================================================
-	   APP UTILITIES DROPDOWN (PWA & HARD REFRESH)
-	   ========================================================================== */
+	APP UTILITIES DROPDOWN (PWA & HARD REFRESH)
+	========================================================================== */
 	header.main-header .app-utility-btn {
 		padding: 0;
 		width: calc(var(--logo-size-md) - var(--space-2xs));
@@ -447,8 +447,8 @@
 
 }
 		/* ==========================================================================
-	   RESPONSIVE BREAKPOINT (Standard Mobile/Tablet <= 768px)
-	   ========================================================================== */
+	RESPONSIVE BREAKPOINT (Standard Mobile/Tablet <= 768px)
+	========================================================================== */
 	@media (max-width: 768px) {
 		@layer components {
 			/* रो को दो मुख्य भागों (Logo + Toolbar) में रैप करें */
@@ -474,7 +474,7 @@
 				justify-content: space-evenly;
 				align-items: center;
 				row-gap: var(--space-md); 
-    			column-gap: var(--space-xs);
+				column-gap: var(--space-xs);
 			}
 
 			/* 'Theme' टेक्स्ट को चालू रखें (ताकि बटन दो पंक्तियों में संतुलित रहें) */
