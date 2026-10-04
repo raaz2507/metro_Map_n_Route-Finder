@@ -6,7 +6,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6740",
 		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.182051189053226, "lon": 80.30207580778237}},
+		"location": {"decimal": {"lat": 13.1817805, "lon": 80.3082416}},
 		"neighbors": [{"station": "wimco-nagar-metro", "line": "cmrl.blue"}]
 	},
 	"wimco-nagar-metro": {
@@ -16,7 +16,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6738",
 		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.17980338532951, "lon": 80.3046587788574}},
+		"location": {"decimal": {"lat": 13.1817805, "lon": 80.3082416}},
 		"neighbors": [{"station": "wimco-nagar-depot-metro", "line": "cmrl.blue"}, {"station": "thiruvotriyur-metro", "line": "cmrl.blue"}]
 	},
 	"thiruvotriyur-metro": {
@@ -25,7 +25,7 @@
 		"lines": ["cmrl.blue"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6736",
-		"location": {"decimal": {"lat": 13.179829282695415, "lon": 80.29693394845347}},
+		"location": {"decimal": {"lat": 13.1660678, "lon": 80.3038812}},
 		"neighbors": [{"station": "wimco-nagar-metro", "line": "cmrl.blue"}, {"station": "thiruvottriyur-theradi-metro", "line": "cmrl.blue"}]
 	},
 	"thiruvottriyur-theradi-metro": {
@@ -34,7 +34,7 @@
 		"lines": ["cmrl.blue"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6733",
-		"location": {"decimal": {"lat": 13.159873210723175, "lon": 80.29982707479635}},
+		"location": {"decimal": {"lat": 13.1660678, "lon": 80.3038812}},
 		"neighbors": [{"station": "thiruvotriyur-metro", "line": "cmrl.blue"}, {"station": "kaladipet-metro", "line": "cmrl.blue"}]
 	},
 	"kaladipet-metro": {
@@ -44,7 +44,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6731",
 		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.151050510919191, "lon": 80.2968370747963}},
+		"location": {"decimal": {"lat": 13.15102, "lon": 80.2995}},
 		"neighbors": [{"station": "thiruvottriyur-theradi-metro", "line": "cmrl.blue"}, {"station": "tollgate-metro", "line": "cmrl.blue"}]
 	},
 	"tollgate-metro": {
@@ -54,7 +54,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6729",
 		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.143524111086228, "lon": 80.2937444747962}},
+		"location": {"decimal": {"lat": 13.14347, "lon": 80.2964}},
 		"neighbors": [{"station": "kaladipet-metro", "line": "cmrl.blue"}, {"station": "new-washermenpet-metro", "line": "cmrl.blue"}]
 	},
 	"new-washermenpet-metro": {
@@ -63,7 +63,7 @@
 		"lines": ["cmrl.blue"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6727",
-		"location": {"decimal": {"lat": 13.134414411288386, "lon": 80.29027622479602}},
+		"location": {"decimal": {"lat": 13.1212012, "lon": 80.28693}},
 		"neighbors": [{"station": "tollgate-metro", "line": "cmrl.blue"}, {"station": "tondiarpet-metro", "line": "cmrl.blue"}]
 	},
 	"tondiarpet-metro": {
@@ -73,7 +73,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6725",
 		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.124325437205261, "lon": 80.28611267507907}},
+		"location": {"decimal": {"lat": 13.1238112, "lon": 80.288199}},
 		"neighbors": [{"station": "new-washermenpet-metro", "line": "cmrl.blue"}, {"station": "sir-thiyagaraya-college-metro", "line": "cmrl.blue"}]
 	},
 	"sir-thiyagaraya-college-metro": {
@@ -82,7 +82,7 @@
 		"lines": ["cmrl.blue"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6723",
-		"location": {"decimal": {"lat": 13.116603083447972, "lon": 80.28051416843866}},
+		"location": {"decimal": {"lat": 13.1165979, "lon": 80.2851276}},
 		"neighbors": [{"station": "tondiarpet-metro", "line": "cmrl.blue"}, {"station": "washermenpet-metro", "line": "cmrl.blue"}]
 	},
 	"washermenpet-metro": {
@@ -91,7 +91,7 @@
 		"lines": ["cmrl.blue"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6720",
-		"location": {"decimal": {"lat": 13.126228366401827, "lon": 80.24298906980071}},
+		"location": {"decimal": {"lat": 13.1212012, "lon": 80.28693}},
 		"neighbors": [{"station": "sir-thiyagaraya-college-metro", "line": "cmrl.blue"}, {"station": "mannadi", "line": "cmrl.blue"}]
 	},
 	"mannadi": {
@@ -101,7 +101,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6718",
 		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.095684862148422, "lon": 80.28351647373415}},
+		"location": {"decimal": {"lat": 13.0951661, "lon": 80.2861603}},
 		"neighbors": [{"station": "washermenpet-metro", "line": "cmrl.blue"}, {"station": "highcourt", "line": "cmrl.blue"}]
 	},
 	"highcourt": {
@@ -111,7 +111,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6716",
 		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.087896312320611, "lon": 80.28290802373395}},
+		"location": {"decimal": {"lat": 13.087394, "lon": 80.285064}},
 		"neighbors": [
 			{"station": "mannadi", "line": "cmrl.blue"},
 			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"}
@@ -127,7 +127,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_7090",
 		"opened_date": "10 February 201925 May 2018",
-		"location": {"decimal": {"lat": 13.080650909851306, "lon": 80.27259356057777}},
+		"location": {"decimal": {"lat": 13.0833285, "lon": 80.2741482}},
 		"neighbors": [
 			{"station": "highcourt", "line": "cmrl.blue"},
 			{"station": "government-estate", "line": "cmrl.blue"},
@@ -141,7 +141,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6712",
 		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.069563012725673, "lon": 80.27028177373363}},
+		"location": {"decimal": {"lat": 13.069682, "lon": 80.272741}},
 		"neighbors": [
 			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"},
 			{"station": "lic", "line": "cmrl.blue"}
@@ -154,7 +154,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6708",
 		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.06454431283645, "lon": 80.26349997373349}},
+		"location": {"decimal": {"lat": 13.0645232, "lon": 80.2660489}},
 		"neighbors": [{"station": "government-estate", "line": "cmrl.blue"}, {"station": "thousand-lights", "line": "cmrl.blue"}]
 	},
 	"thousand-lights": {
@@ -164,7 +164,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6706",
 		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.058127062978048, "lon": 80.25575347373342}},
+		"location": {"decimal": {"lat": 13.0583557, "lon": 80.2585174}},
 		"neighbors": [{"station": "lic", "line": "cmrl.blue"}, {"station": "ag-dms", "line": "cmrl.blue"}]
 	},
 	"ag-dms": {
@@ -174,7 +174,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6704",
 		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.045251063261999, "lon": 80.24566532373316}},
+		"location": {"decimal": {"lat": 13.0446825, "lon": 80.2480329}},
 		"neighbors": [{"station": "thousand-lights", "line": "cmrl.blue"}, {"station": "teynampet", "line": "cmrl.blue"}]
 	},
 	"teynampet": {
@@ -184,7 +184,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6702",
 		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.03711844539991, "lon": 80.24551377789689}},
+		"location": {"decimal": {"lat": 13.0373532, "lon": 80.2466509}},
 		"neighbors": [{"station": "ag-dms", "line": "cmrl.blue"}, {"station": "nandanam", "line": "cmrl.blue"}]
 	},
 	"nandanam": {
@@ -194,7 +194,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6700",
 		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.031958313555847, "lon": 80.23958227321089}},
+		"location": {"decimal": {"lat": 13.03165, "lon": 80.24104}},
 		"neighbors": [{"station": "teynampet", "line": "cmrl.blue"}, {"station": "saidapet-metro", "line": "cmrl.blue"}]
 	},
 	"saidapet-metro": {
@@ -204,7 +204,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6698",
 		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.023617963573042, "lon": 80.22360160946843}},
+		"location": {"decimal": {"lat": 13.023618, "lon": 80.228108}},
 		"neighbors": [{"station": "nandanam", "line": "cmrl.blue"}, {"station": "little-mount", "line": "cmrl.blue"}]
 	},
 	"little-mount": {
@@ -214,7 +214,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6696",
 		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 13.014562787304808, "lon": 80.22136727507717}},
+		"location": {"decimal": {"lat": 13.014505, "lon": 80.223857}},
 		"neighbors": [{"station": "saidapet-metro", "line": "cmrl.blue"}, {"station": "guindy", "line": "cmrl.blue"}]
 	},
 	"guindy": {
@@ -224,7 +224,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6694",
 		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 13.009371255723211, "lon": 80.19463584060242}},
+		"location": {"decimal": {"lat": 13.0093336, "lon": 80.2131005}},
 		"neighbors": [{"station": "little-mount", "line": "cmrl.blue"}, {"station": "arignar-anna-alandur-metro", "line": "cmrl.blue"}]
 	},
 	"arignar-anna-alandur-metro": {
@@ -234,7 +234,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_7092",
 		"opened_date": "21 September 201629 June 2015",
-		"location": {"decimal": {"lat": 13.003989704098222, "lon": 80.20064840110591}},
+		"location": {"decimal": {"lat": 13.004218, "lon": 80.201461}},
 		"neighbors": [
 			{"station": "guindy", "line": "cmrl.blue"},
 			{"station": "ota-nanganallur-road", "line": "cmrl.blue"},
@@ -248,7 +248,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6690",
 		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 13.000059014253818, "lon": 80.19157157500499}},
+		"location": {"decimal": {"lat": 12.999961, "lon": 80.194037}},
 		"neighbors": [{"station": "arignar-anna-alandur-metro", "line": "cmrl.blue"}, {"station": "meenambakkam", "line": "cmrl.blue"}]
 	},
 	"meenambakkam": {
@@ -258,7 +258,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6677",
 		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 12.98784601318242, "lon": 80.1754832739529}},
+		"location": {"decimal": {"lat": 12.987735, "lon": 80.1764}},
 		"neighbors": [{"station": "ota-nanganallur-road", "line": "cmrl.blue"}, {"station": "chennai-international-airport", "line": "cmrl.blue"}]
 	},
 	"chennai-international-airport": {
@@ -268,7 +268,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6675",
 		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 12.9808255, "lon": 80.1642095}},
+		"location": {"decimal": {"lat": 12.9808628, "lon": 80.1641647}},
 		"neighbors": [{"station": "meenambakkam", "line": "cmrl.blue"}]
 	},
 	"puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2": {
@@ -281,7 +281,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6932",
 		"opened_date": "10 February 201925 May 2018",
-		"location": {"decimal": {"lat": 13.080650909851306, "lon": 80.27259356057777}},
+		"location": {"decimal": {"lat": 13.0833285, "lon": 80.2741482}},
 		"neighbors": [
 			{"station": "egmore-metro", "line": "cmrl.green"},
 			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"}
@@ -294,7 +294,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6930",
 		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.0790573, "lon": 80.2611065}},
+		"location": {"decimal": {"lat": 13.0790271, "lon": 80.2586441}},
 		"neighbors": [
 			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2", "line": "cmrl.green"},
 			{"station": "nehru-park", "line": "cmrl.green"}
@@ -317,7 +317,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6926",
 		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.077730246760455, "lon": 80.22469384074951}},
+		"location": {"decimal": {"lat": 13.077685, "lon": 80.242809}},
 		"neighbors": [{"station": "nehru-park", "line": "cmrl.green"}, {"station": "pachaiyappas-college", "line": "cmrl.green"}]
 	},
 	"pachaiyappas-college": {
@@ -327,7 +327,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6924",
 		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.075574, "lon": 80.232315}},
+		"location": {"decimal": {"lat": 13.0766294, "lon": 80.2375618}},
 		"neighbors": [{"station": "kilpauk", "line": "cmrl.green"}, {"station": "shenoy-nagar", "line": "cmrl.green"}]
 	},
 	"shenoy-nagar": {
@@ -337,7 +337,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6922",
 		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.078704912524804, "lon": 80.22255957321178}},
+		"location": {"decimal": {"lat": 13.0784251, "lon": 80.2265534}},
 		"neighbors": [{"station": "pachaiyappas-college", "line": "cmrl.green"}, {"station": "anna-nagar-east", "line": "cmrl.green"}]
 	},
 	"anna-nagar-east": {
@@ -347,7 +347,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6920",
 		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.0847975, "lon": 80.218657}},
+		"location": {"decimal": {"lat": 13.0847633, "lon": 80.2196589}},
 		"neighbors": [{"station": "shenoy-nagar", "line": "cmrl.green"}, {"station": "anna-nagar-tower", "line": "cmrl.green"}]
 	},
 	"anna-nagar-tower": {
@@ -357,7 +357,7 @@
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_6918",
 		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.0849752, "lon": 80.2087247}},
+		"location": {"decimal": {"lat": 13.0848861, "lon": 80.2142749}},
 		"neighbors": [{"station": "anna-nagar-east", "line": "cmrl.green"}, {"station": "thirumangalam", "line": "cmrl.green"}]
 	},
 	"thirumangalam": {
@@ -377,7 +377,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6914",
 		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.073257865971941, "lon": 80.1929990571153}},
+		"location": {"decimal": {"lat": 13.0710846, "lon": 80.1993768}},
 		"neighbors": [
 			{"station": "thirumangalam", "line": "cmrl.green"},
 			{"station": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro", "line": "cmrl.green"}
@@ -390,7 +390,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6912",
 		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.068749368997844, "lon": 80.2018460624593}},
+		"location": {"decimal": {"lat": 13.068594, "lon": 80.203913}},
 		"neighbors": [{"station": "koyambedu", "line": "cmrl.green"}, {"station": "arumbakkam", "line": "cmrl.green"}]
 	},
 	"arumbakkam": {
@@ -400,7 +400,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6910",
 		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.061999074679951, "lon": 80.21131235746036}},
+		"location": {"decimal": {"lat": 13.0620745, "lon": 80.2116729}},
 		"neighbors": [
 			{"station": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro", "line": "cmrl.green"},
 			{"station": "vadapalani", "line": "cmrl.green"}
@@ -413,7 +413,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6908",
 		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.050118448188027, "lon": 80.2054053769342}},
+		"location": {"decimal": {"lat": 13.0507344, "lon": 80.2120723}},
 		"neighbors": [{"station": "arumbakkam", "line": "cmrl.green"}, {"station": "ashok-nagar", "line": "cmrl.green"}]
 	},
 	"ashok-nagar": {
@@ -423,7 +423,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6906",
 		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.035661671433154, "lon": 80.21095131964783}},
+		"location": {"decimal": {"lat": 13.0355384, "lon": 80.211135}},
 		"neighbors": [{"station": "vadapalani", "line": "cmrl.green"}, {"station": "ekkattuthangal", "line": "cmrl.green"}]
 	},
 	"ekkattuthangal": {
@@ -433,7 +433,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6904",
 		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.016606965423183, "lon": 80.20494300304732}},
+		"location": {"decimal": {"lat": 13.0165829, "lon": 80.2052759}},
 		"neighbors": [{"station": "ashok-nagar", "line": "cmrl.green"}, {"station": "arignar-anna-alandur-metro-2", "line": "cmrl.green"}]
 	},
 	"arignar-anna-alandur-metro-2": {
@@ -443,7 +443,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6899",
 		"opened_date": "21 September 201629 June 2015",
-		"location": {"decimal": {"lat": 13.003989704098222, "lon": 80.20064840110591}},
+		"location": {"decimal": {"lat": 13.004218, "lon": 80.201461}},
 		"neighbors": [
 			{"station": "ekkattuthangal", "line": "cmrl.green"},
 			{"station": "st-thomas-mount-metro", "line": "cmrl.green"},
@@ -457,7 +457,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHN_6897",
 		"opened_date": "14 October 2016",
-		"location": {"decimal": {"lat": 12.9952695, "lon": 80.1988314}},
+		"location": {"decimal": {"lat": 12.9948433, "lon": 80.197446}},
 		"neighbors": [{"station": "arignar-anna-alandur-metro-2", "line": "cmrl.green"}]
 	}
 }

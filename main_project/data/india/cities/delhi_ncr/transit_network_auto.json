@@ -1,9 +1,14 @@
 {
 	"_meta": {
 		"city": "delhi_ncr",
-		"last_updated": "2026-10-02",
-		"total_new_stations": 0
+		"last_updated": "2026-10-04",
+		"total_new_stations": 0,
+		"new_lines": 0,
+		"has_new_transfers": false,
+		"has_new_fare_rules": false
 	},
 	"stations": {},
-	"lines": {}
+	"lines": {},
+	"transfers": {},
+	"fareRules": {}
 }

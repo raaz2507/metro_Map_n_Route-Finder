@@ -17,7 +17,15 @@ for /f "tokens=5" %%a in ('netstat -aon ^| findstr /r /c:":8080 .*LISTENING"') d
 if defined OCCUPIED_PID (
     echo [WARNING] Port 8080 is already in use by Process ID: %OCCUPIED_PID%
     set /p "USER_CHOICE=Do you want to terminate that process and start server? (y/n): "
+)
+
+if defined OCCUPIED_PID (
     if /i "%USER_CHOICE%"=="y" (
+        echo [INFO] Terminating PID %OCCUPIED_PID%...
+        taskkill /F /PID %OCCUPIED_PID% >nul 2>&1
+        timeout /t 1 /nobreak >nul
+        echo [INFO] Port 8080 is now free.
+    ) else if /i "%USER_CHOICE%"=="yes" (
         echo [INFO] Terminating PID %OCCUPIED_PID%...
         taskkill /F /PID %OCCUPIED_PID% >nul 2>&1
         timeout /t 1 /nobreak >nul

@@ -3,7 +3,7 @@
  * Enterprise ES2022 OOP Class with Private Encapsulation (#)
  * Dynamically loads, filters, and deep-merges transit & auto-delta data for any selected city.
  */
-import { normalizeStationCoordinates } from "./data-utils.js";
+import { normalizeStationCoordinates, calculateNeighborDistance } from "./data-utils.js";
 
 class MetroDataStore {
 	// Private State Fields
@@ -125,7 +125,7 @@ class MetroDataStore {
 				}
 			}
 
-			this.#rawCityData = normalizeStationCoordinates(rawData);
+			this.#rawCityData = calculateNeighborDistance(normalizeStationCoordinates(rawData));
 			this.#currentCity = resolvedCity;
 			this.#currentNetwork = resolvedNetwork;
 			this.#metroData = this.#filterByNetwork(this.#rawCityData, resolvedNetwork);

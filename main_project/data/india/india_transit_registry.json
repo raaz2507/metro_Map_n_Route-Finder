@@ -448,7 +448,7 @@
 				"en": "Uttar Pradesh",
 				"hi": "उत्तर प्रदेश"
 			},
-			"hasData": false,
+			"hasData": true,
 			"dataPath": "data/cities/kanpur",
 			"networks": {
 				"kanpur_metro": {
@@ -460,7 +460,7 @@
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"hasData": false,
+					"hasData": true,
 					"dataPath": "data/cities/kanpur",
 					"icon": "assets/icons/networks/up_metro.svg"
 				}

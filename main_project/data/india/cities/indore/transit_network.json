@@ -1,346 +1,969 @@
 {
-	"defaults": {"stationType": "normal", "layout": "elevated"},
-	"lines": {
-		"mpmrcl.yellow": {
-			"id": "mpmrcl.yellow",
-			"network": "mpmrcl",
-			"operator": "MPMRCL",
-			"name": "Yellow Line",
-			"label": "Yellow Line",
-			"color": "#FBC02D",
-			"color_name": "yellow",
-			"route": {"from": "gandhi_nagar", "to": "airport"},
-			"stations": [
-				"gandhi_nagar",
-				"super_corridor",
-				"super_corridor(1)",
-				"super_corridor(2)",
-				"super_corridor(3)",
-				"super_corridor(4)",
-				"super_corridor(5)",
-				"bhawarsala_chauraha",
-				"mr_road",
-				"isbt",
-				"chandragupta_chauraha",
-				"hira_nagar",
-				"bapat_chauraha",
-				"meghdoot_garden",
-				"vijay_nagar_chauraha",
-				"malviya_nagar_chauraha",
-				"shaheed_baghicha",
-				"khajrana_chauraha",
-				"bengali_chauraha",
-				"patrakar_colony",
-				"palasia_chauraha",
-				"railway_station",
-				"rajwada",
-				"chhota_ganpati",
-				"bada_ganpati",
-				"ramchandra_nagar",
-				"bsf_kalani_nagar",
-				"airport"
-			],
-			"farePolicy": "indore_metro_standard"
-		}
-	},
-	"transfers": {},
-	"stationData": {
-		"gandhi_nagar": {
-			"id": "gandhi_nagar",
-			"name": {"en": "Gandhi Nagar"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "super_corridor", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.73889250836423, "lon": 75.7974879499869}}
-		},
-		"super_corridor": {
-			"id": "super_corridor",
-			"name": {"en": "Super Corridor"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "gandhi_nagar", "line": "mpmrcl.yellow"}, {"station": "super_corridor(1)", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.74528004759645, "lon": 75.80087522695399}}
-		},
-		"super_corridor(1)": {
-			"id": "super_corridor(1)",
-			"name": {"en": "Super Corridor"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "super_corridor", "line": "mpmrcl.yellow"}, {"station": "super_corridor(2)", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.75397146194885, "lon": 75.80415943812761}}
-		},
-		"super_corridor(2)": {
-			"id": "super_corridor(2)",
-			"name": {"en": "Super Corridor"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "super_corridor(1)", "line": "mpmrcl.yellow"}, {"station": "super_corridor(3)", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.76302365262666, "lon": 75.81109879646503}}
-		},
-		"super_corridor(3)": {
-			"id": "super_corridor(3)",
-			"name": {"en": "Super Corridor"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "super_corridor(2)", "line": "mpmrcl.yellow"}, {"station": "super_corridor(4)", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.77170989831205, "lon": 75.81887461399185}}
-		},
-		"super_corridor(4)": {
-			"id": "super_corridor(4)",
-			"name": {"en": "Super Corridor"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "super_corridor(3)", "line": "mpmrcl.yellow"}, {"station": "super_corridor(5)", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.77808808262914, "lon": 75.82572183775551}}
-		},
-		"super_corridor(5)": {
-			"id": "super_corridor(5)",
-			"name": {"en": "Super Corridor"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "super_corridor(4)", "line": "mpmrcl.yellow"}, {"station": "bhawarsala_chauraha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.78658300212478, "lon": 75.83711252143253}}
-		},
-		"bhawarsala_chauraha": {
-			"id": "bhawarsala_chauraha",
-			"name": {"en": "Bhawarsala Chauraha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "super_corridor(5)", "line": "mpmrcl.yellow"}, {"station": "mr_road", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.78985046540353, "lon": 75.84614390588584}}
-		},
-		"mr_road": {
-			"id": "mr_road",
-			"name": {"en": "Mr Road"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "bhawarsala_chauraha", "line": "mpmrcl.yellow"}, {"station": "isbt", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.78275185566909, "lon": 75.85437071713912}}
-		},
-		"isbt": {
-			"id": "isbt",
-			"name": {"en": "ISBT"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "mr_road", "line": "mpmrcl.yellow"}, {"station": "chandragupta_chauraha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.76947477805769, "lon": 75.8641747908429}}
-		},
-		"chandragupta_chauraha": {
-			"id": "chandragupta_chauraha",
-			"name": {"en": "Chandragupta Chauraha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "isbt", "line": "mpmrcl.yellow"}, {"station": "hira_nagar", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.76471963844547, "lon": 75.8698623981821}}
-		},
-		"hira_nagar": {
-			"id": "hira_nagar",
-			"name": {"en": "Hira Nagar"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "chandragupta_chauraha", "line": "mpmrcl.yellow"}, {"station": "bapat_chauraha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.75958413282376, "lon": 75.87569328490392}}
-		},
-		"bapat_chauraha": {
-			"id": "bapat_chauraha",
-			"name": {"en": "Bapat Chauraha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "hira_nagar", "line": "mpmrcl.yellow"}, {"station": "meghdoot_garden", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.75444669736456, "lon": 75.88019914971906}}
-		},
-		"meghdoot_garden": {
-			"id": "meghdoot_garden",
-			"name": {"en": "Meghdoot Garden"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "bapat_chauraha", "line": "mpmrcl.yellow"}, {"station": "vijay_nagar_chauraha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.75258502813773, "lon": 75.88851438873705}}
-		},
-		"vijay_nagar_chauraha": {
-			"id": "vijay_nagar_chauraha",
-			"name": {"en": "Vijay Nagar Chauraha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "meghdoot_garden", "line": "mpmrcl.yellow"}, {"station": "malviya_nagar_chauraha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.75128811976558, "lon": 75.89430086794746}}
-		},
-		"malviya_nagar_chauraha": {
-			"id": "malviya_nagar_chauraha",
-			"name": {"en": "Malviya Nagar Chauraha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "vijay_nagar_chauraha", "line": "mpmrcl.yellow"}, {"station": "shaheed_baghicha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.74730846493764, "lon": 75.9032445638506}}
-		},
-		"shaheed_baghicha": {
-			"id": "shaheed_baghicha",
-			"name": {"en": "Shaheed Baghicha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "malviya_nagar_chauraha", "line": "mpmrcl.yellow"}, {"station": "khajrana_chauraha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.73988866583289, "lon": 75.90230960809339}}
-		},
-		"khajrana_chauraha": {
-			"id": "khajrana_chauraha",
-			"name": {"en": "Khajrana Chauraha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "shaheed_baghicha", "line": "mpmrcl.yellow"}, {"station": "bengali_chauraha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.73074479332159, "lon": 75.90275597339757}}
-		},
-		"bengali_chauraha": {
-			"id": "bengali_chauraha",
-			"name": {"en": "Bengali Chauraha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "khajrana_chauraha", "line": "mpmrcl.yellow"}, {"station": "patrakar_colony", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.72054969969993, "lon": 75.9022022208073}}
-		},
-		"patrakar_colony": {
-			"id": "patrakar_colony",
-			"name": {"en": "Patrakar Colony"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "bengali_chauraha", "line": "mpmrcl.yellow"}, {"station": "palasia_chauraha", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.72344456496613, "lon": 75.89177309279731}}
-		},
-		"palasia_chauraha": {
-			"id": "palasia_chauraha",
-			"name": {"en": "Palasia Chauraha"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "patrakar_colony", "line": "mpmrcl.yellow"}, {"station": "railway_station", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.72353480079575, "lon": 75.88528862930895}}
-		},
-		"railway_station": {
-			"id": "railway_station",
-			"name": {"en": "Railway Station"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "palasia_chauraha", "line": "mpmrcl.yellow"}, {"station": "rajwada", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.71955293691819, "lon": 75.87017058665522}}
-		},
-		"rajwada": {
-			"id": "rajwada",
-			"name": {"en": "Rajwada"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "railway_station", "line": "mpmrcl.yellow"}, {"station": "chhota_ganpati", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.72166098266253, "lon": 75.85953139788968}}
-		},
-		"chhota_ganpati": {
-			"id": "chhota_ganpati",
-			"name": {"en": "Chhota Ganpati"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "rajwada", "line": "mpmrcl.yellow"}, {"station": "bada_ganpati", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.71979252347527, "lon": 75.84742623760965}}
-		},
-		"bada_ganpati": {
-			"id": "bada_ganpati",
-			"name": {"en": "Bada Ganpati"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "chhota_ganpati", "line": "mpmrcl.yellow"}, {"station": "ramchandra_nagar", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.72085135461015, "lon": 75.84020775501922}}
-		},
-		"ramchandra_nagar": {
-			"id": "ramchandra_nagar",
-			"name": {"en": "Ramchandra Nagar"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "bada_ganpati", "line": "mpmrcl.yellow"}, {"station": "bsf_kalani_nagar", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.72340284468013, "lon": 75.83076832361199}}
-		},
-		"bsf_kalani_nagar": {
-			"id": "bsf_kalani_nagar",
-			"name": {"en": "Bsf- Kalani Nagar"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "ramchandra_nagar", "line": "mpmrcl.yellow"}, {"station": "airport", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.72570841500155, "lon": 75.81985668412827}}
-		},
-		"airport": {
-			"id": "airport",
-			"name": {"en": "Airport"},
-			"lines": ["mpmrcl.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "bsf_kalani_nagar", "line": "mpmrcl.yellow"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 22.73006653277108, "lon": 75.80481811554709}}
-		}
-	},
-	"fareRules": {
-		"currency": "INR",
-		"networks": {
-			"mpmrcl_indore": {"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)", "avgSpeedMetersPerMin": 530, "stationHaltMinutes": 0.5}
-		},
-		"policies": {
-			"indore_metro_standard": {
-				"network": "mpmrcl_indore",
-				"effectiveFrom": "2024-01-01",
-				"fareModel": "distance_based",
-				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
-				"fareTables": {
-					"weekday": [
-						{"minKm": 0, "maxKm": 2, "fare": 10},
-						{"minKm": 2, "maxKm": 5, "fare": 15},
-						{"minKm": 5, "maxKm": 8, "fare": 20},
-						{"minKm": 8, "maxKm": 12, "fare": 25},
-						{"minKm": 12, "maxKm": 16, "fare": 30},
-						{"minKm": 16, "maxKm": 99, "fare": 40}
-					]
-				},
-				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
-					},
-					"smart_card": {
-						"type": "discount",
-						"baseProduct": "token",
-						"discountPercent": 10,
-						"timeRule": null,
-						"label": {"en": "MPMRCL NCMC Smart Card (10% Off)", "hi": "एमपीएमआरसीएल एनसीएमसी स्मार्ट कार्ड (10% छूट)"}
-					}
-				},
-				"timeRules": null,
-				"stationStayRules": {
-					"sameStationExitFare": 10,
-					"sameStationTimeLimitMinutes": 20,
-					"differentStationTimeLimitMinutes": 120,
-					"overstayPenaltyPerHour": 10,
-					"maxOverstayPenalty": 50
-				}
-			}
-		}
-	}
+  "defaults": {
+    "stationType": "normal",
+    "layout": "elevated"
+  },
+  "lines": {
+    "mpmrcl.yellow": {
+      "id": "mpmrcl.yellow",
+      "network": "mpmrcl",
+      "operator": "MPMRCL",
+      "name": "Yellow Line",
+      "label": "Yellow Line",
+      "color": "#FBC02D",
+      "color_name": "yellow",
+      "route": {
+        "from": "gandhi_nagar",
+        "to": "airport"
+      },
+      "stations": [
+        "gandhi_nagar",
+        "super_corridor",
+        "super_corridor(1)",
+        "super_corridor(2)",
+        "super_corridor(3)",
+        "super_corridor(4)",
+        "super_corridor(5)",
+        "bhawarsala_chauraha",
+        "mr_road",
+        "isbt",
+        "chandragupta_chauraha",
+        "hira_nagar",
+        "bapat_chauraha",
+        "meghdoot_garden",
+        "vijay_nagar_chauraha",
+        "malviya_nagar_chauraha",
+        "shaheed_baghicha",
+        "khajrana_chauraha",
+        "bengali_chauraha",
+        "patrakar_colony",
+        "palasia_chauraha",
+        "railway_station",
+        "rajwada",
+        "chhota_ganpati",
+        "bada_ganpati",
+        "ramchandra_nagar",
+        "bsf_kalani_nagar",
+        "airport"
+      ],
+      "farePolicy": "indore_metro_standard"
+    }
+  },
+  "transfers": {},
+  "stationData": {
+    "gandhi_nagar": {
+      "id": "gandhi_nagar",
+      "name": {
+        "en": "Gandhi Nagar"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "super_corridor",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.738893,
+          "lon": 75.797488
+        }
+      }
+    },
+    "super_corridor": {
+      "id": "super_corridor",
+      "name": {
+        "en": "Super Corridor"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "gandhi_nagar",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "super_corridor(1)",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.74528,
+          "lon": 75.800875
+        }
+      }
+    },
+    "super_corridor(1)": {
+      "id": "super_corridor(1)",
+      "name": {
+        "en": "Super Corridor"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "super_corridor",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "super_corridor(2)",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.753971,
+          "lon": 75.804159
+        }
+      }
+    },
+    "super_corridor(2)": {
+      "id": "super_corridor(2)",
+      "name": {
+        "en": "Super Corridor"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "super_corridor(1)",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "super_corridor(3)",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.763024,
+          "lon": 75.811099
+        }
+      }
+    },
+    "super_corridor(3)": {
+      "id": "super_corridor(3)",
+      "name": {
+        "en": "Super Corridor"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "super_corridor(2)",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "super_corridor(4)",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.77171,
+          "lon": 75.818875
+        }
+      }
+    },
+    "super_corridor(4)": {
+      "id": "super_corridor(4)",
+      "name": {
+        "en": "Super Corridor"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "super_corridor(3)",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "super_corridor(5)",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.778088,
+          "lon": 75.825722
+        }
+      }
+    },
+    "super_corridor(5)": {
+      "id": "super_corridor(5)",
+      "name": {
+        "en": "Super Corridor"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "super_corridor(4)",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "bhawarsala_chauraha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.786583,
+          "lon": 75.837113
+        }
+      }
+    },
+    "bhawarsala_chauraha": {
+      "id": "bhawarsala_chauraha",
+      "name": {
+        "en": "Bhawarsala Chauraha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "super_corridor(5)",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "mr_road",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.78985,
+          "lon": 75.846144
+        }
+      }
+    },
+    "mr_road": {
+      "id": "mr_road",
+      "name": {
+        "en": "Mr Road"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "bhawarsala_chauraha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "isbt",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.782752,
+          "lon": 75.854371
+        }
+      }
+    },
+    "isbt": {
+      "id": "isbt",
+      "name": {
+        "en": "ISBT"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "mr_road",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "chandragupta_chauraha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.769475,
+          "lon": 75.864175
+        }
+      }
+    },
+    "chandragupta_chauraha": {
+      "id": "chandragupta_chauraha",
+      "name": {
+        "en": "Chandragupta Chauraha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "isbt",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "hira_nagar",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.76472,
+          "lon": 75.869862
+        }
+      }
+    },
+    "hira_nagar": {
+      "id": "hira_nagar",
+      "name": {
+        "en": "Hira Nagar"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "chandragupta_chauraha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "bapat_chauraha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.759584,
+          "lon": 75.875693
+        }
+      }
+    },
+    "bapat_chauraha": {
+      "id": "bapat_chauraha",
+      "name": {
+        "en": "Bapat Chauraha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "hira_nagar",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "meghdoot_garden",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.754447,
+          "lon": 75.880199
+        }
+      }
+    },
+    "meghdoot_garden": {
+      "id": "meghdoot_garden",
+      "name": {
+        "en": "Meghdoot Garden"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "bapat_chauraha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "vijay_nagar_chauraha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.752585,
+          "lon": 75.888514
+        }
+      }
+    },
+    "vijay_nagar_chauraha": {
+      "id": "vijay_nagar_chauraha",
+      "name": {
+        "en": "Vijay Nagar Chauraha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "meghdoot_garden",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "malviya_nagar_chauraha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.751288,
+          "lon": 75.894301
+        }
+      }
+    },
+    "malviya_nagar_chauraha": {
+      "id": "malviya_nagar_chauraha",
+      "name": {
+        "en": "Malviya Nagar Chauraha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "vijay_nagar_chauraha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "shaheed_baghicha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.747308,
+          "lon": 75.903245
+        }
+      }
+    },
+    "shaheed_baghicha": {
+      "id": "shaheed_baghicha",
+      "name": {
+        "en": "Shaheed Baghicha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "malviya_nagar_chauraha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "khajrana_chauraha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.739889,
+          "lon": 75.90231
+        }
+      }
+    },
+    "khajrana_chauraha": {
+      "id": "khajrana_chauraha",
+      "name": {
+        "en": "Khajrana Chauraha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "shaheed_baghicha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "bengali_chauraha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.730745,
+          "lon": 75.902756
+        }
+      }
+    },
+    "bengali_chauraha": {
+      "id": "bengali_chauraha",
+      "name": {
+        "en": "Bengali Chauraha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "khajrana_chauraha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "patrakar_colony",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.72055,
+          "lon": 75.902202
+        }
+      }
+    },
+    "patrakar_colony": {
+      "id": "patrakar_colony",
+      "name": {
+        "en": "Patrakar Colony"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "bengali_chauraha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "palasia_chauraha",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.723445,
+          "lon": 75.891773
+        }
+      }
+    },
+    "palasia_chauraha": {
+      "id": "palasia_chauraha",
+      "name": {
+        "en": "Palasia Chauraha"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "patrakar_colony",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "railway_station",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.723535,
+          "lon": 75.885289
+        }
+      }
+    },
+    "railway_station": {
+      "id": "railway_station",
+      "name": {
+        "en": "Railway Station"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "palasia_chauraha",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "rajwada",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.719553,
+          "lon": 75.870171
+        }
+      }
+    },
+    "rajwada": {
+      "id": "rajwada",
+      "name": {
+        "en": "Rajwada"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "railway_station",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "chhota_ganpati",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.721661,
+          "lon": 75.859531
+        }
+      }
+    },
+    "chhota_ganpati": {
+      "id": "chhota_ganpati",
+      "name": {
+        "en": "Chhota Ganpati"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "rajwada",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "bada_ganpati",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.719793,
+          "lon": 75.847426
+        }
+      }
+    },
+    "bada_ganpati": {
+      "id": "bada_ganpati",
+      "name": {
+        "en": "Bada Ganpati"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "chhota_ganpati",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "ramchandra_nagar",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.720851,
+          "lon": 75.840208
+        }
+      }
+    },
+    "ramchandra_nagar": {
+      "id": "ramchandra_nagar",
+      "name": {
+        "en": "Ramchandra Nagar"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "bada_ganpati",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "bsf_kalani_nagar",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.723403,
+          "lon": 75.830768
+        }
+      }
+    },
+    "bsf_kalani_nagar": {
+      "id": "bsf_kalani_nagar",
+      "name": {
+        "en": "Bsf- Kalani Nagar"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "ramchandra_nagar",
+          "line": "mpmrcl.yellow"
+        },
+        {
+          "station": "airport",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.725708,
+          "lon": 75.819857
+        }
+      }
+    },
+    "airport": {
+      "id": "airport",
+      "name": {
+        "en": "Airport"
+      },
+      "lines": [
+        "mpmrcl.yellow"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "bsf_kalani_nagar",
+          "line": "mpmrcl.yellow"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 22.730067,
+          "lon": 75.804818
+        }
+      }
+    }
+  },
+  "fareRules": {
+    "currency": "INR",
+    "networks": {
+      "mpmrcl_indore": {
+        "operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+        "avgSpeedMetersPerMin": 530,
+        "stationHaltMinutes": 0.5
+      }
+    },
+    "policies": {
+      "indore_metro_standard": {
+        "network": "mpmrcl_indore",
+        "effectiveFrom": "2024-01-01",
+        "fareModel": "distance_based",
+        "calculation": {
+          "distanceUnit": "km",
+          "rounding": "nearest"
+        },
+        "fareTables": {
+          "weekday": [
+            {
+              "minKm": 0,
+              "maxKm": 2,
+              "fare": 10
+            },
+            {
+              "minKm": 2,
+              "maxKm": 5,
+              "fare": 15
+            },
+            {
+              "minKm": 5,
+              "maxKm": 8,
+              "fare": 20
+            },
+            {
+              "minKm": 8,
+              "maxKm": 12,
+              "fare": 25
+            },
+            {
+              "minKm": 12,
+              "maxKm": 16,
+              "fare": 30
+            },
+            {
+              "minKm": 16,
+              "maxKm": 99,
+              "fare": 40
+            }
+          ]
+        },
+        "products": {
+          "token": {
+            "type": "base",
+            "label": {
+              "en": "Single Journey Token / Paper QR",
+              "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+            }
+          },
+          "smart_card": {
+            "type": "discount",
+            "baseProduct": "token",
+            "discountPercent": 10,
+            "timeRule": null,
+            "label": {
+              "en": "MPMRCL NCMC Smart Card (10% Off)",
+              "hi": "एमपीएमआरसीएल एनसीएमसी स्मार्ट कार्ड (10% छूट)"
+            }
+          }
+        },
+        "timeRules": null,
+        "stationStayRules": {
+          "sameStationExitFare": 10,
+          "sameStationTimeLimitMinutes": 20,
+          "differentStationTimeLimitMinutes": 120,
+          "overstayPenaltyPerHour": 10,
+          "maxOverstayPenalty": 50
+        }
+      }
+    }
+  }
 }

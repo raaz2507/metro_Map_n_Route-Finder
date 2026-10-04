@@ -163,12 +163,27 @@ class ProductionEmitter:
 					if not base_net.get("lines") and auto_lines:
 						base_net["lines"] = auto_lines
 						updated = True
+					elif auto_lines:
+						for al_id, al_val in auto_lines.items():
+							if al_id not in base_net.setdefault("lines", {}):
+								base_net["lines"][al_id] = al_val
+								updated = True
 					if not base_net.get("transfers") and auto_transfers:
 						base_net["transfers"] = auto_transfers
 						updated = True
 					if not base_net.get("fareRules") and auto_fares:
 						base_net["fareRules"] = auto_fares
 						updated = True
+
+					# ऑटो-लिंकिंग: यदि किसी लाइन में farePolicy मिसिंग है, तो उपलब्ध पॉलिसी से लिंक करें
+					avail_policies = list(base_net.get("fareRules", {}).get("policies", {}).keys())
+					if avail_policies and "lines" in base_net:
+						def_policy = avail_policies[0]
+						for l_obj in base_net["lines"].values():
+							if not l_obj.get("farePolicy"):
+								l_obj["farePolicy"] = def_policy
+								updated = True
+
 					if updated:
 						UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_net, compact=True)
 						UniversalPipelineLogger.log("PROMOTE", f"Updated base transit network with lines/transfers/fares: {transit_base_file.name}")

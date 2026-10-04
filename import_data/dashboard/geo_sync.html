@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Geo-Coordinate Audit &amp; Selective Sync | Metro Audit Hub</title>
+	<link rel="stylesheet" href="./css/pages/geo_sync.css">
+</head>
+<body class="app-body">
+	<header id="globalHeader"></header>
+
+	<div class="geo-viewport">
+		<!-- HEADER CARD & CONTROLS -->
+		<div class="geo-header-card">
+			<div class="geo-title-row">
+				<div class="geo-title-group">
+					<h2><span>🌐</span> Geo-Coordinate Visual Audit &amp; Selective Sync</h2>
+					<p>Inspect coordinate drift against 100% verified Google Maps ground-truth. Selectively apply updates with Zero Blast Radius.</p>
+				</div>
+				<div class="geo-actions-cluster">
+					<button id="btnApplySelected" class="btn-geo-primary" disabled>
+						<span>🚀 Apply Selected to Production (<span id="selectedCountBadge">0</span>)</span>
+					</button>
+				</div>
+			</div>
+
+			<!-- CONTROLS & FILTER BAR -->
+			<div class="geo-controls-bar">
+				<div class="geo-filter-cluster">
+					<label for="citySelect" style="font-size: var(--fs-xs); color: var(--text-muted); font-weight: bold;">CITY / NETWORK:</label>
+					<select id="citySelect" class="geo-city-select">
+						<option value="">Loading cities...</option>
+					</select>
+
+					<label for="compareModeSelect" style="font-size: var(--fs-xs); color: var(--text-muted); font-weight: bold; margin-left: var(--space-xs);">COMPARE MODE:</label>
+					<select id="compareModeSelect" class="geo-city-select">
+						<option value="base_vs_google">📍 Base Production vs Google Maps (Verified)</option>
+						<option value="base_vs_agency">🏛️ Base Production vs Agency Master</option>
+						<option value="google_vs_agency">⚖️ Google Maps vs Agency Master</option>
+					</select>
+
+					<label for="applySourceSelect" style="font-size: var(--fs-xs); color: var(--text-muted); font-weight: bold; margin-left: var(--space-xs);">PUSH TO BASE:</label>
+					<select id="applySourceSelect" class="geo-city-select">
+						<option value="google">🌐 Push Google Coords (Recommended)</option>
+						<option value="agency">🏛️ Push Agency Coords</option>
+					</select>
+
+					<input type="text" id="searchInput" class="geo-search-input" placeholder="🔍 Search station name or ID...">
+
+					<label for="statusFilter" style="font-size: var(--fs-xs); color: var(--text-muted); font-weight: bold; margin-left: var(--space-xs);">FILTER:</label>
+					<select id="statusFilter" class="geo-city-select">
+						<option value="ALL">All Stations</option>
+						<option value="ISSUES">All Drifts / Corrupted (Non-Matches)</option>
+						<option value="CRITICAL">Critical Only (> 5 km)</option>
+						<option value="MODERATE">Moderate (0.5 - 5 km)</option>
+						<option value="OFFSET">Minor Offset (50m - 500m)</option>
+						<option value="MATCH">Exact Matches (<= 50m)</option>
+					</select>
+				</div>
+
+				<div class="geo-filter-cluster">
+					<button id="btnSelectAllIssues" class="btn-geo-secondary">✓ Select All Drifts</button>
+					<button id="btnSelectAllVisible" class="btn-geo-secondary">✓ Select Visible</button>
+					<button id="btnDeselectAll" class="btn-geo-secondary">✕ Deselect All</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- METRICS STATS BAR -->
+		<div class="geo-stats-grid">
+			<div class="geo-stat-card stat-critical">
+				<span class="geo-stat-val" id="statCritical">-</span>
+				<span class="geo-stat-label">Critical Corruptions (>5km)</span>
+			</div>
+			<div class="geo-stat-card stat-moderate">
+				<span class="geo-stat-val" id="statModerate">-</span>
+				<span class="geo-stat-label">Moderate Drift (0.5 - 5km)</span>
+			</div>
+			<div class="geo-stat-card stat-offset">
+				<span class="geo-stat-val" id="statOffset">-</span>
+				<span class="geo-stat-label">Minor Gate Shift (50 - 500m)</span>
+			</div>
+			<div class="geo-stat-card stat-match">
+				<span class="geo-stat-val" id="statMatch">-</span>
+				<span class="geo-stat-label">Exact Match (<= 50m)</span>
+			</div>
+		</div>
+
+		<!-- AUDIT TABLE -->
+		<div class="geo-table-wrap">
+			<table class="geo-table">
+				<thead>
+					<tr>
+						<th style="width: 40px; text-align: center;">
+							<input type="checkbox" id="masterCheckbox" title="Toggle visible selection">
+						</th>
+						<th>Station Name</th>
+						<th>Station ID</th>
+						<th id="thLeftHeader">Left Source (Lat, Lon)</th>
+						<th id="thRightHeader">Right Source (Lat, Lon)</th>
+						<th>Drift Distance</th>
+						<th>Audit Status</th>
+						<th>Google Map</th>
+					</tr>
+				</thead>
+				<tbody id="geoTableBody">
+					<tr>
+						<td colspan="8" class="empty-state">Select a city to start coordinate audit.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<footer id="globalFooter"></footer>
+
+	<script type="module" src="./js/pages/geo_sync.js"></script>
+</body>
+</html>

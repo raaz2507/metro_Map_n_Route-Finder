@@ -24,12 +24,14 @@ class StationDeltaDiffEngine:
 		cls,
 		base_stations: Dict[str, Any],
 		candidate_master: Dict[str, Any],
-		reconciler: Optional[UniversalSlugReconciler] = None
+		reconciler: Optional[UniversalSlugReconciler] = None,
+		geo_source: str = "keep_base",
+		google_coords: Optional[Dict[str, Any]] = None
 	) -> Tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
 		"""
 		Returns:
 		  1. station_details_delta: Sparse delta overlay (~15-40 KB)
-		  2. transit_network_delta: Graph additions for newly discovered stations
+		  2. transit_network_delta: Graph additions for newly discovered stations & geo updates
 		  3. audit_summary: Metrics on additions and field mutations
 		"""
 		iso_timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds") + "Z"
@@ -101,6 +103,34 @@ class StationDeltaDiffEngine:
 				if cls._is_field_modified(base_val, cand_val, field_name=field):
 					station_patch[field] = cand_val
 					changed_keys.append(field)
+
+			# Case B.2: Geo-source Strategy Handling
+			if geo_source == "google" and google_coords and slug in google_coords:
+				g_rec = google_coords[slug]
+				g_coords_val = g_rec.get("coordinates", {})
+				if g_coords_val.get("lat") and g_coords_val.get("lon"):
+					cur_loc = base_stn.get("location", {})
+					cur_dec = cur_loc.get("decimal") if isinstance(cur_loc, dict) else {}
+					c_lat = cur_dec.get("lat") if isinstance(cur_dec, dict) else None
+					c_lon = cur_dec.get("lon") if isinstance(cur_dec, dict) else None
+					g_lat, g_lon = g_coords_val["lat"], g_coords_val["lon"]
+					
+					# Update if coords missing, lat==lon corruption, or diff > 0.0001
+					if c_lat is None or c_lon is None or abs(c_lat - c_lon) < 0.0001 or abs(c_lat - g_lat) > 0.0001 or abs(c_lon - g_lon) > 0.0001:
+						loc_patch = {
+							"decimal": {"lat": g_lat, "lon": g_lon}
+						}
+						station_patch["location"] = loc_patch
+						changed_keys.append("location")
+						new_stations_graph.setdefault(slug, {})["location"] = loc_patch
+			elif geo_source == "agency":
+				cand_loc = cand_stn.get("location")
+				if cand_loc and isinstance(cand_loc, dict) and cand_loc.get("decimal"):
+					base_loc = base_stn.get("location")
+					if cls._is_field_modified(base_loc, cand_loc, field_name="location"):
+						station_patch["location"] = cand_loc
+						changed_keys.append("location")
+						new_stations_graph.setdefault(slug, {})["location"] = cand_loc
 
 			if changed_keys:
 				modified_count += 1

@@ -1,287 +1,798 @@
 {
-	"defaults": {"stationType": "normal", "layout": "elevated"},
-	"lines": {
-		"upmrc.red": {
-			"id": "upmrc.red",
-			"network": "lucknow_metro",
-			"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
-			"label": "R",
-			"short_name": {"en": "Red Line", "hi": "रेड लाइन"},
-			"color": "#D32F2F",
-			"color_name": "red",
-			"style": "solid",
-			"route": {"from": "ccs_airport", "to": "munshipulia"},
-			"stations": [
-				"ccs_airport",
-				"amausi",
-				"transport_nagar",
-				"krishna_nagar",
-				"singar_nagar",
-				"alambagh",
-				"alambagh_bus_stand",
-				"mawaiya",
-				"durgapuri",
-				"charbagh",
-				"hussainganj",
-				"sachivalaya",
-				"hazratganj",
-				"kd_singh_babu_stadium",
-				"vishvavidyalaya",
-				"it_college",
-				"badshah_nagar",
-				"lekhraj_market",
-				"bhootnath_market",
-				"indira_nagar",
-				"munshipulia"
-			]
-		}
-	},
-	"transfers": {},
-	"stationData": {
-		"ccs_airport": {
-			"id": "ccs_airport",
-			"name": {"en": "CCS Airport", "hi": "चौधरी चरण सिंह हवाई अड्डा मेट्रो स्टेशन"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "underground", "status": "operational"},
-			"neighbors": [{"station": "amausi", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.766253, "lon": 80.882198}}
-		},
-		"amausi": {
-			"id": "amausi",
-			"name": {"en": "Amausi", "hi": "अमौसी"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "ccs_airport", "line": "upmrc.red"}, {"station": "transport_nagar", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.77137, "lon": 80.87868}}
-		},
-		"transport_nagar": {
-			"id": "transport_nagar",
-			"name": {"en": "Transport Nagar", "hi": "ट्रांसपोर्ट नगर"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "amausi", "line": "upmrc.red"}, {"station": "krishna_nagar", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.77788, "lon": 80.88259}}
-		},
-		"krishna_nagar": {
-			"id": "krishna_nagar",
-			"name": {"en": "Krishna Nagar", "hi": "कृष्णा नगर"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "transport_nagar", "line": "upmrc.red"}, {"station": "singar_nagar", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.794395, "lon": 80.891714}}
-		},
-		"singar_nagar": {
-			"id": "singar_nagar",
-			"name": {"en": "Singar Nagar", "hi": "सिंगर नगर‌"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "krishna_nagar", "line": "upmrc.red"}, {"station": "alambagh", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.80311, "lon": 80.89638}}
-		},
-		"alambagh": {
-			"id": "alambagh",
-			"name": {"en": "Alambagh", "hi": "आलमबाग"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "singar_nagar", "line": "upmrc.red"}, {"station": "alambagh_bus_stand", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.81395, "lon": 80.90243}}
-		},
-		"alambagh_bus_stand": {
-			"id": "alambagh_bus_stand",
-			"name": {"en": "Alambagh Bus Stand", "hi": "आलमबाग बस स्टैंड"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "alambagh", "line": "upmrc.red"}, {"station": "mawaiya", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.81852, "lon": 80.90742}}
-		},
-		"mawaiya": {
-			"id": "mawaiya",
-			"name": {"en": "Mawaiya", "hi": "मवैया"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "alambagh_bus_stand", "line": "upmrc.red"}, {"station": "durgapuri", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.82535, "lon": 80.90989}}
-		},
-		"durgapuri": {
-			"id": "durgapuri",
-			"name": {"en": "Durgapuri", "hi": "दुर्गापुरी"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "mawaiya", "line": "upmrc.red"}, {"station": "charbagh", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8319795432, "lon": 80.9153831272}}
-		},
-		"charbagh": {
-			"id": "charbagh",
-			"name": {"en": "Charbagh", "hi": "चारबाग"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "durgapuri", "line": "upmrc.red"}, {"station": "hussainganj", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.83238, "lon": 80.92315}}
-		},
-		"hussainganj": {
-			"id": "hussainganj",
-			"name": {"en": "Hussainganj", "hi": "हुसैनगंज"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "underground", "status": "operational"},
-			"neighbors": [{"station": "charbagh", "line": "upmrc.red"}, {"station": "sachivalaya", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8726754, "lon": 80.9918563}}
-		},
-		"sachivalaya": {
-			"id": "sachivalaya",
-			"name": {"en": "Sachivalaya", "hi": "सचिवालय"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "underground", "status": "operational"},
-			"neighbors": [{"station": "hussainganj", "line": "upmrc.red"}, {"station": "hazratganj", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8420469569, "lon": 80.9408293989}}
-		},
-		"hazratganj": {
-			"id": "hazratganj",
-			"name": {"en": "Hazratganj", "hi": "हजरतगंज"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "underground", "status": "operational"},
-			"neighbors": [{"station": "sachivalaya", "line": "upmrc.red"}, {"station": "kd_singh_babu_stadium", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.849086, "lon": 80.942796}}
-		},
-		"kd_singh_babu_stadium": {
-			"id": "kd_singh_babu_stadium",
-			"name": {"en": "KD Singh Babu Stadium", "hi": "के डी सिंह बाबू स्टेडियम"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "hazratganj", "line": "upmrc.red"}, {"station": "vishvavidyalaya", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8539994753, "lon": 80.9369457296}}
-		},
-		"vishvavidyalaya": {
-			"id": "vishvavidyalaya",
-			"name": {"en": "Vishvavidyalaya", "hi": "विश्वविद्यालय"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "kd_singh_babu_stadium", "line": "upmrc.red"}, {"station": "it_college", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8654926565, "lon": 80.9395927981}}
-		},
-		"it_college": {
-			"id": "it_college",
-			"name": {"en": "IT College", "hi": "आईटी कॉलेज"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "vishvavidyalaya", "line": "upmrc.red"}, {"station": "badshah_nagar", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8710134536, "lon": 80.9456395251}}
-		},
-		"badshah_nagar": {
-			"id": "badshah_nagar",
-			"name": {"en": "Badshah Nagar", "hi": "बादशाह नगर"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "it_college", "line": "upmrc.red"}, {"station": "lekhraj_market", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8707654488, "lon": 80.9614467777}}
-		},
-		"lekhraj_market": {
-			"id": "lekhraj_market",
-			"name": {"en": "Lekhraj Market", "hi": "लेखराज मार्केट"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "badshah_nagar", "line": "upmrc.red"}, {"station": "bhootnath_market", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8708650271, "lon": 80.9737782557}}
-		},
-		"bhootnath_market": {
-			"id": "bhootnath_market",
-			"name": {"en": "Bhootnath Market", "hi": "भूतनाथ मार्केट"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "lekhraj_market", "line": "upmrc.red"}, {"station": "indira_nagar", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8722728513, "lon": 80.9825044468}}
-		},
-		"indira_nagar": {
-			"id": "indira_nagar",
-			"name": {"en": "Indira Nagar", "hi": "इंदिरा नगर"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "bhootnath_market", "line": "upmrc.red"}, {"station": "munshipulia", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.8727587729, "lon": 80.9910101665}}
-		},
-		"munshipulia": {
-			"id": "munshipulia",
-			"name": {"en": "Munshipulia", "hi": "मुंशी पुलिया"},
-			"lines": ["upmrc.red"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "indira_nagar", "line": "upmrc.red"}],
-			"platforms": {},
-			"location": {"decimal": {"lat": 26.88792, "lon": 80.99593}}
-		}
-	},
-	"fareRules": {
-		"currency": "INR",
-		"networks": {
-			"upmrc_lucknow": {"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
-		},
-		"policies": {
-			"lucknow_metro_standard": {
-				"network": "upmrc_lucknow",
-				"effectiveFrom": "2017-09-06",
-				"fareModel": "station_count_based",
-				"calculation": {"distanceUnit": "stations", "rounding": "exact"},
-				"fareTables": {
-					"weekday": [
-						{"minStations": 1, "maxStations": 1, "fare": 10},
-						{"minStations": 2, "maxStations": 2, "fare": 15},
-						{"minStations": 3, "maxStations": 6, "fare": 20},
-						{"minStations": 7, "maxStations": 9, "fare": 30},
-						{"minStations": 10, "maxStations": 13, "fare": 40},
-						{"minStations": 14, "maxStations": 17, "fare": 50},
-						{"minStations": 18, "maxStations": 99, "fare": 60}
-					]
-				},
-				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
-					},
-					"smart_card": {
-						"type": "discount",
-						"baseProduct": "token",
-						"discountPercent": 10,
-						"timeRule": null,
-						"label": {"en": "GoSmart / NCMC Card (10% Off)", "hi": "गो-स्मार्ट / एनसीएमसी कार्ड (10% छूट)"}
-					},
-					"tourist_card_1day": {
-						"type": "pass",
-						"price": 100,
-						"label": {"en": "1-Day Tourist Card (₹100)", "hi": "1-दिवसीय टूरिस्ट कार्ड (₹100)"}
-					},
-					"tourist_card_3day": {
-						"type": "pass",
-						"price": 250,
-						"label": {"en": "3-Day Tourist Card (₹250)", "hi": "3-दिवसीय टूरिस्ट कार्ड (₹250)"}
-					}
-				},
-				"timeRules": null,
-				"stationStayRules": {
-					"sameStationExitFare": 10,
-					"sameStationTimeLimitMinutes": 20,
-					"differentStationTimeLimitMinutes": 120,
-					"overstayPenaltyPerHour": 10,
-					"maxOverstayPenalty": 50
-				}
-			}
-		}
-	}
+  "defaults": {
+    "stationType": "normal",
+    "layout": "elevated"
+  },
+  "lines": {
+    "upmrc.red": {
+      "id": "upmrc.red",
+      "network": "lucknow_metro",
+      "operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
+      "label": "R",
+      "short_name": {
+        "en": "Red Line",
+        "hi": "रेड लाइन"
+      },
+      "color": "#D32F2F",
+      "color_name": "red",
+      "style": "solid",
+      "route": {
+        "from": "ccs_airport",
+        "to": "munshipulia"
+      },
+      "stations": [
+        "ccs_airport",
+        "amausi",
+        "transport_nagar",
+        "krishna_nagar",
+        "singar_nagar",
+        "alambagh",
+        "alambagh_bus_stand",
+        "mawaiya",
+        "durgapuri",
+        "charbagh",
+        "hussainganj",
+        "sachivalaya",
+        "hazratganj",
+        "kd_singh_babu_stadium",
+        "vishvavidyalaya",
+        "it_college",
+        "badshah_nagar",
+        "lekhraj_market",
+        "bhootnath_market",
+        "indira_nagar",
+        "munshipulia"
+      ],
+      "farePolicy": "lucknow_metro_standard"
+    }
+  },
+  "transfers": {},
+  "stationData": {
+    "ccs_airport": {
+      "id": "ccs_airport",
+      "name": {
+        "en": "CCS Airport",
+        "hi": "चौधरी चरण सिंह हवाई अड्डा मेट्रो स्टेशन"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "underground",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "amausi",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.766253,
+          "lon": 80.882198
+        }
+      }
+    },
+    "amausi": {
+      "id": "amausi",
+      "name": {
+        "en": "Amausi",
+        "hi": "अमौसी"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "ccs_airport",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "transport_nagar",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.77137,
+          "lon": 80.87868
+        }
+      }
+    },
+    "transport_nagar": {
+      "id": "transport_nagar",
+      "name": {
+        "en": "Transport Nagar",
+        "hi": "ट्रांसपोर्ट नगर"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "amausi",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "krishna_nagar",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.77788,
+          "lon": 80.88259
+        }
+      }
+    },
+    "krishna_nagar": {
+      "id": "krishna_nagar",
+      "name": {
+        "en": "Krishna Nagar",
+        "hi": "कृष्णा नगर"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "transport_nagar",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "singar_nagar",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.794395,
+          "lon": 80.891714
+        }
+      }
+    },
+    "singar_nagar": {
+      "id": "singar_nagar",
+      "name": {
+        "en": "Singar Nagar",
+        "hi": "सिंगर नगर‌"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "krishna_nagar",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "alambagh",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.80311,
+          "lon": 80.89638
+        }
+      }
+    },
+    "alambagh": {
+      "id": "alambagh",
+      "name": {
+        "en": "Alambagh",
+        "hi": "आलमबाग"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "singar_nagar",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "alambagh_bus_stand",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.81395,
+          "lon": 80.90243
+        }
+      }
+    },
+    "alambagh_bus_stand": {
+      "id": "alambagh_bus_stand",
+      "name": {
+        "en": "Alambagh Bus Stand",
+        "hi": "आलमबाग बस स्टैंड"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "alambagh",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "mawaiya",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.81852,
+          "lon": 80.90742
+        }
+      }
+    },
+    "mawaiya": {
+      "id": "mawaiya",
+      "name": {
+        "en": "Mawaiya",
+        "hi": "मवैया"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "alambagh_bus_stand",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "durgapuri",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.82535,
+          "lon": 80.90989
+        }
+      }
+    },
+    "durgapuri": {
+      "id": "durgapuri",
+      "name": {
+        "en": "Durgapuri",
+        "hi": "दुर्गापुरी"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "mawaiya",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "charbagh",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8319795432,
+          "lon": 80.9153831272
+        }
+      }
+    },
+    "charbagh": {
+      "id": "charbagh",
+      "name": {
+        "en": "Charbagh",
+        "hi": "चारबाग"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "durgapuri",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "hussainganj",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.83238,
+          "lon": 80.92315
+        }
+      }
+    },
+    "hussainganj": {
+      "id": "hussainganj",
+      "name": {
+        "en": "Hussainganj",
+        "hi": "हुसैनगंज"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "underground",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "charbagh",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "sachivalaya",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8726754,
+          "lon": 80.9918563
+        }
+      }
+    },
+    "sachivalaya": {
+      "id": "sachivalaya",
+      "name": {
+        "en": "Sachivalaya",
+        "hi": "सचिवालय"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "underground",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "hussainganj",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "hazratganj",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8420469569,
+          "lon": 80.9408293989
+        }
+      }
+    },
+    "hazratganj": {
+      "id": "hazratganj",
+      "name": {
+        "en": "Hazratganj",
+        "hi": "हजरतगंज"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "underground",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "sachivalaya",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "kd_singh_babu_stadium",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.849086,
+          "lon": 80.942796
+        }
+      }
+    },
+    "kd_singh_babu_stadium": {
+      "id": "kd_singh_babu_stadium",
+      "name": {
+        "en": "KD Singh Babu Stadium",
+        "hi": "के डी सिंह बाबू स्टेडियम"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "hazratganj",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "vishvavidyalaya",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8539994753,
+          "lon": 80.9369457296
+        }
+      }
+    },
+    "vishvavidyalaya": {
+      "id": "vishvavidyalaya",
+      "name": {
+        "en": "Vishvavidyalaya",
+        "hi": "विश्वविद्यालय"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "kd_singh_babu_stadium",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "it_college",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8654926565,
+          "lon": 80.9395927981
+        }
+      }
+    },
+    "it_college": {
+      "id": "it_college",
+      "name": {
+        "en": "IT College",
+        "hi": "आईटी कॉलेज"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "vishvavidyalaya",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "badshah_nagar",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8710134536,
+          "lon": 80.9456395251
+        }
+      }
+    },
+    "badshah_nagar": {
+      "id": "badshah_nagar",
+      "name": {
+        "en": "Badshah Nagar",
+        "hi": "बादशाह नगर"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "it_college",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "lekhraj_market",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8707654488,
+          "lon": 80.9614467777
+        }
+      }
+    },
+    "lekhraj_market": {
+      "id": "lekhraj_market",
+      "name": {
+        "en": "Lekhraj Market",
+        "hi": "लेखराज मार्केट"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "badshah_nagar",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "bhootnath_market",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8708650271,
+          "lon": 80.9737782557
+        }
+      }
+    },
+    "bhootnath_market": {
+      "id": "bhootnath_market",
+      "name": {
+        "en": "Bhootnath Market",
+        "hi": "भूतनाथ मार्केट"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "lekhraj_market",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "indira_nagar",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8722728513,
+          "lon": 80.9825044468
+        }
+      }
+    },
+    "indira_nagar": {
+      "id": "indira_nagar",
+      "name": {
+        "en": "Indira Nagar",
+        "hi": "इंदिरा नगर"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "bhootnath_market",
+          "line": "upmrc.red"
+        },
+        {
+          "station": "munshipulia",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.8727587729,
+          "lon": 80.9910101665
+        }
+      }
+    },
+    "munshipulia": {
+      "id": "munshipulia",
+      "name": {
+        "en": "Munshipulia",
+        "hi": "मुंशी पुलिया"
+      },
+      "lines": [
+        "upmrc.red"
+      ],
+      "properties": {
+        "layout": "elevated",
+        "status": "operational"
+      },
+      "neighbors": [
+        {
+          "station": "indira_nagar",
+          "line": "upmrc.red"
+        }
+      ],
+      "platforms": {},
+      "location": {
+        "decimal": {
+          "lat": 26.88792,
+          "lon": 80.99593
+        }
+      }
+    }
+  },
+  "fareRules": {
+    "currency": "INR",
+    "networks": {
+      "upmrc_lucknow": {
+        "operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
+        "avgSpeedMetersPerMin": 550,
+        "stationHaltMinutes": 0.5
+      }
+    },
+    "policies": {
+      "lucknow_metro_standard": {
+        "network": "upmrc_lucknow",
+        "effectiveFrom": "2017-09-06",
+        "fareModel": "station_count_based",
+        "calculation": {
+          "distanceUnit": "stations",
+          "rounding": "exact"
+        },
+        "fareTables": {
+          "weekday": [
+            {
+              "minStations": 1,
+              "maxStations": 1,
+              "fare": 10
+            },
+            {
+              "minStations": 2,
+              "maxStations": 2,
+              "fare": 15
+            },
+            {
+              "minStations": 3,
+              "maxStations": 6,
+              "fare": 20
+            },
+            {
+              "minStations": 7,
+              "maxStations": 9,
+              "fare": 30
+            },
+            {
+              "minStations": 10,
+              "maxStations": 13,
+              "fare": 40
+            },
+            {
+              "minStations": 14,
+              "maxStations": 17,
+              "fare": 50
+            },
+            {
+              "minStations": 18,
+              "maxStations": 99,
+              "fare": 60
+            }
+          ]
+        },
+        "products": {
+          "token": {
+            "type": "base",
+            "label": {
+              "en": "Single Journey Token / Paper QR",
+              "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
+            }
+          },
+          "smart_card": {
+            "type": "discount",
+            "baseProduct": "token",
+            "discountPercent": 10,
+            "timeRule": null,
+            "label": {
+              "en": "GoSmart / NCMC Card (10% Off)",
+              "hi": "गो-स्मार्ट / एनसीएमसी कार्ड (10% छूट)"
+            }
+          },
+          "tourist_card_1day": {
+            "type": "pass",
+            "price": 100,
+            "label": {
+              "en": "1-Day Tourist Card (₹100)",
+              "hi": "1-दिवसीय टूरिस्ट कार्ड (₹100)"
+            }
+          },
+          "tourist_card_3day": {
+            "type": "pass",
+            "price": 250,
+            "label": {
+              "en": "3-Day Tourist Card (₹250)",
+              "hi": "3-दिवसीय टूरिस्ट कार्ड (₹250)"
+            }
+          }
+        },
+        "timeRules": null,
+        "stationStayRules": {
+          "sameStationExitFare": 10,
+          "sameStationTimeLimitMinutes": 20,
+          "differentStationTimeLimitMinutes": 120,
+          "overstayPenaltyPerHour": 10,
+          "maxOverstayPenalty": 50
+        }
+      }
+    }
+  }
 }

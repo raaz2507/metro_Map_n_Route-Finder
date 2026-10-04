@@ -95,7 +95,9 @@
 	/* 3D Coach Card Stage */
 	.real-coach-card {
 		position: relative;
-		width: var(--coach-w);
+		width: 100%;
+		max-width: 260px;
+		justify-self: center;
 		flex-shrink: 0;
 		cursor: pointer;
 		text-decoration: none;
@@ -157,13 +159,21 @@
 
 	.train-track-row {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(var(--coach-w), 1fr));
-		gap: var(--row-gap) var(--space-md);
-		padding: var(--space-lg) var(--space-sm);
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--row-gap) var(--space-xs);
+		padding: var(--space-lg) var(--space-2xs);
 		position: relative;
 		background-image: url("../../assets/images/metro_track.svg");
 		background-size: 20px var(--step-h);
 		background-position: 0 0;
 		background-repeat: repeat;
+	}
+
+	@media (min-width: 768px) {
+		.train-track-row {
+			grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+			gap: var(--row-gap) var(--space-md);
+			padding: var(--space-lg) var(--space-sm);
+		}
 	}
 } /* End @layer components */

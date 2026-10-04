@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>City Data Explorer | Metro Audit Hub</title>
+	<!-- Pure Modular CSS Architecture (Zero CDN Dependencies) -->
+	<link rel="stylesheet" href="./css/pages/city_explorer.css">
+</head>
+<body class="app-body">
+
+	<!-- TOP STICKY HEADER (UNIFIED HEADER COMPONENT) -->
+	<header id="globalHeader"></header>
+
+	<main class="main-viewport custom-scrollbar">
+
+		<!-- ── TOOLBAR BAR ── -->
+		<div class="explorer-toolbar">
+			<div class="explorer-toolbar-left">
+				<!-- City Selector -->
+				<div class="toolbar-group">
+					<label class="toolbar-label">🏙️ City</label>
+					<select id="citySelect" class="toolbar-select">
+						<option value="">Loading cities…</option>
+					</select>
+				</div>
+
+				<!-- Data File Selector -->
+				<div class="toolbar-group">
+					<label class="toolbar-label">📄 File</label>
+					<div class="file-tab-group" id="fileTabGroup">
+						<button class="file-tab active" data-file="transit_network">🚇 Transit Network</button>
+						<button class="file-tab" data-file="station_details">🏛️ Station Details</button>
+					</div>
+				</div>
+
+				<!-- Search -->
+				<div class="toolbar-group toolbar-search-group">
+					<label class="toolbar-label">🔍 Search</label>
+					<input type="text" id="searchInput" class="toolbar-search" placeholder="Search stations, lines, keys…">
+				</div>
+
+				<!-- Section Filter -->
+				<div class="toolbar-group">
+					<label class="toolbar-label">📂 Section</label>
+					<select id="sectionSelect" class="toolbar-select">
+						<option value="stationData">Station Data (Nodes)</option>
+						<option value="lines">Lines Registry</option>
+						<option value="fareRules">Fare Rules</option>
+						<option value="transfers">Transfers</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="explorer-toolbar-right">
+				<!-- Stats Pill -->
+				<div id="statsBar" class="stats-pill hidden">
+					<span id="statRows" class="stat-item stat-cyan"></span>
+					<span class="stat-sep">•</span>
+					<span id="statCols" class="stat-item stat-emerald"></span>
+					<span class="stat-sep">•</span>
+					<span id="statFiltered" class="stat-item stat-amber"></span>
+				</div>
+
+				<!-- Export Button -->
+				<button id="btnExport" class="btn-export hidden">
+					<img src="./assets/icons/ui/download.svg" class="icon-xs icon-white" alt="Export">
+					<span>Export CSV</span>
+				</button>
+			</div>
+		</div>
+
+		<!-- ── KPI SUMMARY STRIP ── -->
+		<div class="kpi-strip" id="kpiStrip">
+			<div class="kpi-mini-card" id="kpiNetworks">
+				<div class="kpi-mini-label">Networks</div>
+				<div class="kpi-mini-val text-indigo">—</div>
+			</div>
+			<div class="kpi-mini-card" id="kpiLines">
+				<div class="kpi-mini-label">Lines</div>
+				<div class="kpi-mini-val text-cyan">—</div>
+			</div>
+			<div class="kpi-mini-card" id="kpiStations">
+				<div class="kpi-mini-label">Stations</div>
+				<div class="kpi-mini-val text-emerald">—</div>
+			</div>
+			<div class="kpi-mini-card" id="kpiInterchanges">
+				<div class="kpi-mini-label">Interchanges</div>
+				<div class="kpi-mini-val text-amber">—</div>
+			</div>
+			<div class="kpi-mini-card" id="kpiFareModel">
+				<div class="kpi-mini-label">Fare Model</div>
+				<div class="kpi-mini-val text-rose">—</div>
+			</div>
+			<div class="kpi-mini-card" id="kpiCurrency">
+				<div class="kpi-mini-label">Currency</div>
+				<div class="kpi-mini-val text-indigo">—</div>
+			</div>
+		</div>
+
+		<!-- ── MAIN SPREADSHEET TABLE ── -->
+		<div class="content-body">
+			<div class="explorer-table-card" id="explorerTableCard">
+				<!-- Loading State -->
+				<div class="explorer-empty-state" id="explorerEmptyState">
+					<img src="./assets/icons/ui/matrix.svg" class="icon-md icon-indigo" alt="Select City">
+					<h3>Select a city to explore data</h3>
+					<p>Choose a city and section from the toolbar above to view the spreadsheet.</p>
+				</div>
+
+				<!-- Loading Spinner -->
+				<div class="explorer-loading hidden" id="explorerLoading">
+					<img src="./assets/icons/ui/sync.svg" class="icon-md icon-spin icon-cyan" alt="Loading">
+					<span>Loading data from JSON files…</span>
+				</div>
+
+				<!-- The Table Container (sticky headers, frozen first column) -->
+				<div class="excel-table-wrapper custom-scrollbar" id="excelTableWrapper" style="display:none;">
+					<table class="excel-table" id="excelTable">
+						<thead id="excelThead"></thead>
+						<tbody id="excelTbody"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- GLOBAL FOOTER -->
+	<footer id="globalFooter"></footer>
+
+	<!-- GLOBAL TOAST CONTAINER -->
+	<div id="toastContainer" class="toast-stack-container"></div>
+
+	<script type="module" src="./js/pages/city_explorer.js"></script>
+</body>
+</html>

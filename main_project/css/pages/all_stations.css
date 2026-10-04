@@ -113,10 +113,16 @@ ALL STATIONS DIRECTORY & CONTROLS LAYOUT (@layer components)
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
 		border-radius: var(--radius-lg);
 		border: 1px solid var(--border-color);
-		padding: var(--space-xl) var(--space-lg) var(--space-2xl) var(--space-lg);
+		padding: var(--space-lg) var(--space-xs) var(--space-xl) var(--space-xs);
 		margin-bottom: var(--space-xl);
 		color: var(--text-primary);
 		box-shadow: var(--shadow-md);
+	}
+
+	@media (min-width: 768px) {
+		.line-directory-section {
+			padding: var(--space-xl) var(--space-lg) var(--space-2xl) var(--space-lg);
+		}
 	}
 
 	.line-section-header {

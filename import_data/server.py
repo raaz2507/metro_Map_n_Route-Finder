@@ -431,6 +431,366 @@ def api_bridge_merge_station(city: str, station: str):
     return {"success": True, "merged": merged, "station": station}
 
 # -------------------------------------------------------------------------
+# GEO-COORDINATE AUDIT & SELECTIVE SYNC APIS (Stage 4 Authority)
+# -------------------------------------------------------------------------
+from geo_engine.compare_geo_coordinates import CITY_MAPPINGS, haversine_distance_meters
+from pipeline_core.slug_reconciler import UniversalSlugReconciler
+
+@app.get("/api/geo/cities")
+def api_geo_cities():
+    """Returns list of cities and networks available for geo auditing."""
+    cities_out = []
+    seen = set()
+    for item in CITY_MAPPINGS:
+        k = item["key"]
+        if k not in seen:
+            seen.add(k)
+            main_f = BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / item["main_folder"] / item["main_file"]
+            bench_f = BASE_DIR / "geo_engine" / "india" / "cities" / item["bench_folder"] / item["bench_file"]
+            cities_out.append({
+                "key": k,
+                "name": item["name"],
+                "main_folder": item["main_folder"],
+                "has_main_data": main_f.exists(),
+                "has_bench_data": bench_f.exists()
+            })
+    return {"cities": cities_out}
+
+@app.get("/api/geo/audit")
+def api_geo_audit(city: str, mode: str = "base_vs_google"):
+    """
+    Audits coordinates across 3 sources using UniversalSlugReconciler for 100% ID alignment:
+      - 'base_vs_google'   : Current main_project base vs Google Maps verified ground truth
+      - 'base_vs_agency'   : Current main_project base vs Agency / Network master dataset
+      - 'google_vs_agency' : Google Maps ground truth vs Agency / Network master dataset
+    """
+    cfg = next((c for c in CITY_MAPPINGS if c["key"] == city), None)
+    if not cfg:
+        raise HTTPException(status_code=404, detail=f"City '{city}' not found in mappings")
+
+    project_root = BASE_DIR.parent
+    main_folder = cfg["main_folder"]
+    main_file = project_root / "main_project" / "data" / "india" / "cities" / main_folder / cfg["main_file"]
+    main_data = json.load(open(main_file, "r", encoding="utf-8")) if main_file.exists() else {}
+    base_stns = main_data.get("stationData", main_data.get("stations", {}))
+
+    # Initialize universal slug reconciler for this city
+    reconciler = UniversalSlugReconciler(main_folder, BASE_DIR, base_stns)
+
+    # Load all benchmarks applicable to this city folder
+    bench_map = {}
+    agency_stns = {}
+    geo_cities_dir = BASE_DIR / "geo_engine" / "india" / "cities"
+    datasets_dir = BASE_DIR / "datasets"
+
+    for mapping in CITY_MAPPINGS:
+        if mapping["main_folder"] == main_folder or mapping["key"] == city:
+            b_file = geo_cities_dir / mapping["bench_folder"] / mapping["bench_file"]
+            if b_file.exists():
+                try:
+                    records = json.load(open(b_file, "r", encoding="utf-8"))
+                    for r in records:
+                        raw_id = r.get("station_id")
+                        if raw_id:
+                            resolved_id = reconciler.resolve(raw_id)
+                            bench_map[resolved_id] = r
+                except Exception:
+                    pass
+
+            # Load agency master
+            ag_folder = datasets_dir / mapping["bench_folder"]
+            for cand in [ag_folder / f"{mapping['bench_folder'][:-5]}_master.json", ag_folder / f"{mapping['key']}_master.json", ag_folder / f"{mapping['main_folder']}_master.json"]:
+                if cand.exists():
+                    try:
+                        ag_d = json.load(open(cand, "r", encoding="utf-8"))
+                        st_items = ag_d.get("stations", ag_d.get("stationData", ag_d if isinstance(ag_d, dict) else {}))
+                        for raw_id, st_obj in st_items.items():
+                            resolved_id = reconciler.resolve(raw_id)
+                            agency_stns[resolved_id] = st_obj
+                    except Exception:
+                        pass
+                    break
+
+    # Base production stations are the single source of truth for the city network
+    if mode in ["base_vs_google", "base_vs_agency"]:
+        all_slugs = sorted(list(base_stns.keys()))
+    else:
+        all_slugs = sorted(list(set(base_stns.keys()) | set(bench_map.keys()) | set(agency_stns.keys())))
+
+    results = []
+    counts = {"match": 0, "offset": 0, "moderate": 0, "critical": 0, "missing": 0}
+
+    for s_id in all_slugs:
+        # 1. Base coords
+        b_stn = base_stns.get(s_id, {})
+        b_loc = b_stn.get("location", {}) if isinstance(b_stn, dict) else {}
+        b_dec = b_loc.get("decimal") if isinstance(b_loc, dict) else None
+        b_lat = b_dec.get("lat") if isinstance(b_dec, dict) else None
+        b_lon = b_dec.get("lon") if isinstance(b_dec, dict) else None
+
+        # 2. Google coords
+        g_stn = bench_map.get(s_id, {})
+        g_coords = g_stn.get("coordinates") or {}
+        g_lat = g_coords.get("lat")
+        g_lon = g_coords.get("lon")
+        g_url = g_stn.get("generated_google_maps_url") or g_stn.get("google_maps_url")
+
+        # 3. Agency coords
+        a_stn = agency_stns.get(s_id, {}) if isinstance(agency_stns, dict) else {}
+        a_loc = a_stn.get("location", {}) if isinstance(a_stn, dict) else {}
+        a_dec = a_loc.get("decimal") if isinstance(a_loc, dict) else None
+        a_lat = a_dec.get("lat") if isinstance(a_dec, dict) else None
+        a_lon = a_dec.get("lon") if isinstance(a_dec, dict) else None
+
+        # Station name
+        name_obj = b_stn.get("name") or a_stn.get("name") or g_stn.get("name")
+        name_en = name_obj.get("en", s_id) if isinstance(name_obj, dict) else str(name_obj or s_id)
+
+        # Determine Left vs Right according to mode
+        if mode == "base_vs_agency":
+            l_lat, l_lon = b_lat, b_lon
+            r_lat, r_lon = a_lat, a_lon
+            left_label, right_label = "Base Production", "Agency Master"
+        elif mode == "google_vs_agency":
+            l_lat, l_lon = g_lat, g_lon
+            r_lat, r_lon = a_lat, a_lon
+            left_label, right_label = "Google Ground-Truth", "Agency Master"
+        else:  # default: base_vs_google
+            l_lat, l_lon = b_lat, b_lon
+            r_lat, r_lon = g_lat, g_lon
+            left_label, right_label = "Base Production", "Google Ground-Truth"
+
+        dist_m = None
+        status = "MISSING"
+
+        if l_lat is not None and l_lon is not None and r_lat is not None and r_lon is not None:
+            if abs(l_lat - l_lon) < 0.0001:
+                status = "CRITICAL"
+                counts["critical"] += 1
+                dist_m = round(haversine_distance_meters(l_lat, l_lon, r_lat, r_lon), 1)
+            else:
+                dist_m = round(haversine_distance_meters(l_lat, l_lon, r_lat, r_lon), 1)
+                if dist_m <= 50:
+                    status = "MATCH"
+                    counts["match"] += 1
+                elif dist_m <= 500:
+                    status = "OFFSET"
+                    counts["offset"] += 1
+                elif dist_m <= 5000:
+                    status = "MODERATE"
+                    counts["moderate"] += 1
+                else:
+                    status = "CRITICAL"
+                    counts["critical"] += 1
+        else:
+            counts["missing"] += 1
+
+        results.append({
+            "station_id": s_id,
+            "name": name_en,
+            "left_coords": {"lat": l_lat, "lon": l_lon},
+            "right_coords": {"lat": r_lat, "lon": r_lon},
+            "google_coords": {"lat": g_lat, "lon": g_lon},
+            "agency_coords": {"lat": a_lat, "lon": a_lon},
+            "distance_m": dist_m,
+            "status": status,
+            "url": g_url
+        })
+
+    status_priority = {"CRITICAL": 0, "MODERATE": 1, "OFFSET": 2, "MATCH": 3, "MISSING": 4}
+    results.sort(key=lambda x: (status_priority.get(x["status"], 5), -(x["distance_m"] or 0)))
+
+    return {
+        "city": city,
+        "name": cfg["name"],
+        "mode": mode,
+        "labels": {"left": left_label, "right": right_label},
+        "counts": counts,
+        "total": len(results),
+        "stations": results
+    }
+
+@app.post("/api/geo/apply")
+async def api_geo_apply(request: Request):
+    """
+    Selectively applies verified coordinates to main_project files with UniversalSlugReconciler resolution.
+    """
+    payload = await request.json()
+    city = payload.get("city")
+    selected_slugs = set(payload.get("selected_stations", []))
+    source_target = payload.get("source_target", "google")  # 'google' or 'agency'
+
+    if not city or not selected_slugs:
+        raise HTTPException(status_code=400, detail="Missing city or selected_stations")
+
+    cfg = next((c for c in CITY_MAPPINGS if c["key"] == city), None)
+    if not cfg:
+        raise HTTPException(status_code=404, detail=f"Unknown city '{city}'")
+
+    project_root = BASE_DIR.parent
+    main_folder = cfg["main_folder"]
+    city_folder = project_root / "main_project" / "data" / "india" / "cities" / main_folder
+    main_file = city_folder / cfg["main_file"]
+    details_file = city_folder / "station_details.json"
+
+    with open(main_file, "r", encoding="utf-8") as f:
+        main_data = json.load(f)
+    stn_data = main_data.get("stationData", main_data.get("stations", {}))
+
+    reconciler = UniversalSlugReconciler(main_folder, BASE_DIR, stn_data)
+    geo_cities_dir = BASE_DIR / "geo_engine" / "india" / "cities"
+    datasets_dir = BASE_DIR / "datasets"
+
+    coords_map = {}
+    if source_target == "google":
+        for mapping in CITY_MAPPINGS:
+            if mapping["main_folder"] == main_folder or mapping["key"] == city:
+                b_file = geo_cities_dir / mapping["bench_folder"] / mapping["bench_file"]
+                if b_file.exists():
+                    try:
+                        records = json.load(open(b_file, "r", encoding="utf-8"))
+                        for r in records:
+                            raw_id = r.get("station_id")
+                            coords = r.get("coordinates") or {}
+                            if raw_id and coords.get("lat") and coords.get("lon"):
+                                resolved_id = reconciler.resolve(raw_id)
+                                coords_map[resolved_id] = {"lat": coords["lat"], "lon": coords["lon"]}
+                    except Exception:
+                        pass
+    else:  # source_target == 'agency'
+        for mapping in CITY_MAPPINGS:
+            if mapping["main_folder"] == main_folder or mapping["key"] == city:
+                ag_folder = datasets_dir / mapping["bench_folder"]
+                for cand in [ag_folder / f"{mapping['bench_folder'][:-5]}_master.json", ag_folder / f"{mapping['key']}_master.json", ag_folder / f"{mapping['main_folder']}_master.json"]:
+                    if cand.exists():
+                        try:
+                            ag_d = json.load(open(cand, "r", encoding="utf-8"))
+                            st_items = ag_d.get("stations", ag_d.get("stationData", ag_d if isinstance(ag_d, dict) else {}))
+                            for raw_id, st_obj in st_items.items():
+                                dec = st_obj.get("location", {}).get("decimal", {}) if isinstance(st_obj, dict) else {}
+                                if dec.get("lat") and dec.get("lon"):
+                                    resolved_id = reconciler.resolve(raw_id)
+                                    coords_map[resolved_id] = {"lat": dec["lat"], "lon": dec["lon"]}
+                        except Exception:
+                            pass
+                        break
+
+    updated_count = 0
+    for s_id in selected_slugs:
+        resolved_s_id = reconciler.resolve(s_id)
+        target_key = resolved_s_id if resolved_s_id in stn_data else s_id
+        if target_key in stn_data and (resolved_s_id in coords_map or s_id in coords_map):
+            c_val = coords_map.get(resolved_s_id) or coords_map.get(s_id)
+            if c_val:
+                stn_data[target_key].setdefault("location", {})["decimal"] = {
+                    "lat": c_val["lat"],
+                    "lon": c_val["lon"]
+                }
+                updated_count += 1
+
+    UniversalFileSystemManager.save_atomic_tab_json(main_file, main_data, compact=True)
+
+    # Sync station_details.json if location exists there
+    if details_file.exists():
+        with open(details_file, "r", encoding="utf-8") as f:
+            details_data = json.load(f)
+        d_updated = False
+        for s_id in selected_slugs:
+            resolved_s_id = reconciler.resolve(s_id)
+            target_key = resolved_s_id if resolved_s_id in details_data else s_id
+            if target_key in details_data and (resolved_s_id in coords_map or s_id in coords_map):
+                c_val = coords_map.get(resolved_s_id) or coords_map.get(s_id)
+                if c_val and "location" in details_data[target_key]:
+                    details_data[target_key].setdefault("location", {})["decimal"] = {
+                        "lat": c_val["lat"],
+                        "lon": c_val["lon"]
+                    }
+                    d_updated = True
+        if d_updated:
+            UniversalFileSystemManager.save_atomic_tab_json(details_file, details_data, compact=True)
+
+    return {
+        "success": True,
+        "city": city,
+        "source_target": source_target,
+        "updated_stations_count": updated_count
+    }
+
+# -------------------------------------------------------------------------
+# CITY DATA EXPLORER API — Serves main_project city JSON files
+# -------------------------------------------------------------------------
+
+# Allowed file names for security (whitelist)
+_CITY_DATA_ALLOWED_FILES = {
+    "transit_network.json",
+    "station_details.json",
+    "passenger_support.json",
+}
+
+# Known city slugs (matches main_project/data/india/cities/ folder names)
+_VALID_CITY_SLUGS = {
+    "bhopal", "chennai", "delhi_ncr", "indore", "kanpur",
+    "kochi", "lucknow", "mumbai", "nagpur",
+    "agra", "ahmedabad_gandhinagar", "bengaluru", "hyderabad",
+    "jaipur", "kanpur", "kolkata", "navi_mumbai", "pune",
+}
+
+@app.get("/api/city-data")
+def api_city_data(city: str, file: str = "transit_network.json"):
+    """
+    Serves any whitelisted JSON data file for a given city from the
+    main_project/data/india/cities/<city>/ directory.
+
+    Query params:
+      - city : City slug (e.g. 'delhi_ncr', 'mumbai')
+      - file  : File name (e.g. 'transit_network.json', 'station_details.json')
+    """
+    # Security: validate city slug & file name
+    if not city or not city.replace("_", "").isalnum():
+        raise HTTPException(status_code=400, detail=f"Invalid city slug: '{city}'")
+    if file not in _CITY_DATA_ALLOWED_FILES:
+        raise HTTPException(status_code=400, detail=f"File '{file}' not allowed. Must be one of: {sorted(_CITY_DATA_ALLOWED_FILES)}")
+
+    city_dir = BASE_DIR.parent / "main_project" / "data" / "india" / "cities" / city
+    target_file = city_dir / file
+
+    if not city_dir.is_dir():
+        raise HTTPException(status_code=404, detail=f"City '{city}' not found in data directory.")
+    if not target_file.exists():
+        raise HTTPException(status_code=404, detail=f"File '{file}' not found for city '{city}'.")
+
+    try:
+        with open(target_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return JSONResponse(content=data)
+    except json.JSONDecodeError as e:
+        raise HTTPException(status_code=500, detail=f"JSON parse error in '{file}': {e}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Server error: {e}")
+
+
+@app.get("/api/city-data/cities")
+def api_city_data_list():
+    """Returns list of available city slugs that have data files."""
+    cities_dir = BASE_DIR.parent / "main_project" / "data" / "india" / "cities"
+    if not cities_dir.is_dir():
+        return {"cities": []}
+    result = []
+    for city_folder in sorted(cities_dir.iterdir()):
+        if city_folder.is_dir():
+            has_transit  = (city_folder / "transit_network.json").exists()
+            has_details  = (city_folder / "station_details.json").exists()
+            has_support  = (city_folder / "passenger_support.json").exists()
+            result.append({
+                "slug": city_folder.name,
+                "has_transit_network":  has_transit,
+                "has_station_details":  has_details,
+                "has_passenger_support": has_support,
+            })
+    return {"cities": result}
+
+
+# -------------------------------------------------------------------------
 # MOUNT STATIC FILES (Dashboard & Main Project)
 # -------------------------------------------------------------------------
 

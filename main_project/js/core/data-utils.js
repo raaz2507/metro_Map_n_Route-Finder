@@ -111,7 +111,12 @@ export function getDistance(stationA, stationB) {
 			  Math.sin(dLon / 2) ** 2;
 	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-	return Math.round(R * c * 1000);
+	// 📌 Track Curvature Factor (8-10%):
+	// Direct aerial straight-line distance real metro tracks ke actual distance se 8-10% chhota hota hai
+	// (curves, elevations aur flyovers ki wajah se). Isliye DMRC/MMRDA ke official distance slabs aur 
+	// fare calculation ko accurate rakhne ke liye getDistance() mein 1.08 curvature factor lagaya gaya hai.
+	const straightMeters = R * c * 1000;
+	return Math.round(straightMeters * 1.08);
 }
 
 /**

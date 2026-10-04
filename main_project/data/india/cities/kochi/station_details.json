@@ -6,7 +6,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "ALVA",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 10.1099, "lon": 76.3495}},
+		"location": {"decimal": {"lat": 10.1099872, "lon": 76.3495149}},
 		"neighbors": [{"station": "pulinchodu", "line": "kmrl.blue"}]
 	},
 	"pulinchodu": {
@@ -46,7 +46,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "MUTT",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 10.0727, "lon": 76.3336}},
+		"location": {"decimal": {"lat": 10.0727011, "lon": 76.33375}},
 		"neighbors": [{"station": "ambattukavu", "line": "kmrl.blue"}, {"station": "kalamassery", "line": "kmrl.blue"}]
 	},
 	"kalamassery": {
@@ -56,7 +56,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "KLMT",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 10.0586, "lon": 76.322}},
+		"location": {"decimal": {"lat": 10.0608704, "lon": 76.3249832}},
 		"neighbors": [{"station": "muttom", "line": "kmrl.blue"}, {"station": "cochin_university", "line": "kmrl.blue"}]
 	},
 	"cochin_university": {
@@ -86,7 +86,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "EDAP",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 10.0251, "lon": 76.3083}},
+		"location": {"decimal": {"lat": 10.025263, "lon": 76.3083641}},
 		"neighbors": [{"station": "pathadipalam", "line": "kmrl.blue"}, {"station": "changampuzha_park", "line": "kmrl.blue"}]
 	},
 	"changampuzha_park": {
@@ -96,7 +96,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CGPP",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 10.0152, "lon": 76.3023}},
+		"location": {"decimal": {"lat": 10.0152041, "lon": 76.3023872}},
 		"neighbors": [{"station": "edapally", "line": "kmrl.blue"}, {"station": "palarivattom", "line": "kmrl.blue"}]
 	},
 	"palarivattom": {
@@ -106,7 +106,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "PARV",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 10.0064, "lon": 76.3048}},
+		"location": {"decimal": {"lat": 10.0046166, "lon": 76.3056675}},
 		"neighbors": [{"station": "changampuzha_park", "line": "kmrl.blue"}, {"station": "jln_stadium", "line": "kmrl.blue"}]
 	},
 	"jln_stadium": {
@@ -116,7 +116,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "JLSD",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 10.0002, "lon": 76.2989}},
+		"location": {"decimal": {"lat": 10.0001828, "lon": 76.2989028}},
 		"neighbors": [{"station": "palarivattom", "line": "kmrl.blue"}, {"station": "kaloor", "line": "kmrl.blue"}]
 	},
 	"kaloor": {
@@ -136,7 +136,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "TNHL",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9913775, "lon": 76.2883601}},
+		"location": {"decimal": {"lat": 9.9914, "lon": 76.2884}},
 		"neighbors": [{"station": "kaloor", "line": "kmrl.blue"}, {"station": "mg_road", "line": "kmrl.blue"}]
 	},
 	"mg_road": {
@@ -146,7 +146,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "MGRD",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9834, "lon": 76.2823}},
+		"location": {"decimal": {"lat": 9.9834345, "lon": 76.2823115}},
 		"neighbors": [{"station": "town_hall", "line": "kmrl.blue"}, {"station": "maharajas_college", "line": "kmrl.blue"}]
 	},
 	"maharajas_college": {
@@ -156,7 +156,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "MACE",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9732, "lon": 76.2851}},
+		"location": {"decimal": {"lat": 9.9732357, "lon": 76.2850733}},
 		"neighbors": [{"station": "mg_road", "line": "kmrl.blue"}, {"station": "ernakulam_south", "line": "kmrl.blue"}]
 	},
 	"ernakulam_south": {
@@ -166,7 +166,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "ERSH",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9686042, "lon": 76.2895744}},
+		"location": {"decimal": {"lat": 9.9685747, "lon": 76.2892179}},
 		"neighbors": [{"station": "maharajas_college", "line": "kmrl.blue"}, {"station": "kadavanthra", "line": "kmrl.blue"}]
 	},
 	"kadavanthra": {
@@ -176,7 +176,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "KVTR",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9665809, "lon": 76.2981877}},
+		"location": {"decimal": {"lat": 9.966593, "lon": 76.298074}},
 		"neighbors": [{"station": "ernakulam_south", "line": "kmrl.blue"}, {"station": "elamkulam", "line": "kmrl.blue"}]
 	},
 	"elamkulam": {
@@ -186,7 +186,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "EMKM",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9671248, "lon": 76.3084899}},
+		"location": {"decimal": {"lat": 9.9671648, "lon": 76.3084999}},
 		"neighbors": [{"station": "kadavanthra", "line": "kmrl.blue"}, {"station": "vyttila", "line": "kmrl.blue"}]
 	},
 	"vyttila": {
@@ -196,7 +196,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "VYTA",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9675457, "lon": 76.3203664}},
+		"location": {"decimal": {"lat": 9.9673869, "lon": 76.3204107}},
 		"neighbors": [{"station": "elamkulam", "line": "kmrl.blue"}, {"station": "thykoodam", "line": "kmrl.blue"}]
 	},
 	"thykoodam": {
@@ -206,7 +206,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "THYK",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9600311, "lon": 76.3236762}},
+		"location": {"decimal": {"lat": 9.960079, "lon": 76.323483}},
 		"neighbors": [{"station": "vyttila", "line": "kmrl.blue"}, {"station": "pettah", "line": "kmrl.blue"}]
 	},
 	"pettah": {
@@ -216,7 +216,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "PETT",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9524842, "lon": 76.3302101}},
+		"location": {"decimal": {"lat": 9.952572, "lon": 76.330041}},
 		"neighbors": [{"station": "thykoodam", "line": "kmrl.blue"}, {"station": "vadakkekotta", "line": "kmrl.blue"}]
 	},
 	"vadakkekotta": {
@@ -226,7 +226,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "VAKK",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.952838, "lon": 76.3394827}},
+		"location": {"decimal": {"lat": 9.952771, "lon": 76.339277}},
 		"neighbors": [{"station": "pettah", "line": "kmrl.blue"}, {"station": "sn_junction", "line": "kmrl.blue"}]
 	},
 	"sn_junction": {
@@ -236,7 +236,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "SNJN",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.9547532, "lon": 76.3458505}},
+		"location": {"decimal": {"lat": 9.954662, "lon": 76.345919}},
 		"neighbors": [{"station": "vadakkekotta", "line": "kmrl.blue"}, {"station": "tripunithura", "line": "kmrl.blue"}]
 	},
 	"tripunithura": {
@@ -246,7 +246,7 @@
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "TPHT",
 		"wheelchair_boarding": true,
-		"location": {"decimal": {"lat": 9.95078, "lon": 76.35183}},
+		"location": {"decimal": {"lat": 9.9498248, "lon": 76.3527548}},
 		"neighbors": [{"station": "sn_junction", "line": "kmrl.blue"}]
 	}
 }

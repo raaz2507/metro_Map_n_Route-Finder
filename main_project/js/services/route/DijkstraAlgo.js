@@ -98,9 +98,7 @@ export class DijkstraAlgo {
 		for (const st of Object.values(this.#stationData)) {
 			if (st && st.neighbors && Array.isArray(st.neighbors)) {
 				for (const n of st.neighbors) {
-					if (!n.targetKey) {
-						n.targetKey = `${n.station}-${n.line}`;
-					}
+					n.targetKey = `${n.station}:::${n.line}`;
 				}
 			}
 		}
@@ -152,7 +150,7 @@ export class DijkstraAlgo {
 				const lineStatus = this.#lines?.[line]?.status || "operational";
 				if (lineStatus !== "operational") return;
 			}
-			const startKey = `${startStationId}-${line}`;
+			const startKey = `${startStationId}:::${line}`;
 			dists[startKey] = 0;
 			queue.push({
 				id: startStationId,
@@ -165,7 +163,7 @@ export class DijkstraAlgo {
 		// Fallback: If all lines of start station are under-construction, allow them if user explicitly selected this station
 		if (queue.isEmpty() && startLines.length > 0) {
 			startLines.forEach((line) => {
-				const startKey = `${startStationId}-${line}`;
+				const startKey = `${startStationId}:::${line}`;
 				dists[startKey] = 0;
 				queue.push({
 					id: startStationId,
@@ -180,7 +178,7 @@ export class DijkstraAlgo {
 
 		while (!queue.isEmpty()) {
 			const curr = queue.pop();
-			const currKey = `${curr.id}-${curr.line}`;
+			const currKey = `${curr.id}:::${curr.line}`;
 
 			if (visited.has(currKey)) continue;
 			visited.add(currKey);
@@ -206,7 +204,7 @@ export class DijkstraAlgo {
 
 				const neighborId = neighbor.station;
 				const weight = Number(neighbor.distance) || 0;
-				const nextKey = neighbor.targetKey || `${neighborId}-${curr.line}`;
+				const nextKey = neighbor.targetKey || `${neighborId}:::${curr.line}`;
 				const newDist = curr.dist + weight;
 
 				if (dists[nextKey] === undefined || newDist < dists[nextKey]) {
@@ -237,7 +235,7 @@ export class DijkstraAlgo {
 					const penalty = routeType === "leastTransfers" ? DijkstraAlgo.LEAST_TRANSFER_PENALTY : DijkstraAlgo.SHORT_ROUTE_TRANSFER_PENALTY;
 
 					const weight = transferDist + penalty;
-					const nextKey = `${targetStationId}-${targetLine}`;
+					const nextKey = `${targetStationId}:::${targetLine}`;
 					const newDist = curr.dist + weight;
 
 					if (dists[nextKey] === undefined || newDist < dists[nextKey]) {
@@ -282,11 +280,11 @@ export class DijkstraAlgo {
 		const path = [];
 		const segments = [];
 		const linesUsedSet = new Set();
-		let tempState = `${endId}-${endNode.line}`;
+		let tempState = `${endId}:::${endNode.line}`;
 		let totalRealDistance = 0;
 
 		while (tempState) {
-			const parts = tempState.split("-");
+			const parts = tempState.split(":::");
 			const stationId = parts[0];
 
 			if (path[0] !== stationId) {
@@ -310,7 +308,7 @@ export class DijkstraAlgo {
 					transferData: parentInfo.transferData || null,
 				});
 
-				tempState = `${parentInfo.parentId}-${parentInfo.parentLine}`;
+				tempState = `${parentInfo.parentId}:::${parentInfo.parentLine}`;
 			} else {
 				tempState = null;
 			}

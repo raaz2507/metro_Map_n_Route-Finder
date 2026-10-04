@@ -79,6 +79,14 @@ export class HeaderComponent {
 						<img src="./assets/icons/ui/matrix.svg" class="icon-xs" alt="Matrix">
 						<span data-i18n="header.data_matrix">Data Matrix</span>
 					</a>
+					<a href="./geo_sync.html" class="nav-tab-item ${activePage === 'geo_sync' ? 'active' : ''}">
+						<span class="icon-xs">🌐</span>
+						<span>Geo Sync</span>
+					</a>
+					<a href="./city_explorer.html" class="nav-tab-item ${activePage === 'explorer' ? 'active' : ''}">
+						<span class="icon-xs">📊</span>
+						<span>City Explorer</span>
+					</a>
 					<a href="./help.html" class="nav-tab-item ${activePage === 'help' ? 'active' : ''}">
 						<img src="./assets/icons/ui/book-help.svg" class="icon-xs" alt="Help">
 						<span data-i18n="header.help_docs">Help & Docs</span>
