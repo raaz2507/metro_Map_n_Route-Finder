@@ -1,0 +1,56 @@
+{
+	"taj_east_gate": {
+		"id": "taj_east_gate",
+		"name": {"en": "Taj East Gate", "hi": "ताज पूर्वी गेट"},
+		"lines": ["upmrc_agra.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "TEGT",
+		"location": {"decimal": {"lat": 27.1632364, "lon": 78.0470442}},
+		"neighbors": [{"station": "shaheed_captain_shubham_gupta", "line": "upmrc_agra.yellow"}]
+	},
+	"shaheed_captain_shubham_gupta": {
+		"id": "shaheed_captain_shubham_gupta",
+		"name": {"en": "Shaheed Captain Shubham Gupta", "hi": "शहीद कैप्टन शुभम गुप्ता"},
+		"lines": ["upmrc_agra.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "SCSG",
+		"location": {"decimal": {"lat": 27.157905, "lon": 78.0511276}},
+		"neighbors": [{"station": "taj_east_gate", "line": "upmrc_agra.yellow"}, {"station": "fatehabad_road", "line": "upmrc_agra.yellow"}]
+	},
+	"fatehabad_road": {
+		"id": "fatehabad_road",
+		"name": {"en": "Fatehabad Road", "hi": "फ़तेहाबाद रोड"},
+		"lines": ["upmrc_agra.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "FTBR",
+		"location": {"decimal": {"lat": 27.1602775, "lon": 78.042593}},
+		"neighbors": [{"station": "shaheed_captain_shubham_gupta", "line": "upmrc_agra.yellow"}, {"station": "taj_mahal", "line": "upmrc_agra.yellow"}]
+	},
+	"taj_mahal": {
+		"id": "taj_mahal",
+		"name": {"en": "Taj Mahal", "hi": "ताज महल"},
+		"lines": ["upmrc_agra.yellow"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "TJML",
+		"location": {"decimal": {"lat": 27.1680778, "lon": 78.0360134}},
+		"neighbors": [{"station": "fatehabad_road", "line": "upmrc_agra.yellow"}, {"station": "agra_fort", "line": "upmrc_agra.yellow"}]
+	},
+	"agra_fort": {
+		"id": "agra_fort",
+		"name": {"en": "Agra Fort", "hi": "आगरा किला"},
+		"lines": ["upmrc_agra.yellow"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "AFTM",
+		"location": {"decimal": {"lat": 27.175049, "lon": 78.022117}},
+		"neighbors": [{"station": "taj_mahal", "line": "upmrc_agra.yellow"}, {"station": "mankameshwar_mandir", "line": "upmrc_agra.yellow"}]
+	},
+	"mankameshwar_mandir": {
+		"id": "mankameshwar_mandir",
+		"name": {"en": "Mankameshwar Mandir", "hi": "मनकामेश्वर मंदिर"},
+		"lines": ["upmrc_agra.yellow"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "MKM",
+		"location": {"decimal": {"lat": 27.178287, "lon": 78.017197}},
+		"neighbors": [{"station": "agra_fort", "line": "upmrc_agra.yellow"}]
+	}
+}

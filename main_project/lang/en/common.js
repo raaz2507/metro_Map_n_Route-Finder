@@ -18,10 +18,16 @@ export default {
 			"switchToLight": "Switch to Light Mode"
 		},
 		"fontScale": {
-			"decrease": "Decrease Font Size (-5%)",
-			"reset": "Reset Font Size (100%)",
-			"increase": "Increase Font Size (+5%)"
+			"btnTitle": "Adjust Text Size",
+			"label":    "Text Size",
+			"reset":    "Reset to Default",
+		},
+		"citySelector": {
+			"label":   "Select City",
+			"loading": "Loading...",
+			"soon":    "Soon",
 		}
+		
 	},
 	"nav-header": {
 		"networks": "Networks",

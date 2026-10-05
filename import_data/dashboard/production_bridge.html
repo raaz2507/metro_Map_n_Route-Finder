@@ -117,6 +117,33 @@
 					</div>
 				</div>
 			</div>
+			<!-- PRODUCTION READINESS AUDIT MATRIX -->
+			<section class="matrix-table-card">
+				<div class="matrix-metrics-bar">
+					<div class="title-meta-group">
+						<h3 class="active-network-title" data-i18n="bridge.matrix_title">Production Readiness Audit Matrix</h3>
+						<p class="active-network-subtitle" data-i18n="bridge.matrix_subtitle">Verification status of main_project schemas &amp; pending staging deltas across all transit networks.</p>
+					</div>
+				</div>
+
+				<table class="matrix-table">
+					<thead>
+						<tr>
+							<th data-i18n="bridge.matrix_col_city">City / Network</th>
+							<th data-i18n="bridge.matrix_col_transit">transit_network.json</th>
+							<th data-i18n="bridge.matrix_col_details">station_details.json</th>
+							<th data-i18n="bridge.matrix_col_support">passenger_support.json</th>
+							<th data-i18n="bridge.matrix_col_delta">Pending Delta</th>
+							<th data-i18n="bridge.matrix_col_action">Action</th>
+						</tr>
+					</thead>
+					<tbody id="bridgeMatrixTableBody">
+						<tr>
+							<td colspan="6" class="text-center text-muted" data-i18n="bridge.matrix_loading">Loading readiness matrix...</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
 
 			<!-- DUAL PANE VIEWPORT (STRICT 50/50 SPLIT) -->
 			<main class="content-body inspector-main-body">

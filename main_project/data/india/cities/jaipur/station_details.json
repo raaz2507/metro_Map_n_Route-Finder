@@ -1,0 +1,167 @@
+{
+	"mansarovar": {
+		"id": "mansarovar",
+		"name": {"en": "Mansarovar", "hi": "मानसरोवर"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "MSOR",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822151",
+			"customer_care_phone": "2822171",
+			"emergency_phone": "2812970",
+			"email": "msor@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "new_aatish_market", "line": "jmrc.pink"}]
+	},
+	"new_aatish_market": {
+		"id": "new_aatish_market",
+		"name": {"en": "New Aatish Market", "hi": "नया आतिश मार्केट"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "NAMT",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822152",
+			"customer_care_phone": "2822172",
+			"emergency_phone": "2299877",
+			"email": "namt@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "mansarovar", "line": "jmrc.pink"}, {"station": "vivek_vihar", "line": "jmrc.pink"}]
+	},
+	"vivek_vihar": {
+		"id": "vivek_vihar",
+		"name": {"en": "Vivek Vihar", "hi": "विवेक विहार"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "VKVR",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822153",
+			"customer_care_phone": "2822173",
+			"emergency_phone": "2296448",
+			"email": "vkvr@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "new_aatish_market", "line": "jmrc.pink"}, {"station": "shyam_nagar", "line": "jmrc.pink"}]
+	},
+	"shyam_nagar": {
+		"id": "shyam_nagar",
+		"name": {"en": "Shyam Nagar", "hi": "श्याम नगर"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "SMNR",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822154",
+			"customer_care_phone": "2822174",
+			"emergency_phone": "2297870",
+			"email": "smnr@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "vivek_vihar", "line": "jmrc.pink"}, {"station": "ram_nagar", "line": "jmrc.pink"}]
+	},
+	"ram_nagar": {
+		"id": "ram_nagar",
+		"name": {"en": "Ram Nagar", "hi": "राम नगर"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "RMNR",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822155",
+			"customer_care_phone": "2822175",
+			"emergency_phone": "2292300",
+			"email": "rmnr@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "shyam_nagar", "line": "jmrc.pink"}, {"station": "civil_lines", "line": "jmrc.pink"}]
+	},
+	"civil_lines": {
+		"id": "civil_lines",
+		"name": {"en": "Civil Lines", "hi": "सिविल लाइन्स"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "CLJP",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822156",
+			"customer_care_phone": "2822176",
+			"emergency_phone": "2222470",
+			"email": "cljp@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "ram_nagar", "line": "jmrc.pink"}, {"station": "railway_station", "line": "jmrc.pink"}]
+	},
+	"railway_station": {
+		"id": "railway_station",
+		"name": {"en": "Railway Station", "hi": "रेलवे स्टेशन"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "MRSN",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822157",
+			"customer_care_phone": "2822177",
+			"emergency_phone": "2369733",
+			"email": "mrsn@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "civil_lines", "line": "jmrc.pink"}, {"station": "sindhi_camp", "line": "jmrc.pink"}]
+	},
+	"sindhi_camp": {
+		"id": "sindhi_camp",
+		"name": {"en": "Sindhi Camp", "hi": "सिन्धी कैंप"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "SICP",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822158",
+			"customer_care_phone": "2822178",
+			"emergency_phone": "2369959",
+			"email": "sicp@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "railway_station", "line": "jmrc.pink"}, {"station": "chandpole", "line": "jmrc.pink"}]
+	},
+	"chandpole": {
+		"id": "chandpole",
+		"name": {"en": "Chandpole", "hi": "चांदपोल"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "CDPE",
+		"opened_date": "3 June 2015",
+		"contacts": {
+			"controller_phone": "2822159",
+			"customer_care_phone": "2822179",
+			"emergency_phone": "2363789",
+			"email": "cdpe@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "sindhi_camp", "line": "jmrc.pink"}, {"station": "chhoti_chaupar", "line": "jmrc.pink"}]
+	},
+	"chhoti_chaupar": {
+		"id": "chhoti_chaupar",
+		"name": {"en": "Chhoti Chaupar", "hi": "छोटी चौपड़"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "CTCP",
+		"opened_date": "23 September 2020",
+		"contacts": {
+			"controller_phone": "2822160",
+			"customer_care_phone": "2822180",
+			"emergency_phone": "2324570",
+			"email": "ctcp@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "chandpole", "line": "jmrc.pink"}, {"station": "badi_chaupar", "line": "jmrc.pink"}]
+	},
+	"badi_chaupar": {
+		"id": "badi_chaupar",
+		"name": {"en": "Badi Chaupar", "hi": "बड़ी चौपड़"},
+		"lines": ["jmrc.pink"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "BICP",
+		"opened_date": "23 September 2020",
+		"contacts": {
+			"controller_phone": "2822161",
+			"customer_care_phone": "2822181",
+			"emergency_phone": "2604554",
+			"email": "bicp@jaipurmetrorail.in"
+		},
+		"neighbors": [{"station": "chhoti_chaupar", "line": "jmrc.pink"}]
+	}
+}

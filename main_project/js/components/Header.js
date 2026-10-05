@@ -59,11 +59,11 @@ export class HeaderComponent {
 	}
 
 	static initEvents() {
-		// Font Scaler Setup
-		this.#setupFontScaler();
+		// Font Scale Slider Dropdown
+		this.#setupFontScaleDropdown();
+
 		// Recharge Modal Trigger
 		const rechargeModal = RechargeModalComponent.getInstance();
-
 		const rechargeBtn = document.getElementById('nav-recharge-btn');
 		if (rechargeBtn) {
 			rechargeBtn.addEventListener('click', (e) => {
@@ -72,7 +72,7 @@ export class HeaderComponent {
 			});
 		}
 
-				this.#setupDropdown('theme-btn', 'theme-menu', (val) => {
+		this.#setupDropdown('theme-btn', 'theme-menu', (val) => {
 			appStateStore.setState({ currentTheme: val });
 		});
 		this.#setupThemeModeToggle();
@@ -80,75 +80,239 @@ export class HeaderComponent {
 		this.#setupDropdown('lang-btn', 'lang-menu', async (val) => {
 			await appStateStore.setState({ currentLang: val });
 		});
+
+		// City Selector (async — loads registry then renders)
+		this.#setupCitySelector();
+
 		// PWA & App Utility Hub Setup
 		pwaManager.bindHeaderUI();
 	}
 
 
 	/**
-	 * Bounded Continuous Font Scale Stepper (85% to 130%, 5% step)
+	 * Font Scale: Single trigger button → slider dropdown panel
 	 */
-	static #setupFontScaler() {
-		const decBtn = document.getElementById('font-dec-btn');
-		const resetBtn = document.getElementById('font-reset-btn');
-		const incBtn = document.getElementById('font-inc-btn');
+	static #setupFontScaleDropdown() {
+		const btn = document.getElementById('font-scale-btn');
+		const panel = document.getElementById('font-scale-panel');
+		const range = document.getElementById('font-scale-range');
+		const display = document.getElementById('font-panel-value');
+		const badge = document.getElementById('font-pct-badge');
+		const resetEl = document.getElementById('font-reset-link');
+		const progressFill = document.getElementById('font-slider-fill');
+		const closeBtn = document.getElementById('font-panel-close');
 
-		if (!decBtn || !resetBtn || !incBtn) return;
+		if (!btn || !panel || !range) return;
 
-		const MIN_SCALE = 85;
-		const MAX_SCALE = 130;
-		const STEP = 5;
-		const DEFAULT_SCALE = 100;
+		const MIN = 85, MAX = 130, DEFAULT = 100;
 
 		const getScale = () => {
-			const saved = parseInt(localStorage.getItem('app-font-scale'), 10);
-			return isNaN(saved) ? DEFAULT_SCALE : saved;
+			const s = parseInt(localStorage.getItem('app-font-scale'), 10);
+			return isNaN(s) ? DEFAULT : Math.min(MAX, Math.max(MIN, s));
 		};
 
-		const updateUI = (scale) => {
-			document.documentElement.style.setProperty('--app-font-scale', `${scale}%`);
-			localStorage.setItem('app-font-scale', scale.toString());
+		const applyScale = (val) => {
+			const clamped = Math.min(MAX, Math.max(MIN, val));
+			document.documentElement.style.setProperty('--app-font-scale', `${clamped}%`);
+			localStorage.setItem('app-font-scale', clamped.toString());
+			range.value = clamped;
+			const label = `${clamped}%`;
+			if (display) display.textContent = label;
+			if (badge) badge.textContent = clamped === DEFAULT ? '' : label;
+			range.setAttribute('aria-valuenow', clamped);
 
-			// Bounds and visual feedback
-			decBtn.disabled = scale <= MIN_SCALE;
-			incBtn.disabled = scale >= MAX_SCALE;
+			// Progress fill sync
+			const percentage = ((clamped - MIN) / (MAX - MIN)) * 100;
+			if (progressFill) progressFill.style.width = `${percentage}%`;
 
-			if (scale === DEFAULT_SCALE) {
-				resetBtn.classList.add('is-default');
-				resetBtn.style.color = '';
+			// Step dot highlight sync
+			panel.querySelectorAll('.slider-step-dot').forEach(dot => {
+				const dotVal = parseInt(dot.getAttribute('data-value'), 10);
+				dot.classList.toggle('passed', dotVal <= clamped);
+			});
+		};
+
+		applyScale(getScale());
+
+		const closePanel = () => {
+			panel.classList.remove('show');
+			btn.setAttribute('aria-expanded', 'false');
+		};
+
+		btn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const isOpen = panel.classList.contains('show');
+			document.querySelectorAll('.custom-dropdown-menu.show, .city-dropdown-menu.show').forEach(m => m.classList.remove('show'));
+			if (!isOpen) {
+				panel.classList.add('show');
+				btn.setAttribute('aria-expanded', 'true');
 			} else {
-				resetBtn.classList.remove('is-default');
-				resetBtn.style.color = 'var(--color-primary)';
+				closePanel();
 			}
+		});
 
-			// Dynamic accessible tooltips
-			decBtn.title = `Decrease Font Size (${scale - STEP >= MIN_SCALE ? scale - STEP : scale}%)`;
-			incBtn.title = `Increase Font Size (${scale + STEP <= MAX_SCALE ? scale + STEP : scale}%)`;
-			resetBtn.title = `Reset Font Size (Current: ${scale}%)`;
+		range.addEventListener('input', () => applyScale(parseInt(range.value, 10)));
+		if (resetEl) resetEl.addEventListener('click', () => applyScale(DEFAULT));
+		if (closeBtn) closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closePanel(); });
+
+		panel.querySelectorAll('.slider-step-dot').forEach(dot => {
+			dot.addEventListener('click', (e) => {
+				e.stopPropagation();
+				applyScale(parseInt(dot.getAttribute('data-value'), 10));
+			});
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!btn.contains(e.target) && !panel.contains(e.target)) closePanel();
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') closePanel();
+		});
+	}
+
+	/**
+	 * City Selector: Async registry-driven, country-grouped dropdown
+	 * On select → persists to localStorage → navigates to index.html?city=KEY
+	 */
+	static async #setupCitySelector() {
+		const btn      = document.getElementById('city-selector-btn');
+		const menu     = document.getElementById('city-dropdown-menu');
+		const flagEl   = document.getElementById('city-pill-flag');
+		const nameEl   = document.getElementById('city-pill-name');
+
+		if (!btn || !menu) return;
+
+		// Resolve active city
+		const urlParams   = new URLSearchParams(window.location.search);
+		const activeCity  = urlParams.get('city') || localStorage.getItem('active_city') || 'delhi_ncr';
+		const activeLang  = localStorage.getItem('app-lang') || 'en';
+
+		// --- Fetch countries manifest + india registry in parallel ---
+		let countriesManifest = null;
+		let indiaRegistry     = null;
+
+		try {
+			const [cmRes, irRes] = await Promise.allSettled([
+				fetch('data/countries_manifest.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
+				fetch('data/india/india_transit_registry.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+			]);
+			if (cmRes.status === 'fulfilled')  countriesManifest = cmRes.value;
+			if (irRes.status === 'fulfilled')  indiaRegistry     = irRes.value;
+		} catch (_) { /* silent — pill will show fallback */ }
+
+		// --- Build pill label from registry ---
+		const buildPillLabel = (cityKey) => {
+			if (!indiaRegistry?.cities) return { flag: '🏙', name: cityKey };
+			const cityData = indiaRegistry.cities[cityKey];
+			if (!cityData) return { flag: '🏙', name: cityKey };
+			return {
+				flag: countriesManifest?.countries?.india?.flag || '🇮🇳',
+				name: (cityData.name?.[activeLang] || cityData.name?.en || cityKey)
+			};
 		};
 
-		// Initial boundary sync
-		updateUI(getScale());
+		const { flag, name } = buildPillLabel(activeCity);
+		if (flagEl) flagEl.textContent = flag;
+		if (nameEl) nameEl.textContent = name;
 
-		decBtn.addEventListener('click', (e) => {
-			e.preventDefault();
-			const current = getScale();
-			if (current > MIN_SCALE) {
-				updateUI(Math.max(MIN_SCALE, current - STEP));
+		// --- Build dropdown items ---
+		let html = '';
+
+		if (countriesManifest?.countries && indiaRegistry?.cities) {
+			for (const [countryKey, countryMeta] of Object.entries(countriesManifest.countries)) {
+				const countryName = countryMeta.name?.[activeLang] || countryMeta.name?.en || countryKey;
+				const countryFlag = countryMeta.flag || '';
+				const isActive    = countryMeta.status === 'active';
+
+				html += `<li class="dropdown-category-header" role="presentation">
+					<span>${countryFlag} ${countryName}</span>
+					${!isActive ? `<span class="badge-coming-soon" data-i18n="header.citySelector.soon">Soon</span>` : ''}
+				</li>`;
+
+				if (isActive && countryKey === 'india') {
+					// Only show cities with hasData: true
+					const availableCities = Object.entries(indiaRegistry.cities)
+						.filter(([, c]) => c.hasData === true);
+
+					for (const [cityKey, cityMeta] of availableCities) {
+						const cityName = cityMeta.name?.[activeLang] || cityMeta.name?.en || cityKey;
+						const isSelected = cityKey === activeCity;
+						// Escape cityKey for XSS safety
+						const safeCityKey = cityKey.replace(/[^a-z0-9_-]/gi, '');
+						html += `<li class="city-dropdown-item ${isSelected ? 'active' : ''}"
+							role="option"
+							aria-selected="${isSelected}"
+							data-city="${safeCityKey}"
+							tabindex="0">
+							${countryFlag} ${cityName}
+						</li>`;
+					}
+				} else if (!isActive) {
+					// Upcoming country — no city list, just the header badge
+				}
+			}
+		}
+
+		menu.innerHTML = html;
+
+		// --- Bind click events on items ---
+		menu.querySelectorAll('.city-dropdown-item[data-city]').forEach(item => {
+			item.addEventListener('click', (e) => {
+				e.stopPropagation();
+				const selectedCity = item.getAttribute('data-city');
+				if (!selectedCity || selectedCity === activeCity) { 
+					closeMenu(); 
+					return; 
+				}
+
+				localStorage.setItem('active_city', selectedCity);
+				localStorage.removeItem('active_network');
+
+				// Navigate: Preserve current page pathname and other params, update only city
+				const newParams = new URLSearchParams(window.location.search);
+				newParams.set('city', selectedCity);
+				newParams.delete('network');
+				newParams.delete('net');
+				
+				const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+				window.location.href = `${currentPage}?${newParams.toString()}`;
+			});
+
+			// Keyboard: Enter / Space to select
+			item.addEventListener('keydown', (e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					item.click();
+				}
+			});
+		});
+
+		// --- Toggle menu ---
+		const closeMenu = () => {
+			menu.classList.remove('show');
+			btn.setAttribute('aria-expanded', 'false');
+		};
+
+		btn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const isOpen = menu.classList.contains('show');
+			document.querySelectorAll('.custom-dropdown-menu.show, .font-scale-panel.show, .city-dropdown-menu.show')
+				.forEach(m => m.classList.remove('show'));
+			if (!isOpen) {
+				menu.classList.add('show');
+				btn.setAttribute('aria-expanded', 'true');
+			} else {
+				closeMenu();
 			}
 		});
 
-		incBtn.addEventListener('click', (e) => {
-			e.preventDefault();
-			const current = getScale();
-			if (current < MAX_SCALE) {
-				updateUI(Math.min(MAX_SCALE, current + STEP));
-			}
+		document.addEventListener('click', (e) => {
+			if (!btn.contains(e.target) && !menu.contains(e.target)) closeMenu();
 		});
 
-		resetBtn.addEventListener('click', (e) => {
-			e.preventDefault();
-			updateUI(DEFAULT_SCALE);
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') closeMenu();
 		});
 	}
 
@@ -282,19 +446,38 @@ export class HeaderComponent {
 			</svg>
 
 			<header class="main-header">
-				<div class="header-top-row">
-					<div class="logo-title-group">
-						<img src="assets/images/site_icon.svg" alt="Metro Logo" class="site-logo">
-						<h1 data-i18n="header.appName">YatraMarg</h1>
+								<div class="header-top-row">
+					<!-- Brand & City Group (Together on Left) -->
+					<div class="brand-city-group">
+						<div class="logo-title-group">
+							<img src="assets/images/site_icon.svg" alt="Metro Logo" class="site-logo">
+							<h1 data-i18n="header.appName">YatraMarg</h1>
+						</div>
+
+						${activePage !== 'networks' && activePage !== 'country_selector' ? `
+						<!-- 🏙 City Selector Pill (Placed with Brand, Hidden on Selector Pages) -->
+						<div class="city-selector-container dropdown-container" id="city-selector-container">
+							<button type="button" class="city-selector-btn" id="city-selector-btn"
+								aria-haspopup="listbox" aria-expanded="false"
+								data-i18n-aria-label="header.citySelector.label">
+								<span class="city-pill-flag" id="city-pill-flag" aria-hidden="true">🏙</span>
+								<span class="city-pill-name" id="city-pill-name"></span>
+								<svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<polyline points="6 9 12 15 18 9"/>
+								</svg>
+							</button>
+							<ul class="city-dropdown-menu" id="city-dropdown-menu" role="listbox" aria-label="Select City"></ul>
+						</div>
+						` : ''}
 					</div>
 
 					<section class="toolbar">
 						<section class="toolbar">
 						${!isNative ? `
-						<!-- 📱 Smart App Utility & PWA Hub Dropdown (Web/PWA Only) -->
+						<!-- 📱 Smart App Utility & PWA Hub Dropdown -->
 						<div class="dropdown-container app-utility-container">
 							<button type="button" class="btn-25d app-utility-btn" id="app-utility-btn" aria-haspopup="menu" aria-expanded="false" 
-								data-i18n-attr="title:header.appOptions;aria-label:header.appOptions" title="App Utilities">
+								data-i18n-title="header.appOptions" data-i18n-aria-label="header.appOptions" title="App Utilities">
 								<span class="btn-icon">
 									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
@@ -304,12 +487,10 @@ export class HeaderComponent {
 								</span>
 							</button>
 							<ul class="custom-dropdown-menu app-utility-menu" id="app-utility-menu" role="menu">
-								<!-- Install PWA (Auto-shown only when eligible) -->
 								<li class="custom-dropdown-item" id="menu-install-pwa" role="menuitem" style="display: none;">
 									<span class="item-icon">📲</span>
 									<span data-i18n="header.installApp">Install App</span>
 								</li>
-								<!-- Clear Cache & Hard Refresh -->
 								<li class="custom-dropdown-item" id="menu-hard-refresh" role="menuitem">
 									<span class="item-icon">
 										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -324,16 +505,44 @@ export class HeaderComponent {
 						</div>
 						` : ''}
 
-						<!-- 🔤 Continuous Bounded Font Size Stepper -->
-						<div class="font-scale-stepper" role="group" aria-label="Font Size Adjuster">
-							<button type="button" class="btn-stepper" id="font-dec-btn" 
-								data-i18n-attr="title:header.fontScale.decrease;aria-label:header.fontScale.decrease">A-</button>
-							<span class="stepper-divider" aria-hidden="true"></span>
-							<button type="button" class="btn-stepper is-default" id="font-reset-btn" 
-								data-i18n-attr="title:header.fontScale.reset;aria-label:header.fontScale.reset">A</button>
-							<span class="stepper-divider" aria-hidden="true"></span>
-							<button type="button" class="btn-stepper" id="font-inc-btn" 
-								data-i18n-attr="title:header.fontScale.increase;aria-label:header.fontScale.increase">A+</button>
+						<!-- 🔤 Font Scale: Single Trigger -> Android/Chrome Range Bar Dropdown -->
+						<div class="font-scale-dropdown-container dropdown-container">
+							<button type="button" class="btn-25d font-scale-trigger" id="font-scale-btn"
+								aria-haspopup="true" aria-expanded="false"
+								data-i18n-title="header.fontScale.btnTitle"
+								data-i18n-aria-label="header.fontScale.btnTitle">
+								<span class="ui-vector-icon icon-fontscale icon-md" aria-hidden="true"></span>
+								<span class="font-pct-badge" id="font-pct-badge" aria-live="polite"></span>
+							</button>
+							<div class="font-scale-panel" id="font-scale-panel" role="dialog" aria-label="Font Size Adjuster">
+								<div class="font-panel-header">
+									<div class="font-panel-header-left">
+										<span class="font-panel-label" data-i18n="header.fontScale.label">Text Size</span>
+										<span class="font-panel-value" id="font-panel-value">100%</span>
+									</div>
+									<button type="button" class="font-panel-close-btn" id="font-panel-close" aria-label="Close">✕</button>
+								</div>
+								<div class="font-slider-container">
+									<span class="font-slider-endlabel small" aria-hidden="true">A</span>
+									<div class="font-slider-track-wrap">
+										<div class="font-slider-track-bg">
+											<div class="font-slider-fill" id="font-slider-fill"></div>
+											<div class="font-slider-steps-overlay">
+												<span class="slider-step-dot" data-value="85" style="left: 0%;"></span>
+												<span class="slider-step-dot" data-value="100" style="left: 33.33%;"></span>
+												<span class="slider-step-dot" data-value="115" style="left: 66.66%;"></span>
+												<span class="slider-step-dot" data-value="130" style="left: 100%;"></span>
+											</div>
+										</div>
+										<input type="range" class="font-scale-range" id="font-scale-range"
+											min="85" max="130" step="5" value="100"
+											aria-label="Font size slider"
+											aria-valuemin="85" aria-valuemax="130" aria-valuenow="100">
+									</div>
+									<span class="font-slider-endlabel large" aria-hidden="true">A</span>
+								</div>
+								<button type="button" class="font-reset-link" id="font-reset-link" data-i18n="header.fontScale.reset">Reset to Default</button>
+							</div>
 						</div>
 
 						

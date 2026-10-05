@@ -5,7 +5,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CCAP",
-		"location": {"decimal": {"lat": 26.766253, "lon": 80.882198}},
+		"location": {"decimal": {"lat": 26.7661533, "lon": 80.8822074}},
 		"neighbors": [{"station": "amausi", "line": "upmrc.red"}]
 	},
 	"amausi": {
@@ -14,7 +14,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "AMSM",
-		"location": {"decimal": {"lat": 26.77137, "lon": 80.87868}},
+		"location": {"decimal": {"lat": 26.771351, "lon": 80.878665}},
 		"neighbors": [{"station": "ccs_airport", "line": "upmrc.red"}, {"station": "transport_nagar", "line": "upmrc.red"}]
 	},
 	"transport_nagar": {
@@ -23,7 +23,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "TPNR",
-		"location": {"decimal": {"lat": 26.77788, "lon": 80.88259}},
+		"location": {"decimal": {"lat": 26.7777021, "lon": 80.8825343}},
 		"neighbors": [{"station": "amausi", "line": "upmrc.red"}, {"station": "krishna_nagar", "line": "upmrc.red"}]
 	},
 	"krishna_nagar": {
@@ -32,7 +32,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "KRNM",
-		"location": {"decimal": {"lat": 26.794395, "lon": 80.891714}},
+		"location": {"decimal": {"lat": 26.794386, "lon": 80.891721}},
 		"neighbors": [{"station": "transport_nagar", "line": "upmrc.red"}, {"station": "singar_nagar", "line": "upmrc.red"}]
 	},
 	"singar_nagar": {
@@ -41,7 +41,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "SGNG",
-		"location": {"decimal": {"lat": 26.80311, "lon": 80.89638}},
+		"location": {"decimal": {"lat": 26.8030333, "lon": 80.8962616}},
 		"neighbors": [{"station": "krishna_nagar", "line": "upmrc.red"}, {"station": "alambagh", "line": "upmrc.red"}]
 	},
 	"alambagh": {
@@ -50,7 +50,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "ALMB",
-		"location": {"decimal": {"lat": 26.81395, "lon": 80.90243}},
+		"location": {"decimal": {"lat": 26.816237, "lon": 80.904882}},
 		"neighbors": [{"station": "singar_nagar", "line": "upmrc.red"}, {"station": "alambagh_bus_stand", "line": "upmrc.red"}]
 	},
 	"alambagh_bus_stand": {
@@ -59,7 +59,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "ABST",
-		"location": {"decimal": {"lat": 26.81852, "lon": 80.90742}},
+		"location": {"decimal": {"lat": 26.8188663, "lon": 80.9074153}},
 		"neighbors": [{"station": "alambagh", "line": "upmrc.red"}, {"station": "mawaiya", "line": "upmrc.red"}]
 	},
 	"mawaiya": {
@@ -68,7 +68,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "MWYA",
-		"location": {"decimal": {"lat": 26.82535, "lon": 80.90989}},
+		"location": {"decimal": {"lat": 26.825229, "lon": 80.909784}},
 		"neighbors": [{"station": "alambagh_bus_stand", "line": "upmrc.red"}, {"station": "durgapuri", "line": "upmrc.red"}]
 	},
 	"durgapuri": {
@@ -77,7 +77,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "DGPI",
-		"location": {"decimal": {"lat": 26.8319795432, "lon": 80.9153831272}},
+		"location": {"decimal": {"lat": 26.83196, "lon": 80.915431}},
 		"neighbors": [{"station": "mawaiya", "line": "upmrc.red"}, {"station": "charbagh", "line": "upmrc.red"}]
 	},
 	"charbagh": {
@@ -86,7 +86,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "CHBG",
-		"location": {"decimal": {"lat": 26.83238, "lon": 80.92315}},
+		"location": {"decimal": {"lat": 26.832354, "lon": 80.922984}},
 		"neighbors": [{"station": "durgapuri", "line": "upmrc.red"}, {"station": "hussainganj", "line": "upmrc.red"}]
 	},
 	"hussainganj": {
@@ -95,7 +95,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "HSGJ",
-		"location": {"decimal": {"lat": 26.8726754, "lon": 80.9918563}},
+		"location": {"decimal": {"lat": 26.8391, "lon": 80.9345}},
 		"neighbors": [{"station": "charbagh", "line": "upmrc.red"}, {"station": "sachivalaya", "line": "upmrc.red"}]
 	},
 	"sachivalaya": {
@@ -104,7 +104,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "SHVA",
-		"location": {"decimal": {"lat": 26.8420469569, "lon": 80.9408293989}},
+		"location": {"decimal": {"lat": 26.84251, "lon": 80.941498}},
 		"neighbors": [{"station": "hussainganj", "line": "upmrc.red"}, {"station": "hazratganj", "line": "upmrc.red"}]
 	},
 	"hazratganj": {
@@ -113,7 +113,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "underground", "status": "operational"},
 		"code": "HZNJ",
-		"location": {"decimal": {"lat": 26.849086, "lon": 80.942796}},
+		"location": {"decimal": {"lat": 26.8500451, "lon": 80.9415633}},
 		"neighbors": [{"station": "sachivalaya", "line": "upmrc.red"}, {"station": "kd_singh_babu_stadium", "line": "upmrc.red"}]
 	},
 	"kd_singh_babu_stadium": {
@@ -122,7 +122,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "KDSS",
-		"location": {"decimal": {"lat": 26.8539994753, "lon": 80.9369457296}},
+		"location": {"decimal": {"lat": 26.854048, "lon": 80.93676}},
 		"neighbors": [{"station": "hazratganj", "line": "upmrc.red"}, {"station": "vishvavidyalaya", "line": "upmrc.red"}]
 	},
 	"vishvavidyalaya": {
@@ -131,7 +131,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "VSVM",
-		"location": {"decimal": {"lat": 26.8654926565, "lon": 80.9395927981}},
+		"location": {"decimal": {"lat": 26.865501, "lon": 80.939534}},
 		"neighbors": [{"station": "kd_singh_babu_stadium", "line": "upmrc.red"}, {"station": "it_college", "line": "upmrc.red"}]
 	},
 	"it_college": {
@@ -140,7 +140,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "ITC",
-		"location": {"decimal": {"lat": 26.8710134536, "lon": 80.9456395251}},
+		"location": {"decimal": {"lat": 26.8709805, "lon": 80.9457193}},
 		"neighbors": [{"station": "vishvavidyalaya", "line": "upmrc.red"}, {"station": "badshah_nagar", "line": "upmrc.red"}]
 	},
 	"badshah_nagar": {
@@ -149,7 +149,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "BSNM",
-		"location": {"decimal": {"lat": 26.8707654488, "lon": 80.9614467777}},
+		"location": {"decimal": {"lat": 26.8706775, "lon": 80.9611397}},
 		"neighbors": [{"station": "it_college", "line": "upmrc.red"}, {"station": "lekhraj_market", "line": "upmrc.red"}]
 	},
 	"lekhraj_market": {
@@ -158,7 +158,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "LHMT",
-		"location": {"decimal": {"lat": 26.8708650271, "lon": 80.9737782557}},
+		"location": {"decimal": {"lat": 26.8708625, "lon": 80.9736025}},
 		"neighbors": [{"station": "badshah_nagar", "line": "upmrc.red"}, {"station": "bhootnath_market", "line": "upmrc.red"}]
 	},
 	"bhootnath_market": {
@@ -167,7 +167,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "BTNT",
-		"location": {"decimal": {"lat": 26.8722728513, "lon": 80.9825044468}},
+		"location": {"decimal": {"lat": 26.872237, "lon": 80.982353}},
 		"neighbors": [{"station": "lekhraj_market", "line": "upmrc.red"}, {"station": "indira_nagar", "line": "upmrc.red"}]
 	},
 	"indira_nagar": {
@@ -176,7 +176,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "IDNM",
-		"location": {"decimal": {"lat": 26.8727587729, "lon": 80.9910101665}},
+		"location": {"decimal": {"lat": 26.872733, "lon": 80.990857}},
 		"neighbors": [{"station": "bhootnath_market", "line": "upmrc.red"}, {"station": "munshipulia", "line": "upmrc.red"}]
 	},
 	"munshipulia": {
@@ -185,7 +185,7 @@
 		"lines": ["upmrc.red"],
 		"properties": {"layout": "elevated", "status": "operational"},
 		"code": "MSPA",
-		"location": {"decimal": {"lat": 26.88792, "lon": 80.99593}},
+		"location": {"decimal": {"lat": 26.8880606, "lon": 80.9958332}},
 		"neighbors": [{"station": "indira_nagar", "line": "upmrc.red"}]
 	}
 }

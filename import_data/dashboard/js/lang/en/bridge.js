@@ -20,6 +20,19 @@ export default {
         source_title: "Source: Stage 3 Verified Master Schema",
         target_title: "Target: Production Client Schema (_auto.json)",
         terminal_title: "Stage 4 Pipeline Execution",
-        terminal_sub: "Real-time production porting and validation stream."
+        terminal_sub: "Real-time production porting and validation stream.",
+		matrix_title: "Production Readiness Audit Matrix",
+        matrix_subtitle: "Verification status of main_project schemas & pending staging deltas across all transit networks.",
+        matrix_col_city: "City / Network",
+        matrix_col_transit: "transit_network.json",
+        matrix_col_details: "station_details.json",
+        matrix_col_support: "passenger_support.json",
+        matrix_col_delta: "Pending Delta",
+        matrix_col_action: "Action",
+        matrix_loading: "Loading readiness matrix...",
+        matrix_empty: "No cities configured in registry.",
+        matrix_synced: "Synced",
+        matrix_missing: "Missing",
+        matrix_select: "Select"
     }
 };

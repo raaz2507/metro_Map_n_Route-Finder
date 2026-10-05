@@ -50,7 +50,8 @@ class ProductionBridgeController {
 			terminalBody: '#bridgeTerminalBody',
 			consoleBadge: '#bridgeConsoleBadge',
 			closeModalBtn: '#closeBridgeModalBtn',
-			modalOkBtn: '#bridgeModalOkBtn'
+			modalOkBtn: '#bridgeModalOkBtn',
+			matrixTableBody: '#bridgeMatrixTableBody',
 		});
 
 		// Self-Rendering Dual Inspectors
@@ -68,8 +69,10 @@ class ProductionBridgeController {
 
 		this.#bindEvents();
 		this.loadCities();
+
 	}
 
+	
 	async loadCities() {
 		try {
 			const res = await fetch('/api/bridge/cities');
@@ -116,6 +119,7 @@ class ProductionBridgeController {
 						if (this.#dom.headerCityIcon) this.#dom.headerCityIcon.textContent = icon;
 
 						this.loadCityDiagnostics();
+						this.loadReadinessMatrix();
 					});
 
 					this.#dom.cityList.appendChild(item);
@@ -225,6 +229,83 @@ class ProductionBridgeController {
 		}
 		this.#updateSingleMergeButton();
 	}
+
+
+		async loadReadinessMatrix() {
+		try {
+			if (!this.#dom.matrixTableBody) return;
+			const res = await fetch('/api/bridge/readiness_matrix');
+			if (!res.ok) throw new Error('Failed to fetch readiness matrix');
+			const matrix = await res.json();
+			this.#renderMatrixTable(matrix);
+		} catch (err) {
+			console.error('Matrix load error:', err);
+			if (this.#dom.matrixTableBody) {
+				this.#dom.matrixTableBody.innerHTML = `<tr><td colspan="6" class="text-center text-rose">${escapeHtml(err.message)}</td></tr>`;
+			}
+		}
+	}
+
+	#renderMatrixTable(matrix) {
+		const tbody = this.#dom.matrixTableBody;
+		if (!tbody) return;
+		tbody.innerHTML = '';
+
+		if (!Array.isArray(matrix) || matrix.length === 0) {
+			const tr = document.createElement('tr');
+			const td = document.createElement('td');
+			td.colSpan = 6;
+			td.className = 'text-center text-muted';
+			td.textContent = i18n.t('bridge.matrix_empty');
+			tr.appendChild(td);
+			tbody.appendChild(tr);
+			return;
+		}
+
+		const renderCellStatus = (fileObj, unit) => {
+			if (!fileObj || !fileObj.exists) {
+				return `<span class="badge-stage badge-rose font-mono">✕ ${i18n.t('bridge.matrix_missing')}</span>`;
+			}
+			return `<span class="badge-stage badge-emerald font-mono">✓ ${fileObj.count} ${unit}</span>`;
+		};
+
+		matrix.forEach(row => {
+			const tr = document.createElement('tr');
+			tr.className = `matrix-row ${row.id === this.#activeCity ? 'active-row' : ''}`;
+
+			const displayName = typeof row.name === 'object' && row.name !== null 
+				? (row.name.en || Object.values(row.name)[0]) 
+				: String(row.name || row.id);
+
+			const deltaBadge = row.has_delta
+				? `<span class="badge-stage badge-amber font-mono">⚡ ${row.delta_count} delta</span>`
+				: `<span class="badge-stage badge-muted font-mono">${i18n.t('bridge.matrix_synced')}</span>`;
+
+			tr.innerHTML = `
+				<td>
+					<strong>${escapeHtml(displayName)}</strong>
+					<span class="font-mono text-muted">(${escapeHtml(row.id)})</span>
+				</td>
+				<td>${renderCellStatus(row.transit_network, 'stns')}</td>
+				<td>${renderCellStatus(row.station_details, 'stns')}</td>
+				<td>${renderCellStatus(row.passenger_support, 'stns')}</td>
+				<td>${deltaBadge}</td>
+				<td>
+					<button class="btn-workflow btn-workflow-cyan btn-select-network" data-city="${escapeHtml(row.id)}">
+						${i18n.t('bridge.matrix_select')}
+					</button>
+				</td>
+			`;
+
+			tr.querySelector('.btn-select-network')?.addEventListener('click', () => {
+				const navItem = this.#dom.cityList?.querySelector(`[data-city="${row.id}"]`);
+				if (navItem) navItem.click();
+			});
+
+			tbody.appendChild(tr);
+		});
+	}
+
 
 	#updateSingleMergeButton() {
 		if (!this.#dom.btnMergeSingleStation) return;

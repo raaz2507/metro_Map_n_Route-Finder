@@ -1,0 +1,538 @@
+{
+	"dakshineswar": {
+		"id": "dakshineswar",
+		"name": {"en": "Dakshineswar", "bn": "দক্ষিণেশ্বর"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KDSW",
+		"opened_date": "22 February 2021",
+		"neighbors": [{"station": "baranagar", "line": "kolkata_metro.blue"}]
+	},
+	"baranagar": {
+		"id": "baranagar",
+		"name": {"en": "Baranagar", "bn": "বরাহনগর"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KBAR",
+		"opened_date": "22 February 2021",
+		"neighbors": [{"station": "dakshineswar", "line": "kolkata_metro.blue"}, {"station": "noapara", "line": "kolkata_metro.blue"}]
+	},
+	"noapara": {
+		"id": "noapara",
+		"name": {"en": "Noapara", "bn": "নোয়াপাড়া"},
+		"lines": ["kolkata_metro.blue", "kolkata_metro.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KNAP",
+		"opened_date": "10 July 201322 August 2025",
+		"neighbors": [
+			{"station": "baranagar", "line": "kolkata_metro.blue"},
+			{"station": "dum_dum", "line": "kolkata_metro.blue"},
+			{"station": "dum_dum_cantonment", "line": "kolkata_metro.yellow"}
+		]
+	},
+	"dum_dum": {
+		"id": "dum_dum",
+		"name": {"en": "Dum Dum", "bn": "দমদম"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KDMI",
+		"opened_date": "12 November 1984",
+		"neighbors": [{"station": "noapara", "line": "kolkata_metro.blue"}, {"station": "belgachhia", "line": "kolkata_metro.blue"}]
+	},
+	"belgachhia": {
+		"id": "belgachhia",
+		"name": {"en": "Belgachhia", "bn": "বেলগাছিয়া"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KBEL",
+		"opened_date": "12 November 1984",
+		"neighbors": [{"station": "dum_dum", "line": "kolkata_metro.blue"}, {"station": "shyambazar", "line": "kolkata_metro.blue"}]
+	},
+	"shyambazar": {
+		"id": "shyambazar",
+		"name": {"en": "Shyambazar", "bn": "শ্যামবাজার"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KSHY",
+		"opened_date": "15 February 1995",
+		"neighbors": [{"station": "belgachhia", "line": "kolkata_metro.blue"}, {"station": "shobhabazar_sutanuti", "line": "kolkata_metro.blue"}]
+	},
+	"shobhabazar_sutanuti": {
+		"id": "shobhabazar_sutanuti",
+		"name": {"en": "Shobhabazar Sutanuti", "bn": "শোভাবাজার সুতানুটি"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KSHO",
+		"opened_date": "15 February 1995",
+		"neighbors": [{"station": "shyambazar", "line": "kolkata_metro.blue"}, {"station": "girish_park", "line": "kolkata_metro.blue"}]
+	},
+	"girish_park": {
+		"id": "girish_park",
+		"name": {"en": "Girish Park", "bn": "গিরীশ পার্ক"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KGPK",
+		"opened_date": "15 February 1995",
+		"neighbors": [
+			{"station": "shobhabazar_sutanuti", "line": "kolkata_metro.blue"},
+			{"station": "mahatma_gandhi_road", "line": "kolkata_metro.blue"}
+		]
+	},
+	"mahatma_gandhi_road": {
+		"id": "mahatma_gandhi_road",
+		"name": {"en": "Mahatma Gandhi Road", "bn": "মহাত্মা গান্ধী রোড"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KMHR",
+		"opened_date": "27 September 1995",
+		"neighbors": [{"station": "girish_park", "line": "kolkata_metro.blue"}, {"station": "central", "line": "kolkata_metro.blue"}]
+	},
+	"central": {
+		"id": "central",
+		"name": {"en": "Central", "bn": "সেন্ট্রাল"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KCEN",
+		"opened_date": "15 February 1995",
+		"neighbors": [{"station": "mahatma_gandhi_road", "line": "kolkata_metro.blue"}, {"station": "chandni_chowk", "line": "kolkata_metro.blue"}]
+	},
+	"chandni_chowk": {
+		"id": "chandni_chowk",
+		"name": {"en": "Chandni Chowk", "bn": "চাঁদনি চক"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KCWC",
+		"opened_date": "15 February 1995",
+		"neighbors": [{"station": "central", "line": "kolkata_metro.blue"}, {"station": "esplanade", "line": "kolkata_metro.blue"}]
+	},
+	"esplanade": {
+		"id": "esplanade",
+		"name": {"en": "Esplanade", "bn": "এসপ্ল্যানেড"},
+		"lines": ["kolkata_metro.blue", "kolkata_metro.green"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KESP",
+		"opened_date": "24 October 19846 March 2024",
+		"neighbors": [
+			{"station": "chandni_chowk", "line": "kolkata_metro.blue"},
+			{"station": "park_street", "line": "kolkata_metro.blue"},
+			{"station": "mahakaran", "line": "kolkata_metro.green"},
+			{"station": "sealdah", "line": "kolkata_metro.green"}
+		]
+	},
+	"park_street": {
+		"id": "park_street",
+		"name": {"en": "Park Street", "bn": "পার্ক স্ট্রীট"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground and double track", "status": "operational"},
+		"code": "KPSK",
+		"opened_date": "24 October 1984",
+		"neighbors": [{"station": "esplanade", "line": "kolkata_metro.blue"}, {"station": "maidan", "line": "kolkata_metro.blue"}]
+	},
+	"maidan": {
+		"id": "maidan",
+		"name": {"en": "Maidan", "bn": "ময়দান"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KMDI",
+		"opened_date": "24 October 1984",
+		"neighbors": [{"station": "park_street", "line": "kolkata_metro.blue"}, {"station": "rabindra_sadan", "line": "kolkata_metro.blue"}]
+	},
+	"rabindra_sadan": {
+		"id": "rabindra_sadan",
+		"name": {"en": "Rabindra Sadan", "bn": "রবীন্দ্র সদন"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KRSD",
+		"opened_date": "24 October 1984",
+		"neighbors": [{"station": "maidan", "line": "kolkata_metro.blue"}, {"station": "netaji_bhavan", "line": "kolkata_metro.blue"}]
+	},
+	"netaji_bhavan": {
+		"id": "netaji_bhavan",
+		"name": {"en": "Netaji Bhavan", "bn": "নেতাজি ভবন"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KNBN",
+		"opened_date": "24 October 1984",
+		"location": {"decimal": {"lat": 22.532977, "lon": 88.3457124}},
+		"neighbors": [{"station": "rabindra_sadan", "line": "kolkata_metro.blue"}, {"station": "jatin_das_park", "line": "kolkata_metro.blue"}]
+	},
+	"jatin_das_park": {
+		"id": "jatin_das_park",
+		"name": {"en": "Jatin Das Park", "bn": "যতীন দাস পার্ক"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KJPK",
+		"opened_date": "29 April 1986",
+		"neighbors": [{"station": "netaji_bhavan", "line": "kolkata_metro.blue"}, {"station": "kalighat", "line": "kolkata_metro.blue"}]
+	},
+	"kalighat": {
+		"id": "kalighat",
+		"name": {"en": "Kalighat", "bn": "কালীঘাট"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KKHG",
+		"opened_date": "29 April 1986",
+		"location": {"decimal": {"lat": 22.5167667, "lon": 88.3461329}},
+		"neighbors": [{"station": "jatin_das_park", "line": "kolkata_metro.blue"}, {"station": "rabindra_sarobar", "line": "kolkata_metro.blue"}]
+	},
+	"rabindra_sarobar": {
+		"id": "rabindra_sarobar",
+		"name": {"en": "Rabindra Sarobar", "bn": "রবীন্দ্র সরোবর"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KRSB",
+		"opened_date": "29 April 1986",
+		"location": {"decimal": {"lat": 22.5078864, "lon": 88.3455571}},
+		"neighbors": [{"station": "kalighat", "line": "kolkata_metro.blue"}, {"station": "mahanayak_uttam_kumar", "line": "kolkata_metro.blue"}]
+	},
+	"mahanayak_uttam_kumar": {
+		"id": "mahanayak_uttam_kumar",
+		"name": {"en": "Mahanayak Uttam Kumar", "bn": "মহানায়ক উত্তম কুমার"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "at grade", "status": "operational"},
+		"code": "KMUK",
+		"opened_date": "29 April 1986",
+		"location": {"decimal": {"lat": 22.4944519, "lon": 88.3451538}},
+		"neighbors": [{"station": "rabindra_sarobar", "line": "kolkata_metro.blue"}, {"station": "netaji", "line": "kolkata_metro.blue"}]
+	},
+	"netaji": {
+		"id": "netaji",
+		"name": {"en": "Netaji", "bn": "নেতাজি"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KNTJ",
+		"opened_date": "22 August 2009",
+		"location": {"decimal": {"lat": 22.4809362, "lon": 88.3459611}},
+		"neighbors": [
+			{"station": "mahanayak_uttam_kumar", "line": "kolkata_metro.blue"},
+			{"station": "masterda_surya_sen", "line": "kolkata_metro.blue"}
+		]
+	},
+	"masterda_surya_sen": {
+		"id": "masterda_surya_sen",
+		"name": {"en": "Masterda Surya Sen", "bn": "মাস্টারদা সূর্য সেন"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KMSN",
+		"opened_date": "22 August 2009",
+		"location": {"decimal": {"lat": 22.4734883, "lon": 88.3608039}},
+		"neighbors": [{"station": "netaji", "line": "kolkata_metro.blue"}, {"station": "gitanjali", "line": "kolkata_metro.blue"}]
+	},
+	"gitanjali": {
+		"id": "gitanjali",
+		"name": {"en": "Gitanjali", "bn": "গীতাঞ্জলি"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KGTN",
+		"opened_date": "22 August 2009",
+		"location": {"decimal": {"lat": 22.469425, "lon": 88.3699223}},
+		"neighbors": [{"station": "masterda_surya_sen", "line": "kolkata_metro.blue"}, {"station": "kavi_nazrul", "line": "kolkata_metro.blue"}]
+	},
+	"kavi_nazrul": {
+		"id": "kavi_nazrul",
+		"name": {"en": "Kavi Nazrul", "bn": "কবি নজরুল"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KKNZ",
+		"opened_date": "22 August 2009",
+		"location": {"decimal": {"lat": 22.4642442, "lon": 88.3806582}},
+		"neighbors": [{"station": "gitanjali", "line": "kolkata_metro.blue"}, {"station": "shahid_khudiram", "line": "kolkata_metro.blue"}]
+	},
+	"shahid_khudiram": {
+		"id": "shahid_khudiram",
+		"name": {"en": "Shahid Khudiram", "bn": "শহীদ ক্ষুদিরাম"},
+		"lines": ["kolkata_metro.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KSKD",
+		"opened_date": "7 October 2010",
+		"location": {"decimal": {"lat": 22.4660094, "lon": 88.3916655}},
+		"neighbors": [{"station": "kavi_nazrul", "line": "kolkata_metro.blue"}, {"station": "kavi_subhash", "line": "kolkata_metro.blue"}]
+	},
+	"kavi_subhash": {
+		"id": "kavi_subhash",
+		"name": {"en": "Kavi Subhash", "bn": "কবি সুভাষ"},
+		"lines": ["kolkata_metro.blue", "kolkata_metro.orange"],
+		"properties": {"layout": "at grade", "status": "operational"},
+		"code": "KKSO",
+		"opened_date": "7 October 20106 March 2024",
+		"location": {"decimal": {"lat": 22.4721747, "lon": 88.3978668}},
+		"neighbors": [{"station": "shahid_khudiram", "line": "kolkata_metro.blue"}, {"station": "satyajit_ray", "line": "kolkata_metro.orange"}]
+	},
+	"howrah_maidan": {
+		"id": "howrah_maidan",
+		"name": {"en": "Howrah Maidan", "bn": "হাওড়া ময়দান"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "HWMM",
+		"opened_date": "6 March 2024",
+		"neighbors": [{"station": "howrah", "line": "kolkata_metro.green"}]
+	},
+	"howrah": {
+		"id": "howrah",
+		"name": {"en": "Howrah", "bn": "হাওড়া"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "HWHM",
+		"opened_date": "6 March 2024",
+		"neighbors": [{"station": "howrah_maidan", "line": "kolkata_metro.green"}, {"station": "mahakaran", "line": "kolkata_metro.green"}]
+	},
+	"mahakaran": {
+		"id": "mahakaran",
+		"name": {"en": "Mahakaran", "bn": "মহাকরণ"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "MKNA",
+		"opened_date": "6 March 2024",
+		"neighbors": [{"station": "howrah", "line": "kolkata_metro.green"}, {"station": "esplanade", "line": "kolkata_metro.green"}]
+	},
+	"sealdah": {
+		"id": "sealdah",
+		"name": {"en": "Sealdah", "bn": "শিয়ালদহ"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "SDHM",
+		"opened_date": "11 July 2022",
+		"neighbors": [{"station": "esplanade", "line": "kolkata_metro.green"}, {"station": "phoolbagan", "line": "kolkata_metro.green"}]
+	},
+	"phoolbagan": {
+		"id": "phoolbagan",
+		"name": {"en": "Phoolbagan", "bn": "ফুলবাগান"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "PBGB",
+		"opened_date": "4 October 2020",
+		"neighbors": [{"station": "sealdah", "line": "kolkata_metro.green"}, {"station": "salt_lake_stadium", "line": "kolkata_metro.green"}]
+	},
+	"salt_lake_stadium": {
+		"id": "salt_lake_stadium",
+		"name": {"en": "Salt Lake Stadium", "bn": "সল্টলেক স্টেডিয়াম"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "SSSA",
+		"opened_date": "13 February 2020",
+		"neighbors": [{"station": "phoolbagan", "line": "kolkata_metro.green"}, {"station": "bengal_chemical", "line": "kolkata_metro.green"}]
+	},
+	"bengal_chemical": {
+		"id": "bengal_chemical",
+		"name": {"en": "Bengal Chemical", "bn": "বেঙ্গল কেমিক্যাল"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "BCSD",
+		"opened_date": "13 February 2020",
+		"neighbors": [{"station": "salt_lake_stadium", "line": "kolkata_metro.green"}, {"station": "city_center", "line": "kolkata_metro.green"}]
+	},
+	"city_center": {
+		"id": "city_center",
+		"name": {"en": "City Center", "bn": "সিটি সেন্টার"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "CCSC",
+		"opened_date": "13 February 2020",
+		"neighbors": [{"station": "bengal_chemical", "line": "kolkata_metro.green"}, {"station": "central_park", "line": "kolkata_metro.green"}]
+	},
+	"central_park": {
+		"id": "central_park",
+		"name": {"en": "Central Park", "bn": "সেন্ট্রাল পার্ক"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "CPSA",
+		"opened_date": "13 February 2020",
+		"neighbors": [{"station": "city_center", "line": "kolkata_metro.green"}, {"station": "karunamoyee", "line": "kolkata_metro.green"}]
+	},
+	"karunamoyee": {
+		"id": "karunamoyee",
+		"name": {"en": "Karunamoyee", "bn": "করুণাময়ী"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KESA",
+		"opened_date": "13 February 2020",
+		"neighbors": [{"station": "central_park", "line": "kolkata_metro.green"}, {"station": "salt_lake_sector_v", "line": "kolkata_metro.green"}]
+	},
+	"salt_lake_sector_v": {
+		"id": "salt_lake_sector_v",
+		"name": {"en": "Salt Lake Sector-V", "bn": "সল্টলেক সেক্টর V"},
+		"lines": ["kolkata_metro.green"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "SVSA",
+		"opened_date": "13 February 2020",
+		"neighbors": [{"station": "karunamoyee", "line": "kolkata_metro.green"}]
+	},
+	"satyajit_ray": {
+		"id": "satyajit_ray",
+		"name": {"en": "Satyajit Ray", "bn": "সত্যজিৎ রায়"},
+		"lines": ["kolkata_metro.orange"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KSJR",
+		"opened_date": "6 March 2024",
+		"location": {"decimal": {"lat": 22.4839198, "lon": 88.3922501}},
+		"neighbors": [{"station": "kavi_subhash", "line": "kolkata_metro.orange"}, {"station": "jyotirindra_nandi", "line": "kolkata_metro.orange"}]
+	},
+	"jyotirindra_nandi": {
+		"id": "jyotirindra_nandi",
+		"name": {"en": "Jyotirindra Nandi", "bn": "জ্যোতিরিন্দ্র নন্দী"},
+		"lines": ["kolkata_metro.orange"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KJNN",
+		"opened_date": "6 March 2024",
+		"location": {"decimal": {"lat": 22.49595, "lon": 88.398611}},
+		"neighbors": [{"station": "satyajit_ray", "line": "kolkata_metro.orange"}, {"station": "kavi_sukanta", "line": "kolkata_metro.orange"}]
+	},
+	"kavi_sukanta": {
+		"id": "kavi_sukanta",
+		"name": {"en": "Kavi Sukanta", "bn": "কবি সুকান্ত"},
+		"lines": ["kolkata_metro.orange"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KKSK",
+		"opened_date": "6 March 2024",
+		"location": {"decimal": {"lat": 22.505602, "lon": 88.401066}},
+		"neighbors": [
+			{"station": "jyotirindra_nandi", "line": "kolkata_metro.orange"},
+			{"station": "hemanta_mukhopadhyay", "line": "kolkata_metro.orange"}
+		]
+	},
+	"hemanta_mukhopadhyay": {
+		"id": "hemanta_mukhopadhyay",
+		"name": {"en": "Hemanta Mukhopadhyay", "bn": "হেমন্ত মুখোপাধ্যায়"},
+		"lines": ["kolkata_metro.orange"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KHMD",
+		"opened_date": "6 March 2024",
+		"location": {"decimal": {"lat": 22.514684, "lon": 88.401604}},
+		"neighbors": [{"station": "kavi_sukanta", "line": "kolkata_metro.orange"}, {"station": "vip_bazar", "line": "kolkata_metro.orange"}]
+	},
+	"vip_bazar": {
+		"id": "vip_bazar",
+		"name": {"en": "VIP Bazar", "bn": "ভিআইপি বাজার"},
+		"lines": ["kolkata_metro.orange"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KVIB",
+		"opened_date": "22 August 2025",
+		"neighbors": [
+			{"station": "hemanta_mukhopadhyay", "line": "kolkata_metro.orange"},
+			{"station": "ritwik_ghatak", "line": "kolkata_metro.orange"}
+		]
+	},
+	"ritwik_ghatak": {
+		"id": "ritwik_ghatak",
+		"name": {"en": "Ritwik Ghatak", "bn": "ঋত্বিক ঘটক"},
+		"lines": ["kolkata_metro.orange"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KRWG",
+		"opened_date": "22 August 2025",
+		"neighbors": [{"station": "vip_bazar", "line": "kolkata_metro.orange"}, {"station": "barun_sengupta", "line": "kolkata_metro.orange"}]
+	},
+	"barun_sengupta": {
+		"id": "barun_sengupta",
+		"name": {"en": "Barun Sengupta", "bn": "বরুণ সেনগুপ্ত"},
+		"lines": ["kolkata_metro.orange"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KBST",
+		"opened_date": "22 August 2025",
+		"location": {"decimal": {"lat": 22.54387, "lon": 88.399343}},
+		"neighbors": [{"station": "ritwik_ghatak", "line": "kolkata_metro.orange"}, {"station": "beleghata", "line": "kolkata_metro.orange"}]
+	},
+	"beleghata": {
+		"id": "beleghata",
+		"name": {"en": "Beleghata", "bn": "বেলেঘাটা"},
+		"lines": ["kolkata_metro.orange"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KBGA",
+		"opened_date": "22 August 2025",
+		"neighbors": [{"station": "barun_sengupta", "line": "kolkata_metro.orange"}]
+	},
+	"joka": {
+		"id": "joka",
+		"name": {"en": "Joka", "bn": "জোকা"},
+		"lines": ["kolkata_metro.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KJKA",
+		"opened_date": "30 December 2022",
+		"neighbors": [{"station": "thakurpukur", "line": "kolkata_metro.purple"}]
+	},
+	"thakurpukur": {
+		"id": "thakurpukur",
+		"name": {"en": "Thakurpukur", "bn": "ঠাকুরপুকুর"},
+		"lines": ["kolkata_metro.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KTKP",
+		"opened_date": "30 December 2022",
+		"neighbors": [{"station": "joka", "line": "kolkata_metro.purple"}, {"station": "behala_sakherbazar", "line": "kolkata_metro.purple"}]
+	},
+	"behala_sakherbazar": {
+		"id": "behala_sakherbazar",
+		"name": {"en": "Behala Sakherbazar", "bn": "সখেরবাজার"},
+		"lines": ["kolkata_metro.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KSKB",
+		"opened_date": "30 December 2022",
+		"neighbors": [{"station": "thakurpukur", "line": "kolkata_metro.purple"}, {"station": "behala_chowrasta", "line": "kolkata_metro.purple"}]
+	},
+	"behala_chowrasta": {
+		"id": "behala_chowrasta",
+		"name": {"en": "Behala Chowrasta", "bn": "বেহালা চৌরাস্তা"},
+		"lines": ["kolkata_metro.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KBCR",
+		"opened_date": "30 December 2022",
+		"neighbors": [{"station": "behala_sakherbazar", "line": "kolkata_metro.purple"}, {"station": "behala_bazar", "line": "kolkata_metro.purple"}]
+	},
+	"behala_bazar": {
+		"id": "behala_bazar",
+		"name": {"en": "Behala Bazar", "bn": "বেহালা বাজার"},
+		"lines": ["kolkata_metro.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KBBR",
+		"opened_date": "30 December 2022",
+		"location": {"decimal": {"lat": 22.500378, "lon": 88.3172706}},
+		"neighbors": [{"station": "behala_chowrasta", "line": "kolkata_metro.purple"}, {"station": "taratala", "line": "kolkata_metro.purple"}]
+	},
+	"taratala": {
+		"id": "taratala",
+		"name": {"en": "Taratala", "bn": "তারাতলা"},
+		"lines": ["kolkata_metro.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KTRT",
+		"opened_date": "30 December 2022",
+		"neighbors": [{"station": "behala_bazar", "line": "kolkata_metro.purple"}, {"station": "majerhat", "line": "kolkata_metro.purple"}]
+	},
+	"majerhat": {
+		"id": "majerhat",
+		"name": {"en": "Majerhat", "bn": "মাঝেরহাট"},
+		"lines": ["kolkata_metro.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KMJH",
+		"opened_date": "6 March 2024",
+		"location": {"decimal": {"lat": 22.519219, "lon": 88.323742}},
+		"neighbors": [{"station": "taratala", "line": "kolkata_metro.purple"}]
+	},
+	"dum_dum_cantonment": {
+		"id": "dum_dum_cantonment",
+		"name": {"en": "Dum Dum Cantonment", "bn": "দমদম ক্যান্টনমেন্ট"},
+		"lines": ["kolkata_metro.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "KDCM",
+		"opened_date": "22 August 2025",
+		"location": {"decimal": {"lat": 22.6369865, "lon": 88.4125389}},
+		"neighbors": [{"station": "noapara", "line": "kolkata_metro.yellow"}, {"station": "jessore_road", "line": "kolkata_metro.yellow"}]
+	},
+	"jessore_road": {
+		"id": "jessore_road",
+		"name": {"en": "Jessore Road", "bn": "যশোহর রোড"},
+		"lines": ["kolkata_metro.yellow"],
+		"properties": {"layout": "at grade", "status": "operational"},
+		"code": "KJRO",
+		"opened_date": "22 August 2025",
+		"location": {"decimal": {"lat": 22.6391925, "lon": 88.4297986}},
+		"neighbors": [{"station": "dum_dum_cantonment", "line": "kolkata_metro.yellow"}, {"station": "jai_hind", "line": "kolkata_metro.yellow"}]
+	},
+	"jai_hind": {
+		"id": "jai_hind",
+		"name": {"en": "Jai Hind", "bn": "জয় হিন্দ"},
+		"lines": ["kolkata_metro.yellow"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "KJHD",
+		"opened_date": "22 August 2025",
+		"location": {"decimal": {"lat": 22.647315, "lon": 88.437376}},
+		"neighbors": [{"station": "jessore_road", "line": "kolkata_metro.yellow"}]
+	}
+}

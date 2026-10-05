@@ -1,0 +1,179 @@
+{
+	"defaults": {"stationType": "normal", "layout": "elevated"},
+	"fareRules": {
+		"currency": "INR",
+		"networks": {
+			"jmrc": {"operator": "Jaipur Metro Rail Corporation (JMRC)", "avgSpeedMetersPerMin": 530, "stationHaltMinutes": 0.5}
+		},
+		"policies": {
+			"jaipur_metro_standard": {
+				"network": "jmrc",
+				"effectiveFrom": "2020-09-23",
+				"fareModel": "station_count_based",
+				"calculation": {"distanceUnit": "stations", "rounding": "exact"},
+				"fareTables": {
+					"weekday": [
+						{"minStations": 0, "maxStations": 2, "fare": 10},
+						{"minStations": 3, "maxStations": 5, "fare": 15},
+						{"minStations": 6, "maxStations": 8, "fare": 25},
+						{"minStations": 9, "maxStations": 10, "fare": 30}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"timeRule": null,
+						"label": {"en": "JMRC Smart Card (10% Off)", "hi": "जेएमआरसी स्मार्ट कार्ड (10% छूट)"}
+					},
+					"tourist_card_1day": {
+						"type": "pass",
+						"price": 100,
+						"label": {"en": "1-Day Tourist Card (₹100)", "hi": "1-दिवसीय टूरिस्ट कार्ड (₹100)"}
+					}
+				},
+				"timeRules": null,
+				"stationStayRules": {
+					"sameStationExitFare": 10,
+					"sameStationTimeLimitMinutes": 20,
+					"differentStationTimeLimitMinutes": 60,
+					"overstayPenaltyPerHour": 10,
+					"maxOverstayPenalty": 50
+				}
+			}
+		}
+	},
+	"lines": {
+		"jmrc.pink": {
+			"id": "jmrc.pink",
+			"network": "jaipur_metro",
+			"operator": "Jaipur Metro Rail Corporation (JMRC)",
+			"label": "P",
+			"short_name": {"en": "Pink Line (Phase 1)", "hi": "पिंक लाइन"},
+			"color": "#E91E63",
+			"color_name": "pink",
+			"style": "solid",
+			"route": {"from": "mansarovar", "to": "badi_chaupar"},
+			"stations": [
+				"mansarovar",
+				"new_aatish_market",
+				"vivek_vihar",
+				"shyam_nagar",
+				"ram_nagar",
+				"civil_lines",
+				"railway_station",
+				"sindhi_camp",
+				"chandpole",
+				"chhoti_chaupar",
+				"badi_chaupar"
+			]
+		}
+	},
+	"transfers": {},
+	"stationData": {
+		"mansarovar": {
+			"id": "mansarovar",
+			"name": {"en": "Mansarovar", "hi": "मानसरोवर"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "new_aatish_market", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.8795679, "lon": 75.7505817}}
+		},
+		"new_aatish_market": {
+			"id": "new_aatish_market",
+			"name": {"en": "New Aatish Market", "hi": "नया आतिश मार्केट"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mansarovar", "line": "jmrc.pink"}, {"station": "vivek_vihar", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.880275, "lon": 75.764588}}
+		},
+		"vivek_vihar": {
+			"id": "vivek_vihar",
+			"name": {"en": "Vivek Vihar", "hi": "विवेक विहार"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "new_aatish_market", "line": "jmrc.pink"}, {"station": "shyam_nagar", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.888792, "lon": 75.76854}}
+		},
+		"shyam_nagar": {
+			"id": "shyam_nagar",
+			"name": {"en": "Shyam Nagar", "hi": "श्याम नगर"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "vivek_vihar", "line": "jmrc.pink"}, {"station": "ram_nagar", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.896477, "lon": 75.77068}}
+		},
+		"ram_nagar": {
+			"id": "ram_nagar",
+			"name": {"en": "Ram Nagar", "hi": "राम नगर"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "shyam_nagar", "line": "jmrc.pink"}, {"station": "civil_lines", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.9019446, "lon": 75.774671}}
+		},
+		"civil_lines": {
+			"id": "civil_lines",
+			"name": {"en": "Civil Lines", "hi": "सिविल लाइन्स"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ram_nagar", "line": "jmrc.pink"}, {"station": "railway_station", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.9096443, "lon": 75.7812921}}
+		},
+		"railway_station": {
+			"id": "railway_station",
+			"name": {"en": "Railway Station", "hi": "रेलवे स्टेशन"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "civil_lines", "line": "jmrc.pink"}, {"station": "sindhi_camp", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.918157, "lon": 75.7902021}}
+		},
+		"sindhi_camp": {
+			"id": "sindhi_camp",
+			"name": {"en": "Sindhi Camp", "hi": "सिन्धी कैंप"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "railway_station", "line": "jmrc.pink"}, {"station": "chandpole", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.9233891, "lon": 75.8003196}}
+		},
+		"chandpole": {
+			"id": "chandpole",
+			"name": {"en": "Chandpole", "hi": "चांदपोल"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "sindhi_camp", "line": "jmrc.pink"}, {"station": "chhoti_chaupar", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.9263216, "lon": 75.8074324}}
+		},
+		"chhoti_chaupar": {
+			"id": "chhoti_chaupar",
+			"name": {"en": "Chhoti Chaupar", "hi": "छोटी चौपड़"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "chandpole", "line": "jmrc.pink"}, {"station": "badi_chaupar", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.924705, "lon": 75.818491}}
+		},
+		"badi_chaupar": {
+			"id": "badi_chaupar",
+			"name": {"en": "Badi Chaupar", "hi": "बड़ी चौपड़"},
+			"lines": ["jmrc.pink"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "chhoti_chaupar", "line": "jmrc.pink"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 26.922971, "lon": 75.826842}}
+		}
+	}
+}

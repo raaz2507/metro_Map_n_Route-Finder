@@ -1,0 +1,248 @@
+{
+	"pcmc": {
+		"id": "pcmc",
+		"name": {"en": "PCMC", "mr": "PCMC"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_1",
+		"neighbors": [{"station": "sant_tukaram_nagar", "line": "mahametro_pune.purple"}]
+	},
+	"sant_tukaram_nagar": {
+		"id": "sant_tukaram_nagar",
+		"name": {"en": "Sant Tukaram Nagar", "mr": "संत तुकाराम नगर"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_2",
+		"neighbors": [{"station": "pcmc", "line": "mahametro_pune.purple"}, {"station": "nashik_phata_bhosari", "line": "mahametro_pune.purple"}]
+	},
+	"nashik_phata_bhosari": {
+		"id": "nashik_phata_bhosari",
+		"name": {"en": "Nashik Phata (Bhosari)", "mr": "Nashik Phata (Bhosari)"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_3",
+		"neighbors": [{"station": "sant_tukaram_nagar", "line": "mahametro_pune.purple"}, {"station": "kasarwadi", "line": "mahametro_pune.purple"}]
+	},
+	"kasarwadi": {
+		"id": "kasarwadi",
+		"name": {"en": "Kasarwadi", "mr": "कासारवाडी"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_4",
+		"neighbors": [{"station": "nashik_phata_bhosari", "line": "mahametro_pune.purple"}, {"station": "phugewadi", "line": "mahametro_pune.purple"}]
+	},
+	"phugewadi": {
+		"id": "phugewadi",
+		"name": {"en": "Phugewadi", "mr": "फुगेवाडी"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_5",
+		"neighbors": [{"station": "kasarwadi", "line": "mahametro_pune.purple"}, {"station": "dapodi", "line": "mahametro_pune.purple"}]
+	},
+	"dapodi": {
+		"id": "dapodi",
+		"name": {"en": "Dapodi", "mr": "दापोडी"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_6",
+		"neighbors": [{"station": "phugewadi", "line": "mahametro_pune.purple"}, {"station": "bopodi", "line": "mahametro_pune.purple"}]
+	},
+	"bopodi": {
+		"id": "bopodi",
+		"name": {"en": "Bopodi", "mr": "बोपोडी"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_7",
+		"neighbors": [{"station": "dapodi", "line": "mahametro_pune.purple"}, {"station": "khadki", "line": "mahametro_pune.purple"}]
+	},
+	"khadki": {
+		"id": "khadki",
+		"name": {"en": "Khadki", "mr": "खडकी"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_8",
+		"neighbors": [{"station": "bopodi", "line": "mahametro_pune.purple"}, {"station": "shivaji_nagar", "line": "mahametro_pune.purple"}]
+	},
+	"shivaji_nagar": {
+		"id": "shivaji_nagar",
+		"name": {"en": "Shivaji Nagar", "mr": "शिवाजी नगर"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "PUN_11",
+		"neighbors": [{"station": "khadki", "line": "mahametro_pune.purple"}, {"station": "district_court", "line": "mahametro_pune.purple"}]
+	},
+	"district_court": {
+		"id": "district_court",
+		"name": {"en": "District Court", "mr": "District Court"},
+		"lines": ["mahametro_pune.purple", "mahametro_pune.aqua"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "PUN_12",
+		"neighbors": [
+			{"station": "shivaji_nagar", "line": "mahametro_pune.purple"},
+			{"station": "kasba_peth", "line": "mahametro_pune.purple"},
+			{"station": "pmc", "line": "mahametro_pune.aqua"},
+			{"station": "rto_pune", "line": "mahametro_pune.aqua"}
+		]
+	},
+	"kasba_peth": {
+		"id": "kasba_peth",
+		"name": {"en": "Kasba Peth", "mr": "कसबा पेठ"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "PUN_13",
+		"neighbors": [
+			{"station": "district_court", "line": "mahametro_pune.purple"},
+			{"station": "mahatma_phule_mandai", "line": "mahametro_pune.purple"}
+		]
+	},
+	"mahatma_phule_mandai": {
+		"id": "mahatma_phule_mandai",
+		"name": {"en": "Mahatma Phule Mandai", "mr": "महात्मा फुले मंडई"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "PUN_14",
+		"neighbors": [{"station": "kasba_peth", "line": "mahametro_pune.purple"}, {"station": "swargate", "line": "mahametro_pune.purple"}]
+	},
+	"swargate": {
+		"id": "swargate",
+		"name": {"en": "Swargate", "mr": "स्वारगेट"},
+		"lines": ["mahametro_pune.purple"],
+		"properties": {"layout": "underground", "status": "operational"},
+		"code": "PUN_15",
+		"neighbors": [{"station": "mahatma_phule_mandai", "line": "mahametro_pune.purple"}]
+	},
+	"vanaz": {
+		"id": "vanaz",
+		"name": {"en": "Vanaz", "mr": "वनाझ"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_17",
+		"location": {"decimal": {"lat": 18.5071684, "lon": 73.8052295}},
+		"neighbors": [{"station": "anand_nagar", "line": "mahametro_pune.aqua"}]
+	},
+	"anand_nagar": {
+		"id": "anand_nagar",
+		"name": {"en": "Anand Nagar", "mr": "आनंद नगर"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_18",
+		"location": {"decimal": {"lat": 18.5095385, "lon": 73.8140153}},
+		"neighbors": [{"station": "vanaz", "line": "mahametro_pune.aqua"}, {"station": "paud_phata", "line": "mahametro_pune.aqua"}]
+	},
+	"paud_phata": {
+		"id": "paud_phata",
+		"name": {"en": "Paud Phata", "mr": "पौड फाटा"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_19",
+		"location": {"decimal": {"lat": 18.5090907, "lon": 73.8218919}},
+		"neighbors": [{"station": "anand_nagar", "line": "mahametro_pune.aqua"}, {"station": "sndt_college", "line": "mahametro_pune.aqua"}]
+	},
+	"sndt_college": {
+		"id": "sndt_college",
+		"name": {"en": "S.N.D.T. College", "mr": "एसएनडीटी कॉलेज"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_20",
+		"location": {"decimal": {"lat": 18.509552, "lon": 73.8327769}},
+		"neighbors": [{"station": "paud_phata", "line": "mahametro_pune.aqua"}, {"station": "garware_college", "line": "mahametro_pune.aqua"}]
+	},
+	"garware_college": {
+		"id": "garware_college",
+		"name": {"en": "Garware College", "mr": "गरवारे महाविद्यालय"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_21",
+		"location": {"decimal": {"lat": 18.5118916, "lon": 73.8378759}},
+		"neighbors": [{"station": "sndt_college", "line": "mahametro_pune.aqua"}, {"station": "deccan_gymkhana", "line": "mahametro_pune.aqua"}]
+	},
+	"deccan_gymkhana": {
+		"id": "deccan_gymkhana",
+		"name": {"en": "Deccan Gymkhana", "mr": "डेक्कन जिमखाना"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_22",
+		"location": {"decimal": {"lat": 18.5164582, "lon": 73.8438994}},
+		"neighbors": [
+			{"station": "garware_college", "line": "mahametro_pune.aqua"},
+			{"station": "chhatrapati_sambhaji_udyan", "line": "mahametro_pune.aqua"}
+		]
+	},
+	"chhatrapati_sambhaji_udyan": {
+		"id": "chhatrapati_sambhaji_udyan",
+		"name": {"en": "Chhatrapati Sambhaji Udyan", "mr": "छत्रपती संभाजी उद्यान"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_23",
+		"location": {"decimal": {"lat": 18.520115, "lon": 73.847593}},
+		"neighbors": [{"station": "deccan_gymkhana", "line": "mahametro_pune.aqua"}, {"station": "pmc", "line": "mahametro_pune.aqua"}]
+	},
+	"pmc": {
+		"id": "pmc",
+		"name": {"en": "PMC", "mr": "PMC"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_24",
+		"neighbors": [
+			{"station": "chhatrapati_sambhaji_udyan", "line": "mahametro_pune.aqua"},
+			{"station": "district_court", "line": "mahametro_pune.aqua"}
+		]
+	},
+	"rto_pune": {
+		"id": "rto_pune",
+		"name": {"en": "R.T.O Pune", "mr": "R.T.O Pune"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_25",
+		"neighbors": [{"station": "district_court", "line": "mahametro_pune.aqua"}, {"station": "pune_railway_station", "line": "mahametro_pune.aqua"}]
+	},
+	"pune_railway_station": {
+		"id": "pune_railway_station",
+		"name": {"en": "Pune Railway Station", "mr": "पुणे रेल्वे स्थानक"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_26",
+		"neighbors": [{"station": "rto_pune", "line": "mahametro_pune.aqua"}, {"station": "ruby_hall_clinic", "line": "mahametro_pune.aqua"}]
+	},
+	"ruby_hall_clinic": {
+		"id": "ruby_hall_clinic",
+		"name": {"en": "Ruby Hall Clinic", "mr": "रुबी हॉल क्लिनिक"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_27",
+		"neighbors": [{"station": "pune_railway_station", "line": "mahametro_pune.aqua"}, {"station": "bund_garden", "line": "mahametro_pune.aqua"}]
+	},
+	"bund_garden": {
+		"id": "bund_garden",
+		"name": {"en": "Bund Garden", "mr": "बंड गार्डन"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_32",
+		"neighbors": [{"station": "ruby_hall_clinic", "line": "mahametro_pune.aqua"}, {"station": "yerwada", "line": "mahametro_pune.aqua"}]
+	},
+	"yerwada": {
+		"id": "yerwada",
+		"name": {"en": "Yerwada", "mr": "येरवडा"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_35",
+		"neighbors": [{"station": "bund_garden", "line": "mahametro_pune.aqua"}, {"station": "kalyani_nagar", "line": "mahametro_pune.aqua"}]
+	},
+	"kalyani_nagar": {
+		"id": "kalyani_nagar",
+		"name": {"en": "Kalyani Nagar", "mr": "कल्याणी नगर"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_36",
+		"neighbors": [{"station": "yerwada", "line": "mahametro_pune.aqua"}, {"station": "ramwadi", "line": "mahametro_pune.aqua"}]
+	},
+	"ramwadi": {
+		"id": "ramwadi",
+		"name": {"en": "Ramwadi", "mr": "रामवाडी"},
+		"lines": ["mahametro_pune.aqua"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "PUN_37",
+		"location": {"decimal": {"lat": 18.5573323, "lon": 73.9088801}},
+		"neighbors": [{"station": "kalyani_nagar", "line": "mahametro_pune.aqua"}]
+	}
+}

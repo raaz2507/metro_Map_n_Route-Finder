@@ -72,13 +72,41 @@
 		}
 	},
 	"transfers": {
-		"central_metro": {
-			"cmrl.blue": {"puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2:cmrl.green": {"type": "interchange", "transfer_mode": "vertical"}},
-			"cmrl.green": {"puratchi-thalaivar-dr-m-g-ramachandran-central-metro:cmrl.blue": {"type": "interchange", "transfer_mode": "vertical"}}
+		"puratchi-thalaivar-dr-m-g-ramachandran-central-metro": {
+			"cmrl.blue": {
+				"puratchi-thalaivar-dr-m-g-ramachandran-central-metro:cmrl.green": {
+					"type": "interchange",
+					"transfer_mode": "vertical",
+					"distance_meters": 40,
+					"levels": 1
+				}
+			},
+			"cmrl.green": {
+				"puratchi-thalaivar-dr-m-g-ramachandran-central-metro:cmrl.blue": {
+					"type": "interchange",
+					"transfer_mode": "vertical",
+					"distance_meters": 40,
+					"levels": 1
+				}
+			}
 		},
-		"alandur_metro": {
-			"cmrl.blue": {"arignar-anna-alandur-metro-2:cmrl.green": {"type": "interchange", "transfer_mode": "vertical"}},
-			"cmrl.green": {"arignar-anna-alandur-metro:cmrl.blue": {"type": "interchange", "transfer_mode": "vertical"}}
+		"arignar-anna-alandur-metro": {
+			"cmrl.blue": {
+				"arignar-anna-alandur-metro:cmrl.green": {
+					"type": "interchange",
+					"transfer_mode": "vertical",
+					"distance_meters": 40,
+					"levels": 1
+				}
+			},
+			"cmrl.green": {
+				"arignar-anna-alandur-metro:cmrl.blue": {
+					"type": "interchange",
+					"transfer_mode": "vertical",
+					"distance_meters": 40,
+					"levels": 1
+				}
+			}
 		}
 	},
 	"stationData": {

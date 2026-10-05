@@ -130,8 +130,15 @@ class GeoSyncController {
 		try {
 			const res = await fetch(`/api/geo/audit?city=${encodeURIComponent(cityKey)}&mode=${encodeURIComponent(mode)}`);
 			if (!res.ok) {
-				const err = await res.json();
-				throw new Error(err.detail || 'Audit request failed');
+				let errMsg = `Audit request failed (HTTP ${res.status})`;
+				try {
+					const err = await res.json();
+					errMsg = err.detail || err.error || errMsg;
+				} catch (_) {
+					const text = await res.text();
+					if (text) errMsg = text.slice(0, 150);
+				}
+				throw new Error(errMsg);
 			}
 
 			const data = await res.json();

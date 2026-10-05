@@ -1190,15 +1190,15 @@
     }
   },
   {
-    "station_id": "shivaji_nagar",
-    "name": "Shivaji Nagar",
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shivaji+Nagar+Metro+Station",
-    "generated_google_maps_url": "https://www.google.com/maps/place/Shivaji+Nagar+Metro+Station/@15.739389,75.7470773,7z/data=!4m10!1m2!2m1!1sShivaji+Nagar+Metro+Station,+Bengaluru,+Karnataka,+India!3m6!1s0x3bc2c086ddc1647f:0x8fe17fdb4e36c85b!8m2!3d18.532491!4d73.8491506!15sCjhTaGl2YWppIE5hZ2FyIE1ldHJvIFN0YXRpb24sIEJlbmdhbHVydSwgS2FybmF0YWthLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11zkrv4n1x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
-    "coordinates": {
-      "lat": 15.739389,
-      "lon": 75.7470773
-    }
-  },
+  "station_id": "shivaji_nagar",
+  "name": "Shivaji Nagar",
+  "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Shivaji+Nagar+Metro+Station+Bengaluru+Karnataka",
+  "generated_google_maps_url": "https://www.google.com/maps/place/Shivaji+Nagar+Metro+Station/@12.98358,77.60306,17z",
+  "coordinates": {
+    "lat": 12.98358,
+    "lon": 77.60306
+  }
+},	
   {
     "station_id": "tannery_road",
     "name": "Tannery Road",
@@ -1229,16 +1229,16 @@
       "lon": 77.6181866
     }
   },
-  {
-    "station_id": "venkateshpura",
-    "name": "Venkateshpura",
-    "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Venkateshpura+Metro+Station",
-    "generated_google_maps_url": "https://www.google.com/maps/place/Thalaghattapura/@12.9433462,77.5779361,12z/data=!4m10!1m2!2m1!1sVenkateshpura+Metro+Station,+Bengaluru,+Karnataka,+India!3m6!1s0x3bae40752830dd27:0x717e980de34012f9!8m2!3d12.871366!4d77.538439!15sCjhWZW5rYXRlc2hwdXJhIE1ldHJvIFN0YXRpb24sIEJlbmdhbHVydSwgS2FybmF0YWthLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11lshq7j06?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
-    "coordinates": {
-      "lat": 12.9433462,
-      "lon": 77.5779361
-    }
-  },
+	 {
+	  "station_id": "venkateshpura",
+	  "name": "Venkateshpura",
+	  "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Venkateshpura+Metro+Station+Bengaluru+Karnataka",
+	  "generated_google_maps_url": "https://www.google.com/maps/place/Venkateshpura+Metro+Station/@13.01757,77.61789,17z",
+	  "coordinates": {
+		"lat": 13.01757,
+		"lon": 77.61789
+	  }
+	},
   {
     "station_id": "yelahanka",
     "name": "Yelahanka",

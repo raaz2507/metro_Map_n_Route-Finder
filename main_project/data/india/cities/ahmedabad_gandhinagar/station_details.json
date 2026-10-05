@@ -1,0 +1,551 @@
+{
+	"vastral_gam": {
+		"id": "vastral_gam",
+		"name": {"en": "Vastral Gam", "gu": "વસ્ત્રાલ ગામ"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_1",
+		"location": {"decimal": {"lat": 23.000413, "lon": 72.6581355}},
+		"neighbors": [{"station": "nirant_cross_road", "line": "gmrc.blue"}]
+	},
+	"nirant_cross_road": {
+		"id": "nirant_cross_road",
+		"name": {"en": "Nirant Cross Road", "gu": "નિરાંત ક્રોસ રોડ"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_2",
+		"location": {"decimal": {"lat": 22.999817, "lon": 72.658914}},
+		"neighbors": [{"station": "vastral_gam", "line": "gmrc.blue"}, {"station": "vastral", "line": "gmrc.blue"}]
+	},
+	"vastral": {
+		"id": "vastral",
+		"name": {"en": "Vastral", "gu": "વસ્ત્રાલ"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_3",
+		"location": {"decimal": {"lat": 23.000413, "lon": 72.657556}},
+		"neighbors": [{"station": "nirant_cross_road", "line": "gmrc.blue"}, {"station": "rabari_colony", "line": "gmrc.blue"}]
+	},
+	"rabari_colony": {
+		"id": "rabari_colony",
+		"name": {"en": "Rabari Colony", "gu": "રબારી કોલોની"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_4",
+		"location": {"decimal": {"lat": 23.005541, "lon": 72.635462}},
+		"neighbors": [{"station": "vastral", "line": "gmrc.blue"}, {"station": "amraivadi", "line": "gmrc.blue"}]
+	},
+	"amraivadi": {
+		"id": "amraivadi",
+		"name": {"en": "Amraivadi", "gu": "Amraivadi"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_5",
+		"neighbors": [{"station": "rabari_colony", "line": "gmrc.blue"}, {"station": "apparel_park", "line": "gmrc.blue"}]
+	},
+	"apparel_park": {
+		"id": "apparel_park",
+		"name": {"en": "Apparel Park", "gu": "એપેરલ પાર્ક"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_6",
+		"location": {"decimal": {"lat": 23.0107009, "lon": 72.6180701}},
+		"neighbors": [{"station": "amraivadi", "line": "gmrc.blue"}, {"station": "kankaria_east", "line": "gmrc.blue"}]
+	},
+	"kankaria_east": {
+		"id": "kankaria_east",
+		"name": {"en": "Kankaria East", "gu": "કાંકરિયા પૂર્વ"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_7",
+		"location": {"decimal": {"lat": 23.015193, "lon": 72.606993}},
+		"neighbors": [{"station": "apparel_park", "line": "gmrc.blue"}, {"station": "kalupur", "line": "gmrc.blue"}]
+	},
+	"kalupur": {
+		"id": "kalupur",
+		"name": {"en": "Kalupur", "gu": "કાલુપુર રેલ્વે સ્ટેશન"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_8",
+		"location": {"decimal": {"lat": 23.025107, "lon": 72.603045}},
+		"neighbors": [{"station": "kankaria_east", "line": "gmrc.blue"}, {"station": "gheekanta", "line": "gmrc.blue"}]
+	},
+	"gheekanta": {
+		"id": "gheekanta",
+		"name": {"en": "Gheekanta", "gu": "ઘીકાંટા"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_9",
+		"location": {"decimal": {"lat": 23.0286869, "lon": 72.5870775}},
+		"neighbors": [{"station": "kalupur", "line": "gmrc.blue"}, {"station": "shahpur", "line": "gmrc.blue"}]
+	},
+	"shahpur": {
+		"id": "shahpur",
+		"name": {"en": "Shahpur", "gu": "શાહપુર"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_10",
+		"location": {"decimal": {"lat": 23.0392892, "lon": 72.5804283}},
+		"neighbors": [{"station": "gheekanta", "line": "gmrc.blue"}, {"station": "old_high_court", "line": "gmrc.blue"}]
+	},
+	"old_high_court": {
+		"id": "old_high_court",
+		"name": {"en": "Old High Court", "gu": "જૂની હાઇ કોર્ટ"},
+		"lines": ["gmrc.blue", "gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_11",
+		"location": {"decimal": {"lat": 23.037333, "lon": 72.567043}},
+		"neighbors": [
+			{"station": "shahpur", "line": "gmrc.blue"},
+			{"station": "sp_stadium", "line": "gmrc.blue"},
+			{"station": "gandhigram", "line": "gmrc.red"},
+			{"station": "usmanpura", "line": "gmrc.red"}
+		]
+	},
+	"sp_stadium": {
+		"id": "sp_stadium",
+		"name": {"en": "SP Stadium", "gu": "એસ પી સ્ટેડિયમ"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_12",
+		"location": {"decimal": {"lat": 23.03987, "lon": 72.561661}},
+		"neighbors": [{"station": "old_high_court", "line": "gmrc.blue"}, {"station": "commerce_six_road", "line": "gmrc.blue"}]
+	},
+	"commerce_six_road": {
+		"id": "commerce_six_road",
+		"name": {"en": "Commerce Six Road", "gu": "કોમર્સ છ રસ્તા"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_13",
+		"neighbors": [{"station": "sp_stadium", "line": "gmrc.blue"}, {"station": "gujarat_university", "line": "gmrc.blue"}]
+	},
+	"gujarat_university": {
+		"id": "gujarat_university",
+		"name": {"en": "Gujarat University", "gu": "ગુજરાત યુનિવર્સિટી"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_14",
+		"location": {"decimal": {"lat": 23.044857, "lon": 72.543619}},
+		"neighbors": [{"station": "commerce_six_road", "line": "gmrc.blue"}, {"station": "gurukul_road", "line": "gmrc.blue"}]
+	},
+	"gurukul_road": {
+		"id": "gurukul_road",
+		"name": {"en": "Gurukul Road", "gu": "ગુરુકુળ રોડ"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_15",
+		"location": {"decimal": {"lat": 23.04588, "lon": 72.53493}},
+		"neighbors": [{"station": "gujarat_university", "line": "gmrc.blue"}, {"station": "doordarshan_kendra", "line": "gmrc.blue"}]
+	},
+	"doordarshan_kendra": {
+		"id": "doordarshan_kendra",
+		"name": {"en": "Doordarshan Kendra", "gu": "દૂરદર્શન કેન્દ્ર"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_16",
+		"location": {"decimal": {"lat": 23.048171, "lon": 72.524482}},
+		"neighbors": [{"station": "gurukul_road", "line": "gmrc.blue"}, {"station": "thaltej", "line": "gmrc.blue"}]
+	},
+	"thaltej": {
+		"id": "thaltej",
+		"name": {"en": "Thaltej", "gu": "થલતેજ"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_17",
+		"location": {"decimal": {"lat": 23.0500825, "lon": 72.51237}},
+		"neighbors": [{"station": "doordarshan_kendra", "line": "gmrc.blue"}, {"station": "thaltej_gam", "line": "gmrc.blue"}]
+	},
+	"thaltej_gam": {
+		"id": "thaltej_gam",
+		"name": {"en": "Thaltej Gam", "gu": "થલતેજ ગામ"},
+		"lines": ["gmrc.blue"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_18",
+		"location": {"decimal": {"lat": 23.0500825, "lon": 72.51237}},
+		"neighbors": [{"station": "thaltej", "line": "gmrc.blue"}]
+	},
+	"apmc": {
+		"id": "apmc",
+		"name": {"en": "APMC", "gu": "એ પી એમ સી"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_19",
+		"location": {"decimal": {"lat": 22.997704, "lon": 72.537271}},
+		"neighbors": [{"station": "jivraj_park", "line": "gmrc.red"}]
+	},
+	"jivraj_park": {
+		"id": "jivraj_park",
+		"name": {"en": "Jivraj Park", "gu": "જીવરાજ પાર્ક"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_20",
+		"location": {"decimal": {"lat": 23.005502, "lon": 72.533607}},
+		"neighbors": [{"station": "apmc", "line": "gmrc.red"}, {"station": "rajivnagar", "line": "gmrc.red"}]
+	},
+	"rajivnagar": {
+		"id": "rajivnagar",
+		"name": {"en": "Rajivnagar", "gu": "રાજીવ નગર"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_21",
+		"location": {"decimal": {"lat": 23.009748, "lon": 72.536863}},
+		"neighbors": [{"station": "jivraj_park", "line": "gmrc.red"}, {"station": "shreyas", "line": "gmrc.red"}]
+	},
+	"shreyas": {
+		"id": "shreyas",
+		"name": {"en": "Shreyas", "gu": "શ્રેયસ"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_22",
+		"location": {"decimal": {"lat": 23.013653, "lon": 72.549448}},
+		"neighbors": [{"station": "rajivnagar", "line": "gmrc.red"}, {"station": "paldi", "line": "gmrc.red"}]
+	},
+	"paldi": {
+		"id": "paldi",
+		"name": {"en": "Paldi", "gu": "પાલડી"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_23",
+		"location": {"decimal": {"lat": 23.0194142, "lon": 72.5622527}},
+		"neighbors": [{"station": "shreyas", "line": "gmrc.red"}, {"station": "gandhigram", "line": "gmrc.red"}]
+	},
+	"gandhigram": {
+		"id": "gandhigram",
+		"name": {"en": "Gandhigram", "gu": "ગાંધીગ્રામ"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_24",
+		"location": {"decimal": {"lat": 23.0272286, "lon": 72.5689808}},
+		"neighbors": [{"station": "paldi", "line": "gmrc.red"}, {"station": "old_high_court", "line": "gmrc.red"}]
+	},
+	"usmanpura": {
+		"id": "usmanpura",
+		"name": {"en": "Usmanpura", "gu": "ઉસ્માનપુરા"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_25",
+		"location": {"decimal": {"lat": 23.04601, "lon": 72.565013}},
+		"neighbors": [{"station": "old_high_court", "line": "gmrc.red"}, {"station": "vijaynagar", "line": "gmrc.red"}]
+	},
+	"vijaynagar": {
+		"id": "vijaynagar",
+		"name": {"en": "Vijaynagar", "gu": "વિજય નગર"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_26",
+		"location": {"decimal": {"lat": 23.056195, "lon": 72.562402}},
+		"neighbors": [{"station": "usmanpura", "line": "gmrc.red"}, {"station": "vadaj", "line": "gmrc.red"}]
+	},
+	"vadaj": {
+		"id": "vadaj",
+		"name": {"en": "Vadaj", "gu": "વાડજ"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_27",
+		"location": {"decimal": {"lat": 23.0677209, "lon": 72.5658093}},
+		"neighbors": [{"station": "vijaynagar", "line": "gmrc.red"}, {"station": "ranip", "line": "gmrc.red"}]
+	},
+	"ranip": {
+		"id": "ranip",
+		"name": {"en": "Ranip", "gu": "રાણીપ"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_28",
+		"location": {"decimal": {"lat": 23.067708, "lon": 72.57413}},
+		"neighbors": [{"station": "vadaj", "line": "gmrc.red"}, {"station": "sabarmati_railway_station", "line": "gmrc.red"}]
+	},
+	"sabarmati_railway_station": {
+		"id": "sabarmati_railway_station",
+		"name": {"en": "Sabarmati Railway Station", "gu": "સાબરમતી રેલવે સ્ટેશન"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "work in progress"},
+		"code": "GMRC_29",
+		"location": {"decimal": {"lat": 23.0784124, "lon": 72.5896937}},
+		"neighbors": [{"station": "ranip", "line": "gmrc.red"}, {"station": "aec", "line": "gmrc.red"}]
+	},
+	"aec": {
+		"id": "aec",
+		"name": {"en": "AEC", "gu": "એ ઇ સી"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_30",
+		"location": {"decimal": {"lat": 23.075069, "lon": 72.593227}},
+		"neighbors": [{"station": "sabarmati_railway_station", "line": "gmrc.red"}, {"station": "sabarmati", "line": "gmrc.red"}]
+	},
+	"sabarmati": {
+		"id": "sabarmati",
+		"name": {"en": "Sabarmati", "gu": "સાબરમતી"},
+		"lines": ["gmrc.red"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_31",
+		"location": {"decimal": {"lat": 23.085617, "lon": 72.592274}},
+		"neighbors": [{"station": "aec", "line": "gmrc.red"}, {"station": "motera_stadium", "line": "gmrc.red"}]
+	},
+	"motera_stadium": {
+		"id": "motera_stadium",
+		"name": {"en": "Motera Stadium", "gu": "મોટેરા સ્ટેડિયમ"},
+		"lines": ["gmrc.red", "gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_32",
+		"location": {"decimal": {"lat": 23.0968402, "lon": 72.5967185}},
+		"neighbors": [{"station": "sabarmati", "line": "gmrc.red"}, {"station": "koteshwar_road", "line": "gmrc.yellow"}]
+	},
+	"koteshwar_road": {
+		"id": "koteshwar_road",
+		"name": {"en": "Koteshwar Road", "gu": "કોટેશ્વર રોડ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_33",
+		"location": {"decimal": {"lat": 23.105944, "lon": 72.603489}},
+		"neighbors": [{"station": "motera_stadium", "line": "gmrc.yellow"}, {"station": "vishwakarma_college", "line": "gmrc.yellow"}]
+	},
+	"vishwakarma_college": {
+		"id": "vishwakarma_college",
+		"name": {"en": "Vishwakarma College", "gu": "વિશ્વકર્મા કોલેજ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_34",
+		"location": {"decimal": {"lat": 23.1151303, "lon": 72.609579}},
+		"neighbors": [{"station": "koteshwar_road", "line": "gmrc.yellow"}, {"station": "tapovan_circle", "line": "gmrc.yellow"}]
+	},
+	"tapovan_circle": {
+		"id": "tapovan_circle",
+		"name": {"en": "Tapovan Circle", "gu": "તપોવન સર્કલ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_35",
+		"location": {"decimal": {"lat": 23.120192, "lon": 72.615871}},
+		"neighbors": [{"station": "vishwakarma_college", "line": "gmrc.yellow"}, {"station": "narmada_canal", "line": "gmrc.yellow"}]
+	},
+	"narmada_canal": {
+		"id": "narmada_canal",
+		"name": {"en": "Narmada Canal", "gu": "નર્મદા કેનાલ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_36",
+		"location": {"decimal": {"lat": 23.125157, "lon": 72.62214}},
+		"neighbors": [{"station": "tapovan_circle", "line": "gmrc.yellow"}, {"station": "koba_circle", "line": "gmrc.yellow"}]
+	},
+	"koba_circle": {
+		"id": "koba_circle",
+		"name": {"en": "Koba Circle", "gu": "કોબા સર્કલ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_37",
+		"location": {"decimal": {"lat": 23.132259, "lon": 72.631064}},
+		"neighbors": [{"station": "narmada_canal", "line": "gmrc.yellow"}, {"station": "juna_koba", "line": "gmrc.yellow"}]
+	},
+	"juna_koba": {
+		"id": "juna_koba",
+		"name": {"en": "Juna Koba", "gu": "જૂના કોબા"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_38",
+		"location": {"decimal": {"lat": 23.1381343, "lon": 72.6362012}},
+		"neighbors": [{"station": "koba_circle", "line": "gmrc.yellow"}, {"station": "koba_gam", "line": "gmrc.yellow"}]
+	},
+	"koba_gam": {
+		"id": "koba_gam",
+		"name": {"en": "Koba Gam", "gu": "કોબા ગામ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_39",
+		"location": {"decimal": {"lat": 23.139518, "lon": 72.637262}},
+		"neighbors": [{"station": "juna_koba", "line": "gmrc.yellow"}, {"station": "gnlu", "line": "gmrc.yellow"}]
+	},
+	"gnlu": {
+		"id": "gnlu",
+		"name": {"en": "GNLU", "gu": "જી એન એલ યુ"},
+		"lines": ["gmrc.yellow", "gmrc.violet"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_40",
+		"location": {"decimal": {"lat": 23.1545364, "lon": 72.6475521}},
+		"neighbors": [
+			{"station": "koba_gam", "line": "gmrc.yellow"},
+			{"station": "raysan", "line": "gmrc.yellow"},
+			{"station": "pdeu", "line": "gmrc.violet"}
+		]
+	},
+	"raysan": {
+		"id": "raysan",
+		"name": {"en": "Raysan", "gu": "રાયસણ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_41",
+		"location": {"decimal": {"lat": 23.166411, "lon": 72.648405}},
+		"neighbors": [{"station": "gnlu", "line": "gmrc.yellow"}, {"station": "randesan", "line": "gmrc.yellow"}]
+	},
+	"randesan": {
+		"id": "randesan",
+		"name": {"en": "Randesan", "gu": "રાંદેસણ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_42",
+		"location": {"decimal": {"lat": 23.1791288, "lon": 72.6473415}},
+		"neighbors": [{"station": "raysan", "line": "gmrc.yellow"}, {"station": "dholakuva_circle", "line": "gmrc.yellow"}]
+	},
+	"dholakuva_circle": {
+		"id": "dholakuva_circle",
+		"name": {"en": "Dholakuva Circle", "gu": "ધોળાકુવા સર્કલ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_43",
+		"location": {"decimal": {"lat": 23.185941, "lon": 72.643409}},
+		"neighbors": [{"station": "randesan", "line": "gmrc.yellow"}, {"station": "infocity", "line": "gmrc.yellow"}]
+	},
+	"infocity": {
+		"id": "infocity",
+		"name": {"en": "Infocity", "gu": "ઇન્ફોસિટી"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_44",
+		"location": {"decimal": {"lat": 23.1925955, "lon": 72.6397039}},
+		"neighbors": [{"station": "dholakuva_circle", "line": "gmrc.yellow"}, {"station": "sector_1", "line": "gmrc.yellow"}]
+	},
+	"sector_1": {
+		"id": "sector_1",
+		"name": {"en": "Sector-1", "gu": "Sector-1"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_45",
+		"location": {"decimal": {"lat": 23.205302, "lon": 72.643477}},
+		"neighbors": [{"station": "infocity", "line": "gmrc.yellow"}, {"station": "sector_10a", "line": "gmrc.yellow"}]
+	},
+	"sector_10a": {
+		"id": "sector_10a",
+		"name": {"en": "Sector 10A", "gu": "Sector 10A"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_46",
+		"location": {"decimal": {"lat": 23.210898, "lon": 72.651157}},
+		"neighbors": [{"station": "sector_1", "line": "gmrc.yellow"}, {"station": "sachivalaya", "line": "gmrc.yellow"}]
+	},
+	"sachivalaya": {
+		"id": "sachivalaya",
+		"name": {"en": "Sachivalaya", "gu": "સચિવાલય"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_47",
+		"location": {"decimal": {"lat": 23.214966, "lon": 72.658709}},
+		"neighbors": [{"station": "sector_10a", "line": "gmrc.yellow"}, {"station": "akshardham", "line": "gmrc.yellow"}]
+	},
+	"akshardham": {
+		"id": "akshardham",
+		"name": {"en": "Akshardham", "gu": "અક્ષરધામ"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_48",
+		"location": {"decimal": {"lat": 23.22368, "lon": 72.66418}},
+		"neighbors": [{"station": "sachivalaya", "line": "gmrc.yellow"}, {"station": "juna_sachivalaya", "line": "gmrc.yellow"}]
+	},
+	"juna_sachivalaya": {
+		"id": "juna_sachivalaya",
+		"name": {"en": "Juna Sachivalaya", "gu": "જૂના સચિવાલય"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_49",
+		"location": {"decimal": {"lat": 23.228989, "lon": 72.659406}},
+		"neighbors": [{"station": "akshardham", "line": "gmrc.yellow"}, {"station": "sector_16", "line": "gmrc.yellow"}]
+	},
+	"sector_16": {
+		"id": "sector_16",
+		"name": {"en": "Sector-16", "gu": "Sector-16"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_50",
+		"location": {"decimal": {"lat": 23.2284, "lon": 72.6509}},
+		"neighbors": [{"station": "juna_sachivalaya", "line": "gmrc.yellow"}, {"station": "sector_24", "line": "gmrc.yellow"}]
+	},
+	"sector_24": {
+		"id": "sector_24",
+		"name": {"en": "Sector-24", "gu": "Sector-24"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_51",
+		"location": {"decimal": {"lat": 23.238574, "lon": 72.64151}},
+		"neighbors": [{"station": "sector_16", "line": "gmrc.yellow"}, {"station": "mahatama_mandir", "line": "gmrc.yellow"}]
+	},
+	"mahatama_mandir": {
+		"id": "mahatama_mandir",
+		"name": {"en": "Mahatama Mandir", "gu": "Mahatama Mandir"},
+		"lines": ["gmrc.yellow"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_52",
+		"neighbors": [{"station": "sector_24", "line": "gmrc.yellow"}]
+	},
+	"pdeu": {
+		"id": "pdeu",
+		"name": {"en": "PDEU", "gu": "પી ડી ઈ યુ"},
+		"lines": ["gmrc.violet"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_53",
+		"location": {"decimal": {"lat": 23.15501, "lon": 72.661007}},
+		"neighbors": [{"station": "gnlu", "line": "gmrc.violet"}, {"station": "gift_city", "line": "gmrc.violet"}]
+	},
+	"gift_city": {
+		"id": "gift_city",
+		"name": {"en": "Gift City", "gu": "ગિફ્ટ સિટી"},
+		"lines": ["gmrc.violet"],
+		"properties": {"layout": "elevated", "status": "operational"},
+		"code": "GMRC_54",
+		"location": {"decimal": {"lat": 23.153439, "lon": 72.685681}},
+		"neighbors": [{"station": "pdeu", "line": "gmrc.violet"}, {"station": "gift_city_house", "line": "gmrc.violet"}]
+	},
+	"gift_city_house": {
+		"id": "gift_city_house",
+		"name": {"en": "GIFT City House", "gu": "ગિફ્ટ સિટી"},
+		"lines": ["gmrc.violet"],
+		"properties": {"layout": "elevated", "status": "work in progress"},
+		"code": "GMRC_60",
+		"location": {"decimal": {"lat": 23.153439, "lon": 72.685681}},
+		"neighbors": [{"station": "gift_city", "line": "gmrc.violet"}]
+	},
+	"ashram_road": {
+		"id": "ashram_road",
+		"name": {"en": "Ashram Road", "gu": "Ashram Road"},
+		"lines": [],
+		"properties": {"layout": "elevated", "status": "work in progress"},
+		"code": "GMRC_55",
+		"location": {"decimal": {"lat": 23.0464075, "lon": 72.578037}}
+	},
+	"koteshwar_prachin_mandir": {
+		"id": "koteshwar_prachin_mandir",
+		"name": {"en": "Koteshwar Prachin Mandir", "gu": "Koteshwar Prachin Mandir"},
+		"lines": [],
+		"properties": {"layout": "elevated", "status": "work in progress"},
+		"code": "GMRC_56",
+		"location": {"decimal": {"lat": 23.1002629, "lon": 72.6082251}}
+	},
+	"sabarmati_river": {
+		"id": "sabarmati_river",
+		"name": {"en": "Sabarmati River", "gu": "સાબરમતી"},
+		"lines": [],
+		"properties": {"layout": "elevated", "status": "work in progress"},
+		"code": "GMRC_57",
+		"location": {"decimal": {"lat": 23.0784124, "lon": 72.5896937}}
+	},
+	"sardarnagar": {
+		"id": "sardarnagar",
+		"name": {"en": "Sardarnagar", "gu": "Sardarnagar"},
+		"lines": [],
+		"properties": {"layout": "elevated", "status": "work in progress"},
+		"code": "GMRC_58",
+		"location": {"decimal": {"lat": 23.0597985, "lon": 72.5970013}}
+	},
+	"airport": {
+		"id": "airport",
+		"name": {"en": "Airport", "gu": "Airport"},
+		"lines": [],
+		"properties": {"layout": "elevated", "status": "work in progress"},
+		"code": "GMRC_59",
+		"location": {"decimal": {"lat": 23.0470787, "lon": 72.591846}}
+	},
+	"gujarat_biotechnology_university": {
+		"id": "gujarat_biotechnology_university",
+		"name": {"en": "Gujarat Biotechnology University", "gu": "Gujarat Biotechnology University"},
+		"lines": [],
+		"properties": {"layout": "elevated", "status": "work in progress"},
+		"code": "GMRC_61",
+		"location": {"decimal": {"lat": 23.044857, "lon": 72.543619}}
+	}
+}

@@ -119,6 +119,11 @@
       "farePolicy": "bhopal_metro_standard"
     }
   },
+  "station_types": {
+    "normal": {"en": "Normal Station", "hi": "साधारण स्टेशन"},
+    "interchange": {"en": "Interchange Station", "hi": "इंटरचेंज स्टेशन"},
+    "walkway": {"en": "Interchange via Walkway", "hi": "वॉकवे द्वारा इंटरचेंज"}
+  },
   "transfers": {
     "pul_bogda": {
       "mpmrcl.orange": {
@@ -387,7 +392,8 @@
       ],
       "properties": {
         "layout": "elevated",
-        "status": "operational"
+        "status": "operational",
+        "station_type": "interchange"
       },
       "neighbors": [
         {
