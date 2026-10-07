@@ -138,6 +138,27 @@ d:\projects\metro_Map_n_Route Finder\
 - Manages dynamic switching between cities (e.g. `delhi_ncr` ➔ `mumbai`).
 - Uses `AbortController` to cancel in-flight HTTP fetches upon rapid user switching.
 
+### 5. Data Separation Contract & Canonical Status Authority
+- **`transit_network.json`**: Graph topology and routing authority strictly owns:
+  - `lines`, `properties` (`layout`, `status`, `station_type`), `neighbors`, `location` (`decimal: {lat, lon}`), `platforms`, `train_schedule`.
+- **`station_details.json`**: Passenger amenities authority strictly owns:
+  - `description`, `timings`, `gates`, `parkings`, `facilities`, `nearby_places`, `vertical_transit`, `contact`, `generated_google_maps_url`.
+  - **Zero Duplicate Graph Keys**: `lines`, `properties`, `neighbors`, `location` are strictly excluded from station_details.
+- **5 Canonical Status Enums**:
+  - `operational`, `under_construction`, `planned`, `temporarily_closed`, `decommissioned`.
+  - Auto-aliased via `STATUS_ALIAS_MAP` in pipeline (e.g. `"work in progress"` ➔ `"under_construction"`, `"approved"` ➔ `"planned"`).
+
+### 6. Modular Pipeline Server Engine (`server_core/`)
+- **Controller-Service Pattern (3-Tier Enterprise Architecture)**:
+  - `server.py`: Slim entry point (< 60 lines) initializing FastAPI, CORS, Static mounts, and Routers.
+  - `server_core/services/`: Pure Class-Based OOP Service Layer:
+    - `PipelineExecutionService`: Thread-safe subprocess execution, lock management & SSE log streaming.
+    - `GeoAuditService`: 3-way coordinate audit & safe staging buffering into `station_details_auto.json`.
+    - `BridgeInspectionService`: Production readiness matrix, delta diff inspection & station promotion.
+    - `CityExplorerService`: Whitelisted, safe path-traversal-free data exploration.
+    - `PortalHealthService`: Concurrent multi-operator portal SSL availability pinging.
+  - `server_core/routers/`: Thin HTTP Controllers delegating strictly to OOP Service classes.
+
 ---
 
 ## 🚨 Strict Behavioral & Coding Standards (For AI Pair Programmer)

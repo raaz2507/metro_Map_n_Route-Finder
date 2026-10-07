@@ -193,6 +193,20 @@
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 	}
 
+	.switch-toggle input:checked + .switch-slider {
+		background-color: var(--color-primary, #3b82f6);
+		border-color: var(--color-primary, #3b82f6);
+	}
+
+	.switch-toggle input:checked + .switch-slider::before {
+		transform: translateX(20px);
+	}
+
+	.switch-toggle input:focus-visible + .switch-slider {
+		outline: 2px solid var(--color-primary, #3b82f6);
+		outline-offset: 2px;
+	}
+
 	/* =========================================================================
 	6. 🔽 COMPACT SELECT DROPDOWNS
 	========================================================================= */

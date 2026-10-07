@@ -57,4 +57,12 @@
 		background-color: var(--tab-map-accent);
 		border-color: var(--tab-map-accent);
 	}
+
+	.settings-tab-panel[data-panel="map"] .switch-toggle input:checked + .switch-slider::before {
+		transform: translateX(20px);
+	}
+
+	.settings-tab-panel[data-panel="map"] .switch-toggle input:focus-visible + .switch-slider {
+		box-shadow: 0 0 0 3px var(--tab-map-glow);
+	}
 }

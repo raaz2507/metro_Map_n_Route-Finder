@@ -3,11 +3,11 @@
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
-			"metro_railway_kolkata": {"operator": "Metro Railway, Kolkata (Indian Railways)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
+			"kolkata_metro": {"operator": "Metro Railway, Kolkata (Indian Railways)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"kolkata_metro_standard": {
-				"network": "metro_railway_kolkata",
+				"network": "kolkata_metro",
 				"effectiveFrom": "2019-12-05",
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
@@ -49,6 +49,7 @@
 			"id": "kolkata_metro.blue",
 			"network": "kolkata_metro",
 			"operator": "Metro Railway Kolkata (Indian Railways)",
+			"farePolicy": "kolkata_metro_standard",
 			"label": "1",
 			"short_name": {"en": "Blue Line (Line 1)", "bn": "ব্লু লাইন (লাইন ১)"},
 			"color": "#005BA6",
@@ -88,6 +89,7 @@
 			"id": "kolkata_metro.green",
 			"network": "kolkata_metro",
 			"operator": "Metro Railway Kolkata (Indian Railways)",
+			"farePolicy": "kolkata_metro_standard",
 			"label": "2",
 			"short_name": {"en": "Green Line (Line 2)", "bn": "গ্রিন লাইন (লাইন ২)"},
 			"color": "#008752",
@@ -113,6 +115,7 @@
 			"id": "kolkata_metro.orange",
 			"network": "kolkata_metro",
 			"operator": "Metro Railway Kolkata (Indian Railways)",
+			"farePolicy": "kolkata_metro_standard",
 			"label": "6",
 			"short_name": {"en": "Orange Line (Line 6)", "bn": "অরেঞ্জ লাইন (লাইন ৬)"},
 			"color": "#FF7A00",
@@ -135,6 +138,7 @@
 			"id": "kolkata_metro.purple",
 			"network": "kolkata_metro",
 			"operator": "Metro Railway Kolkata (Indian Railways)",
+			"farePolicy": "kolkata_metro_standard",
 			"label": "3",
 			"short_name": {"en": "Purple Line (Line 3)", "bn": "পার্পল লাইন (লাইন ৩)"},
 			"color": "#8C2877",
@@ -147,6 +151,7 @@
 			"id": "kolkata_metro.yellow",
 			"network": "kolkata_metro",
 			"operator": "Metro Railway Kolkata (Indian Railways)",
+			"farePolicy": "kolkata_metro_standard",
 			"label": "4",
 			"short_name": {"en": "Yellow Line (Line 4)", "bn": "ইয়েলো লাইন (লাইন ৪)"},
 			"color": "#FBC02D",
@@ -164,52 +169,26 @@
 	"transfers": {
 		"esplanade": {
 			"kolkata_metro.blue": {
-				"esplanade:kolkata_metro.green": {
-					"type": "interchange",
-					"transfer_mode": "corridor",
-					"distance_meters": 75,
-					"levels": 1
-				}
+				"esplanade:kolkata_metro.green": {"type": "interchange", "transfer_mode": "corridor", "distance_meters": 75, "levels": 1}
 			},
 			"kolkata_metro.green": {
-				"esplanade:kolkata_metro.blue": {
-					"type": "interchange",
-					"transfer_mode": "corridor",
-					"distance_meters": 75,
-					"levels": 1
-				}
+				"esplanade:kolkata_metro.blue": {"type": "interchange", "transfer_mode": "corridor", "distance_meters": 75, "levels": 1}
 			}
 		},
 		"kavi_subhash": {
 			"kolkata_metro.blue": {
-				"kavi_subhash:kolkata_metro.orange": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 30
-				}
+				"kavi_subhash:kolkata_metro.orange": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 30}
 			},
 			"kolkata_metro.orange": {
-				"kavi_subhash:kolkata_metro.blue": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 30
-				}
+				"kavi_subhash:kolkata_metro.blue": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 30}
 			}
 		},
 		"noapara": {
 			"kolkata_metro.blue": {
-				"noapara:kolkata_metro.yellow": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"noapara:kolkata_metro.yellow": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			},
 			"kolkata_metro.yellow": {
-				"noapara:kolkata_metro.blue": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"noapara:kolkata_metro.blue": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			}
 		}
 	},
@@ -533,7 +512,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "bengal_chemical", "line": "kolkata_metro.green"}, {"station": "central_park", "line": "kolkata_metro.green"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 22.6040166, "lon": 88.4305511}}
+			"location": {"decimal": {"lat": 22.587069, "lon": 88.407875}}
 		},
 		"central_park": {
 			"id": "central_park",

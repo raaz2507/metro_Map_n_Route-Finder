@@ -83,7 +83,8 @@
 				"kasba_peth",
 				"mahatma_phule_mandai",
 				"swargate"
-			]
+			],
+			"farePolicy": "pune_metro_standard"
 		},
 		"mahametro_pune.aqua": {
 			"id": "mahametro_pune.aqua",
@@ -112,7 +113,8 @@
 				"yerwada",
 				"kalyani_nagar",
 				"ramwadi"
-			]
+			],
+			"farePolicy": "pune_metro_standard"
 		}
 	},
 	"station_types": {
@@ -123,20 +125,10 @@
 	"transfers": {
 		"district_court": {
 			"mahametro_pune.purple": {
-				"district_court:mahametro_pune.aqua": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 60,
-					"levels": 1
-				}
+				"district_court:mahametro_pune.aqua": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 60, "levels": 1}
 			},
 			"mahametro_pune.aqua": {
-				"district_court:mahametro_pune.purple": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 60,
-					"levels": 1
-				}
+				"district_court:mahametro_pune.purple": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 60, "levels": 1}
 			}
 		}
 	},
@@ -351,7 +343,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "district_court", "line": "mahametro_pune.aqua"}, {"station": "pune_railway_station", "line": "mahametro_pune.aqua"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 18.5190608, "lon": 73.855449}}
+			"location": {"decimal": {"lat": 18.5339, "lon": 73.8656}}
 		},
 		"pune_railway_station": {
 			"id": "pune_railway_station",

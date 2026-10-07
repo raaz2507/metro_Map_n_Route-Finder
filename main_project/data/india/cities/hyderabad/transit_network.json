@@ -52,8 +52,9 @@
 	"lines": {
 		"hmrl.red": {
 			"id": "hmrl.red",
-			"network": "hyderabad_metro",
+			"network": "hmrl",
 			"operator": "L&T Metro Rail (Hyderabad) Limited",
+			"farePolicy": "hmrl_standard",
 			"label": "R",
 			"short_name": {"en": "Red Line", "te": "రెడ్ లైన్"},
 			"color": "#D32F2F",
@@ -92,8 +93,9 @@
 		},
 		"hmrl.blue": {
 			"id": "hmrl.blue",
-			"network": "hyderabad_metro",
+			"network": "hmrl",
 			"operator": "L&T Metro Rail (Hyderabad) Limited",
+			"farePolicy": "hmrl_standard",
 			"label": "B",
 			"short_name": {"en": "Blue Line", "te": "బ్లూ లైన్"},
 			"color": "#005BA6",
@@ -128,8 +130,9 @@
 		},
 		"hmrl.green": {
 			"id": "hmrl.green",
-			"network": "hyderabad_metro",
+			"network": "hmrl",
 			"operator": "L&T Metro Rail (Hyderabad) Limited",
+			"farePolicy": "hmrl_standard",
 			"label": "G",
 			"short_name": {"en": "Green Line", "te": "గ్రీన్ లైన్"},
 			"color": "#008752",

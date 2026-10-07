@@ -1,121 +1,106 @@
 {
 	"wimco-nagar-depot-metro": {
 		"id": "wimco-nagar-depot-metro",
-		"name": {"en": "Wimco Nagar Depot Metro", "ta": "விம்கோ நகர்"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Wimco Nagar Depot Metro",
+			"ta": "விம்கோ நகர்"
+		},
 		"code": "CHN_6740",
-		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.1817805, "lon": 80.3082416}},
-		"neighbors": [{"station": "wimco-nagar-metro", "line": "cmrl.blue"}]
+		"opened_date": "14 February 2021"
 	},
 	"wimco-nagar-metro": {
 		"id": "wimco-nagar-metro",
-		"name": {"en": "Wimco Nagar Metro", "ta": "விம்கோ நகர்"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Wimco Nagar Metro",
+			"ta": "விம்கோ நகர்"
+		},
 		"code": "CHN_6738",
-		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.1817805, "lon": 80.3082416}},
-		"neighbors": [{"station": "wimco-nagar-depot-metro", "line": "cmrl.blue"}, {"station": "thiruvotriyur-metro", "line": "cmrl.blue"}]
+		"opened_date": "14 February 2021"
 	},
 	"thiruvotriyur-metro": {
 		"id": "thiruvotriyur-metro",
-		"name": {"en": "Thiruvotriyur Metro", "ta": "Thiruvotriyur Metro"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
-		"code": "CHN_6736",
-		"location": {"decimal": {"lat": 13.1660678, "lon": 80.3038812}},
-		"neighbors": [{"station": "wimco-nagar-metro", "line": "cmrl.blue"}, {"station": "thiruvottriyur-theradi-metro", "line": "cmrl.blue"}]
+		"name": {
+			"en": "Thiruvotriyur Metro",
+			"ta": "Thiruvotriyur Metro"
+		},
+		"code": "CHN_6736"
 	},
 	"thiruvottriyur-theradi-metro": {
 		"id": "thiruvottriyur-theradi-metro",
-		"name": {"en": "Thiruvottriyur Theradi Metro", "ta": "Thiruvottriyur Theradi Metro"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
-		"code": "CHN_6733",
-		"location": {"decimal": {"lat": 13.1660678, "lon": 80.3038812}},
-		"neighbors": [{"station": "thiruvotriyur-metro", "line": "cmrl.blue"}, {"station": "kaladipet-metro", "line": "cmrl.blue"}]
+		"name": {
+			"en": "Thiruvottriyur Theradi Metro",
+			"ta": "Thiruvottriyur Theradi Metro"
+		},
+		"code": "CHN_6733"
 	},
 	"kaladipet-metro": {
 		"id": "kaladipet-metro",
-		"name": {"en": "Kaladipet Metro", "ta": "காலடிபேட்டை"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Kaladipet Metro",
+			"ta": "காலடிபேட்டை"
+		},
 		"code": "CHN_6731",
-		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.15102, "lon": 80.2995}},
-		"neighbors": [{"station": "thiruvottriyur-theradi-metro", "line": "cmrl.blue"}, {"station": "tollgate-metro", "line": "cmrl.blue"}]
+		"opened_date": "14 February 2021"
 	},
 	"tollgate-metro": {
 		"id": "tollgate-metro",
-		"name": {"en": "Tollgate Metro", "ta": "சுங்கச்சாவடி"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Tollgate Metro",
+			"ta": "சுங்கச்சாவடி"
+		},
 		"code": "CHN_6729",
-		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.14347, "lon": 80.2964}},
-		"neighbors": [{"station": "kaladipet-metro", "line": "cmrl.blue"}, {"station": "new-washermenpet-metro", "line": "cmrl.blue"}]
+		"opened_date": "14 February 2021"
 	},
 	"new-washermenpet-metro": {
 		"id": "new-washermenpet-metro",
-		"name": {"en": "New Washermenpet Metro", "ta": "New Washermenpet Metro"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
-		"code": "CHN_6727",
-		"location": {"decimal": {"lat": 13.1212012, "lon": 80.28693}},
-		"neighbors": [{"station": "tollgate-metro", "line": "cmrl.blue"}, {"station": "tondiarpet-metro", "line": "cmrl.blue"}]
+		"name": {
+			"en": "New Washermenpet Metro",
+			"ta": "New Washermenpet Metro"
+		},
+		"code": "CHN_6727"
 	},
 	"tondiarpet-metro": {
 		"id": "tondiarpet-metro",
-		"name": {"en": "Tondiarpet Metro", "ta": "தண்டையார்பேட்டை"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Tondiarpet Metro",
+			"ta": "தண்டையார்பேட்டை"
+		},
 		"code": "CHN_6725",
-		"opened_date": "14 February 2021",
-		"location": {"decimal": {"lat": 13.1238112, "lon": 80.288199}},
-		"neighbors": [{"station": "new-washermenpet-metro", "line": "cmrl.blue"}, {"station": "sir-thiyagaraya-college-metro", "line": "cmrl.blue"}]
+		"opened_date": "14 February 2021"
 	},
 	"sir-thiyagaraya-college-metro": {
 		"id": "sir-thiyagaraya-college-metro",
-		"name": {"en": "Sir Thiyagaraya College Metro", "ta": "Sir Thiyagaraya College Metro"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
-		"code": "CHN_6723",
-		"location": {"decimal": {"lat": 13.1165979, "lon": 80.2851276}},
-		"neighbors": [{"station": "tondiarpet-metro", "line": "cmrl.blue"}, {"station": "washermenpet-metro", "line": "cmrl.blue"}]
+		"name": {
+			"en": "Sir Thiyagaraya College Metro",
+			"ta": "Sir Thiyagaraya College Metro"
+		},
+		"code": "CHN_6723"
 	},
 	"washermenpet-metro": {
 		"id": "washermenpet-metro",
-		"name": {"en": "Washermenpet Metro", "ta": "Washermenpet Metro"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
-		"code": "CHN_6720",
-		"location": {"decimal": {"lat": 13.1212012, "lon": 80.28693}},
-		"neighbors": [{"station": "sir-thiyagaraya-college-metro", "line": "cmrl.blue"}, {"station": "mannadi", "line": "cmrl.blue"}]
+		"name": {
+			"en": "Washermenpet Metro",
+			"ta": "Washermenpet Metro"
+		},
+		"code": "CHN_6720"
 	},
 	"mannadi": {
 		"id": "mannadi",
-		"name": {"en": "Mannadi", "ta": "மண்ணடி"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Mannadi",
+			"ta": "மண்ணடி"
+		},
 		"code": "CHN_6718",
-		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.0951661, "lon": 80.2861603}},
-		"neighbors": [{"station": "washermenpet-metro", "line": "cmrl.blue"}, {"station": "highcourt", "line": "cmrl.blue"}]
+		"opened_date": "10 February 2019"
 	},
 	"highcourt": {
 		"id": "highcourt",
-		"name": {"en": "Highcourt", "ta": "உயர் நீதிமன்றம்"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Highcourt",
+			"ta": "உயர் நீதிமன்றம்"
+		},
 		"code": "CHN_6716",
-		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.087394, "lon": 80.285064}},
-		"neighbors": [
-			{"station": "mannadi", "line": "cmrl.blue"},
-			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"}
-		]
+		"opened_date": "10 February 2019"
 	},
 	"puratchi-thalaivar-dr-m-g-ramachandran-central-metro": {
 		"id": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
@@ -123,341 +108,259 @@
 			"en": "Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro",
 			"ta": "புரட்சித் தலைவர் டாக்டர். எம்.ஜி. இராமச்சந்திரன் சென்ட்ரல்"
 		},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
 		"code": "CHN_7090",
-		"opened_date": "10 February 201925 May 2018",
-		"location": {"decimal": {"lat": 13.0833285, "lon": 80.2741482}},
-		"neighbors": [
-			{"station": "highcourt", "line": "cmrl.blue"},
-			{"station": "government-estate", "line": "cmrl.blue"},
-			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2", "line": "cmrl.green"}
-		]
+		"opened_date": "10 February 201925 May 2018"
 	},
 	"government-estate": {
 		"id": "government-estate",
-		"name": {"en": "Government Estate", "ta": "அரசினர் தோட்டம்"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Government Estate",
+			"ta": "அரசினர் தோட்டம்"
+		},
 		"code": "CHN_6712",
-		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.069682, "lon": 80.272741}},
-		"neighbors": [
-			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"},
-			{"station": "lic", "line": "cmrl.blue"}
-		]
+		"opened_date": "10 February 2019"
 	},
 	"lic": {
 		"id": "lic",
-		"name": {"en": "LIC", "ta": "எல். ஐ. சி."},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "LIC",
+			"ta": "எல். ஐ. சி."
+		},
 		"code": "CHN_6708",
-		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.0645232, "lon": 80.2660489}},
-		"neighbors": [{"station": "government-estate", "line": "cmrl.blue"}, {"station": "thousand-lights", "line": "cmrl.blue"}]
+		"opened_date": "10 February 2019"
 	},
 	"thousand-lights": {
 		"id": "thousand-lights",
-		"name": {"en": "Thousand Lights", "ta": "ஆயிரம் விளக்கு"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Thousand Lights",
+			"ta": "ஆயிரம் விளக்கு"
+		},
 		"code": "CHN_6706",
-		"opened_date": "10 February 2019",
-		"location": {"decimal": {"lat": 13.0583557, "lon": 80.2585174}},
-		"neighbors": [{"station": "lic", "line": "cmrl.blue"}, {"station": "ag-dms", "line": "cmrl.blue"}]
+		"opened_date": "10 February 2019"
 	},
 	"ag-dms": {
 		"id": "ag-dms",
-		"name": {"en": "AG – DMS", "ta": "ஏ.ஜி. – டி.எம்.எஸ்."},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "AG – DMS",
+			"ta": "ஏ.ஜி. – டி.எம்.எஸ்."
+		},
 		"code": "CHN_6704",
-		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.0446825, "lon": 80.2480329}},
-		"neighbors": [{"station": "thousand-lights", "line": "cmrl.blue"}, {"station": "teynampet", "line": "cmrl.blue"}]
+		"opened_date": "25 May 2018"
 	},
 	"teynampet": {
 		"id": "teynampet",
-		"name": {"en": "Teynampet", "ta": "தேனாம்பேட்டை"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Teynampet",
+			"ta": "தேனாம்பேட்டை"
+		},
 		"code": "CHN_6702",
-		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.0373532, "lon": 80.2466509}},
-		"neighbors": [{"station": "ag-dms", "line": "cmrl.blue"}, {"station": "nandanam", "line": "cmrl.blue"}]
+		"opened_date": "25 May 2018"
 	},
 	"nandanam": {
 		"id": "nandanam",
-		"name": {"en": "Nandanam", "ta": "நந்தனம்"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Nandanam",
+			"ta": "நந்தனம்"
+		},
 		"code": "CHN_6700",
-		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.03165, "lon": 80.24104}},
-		"neighbors": [{"station": "teynampet", "line": "cmrl.blue"}, {"station": "saidapet-metro", "line": "cmrl.blue"}]
+		"opened_date": "25 May 2018"
 	},
 	"saidapet-metro": {
 		"id": "saidapet-metro",
-		"name": {"en": "Saidapet Metro", "ta": "சைதாப்பேட்டை"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Saidapet Metro",
+			"ta": "சைதாப்பேட்டை"
+		},
 		"code": "CHN_6698",
-		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.023618, "lon": 80.228108}},
-		"neighbors": [{"station": "nandanam", "line": "cmrl.blue"}, {"station": "little-mount", "line": "cmrl.blue"}]
+		"opened_date": "25 May 2018"
 	},
 	"little-mount": {
 		"id": "little-mount",
-		"name": {"en": "Little Mount", "ta": "சின்னமலை"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Little Mount",
+			"ta": "சின்னமலை"
+		},
 		"code": "CHN_6696",
-		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 13.014505, "lon": 80.223857}},
-		"neighbors": [{"station": "saidapet-metro", "line": "cmrl.blue"}, {"station": "guindy", "line": "cmrl.blue"}]
+		"opened_date": "21 September 2016"
 	},
 	"guindy": {
 		"id": "guindy",
-		"name": {"en": "Guindy", "ta": "கிண்டி"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Guindy",
+			"ta": "கிண்டி"
+		},
 		"code": "CHN_6694",
-		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 13.0093336, "lon": 80.2131005}},
-		"neighbors": [{"station": "little-mount", "line": "cmrl.blue"}, {"station": "arignar-anna-alandur-metro", "line": "cmrl.blue"}]
+		"opened_date": "21 September 2016"
 	},
 	"arignar-anna-alandur-metro": {
 		"id": "arignar-anna-alandur-metro",
-		"name": {"en": "Arignar Anna Alandur Metro", "ta": "அறிஞர் அண்ணா ஆலந்தூர்"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Arignar Anna Alandur Metro",
+			"ta": "அறிஞர் அண்ணா ஆலந்தூர்"
+		},
 		"code": "CHN_7092",
-		"opened_date": "21 September 201629 June 2015",
-		"location": {"decimal": {"lat": 13.004218, "lon": 80.201461}},
-		"neighbors": [
-			{"station": "guindy", "line": "cmrl.blue"},
-			{"station": "ota-nanganallur-road", "line": "cmrl.blue"},
-			{"station": "arignar-anna-alandur-metro-2", "line": "cmrl.green"}
-		]
+		"opened_date": "21 September 201629 June 2015"
 	},
 	"ota-nanganallur-road": {
 		"id": "ota-nanganallur-road",
-		"name": {"en": "OTA-Nanganallur Road", "ta": "நங்கநல்லூர் சாலை"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "OTA-Nanganallur Road",
+			"ta": "நங்கநல்லூர் சாலை"
+		},
 		"code": "CHN_6690",
-		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 12.999961, "lon": 80.194037}},
-		"neighbors": [{"station": "arignar-anna-alandur-metro", "line": "cmrl.blue"}, {"station": "meenambakkam", "line": "cmrl.blue"}]
+		"opened_date": "21 September 2016"
 	},
 	"meenambakkam": {
 		"id": "meenambakkam",
-		"name": {"en": "Meenambakkam", "ta": "மீனம்பாக்கம்"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Meenambakkam",
+			"ta": "மீனம்பாக்கம்"
+		},
 		"code": "CHN_6677",
-		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 12.987735, "lon": 80.1764}},
-		"neighbors": [{"station": "ota-nanganallur-road", "line": "cmrl.blue"}, {"station": "chennai-international-airport", "line": "cmrl.blue"}]
+		"opened_date": "21 September 2016"
 	},
 	"chennai-international-airport": {
 		"id": "chennai-international-airport",
-		"name": {"en": "Chennai International Airport", "ta": "சென்னை பன்னாட்டு விமான நிலையம்"},
-		"lines": ["cmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
-		"code": "CHN_6675",
-		"opened_date": "21 September 2016",
-		"location": {"decimal": {"lat": 12.9808628, "lon": 80.1641647}},
-		"neighbors": [{"station": "meenambakkam", "line": "cmrl.blue"}]
-	},
-	"puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2": {
-		"id": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2",
 		"name": {
-			"en": "Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro",
-			"ta": "புரட்சித் தலைவர் டாக்டர். எம்.ஜி. இராமச்சந்திரன் சென்ட்ரல்"
+			"en": "Chennai International Airport",
+			"ta": "சென்னை பன்னாட்டு விமான நிலையம்"
 		},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
-		"code": "CHN_6932",
-		"opened_date": "10 February 201925 May 2018",
-		"location": {"decimal": {"lat": 13.0833285, "lon": 80.2741482}},
-		"neighbors": [
-			{"station": "egmore-metro", "line": "cmrl.green"},
-			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"}
-		]
+		"code": "CHN_6675",
+		"opened_date": "21 September 2016"
 	},
 	"egmore-metro": {
 		"id": "egmore-metro",
-		"name": {"en": "Egmore Metro", "ta": "எழும்பூர்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Egmore Metro",
+			"ta": "எழும்பூர்"
+		},
 		"code": "CHN_6930",
-		"opened_date": "25 May 2018",
-		"location": {"decimal": {"lat": 13.0790271, "lon": 80.2586441}},
-		"neighbors": [
-			{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2", "line": "cmrl.green"},
-			{"station": "nehru-park", "line": "cmrl.green"}
-		]
+		"opened_date": "25 May 2018"
 	},
 	"nehru-park": {
 		"id": "nehru-park",
-		"name": {"en": "Nehru Park", "ta": "நேரு பூங்கா"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Nehru Park",
+			"ta": "நேரு பூங்கா"
+		},
 		"code": "CHN_6928",
-		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.0786275, "lon": 80.2508538}},
-		"neighbors": [{"station": "egmore-metro", "line": "cmrl.green"}, {"station": "kilpauk", "line": "cmrl.green"}]
+		"opened_date": "14 May 2017"
 	},
 	"kilpauk": {
 		"id": "kilpauk",
-		"name": {"en": "Kilpauk", "ta": "கீழ்ப்பாக்கம்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Kilpauk",
+			"ta": "கீழ்ப்பாக்கம்"
+		},
 		"code": "CHN_6926",
-		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.077685, "lon": 80.242809}},
-		"neighbors": [{"station": "nehru-park", "line": "cmrl.green"}, {"station": "pachaiyappas-college", "line": "cmrl.green"}]
+		"opened_date": "14 May 2017"
 	},
 	"pachaiyappas-college": {
 		"id": "pachaiyappas-college",
-		"name": {"en": "Pachaiyappa’s College", "ta": "பச்சையப்பன் கல்லூரி"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Pachaiyappa’s College",
+			"ta": "பச்சையப்பன் கல்லூரி"
+		},
 		"code": "CHN_6924",
-		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.0766294, "lon": 80.2375618}},
-		"neighbors": [{"station": "kilpauk", "line": "cmrl.green"}, {"station": "shenoy-nagar", "line": "cmrl.green"}]
+		"opened_date": "14 May 2017"
 	},
 	"shenoy-nagar": {
 		"id": "shenoy-nagar",
-		"name": {"en": "Shenoy Nagar", "ta": "செனாய் நகர்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Shenoy Nagar",
+			"ta": "செனாய் நகர்"
+		},
 		"code": "CHN_6922",
-		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.0784251, "lon": 80.2265534}},
-		"neighbors": [{"station": "pachaiyappas-college", "line": "cmrl.green"}, {"station": "anna-nagar-east", "line": "cmrl.green"}]
+		"opened_date": "14 May 2017"
 	},
 	"anna-nagar-east": {
 		"id": "anna-nagar-east",
-		"name": {"en": "Anna Nagar East", "ta": "அண்ணா நகர் கிழக்கு"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Anna Nagar East",
+			"ta": "அண்ணா நகர் கிழக்கு"
+		},
 		"code": "CHN_6920",
-		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.0847633, "lon": 80.2196589}},
-		"neighbors": [{"station": "shenoy-nagar", "line": "cmrl.green"}, {"station": "anna-nagar-tower", "line": "cmrl.green"}]
+		"opened_date": "14 May 2017"
 	},
 	"anna-nagar-tower": {
 		"id": "anna-nagar-tower",
-		"name": {"en": "Anna Nagar Tower", "ta": "அண்ணா நகர் கோபுரம்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Anna Nagar Tower",
+			"ta": "அண்ணா நகர் கோபுரம்"
+		},
 		"code": "CHN_6918",
-		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.0848861, "lon": 80.2142749}},
-		"neighbors": [{"station": "anna-nagar-east", "line": "cmrl.green"}, {"station": "thirumangalam", "line": "cmrl.green"}]
+		"opened_date": "14 May 2017"
 	},
 	"thirumangalam": {
 		"id": "thirumangalam",
-		"name": {"en": "Thirumangalam", "ta": "திருமங்கலம்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "underground", "status": "operational"},
+		"name": {
+			"en": "Thirumangalam",
+			"ta": "திருமங்கலம்"
+		},
 		"code": "CHN_6916",
-		"opened_date": "14 May 2017",
-		"location": {"decimal": {"lat": 13.0852626, "lon": 80.201574}},
-		"neighbors": [{"station": "anna-nagar-tower", "line": "cmrl.green"}, {"station": "koyambedu", "line": "cmrl.green"}]
+		"opened_date": "14 May 2017"
 	},
 	"koyambedu": {
 		"id": "koyambedu",
-		"name": {"en": "Koyambedu", "ta": "கோயம்பேடு"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Koyambedu",
+			"ta": "கோயம்பேடு"
+		},
 		"code": "CHN_6914",
-		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.0710846, "lon": 80.1993768}},
-		"neighbors": [
-			{"station": "thirumangalam", "line": "cmrl.green"},
-			{"station": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro", "line": "cmrl.green"}
-		]
+		"opened_date": "29 June 2015"
 	},
 	"puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro": {
 		"id": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
-		"name": {"en": "Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro", "ta": "புரட்சித் தலைவி டாக்டர். ஜெ. ஜெயலலிதா புறநகர் பேருந்து நிலையம்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro",
+			"ta": "புரட்சித் தலைவி டாக்டர். ஜெ. ஜெயலலிதா புறநகர் பேருந்து நிலையம்"
+		},
 		"code": "CHN_6912",
-		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.068594, "lon": 80.203913}},
-		"neighbors": [{"station": "koyambedu", "line": "cmrl.green"}, {"station": "arumbakkam", "line": "cmrl.green"}]
+		"opened_date": "29 June 2015"
 	},
 	"arumbakkam": {
 		"id": "arumbakkam",
-		"name": {"en": "Arumbakkam", "ta": "அரும்பாக்கம்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Arumbakkam",
+			"ta": "அரும்பாக்கம்"
+		},
 		"code": "CHN_6910",
-		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.0620745, "lon": 80.2116729}},
-		"neighbors": [
-			{"station": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro", "line": "cmrl.green"},
-			{"station": "vadapalani", "line": "cmrl.green"}
-		]
+		"opened_date": "29 June 2015"
 	},
 	"vadapalani": {
 		"id": "vadapalani",
-		"name": {"en": "Vadapalani", "ta": "வடபழனி"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Vadapalani",
+			"ta": "வடபழனி"
+		},
 		"code": "CHN_6908",
-		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.0507344, "lon": 80.2120723}},
-		"neighbors": [{"station": "arumbakkam", "line": "cmrl.green"}, {"station": "ashok-nagar", "line": "cmrl.green"}]
+		"opened_date": "29 June 2015"
 	},
 	"ashok-nagar": {
 		"id": "ashok-nagar",
-		"name": {"en": "Ashok Nagar", "ta": "அசோக் நகர்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Ashok Nagar",
+			"ta": "அசோக் நகர்"
+		},
 		"code": "CHN_6906",
-		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.0355384, "lon": 80.211135}},
-		"neighbors": [{"station": "vadapalani", "line": "cmrl.green"}, {"station": "ekkattuthangal", "line": "cmrl.green"}]
+		"opened_date": "29 June 2015"
 	},
 	"ekkattuthangal": {
 		"id": "ekkattuthangal",
-		"name": {"en": "Ekkattuthangal", "ta": "ஈக்காட்டுத்தாங்கல்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Ekkattuthangal",
+			"ta": "ஈக்காட்டுத்தாங்கல்"
+		},
 		"code": "CHN_6904",
-		"opened_date": "29 June 2015",
-		"location": {"decimal": {"lat": 13.0165829, "lon": 80.2052759}},
-		"neighbors": [{"station": "ashok-nagar", "line": "cmrl.green"}, {"station": "arignar-anna-alandur-metro-2", "line": "cmrl.green"}]
-	},
-	"arignar-anna-alandur-metro-2": {
-		"id": "arignar-anna-alandur-metro-2",
-		"name": {"en": "Arignar Anna Alandur Metro", "ta": "அறிஞர் அண்ணா ஆலந்தூர்"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
-		"code": "CHN_6899",
-		"opened_date": "21 September 201629 June 2015",
-		"location": {"decimal": {"lat": 13.004218, "lon": 80.201461}},
-		"neighbors": [
-			{"station": "ekkattuthangal", "line": "cmrl.green"},
-			{"station": "st-thomas-mount-metro", "line": "cmrl.green"},
-			{"station": "arignar-anna-alandur-metro", "line": "cmrl.blue"}
-		]
+		"opened_date": "29 June 2015"
 	},
 	"st-thomas-mount-metro": {
 		"id": "st-thomas-mount-metro",
-		"name": {"en": "St. Thomas Mount Metro", "ta": "பரங்கிமலை"},
-		"lines": ["cmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "St. Thomas Mount Metro",
+			"ta": "பரங்கிமலை"
+		},
 		"code": "CHN_6897",
-		"opened_date": "14 October 2016",
-		"location": {"decimal": {"lat": 12.9948433, "lon": 80.197446}},
-		"neighbors": [{"station": "arignar-anna-alandur-metro-2", "line": "cmrl.green"}]
+		"opened_date": "14 October 2016"
 	}
 }

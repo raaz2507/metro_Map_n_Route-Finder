@@ -1,13 +1,17 @@
 {
 	"miyapur": {
 		"id": "miyapur",
-		"name": {"en": "Miyapur", "te": "మియాపూర్", "ur": "میا پور"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Miyapur",
+			"te": "మియాపూర్",
+			"ur": "میا پور"
+		},
 		"code": "HYD_307",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Miyapur X roads - Lift available at Arm A",
@@ -26,9 +30,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards JNTU"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -83,28 +93,40 @@
 				"ASR Raju Nagar",
 				"Balaji Hills Colony"
 			],
-			"Important Catchment Areas": ["Sai Ranga 70 MM", "Miyapur Exhibition Ground", "Cinetown Laxmi 70 MM", "Ocean Park"],
+			"Important Catchment Areas": [
+				"Sai Ranga 70 MM",
+				"Miyapur Exhibition Ground",
+				"Cinetown Laxmi 70 MM",
+				"Ocean Park"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
 			"WiFi": [
 				"Step 1: Connect to Wi-Fi network at Metro Station",
 				"Step 2: First time users need to register with valid mobile number",
 				"Step 3: Enjoy the free Wi-Fi services for 45 min"
 			]
-		},
-		"location": {"decimal": {"lat": 17.4964613, "lon": 78.3719813}},
-		"neighbors": [{"station": "jntu-college", "line": "hmrl.red"}]
+		}
 	},
 	"jntu-college": {
 		"id": "jntu-college",
-		"name": {"en": "JNTU College", "te": "జె ఎన్ టి యు కాలేజీ", "ur": "جے این ٹی یو کالج"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "JNTU College",
+			"te": "జె ఎన్ టి యు కాలేజీ",
+			"ur": "جے این ٹی یو کالج"
+		},
 		"code": "HYD_308",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Miyapur X roads - Lift available at Arm A",
@@ -123,9 +145,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards KPHB"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -193,23 +221,38 @@
 				"Hanuman Statue",
 				"Ambar Cheruvu"
 			],
-			"Important Catchment Areas": ["Manjeera Mall", "PVR Sujana Mall", "Shilparamam", "Sri Bhramaramba Cinema Hall"],
+			"Important Catchment Areas": [
+				"Manjeera Mall",
+				"PVR Sujana Mall",
+				"Shilparamam",
+				"Sri Bhramaramba Cinema Hall"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "miyapur", "line": "hmrl.red"}, {"station": "kphb-colony", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"kphb-colony": {
 		"id": "kphb-colony",
-		"name": {"en": "KPHB Colony", "te": "కె పి హెచ్ బి కాలనీ", "ur": "کے پی ایچ بی کالونی"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "KPHB Colony",
+			"te": "కె పి హెచ్ బి కాలనీ",
+			"ur": "کے پی ایچ بی کالونی"
+		},
 		"code": "HYD_309",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Miyapur X roads - Lift available at Arm A",
@@ -228,9 +271,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Kukatpally"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B, One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B, One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -284,23 +333,36 @@
 				"Jaya Nagar",
 				"NTR Nagar Road"
 			],
-			"Important Catchment Areas": ["Manjeera Mall", "PVR cinema/ Forum Srujana mall"],
+			"Important Catchment Areas": [
+				"Manjeera Mall",
+				"PVR cinema/ Forum Srujana mall"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "jntu-college", "line": "hmrl.red"}, {"station": "kukatpally", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"kukatpally": {
 		"id": "kukatpally",
-		"name": {"en": "Kukatpally", "te": "కూకట్‌పల్లి", "ur": "کوکٹ پلی"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Kukatpally",
+			"te": "కూకట్‌పల్లి",
+			"ur": "کوکٹ پلی"
+		},
 		"code": "HYD_310",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Miyapur X roads - Lift available at Arm A",
@@ -313,10 +375,19 @@
 				"Side CD - Road towards Balanagar X Roads - available at Arm D",
 				"Concourse Level: 4 lifts"
 			],
-			"Bus Stops": ["Bus Stop available at Arm B in a walkable distance", "Side AB - Road towards Miyapur X roads"],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B,One at Paid area before exit gate at Arm D"],
+			"Bus Stops": [
+				"Bus Stop available at Arm B in a walkable distance",
+				"Side AB - Road towards Miyapur X roads"
+			],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B,One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -366,19 +437,29 @@
 				"Sangeeth Nagar",
 				"Kukatpally Lake"
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "kphb-colony", "line": "hmrl.red"}, {"station": "balanagar", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"balanagar": {
 		"id": "balanagar",
-		"name": {"en": "Balanagar", "te": "డా.బి.ఆర్.అంబేద్కర్ బాలానగర్", "ur": "ڈاکٹر بی آر امبیڈکر بالا نگر"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Balanagar",
+			"te": "డా.బి.ఆర్.అంబేద్కర్ బాలానగర్",
+			"ur": "ڈاکٹر بی آر امبیڈکر بالا نگر"
+		},
 		"code": "HYD_311",
 		"opened_date": "29 November 2017",
 		"facilities": {
@@ -397,10 +478,19 @@
 				"Side CD - Road towards Moosapet - available at Arm D",
 				"Concourse Level: 4 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm D in a walkable distance", "Side CD - Road towards Moosapet"],
-			"Washrooms": ["Available at Arm B & C before Entry Gates."],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B."],
+			"Bus Stops": [
+				"Bus Stop available at Arm D in a walkable distance",
+				"Side CD - Road towards Moosapet"
+			],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates."
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B."
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Vasundhara hospital, Thumu Padmarao Patel Gardens, Power Nagar,Enosh Ministries Hctc, Anjineya Nagar, Greater Hyderabad Municipal Corporation, D Mart.",
@@ -410,21 +500,29 @@
 			],
 			"Important Catchment Areas": [],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
 			"WiFi": []
-		},
-		"neighbors": [{"station": "kukatpally", "line": "hmrl.red"}, {"station": "moosapet", "line": "hmrl.red"}]
+		}
 	},
 	"moosapet": {
 		"id": "moosapet",
-		"name": {"en": "Moosapet", "te": "మూసాపేట్", "ur": "مساپیٹ"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Moosapet",
+			"te": "మూసాపేట్",
+			"ur": "مساپیٹ"
+		},
 		"code": "HYD_312",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Balanagar X roads - Lift available at Arm B",
@@ -443,9 +541,15 @@
 				"Side CD - Road towards Bharathnagar - available at Arm D",
 				"Concourse Level: 4 nos."
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -487,17 +591,25 @@
 				"Sri Ramulu Theatre"
 			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "balanagar", "line": "hmrl.red"}, {"station": "bharat-nagar", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"bharat-nagar": {
 		"id": "bharat-nagar",
-		"name": {"en": "Bharat Nagar", "te": "భరత్ నగర్", "ur": "بھارت نگر"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Bharat Nagar",
+			"te": "భరత్ నగర్",
+			"ur": "بھارت نگر"
+		},
 		"code": "HYD_313",
 		"opened_date": "29 November 2017",
 		"facilities": {
@@ -516,25 +628,46 @@
 				"Side CD - Road towards Bharath Nagar MMTS - available at Arm C",
 				"Concourse Level: 4 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm C at a Longer distance.", "Side CD - Road towards Bharath Nagar MMTS"],
-			"Washrooms": ["Available at Arm B & C before Entry Gates."],
-			"First Aid": ["Available at Arm A."],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B."],
+			"Bus Stops": [
+				"Bus Stop available at Arm C at a Longer distance.",
+				"Side CD - Road towards Bharath Nagar MMTS"
+			],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates."
+			],
+			"First Aid": [
+				"Available at Arm A."
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B."
+			],
 			"Last Mile Connectivity": [],
-			"Neighborhood Areas": ["Bharat nagar MMTS.", "Bharat Nagar Market.", "Sanath nagar MMTS, Boraband X road."],
-			"Important Catchment Areas": ["Not Available."],
+			"Neighborhood Areas": [
+				"Bharat nagar MMTS.",
+				"Bharat Nagar Market.",
+				"Sanath nagar MMTS, Boraband X road."
+			],
+			"Important Catchment Areas": [
+				"Not Available."
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
 			"WiFi": []
-		},
-		"neighbors": [{"station": "moosapet", "line": "hmrl.red"}, {"station": "erragadda", "line": "hmrl.red"}]
+		}
 	},
 	"erragadda": {
 		"id": "erragadda",
-		"name": {"en": "Erragadda", "te": "ఎర్రగడ్డ", "ur": "ایراگڈا"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Erragadda",
+			"te": "ఎర్రగడ్డ",
+			"ur": "ایراگڈا"
+		},
 		"code": "HYD_314",
 		"opened_date": "29 November 2017",
 		"facilities": {
@@ -559,9 +692,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards ESI"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -598,19 +737,29 @@
 				"DMart Store",
 				"Government Industrial Training Institute"
 			],
-			"Important Catchment Areas": ["Gokul 70 MM Theatre"],
+			"Important Catchment Areas": [
+				"Gokul 70 MM Theatre"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "bharat-nagar", "line": "hmrl.red"}, {"station": "esi-hospital", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"esi-hospital": {
 		"id": "esi-hospital",
-		"name": {"en": "ESI Hospital", "te": "ఇ.ఎస్.ఐ హాస్పిటల్", "ur": "ای ایس آئی ہسپتال"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "ESI Hospital",
+			"te": "ఇ.ఎస్.ఐ హాస్పిటల్",
+			"ur": "ای ایس آئی ہسپتال"
+		},
 		"code": "HYD_315",
 		"opened_date": "29 November 2017",
 		"facilities": {
@@ -635,9 +784,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Ameerpet"
 			],
-			"Washrooms": ["One at Paid area before exit gate at Arm B"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"One at Paid area before exit gate at Arm B"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -684,23 +839,36 @@
 				"Percy's High School",
 				"Shalom International School Of Music"
 			],
-			"Important Catchment Areas": ["Gokul 70mm Movie Theater", "Balkampet Yellamma Temple"],
+			"Important Catchment Areas": [
+				"Gokul 70mm Movie Theater",
+				"Balkampet Yellamma Temple"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "erragadda", "line": "hmrl.red"}, {"station": "sr-nagar", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"sr-nagar": {
 		"id": "sr-nagar",
-		"name": {"en": "SR Nagar", "te": "ఎస్ ఆర్ నగర్", "ur": "ایس آر نگر"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "SR Nagar",
+			"te": "ఎస్ ఆర్ నగర్",
+			"ur": "ایس آر نگر"
+		},
 		"code": "HYD_316",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards ESI - Lift available at Arm A",
@@ -713,10 +881,19 @@
 				"Side CD - Road towards Ameerpet- available at Arm D",
 				"Concourse Level: 4 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm A in a walkable distance", "Side AB - Road towards ESI"],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Bus Stops": [
+				"Bus Stop available at Arm A in a walkable distance",
+				"Side AB - Road towards ESI"
+			],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -767,23 +944,36 @@
 				"Balkampet",
 				"Srinivasa Nagar"
 			],
-			"Important Catchment Areas": ["Balkampet Yellamma Temple", "Jain Temple"],
+			"Important Catchment Areas": [
+				"Balkampet Yellamma Temple",
+				"Jain Temple"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "esi-hospital", "line": "hmrl.red"}, {"station": "ameerpet", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"ameerpet": {
 		"id": "ameerpet",
-		"name": {"en": "Ameerpet", "te": "అమీర్‌పేట", "ur": "امیرپیٹ"},
-		"lines": ["hmrl.red", "hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Ameerpet",
+			"te": "అమీర్‌పేట",
+			"ur": "امیرپیٹ"
+		},
 		"code": "HYD_317",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 4 External lifts & 1 at each side",
 				"Side AB - Road towards Miyapur - Lift available at Arm A",
@@ -800,10 +990,21 @@
 				"Side CD - Road towards Punjagutta - available at Arm D",
 				"Concourse Level: 12 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm D at a Walkable distance", "Side CD - Road towards Punjagutta"],
-			"Washrooms": ["Available at Arm A and Arm B before Entry Gates", "Available at Arm C and Arm D before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area Near Internal lift 2", "One at Paid area in front of Internal Lift 3"],
+			"Bus Stops": [
+				"Bus Stop available at Arm D at a Walkable distance",
+				"Side CD - Road towards Punjagutta"
+			],
+			"Washrooms": [
+				"Available at Arm A and Arm B before Entry Gates",
+				"Available at Arm C and Arm D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area Near Internal lift 2",
+				"One at Paid area in front of Internal Lift 3"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -872,7 +1073,9 @@
 				"Sheesh Mahal Theatre Rd",
 				"Institute of Genetics and Hospital for Genetic Diseases"
 			],
-			"Important Catchment Areas": ["Carnival Cinemas"],
+			"Important Catchment Areas": [
+				"Carnival Cinemas"
+			],
 			"Vehicle Parking": [],
 			"Platform Information": [
 				"Platform 01: Train towards LB nagar",
@@ -880,30 +1083,29 @@
 				"Platform 03: Train towards Raidurg",
 				"Platform 04: Train towards Nagole"
 			],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
 			"WiFi": [
 				"Step 1: Connect to Wi-Fi network at Metro Station",
 				"Step 2: First time users need to register with valid mobile number",
 				"Step 3: Enjoy the free Wi-Fi services for 45 min"
 			]
-		},
-		"location": {"decimal": {"lat": 17.4356865, "lon": 78.4445922}},
-		"neighbors": [
-			{"station": "sr-nagar", "line": "hmrl.red"},
-			{"station": "punjagutta", "line": "hmrl.red"},
-			{"station": "begumpet", "line": "hmrl.blue"},
-			{"station": "madhura-nagar", "line": "hmrl.blue"}
-		]
+		}
 	},
 	"punjagutta": {
 		"id": "punjagutta",
-		"name": {"en": "Punjagutta", "te": "పంజాగుట్ట", "ur": "پنجگٹہ"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Punjagutta",
+			"te": "పంజాగుట్ట",
+			"ur": "پنجگٹہ"
+		},
 		"code": "HYD_318",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side ABC - Road towards Ameerpet - Lift available at Arm A",
@@ -922,9 +1124,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side DEF - Road towards Irrum Manzil"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm F"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B,One at unpaid area Infront of first aid room Arm F"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm F"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B,One at unpaid area Infront of first aid room Arm F"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -967,24 +1175,35 @@
 				"Mangatrai Pearls and Jewellery Punjagutta",
 				"BSNL Telephone Exchange."
 			],
-			"Important Catchment Areas": ["PVR Galleria Next Mall"],
+			"Important Catchment Areas": [
+				"PVR Galleria Next Mall"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.428605, "lon": 78.451161}},
-		"neighbors": [{"station": "ameerpet", "line": "hmrl.red"}, {"station": "irrum-manzil", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"irrum-manzil": {
 		"id": "irrum-manzil",
-		"name": {"en": "Irrum Manzil", "te": "ఇరమ్ మంజిల్", "ur": "ارم منزل"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Irrum Manzil",
+			"te": "ఇరమ్ మంజిల్",
+			"ur": "ارم منزل"
+		},
 		"code": "HYD_319",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Ameerpet - Lift available at Arm A",
@@ -1003,9 +1222,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Khairtabad"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B, One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B, One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1043,23 +1268,35 @@
 				"State Bank of India",
 				"Raj Bhavan"
 			],
-			"Important Catchment Areas": ["Exhibition Grounds"],
+			"Important Catchment Areas": [
+				"Exhibition Grounds"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "punjagutta", "line": "hmrl.red"}, {"station": "khairtabad", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"khairtabad": {
 		"id": "khairtabad",
-		"name": {"en": "Khairtabad", "te": "ఖైరతాబాద్", "ur": "خیریت آباد"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Khairtabad",
+			"te": "ఖైరతాబాద్",
+			"ur": "خیریت آباد"
+		},
 		"code": "HYD_320",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Miyapur X roads - Lift available at Arm A",
@@ -1078,9 +1315,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards KPHB"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1148,23 +1391,38 @@
 				"Hanuman Statue",
 				"Ambar Cheruvu"
 			],
-			"Important Catchment Areas": ["Manjeera Mall", "PVR Sujana Mall", "Shilparamam", "Sri Bhramaramba Cinema Hall"],
+			"Important Catchment Areas": [
+				"Manjeera Mall",
+				"PVR Sujana Mall",
+				"Shilparamam",
+				"Sri Bhramaramba Cinema Hall"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "irrum-manzil", "line": "hmrl.red"}, {"station": "lakdi-ka-pul", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"lakdi-ka-pul": {
 		"id": "lakdi-ka-pul",
-		"name": {"en": "Lakdi-ka-Pul", "te": "లక్డీ-కా-పుల్", "ur": "لکڈی کا پل"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Lakdi-ka-Pul",
+			"te": "లక్డీ-కా-పుల్",
+			"ur": "لکڈی کا پل"
+		},
 		"code": "HYD_321",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External Lifts & 1 at each side",
 				"Side AB - Road towards Ameerpet - Lift available at Arm A",
@@ -1183,9 +1441,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Nampally"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1216,19 +1480,29 @@
 				"Hotel Panchsheel Pakwaan",
 				"AP Pollution Control Board."
 			],
-			"Important Catchment Areas": ["Jalavihar WaterPark"],
+			"Important Catchment Areas": [
+				"Jalavihar WaterPark"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "khairtabad", "line": "hmrl.red"}, {"station": "assembly", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"assembly": {
 		"id": "assembly",
-		"name": {"en": "Assembly", "te": "అసెంబ్లీ", "ur": "اسمبلی"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Assembly",
+			"te": "అసెంబ్లీ",
+			"ur": "اسمبلی"
+		},
 		"code": "HYD_322",
 		"opened_date": "24 September 2018",
 		"facilities": {
@@ -1246,10 +1520,19 @@
 				"Side DE - Road towards Nampally - available at Arm D",
 				"Concourse Level: 2 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm B in a walkable distance", "Side AB - Road towards Lakdikapul"],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at near Station control room"],
+			"Bus Stops": [
+				"Bus Stop available at Arm B in a walkable distance",
+				"Side AB - Road towards Lakdikapul"
+			],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at near Station control room"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Public Gardens, Indira Priyadarshini Auditorium, Jawahar Bal Bhavan, STATE MUSEUM, MIDH Telangana Department of Horticulture, Commercial Nursery, Govt. of TS.",
@@ -1257,23 +1540,36 @@
 				"Housing And Urban Development Corporation Limited, Food Corporation Of India, Hermitage Building Complex, B.M. Birla Science Museum, AP State Cooperative Bank, Prasar Bharati All India Radio, Nizam Club Swimming Pool, State Bank of India, G P Birla Centre.",
 				"Police Control Room, Lal Bahadur Stadium Swimming Pool, Cyber Crimes Police Station, LB Stadium Rd, Women Police Station Central Crime Station, APSSDC, Commissioner of Income Tax."
 			],
-			"Important Catchment Areas": ["Telangana State Archaeology Museum", "Buddha Statue", "Snow World", "Birla Mandir", "Prasads Multiplex"],
+			"Important Catchment Areas": [
+				"Telangana State Archaeology Museum",
+				"Buddha Statue",
+				"Snow World",
+				"Birla Mandir",
+				"Prasads Multiplex"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB nagar."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
+			"Platform Information": [
+				"Train towards LB nagar."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
 			"WiFi": []
-		},
-		"neighbors": [{"station": "lakdi-ka-pul", "line": "hmrl.red"}, {"station": "nampally", "line": "hmrl.red"}]
+		}
 	},
 	"nampally": {
 		"id": "nampally",
-		"name": {"en": "Nampally", "te": "నాంపల్లి", "ur": "نامپلی ۔"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Nampally",
+			"te": "నాంపల్లి",
+			"ur": "نامپلی ۔"
+		},
 		"code": "HYD_323",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Lakdikapul - Lift available at Arm B",
@@ -1292,8 +1588,12 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Gandhi Bhavan"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
 			"Drinking Water": [],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
@@ -1358,24 +1658,38 @@
 				"JN Road",
 				"Krishna hospital"
 			],
-			"Important Catchment Areas": ["South Central Railways and MMTS", "Haj House"],
-			"Vehicle Parking": ["Paid 2W & 4W at Arm A & Arm B near Nampally Railway Station provided by HMRL"],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.392351, "lon": 78.470134}},
-		"neighbors": [{"station": "assembly", "line": "hmrl.red"}, {"station": "gandhi-bhavan", "line": "hmrl.red"}]
+			"Important Catchment Areas": [
+				"South Central Railways and MMTS",
+				"Haj House"
+			],
+			"Vehicle Parking": [
+				"Paid 2W & 4W at Arm A & Arm B near Nampally Railway Station provided by HMRL"
+			],
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"gandhi-bhavan": {
 		"id": "gandhi-bhavan",
-		"name": {"en": "Gandhi Bhavan", "te": "గాంధీ భవన్", "ur": "گاندھی بھون"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Gandhi Bhavan",
+			"te": "గాంధీ భవన్",
+			"ur": "گاندھی بھون"
+		},
 		"code": "HYD_324",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Lakdikapul - Lift available at Arm B",
@@ -1394,9 +1708,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards MG Bus Station"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm C"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm C"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1446,24 +1766,35 @@
 				"Rama Krishna Theater",
 				"Ramkoti"
 			],
-			"Important Catchment Areas": ["Exhibition Grounds"],
+			"Important Catchment Areas": [
+				"Exhibition Grounds"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.3855132, "lon": 78.4735666}},
-		"neighbors": [{"station": "nampally", "line": "hmrl.red"}, {"station": "osmania-college", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"osmania-college": {
 		"id": "osmania-college",
-		"name": {"en": "Osmania College", "te": "ఉస్మానియా మెడికల్ కాలేజీ", "ur": "عثمانیہ میڈیکل کالج"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Osmania College",
+			"te": "ఉస్మానియా మెడికల్ కాలేజీ",
+			"ur": "عثمانیہ میڈیکل کالج"
+		},
 		"code": "HYD_325",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Malakpet - Lift available at Arm B",
@@ -1482,9 +1813,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Dilsukhnagar"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1581,23 +1918,35 @@
 				"Vijetha Syamala Towers",
 				"Swamy Vivekananda Centenary School"
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "gandhi-bhavan", "line": "hmrl.red"}, {"station": "mg-bus-station", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"mg-bus-station": {
 		"id": "mg-bus-station",
-		"name": {"en": "MG Bus Station", "te": "ఎం జి బస్ స్టేషన్", "ur": "ایم جی بس اسٹیشن"},
-		"lines": ["hmrl.red", "hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "MG Bus Station",
+			"te": "ఎం జి బస్ స్టేషన్",
+			"ur": "ایم جی بس اسٹیشن"
+		},
 		"code": "HYD_366",
 		"opened_date": "24 September 20187 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side A - Road towards Mg bus stand - 1 Lift available at Arm A",
@@ -1616,9 +1965,15 @@
 				"Bus Stop available at Arm B in a walkable distance",
 				"Side B - Road towards Chaderghat"
 			],
-			"Washrooms": ["Available at Arm A & B before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm A"],
+			"Washrooms": [
+				"Available at Arm A & B before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm A"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1647,7 +2002,14 @@
 				"Muncipality Office",
 				"M.S.S Law College"
 			],
-			"Important Catchment Areas": ["Salar Jung Museum", "Charminar", "Mecca Masjid", "Chowmahalla Palace", "Tahniyat Mahal", "Nizam Museum"],
+			"Important Catchment Areas": [
+				"Salar Jung Museum",
+				"Charminar",
+				"Mecca Masjid",
+				"Chowmahalla Palace",
+				"Tahniyat Mahal",
+				"Nizam Museum"
+			],
 			"Vehicle Parking": [],
 			"Platform Information": [
 				"Platform 01:Train towards LB nagar",
@@ -1655,25 +2017,27 @@
 				"Platform 03:Train towards Jubilee Bus station",
 				"Platform 04:Train towards MGBS Terminal Station"
 			],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.379853, "lon": 78.4859827}},
-		"neighbors": [
-			{"station": "osmania-college", "line": "hmrl.red"},
-			{"station": "malakpet", "line": "hmrl.red"},
-			{"station": "sultan-bazar", "line": "hmrl.green"}
-		]
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"malakpet": {
 		"id": "malakpet",
-		"name": {"en": "Malakpet", "te": "మలక్ పేట", "ur": "ملاکپیٹ"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Malakpet",
+			"te": "మలక్ పేట",
+			"ur": "ملاکپیٹ"
+		},
 		"code": "HYD_327",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 1 External lift",
 				"Side CD - Road towards New market - Lift available at Arm D",
@@ -1685,10 +2049,19 @@
 				"Side CD - Road towards New market- available at Arm D",
 				"Concourse Level: 2 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm B in a walkable distance", "Side B - Road towards Chaderghat"],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B, One at Paid area before exit gate at Arm D"],
+			"Bus Stops": [
+				"Bus Stop available at Arm B in a walkable distance",
+				"Side B - Road towards Chaderghat"
+			],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B, One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1734,7 +2107,9 @@
 				"GAMCA OFFICE",
 				"Simla Garden Function Hall"
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
 			"Platform Information": [
 				"Platform 01:Train towards LB nagar",
@@ -1742,20 +2117,27 @@
 				"Platform 03:Train towards Jubilee Bus station",
 				"Platform 04:Train towards MGBS Terminal Station"
 			],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "mg-bus-station", "line": "hmrl.red"}, {"station": "new-market", "line": "hmrl.red"}]
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"new-market": {
 		"id": "new-market",
-		"name": {"en": "New Market", "te": "కొత్త మార్కెట్", "ur": "نیو مارکیٹ"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "New Market",
+			"te": "కొత్త మార్కెట్",
+			"ur": "نیو مارکیٹ"
+		},
 		"code": "HYD_328",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Gandhi Bhavan - Lift available at Arm B",
@@ -1768,10 +2150,19 @@
 				"Side CD - Road towards MG bus station - available at Arm C",
 				"Concourse Level: 2 nos"
 			],
-			"Bus Stops": ["Bus Stop available at Arm D in a walkable distance", "Side CD - Road towards MG bus station"],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Bus Stops": [
+				"Bus Stop available at Arm D in a walkable distance",
+				"Side CD - Road towards MG bus station"
+			],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1808,23 +2199,35 @@
 				"Osmania Book House",
 				"ACP Traffic Office"
 			],
-			"Important Catchment Areas": ["Osmania Medical College"],
+			"Important Catchment Areas": [
+				"Osmania Medical College"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "malakpet", "line": "hmrl.red"}, {"station": "musarambagh", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"musarambagh": {
 		"id": "musarambagh",
-		"name": {"en": "Musarambagh", "te": "ముసారాంబాగ్", "ur": "مسارم باغ"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Musarambagh",
+			"te": "ముసారాంబాగ్",
+			"ur": "مسارم باغ"
+		},
 		"code": "HYD_329",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Malakpet - Lift available at Arm B",
@@ -1843,9 +2246,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Dilsukhnagar"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -1942,19 +2351,29 @@
 				"Vijetha Syamala Towers",
 				"Swamy Vivekananda Centenary School"
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "new-market", "line": "hmrl.red"}, {"station": "dilsukhnagar", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"dilsukhnagar": {
 		"id": "dilsukhnagar",
-		"name": {"en": "Dilsukhnagar", "te": "దిల్ సుఖ్ నగర్", "ur": "دلسکھ نگر"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Dilsukhnagar",
+			"te": "దిల్ సుఖ్ నగర్",
+			"ur": "دلسکھ نگر"
+		},
 		"code": "HYD_330",
 		"opened_date": "24 September 2018",
 		"facilities": {
@@ -1979,9 +2398,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards LB Nagar"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B, One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B, One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2077,17 +2502,25 @@
 				"SVC Mahalakshmi Theatre"
 			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "musarambagh", "line": "hmrl.red"}, {"station": "chaitanya-puri", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"chaitanya-puri": {
 		"id": "chaitanya-puri",
-		"name": {"en": "Chaitanya Puri", "te": "చైతన్యపురి", "ur": "چیتنیا پوری"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Chaitanya Puri",
+			"te": "చైతన్యపురి",
+			"ur": "چیتنیا پوری"
+		},
 		"code": "HYD_331",
 		"opened_date": "24 September 2018",
 		"facilities": {
@@ -2106,10 +2539,20 @@
 				"Side CD - Road towards LB Nagar - available at Arm C",
 				"Concourse Level: 2 nos."
 			],
-			"Bus Stops": ["Side AB - Road towards Dilsukhnagar", "Side CD - Road towards LB Nagar", "Side CD - Road towards LB Nagar"],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm C."],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Bus Stops": [
+				"Side AB - Road towards Dilsukhnagar",
+				"Side CD - Road towards LB Nagar",
+				"Side CD - Road towards LB Nagar"
+			],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C."
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2212,21 +2655,31 @@
 				"Ashtalaxmi Temple"
 			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "dilsukhnagar", "line": "hmrl.red"}, {"station": "victoria-memorial", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"victoria-memorial": {
 		"id": "victoria-memorial",
-		"name": {"en": "Victoria Memorial", "te": "విక్టోరియా మెమోరియల్", "ur": "وکٹوریہ میموریل"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Victoria Memorial",
+			"te": "విక్టోరియా మెమోరియల్",
+			"ur": "وکٹوریہ میموریل"
+		},
 		"code": "HYD_332",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Chaitanya Puri - Lift available at Arm A",
@@ -2245,9 +2698,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side AB - Road towards Chaitanyapuri"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2321,24 +2780,35 @@
 				"Vamshi Mohan High School",
 				"Paradise Restuarant"
 			],
-			"Important Catchment Areas": ["Ashtalakshmi Temple"],
+			"Important Catchment Areas": [
+				"Ashtalakshmi Temple"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.3618337, "lon": 78.5439605}},
-		"neighbors": [{"station": "chaitanya-puri", "line": "hmrl.red"}, {"station": "lb-nagar", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"lb-nagar": {
 		"id": "lb-nagar",
-		"name": {"en": "LB Nagar", "te": "ఎల్ బి నగర్", "ur": "ایل بی نگر"},
-		"lines": ["hmrl.red"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "LB Nagar",
+			"te": "ఎల్ బి నగర్",
+			"ur": "ایل بی نگر"
+		},
 		"code": "HYD_333",
 		"opened_date": "24 September 2018",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Victoria Memorial - Lift available at Arm A",
@@ -2357,9 +2827,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Hayathnagar"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2413,24 +2889,36 @@
 				"Jaya Nagar",
 				"NTR Nagar Road"
 			],
-			"Important Catchment Areas": ["Manjeera Mall", "PVR cinema/ Forum Srujana mall"],
+			"Important Catchment Areas": [
+				"Manjeera Mall",
+				"PVR cinema/ Forum Srujana mall"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards LB Nagar.", "Train towards Miyapur."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.3497098, "lon": 78.547973}},
-		"neighbors": [{"station": "victoria-memorial", "line": "hmrl.red"}]
+			"Platform Information": [
+				"Train towards LB Nagar.",
+				"Train towards Miyapur."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"nagole": {
 		"id": "nagole",
-		"name": {"en": "Nagole", "te": "నాగోల్", "ur": "ناگولے"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Nagole",
+			"te": "నాగోల్",
+			"ur": "ناگولے"
+		},
 		"code": "HYD_357",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards L B Nagar - Lift available at Arm B",
@@ -2443,10 +2931,21 @@
 				"Side CD - Road towards Uppal - Lift available at Arm C",
 				"Concourse Level: 4 nos."
 			],
-			"Bus Stops": ["Request Bus Stop", "Side AB - Road towards L B Nagar", "Request Bus Stop", "Side CD - Road towards Uppal"],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D"],
+			"Bus Stops": [
+				"Request Bus Stop",
+				"Side AB - Road towards L B Nagar",
+				"Request Bus Stop",
+				"Side CD - Road towards Uppal"
+			],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2481,37 +2980,50 @@
 				"CDFD Uppal campus - Centre for DNA Fingerprinting and Diagnostics",
 				"Survey colony road"
 			],
-			"Important Catchment Areas": ["Ramoji Film city", "Sagar road", "Wonderla Amusement Park", "Mount Opera"],
+			"Important Catchment Areas": [
+				"Ramoji Film city",
+				"Sagar road",
+				"Wonderla Amusement Park",
+				"Mount Opera"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
 			"WiFi": [
 				"Step 1: Connect to Wi-Fi network at Metro Station",
 				"Step 2: First time users need to register with valid mobile number",
 				"Step 3: Enjoy the free Wi-Fi services for 45 min"
 			]
-		},
-		"neighbors": [{"station": "uppal-bus", "line": "hmrl.blue"}]
+		}
 	},
 	"uppal-bus": {
 		"id": "uppal-bus",
-		"name": {"en": "Uppal", "te": "ఉప్పల్", "ur": "اپل"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Uppal",
+			"te": "ఉప్పల్",
+			"ur": "اپل"
+		},
 		"code": "HYD_356",
-		"opened_date": "29 November 2017",
-		"location": {"decimal": {"lat": 17.4000864, "lon": 78.5601816}},
-		"neighbors": [{"station": "nagole", "line": "hmrl.blue"}, {"station": "stadium", "line": "hmrl.blue"}]
+		"opened_date": "29 November 2017"
 	},
 	"stadium": {
 		"id": "stadium",
-		"name": {"en": "Stadium", "te": "స్టేడియం", "ur": "اپل اسٹیڈیم"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Stadium",
+			"te": "స్టేడియం",
+			"ur": "اپل اسٹیڈیم"
+		},
 		"code": "HYD_355",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards L B Nagar - Lift available at Arm A",
@@ -2530,9 +3042,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Secunderabad"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2565,24 +3083,35 @@
 				"Rajiv Gandhi International cricket stadium",
 				"The Hyderabad Public School"
 			],
-			"Important Catchment Areas": ["Rajiv Gandhi International cricket stadium"],
+			"Important Catchment Areas": [
+				"Rajiv Gandhi International cricket stadium"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.40739, "lon": 78.5542321}},
-		"neighbors": [{"station": "uppal-bus", "line": "hmrl.blue"}, {"station": "ngri", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"ngri": {
 		"id": "ngri",
-		"name": {"en": "NGRI", "te": "ఎన్ జి ఆర్ ఐ", "ur": "این جی آر آئی"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "NGRI",
+			"te": "ఎన్ జి ఆర్ ఐ",
+			"ur": "این جی آر آئی"
+		},
 		"code": "HYD_354",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards L B Nagar - Lift available at Arm B",
@@ -2601,9 +3130,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Secunderabad"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D/p>"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D/p>"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2635,23 +3170,35 @@
 				"Indian Statistical Institute",
 				"Johnson Grammer school"
 			],
-			"Important Catchment Areas": ["Rajiv Gandhi International cricket stadium"],
+			"Important Catchment Areas": [
+				"Rajiv Gandhi International cricket stadium"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "stadium", "line": "hmrl.blue"}, {"station": "habsiguda", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"habsiguda": {
 		"id": "habsiguda",
-		"name": {"en": "Habsiguda", "te": "హబ్సిగూడ", "ur": "حبسی گوڈا"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Habsiguda",
+			"te": "హబ్సిగూడ",
+			"ur": "حبسی گوڈا"
+		},
 		"code": "HYD_353",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards L B Nagar - Lift available at Arm A",
@@ -2670,9 +3217,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Secunderabad\""
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One before exit gate at Arm B & One before exit gate at Arm-D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One before exit gate at Arm B & One before exit gate at Arm-D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2710,24 +3263,36 @@
 				"State Archives",
 				"HMDA complex"
 			],
-			"Important Catchment Areas": ["Noma Talkies", "Vyjayanthi Cinema"],
+			"Important Catchment Areas": [
+				"Noma Talkies",
+				"Vyjayanthi Cinema"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.4201961, "lon": 78.5405362}},
-		"neighbors": [{"station": "ngri", "line": "hmrl.blue"}, {"station": "tarnaka", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"tarnaka": {
 		"id": "tarnaka",
-		"name": {"en": "Tarnaka", "te": "తార్నాక", "ur": "ترناکا"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Tarnaka",
+			"te": "తార్నాక",
+			"ur": "ترناکا"
+		},
 		"code": "HYD_352",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards L B Nagar - Lift available at Arm B",
@@ -2746,9 +3311,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Secunderabad"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2788,24 +3359,37 @@
 				"Sitafalmandi MMTS Station",
 				"Railway Officers Club"
 			],
-			"Important Catchment Areas": ["Moula Ali dharga", "Keesara Gutta Ramalingeswara Devasthanam", "Arts college"],
+			"Important Catchment Areas": [
+				"Moula Ali dharga",
+				"Keesara Gutta Ramalingeswara Devasthanam",
+				"Arts college"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.428293, "lon": 78.5285577}},
-		"neighbors": [{"station": "habsiguda", "line": "hmrl.blue"}, {"station": "mettuguda", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"mettuguda": {
 		"id": "mettuguda",
-		"name": {"en": "Mettuguda", "te": "మెట్టుగూడ", "ur": "میٹگوڈا"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Mettuguda",
+			"te": "మెట్టుగూడ",
+			"ur": "میٹگوڈا"
+		},
 		"code": "HYD_351",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Durgam cheruvu - Lift available at Arm B",
@@ -2824,9 +3408,15 @@
 				"Bus Stop available at Arm C in a Walkable distance",
 				"Side CD - Road towards Raidurg"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["Two in paid area before exit gates, one at Arm B & another at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"Two in paid area before exit gates, one at Arm B & another at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -2915,23 +3505,38 @@
 				"The Westin Hyderabad Mindspace",
 				"Gachibowli"
 			],
-			"Important Catchment Areas": ["Shilparamam", "Hyderabad International Convention Center", "Gallery 78", "NEXT Galleria Hitech City"],
+			"Important Catchment Areas": [
+				"Shilparamam",
+				"Hyderabad International Convention Center",
+				"Gallery 78",
+				"NEXT Galleria Hitech City"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "tarnaka", "line": "hmrl.blue"}, {"station": "secunderabad-east", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"secunderabad-east": {
 		"id": "secunderabad-east",
-		"name": {"en": "Secunderabad East", "te": "సికింద్రాబాద్ తూర్పు", "ur": "سکندرآباد ایسٹ"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Secunderabad East",
+			"te": "సికింద్రాబాద్ తూర్పు",
+			"ur": "سکندرآباد ایسٹ"
+		},
 		"code": "HYD_348",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 3 External lifts",
 				"Side AB - Road towards Chilkalguda X road - Lift available at Arm A",
@@ -2950,9 +3555,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Sangeeth X roads"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3010,24 +3621,35 @@
 				"Sangeeth Circle",
 				"Shraddha Books Stationary and Gifts"
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.4357879, "lon": 78.5054284}},
-		"neighbors": [{"station": "mettuguda", "line": "hmrl.blue"}, {"station": "parade-ground", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"parade-ground": {
 		"id": "parade-ground",
-		"name": {"en": "Parade Ground", "te": "పరేడ్ గ్రౌండ్", "ur": "پریڈ گراؤنڈ"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Parade Ground",
+			"te": "పరేడ్ గ్రౌండ్",
+			"ur": "پریڈ گراؤنڈ"
+		},
 		"code": "HYD_347",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 1 External Lift",
 				"Side AB - Road towards sangeeth X Road - Lift available at Arm B",
@@ -3038,10 +3660,19 @@
 				"Side AB - Road towards sangeeth X Road - available at Arm B",
 				"Concourse Level:2 Internal Escalators 2 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm B in a walkable distance", "Side AB - Road towards Sangeeth X roads"],
-			"Washrooms": ["Available at Arm A before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D/p>"],
+			"Bus Stops": [
+				"Bus Stop available at Arm B in a walkable distance",
+				"Side AB - Road towards Sangeeth X roads"
+			],
+			"Washrooms": [
+				"Available at Arm A before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D/p>"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3078,24 +3709,35 @@
 				"East Marredpally",
 				"Iskcon Temple"
 			],
-			"Important Catchment Areas": ["Tivoli theatre"],
+			"Important Catchment Areas": [
+				"Tivoli theatre"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.443868, "lon": 78.4973861}},
-		"neighbors": [{"station": "secunderabad-east", "line": "hmrl.blue"}, {"station": "paradise", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"paradise": {
 		"id": "paradise",
-		"name": {"en": "Paradise", "te": "ప్యారడైజ్", "ur": "پیراڈس"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Paradise",
+			"te": "ప్యారడైజ్",
+			"ur": "پیراڈس"
+		},
 		"code": "HYD_346",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts",
 				"Side AB - Road towards Begumpet - Lift available at Arm A Leading to Sindhi colony",
@@ -3114,9 +3756,15 @@
 				"Bus Stop available at Arm B in a walkable distance",
 				"Side AB - Road towards Sangeeth X Roads"
 			],
-			"Washrooms": ["Available at Arm B before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm B before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3155,23 +3803,37 @@
 				"Pratap Colony",
 				"Gymkhana Cricket Stadium."
 			],
-			"Important Catchment Areas": ["Sanjeevaiah Park", "Necklace road", "Snow world"],
+			"Important Catchment Areas": [
+				"Sanjeevaiah Park",
+				"Necklace road",
+				"Snow world"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "parade-ground", "line": "hmrl.blue"}, {"station": "rasoolpura", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"rasoolpura": {
 		"id": "rasoolpura",
-		"name": {"en": "Rasoolpura", "te": "రసూల్‌పురా", "ur": "رسول پورہ"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Rasoolpura",
+			"te": "రసూల్‌పురా",
+			"ur": "رسول پورہ"
+		},
 		"code": "HYD_345",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Paradise X Roads - Lift available at Arm B",
@@ -3190,9 +3852,16 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Punjagutta"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D", "One at Paid area in front of Lifts"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D",
+				"One at Paid area in front of Lifts"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3234,24 +3903,35 @@
 				"VFS Canada Visa Application Centre",
 				"Coral Apartment"
 			],
-			"Important Catchment Areas": ["Jamia Masjid"],
+			"Important Catchment Areas": [
+				"Jamia Masjid"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.443597, "lon": 78.476365}},
-		"neighbors": [{"station": "paradise", "line": "hmrl.blue"}, {"station": "prakash-nagar", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"prakash-nagar": {
 		"id": "prakash-nagar",
-		"name": {"en": "Prakash Nagar", "te": "ప్రకాష్ నగర్", "ur": "پرکاش نگر"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Prakash Nagar",
+			"te": "ప్రకాష్ నగర్",
+			"ur": "پرکاش نگر"
+		},
 		"code": "HYD_344",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Paradise X roads - Lift available at Arm B",
@@ -3271,9 +3951,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Punjagutta"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D, One at Paid area in front of Lifts."],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D, One at Paid area in front of Lifts."
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3306,24 +3992,35 @@
 				"Devnar School For The Blind",
 				"Gitanjali Primary School"
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.4448917, "lon": 78.4658366}},
-		"neighbors": [{"station": "rasoolpura", "line": "hmrl.blue"}, {"station": "begumpet", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"begumpet": {
 		"id": "begumpet",
-		"name": {"en": "Begumpet", "te": "బేగంపేట", "ur": "بیگم پیٹ"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Begumpet",
+			"te": "బేగంపేట",
+			"ur": "بیگم پیٹ"
+		},
 		"code": "HYD_343",
 		"opened_date": "29 November 2017",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side A - Road towards Punjagutta - Lift available at Arm A",
@@ -3336,10 +4033,19 @@
 				"Side B - Road towards Begumpet MMTS - available at Arm B",
 				"Concourse Level: 4 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm B at a Longer distance", "Side AB - Road towards Punjagutta"],
-			"Washrooms": ["Available at Arm A before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm A, One at Paid area in front of Lifts"],
+			"Bus Stops": [
+				"Bus Stop available at Arm B at a Longer distance",
+				"Side AB - Road towards Punjagutta"
+			],
+			"Washrooms": [
+				"Available at Arm A before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm A, One at Paid area in front of Lifts"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3377,23 +4083,35 @@
 				"Uma Nagar",
 				"Culinary Academy of India"
 			],
-			"Important Catchment Areas": ["Nizamia Observatory"],
+			"Important Catchment Areas": [
+				"Nizamia Observatory"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "prakash-nagar", "line": "hmrl.blue"}, {"station": "ameerpet", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"madhura-nagar": {
 		"id": "madhura-nagar",
-		"name": {"en": "Madhura Nagar", "te": "మధుర నగర్", "ur": "مدھورا نگر"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Madhura Nagar",
+			"te": "మధుర నగర్",
+			"ur": "مدھورا نگر"
+		},
 		"code": "HYD_342",
 		"opened_date": "20 March 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards L B Nagar - Lift available at Arm A",
@@ -3414,9 +4132,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Secunderabad"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3443,23 +4167,35 @@
 				"Railway Recruitment Board",
 				"Pragathi High School"
 			],
-			"Important Catchment Areas": ["Sacred Heart Church"],
+			"Important Catchment Areas": [
+				"Sacred Heart Church"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "ameerpet", "line": "hmrl.blue"}, {"station": "yusufguda", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"yusufguda": {
 		"id": "yusufguda",
-		"name": {"en": "Yusufguda", "te": "యూసుఫ్‌గూడ", "ur": "یوسف گوڈا"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Yusufguda",
+			"te": "యూసుఫ్‌గూడ",
+			"ur": "یوسف گوڈا"
+		},
 		"code": "HYD_341",
 		"opened_date": "20 March 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Yusufguda main road - Lift available at Arm B",
@@ -3480,9 +4216,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Jubilee hills Road no .05"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3519,23 +4261,34 @@
 				"MCH Park Srinagar Colony",
 				"Vidya Niketan High School."
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.4350829, "lon": 78.4273015}},
-		"neighbors": [{"station": "madhura-nagar", "line": "hmrl.blue"}, {"station": "road-no-5-jubilee-hills", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"road-no-5-jubilee-hills": {
 		"id": "road-no-5-jubilee-hills",
-		"name": {"en": "Road No 5 Jubilee Hills", "te": "Road No 5 Jubilee Hills", "ur": "Road No 5 Jubilee Hills"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Road No 5 Jubilee Hills",
+			"te": "Road No 5 Jubilee Hills",
+			"ur": "Road No 5 Jubilee Hills"
+		},
 		"code": "HYD_340",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Yusufguda main road - Lift available at Arm B",
@@ -3554,9 +4307,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Jubilee Hills Check Post"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3591,23 +4350,35 @@
 				"FabHotel Tanisha Jubilee Hills",
 				"Chiranjeevi Eye and Blood Bank."
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "yusufguda", "line": "hmrl.blue"}, {"station": "jubilee-hills-check-post", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"jubilee-hills-check-post": {
 		"id": "jubilee-hills-check-post",
-		"name": {"en": "Jubilee Hills Check Post", "te": "జూబ్లీహిల్స్ చెక్ పోస్ట్", "ur": "جوبلی ہلز چیک پوسٹ"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Jubilee Hills Check Post",
+			"te": "జూబ్లీహిల్స్ చెక్ పోస్ట్",
+			"ur": "جوبلی ہلز چیک پوسٹ"
+		},
 		"code": "HYD_339",
 		"opened_date": "18 May 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Jubilee hills road no 05 - Lift available at Arm A",
@@ -3626,9 +4397,15 @@
 				"Bus Stop available at Arm D in a walkable distance",
 				"Side CD - Road towards Peddama gudi"
 			],
-			"Washrooms": ["At Both platforms near to Lifts (Unisex)"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at platform level near Station control room,One at Middle of platform 2"],
+			"Washrooms": [
+				"At Both platforms near to Lifts (Unisex)"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at platform level near Station control room,One at Middle of platform 2"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3669,24 +4446,38 @@
 				"6 TV",
 				"British Council"
 			],
-			"Important Catchment Areas": ["PVR Cinemas", "Kasu Brahmanandha Reddy National Park"],
-			"Vehicle Parking": ["Not Available"],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.4282288, "lon": 78.4137204}},
-		"neighbors": [{"station": "road-no-5-jubilee-hills", "line": "hmrl.blue"}, {"station": "peddamma-gudi", "line": "hmrl.blue"}]
+			"Important Catchment Areas": [
+				"PVR Cinemas",
+				"Kasu Brahmanandha Reddy National Park"
+			],
+			"Vehicle Parking": [
+				"Not Available"
+			],
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"peddamma-gudi": {
 		"id": "peddamma-gudi",
-		"name": {"en": "Peddamma Gudi", "te": "పెద్దమ్మ గుడి", "ur": "پدما گوڈی"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Peddamma Gudi",
+			"te": "పెద్దమ్మ గుడి",
+			"ur": "پدما گوڈی"
+		},
 		"code": "HYD_338",
 		"opened_date": "30 March 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Jubilee hills check post - Lift available at Arm B",
@@ -3705,9 +4496,16 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Madhapur"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates."],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D", "One at paid area before exit gate at Arm B"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates."
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D",
+				"One at paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3745,23 +4543,35 @@
 				"IDBI Bank",
 				"Transmission Corporation Of Andhra Pradesh"
 			],
-			"Important Catchment Areas": ["Peddamma Gudi."],
+			"Important Catchment Areas": [
+				"Peddamma Gudi."
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "jubilee-hills-check-post", "line": "hmrl.blue"}, {"station": "madhapur", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"madhapur": {
 		"id": "madhapur",
-		"name": {"en": "Madhapur", "te": "మాదాపూర్", "ur": "مادھا پور"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Madhapur",
+			"te": "మాదాపూర్",
+			"ur": "مادھا پور"
+		},
 		"code": "HYD_337",
 		"opened_date": "13 April 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Peddama Gudi - Lift available at Arm B",
@@ -3774,10 +4584,19 @@
 				"Side CD - Road towards Durgam cheruvu - available at Arm D",
 				"Concourse Level: 2 Internal Escalators"
 			],
-			"Bus Stops": ["Bus Stop available at Arm A in a Walkable distance", "Side AB - Road towards Peddama Gudi (Near Arm-A)"],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["Two in paid area before exit gates, One at Arm B & another at Arm-D"],
+			"Bus Stops": [
+				"Bus Stop available at Arm A in a Walkable distance",
+				"Side AB - Road towards Peddama Gudi (Near Arm-A)"
+			],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"Two in paid area before exit gates, One at Arm B & another at Arm-D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3816,23 +4635,35 @@
 				"Doctor's colony",
 				"Inorbit Mall Cyberabad"
 			],
-			"Important Catchment Areas": ["Inorbit Mall"],
+			"Important Catchment Areas": [
+				"Inorbit Mall"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "peddamma-gudi", "line": "hmrl.blue"}, {"station": "durgam-cheruvu", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"durgam-cheruvu": {
 		"id": "durgam-cheruvu",
-		"name": {"en": "Durgam Cheruvu", "te": "దుర్గం చెరువు", "ur": "درگم چیروو"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Durgam Cheruvu",
+			"te": "దుర్గం చెరువు",
+			"ur": "درگم چیروو"
+		},
 		"code": "HYD_336",
 		"opened_date": "20 March 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side B - Road towards Madhapur - Lift available at Arm B",
@@ -3844,10 +4675,19 @@
 				"Side CD - Road towards Raidurg - available at Arm D",
 				"Concourse Level: 2 internal Escalators"
 			],
-			"Bus Stops": ["Bus Stop available at Arm B in a Walkable distance", "Side B - Road towards Madhapur (Near to Arm-A)"],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One before exit gate at Arm B & One before exit gate at Arm-D"],
+			"Bus Stops": [
+				"Bus Stop available at Arm B in a Walkable distance",
+				"Side B - Road towards Madhapur (Near to Arm-A)"
+			],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One before exit gate at Arm B & One before exit gate at Arm-D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Punjabi Affair",
@@ -3870,23 +4710,37 @@
 				"Cyberabad Police Commissionerate",
 				"Dr.B.R. Ambedkar Open University Head Office."
 			],
-			"Important Catchment Areas": ["Aalankritha Art Gallery", "Durgam Cheruvu Lake front", "Inorbit Mall"],
+			"Important Catchment Areas": [
+				"Aalankritha Art Gallery",
+				"Durgam Cheruvu Lake front",
+				"Inorbit Mall"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "madhapur", "line": "hmrl.blue"}, {"station": "hitec-city", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"hitec-city": {
 		"id": "hitec-city",
-		"name": {"en": "HITEC City", "te": "హైటెక్ సిటీ", "ur": "ہائیٹیک سٹی"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "HITEC City",
+			"te": "హైటెక్ సిటీ",
+			"ur": "ہائیٹیک سٹی"
+		},
 		"code": "HYD_335",
 		"opened_date": "20 March 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Durgam cheruvu - Lift available at Arm B",
@@ -3905,9 +4759,15 @@
 				"Bus Stop available at Arm C in a Walkable distance",
 				"Side CD - Road towards Raidurg"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["Two in paid area before exit gates, one at Arm B & another at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"Two in paid area before exit gates, one at Arm B & another at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -3996,24 +4856,38 @@
 				"The Westin Hyderabad Mindspace",
 				"Gachibowli"
 			],
-			"Important Catchment Areas": ["Shilparamam", "Hyderabad International Convention Center", "Gallery 78", "NEXT Galleria Hitech City"],
+			"Important Catchment Areas": [
+				"Shilparamam",
+				"Hyderabad International Convention Center",
+				"Gallery 78",
+				"NEXT Galleria Hitech City"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg.", "Train towards Nagole."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.4489198, "lon": 78.3831911}},
-		"neighbors": [{"station": "durgam-cheruvu", "line": "hmrl.blue"}, {"station": "raidurg", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg.",
+				"Train towards Nagole."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"raidurg": {
 		"id": "raidurg",
-		"name": {"en": "Raidurg", "te": "రాయదుర్గ్", "ur": "رائدرگ"},
-		"lines": ["hmrl.blue"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Raidurg",
+			"te": "రాయదుర్గ్",
+			"ur": "رائدرگ"
+		},
 		"code": "HYD_334",
 		"opened_date": "29 November 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Hitechcity - Lift available at Arm A",
@@ -4032,9 +4906,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Gacchibowli, Bio Diversity & IKEA"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm D"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm D"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4066,24 +4946,37 @@
 				"Accenture",
 				"Mind Space Junction Flyover"
 			],
-			"Important Catchment Areas": ["Shilparamam", "IKEA", "Durgam Cheruvu Lake"],
+			"Important Catchment Areas": [
+				"Shilparamam",
+				"IKEA",
+				"Durgam Cheruvu Lake"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards Raidurg", "Train towards Nagole and Nagole station is a terminal station"],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.4420806, "lon": 78.3771549}},
-		"neighbors": [{"station": "hitec-city", "line": "hmrl.blue"}]
+			"Platform Information": [
+				"Train towards Raidurg",
+				"Train towards Nagole and Nagole station is a terminal station"
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"jbs-parade-ground": {
 		"id": "jbs-parade-ground",
-		"name": {"en": "JBS Parade Ground", "te": "జె బి ఎస్ పరేడ్ గ్రౌండ్", "ur": "جے بی ایس پریڈ گراؤنڈ"},
-		"lines": ["hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "JBS Parade Ground",
+			"te": "జె బి ఎస్ పరేడ్ గ్రౌండ్",
+			"ur": "جے بی ایس پریڈ گراؤنڈ"
+		},
 		"code": "HYD_358",
 		"opened_date": "7 February 202020 March 2019",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts",
 				"Side AB - Road towards secunderabad Railway Station",
@@ -4096,10 +4989,19 @@
 				"Side CD - Road towards JBS - 4 Available at Arm C",
 				"Concourse Level: 8 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm B in a walkable distance", "Side B - Road towards Parade ground Metro Station"],
-			"Washrooms": ["1 Available at Lower Concourse 3 ,1 available at Upper Concourse"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Bus Stops": [
+				"Bus Stop available at Arm B in a walkable distance",
+				"Side B - Road towards Parade ground Metro Station"
+			],
+			"Washrooms": [
+				"1 Available at Lower Concourse 3 ,1 available at Upper Concourse"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4141,27 +5043,39 @@
 				"Road towards Karkhana",
 				"Balamrai"
 			],
-			"Important Catchment Areas": ["Tivoli Cinema"],
+			"Important Catchment Areas": [
+				"Tivoli Cinema"
+			],
 			"Vehicle Parking": [
 				"Paid 2W & 4W at Arm C & Arm D provided by HMRL",
 				"Paid 2W at Arm B provided by HMRL - Parking lot 01",
 				"Paid 2W at Arm B provided by SCB - Parking lot 02"
 			],
-			"Platform Information": ["Train towards JBS.", "Train towards MGBS."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "secunderabad-west", "line": "hmrl.green"}]
+			"Platform Information": [
+				"Train towards JBS.",
+				"Train towards MGBS."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"secunderabad-west": {
 		"id": "secunderabad-west",
-		"name": {"en": "Secunderabad West", "te": "సికింద్రాబాద్ వెస్ట్", "ur": "سکندرآباد ویسٹ"},
-		"lines": ["hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Secunderabad West",
+			"te": "సికింద్రాబాద్ వెస్ట్",
+			"ur": "سکندرآباد ویسٹ"
+		},
 		"code": "HYD_359",
 		"opened_date": "7 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Secunderbad railway station ,Bhoiguda - Lift available at Arm A",
@@ -4174,10 +5088,19 @@
 				"Side CD - Road towards Alpha hotel, JBS - available at Arm C",
 				"Concourse Level: 2 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm D in a walkable distance", "Side CD - Road towards Alpha hotel,clock Tower"],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm B"],
+			"Bus Stops": [
+				"Bus Stop available at Arm D in a walkable distance",
+				"Side CD - Road towards Alpha hotel,clock Tower"
+			],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm B"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4209,39 +5132,61 @@
 				"Rail way Station rd",
 				"Secunderabad East Metro Station (Connecting Blue Line)"
 			],
-			"Important Catchment Areas": ["Not Available"],
+			"Important Catchment Areas": [
+				"Not Available"
+			],
 			"Vehicle Parking": [],
-			"Platform Information": ["Train towards JBS.", "Train towards MGBS."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "jbs-parade-ground", "line": "hmrl.green"}, {"station": "gandhi-hospital", "line": "hmrl.green"}]
+			"Platform Information": [
+				"Train towards JBS.",
+				"Train towards MGBS."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"gandhi-hospital": {
 		"id": "gandhi-hospital",
-		"name": {"en": "Gandhi Hospital", "te": "గాంధీ హాస్పిటల్", "ur": "گاندھی ہسپتال"},
-		"lines": ["hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Gandhi Hospital",
+			"te": "గాంధీ హాస్పిటల్",
+			"ur": "گاندھی ہسپتال"
+		},
 		"code": "HYD_360",
 		"opened_date": "7 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards Musheerabad - Lift available at Arm B",
 				"Side CD - Road towards Secunderabad Railway Station- Lift available at Arm D",
 				"Concourse Level: 2 internal lifts"
 			],
-			"Escalators": ["Street Level: 1 External escalator", "Side AB - Road towards Musheerabad - available at Arm B", "Concourse Level: 2 nos."],
+			"Escalators": [
+				"Street Level: 1 External escalator",
+				"Side AB - Road towards Musheerabad - available at Arm B",
+				"Concourse Level: 2 nos."
+			],
 			"Bus Stops": [
 				"Bus Stop available at Arm B in a walkable distance",
 				"Side AB - Road towards Musheerabad",
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Secunderabad Railway Station"
 			],
-			"Washrooms": ["Available at Arm A & D before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area in front of internal lifts"],
+			"Washrooms": [
+				"Available at Arm A & D before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area in front of internal lifts"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4285,34 +5230,61 @@
 				"Jeera",
 				"Chilkalguda Circle"
 			],
-			"Important Catchment Areas": ["Not Available"],
-			"Vehicle Parking": ["Not Available"],
-			"Platform Information": ["Train towards JBS.", "Train towards MGBS."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "secunderabad-west", "line": "hmrl.green"}, {"station": "musheerabad", "line": "hmrl.green"}]
+			"Important Catchment Areas": [
+				"Not Available"
+			],
+			"Vehicle Parking": [
+				"Not Available"
+			],
+			"Platform Information": [
+				"Train towards JBS.",
+				"Train towards MGBS."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"musheerabad": {
 		"id": "musheerabad",
-		"name": {"en": "Musheerabad", "te": "ముషీరాబాద్", "ur": "مشیرآباد"},
-		"lines": ["hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Musheerabad",
+			"te": "ముషీరాబాద్",
+			"ur": "مشیرآباد"
+		},
 		"code": "HYD_361",
 		"opened_date": "7 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side AB - Road towards RTC X Roads - Lift available at Arm A",
 				"Side C - Road towards Secunderabad Railway Station - Lift available at Arm C",
 				"Concourse Level: 2 internal lifts"
 			],
-			"Escalators": ["Street Level: 1 External escalator", "Side AB - Road towards RTC X roads - available at Arm A", "Concourse Level: 2 nos."],
-			"Bus Stops": ["Bus Stop available at Arm B in a walkable distance :", "Side AB - Road towards RTC X roads"],
-			"Washrooms": ["Available at Arm A before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area Infront of Internal lifts"],
+			"Escalators": [
+				"Street Level: 1 External escalator",
+				"Side AB - Road towards RTC X roads - available at Arm A",
+				"Concourse Level: 2 nos."
+			],
+			"Bus Stops": [
+				"Bus Stop available at Arm B in a walkable distance :",
+				"Side AB - Road towards RTC X roads"
+			],
+			"Washrooms": [
+				"Available at Arm A before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area Infront of Internal lifts"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4361,23 +5333,37 @@
 				"Devi Complex",
 				"Jeera."
 			],
-			"Important Catchment Areas": ["Not Available"],
-			"Vehicle Parking": ["Not Available"],
-			"Platform Information": ["Train towards JBS.", "Train towards MGBS."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "gandhi-hospital", "line": "hmrl.green"}, {"station": "rtc-x-roads", "line": "hmrl.green"}]
+			"Important Catchment Areas": [
+				"Not Available"
+			],
+			"Vehicle Parking": [
+				"Not Available"
+			],
+			"Platform Information": [
+				"Train towards JBS.",
+				"Train towards MGBS."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"rtc-x-roads": {
 		"id": "rtc-x-roads",
-		"name": {"en": "RTC X Roads", "te": "ఆర్ టి సి క్రాస్ రోడ్స్", "ur": "آر ٹی سی ایکس روڈز"},
-		"lines": ["hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "RTC X Roads",
+			"te": "ఆర్ టి సి క్రాస్ రోడ్స్",
+			"ur": "آر ٹی سی ایکس روڈز"
+		},
 		"code": "HYD_362",
 		"opened_date": "7 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 1 External lift",
 				"Side AB - Road towards Chikkadapally - Lift available at Arm B",
@@ -4397,9 +5383,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side C - Road towards Secunderabad Railway station"
 			],
-			"Washrooms": ["Available at Arm A before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area in front of Internal lifts"],
+			"Washrooms": [
+				"Available at Arm A before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area in front of Internal lifts"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4447,34 +5439,61 @@
 				"AV College of Arts",
 				"Science and commerce"
 			],
-			"Important Catchment Areas": ["Not Available"],
-			"Vehicle Parking": ["Not Available"],
-			"Platform Information": ["Train towards JBS.", "Train towards MGBS."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "musheerabad", "line": "hmrl.green"}, {"station": "chikkadpally", "line": "hmrl.green"}]
+			"Important Catchment Areas": [
+				"Not Available"
+			],
+			"Vehicle Parking": [
+				"Not Available"
+			],
+			"Platform Information": [
+				"Train towards JBS.",
+				"Train towards MGBS."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"chikkadpally": {
 		"id": "chikkadpally",
-		"name": {"en": "Chikkadpally", "te": "చిక్కడపల్లి", "ur": "چکڈ پلی"},
-		"lines": ["hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Chikkadpally",
+			"te": "చిక్కడపల్లి",
+			"ur": "چکڈ پلی"
+		},
 		"code": "HYD_363",
 		"opened_date": "7 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
-			"Elevators & Lifts": ["Street Level: 1 External lift", "Side AB - Road towards Koti - Lift available at Arm A", "Concourse Level: 2 internal lifts"],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
+			"Elevators & Lifts": [
+				"Street Level: 1 External lift",
+				"Side AB - Road towards Koti - Lift available at Arm A",
+				"Concourse Level: 2 internal lifts"
+			],
 			"Escalators": [
 				"Street Level: 2 external escalators & 1 at each side",
 				"Side AB - Road towards Koti - available at Arm B",
 				"Side CD - Road towards Musheerabad - available at Arm C",
 				"Concourse Level: 2 nos."
 			],
-			"Bus Stops": ["Bus Stop available at Arm A in a walkable distance", "Side AB - Road towards Koti"],
-			"Washrooms": ["Available at Arm A & C before Entry Gates"],
-			"First Aid": ["Available at Arm B"],
-			"Drinking Water": ["One at Paid area In front of lifts"],
+			"Bus Stops": [
+				"Bus Stop available at Arm A in a walkable distance",
+				"Side AB - Road towards Koti"
+			],
+			"Washrooms": [
+				"Available at Arm A & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm B"
+			],
+			"Drinking Water": [
+				"One at Paid area In front of lifts"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4520,24 +5539,42 @@
 				"Barkatpura post office",
 				"Sai Surya Ortho and Diabetes clinic"
 			],
-			"Important Catchment Areas": ["Not Available"],
-			"Vehicle Parking": ["Not Available"],
-			"Platform Information": ["Train towards JBS.", "Train towards MGBS."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "rtc-x-roads", "line": "hmrl.green"}, {"station": "narayanguda", "line": "hmrl.green"}]
+			"Important Catchment Areas": [
+				"Not Available"
+			],
+			"Vehicle Parking": [
+				"Not Available"
+			],
+			"Platform Information": [
+				"Train towards JBS.",
+				"Train towards MGBS."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"narayanguda": {
 		"id": "narayanguda",
-		"name": {"en": "Narayanguda", "te": "నారాయణగూడ", "ur": "نارائن گوڈا"},
-		"lines": ["hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Narayanguda",
+			"te": "నారాయణగూడ",
+			"ur": "نارائن گوڈا"
+		},
 		"code": "HYD_364",
 		"opened_date": "7 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
-			"Elevators & Lifts": ["Street Level: 1 External lift", "Side AB - Road towards Koti - Lift available at Arm A", "Concourse Level: 2 internal lifts"],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
+			"Elevators & Lifts": [
+				"Street Level: 1 External lift",
+				"Side AB - Road towards Koti - Lift available at Arm A",
+				"Concourse Level: 2 internal lifts"
+			],
 			"Escalators": [
 				"Street Level: 2 external escalators & 1 at each side",
 				"Side AB - Road towards Koti - available at Arm B",
@@ -4550,9 +5587,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side CD - Road towards Musheerabad"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm D"],
-			"Drinking Water": ["One at Paid area before exit gate Arm C"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm D"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate Arm C"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4576,23 +5619,37 @@
 				"Sunrise Super Speciality Children's Hospital",
 				"Kamineni Hospitals - King Koti."
 			],
-			"Important Catchment Areas": ["Not Available"],
-			"Vehicle Parking": ["Not Available"],
-			"Platform Information": ["Train towards JBS.", "Train towards MGBS."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "chikkadpally", "line": "hmrl.green"}, {"station": "sultan-bazar", "line": "hmrl.green"}]
+			"Important Catchment Areas": [
+				"Not Available"
+			],
+			"Vehicle Parking": [
+				"Not Available"
+			],
+			"Platform Information": [
+				"Train towards JBS.",
+				"Train towards MGBS."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"sultan-bazar": {
 		"id": "sultan-bazar",
-		"name": {"en": "Sultan Bazar", "te": "సుల్తాన్ బజార్", "ur": "سلطان بازار"},
-		"lines": ["hmrl.green"],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Sultan Bazar",
+			"te": "సుల్తాన్ బజార్",
+			"ur": "سلطان بازار"
+		},
 		"code": "HYD_365",
 		"opened_date": "7 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 1 External lift",
 				"Side C - Road towards Koti market - Lift available at Arm C",
@@ -4609,9 +5666,15 @@
 				"Bus Stop available at Arm C in a walkable distance",
 				"Side C - Road towards Koti Market"
 			],
-			"Washrooms": ["Available at Arm B & C before Entry Gates"],
-			"First Aid": ["Available at Arm C"],
-			"Drinking Water": ["One at Paid area In front of lifts"],
+			"Washrooms": [
+				"Available at Arm B & C before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm C"
+			],
+			"Drinking Water": [
+				"One at Paid area In front of lifts"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4649,30 +5712,46 @@
 				"Gokul Chat",
 				"Koti Women's college"
 			],
-			"Important Catchment Areas": ["Not Available"],
-			"Vehicle Parking": ["Not Available"],
-			"Platform Information": ["Train towards JBS.", "Train towards MGBS."],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"neighbors": [{"station": "narayanguda", "line": "hmrl.green"}, {"station": "mg-bus-station", "line": "hmrl.green"}]
+			"Important Catchment Areas": [
+				"Not Available"
+			],
+			"Vehicle Parking": [
+				"Not Available"
+			],
+			"Platform Information": [
+				"Train towards JBS.",
+				"Train towards MGBS."
+			],
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	},
 	"secunderabad-railway-station": {
 		"id": "secunderabad-railway-station",
-		"name": {"en": "Secunderabad Railway Station", "te": "Secunderabad Railway Station", "ur": "Secunderabad Railway Station"},
-		"lines": [],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "Secunderabad Railway Station",
+			"te": "Secunderabad Railway Station",
+			"ur": "Secunderabad Railway Station"
+		},
 		"code": "HYD_350"
 	},
 	"m-g-bus-station": {
 		"id": "m-g-bus-station",
-		"name": {"en": "M.G. Bus Station", "te": "ఎం జి బస్ స్టేషన్", "ur": "ایم جی بس اسٹیشن"},
-		"lines": [],
-		"properties": {"layout": "elevated", "status": "operational"},
+		"name": {
+			"en": "M.G. Bus Station",
+			"te": "ఎం జి బస్ స్టేషన్",
+			"ur": "ایم جی بس اسٹیشن"
+		},
 		"code": "HYD_326",
 		"opened_date": "24 September 20187 February 2020",
 		"facilities": {
-			"Metro Timings": ["Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."],
+			"Metro Timings": [
+				"Monday to Sunday:First Train at 6:00 AM, Last Train at 11:00 PM from all terminal stations."
+			],
 			"Elevators & Lifts": [
 				"Street Level: 2 External lifts & 1 at each side",
 				"Side A - Road towards Mg bus stand - 1 Lift available at Arm A",
@@ -4691,9 +5770,15 @@
 				"Bus Stop available at Arm B in a walkable distance",
 				"Side B - Road towards Chaderghat"
 			],
-			"Washrooms": ["Available at Arm A & B before Entry Gates"],
-			"First Aid": ["Available at Arm A"],
-			"Drinking Water": ["One at Paid area before exit gate at Arm A"],
+			"Washrooms": [
+				"Available at Arm A & B before Entry Gates"
+			],
+			"First Aid": [
+				"Available at Arm A"
+			],
+			"Drinking Water": [
+				"One at Paid area before exit gate at Arm A"
+			],
 			"Last Mile Connectivity": [],
 			"Neighborhood Areas": [
 				"Arm A",
@@ -4722,7 +5807,14 @@
 				"Muncipality Office",
 				"M.S.S Law College"
 			],
-			"Important Catchment Areas": ["Salar Jung Museum", "Charminar", "Mecca Masjid", "Chowmahalla Palace", "Tahniyat Mahal", "Nizam Museum"],
+			"Important Catchment Areas": [
+				"Salar Jung Museum",
+				"Charminar",
+				"Mecca Masjid",
+				"Chowmahalla Palace",
+				"Tahniyat Mahal",
+				"Nizam Museum"
+			],
 			"Vehicle Parking": [],
 			"Platform Information": [
 				"Platform 01:Train towards LB nagar",
@@ -4730,9 +5822,12 @@
 				"Platform 03:Train towards Jubilee Bus station",
 				"Platform 04:Train towards MGBS Terminal Station"
 			],
-			"Emergency Contact": ["Please contact our Customer Care Centre at040-23332555"],
-			"WiFi": ["Not Available"]
-		},
-		"location": {"decimal": {"lat": 17.379853, "lon": 78.4859827}}
+			"Emergency Contact": [
+				"Please contact our Customer Care Centre at040-23332555"
+			],
+			"WiFi": [
+				"Not Available"
+			]
+		}
 	}
 }

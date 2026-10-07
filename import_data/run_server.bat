@@ -65,6 +65,7 @@ echo [3/3] Starting Server on Port 8080 (Press Ctrl+C to stop)...
 echo ====================================================================
 echo.
 
+cd /d "%~dp0server"
 python server.py
 
 if errorlevel 1 (

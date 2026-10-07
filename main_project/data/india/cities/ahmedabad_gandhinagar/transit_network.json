@@ -48,8 +48,9 @@
 	"lines": {
 		"gmrc.blue": {
 			"id": "gmrc.blue",
-			"network": "ahmedabad_metro",
+			"network": "gmrc",
 			"operator": "Gujarat Metro Rail Corporation (GMRC)",
+			"farePolicy": "gmrc_standard",
 			"label": "B",
 			"short_name": {"en": "Blue Line", "gu": "બ્લુ લાઇન"},
 			"color": "#005BA6",
@@ -79,8 +80,9 @@
 		},
 		"gmrc.red": {
 			"id": "gmrc.red",
-			"network": "ahmedabad_metro",
+			"network": "gmrc",
 			"operator": "Gujarat Metro Rail Corporation (GMRC)",
+			"farePolicy": "gmrc_standard",
 			"label": "R",
 			"short_name": {"en": "Red Line", "gu": "રેડ લાઇન"},
 			"color": "#D32F2F",
@@ -107,8 +109,9 @@
 		},
 		"gmrc.yellow": {
 			"id": "gmrc.yellow",
-			"network": "ahmedabad_metro",
+			"network": "gmrc",
 			"operator": "Gujarat Metro Rail Corporation (GMRC)",
+			"farePolicy": "gmrc_standard",
 			"label": "Y",
 			"short_name": {"en": "Gandhinagar Extension (Yellow Line)", "gu": "ગાંધીનગર એક્સટેન્શન (યલો લાઇન)"},
 			"color": "#FBC02D",
@@ -141,8 +144,9 @@
 		},
 		"gmrc.violet": {
 			"id": "gmrc.violet",
-			"network": "ahmedabad_metro",
+			"network": "gmrc",
 			"operator": "Gujarat Metro Rail Corporation (GMRC)",
+			"farePolicy": "gmrc_standard",
 			"label": "V",
 			"short_name": {"en": "GIFT City Branch (Violet Line)", "gu": "ગિફ્ટ સિટી બ્રાન્ચ (વાયોલેટ લાઇન)"},
 			"color": "#7B1FA2",
@@ -150,6 +154,44 @@
 			"style": "solid",
 			"route": {"from": "gnlu", "to": "gift_city_house"},
 			"stations": ["gnlu", "pdeu", "gift_city", "gift_city_house"]
+		},
+		"gmrc.airport": {
+			"id": "gmrc.airport",
+			"network": "gmrc",
+			"operator": "Gujarat Metro Rail Corporation (GMRC)",
+			"farePolicy": "gmrc_standard",
+			"label": "AIR",
+			"short_name": {"en": "Airport Express Line (Phase 2A)", "gu": "એરપોર્ટ લાઇન (ફેઝ 2A)"},
+			"color": "#E65100",
+			"color_name": "orange",
+			"style": "dashed",
+			"status": "under_construction",
+			"route": {"from": "koteshwar_road", "to": "airport"},
+			"stations": [
+				"koteshwar_road",
+				"ashram_road",
+				"koteshwar_prachin_mandir",
+				"sabarmati_river",
+				"sardarnagar",
+				"airport"
+			]
+		},
+		"gmrc.biotech": {
+			"id": "gmrc.biotech",
+			"network": "gmrc",
+			"operator": "Gujarat Metro Rail Corporation (GMRC)",
+			"farePolicy": "gmrc_standard",
+			"label": "BT",
+			"short_name": {"en": "Biotech Extension (Phase 2B)", "gu": "બાયોટેક એક્સટેન્શન (ફેઝ 2B)"},
+			"color": "#00897B",
+			"color_name": "teal",
+			"style": "dashed",
+			"status": "under_construction",
+			"route": {"from": "gift_city_house", "to": "gujarat_biotechnology_university"},
+			"stations": [
+				"gift_city_house",
+				"gujarat_biotechnology_university"
+			]
 		}
 	},
 	"station_types": {
@@ -202,6 +244,38 @@
 			},
 			"gmrc.violet": {
 				"gnlu:gmrc.yellow": {
+					"type": "interchange",
+					"transfer_mode": "cross_platform",
+					"distance_meters": 20
+				}
+			}
+		},
+		"koteshwar_road": {
+			"gmrc.yellow": {
+				"koteshwar_road:gmrc.airport": {
+					"type": "interchange",
+					"transfer_mode": "cross_platform",
+					"distance_meters": 25
+				}
+			},
+			"gmrc.airport": {
+				"koteshwar_road:gmrc.yellow": {
+					"type": "interchange",
+					"transfer_mode": "cross_platform",
+					"distance_meters": 25
+				}
+			}
+		},
+		"gift_city_house": {
+			"gmrc.violet": {
+				"gift_city_house:gmrc.biotech": {
+					"type": "interchange",
+					"transfer_mode": "cross_platform",
+					"distance_meters": 20
+				}
+			},
+			"gmrc.biotech": {
+				"gift_city_house:gmrc.violet": {
 					"type": "interchange",
 					"transfer_mode": "cross_platform",
 					"distance_meters": 20
@@ -471,7 +545,7 @@
 			"id": "sabarmati_railway_station",
 			"name": {"en": "Sabarmati Railway Station", "gu": "સાબરમતી રેલવે સ્ટેશન"},
 			"lines": ["gmrc.red"],
-			"properties": {"layout": "elevated", "status": "work in progress"},
+			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "ranip", "line": "gmrc.red"}, {"station": "aec", "line": "gmrc.red"}],
 			"platforms": {},
 			"location": {"decimal": {"lat": 23.0784124, "lon": 72.5896937}}
@@ -506,9 +580,9 @@
 		"koteshwar_road": {
 			"id": "koteshwar_road",
 			"name": {"en": "Koteshwar Road", "gu": "કોટેશ્વર રોડ"},
-			"lines": ["gmrc.yellow"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "motera_stadium", "line": "gmrc.yellow"}, {"station": "vishwakarma_college", "line": "gmrc.yellow"}],
+			"lines": ["gmrc.yellow", "gmrc.airport"],
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "interchange"},
+			"neighbors": [{"station": "motera_stadium", "line": "gmrc.yellow"}, {"station": "vishwakarma_college", "line": "gmrc.yellow"}, {"station": "ashram_road", "line": "gmrc.airport"}],
 			"platforms": {},
 			"location": {"decimal": {"lat": 23.105944, "lon": 72.603489}}
 		},
@@ -707,64 +781,64 @@
 		},
 		"gift_city_house": {
 			"id": "gift_city_house",
-			"name": {"en": "GIFT City House", "gu": "ગિફ્ટ સિટી"},
-			"lines": ["gmrc.violet"],
-			"properties": {"layout": "elevated", "status": "work in progress"},
-			"neighbors": [{"station": "gift_city", "line": "gmrc.violet"}],
+			"name": {"en": "GIFT City House", "gu": "ગિફ્ટ સિટી હાઉસ"},
+			"lines": ["gmrc.violet", "gmrc.biotech"],
+			"properties": {"layout": "elevated", "status": "under_construction", "station_type": "interchange"},
+			"neighbors": [{"station": "gift_city", "line": "gmrc.violet"}, {"station": "gujarat_biotechnology_university", "line": "gmrc.biotech"}],
 			"platforms": {},
 			"location": {"decimal": {"lat": 23.153439, "lon": 72.685681}}
 		},
 		"ashram_road": {
 			"id": "ashram_road",
-			"name": {"en": "Ashram Road", "gu": "Ashram Road"},
-			"lines": [],
-			"properties": {"layout": "elevated", "status": "work in progress"},
-			"neighbors": [],
+			"name": {"en": "Ashram Road", "gu": "આશ્રમ રોડ"},
+			"lines": ["gmrc.airport"],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "koteshwar_road", "line": "gmrc.airport"}, {"station": "koteshwar_prachin_mandir", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0464075, "lon": 72.578037}}
+			"location": {"decimal": {"lat": 23.1025, "lon": 72.6075}}
 		},
 		"koteshwar_prachin_mandir": {
 			"id": "koteshwar_prachin_mandir",
-			"name": {"en": "Koteshwar Prachin Mandir", "gu": "Koteshwar Prachin Mandir"},
-			"lines": [],
-			"properties": {"layout": "elevated", "status": "work in progress"},
-			"neighbors": [],
+			"name": {"en": "Koteshwar Prachin Mandir", "gu": "કોટેશ્વર પ્રાચીન મંદિર"},
+			"lines": ["gmrc.airport"],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "ashram_road", "line": "gmrc.airport"}, {"station": "sabarmati_river", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.1002629, "lon": 72.6082251}}
+			"location": {"decimal": {"lat": 23.0977, "lon": 72.6140}}
 		},
 		"sabarmati_river": {
 			"id": "sabarmati_river",
-			"name": {"en": "Sabarmati River", "gu": "સાબરમતી"},
-			"lines": [],
-			"properties": {"layout": "elevated", "status": "work in progress"},
-			"neighbors": [],
+			"name": {"en": "Sabarmati River", "gu": "સાબરમતી રિવર"},
+			"lines": ["gmrc.airport"],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "koteshwar_prachin_mandir", "line": "gmrc.airport"}, {"station": "sardarnagar", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0784124, "lon": 72.5896937}}
+			"location": {"decimal": {"lat": 23.0910, "lon": 72.6205}}
 		},
 		"sardarnagar": {
 			"id": "sardarnagar",
-			"name": {"en": "Sardarnagar", "gu": "Sardarnagar"},
-			"lines": [],
-			"properties": {"layout": "elevated", "status": "work in progress"},
-			"neighbors": [],
+			"name": {"en": "Sardarnagar", "gu": "સરદારનગર"},
+			"lines": ["gmrc.airport"],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "sabarmati_river", "line": "gmrc.airport"}, {"station": "airport", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0597985, "lon": 72.5970013}}
+			"location": {"decimal": {"lat": 23.0818, "lon": 72.6270}}
 		},
 		"airport": {
 			"id": "airport",
-			"name": {"en": "Airport", "gu": "Airport"},
-			"lines": [],
-			"properties": {"layout": "elevated", "status": "work in progress"},
-			"neighbors": [],
+			"name": {"en": "SVP International Airport", "gu": "સરદાર વલ્લભભાઈ પટેલ એરપોર્ટ"},
+			"lines": ["gmrc.airport"],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "sardarnagar", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0470787, "lon": 72.591846}}
+			"location": {"decimal": {"lat": 23.0772, "lon": 72.6347}}
 		},
 		"gujarat_biotechnology_university": {
 			"id": "gujarat_biotechnology_university",
-			"name": {"en": "Gujarat Biotechnology University", "gu": "Gujarat Biotechnology University"},
-			"lines": [],
-			"properties": {"layout": "elevated", "status": "work in progress"},
-			"neighbors": [],
+			"name": {"en": "Gujarat Biotechnology University", "gu": "ગુજરાત બાયોટેકનોલોજી યુનિવર્સિટી"},
+			"lines": ["gmrc.biotech"],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "gift_city_house", "line": "gmrc.biotech"}],
 			"platforms": {},
 			"location": {"decimal": {"lat": 23.044857, "lon": 72.543619}}
 		}
