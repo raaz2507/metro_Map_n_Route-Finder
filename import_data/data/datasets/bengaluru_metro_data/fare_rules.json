@@ -11,56 +11,56 @@
         "bmrcl_standard": {
             "network": "bmrcl",
             "effectiveFrom": "2026-02-09",
-            "fareModel": "distance_based",
+            "fareModel": "station_count_based",
             "calculation": {
-                "distanceUnit": "km",
-                "rounding": "nearest"
+                "distanceUnit": "stations",
+                "rounding": "exact"
             },
             "fareTables": {
                 "weekday": [
                     {
-                        "minKm": 0,
-                        "maxKm": 2,
+                        "minStations": 1,
+                        "maxStations": 3,
                         "fare": 11
                     },
                     {
-                        "minKm": 2,
-                        "maxKm": 4,
+                        "minStations": 4,
+                        "maxStations": 5,
                         "fare": 21
                     },
                     {
-                        "minKm": 4,
-                        "maxKm": 6,
+                        "minStations": 6,
+                        "maxStations": 7,
                         "fare": 32
                     },
                     {
-                        "minKm": 6,
-                        "maxKm": 8,
+                        "minStations": 8,
+                        "maxStations": 9,
                         "fare": 42
                     },
                     {
-                        "minKm": 8,
-                        "maxKm": 10,
+                        "minStations": 10,
+                        "maxStations": 11,
                         "fare": 53
                     },
                     {
-                        "minKm": 10,
-                        "maxKm": 15,
+                        "minStations": 12,
+                        "maxStations": 16,
                         "fare": 63
                     },
                     {
-                        "minKm": 15,
-                        "maxKm": 20,
+                        "minStations": 17,
+                        "maxStations": 21,
                         "fare": 74
                     },
                     {
-                        "minKm": 20,
-                        "maxKm": 25,
+                        "minStations": 22,
+                        "maxStations": 26,
                         "fare": 84
                     },
                     {
-                        "minKm": 25,
-                        "maxKm": 99,
+                        "minStations": 27,
+                        "maxStations": 99,
                         "fare": 95
                     }
                 ]

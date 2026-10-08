@@ -160,56 +160,28 @@
 	"transfers": {
 		"ameerpet": {
 			"hmrl.red": {
-				"ameerpet:hmrl.blue": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"ameerpet:hmrl.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"hmrl.blue": {
-				"ameerpet:hmrl.red": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"ameerpet:hmrl.red": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		},
 		"mg-bus-station": {
 			"hmrl.red": {
-				"mg-bus-station:hmrl.green": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"mg-bus-station:hmrl.green": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"hmrl.green": {
-				"mg-bus-station:hmrl.red": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"mg-bus-station:hmrl.red": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		},
 		"parade-ground": {
 			"hmrl.blue": {
-				"jbs-parade-ground:hmrl.green": {
-					"type": "walkway",
-					"transfer_mode": "corridor",
-					"distance_meters": 240
-				}
+				"jbs-parade-ground:hmrl.green": {"type": "walkway", "transfer_mode": "corridor", "distance_meters": 240}
 			}
 		},
 		"jbs-parade-ground": {
 			"hmrl.green": {
-				"parade-ground:hmrl.blue": {
-					"type": "walkway",
-					"transfer_mode": "corridor",
-					"distance_meters": 240
-				}
+				"parade-ground:hmrl.blue": {"type": "walkway", "transfer_mode": "corridor", "distance_meters": 240}
 			}
 		}
 	},

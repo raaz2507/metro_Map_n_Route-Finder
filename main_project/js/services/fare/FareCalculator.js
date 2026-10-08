@@ -137,7 +137,7 @@ export class FareCalculator {
 
 		const strategyHandler = this.#strategies.get(activePolicy.fareModel) || this.#calculateDistanceBased.bind(this);
 		const distanceKm = Number((totalDistanceMeters / 1000).toFixed(2));
-		const stationsCount = path.length;
+		const stationsCount = Math.max(1, path.length - 1);
 
 		const baseFare = strategyHandler(activePolicy, {
 			distanceKm,

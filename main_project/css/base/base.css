@@ -159,7 +159,7 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		--op-focus-shadow: var(--op-subtle);
 		--op-warning-bg: var(--op-solid);
 		--op-interchange-bg: var(--op-solid);
-
+		
 		/* ---------------------------------------------------------
 		GLOBAL MICRO-BADGES & TAG SYSTEM TOKENS
 		--------------------------------------------------------- */
@@ -177,6 +177,7 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		/* --bg-filter: blur(8px) brightness(1.05) contrast(0.95) saturate(0.9); */
 		--bg-filter: none;
 		--backdrop-blur: 16px;
+		
 		
 		/* RGB Base Components */
 		--color-bg-base-rgb: 255, 255, 255;
@@ -289,6 +290,7 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		--color-accent-rgb: 192, 132, 252;/* Purple-400 */
 		--text-on-accent: #ffffff;
 
+		--theme-bg-filter: brightness(0.45);
 
 		/* Micro Badges & Tags */
 		--badge-bg: #0f172a;
@@ -325,9 +327,10 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		background-size: cover; 
 		background-position: center; 
 		background-attachment: fixed;
+
+		filter: var(--theme-bg-filter, none);
 		z-index: -1;
 		pointer-events: none;
-		filter: var(--bg-filter);
 		transition: filter var(--transition-smooth), background-image var(--transition-smooth); 
 	}
 	body.lock-scroll {

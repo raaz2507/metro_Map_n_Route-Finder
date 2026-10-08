@@ -188,6 +188,31 @@ class ProductionBridgeEngine:
 				except Exception as ex:
 					UniversalPipelineLogger.log("WARN", f"Could not load fare rules: {ex}")
 
+		# Legitimate Network Fare Policy Resolution:
+		# If a line in combined_lines is missing 'farePolicy', check if an authentic policy
+		# is defined specifically for that line's network or operator in fareRules.
+		active_fare_rules = base_fare_rules or combined_fare_rules
+		policies = active_fare_rules.get("policies", {}) if isinstance(active_fare_rules, dict) else {}
+		if policies and combined_lines:
+			for l_key, l_val in combined_lines.items():
+				if not l_val.get("farePolicy"):
+					l_net = l_val.get("network")
+					matched_policy = None
+					# 1. Match policy whose declared 'network' equals line's network
+					for pol_id, pol_obj in policies.items():
+						if isinstance(pol_obj, dict) and pol_obj.get("network") == l_net:
+							matched_policy = pol_id
+							break
+					# 2. Or match exact slug pattern (e.g. upmrc_agra or agra_metro)
+					if not matched_policy and l_net:
+						for pol_id in policies:
+							if l_net in pol_id or pol_id in l_net:
+								matched_policy = pol_id
+								break
+					if matched_policy:
+						l_val["farePolicy"] = matched_policy
+						UniversalPipelineLogger.log("LINE", f"Linked authentic farePolicy '{matched_policy}' to line '{l_key}'")
+
 		transit_network_delta = {
 			"_meta": {
 				"city": city_id,

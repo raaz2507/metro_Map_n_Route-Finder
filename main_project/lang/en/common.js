@@ -11,7 +11,7 @@ export default {
 		"appName": "YatraMarg",
 		"tagLine": "Maps • Routes • Fares • Journey Assistance",
 		"installApp": "Install App",
-		"hardRefresh": "Clear Cache & Refresh",
+		"hardRefresh": "Refresh",
 		"appOptions": "App Utilities",
 		"mode": {
 			"switchToDark": "Switch to Dark Mode",
@@ -33,7 +33,7 @@ export default {
 		"networks": "Networks",
 		"home": "Home",
 		"stations": "Stations",
-		"recharge": "Recharge Card",
+		"recharge": "Smart Card/ Tokken",
 		"passengerSupport": "Passenger Support",
 		"help": "Help",
 		"about": "About"

@@ -118,7 +118,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jhilmil/@28.67576,77.312426,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfb0a5591a167:0xe731c10173ee1e48!8m2!3d28.67576!4d77.312426!16s%2Fm%2F0c034kt?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"welcome": {
 		"id": "welcome",
@@ -273,7 +274,8 @@
 			"3": {"destination": "shiv_vihar"},
 			"2": {"destination": "shaheed_sthal_new_bus_adda"},
 			"1": {"destination": "rithala"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Welcome/@28.6717615,77.2776589,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfc86ff9bef55:0xcbded5c8a601dca7!8m2!3d28.6717615!4d77.2776589!16s%2Fm%2F0b_zzkm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dlf_phase_3": {
 		"id": "dlf_phase_3",
@@ -407,7 +409,8 @@
 				}
 			}
 		},
-		"platforms": {"1": {"destination": "sector_55_56"}}
+		"platforms": {"1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Phase+3/@28.49368,77.09342,17z/data=!3m1!4b1!4m6!3m5!1s0x390d193700bc0965:0x43a68f4fce719251!8m2!3d28.49368!4d77.09342!16s%2Fm%2F0zdlh8f?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"okhla_nsic": {
 		"id": "okhla_nsic",
@@ -545,7 +548,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Okhla+NSIC/@28.5544259,77.2648833,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3ea159c010f:0xc3d505c5ee4fade5!8m2!3d28.5544259!4d77.2648833!16s%2Fg%2F11c543hmgk?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_mor": {
 		"id": "dwarka_mor",
@@ -655,7 +659,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Mor/@28.619163,77.0322242,17z/data=!4m10!1m2!2m1!1sDwarka+Mor+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d05478638149f:0x3478a5062c930123!8m2!3d28.6192938!4d77.0333266!15sCi1Ed2Fya2EgTW9yIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F124ybymqb?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dilli_haat_ina": {
 		"id": "dilli_haat_ina",
@@ -912,7 +917,8 @@
 			"3": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"},
 			"2": {"destination": "samaypur_badli_dipo"},
 			"1": {"destination": "millennium_city_centre_gurugram"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dilli+Haat+-+INA/@28.5744494,77.2096224,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce2625d0d013b:0x8def158d29b1beaa!8m2!3d28.5744494!4d77.2096224!16s%2Fm%2F0cz8f92?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_143": {
 		"id": "noida_sector_143",
@@ -922,7 +928,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+143/@28.4944545,77.422236,17z/data=!4m10!1m2!2m1!1sNoida+Sector+143+Metro+Station,+Noida,+Uttar+Pradesh,+India!3m6!1s0x390ce85290a0664b:0x15b5ca52c6eb5c88!8m2!3d28.4942484!4d77.4223218!15sCjtOb2lkYSBTZWN0b3IgMTQzIE1ldHJvIFN0YXRpb24sIE5vaWRhLCBVdHRhciBQcmFkZXNoLCBJbmRpYVo6Ijhub2lkYSBzZWN0b3IgMTQzIG1ldHJvIHN0YXRpb24gbm9pZGEgdXR0YXIgcHJhZGVzaCBpbmRpYZIBDnN1YndheV9zdGF0aW9umgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4Uk1GVXpSbkJYUmtwRFZVZHdjRmx0T1dwak1qaDBWMnBLYzJJeFJSQULgAQD6AQQIABAf!16s%2Fg%2F11fy4v8zbq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"moolchand": {
 		"id": "moolchand",
@@ -1048,7 +1055,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Moolchand/@28.564012,77.234245,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce24e87a7189b:0x23197266e030515!8m2!3d28.564012!4d77.234245!16s%2Fm%2F0dgp8t2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"chawri_bazar": {
 		"id": "chawri_bazar",
@@ -1264,7 +1272,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Chawri+Bazar/@28.6488,77.2263,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd16336d9a5f:0xa160aadc271b3f29!8m2!3d28.6488!4d77.2263!16s%2Fm%2F0c0310_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mayapuri": {
 		"id": "mayapuri",
@@ -1389,7 +1398,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mayapuri/@28.637099,77.129741,17z/data=!3m1!4b1!4m6!3m5!1s0x390d033e3d6a8881:0x9559b16b6e5d49f7!8m2!3d28.637099!4d77.129741!16s%2Fg%2F11c1s2gmw_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"central_secretariat": {
 		"id": "central_secretariat",
@@ -1585,7 +1595,8 @@
 			"3": {"destination": "raja_nahar_singh_ballabhgarh"},
 			"2": {"destination": "samaypur_badli_dipo"},
 			"1": {"destination": "millennium_city_centre_gurugram"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Central+Secretariat/@28.6151511,77.2122635,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce2b6cc50d9cf:0xecc88c03b46f66d3!8m2!3d28.6151511!4d77.2122635!16s%2Fm%2F0b__d_l?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_146": {
 		"id": "noida_sector_146",
@@ -1595,7 +1606,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+146/@28.468824,77.4551,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce9e465775a6f:0xac7d39334187bbc3!8m2!3d28.468824!4d77.4551!16s%2Fg%2F11g9qhkxlh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"tikri_border": {
 		"id": "tikri_border",
@@ -1712,7 +1724,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Tikri+Border/@28.6880203,76.9640989,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0ed57ee5f34f:0x894d3a3bb87990c2!8m2!3d28.6880203!4d76.9640989!16s%2Fg%2F11c6mc15l7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jangpura": {
 		"id": "jangpura",
@@ -1891,7 +1904,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jangpura/@28.583698,77.238436,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce2fe42c08ff3:0xcdeecfd3f58b8a7d!8m2!3d28.583698!4d77.238436!16s%2Fm%2F0dgr7td?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"major_mohit_sharma_rajendra_nagar": {
 		"id": "major_mohit_sharma_rajendra_nagar",
@@ -2028,7 +2042,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Major+Mohit+Sharma+Rajendra+Nagar/@28.67762,77.35828,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfa8b77fe0315:0x71695d5ee4bbb257!8m2!3d28.67762!4d77.35828!16s%2Fg%2F11c6rwlxyc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"majlis_park": {
 		"id": "majlis_park",
@@ -2141,7 +2156,8 @@
 			"3": {"destination": "deepali_chowk"},
 			"2": {"destination": "yamuna_vihar"},
 			"1": {"destination": "maujpur_babarpur", "destination_second": "shiv_vihar"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Majlis+Park/@28.72416,77.18205,17z/data=!3m1!4b1!4m6!3m5!1s0x390d01efee95228b:0x3702ccf56a4bc40c!8m2!3d28.72416!4d77.18205!16s%2Fg%2F11c1q4ln9k?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bhikaji_cama_place": {
 		"id": "bhikaji_cama_place",
@@ -2304,7 +2320,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bhikaji+Cama+Place/@28.5691147,77.1886667,17z/data=!4m10!1m2!2m1!1sBhikaji+Cama+Place+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1d83e8538067:0xcdecfe0687b311a1!8m2!3d28.570211!4d77.187888!15sCjVCaGlrYWppIENhbWEgUGxhY2UgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11c1q989vm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mundka_industrial_area_mia": {
 		"id": "mundka_industrial_area_mia",
@@ -2429,7 +2446,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mundka+Industrial+Area/@28.68343,77.01715,17z/data=!3m1!4b1!4m6!3m5!1s0x390d05f0bb9ef9b7:0x64adaf9b45d0a087!8m2!3d28.68343!4d77.01715!16s%2Fg%2F11c6mdhfnf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"belvedere_towers": {
 		"id": "belvedere_towers",
@@ -2532,7 +2550,8 @@
 				}
 			}
 		},
-		"platforms": {"1": {"destination": "sector_55_56"}}
+		"platforms": {"1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Belvedere+Towers/@28.49164,77.08822,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1939758e3c3b:0xdb065238a8e7372a!8m2!3d28.49164!4d77.08822!16s%2Fm%2F0zdqlbb?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"adarsh_nagar": {
 		"id": "adarsh_nagar",
@@ -2680,7 +2699,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Adarsh+Nagar/@28.71543,77.1687212,18z/data=!4m10!1m2!2m1!1sAdarsh+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d018a5983d68b:0x19148c0e53fe03f0!8m2!3d28.71441!4d77.1668625!15sCi9BZGFyc2ggTmFnYXIgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDXRyYWluX3N0YXRpb27gAQA!16s%2Fm%2F0c015m6?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_city_centre": {
 		"id": "noida_city_centre",
@@ -2808,7 +2828,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Wave+City+Center+Noida/@28.5746865,77.3561577,17z/data=!4m10!1m2!2m1!1sNoida+City+Centre+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce59619ba73ab:0x376870bf6296819a!8m2!3d28.57467!4d77.35605!15sCjROb2lkYSBDaXR5IENlbnRyZSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0by0wkj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"arjan_garh": {
 		"id": "arjan_garh",
@@ -2937,7 +2958,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Arjan+Garh/@28.480755,77.125865,17z/data=!4m10!1m2!2m1!1sArjan+Garh+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1ee09bf5f69f:0x41787a09e5d1afe7!8m2!3d28.48088!4d77.12585!15sCi1BcmphbiBHYXJoIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0cz7y46?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_sector_9": {
 		"id": "dwarka_sector_9",
@@ -3024,7 +3046,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Sector+9/@28.5738304,77.0654512,17z/data=!4m10!1m2!2m1!1sDwarka+Sector+-+9+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1b052aa0ccb5:0xf922142d48c83d80!8m2!3d28.57428!4d77.06528!15sCjREd2Fya2EgU2VjdG9yIC0gOSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0c42cgh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"azadpur": {
 		"id": "azadpur",
@@ -3267,7 +3290,8 @@
 			"3": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"},
 			"2": {"destination": "samaypur_badli_dipo"},
 			"1": {"destination": "millennium_city_centre_gurugram"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Railway+police/@28.7071014,77.1805732,17z/data=!4m10!1m2!2m1!1sAzadpur+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d021c8dc5d17b:0x38efb8df6fe128c3!8m2!3d28.7071827!4d77.1806263!15sCipBemFkcHVyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaKSInYXphZHB1ciBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlh4AEA!16s%2Fm%2F0c023kj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"qutab_minar": {
 		"id": "qutab_minar",
@@ -3365,7 +3389,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Qutab+Minar/@28.5132827,77.1860458,17z/data=!4m10!1m2!2m1!1sQutab+Minar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1e1bb7af3711:0x5bba1a9e01477cb7!8m2!3d28.51302!4d77.1864!15sCi5RdXRhYiBNaW5hciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11bycjppg_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ramakrishna_ashram_marg": {
 		"id": "ramakrishna_ashram_marg",
@@ -3554,7 +3579,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ramakrishna+Ashram+Marg/@28.63924,77.20856,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd4486f55bdf:0x377fcd44a7b47880!8m2!3d28.63924!4d77.20856!16s%2Fm%2F0c3wmy8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"uttam_nagar_west": {
 		"id": "uttam_nagar_west",
@@ -3687,7 +3713,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Uttam+Nagar+West/@28.6217542,77.0558111,17z/data=!3m1!4b1!4m6!3m5!1s0x390d05279b249541:0xb1df17d0024afcd9!8m2!3d28.6217542!4d77.0558111!16s%2Fm%2F0c401bx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_kakrola": {
 		"id": "dwarka_kakrola",
@@ -3817,7 +3844,8 @@
 			"5": {"destination": "dhansa_bus_stand"},
 			"2": {"destination": "dwarka_sector_21"},
 			"1&3": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka-Kakrola/@28.61492,77.02272,17z/data=!3m1!4b1!4m6!3m5!1s0x390d054fe882d2e9:0x8aa7a279d7f36e9b!8m2!3d28.61492!4d77.02272!16s%2Fm%2F0c3_dck?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"delta_1_greater_noida": {
 		"id": "delta_1_greater_noida",
@@ -3827,7 +3855,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Delta+1/@28.478369,77.525576,17z/data=!3m1!4b1!4m6!3m5!1s0x390cea8511437547:0x4be399631f0e63c4!8m2!3d28.478369!4d77.525576!16s%2Fg%2F11f046y_pg?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"golf_course": {
 		"id": "golf_course",
@@ -3930,7 +3959,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Golf+Course/@28.56719,77.34597,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce5b87682909f:0xf0ff103ac2d2cdd5!8m2!3d28.56719!4d77.34597!16s%2Fg%2F1tsyhkwj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shiv_vihar": {
 		"id": "shiv_vihar",
@@ -4025,7 +4055,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "maujpur_babarpur"},
 			"1": {"destination": "shiv_vihar"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shiv+Vihar/@28.7216122,77.2894938,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfbfe2b317481:0x8c90394cc4254d38!8m2!3d28.7216122!4d77.2894938!16s%2Fg%2F11c1s0p93v?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"kashmere_gate": {
 		"id": "kashmere_gate",
@@ -4494,7 +4525,8 @@
 			"3": {"destination": "rithala"},
 			"2": {"destination": "samaypur_badli_dipo"},
 			"1": {"destination": "millennium_city_centre_gurugram"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kashmere+Gate/@28.6676343,77.228809,17z/data=!4m10!1m2!2m1!1sKashmere+Gate+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd0864374cd3:0x9d8eb3602ef5fbc7!8m2!3d28.66747!4d77.22824!15sCjBLYXNobWVyZSBHYXRlIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0c025l7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jln_stadium": {
 		"id": "jln_stadium",
@@ -4675,7 +4707,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/JLN+Stadium/@28.589363,77.233562,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce2e4cb366311:0xb98b82b019d3b794!8m2!3d28.589363!4d77.233562!16s%2Fm%2F0dgbbk1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"patel_chowk": {
 		"id": "patel_chowk",
@@ -4809,7 +4842,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Patel+Chowk/@28.6230773,77.2145308,17z/data=!4m10!1m2!2m1!1sPatel+Chowk+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd4b2b747e73:0x8d83e1b7f4c99c7a!8m2!3d28.6233506!4d77.2145072!15sCi5QYXRlbCBDaG93ayBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F12338d35t?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"janakpuri_west": {
 		"id": "janakpuri_west",
@@ -5087,7 +5121,8 @@
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"},
 			"PF3": {"destination": "krishna_park_extension"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Janakpuri+West/@28.6296674,77.077835,17z/data=!4m10!1m2!2m1!1sJanakpuri+West+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d04c0f23874db:0x7f63d009f51b7a06!8m2!3d28.62947!4d77.07777!15sCjFKYW5ha3B1cmkgV2VzdCBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0c3vph9?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"krishna_park_extension": {
 		"id": "krishna_park_extension",
@@ -5271,7 +5306,8 @@
 		"platforms": {
 			"PF1": {"destination": "janakpuri_west", "destination_second": "botanical_garden"},
 			"PF2": {"destination": "krishna_park_extension"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Krishna+Park+Extension/@28.6478,77.08475,17z/data=!3m1!4b1!4m6!3m5!1s0x390d048dd3169645:0xe7e9bd9b6b35ff08!8m2!3d28.6478!4d77.08475!16s%2Fg%2F11y97ck4n2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"kalkaji_mandir": {
 		"id": "kalkaji_mandir",
@@ -5549,7 +5585,8 @@
 			"1": {"destination": "raja_nahar_singh_ballabhgarh"},
 			"4": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"3": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kalkaji+Mandir/@28.54945,77.25922,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3c45e36801d:0x3c7e9785dacb79d9!8m2!3d28.54945!4d77.25922!16s%2Fm%2F0dgs5bm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"subhash_nagar": {
 		"id": "subhash_nagar",
@@ -5697,7 +5734,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Subhash+Nagar/@28.64039,77.10495,17z/data=!3m1!4b1!4m6!3m5!1s0x390d03619afc85f3:0xf8190a082b834f70!8m2!3d28.64039!4d77.10495!16s%2Fm%2F0c3y37j?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"tughlakabad_station": {
 		"id": "tughlakabad_station",
@@ -5791,7 +5829,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Tughlakabad/@28.502663,77.2994985,17z/data=!4m10!1m2!2m1!1sTughlakabad+Station+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce6daf2c5eef1:0x91fc42f8ed357ebd!8m2!3d28.50254!4d77.2993!15sCjZUdWdobGFrYWJhZCBTdGF0aW9uIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ90cmFuc2l0X3N0YXRpb27gAQA!16s%2Fm%2F0dgqd12?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"old_faridabad": {
 		"id": "old_faridabad",
@@ -5952,7 +5991,8 @@
 			"3": {"destination": "old_faridabad", "destination_second": "raja_nahar_singh_ballabhgarh"},
 			"2": {"destination": "kashmere_gate"},
 			"1": {"destination": "raja_nahar_singh_ballabhgarh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Old+Faridabad/@28.4107206,77.3114014,17z/data=!4m10!1m2!2m1!1sOld+Faridabad+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cddb64dce430f:0x654df762df4b6acd!8m2!3d28.4107712!4d77.3115075!15sCjBPbGQgRmFyaWRhYmFkIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11bwcxphq8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"rohini_sector_18_19": {
 		"id": "rohini_sector_18_19",
@@ -6085,7 +6125,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rohini+Sector-+18+19/@28.73838,77.13986,17z/data=!3m1!4b1!4m6!3m5!1s0x390d010e587128cd:0xcf9b97f7984c61c6!8m2!3d28.73838!4d77.13986!16s%2Fg%2F11c1lv20j2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"keshav_puram": {
 		"id": "keshav_puram",
@@ -6214,7 +6255,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Keshav+Puram/@28.6881889,77.1620755,17z/data=!4m10!1m2!2m1!1sKeshav+Puram+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0238461006ef:0x12efdef3ed78c3d8!8m2!3d28.6888267!4d77.1616759!15sCi9LZXNoYXYgUHVyYW0gTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F1hjh4ygh1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"kohat_enclave": {
 		"id": "kohat_enclave",
@@ -6353,7 +6395,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kohat+Enclave/@28.697826,77.141046,17z/data=!4m10!1m2!2m1!1sKohat+Enclave+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d03d1b719a7d3:0x373c87828af53df0!8m2!3d28.69799!4d77.14064!15sCjBLb2hhdCBFbmNsYXZlIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F1hc11g4p5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"paschim_vihar_west": {
 		"id": "paschim_vihar_west",
@@ -6471,7 +6514,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Paschim+Vihar+(West)/@28.6786,77.10231,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0475794cfe13:0x417f16b645f0adac!8m2!3d28.6786!4d77.10231!16s%2Fm%2F0c03k3l?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_sector_14": {
 		"id": "dwarka_sector_14",
@@ -6575,7 +6619,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Sector+14+metro+station/@28.6022308,77.0259262,17z/data=!4m10!1m2!2m1!1sDwarka+Sector+-+14+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1ab30a31b491:0xff35b41e5fd07f26!8m2!3d28.6022415!4d77.0259125!15sCjVEd2Fya2EgU2VjdG9yIC0gMTQgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBF2xvZ2ljYWxfdHJhbnNpdF9zdGF0aW9u4AEA!16s%2Fm%2F0c40_qb?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"iit": {
 		"id": "iit",
@@ -6724,7 +6769,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/IIT/@28.5467197,77.1942695,17z/data=!4m10!1m2!2m1!1sIIT+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1df5fab48a8f:0xdfa79cd26c7a09c!8m2!3d28.547199!4d77.193817!15sCiZJSVQgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVolIiNpaXQgbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9umgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU5PTVdFdFVIUkJSUkFC4AEA-gEECAAQQw!16s%2Fg%2F11bxdtq9b2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"rajouri_garden": {
 		"id": "rajouri_garden",
@@ -6922,7 +6968,8 @@
 			"3": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"},
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rajouri+Garden+Metro+Station+(Pink+Line)/@28.6487925,77.1214891,17z/data=!4m10!1m2!2m1!1sRajouri+Garden+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0372c3dbbc0b:0x16d42bf6554fa277!8m2!3d28.6506713!4d77.1243074!15sCjFSYWpvdXJpIEdhcmRlbiBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhWjAiLnJham91cmkgZ2FyZGVuIG1ldHJvIHN0YXRpb24gZGVsaGkgaW5kaWEgaW5kaWHgAQA!16s%2Fg%2F11c60fvy1t?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"karkarduma_court": {
 		"id": "karkarduma_court",
@@ -7044,7 +7091,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Karkarduma+Court/@28.65104,77.300585,17z/data=!4m10!1m2!2m1!1sKarkarduma+Court+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfb5d7db112c1:0x5f3b64855ccff3ec!8m2!3d28.65359!4d77.29559!15sCjNLYXJrYXJkdW1hIENvdXJ0IE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11c5947bwc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"rajendra_place": {
 		"id": "rajendra_place",
@@ -7178,7 +7226,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rajendra+Place/@28.64253,77.17824,17z/data=!3m1!4b1!4m6!3m5!1s0x390d02bdf8c7252d:0xf368f81a54b79871!8m2!3d28.64253!4d77.17824!16s%2Fm%2F0c3th69?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"hauz_khas": {
 		"id": "hauz_khas",
@@ -7524,7 +7573,8 @@
 			"3": {"destination": "botanical_garden"},
 			"2": {"destination": "samaypur_badli_dipo"},
 			"1": {"destination": "millennium_city_centre_gurugram"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Hauz+Khas/@28.5439504,77.2062395,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce210242d797b:0xac6d819d2f1aeb6e!8m2!3d28.5439504!4d77.2062395!16s%2Fm%2F0czdm21?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_137": {
 		"id": "noida_sector_137",
@@ -7534,7 +7584,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+137/@28.510812,77.403628,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce8f30dcd6407:0xe359b313e1199570!8m2!3d28.510812!4d77.403628!16s%2Fg%2F11h3dnhyyh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"harkesh_nagar_okhla": {
 		"id": "harkesh_nagar_okhla",
@@ -7685,7 +7736,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Harkesh+Nagar+Okhla/@28.54292,77.27504,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3fb55721bcb:0x3d93aeababd9564f!8m2!3d28.54292!4d77.27504!16s%2Fm%2F0dgqssr?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jhandewalan": {
 		"id": "jhandewalan",
@@ -7807,7 +7859,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jhandewalan/@28.64429,77.19992,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd5e03903bdf:0xef0f2b91ff3ccb66!8m2!3d28.64429!4d77.19992!16s%2Fm%2F0c3zzb9?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"raj_bagh": {
 		"id": "raj_bagh",
@@ -7932,7 +7985,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Raj+Bagh/@28.67703,77.34658,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfaf721f320f7:0xe7e3fa3375e57b0d!8m2!3d28.67703!4d77.34658!16s%2Fg%2F11dxb0rt_f?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_51": {
 		"id": "noida_sector_51",
@@ -7942,7 +7996,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+51+Metro+Station/@28.58559,77.37536,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce586d920b0cf:0xc7317367a4da6113!8m2!3d28.58559!4d77.37536!16s%2Fg%2F11g_z3f8x0?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"pari_chowk_greater_noida": {
 		"id": "pari_chowk_greater_noida",
@@ -7952,7 +8007,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Pari+Chowk/@28.464349,77.510414,17z/data=!3m1!4b1!4m6!3m5!1s0x390cc1d685b3e409:0x68aaa45f71267a7b!8m2!3d28.464349!4d77.510414!16s%2Fg%2F11f03_cv8p?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_148": {
 		"id": "noida_sector_148",
@@ -7962,7 +8018,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+148/@28.44802,77.476689,17z/data=!3m1!4b1!4m6!3m5!1s0x390cc1f146022eb3:0xf06bdea340a7ea80!8m2!3d28.44802!4d77.476689!16s%2Fg%2F11h3668n7n?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"north_pitampura": {
 		"id": "north_pitampura",
@@ -8203,7 +8260,8 @@
 			"PF2": {"destination": "shaheed_sthal_new_bus_adda"},
 			"1": {"destination": "deepali_chowk"},
 			"2": {"destination": "majlis_park"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Madhuban+Chowk/@28.710363,77.14253,15z/data=!4m10!1m2!2m1!1sNorth+Pitampura+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d03d93c80bbe5:0x72bda2ab9e286b48!8m2!3d28.70311!4d77.13247!15sCjJOb3J0aCBQaXRhbXB1cmEgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVoxIi9ub3J0aCBwaXRhbXB1cmEgbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0c03ckz?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"moti_nagar": {
 		"id": "moti_nagar",
@@ -8356,7 +8414,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Moti+Nagar/@28.6579931,77.1426857,17z/data=!4m10!1m2!2m1!1sMoti+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0306cabfffff:0x3cd0c23c65e5eeb4!8m2!3d28.6580261!4d77.1427015!15sCi1Nb3RpIE5hZ2FyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSARdsb2dpY2FsX3RyYW5zaXRfc3RhdGlvbuABAA!16s%2Fm%2F0c41zzw?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"pandit_shree_ram_sharma": {
 		"id": "pandit_shree_ram_sharma",
@@ -8497,7 +8556,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Pandit+Shree+Ram+Sharma/@28.689242,76.951147,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0ecd34e33709:0x16e87b2522b03d8b!8m2!3d28.689242!4d76.951147!16s%2Fg%2F11c6md8l0t?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nangloi_railway_station": {
 		"id": "nangloi_railway_station",
@@ -8616,7 +8676,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nangloi+Railway+Station/@28.6822315,77.060515,17z/data=!4m10!1m2!2m1!1sNangloi+Railway+Station+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d05cb546dbc05:0x80e4a5f90fd6e38e!8m2!3d28.682133!4d77.05622!15sCjpOYW5nbG9pIFJhaWx3YXkgU3RhdGlvbiBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11cm8952q5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_50": {
 		"id": "noida_sector_50",
@@ -8626,7 +8687,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Noida+Sector+50/@28.5745835,77.378294,17z/data=!4m10!1m2!2m1!1sNoida+Sector+50+Metro+Station,+Noida,+Uttar+Pradesh,+India!3m6!1s0x390ce58a09920989:0xd52331ef054be523!8m2!3d28.574544!4d77.378249!15sCjpOb2lkYSBTZWN0b3IgNTAgTWV0cm8gU3RhdGlvbiwgTm9pZGEsIFV0dGFyIFByYWRlc2gsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11gxmv52r0?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shastri_nagar": {
 		"id": "shastri_nagar",
@@ -8762,7 +8824,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shastri+Nagar+Metro+Station/@28.6701983,77.1811946,17z/data=!4m10!1m2!2m1!1sShastri+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d02636b535615:0xb6b5de7bb54842c0!8m2!3d28.670081!4d77.18125!15sCjBTaGFzdHJpIE5hZ2FyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSARdsb2dpY2FsX3RyYW5zaXRfc3RhdGlvbuABAA!16s%2Fm%2F0b__cv2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sarita_vihar": {
 		"id": "sarita_vihar",
@@ -8911,7 +8974,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sarita+Vihar/@28.5289096,77.2882725,17z/data=!4m10!1m2!2m1!1sSarita+Vihar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce6ad16d16d9f:0x419cec3e383b29d3!8m2!3d28.52873!4d77.28822!15sCi9TYXJpdGEgVmloYXIgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0dgrwl1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mundka": {
 		"id": "mundka",
@@ -9034,7 +9098,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mundka/@28.6828992,77.023745,16z/data=!4m10!1m2!2m1!1sMundka+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d05e901486b01:0xb50ce08bd1d88632!8m2!3d28.68239!4d77.03034!15sCilNdW5ka2EgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVooIiZtdW5ka2EgbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0c012gc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mansarovar_park": {
 		"id": "mansarovar_park",
@@ -9147,7 +9212,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mansarovar+Park/@28.6754,77.30098,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfb764c197f99:0x2bd0004520e024b6!8m2!3d28.6754!4d77.30098!16s%2Fg%2F1ygjd0trs?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mayur_vihar_i": {
 		"id": "mayur_vihar_i",
@@ -9286,7 +9352,8 @@
 			"3": {"destination": "shiv_vihar"},
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mayur+Vihar-1/@28.6042259,77.289608,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce49f001c646d:0x399d3398b609d940!8m2!3d28.6042259!4d77.289608!16s%2Fm%2F0c3yhkf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"vishwavidyalaya": {
 		"id": "vishwavidyalaya",
@@ -9432,7 +9499,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vishwavidyalaya/@28.69519,77.21451,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfdea8da81acf:0x4916dc02b66831c0!8m2!3d28.69519!4d77.21451!16s%2Fm%2F0c00vqr?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"tis_hazari": {
 		"id": "tis_hazari",
@@ -9566,7 +9634,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Tis+Hazari/@28.6670842,77.2172138,17z/data=!4m10!1m2!2m1!1sTis+Hazari+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd753a936e41:0xca3294f189fa2da4!8m2!3d28.66719!4d77.21666!15sCi1UaXMgSGF6YXJpIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F1ptxgl19c?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_59_noida": {
 		"id": "sector_59_noida",
@@ -9673,7 +9742,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+59+Noida/@28.606493,77.372726,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce5637fed494f:0xecfc72c5d4643b08!8m2!3d28.606493!4d77.372726!16s%2Fg%2F11gh32bnv3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"airport_t_3": {
 		"id": "airport_t_3",
@@ -9978,7 +10048,8 @@
 				}
 			}
 		},
-		"platforms": {"3": {"destination": "new_delhi_yellow_airport_line"}, "2": {"destination": "yashobhoomi_dwarka_sector_25"}}
+		"platforms": {"3": {"destination": "new_delhi_yellow_airport_line"}, "2": {"destination": "yashobhoomi_dwarka_sector_25"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Delhi+Airport+Metro+Station/@28.561195,77.1042187,15z/data=!4m10!1m2!2m1!1sAirport+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1b9bc5198b4f:0xd9326121dc5972af!8m2!3d28.5571581!4d77.0860564!15sCipBaXJwb3J0IE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSARdsb2dpY2FsX3RyYW5zaXRfc3RhdGlvbuABAA!16s%2Fg%2F11fp7w03y4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_sector_8": {
 		"id": "dwarka_sector_8",
@@ -10059,7 +10130,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Sector-8/@28.566838,77.0666824,17z/data=!4m10!1m2!2m1!1sDwarka+Sector+-+8+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1b07cc4525e5:0xdda7a475a9b86b37!8m2!3d28.5656779!4d77.0671049!15sCjREd2Fya2EgU2VjdG9yIC0gOCBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0ds1lpq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_62_noida": {
 		"id": "sector_62_noida",
@@ -10176,7 +10248,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+62+Noida/@28.621221,77.3740665,16z/data=!4m10!1m2!2m1!1sSector+-+62+Noida+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce55e6c23b983:0x742cc2661a6d7a87!8m2!3d28.616995!4d77.37361!15sCjRTZWN0b3IgLSA2MiBOb2lkYSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhWjEiL3NlY3RvciA2MiBub2lkYSBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11f5hlck7q?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_electronic_city": {
 		"id": "noida_electronic_city",
@@ -10383,7 +10456,8 @@
 			"3": {"destination": "dwarka_sector_21"},
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Noida+Electronic+City/@28.627941,77.37493,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce557722f990d:0x17ccbd76a25af037!8m2!3d28.627941!4d77.37493!16s%2Fg%2F11fkjh4spm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jamia_millia_islamia": {
 		"id": "jamia_millia_islamia",
@@ -10512,7 +10586,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jamia+Millia+Islamia/@28.56295,77.28622,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce38a9c1583e5:0xdce59277742b76cd!8m2!3d28.56295!4d77.28622!16s%2Fg%2F11c1q4xw5_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"janpath": {
 		"id": "janpath",
@@ -10710,7 +10785,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Janpath/@28.625061,77.219184,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd35a066290f:0xbed6c8b19cd01af0!8m2!3d28.625061!4d77.219184!16s%2Fm%2F0vzv2jk?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_52_noida": {
 		"id": "sector_52_noida",
@@ -10848,7 +10924,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+52+Noida/@28.586928,77.37247,17z/data=!4m10!1m2!2m1!1sSector+-+52+Noida+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce581544de087:0x4a872e3db9540cb3!8m2!3d28.5867!4d77.372839!15sCjRTZWN0b3IgLSA1MiBOb2lkYSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11hd9kd3sp?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"munirka": {
 		"id": "munirka",
@@ -11019,7 +11096,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Munirka/@28.557266,77.1739758,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1d96602d453b:0x55757c0f6bd7ad67!8m2!3d28.557266!4d77.1739758!16s%2Fg%2F11c540k679?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sarai_kale_khan_hazrat_nizamuddin": {
 		"id": "sarai_kale_khan_hazrat_nizamuddin",
@@ -11176,7 +11254,8 @@
 			"4": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": false},
 			"5": {"line": "ncrtc.delhi_meerut_rrts", "is_open": false, "lounge": false},
 			"6": {"line": "ncrtc.delhi_meerut_rrts", "is_open": false, "lounge": false}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sarai+Kale+Khan/@28.589155,77.257665,17z/data=!4m10!1m2!2m1!1sSarai+Kale+Khan+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390ce30c2412e7c7:0x893b8c42466ef77e!8m2!3d28.58895!4d77.2582!15sCkpTYXJhaSBLYWxlIEtoYW4gTWV0cm8gU3RhdGlvbiwgRGVsaGkgTWVlcnV0IFJSVFMgTmFtbyBCaGFyYXQsIEluZGlhLCBJbmRpYZIBDXRyYWluX3N0YXRpb27gAQA!16s%2Fg%2F11y_fgbwgp?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"pratap_nagar": {
 		"id": "pratap_nagar",
@@ -11308,7 +11387,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Pratap+Nagar/@28.666615,77.1988826,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd7f67c9890f:0xb0955976f8b0f82f!8m2!3d28.666615!4d77.1988826!16s%2Fm%2F0b__kn8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"satguru_ram_singh_marg": {
 		"id": "satguru_ram_singh_marg",
@@ -11386,7 +11466,8 @@
 		"platforms": {
 			"2": {"destination": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh", "destination_second": "inderlok"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Satguru+Ram+Singh+Marg/@28.66213,77.15766,17z/data=!3m1!4b1!4m6!3m5!1s0x390d02f867e79a63:0x4c54e541c15e1ecf!8m2!3d28.66213!4d77.15766!16s%2Fm%2F0gj9g37?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"botanical_garden": {
 		"id": "botanical_garden",
@@ -11596,7 +11677,8 @@
 			"1": {"destination": "noida_electronic_city"},
 			"4": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"3": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Botanical+Garden/@28.5639603,77.3346104,17z/data=!4m10!1m2!2m1!1sBotanical+Garden+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce5caf2b15c57:0x37e926e4a51aeac2!8m2!3d28.5640331!4d77.33428!15sCjNCb3RhbmljYWwgR2FyZGVuIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F1232vqs_r?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sikanderpur": {
 		"id": "sikanderpur",
@@ -11876,7 +11958,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sikanderpur/@28.4812388,77.0935441,17z/data=!4m10!1m2!2m1!1sSikanderpur+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d192f1756bc8d:0x224e1aadd854dba!8m2!3d28.48131!4d77.09312!15sCi5TaWthbmRlcnB1ciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0cz9vz1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"gnida_office": {
 		"id": "gnida_office",
@@ -11886,7 +11969,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/GNIDA+Office/@28.484528,77.536619,17z/data=!3m1!4b1!4m6!3m5!1s0x390cea965733de39:0xe6fb105d47c338c!8m2!3d28.484528!4d77.536619!16s%2Fg%2F11g_vqp7rm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nhpc_chowk": {
 		"id": "nhpc_chowk",
@@ -12030,7 +12114,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/NHPC+Chowk/@28.4579379,77.3073279,17z/data=!4m10!1m2!2m1!1sNhpc+Chowk+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce75d172905c5:0x6fc167be054c1b1b!8m2!3d28.4577014!4d77.3074428!15sCi1OaHBjIENob3drIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaLCIqbmhwYyBjaG93ayBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11bwdmw65j?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"saket": {
 		"id": "saket",
@@ -12176,7 +12261,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Saket/@28.5209054,77.2026008,17z/data=!4m10!1m2!2m1!1sSaket+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce1fb6d111cb5:0xc889a2ae34f8d635!8m2!3d28.52113!4d77.20218!15sCihTYWtldCBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0cz933b?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_61_noida": {
 		"id": "sector_61_noida",
@@ -12280,7 +12366,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+61+Noida/@28.597692,77.372238,17z/data=!4m10!1m2!2m1!1sSector+-+61+Noida+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce5795421f217:0xc6e3b4ebdc87ad22!8m2!3d28.597631!4d77.372299!15sCjRTZWN0b3IgLSA2MSBOb2lkYSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11c1g6bdgg?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shakurpur": {
 		"id": "shakurpur",
@@ -12418,7 +12505,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shakurpur/@28.685779,77.149626,17z/data=!3m1!4b1!4m6!3m5!1s0x390d02355f36e5e5:0x64b2fe691841beef!8m2!3d28.685779!4d77.149626!16s%2Fg%2F11c54fkt5r?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"vidhan_sabha": {
 		"id": "vidhan_sabha",
@@ -12523,7 +12611,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vidhan+Sabha/@28.6874886,77.2216526,17z/data=!4m10!1m2!2m1!1sVidhan+Sabha+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfdbe9674eda7:0x24086f538e84a616!8m2!3d28.6872142!4d77.2217283!15sCi9WaWRoYW4gU2FiaGEgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F1ptvr8bdf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sarojini_nagar": {
 		"id": "sarojini_nagar",
@@ -12641,7 +12730,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sarojini+Nagar/@28.575807,77.198571,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce2809e4212d3:0xa48c223126e527c0!8m2!3d28.575807!4d77.198571!16s%2Fg%2F11c54ccb0b?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"supreme_court_pragati_maidan": {
 		"id": "supreme_court_pragati_maidan",
@@ -12812,7 +12902,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Supreme+Court/@28.6231754,77.2429285,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce32af0550901:0xb476811d3c70fc58!8m2!3d28.6231754!4d77.2429285!16s%2Fm%2F0c41pqn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"chhatarpur": {
 		"id": "chhatarpur",
@@ -12930,7 +13021,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Chhatarpur/@28.5071958,77.1752053,17z/data=!4m10!1m2!2m1!1sChhatarpur+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1e15a5b6edbb:0xeaeb2b0695628efe!8m2!3d28.5067936!4d77.1750257!15sCi1DaGhhdGFycHVyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0czf787?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"delhi_aerocity": {
 		"id": "delhi_aerocity",
@@ -13058,7 +13150,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "new_delhi_yellow_airport_line"}, "1": {"destination": "yashobhoomi_dwarka_sector_25"}}
+		"platforms": {"2": {"destination": "new_delhi_yellow_airport_line"}, "1": {"destination": "yashobhoomi_dwarka_sector_25"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Delhi+Aero+City/@28.5487481,77.1203491,17z/data=!4m10!1m2!2m1!1sDelhi+Aerocity+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1c6b9a6de88d:0x4e334b2eaf2aaee2!8m2!3d28.54888!4d77.12077!15sCjFEZWxoaSBBZXJvY2l0eSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0gfgvnx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_55_56": {
 		"id": "sector_55_56",
@@ -13175,7 +13268,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+55-56/@28.42341,77.1052,17z/data=!3m1!4b1!4m6!3m5!1s0x390d21ff2adfd457:0xf51517e1309d4dcb!8m2!3d28.42341!4d77.1052!16s%2Fg%2F11h0cdtdx2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"terminal_1_igi_airport": {
 		"id": "terminal_1_igi_airport",
@@ -13494,7 +13588,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Terminal+1-IGI+Airport/@28.5653,77.122381,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1c6101174b7d:0x4b9048144e0095e8!8m2!3d28.5653!4d77.122381!16s%2Fg%2F11cs04sg91?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"brig_hoshiar_singh": {
 		"id": "brig_hoshiar_singh",
@@ -13525,7 +13620,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Brigadier+Hoshiar+Singh/@28.69741,76.91927,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0957f6a68519:0xa8a92b4b294c02e8!8m2!3d28.69741!4d76.91927!16s%2Fg%2F11g6jrhj7s?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"haiderpur_badli_mor": {
 		"id": "haiderpur_badli_mor",
@@ -13744,7 +13840,8 @@
 			"1": {"destination": "millennium_city_centre_gurugram"},
 			"PF3": {"destination": "deepali_chowk"},
 			"PF4": {"destination": "majlis_park"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Haiderpur+Badli+Mor/@28.7300015,77.1491765,17z/data=!3m1!4b1!4m6!3m5!1s0x390d019fdd169753:0x6af1b5f8b0c2cc7a!8m2!3d28.7300015!4d77.1491765!16s%2Fg%2F11cry9j5g1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_142": {
 		"id": "noida_sector_142",
@@ -13754,7 +13851,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Noida+Sec+142+Metro+Station/@28.4990555,77.4125571,17z/data=!4m10!1m2!2m1!1sNoida+Sector+142+Metro+Station,+Noida,+Uttar+Pradesh,+India!3m6!1s0x390ce85757faf777:0xa5433f81730a40ae!8m2!3d28.499082!4d77.4125233!15sCjtOb2lkYSBTZWN0b3IgMTQyIE1ldHJvIFN0YXRpb24sIE5vaWRhLCBVdHRhciBQcmFkZXNoLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11g9qh6r7w?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"uttam_nagar_east": {
 		"id": "uttam_nagar_east",
@@ -13882,7 +13980,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Uttam+Nagar+East/@28.6250844,77.0656078,17z/data=!4m10!1m2!2m1!1sUttam+Nagar+East+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d04db756c4a85:0x4be141a5df1c!8m2!3d28.6248053!4d77.0653064!15sCjNVdHRhbSBOYWdhciBFYXN0IE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0c3z3gl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"delhi_cantt": {
 		"id": "delhi_cantt",
@@ -13999,7 +14098,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Delhi+Cantt./@28.5945243,77.12582,14z/data=!4m10!1m2!2m1!1sDelhi+Cantt.+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1cd10cb7ff27:0x126bad1472b6343f!8m2!3d28.60878!4d77.14034!15sCi9EZWxoaSBDYW50dC4gTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11c1s21kgh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_147": {
 		"id": "noida_sector_147",
@@ -14009,7 +14109,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+147/@28.459425,77.465991,17z/data=!3m1!4b1!4m6!3m5!1s0x390cc20116f71911:0xd609cf21b976eb10!8m2!3d28.459425!4d77.465991!16s%2Fg%2F11f03_lxs7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"maujpur_babarpur": {
 		"id": "maujpur_babarpur",
@@ -14164,7 +14265,8 @@
 			"3": {"destination": "shiv_vihar"},
 			"2": {"destination": "majlis_park"},
 			"1": {"destination": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Maujpur-Babarpur/@28.6921031,77.279612,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfc7159ad56fd:0xa1cc320be7692106!8m2!3d28.6921031!4d77.279612!16s%2Fg%2F11c1sjxxsj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"karkarduma": {
 		"id": "karkarduma",
@@ -14393,7 +14495,8 @@
 			"3": {"destination": "shiv_vihar"},
 			"2": {"destination": "yamuna_bank"},
 			"1": {"destination": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Karkarduma/@28.64849,77.30558,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfb46b250ec7b:0x417ae4e98e287973!8m2!3d28.64849!4d77.30558!16s%2Fm%2F0c3tlkv?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"laxmi_nagar": {
 		"id": "laxmi_nagar",
@@ -14550,7 +14653,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "vaishali"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "vaishali"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Laxmi+Nagar/@28.6306769,77.2775729,17z/data=!4m10!1m2!2m1!1sLaxmi+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfcad2277af7d:0xe68dd5cbcfe7d692!8m2!3d28.6306738!4d77.2775258!15sCi5MYXhtaSBOYWdhciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEXbG9naWNhbF90cmFuc2l0X3N0YXRpb27gAQA!16s%2Fm%2F0c41f6l?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shivaji_stadium": {
 		"id": "shivaji_stadium",
@@ -14805,7 +14909,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "new_delhi_yellow_airport_line"}, "1": {"destination": "yashobhoomi_dwarka_sector_25"}}
+		"platforms": {"2": {"destination": "new_delhi_yellow_airport_line"}, "1": {"destination": "yashobhoomi_dwarka_sector_25"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shivaji+Stadium/@28.6287699,77.2114121,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd4eabe4071b:0x6de82cfc47bf8f61!8m2!3d28.6287699!4d77.2114121!16s%2Fg%2F1w0h5x6d?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nirman_vihar": {
 		"id": "nirman_vihar",
@@ -14934,7 +15039,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21", "destination_second": "yamuna_bank"},
 			"1": {"destination": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nirman+Vihar/@28.63663,77.28683,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfb5614d9cee3:0x1a739c7ab9cd4710!8m2!3d28.63663!4d77.28683!16s%2Fm%2F0c3_p7r?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nehru_place": {
 		"id": "nehru_place",
@@ -15078,7 +15184,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nehru+Place/@28.551403,77.2517658,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3c5f7ed9f81:0x9591c692ba36c8e6!8m2!3d28.551403!4d77.2517658!16s%2Fm%2F0dgr27f?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_sector_10": {
 		"id": "dwarka_sector_10",
@@ -15184,7 +15291,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Sector-+10/@28.5811243,77.0575085,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1b1e3ca9eb1f:0x60278d7a458c39ba!8m2!3d28.5811243!4d77.0575085!16s%2Fm%2F0c4262y?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"kirti_nagar": {
 		"id": "kirti_nagar",
@@ -15328,7 +15436,8 @@
 			"3": {"destination": "brig_hoshiar_singh"},
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kirti+Nagar/@28.6556764,77.1508142,17z/data=!3m1!4b1!4m6!3m5!1s0x390d02fdc7bdc875:0x840e3f6a0250e134!8m2!3d28.6556764!4d77.1508142!16s%2Fm%2F0c406ys?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"arthala": {
 		"id": "arthala",
@@ -15468,7 +15577,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Arthala/@28.67695,77.3919795,17z/data=!4m10!1m2!2m1!1sArthala+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cf0651c4475cd:0x54e72f1aaa45c422!8m2!3d28.676927!4d77.391773!15sCipBcnRoYWxhIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11dxbdc18n?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_15": {
 		"id": "noida_sector_15",
@@ -15600,7 +15710,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Noida+Sector-15/@28.6055751,77.3120043,14z/data=!4m10!1m2!2m1!1sNoida+Sector-15+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce45f97fb7b77:0x57e50ec90fd80e55!8m2!3d28.58509!4d77.31159!15sCjJOb2lkYSBTZWN0b3ItMTUgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0bxz3mk?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nawada": {
 		"id": "nawada",
@@ -15739,7 +15850,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nawada/@28.6202779,77.0451673,17z/data=!4m10!1m2!2m1!1sNawada+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0525332686c1:0xe84a0b0c4710dd42!8m2!3d28.62026!4d77.04507!15sCilOYXdhZGEgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F12hp7qlqj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"yamuna_bank": {
 		"id": "yamuna_bank",
@@ -15834,7 +15946,8 @@
 			"3": {"destination": "vaishali"},
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Yamuna+Bank/@28.62333,77.26792,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce34be876c26b:0x4a6625b0f21c095f!8m2!3d28.62333!4d77.26792!16s%2Fm%2F0c3zfzg?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"anand_vihar_isbt": {
 		"id": "anand_vihar_isbt",
@@ -16023,7 +16136,8 @@
 			"3": {"destination": "shiv_vihar"},
 			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
 			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Anand+Vihar+Terminal/@28.6478933,77.3159866,17z/data=!4m10!1m2!2m1!1sAnand+Vihar+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390cfb3eaa16bd93:0x554673eb4066c794!8m2!3d28.6488339!4d77.3153465!15sCkZBbmFuZCBWaWhhciBNZXRybyBTdGF0aW9uLCBEZWxoaSBNZWVydXQgUlJUUyBOYW1vIEJoYXJhdCwgSW5kaWEsIEluZGlhkgENdHJhaW5fc3RhdGlvbuABAA!16s%2Fm%2F0c3zht6?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"cyber_city": {
 		"id": "cyber_city",
@@ -16127,7 +16241,8 @@
 				}
 			}
 		},
-		"platforms": {"1": {"destination": "sector_55_56"}}
+		"platforms": {"1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Cybercity/@28.49797,77.08918,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1947bd8c93a7:0x60e82a8a26e7b7a!8m2!3d28.49797!4d77.08918!16s%2Fm%2F0zdl6_t?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"lal_quila": {
 		"id": "lal_quila",
@@ -16327,7 +16442,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Lal+Quila/@28.6568551,77.2368125,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd1ceee9c7e1:0x641302a14e35e765!8m2!3d28.6568551!4d77.2368125!16s%2Fm%2F012vxmwq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mandi_house": {
 		"id": "mandi_house",
@@ -16519,7 +16635,8 @@
 			"3": {"destination": "raja_nahar_singh_ballabhgarh"},
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mandi+House/@28.6255093,77.2336423,17z/data=!4m10!1m2!2m1!1sMandi+House+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd2ca44ead25:0x797b661c1e44e089!8m2!3d28.6253286!4d77.2335246!15sCi5NYW5kaSBIb3VzZSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEXbG9naWNhbF90cmFuc2l0X3N0YXRpb27gAQA!16s%2Fm%2F0c3yfw3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ashok_park_main": {
 		"id": "ashok_park_main",
@@ -16641,7 +16758,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ashok+Park+Main/@28.6715289,77.1555012,17z/data=!4m10!1m2!2m1!1sAshok+Park+Main+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d02517727acf9:0x4028c9431061695f!8m2!3d28.6716168!4d77.1552264!15sCjJBc2hvayBQYXJrIE1haW4gTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVoxIi9hc2hvayBwYXJrIG1haW4gbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9umgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJzeFQxSkhXbFpSYTFrelRGaGtkR1JJY0hWT2VURnZUVVJXYUZSdFl4QULgAQD6AQQIABBM!16s%2Fm%2F0c002d3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dashrathpuri": {
 		"id": "dashrathpuri",
@@ -16770,7 +16888,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dashrathpuri/@28.6027993,77.082617,17z/data=!4m10!1m2!2m1!1sDashrathpuri+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1b4906fe99db:0x16bd678cd1d4892d!8m2!3d28.60235!4d77.08254!15sCi9EYXNocmF0aHB1cmkgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11c53k3nd5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"okhla_bird_sanctuary": {
 		"id": "okhla_bird_sanctuary",
@@ -16912,7 +17031,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Okhla+Bird+Sanctuary/@28.5532922,77.3215036,17z/data=!4m10!1m2!2m1!1sOkhla+Bird+Sanctuary+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce42ffd1768bf:0xfd1aea6682638610!8m2!3d28.5528635!4d77.3216503!15sCjdPa2hsYSBCaXJkIFNhbmN0dWFyeSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11c542zhl2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_144": {
 		"id": "noida_sector_144",
@@ -16922,7 +17042,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+144/@28.486371,77.432971,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce9b7023b9fc5:0xe67312553c070e7!8m2!3d28.486371!4d77.432971!16s%2Fg%2F11f040bfc5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"preet_vihar": {
 		"id": "preet_vihar",
@@ -17027,7 +17148,8 @@
 				}
 			}
 		},
-		"platforms": {"PF 2": {"destination": "dwarka_sector_21"}, "PF 1": {"destination": "vaishali"}}
+		"platforms": {"PF 2": {"destination": "dwarka_sector_21"}, "PF 1": {"destination": "vaishali"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Preet+Vihar/@28.64171,77.29543,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfb53dd3ed8db:0x28781e12f6cfc26c!8m2!3d28.64171!4d77.29543!16s%2Fg%2F1pxwl459c?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nangli": {
 		"id": "nangli",
@@ -17141,7 +17263,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_kakrola"}, "1": {"destination": "dhansa_bus_stand"}}
+		"platforms": {"2": {"destination": "dwarka_kakrola"}, "1": {"destination": "dhansa_bus_stand"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nangli/@28.617239,77.0104,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0558787ef623:0xb452fe33cdd75de5!8m2!3d28.617239!4d77.0104!16s%2Fg%2F11c1q7c12l?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sarai": {
 		"id": "sarai",
@@ -17301,7 +17424,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sarai/@28.477881,77.3052555,17z/data=!4m10!1m2!2m1!1sSarai+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce73c148bc115:0x3766061d15653b02!8m2!3d28.47807!4d77.3049!15sCihTYXJhaSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11bw4d59pd?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"samaypur_badli_dipo": {
 		"id": "samaypur_badli_dipo",
@@ -17422,7 +17546,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Samaypur+Badli/@28.744638,77.138293,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0104d8dcfabd:0x715130817be59658!8m2!3d28.744638!4d77.138293!16s%2Fg%2F11bwqm5qgs?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ashram": {
 		"id": "ashram",
@@ -17582,7 +17707,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ashram+metro+station/@28.5728704,77.2580048,17z/data=!4m10!1m2!2m1!1sAshram+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce3a4771ee099:0xe201285ad979d596!8m2!3d28.5735755!4d77.2575!15sCilBc2hyYW0gTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBF2xvZ2ljYWxfdHJhbnNpdF9zdGF0aW9u4AEA!16s%2Fg%2F11cs24jcnr?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jasola_vihar_shaheen_bagh": {
 		"id": "jasola_vihar_shaheen_bagh",
@@ -17740,7 +17866,8 @@
 			"3": {"destination": "botanical_garden", "destination_second": "janakpuri_west"},
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jasola+Vihar+Shaheen+Bagh/@28.5459783,77.2966468,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce404be7291f1:0x3a7fa3b017a415c1!8m2!3d28.5459783!4d77.2966468!16s%2Fg%2F11c543sd2c?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mewala_maharajpur": {
 		"id": "mewala_maharajpur",
@@ -17881,7 +18008,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mewala+Maharajpur/@28.448822,77.3078675,17z/data=!4m10!1m2!2m1!1sMewala+Maharajpur+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cddf5607ba095:0xdaadd705e5b658cb!8m2!3d28.448566!4d77.308055!15sCjRNZXdhbGEgTWFoYXJhanB1ciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11bwdxhts1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"netaji_subhash_place": {
 		"id": "netaji_subhash_place",
@@ -18059,7 +18187,8 @@
 			"3": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"},
 			"2": {"destination": "shaheed_sthal_new_bus_adda"},
 			"1": {"destination": "rithala"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Netaji+Subhash+Place/@28.69605,77.15259,17z/data=!3m1!4b1!4m6!3m5!1s0x390d023243f9fe8b:0xdbcb89821a18cfc4!8m2!3d28.69605!4d77.15259!16s%2Fm%2F0c006sm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"krishna_nagar": {
 		"id": "krishna_nagar",
@@ -18176,7 +18305,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Krishna+nagar+metro+station/@28.6571275,77.2900749,17z/data=!4m10!1m2!2m1!1sKrishna+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfbeeef79ae0d:0xb3e6ca0aae82610f!8m2!3d28.656215!4d77.2901199!15sCjBLcmlzaG5hIE5hZ2FyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11frftx37d?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"millennium_city_centre_gurugram": {
 		"id": "millennium_city_centre_gurugram",
@@ -18401,7 +18531,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Millennium+City+Centre+Gurugram/@28.4592,77.07248,17z/data=!3m1!4b1!4m6!3m5!1s0x390d18ef422839d5:0xe526473ff1bc7055!8m2!3d28.4592!4d77.07248!16s%2Fm%2F0cz8njl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sir_m_vishweshwaraiah_moti_bagh": {
 		"id": "sir_m_vishweshwaraiah_moti_bagh",
@@ -18533,7 +18664,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sir+M.+Vishweshwaraiah+Moti+Bagh/@28.578504,77.175726,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1d746d61525b:0x25aa8d47cf3842ea!8m2!3d28.578504!4d77.175726!16s%2Fg%2F11dxb1hmyx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ramesh_nagar": {
 		"id": "ramesh_nagar",
@@ -18680,7 +18812,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ramesh+Nagar/@28.65275,77.13164,17z/data=!3m1!4b1!4m6!3m5!1s0x390d030e83cdfc51:0xc90ecc4f75417422!8m2!3d28.65275!4d77.13164!16s%2Fg%2F1pp2tx508?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"panchsheel_park": {
 		"id": "panchsheel_park",
@@ -18818,7 +18951,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Panchsheel+Park/@28.542338,77.220507,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce22327398f11:0x2508426d7ff856a6!8m2!3d28.542338!4d77.220507!16s%2Fg%2F11c54mmknh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"model_town": {
 		"id": "model_town",
@@ -18957,7 +19091,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Model+Town/@28.7028569,77.1937134,17z/data=!3m1!4b1!4m6!3m5!1s0x390d020792b1d983:0xce3762d720ba6fde!8m2!3d28.7028569!4d77.1937134!16s%2Fm%2F0b_ztlf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"rithala": {
 		"id": "rithala",
@@ -19081,7 +19216,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rithala/@28.7204064,77.1077619,17z/data=!4m10!1m2!2m1!1sRithala+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d014c11fcbee5:0x5f5d8621c210aef9!8m2!3d28.72077!4d77.10716!15sCipSaXRoYWxhIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaKSIncml0aGFsYSBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0b__qg5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"tikri_kalan": {
 		"id": "tikri_kalan",
@@ -19207,7 +19343,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Tikri+Kalan/@28.68688,76.97727,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0f32180751c1:0x8da7ca3db0b2b13f!8m2!3d28.68688!4d76.97727!16s%2Fg%2F11g6jq5jw8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"punjabi_bagh_west": {
 		"id": "punjabi_bagh_west",
@@ -19343,7 +19480,8 @@
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"},
 			"3": {"destination": "brig_hoshiar_singh"},
 			"4": {"destination": "inderlok", "destination_second": "kirti_nagar"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Punjabi+Bagh+West/@28.67274,77.13918,17z/data=!3m1!4b1!4m6!3m5!1s0x390d03afd09e903d:0x7e928c619c7ee3b9!8m2!3d28.67274!4d77.13918!16s%2Fg%2F11c1sjsdj8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_54_chowk": {
 		"id": "sector_54_chowk",
@@ -19486,7 +19624,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+54+Chowk/@28.432702,77.1051676,17z/data=!4m10!1m2!2m1!1sSector-54+Chowk+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1f54f16ced07:0xb22fdbe424a0242b!8m2!3d28.432883!4d77.1049802!15sCjJTZWN0b3ItNTQgQ2hvd2sgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11g7_d2rhq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"aiims": {
 		"id": "aiims",
@@ -19676,7 +19815,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/AIIMS/@28.5675929,77.2077876,17z/data=!4m10!1m2!2m1!1sAIIMS+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce264e3b014e3:0x4da1cc3ed55d4e24!8m2!3d28.5677856!4d77.2077633!15sCihBSUlNUyBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F1thn3w_q?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"barakhamba_road": {
 		"id": "barakhamba_road",
@@ -19860,7 +20000,8 @@
 		"platforms": {
 			"PA2": {"destination": "dwarka_sector_21"},
 			"PA1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Barakhamba+Road/@28.62967,77.2249234,17z/data=!4m10!1m2!2m1!1sBarakhamba+Road+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd31500b9ced:0xa360c5412428e41b!8m2!3d28.62994!4d77.2245!15sCjJCYXJha2hhbWJhIFJvYWQgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0c3z_vw?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_28_faridabad": {
 		"id": "sector_28_faridabad",
@@ -20010,7 +20151,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+28/@28.4381965,77.308696,17z/data=!4m10!1m2!2m1!1sSector-28+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cddf2b133972d:0x4cfede4e48384e0!8m2!3d28.43801!4d77.30899!15sCixTZWN0b3ItMjggTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVorIilzZWN0b3IgMjggbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11bwf1b2ff?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sadar_bazar_cantonment": {
 		"id": "sadar_bazar_cantonment",
@@ -20117,7 +20259,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sadar+Bazar+Cantonment/@28.57711,77.1113,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1c851ef585eb:0xca6812c771d1da1b!8m2!3d28.57711!4d77.1113!16s%2Fg%2F11c53p07r1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"chandni_chowk": {
 		"id": "chandni_chowk",
@@ -20277,7 +20420,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Chandni+Chowk+Metro+Station/@28.6588305,77.2302672,17z/data=!4m10!1m2!2m1!1sChandni+Chowk+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd1f06678f59:0x31da8bddfa31e797!8m2!3d28.6588344!4d77.230178!15sCjBDaGFuZG5pIENob3drIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F026hrjp?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shree_ram_mayur_vihar_mandir_earlier_mayur_vihar_pocket_1": {
 		"id": "shree_ram_mayur_vihar_mandir_earlier_mayur_vihar_pocket_1",
@@ -20416,7 +20560,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shree+Ram+Mandir+Mayur+Vihar/@28.6063468,77.2991804,17z/data=!4m10!1m2!2m1!1sShree+Ram+Mayur+Vihar+Mandir+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce4979b2ce755:0x972dde3d5311446e!8m2!3d28.6057944!4d77.2987035!15sCj9TaHJlZSBSYW0gTWF5dXIgVmloYXIgTWFuZGlyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaPiI8c2hyZWUgcmFtIG1heXVyIHZpaGFyIG1hbmRpciBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11g1fp_1sw?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dabri_mor_janakpuri_south": {
 		"id": "dabri_mor_janakpuri_south",
@@ -20545,7 +20690,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dabri+Mor+-+Janakpuri+South/@28.615906,77.085257,17z/data=!3m1!4b1!4m6!3m5!1s0x390d04b3f886f1f5:0x67f28d56d1b6ad69!8m2!3d28.615906!4d77.085257!16s%2Fg%2F11c1pn4l8z?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nangloi": {
 		"id": "nangloi",
@@ -20688,7 +20834,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nangloi/@28.6822315,77.060515,17z/data=!4m10!1m2!2m1!1sNangloi+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0436d9873e1f:0xf2e0b4ea1a381609!8m2!3d28.68233!4d77.06481!15sCipOYW5nbG9pIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0b__d4k?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"rohini_east": {
 		"id": "rohini_east",
@@ -20798,7 +20945,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dr.+Baba+Saheb+Ambedkar+Hospital/@28.7200175,77.12351,14z/data=!4m10!1m2!2m1!1sRohini+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d015aebf7e051:0xfc1f1b74b1264d0!8m2!3d28.714869!4d77.115484!15sCilSb2hpbmkgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0c02tvz?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"najafgarh": {
 		"id": "najafgarh",
@@ -20965,7 +21113,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_kakrola"}, "1": {"destination": "dhansa_bus_stand"}}
+		"platforms": {"2": {"destination": "dwarka_kakrola"}, "1": {"destination": "dhansa_bus_stand"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Najafgarh+metro+station/@28.6126363,76.9864284,17z/data=!4m10!1m2!2m1!1sNajafgarh+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0fc2b34d818f:0x5f514563f3311e23!8m2!3d28.6125955!4d76.986314!15sCixOYWphZmdhcmggTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBF2xvZ2ljYWxfdHJhbnNpdF9zdGF0aW9u4AEA!16s%2Fg%2F11c548rvvx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dhansa_bus_stand": {
 		"id": "dhansa_bus_stand",
@@ -21123,7 +21272,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_kakrola"}, "1": {"destination": "dhansa_bus_stand"}}
+		"platforms": {"2": {"destination": "dwarka_kakrola"}, "1": {"destination": "dhansa_bus_stand"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dhansa+Bus+Stand/@28.6119,76.978,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0fc52d630145:0x6964dacbebb77eee!8m2!3d28.6119!4d76.978!16s%2Fg%2F11nxd628bc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ghevra_metro_station": {
 		"id": "ghevra_metro_station",
@@ -21237,7 +21387,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ghevra/@28.6883065,76.9968454,17z/data=!4m10!1m2!2m1!1sGhevra+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0f4d749e502f:0x792f1e981d01c6ca!8m2!3d28.691376!4d76.9975867!15sCilHaGV2cmEgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDXRyYWluX3N0YXRpb27gAQA!16s%2Fg%2F11g6jt7htn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jasola_apollo": {
 		"id": "jasola_apollo",
@@ -21383,7 +21534,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jasola+Apollo/@28.53813,77.2833,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3fe2963c1c3:0xd287f2d501c9e8e6!8m2!3d28.53813!4d77.2833!16s%2Fm%2F0dgqzkv?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shaheed_sthal_new_bus_adda": {
 		"id": "shaheed_sthal_new_bus_adda",
@@ -21514,7 +21666,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shaheed+Sthal+Metro+Station/@28.6706161,77.4154526,17z/data=!4m10!1m2!2m1!1sShaheed+Sthal+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cf100439e01cb:0x1deb99645304d26e!8m2!3d28.6706049!4d77.4154498!15sCjBTaGFoZWVkIFN0aGFsIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaLyItc2hhaGVlZCBzdGhhbCBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11fkjhc1jz?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"johri_enclave": {
 		"id": "johri_enclave",
@@ -21633,7 +21786,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "majlis_park"}, "1": {"destination": "shiv_vihar"}}
+		"platforms": {"2": {"destination": "majlis_park"}, "1": {"destination": "shiv_vihar"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Johri+Enclave/@28.71318,77.29006,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfbf9a89b8b67:0xac81fe96600c10c!8m2!3d28.71318!4d77.29006!16s%2Fg%2F11c1s0sd0d?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"akshardham": {
 		"id": "akshardham",
@@ -21832,7 +21986,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Akshardham+Metro+Station/@28.614559,77.2779315,16z/data=!4m10!1m2!2m1!1sAkshardham+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce30056715ac1:0x9e81093161d67d73!8m2!3d28.6181544!4d77.2794251!15sCi1Ba3NoYXJkaGFtIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSARptZXRyb3BvbGl0YW5fdHJhaW5fY29tcGFueeABAA!16s%2Fg%2F11lv_0nv32?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_145": {
 		"id": "noida_sector_145",
@@ -21842,7 +21997,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+145/@28.479123,77.442307,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce9c144e5d595:0x740a30a64cfbf421!8m2!3d28.479123!4d77.442307!16s%2Fg%2F11g_vqlb8f?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"esi_basaidarapur": {
 		"id": "esi_basaidarapur",
@@ -21961,7 +22117,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/ESI-Basaidarapur/@28.65816,77.12732,17z/data=!3m1!4b1!4m6!3m5!1s0x390d030ae41c6901:0x453d51402be239d8!8m2!3d28.65816!4d77.12732!16s%2Fg%2F11c1kc32gf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"indraprastha": {
 		"id": "indraprastha",
@@ -22077,7 +22234,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Indraprastha/@28.62055,77.24995,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce32e711a234b:0x37a4ef4a9b42e2ee!8m2!3d28.62055!4d77.24995!16s%2Fm%2F0c3z3fj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"guru_teg_bahadur_nagar": {
 		"id": "guru_teg_bahadur_nagar",
@@ -22223,7 +22381,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Guru+Tegh+Bahadur+Nagar/@28.6983497,77.2060176,17z/data=!4m10!1m2!2m1!1sGuru+Teg+Bahadur+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfdf1e1bffcf1:0x111027bb55786a09!8m2!3d28.698384!4d77.20588!15sCjlHdXJ1IFRlZyBCYWhhZHVyIE5hZ2FyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F1tf193_5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"guru_dronacharya": {
 		"id": "guru_dronacharya",
@@ -22349,7 +22508,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Guru+Dronacharya/@28.4818762,77.1020647,17z/data=!4m10!1m2!2m1!1sGuru+Dronacharya+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d192ccbc80179:0x34f6d43edaad90f9!8m2!3d28.4819493!4d77.1022518!15sCjNHdXJ1IERyb25hY2hhcnlhIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0cz8wkf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_42_43": {
 		"id": "sector_42_43",
@@ -22503,7 +22663,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+42-43/@28.45739,77.096958,17z/data=!4m10!1m2!2m1!1sSector-42-43+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d18cc03b135bf:0xd993b3e9fa6e8208!8m2!3d28.45743!4d77.09694!15sCi9TZWN0b3ItNDItNDMgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11dynx4rct?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nehru_enclave": {
 		"id": "nehru_enclave",
@@ -22690,7 +22851,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nehru+Enclave/@28.5458514,77.251167,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3d01b6c2f7f:0x6d65f3a56210d731!8m2!3d28.5458514!4d77.251167!16s%2Fg%2F11cs0rx8n_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mohan_estate": {
 		"id": "mohan_estate",
@@ -22828,7 +22990,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mohan+Estate/@28.5196835,77.2946087,17z/data=!4m10!1m2!2m1!1sMohan+Estate+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce6b6fbb63f7d:0xa513414022c491c7!8m2!3d28.51952!4d77.29456!15sCi9Nb2hhbiBFc3RhdGUgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVouIixtb2hhbiBlc3RhdGUgbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0dgnj_z?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"okhla_vihar": {
 		"id": "okhla_vihar",
@@ -22947,7 +23110,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Okhla+Vihar/@28.56109,77.29189,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce40b56d5b325:0x1328cc1b0125ee20!8m2!3d28.56109!4d77.29189!16s%2Fg%2F11c1q4hb5h?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shahdara": {
 		"id": "shahdara",
@@ -23094,7 +23258,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shahdara/@28.67345,77.28988,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfb7f015725d1:0x502708cd8cd40e51!8m2!3d28.67345!4d77.28988!16s%2Fm%2F0c01xgq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dhaula_kuan": {
 		"id": "dhaula_kuan",
@@ -23261,7 +23426,8 @@
 			"TL1": {"destination": "dhaula_kuan"},
 			"1": {"destination": "yashobhoomi_dwarka_sector_25"},
 			"2": {"destination": "new_delhi_yellow_airport_line"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dhaula+Kuan/@28.5921481,77.1621355,17z/data=!4m10!1m2!2m1!1sDhaula+Kuan+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1d170c01636b:0x62e92ce3192c59ee!8m2!3d28.59189!4d77.16167!15sCi5EaGF1bGEgS3VhbiBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F1hg4sn5sv?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jafrabad": {
 		"id": "jafrabad",
@@ -23376,7 +23542,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jaffrabad/@28.6827585,77.2747474,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfc64d3083359:0x393bc386f0ba4578!8m2!3d28.6827585!4d77.2747474!16s%2Fg%2F11c562ysrv?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dr_baba_saheb_ambedkar_hospital": {
 		"id": "dr_baba_saheb_ambedkar_hospital",
@@ -23478,7 +23645,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dr.+Baba+Saheb+Ambedkar+Hospital/@28.7145967,77.1145251,17z/data=!4m10!1m2!2m1!1sDr.+Baba+Saheb+Ambedkar+Hospital+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d015044824d55:0xd681b31a1afbf378!8m2!3d28.7132498!4d77.114264!15sCkNEci4gQmFiYSBTYWhlYiBBbWJlZGthciBIb3NwaXRhbCBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhWkEiP2RyIGJhYmEgc2FoZWIgYW1iZWRrYXIgaG9zcGl0YWwgbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBE2dvdmVybm1lbnRfaG9zcGl0YWzgAQA!16s%2Fg%2F1tdc856b?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"palam": {
 		"id": "palam",
@@ -23609,7 +23777,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Palam/@28.58907,77.08296,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1b41b7bf3f0f:0xaf4ab794d32d9f05!8m2!3d28.58907!4d77.08296!16s%2Fm%2F013d63dx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shyam_park": {
 		"id": "shyam_park",
@@ -23751,7 +23920,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shyam+Park/@28.6782,77.37024,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfa8683b36563:0xe6e3c262a6bcac1b!8m2!3d28.6782!4d77.37024!16s%2Fg%2F11g6nkhp_5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"vaishali": {
 		"id": "vaishali",
@@ -23926,7 +24096,8 @@
 		"platforms": {
 			"Pl2": {"destination": "yamuna_bank", "destination_second": "dwarka_sector_21"},
 			"1": {"destination": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vaishali/@28.6499247,77.3389092,17z/data=!4m10!1m2!2m1!1sVaishali+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfadbb9d8f833:0xa063c0e377aae595!8m2!3d28.64984!4d77.33968!15sCitWYWlzaGFsaSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEPdHJhbnNpdF9zdGF0aW9u4AEA!16s%2Fm%2F0g545sw?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jahangirpuri": {
 		"id": "jahangirpuri",
@@ -24056,7 +24227,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jahangirpuri,+Delhi/@28.7286098,77.166959,15z/data=!3m1!4b1!4m6!3m5!1s0x390d01ea1adeaa4d:0x6adf0aec6fc00a2c!8m2!3d28.7296171!4d77.1666313!16s%2Fg%2F1hc5m0c5n?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"badarpur_border": {
 		"id": "badarpur_border",
@@ -24188,7 +24360,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Badarpur+Border/@28.49325,77.30297,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce72750764457:0x1f2cb38f04a4dd7b!8m2!3d28.49325!4d77.30297!16s%2Fm%2F0dgqhkd?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ito": {
 		"id": "ito",
@@ -24431,7 +24604,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/ITO/@28.62839,77.24118,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfcd567217f67:0x493187c78273de73!8m2!3d28.62839!4d77.24118!16s%2Fm%2F012vxxyt?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"badkal_mor": {
 		"id": "badkal_mor",
@@ -24579,7 +24753,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Badkal+Mor/@28.4227532,77.3103573,17z/data=!3m1!4b1!4m6!3m5!1s0x390cddbf9d1579d5:0x19b7ddce93c12fe7!8m2!3d28.4227532!4d77.3103573!16s%2Fg%2F11bbwpmdqd?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"naraina_vihar": {
 		"id": "naraina_vihar",
@@ -24692,7 +24867,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Naraina+Vihar+metro/@28.6235455,77.1367158,17z/data=!4m10!1m2!2m1!1sNaraina+Vihar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d030c59d174dd:0x7381e1686ab7f2dd!8m2!3d28.6229661!4d77.1369436!15sCjBOYXJhaW5hIFZpaGFyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaLyItbmFyYWluYSB2aWhhciBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEabWV0cm9wb2xpdGFuX3RyYWluX2NvbXBhbnmaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRXZUZaVmJHNVhWR3cwVkZaT2FGVnRXVEZWUkdSNVdXMUdhRlZIWXhBQuABAPoBBAgAEDI!16s%2Fg%2F11ssk38gvc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"rajdhani_park": {
 		"id": "rajdhani_park",
@@ -24783,7 +24959,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rajdhani+Park/@28.6822794,77.044007,17z/data=!3m1!4b1!4m6!3m5!1s0x390d05c5eeb3ea69:0x8ce9b38e26e65d1a!8m2!3d28.6822794!4d77.044007!16s%2Fm%2F0c01fmt?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"maharaja_surajmal_stadium": {
 		"id": "maharaja_surajmal_stadium",
@@ -24912,7 +25089,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Surajmal+Stadium/@28.68182,77.07396,17z/data=!3m1!4b1!4m6!3m5!1s0x390d043ed2f7d143:0xadee37005c4a2bdb!8m2!3d28.68182!4d77.07396!16s%2Fm%2F0b_zyv5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"punjabi_bagh": {
 		"id": "punjabi_bagh",
@@ -25055,7 +25233,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Punjabi+Bagh/@28.6728346,77.1426196,17z/data=!4m10!1m2!2m1!1sPunjabi+Bagh+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d03ad712c7c89:0xb16bdbcfb4357cba!8m2!3d28.6729291!4d77.1460592!15sCi9QdW5qYWJpIEJhZ2ggTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0c008zm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"depot_greater_noida": {
 		"id": "depot_greater_noida",
@@ -25065,7 +25244,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Depot+Station/@28.4870443,77.5485062,17z/data=!4m10!1m2!2m1!1sDepot+Station+Metro+Station,+Noida,+Uttar+Pradesh,+India!3m6!1s0x390ceabeb9bf6505:0xdc9ca942ff9d05f8!8m2!3d28.488652!4d77.544076!15sCjhEZXBvdCBTdGF0aW9uIE1ldHJvIFN0YXRpb24sIE5vaWRhLCBVdHRhciBQcmFkZXNoLCBJbmRpYVo3IjVkZXBvdCBzdGF0aW9uIG1ldHJvIHN0YXRpb24gbm9pZGEgdXR0YXIgcHJhZGVzaCBpbmRpYZIBDnN1YndheV9zdGF0aW9umgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDIxck1tSkhSbmxPUXpCNVRWZE9NMkZJY0VaVmJFNVRVakpLYmxNeVl4QULgAQD6AQQIABA2!16s%2Fg%2F11g9qjbwd0?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"trilokpuri_sanjay_lake": {
 		"id": "trilokpuri_sanjay_lake",
@@ -25203,7 +25383,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Trilokpuri-Sanjay+Lake/@28.61359,77.30884,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce4bf67f99b69:0x97ed4d05b92e3862!8m2!3d28.61359!4d77.30884!16s%2Fg%2F11cs22f4yt?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_sector_11": {
 		"id": "dwarka_sector_11",
@@ -25292,7 +25473,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Sector+11/@28.5864967,77.0494739,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1addc7ff38af:0xd9397ba1ca016f22!8m2!3d28.5864967!4d77.0494739!16s%2Fg%2F11bc6lw5q5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"iffco_chowk": {
 		"id": "iffco_chowk",
@@ -25457,7 +25639,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Iffco+Chowk/@28.4718825,77.0724245,17z/data=!4m10!1m2!2m1!1sIffco+Chowk+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d191df476df59:0x5904a6dfc5648c22!8m2!3d28.47224!4d77.0724!15sCi5JZmZjbyBDaG93ayBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0czbys8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"rajiv_chowk": {
 		"id": "rajiv_chowk",
@@ -25818,7 +26001,8 @@
 			"3": {"destination": "noida_electronic_city", "destination_second": "vaishali"},
 			"2": {"destination": "samaypur_badli_dipo"},
 			"1": {"destination": "millennium_city_centre_gurugram"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rajiv+Chowk/@28.6330206,77.2191559,17z/data=!4m10!1m2!2m1!1sRajiv+Chowk+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd37ebbdf4af:0x2be7eefccedf4b84!8m2!3d28.632986!4d77.219374!15sCi5SYWppdiBDaG93ayBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0b__d_7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"greater_kailash": {
 		"id": "greater_kailash",
@@ -25960,7 +26144,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Greater+Kailash/@28.541832,77.238247,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce22cfc9dd501:0xc87ac4bb13a8554d!8m2!3d28.541832!4d77.238247!16s%2Fg%2F11c543jld4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"moulsari_avenue": {
 		"id": "moulsari_avenue",
@@ -26065,7 +26250,8 @@
 				}
 			}
 		},
-		"platforms": {"1": {"destination": "sector_55_56"}}
+		"platforms": {"1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Moulsari+Avenue/@28.5008186,77.0945853,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1949109c268b:0x57804cdafde7c5f7!8m2!3d28.5008186!4d77.0945853!16s%2Fm%2F0zdnssg?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"south_extension": {
 		"id": "south_extension",
@@ -26243,7 +26429,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/South+Extension/@28.5685837,77.2202309,17z/data=!4m10!1m2!2m1!1sSouth+Extension+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce25d02f7ed73:0x6a5eb2c766f2ed58!8m2!3d28.568611!4d77.220265!15sCjJTb3V0aCBFeHRlbnNpb24gTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVoxIi9zb3V0aCBleHRlbnNpb24gbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11c1q9hck4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"phase_2": {
 		"id": "phase_2",
@@ -26365,7 +26552,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Phase-2/@28.48761,77.09287,17z/data=!3m1!4b1!4m6!3m5!1s0x390d19305b9f7c19:0xdbfd70d4dfff72a6!8m2!3d28.48761!4d77.09287!16s%2Fm%2F0zdlhb2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"lajpat_nagar": {
 		"id": "lajpat_nagar",
@@ -26608,7 +26796,8 @@
 			"3": {"destination": "shiv_vihar"},
 			"2": {"destination": "kashmere_gate"},
 			"1": {"destination": "raja_nahar_singh_ballabhgarh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Priyanshu+electrican/@28.5710415,77.2395698,17z/data=!4m10!1m2!2m1!1sLajpat+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce3acb72f236f:0x520c18b74fd34be5!8m2!3d28.5713351!4d77.2426897!15sCi9MYWpwYXQgTmFnYXIgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBFnRyYW5zcG9ydGF0aW9uX3NlcnZpY2XgAQA!16s%2Fg%2F11c8051_45?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"tilak_nagar": {
 		"id": "tilak_nagar",
@@ -26782,7 +26971,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Tilak+Nagar/@28.636263,77.096783,17z/data=!4m10!1m2!2m1!1sTilak+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0498cea2c6dd:0xdfddb635baac1a46!8m2!3d28.636568!4d77.09648!15sCi5UaWxhayBOYWdhciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0c3zvfn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"civil_lines": {
 		"id": "civil_lines",
@@ -26888,7 +27078,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Civil+Lines/@28.67699,77.224955,17z/data=!4m10!1m2!2m1!1sCivil+Lines+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfda43ee2016f:0x603e14bdb3be133c!8m2!3d28.67734!4d77.22481!15sCi5DaXZpbCBMaW5lcyBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0c02xxj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sukhdev_vihar": {
 		"id": "sukhdev_vihar",
@@ -27031,7 +27222,8 @@
 		"platforms": {
 			"2": {"destination": "botanical_garden"},
 			"1": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sukhdev+Vihar/@28.5597744,77.2751248,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3f2aa8eca7b:0x8eda79701ae51f47!8m2!3d28.5597744!4d77.2751248!16s%2Fg%2F11c1q4mvxp?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"vasant_vihar": {
 		"id": "vasant_vihar",
@@ -27206,7 +27398,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vasant+Vihar/@28.557829,77.16099,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1dba89c1445d:0x99bdad1ce98c31e7!8m2!3d28.557829!4d77.16099!16s%2Fg%2F11c53kjtt8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shastri_park": {
 		"id": "shastri_park",
@@ -27317,7 +27510,8 @@
 			},
 			"escalators": {}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shastri+Park/@28.6683013,77.2502654,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfcf9b8d4e3bd:0x76fc050bf6c7b5f5!8m2!3d28.6683013!4d77.2502654!16s%2Fm%2F0c00jg9?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"seva_teerth_earlier_udyog_bhawan": {
 		"id": "seva_teerth_earlier_udyog_bhawan",
@@ -27469,7 +27663,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Seva+Teerth/@28.61071,77.21188,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce2b757b99451:0x16fdb450627500cc!8m2!3d28.61071!4d77.21188!16s%2Fg%2F12hrzvcnl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mandawali_west_vinod_nagar": {
 		"id": "mandawali_west_vinod_nagar",
@@ -27588,7 +27783,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mandawali+-+West+Vinod+Nagar/@28.624877,77.304372,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce4b6b0b98c19:0xe85768256f84da83!8m2!3d28.624877!4d77.304372!16s%2Fg%2F11g1bpg26b?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nsez_noida": {
 		"id": "nsez_noida",
@@ -27598,7 +27794,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/NSEZ/@28.532238,77.394772,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce8bbe8b9ce0f:0x6eeed32111032721!8m2!3d28.532238!4d77.394772!16s%2Fg%2F11h365_pwj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"r_k_puram": {
 		"id": "r_k_puram",
@@ -27786,7 +27983,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/R.K.+Puram/@28.5503497,77.1851486,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1df2c4444d5f:0xf6c0e50567beee23!8m2!3d28.5503497!4d77.1851486!16s%2Fg%2F11cs0p_pgj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"delhi_gate": {
 		"id": "delhi_gate",
@@ -27949,7 +28147,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Delhi+Gate/@28.6389069,77.2408083,17z/data=!4m10!1m2!2m1!1sDelhi+Gate+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd277dd79ab3:0xe6e6242f40038080!8m2!3d28.64008!4d77.24051!15sCi1EZWxoaSBHYXRlIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11c5ssssx2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"new_delhi_yellow_airport_line": {
 		"id": "new_delhi_yellow_airport_line",
@@ -28204,7 +28403,8 @@
 			"4": {"destination": "yashobhoomi_dwarka_sector_25"},
 			"3": {"destination": "yashobhoomi_dwarka_sector_25"},
 			"New Delhi": {"destination": "new_delhi_yellow_airport_line"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/New+Delhi/@28.6432011,77.2214674,18z/data=!4m10!1m2!2m1!1sNew+Delhi+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd3e911ea45f:0xe0cf33ccc2da2bbe!8m2!3d28.6437208!4d77.2229898!15sCixOZXcgRGVsaGkgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F1261kh9n3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bahadurgarh_city": {
 		"id": "bahadurgarh_city",
@@ -28323,7 +28523,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bahadurgarh+City/@28.694055,76.927325,16z/data=!4m10!1m2!2m1!1sBahadurgarh+City+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d094c7fdb6217:0xa2a32bd545b566b9!8m2!3d28.69074!4d76.93538!15sCjNCYWhhZHVyZ2FyaCBDaXR5IE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaMiIwYmFoYWR1cmdhcmggY2l0eSBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEOc3Vid2F5X3N0YXRpb26aASRDaGREU1VoTk1HOW5TMFZKUTBGblRVUlJkSFZZTkcxblJSQULgAQD6AQUIkAQQRw!16s%2Fg%2F11c6mc38bn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sant_surdas_sihi": {
 		"id": "sant_surdas_sihi",
@@ -28448,7 +28649,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sant+Surdas+(Sihi)/@28.3547392,77.316201,17z/data=!3m1!4b1!4m6!3m5!1s0x390cdb899bf2cfd3:0x2e9086b01a121da1!8m2!3d28.3547392!4d77.316201!16s%2Fg%2F11c526fjdt?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shalimar_bagh": {
 		"id": "shalimar_bagh",
@@ -28623,7 +28825,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shalimar+Bagh/@28.701819,77.165191,17z/data=!3m1!4b1!4m6!3m5!1s0x390d02247c852455:0xd546b4b075572b06!8m2!3d28.701819!4d77.165191!16s%2Fg%2F11c54fbxy5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mohan_nagar": {
 		"id": "mohan_nagar",
@@ -28756,7 +28959,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mohan+Nagar/@28.67848,77.383933,17z/data=!3m1!4b1!4m6!3m5!1s0x390cf07959b4eea3:0xe8c07d9081f43b35!8m2!3d28.67848!4d77.383933!16s%2Fg%2F11fkdjwdy6?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_16": {
 		"id": "noida_sector_16",
@@ -28887,7 +29091,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+16+Metro+Station/@28.5784136,77.317519,17z/data=!4m10!1m2!2m1!1sNoida+Sector-16+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce45ba6481455:0xcd52ec8780a441f6!8m2!3d28.578592!4d77.317241!15sCjJOb2lkYSBTZWN0b3ItMTYgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBCGJ1c19zdG9w4AEA!16s%2Fg%2F11b63dptnc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"peeragarhi": {
 		"id": "peeragarhi",
@@ -29037,7 +29242,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Peeragarhi/@28.6798246,77.0928139,17z/data=!4m10!1m2!2m1!1sPeeragarhi+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d0472c9c1bbf7:0x5b7f697b01c14ad7!8m2!3d28.6796532!4d77.0927769!15sCi1QZWVyYWdhcmhpIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaLCIqcGVlcmFnYXJoaSBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F1hc25swmp?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"hindon_river": {
 		"id": "hindon_river",
@@ -29183,7 +29389,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Hindon+River/@28.673329,77.4060895,17z/data=!4m10!1m2!2m1!1sHindon+River+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cf0437a9dd911:0xa7052bc649f79007!8m2!3d28.673415!4d77.40637!15sCi9IaW5kb24gUml2ZXIgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVouIixoaW5kb24gcml2ZXIgbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11dxb2bxtx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"new_ashok_nagar": {
 		"id": "new_ashok_nagar",
@@ -29307,7 +29514,8 @@
 		"platforms": {
 			"1": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true},
 			"2": {"line": "ncrtc.delhi_meerut_rrts", "is_open": true, "lounge": true}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/New+Ashok+Nagar/@28.590105,77.30225,17z/data=!4m10!1m2!2m1!1sNew+Ashok+Nagar+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390ce4894a696a1b:0xb6e6d1ecf5aecf8a!8m2!3d28.59105!4d77.30236!15sCkpOZXcgQXNob2sgTmFnYXIgTWV0cm8gU3RhdGlvbiwgRGVsaGkgTWVlcnV0IFJSVFMgTmFtbyBCaGFyYXQsIEluZGlhLCBJbmRpYZIBDXRyYWluX3N0YXRpb27gAQA!16s%2Fg%2F11wvkj4bx5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jor_bagh": {
 		"id": "jor_bagh",
@@ -29451,7 +29659,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jorbagh/@28.5858006,77.2126893,17z/data=!4m10!1m2!2m1!1sJor+Bagh+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce28dd0929e53:0xafe5ea52292caaad!8m2!3d28.5858902!4d77.2125106!15sCitKb3IgQmFnaCBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0cz9twl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"janakpuri_east": {
 		"id": "janakpuri_east",
@@ -29573,7 +29782,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Janak+Puri+East/@28.63306,77.08672,17z/data=!3m1!4b1!4m6!3m5!1s0x390d04bdf2bfea59:0x32e1eed797c74924!8m2!3d28.63306!4d77.08672!16s%2Fm%2F0c420qs?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"chirag_delhi": {
 		"id": "chirag_delhi",
@@ -29731,7 +29941,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Chirag+Delhi+metro+station/@28.5413908,77.230634,17z/data=!4m10!1m2!2m1!1sChirag+Delhi+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce22f00018eeb:0xb0d9d782d2f8c15f!8m2!3d28.5415545!4d77.231886!15sCi9DaGlyYWcgRGVsaGkgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBF2xvZ2ljYWxfdHJhbnNpdF9zdGF0aW9u4AEA!16s%2Fg%2F11c1q4vm5t?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_81": {
 		"id": "noida_sector_81",
@@ -29741,7 +29952,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+81/@28.549259,77.3901,17z/data=!3m1!4b1!4m6!3m5!1s0x390cef4d5fd7fd03:0xb141c71a857df97e!8m2!3d28.549259!4d77.3901!16s%2Fg%2F11g9qhcpzc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shaheed_nagar": {
 		"id": "shaheed_nagar",
@@ -29872,7 +30084,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shaheed+Nagar/@28.676632,77.333759,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfafe3838ec01:0xa366051c123383f6!8m2!3d28.676632!4d77.333759!16s%2Fg%2F11dxb15810?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"kailash_colony": {
 		"id": "kailash_colony",
@@ -29994,7 +30207,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kailash+Colony/@28.5553874,77.2419541,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3cac20bac6b:0x49f70e91d185af46!8m2!3d28.5553874!4d77.2419541!16s%2Fm%2F0dgq6j2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shankar_vihar": {
 		"id": "shankar_vihar",
@@ -30087,7 +30301,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shankar+Vihar/@28.5608126,77.140345,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1c51ae2b3a69:0x75f6eafa21ee2c92!8m2!3d28.5608126!4d77.140345!16s%2Fg%2F11c1plr7lv?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_83": {
 		"id": "noida_sector_83",
@@ -30097,7 +30312,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+83/@28.522284,77.396475,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce89431916d79:0x9258d396fc180b3d!8m2!3d28.522284!4d77.396475!16s%2Fg%2F11f03_gjhh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_34_noida": {
 		"id": "sector_34_noida",
@@ -30207,7 +30423,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+34+Noida/@28.580118,77.363486,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce59a79a005e1:0xc7ca703720a8d20c!8m2!3d28.580118!4d77.363486!16s%2Fg%2F11c1g6bdh1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"karol_bagh": {
 		"id": "karol_bagh",
@@ -30388,7 +30605,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Karol+Bagh+Metro+Station/@28.6441026,77.1887616,17z/data=!4m10!1m2!2m1!1sKarol+Bagh+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d029e6ae3ea51:0x55d791d301c49f6d!8m2!3d28.6439593!4d77.1884902!15sCi1LYXJvbCBCYWdoIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSARZ0cmFuc3BvcnRhdGlvbl9zZXJ2aWNl4AEA!16s%2Fg%2F11c74ck4_p?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"tagore_garden": {
 		"id": "tagore_garden",
@@ -30516,7 +30734,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Tagore+Garden/@28.643754,77.1128805,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0365942aa2dd:0x5b2db2d0eb309968!8m2!3d28.643754!4d77.1128805!16s%2Fm%2F0c3w3kn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shivaji_park": {
 		"id": "shivaji_park",
@@ -30661,7 +30880,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shivaji+Park/@28.6749521,77.1305158,17z/data=!4m10!1m2!2m1!1sShivaji+Park+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d03bc89160fa9:0x3b84129381073356!8m2!3d28.674939!4d77.130582!15sCi9TaGl2YWppIFBhcmsgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F1vzg0mkh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"green_park": {
 		"id": "green_park",
@@ -30905,7 +31125,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Green+Park/@28.5598225,77.2068305,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce26e0cf0b895:0x720a4385a7280328!8m2!3d28.5598225!4d77.2068305!16s%2Fm%2F0czdfr4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"patel_nagar": {
 		"id": "patel_nagar",
@@ -31052,7 +31273,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Patel+Nagar/@28.6453192,77.1687745,17z/data=!4m10!1m2!2m1!1sPatel+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d02eb04589231:0xeaa718aa62568259!8m2!3d28.6450319!4d77.169271!15sCi5QYXRlbCBOYWdhciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0c3xg29?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dilshad_garden": {
 		"id": "dilshad_garden",
@@ -31201,7 +31423,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dilshad+Garden/@28.6758229,77.3219024,17z/data=!4m10!1m2!2m1!1sDilshad+Garden+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfb062dcad56b:0x2f194645d239bdd9!8m2!3d28.6758978!4d77.3215165!15sCjFEaWxzaGFkIEdhcmRlbiBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhWjAiLmRpbHNoYWQgZ2FyZGVuIG1ldHJvIHN0YXRpb24gZGVsaGkgaW5kaWEgaW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0c01dcq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"east_vinod_nagar_mayur_vihar_ii": {
 		"id": "east_vinod_nagar_mayur_vihar_ii",
@@ -31326,7 +31549,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/East+Vinod+Nagar-+Mayur+Vihar-II/@28.620057,77.30527,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce4b9de4b8609:0xf1b76a241d4d61b4!8m2!3d28.620057!4d77.30527!16s%2Fg%2F11ffm1qxgl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"seelampur": {
 		"id": "seelampur",
@@ -31399,7 +31623,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Seelampur/@28.6701597,77.266416,17z/data=!4m10!1m2!2m1!1sSeelampur+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfc8bba678ffd:0x452efd7e1ae84406!8m2!3d28.6698!4d77.26681!15sCixTZWVsYW1wdXIgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYVorIilzZWVsYW1wdXIgbWV0cm8gc3RhdGlvbiBkZWxoaSBpbmRpYSBpbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11bc5k10xb?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ghitorni": {
 		"id": "ghitorni",
@@ -31528,7 +31753,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ghitorni/@28.493814,77.1491754,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1e58867cdf0d:0xa29166883445041e!8m2!3d28.493814!4d77.1491754!16s%2Fm%2F0czf4kh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shadipur": {
 		"id": "shadipur",
@@ -31687,7 +31913,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shadipur/@28.6514993,77.1585677,17z/data=!4m10!1m2!2m1!1sShadipur+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d02e530d65c5d:0xfa4bbc0a27aad3be!8m2!3d28.65162!4d77.15823!15sCitTaGFkaXB1ciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0c3z8s8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"paschim_vihar_east": {
 		"id": "paschim_vihar_east",
@@ -31823,7 +32050,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Paschim+Vihar+(East)/@28.67727,77.11241,17z/data=!3m1!4b1!4m6!3m5!1s0x390d038dc3919f2f:0xbf62ad7bc5250ac6!8m2!3d28.67727!4d77.11241!16s%2Fm%2F0c03bqh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"pulbangash": {
 		"id": "pulbangash",
@@ -31924,7 +32152,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Pulbangash/@28.6667342,77.2077387,17z/data=!4m10!1m2!2m1!1sPulbangash+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd77968812b5:0xbe27ad49279b49bd!8m2!3d28.6664!4d77.20737!15sCi1QdWxiYW5nYXNoIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F12lt0n0yn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"khan_market": {
 		"id": "khan_market",
@@ -32118,7 +32347,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Khan+Market/@28.6023087,77.2287568,17z/data=!4m10!1m2!2m1!1sKhan+Market+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce2dd53ad2bff:0xb7a70be3d8c91e88!8m2!3d28.6024664!4d77.2284946!15sCi5LaGFuIE1hcmtldCBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEXbG9naWNhbF90cmFuc2l0X3N0YXRpb27gAQA!16s%2Fm%2F0dgpnn1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_sector_13": {
 		"id": "dwarka_sector_13",
@@ -32205,7 +32435,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Sector+13/@28.5970721,77.0334019,17z/data=!4m10!1m2!2m1!1sDwarka+Sector+-+13+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1ab7d354c4d9:0xfd17bcc20ab43fae!8m2!3d28.5972!4d77.03333!15sCjVEd2Fya2EgU2VjdG9yIC0gMTMgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0c3wrjj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"udyog_nagar": {
 		"id": "udyog_nagar",
@@ -32333,7 +32564,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Udyog+Nagar/@28.6811066,77.0807406,17z/data=!4m10!1m2!2m1!1sUdyog+Nagar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d04156d1e8abb:0xbec77c50f1278f96!8m2!3d28.681048!4d77.080864!15sCi5VZHlvZyBOYWdhciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhWi0iK3VkeW9nIG5hZ2FyIG1ldHJvIHN0YXRpb24gZGVsaGkgaW5kaWEgaW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0c012g0?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_101": {
 		"id": "noida_sector_101",
@@ -32343,7 +32575,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+101/@28.55607,77.385052,17z/data=!3m1!4b1!4m6!3m5!1s0x390cef50d86af969:0x7f15a5bef1cf1b64!8m2!3d28.55607!4d77.385052!16s%2Fg%2F11g9qpw0f5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"durgabai_deshmukh_south_campus": {
 		"id": "durgabai_deshmukh_south_campus",
@@ -32549,7 +32782,8 @@
 			"TL 2": {"destination": "durgabai_deshmukh_south_campus"},
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Durgabai+Deshmukh+South+Campus/@28.58938,77.16952,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1d136f84181b:0xcb233b5be1a6409b!8m2!3d28.58938!4d77.16952!16s%2Fg%2F11g9sw4l7g?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"alpha_1_greater_noida": {
 		"id": "alpha_1_greater_noida",
@@ -32559,7 +32793,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Alpha+1/@28.470879,77.512715,17z/data=!3m1!4b1!4m6!3m5!1s0x390cea7efa57cb03:0xfdbf4eb74af312e5!8m2!3d28.470879!4d77.512715!16s%2Fg%2F11g_vqpj4t?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"east_azad_nagar": {
 		"id": "east_azad_nagar",
@@ -32668,7 +32903,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/East+Azad+Nagar/@28.66479,77.2848,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfc82c8e97a31:0x814a1c3a410f96f4!8m2!3d28.66479!4d77.2848!16s%2Fg%2F11c1s1swkn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mg_road": {
 		"id": "mg_road",
@@ -32838,7 +33074,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/MG+Road/@28.4795215,77.0797902,17z/data=!4m10!1m2!2m1!1sM.g.+Road+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d192213158aad:0xe1fc68b4fe386372!8m2!3d28.47957!4d77.08006!15sCixNLmcuIFJvYWQgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0czb20w?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ip_extension": {
 		"id": "ip_extension",
@@ -32954,7 +33191,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/I.P.+Extension/@28.6319356,77.3107566,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce4cab453207b:0x63b2f5d8d0e25938!8m2!3d28.6319356!4d77.3107566!16s%2Fg%2F11hd9z7zyx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"malviya_nagar": {
 		"id": "malviya_nagar",
@@ -33132,7 +33370,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Malviya+Nagar/@28.52899,77.20499,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce1f8327e3af1:0x619fdbb994ead16a!8m2!3d28.52899!4d77.20499!16s%2Fm%2F0cz82cq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"govind_puri": {
 		"id": "govind_puri",
@@ -33305,7 +33544,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Govind+Puri/@28.5448335,77.2642565,17z/data=!4m10!1m2!2m1!1sGovind+Puri+Metro+Station,+Delhi,+India,+India!3m6!1s0x390ce3e77765ad0d:0x133322eb27c44c7c!8m2!3d28.5444!4d77.26435!15sCi5Hb3ZpbmQgUHVyaSBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fm%2F0dgpzvw?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"escorts_mujesar": {
 		"id": "escorts_mujesar",
@@ -33473,7 +33713,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Escorts+Mujesar/@28.3701275,77.3148172,17z/data=!4m10!1m2!2m1!1sEscorts+Mujesar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cdc6ddc0701df:0x8d9acfc7d0d3f1f7!8m2!3d28.37016!4d77.31494!15sCjJFc2NvcnRzIE11amVzYXIgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11bw4cm2md?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"neelam_chowk_ajronda": {
 		"id": "neelam_chowk_ajronda",
@@ -33632,7 +33873,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Lakhani+Armaan+-+Neelam+Chowk+Ajronda/@28.397668,77.312365,17z/data=!3m1!4b1!4m6!3m5!1s0x390cdc4a2d2c433d:0x6d418fb0462297cf!8m2!3d28.397668!4d77.312365!16s%2Fg%2F11bwdn0dxh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sultanpur": {
 		"id": "sultanpur",
@@ -33753,7 +33995,8 @@
 			"3": {"destination": "sultanpur"},
 			"2": {"destination": "samaypur_badli_dipo"},
 			"1": {"destination": "millennium_city_centre_gurugram"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sultanpur+Metro+Station/@28.4989832,77.1610308,17z/data=!4m10!1m2!2m1!1sSultanpur+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1e433e6ab3a5:0x1386cfe6a066843f!8m2!3d28.4991292!4d77.16119!15sCixTdWx0YW5wdXIgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDXRyYWluX3N0YXRpb27gAQA!16s%2Fm%2F012974g7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"lok_kalyan_marg": {
 		"id": "lok_kalyan_marg",
@@ -33876,7 +34119,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}}
+		"platforms": {"2": {"destination": "samaypur_badli_dipo"}, "1": {"destination": "millennium_city_centre_gurugram"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Lok+Kalyan+Marg/@28.5976575,77.2111773,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce2967a52c0b5:0x51b12954a1cc0e90!8m2!3d28.5976575!4d77.2111773!16s%2Fm%2F0cz8rwn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"vinobapuri": {
 		"id": "vinobapuri",
@@ -34015,7 +34259,8 @@
 		"platforms": {
 			"2": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"1": {"destination": "shiv_vihar", "destination_second": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vinobapuri/@28.565944,77.250502,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3b0f4a0db4f:0x928c5a0e05e9a815!8m2!3d28.565944!4d77.250502!16s%2Fg%2F11c561kylw?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"gokulpuri": {
 		"id": "gokulpuri",
@@ -34136,7 +34381,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "majlis_park"}, "1": {"destination": "shiv_vihar"}}
+		"platforms": {"2": {"destination": "majlis_park"}, "1": {"destination": "shiv_vihar"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Gokulpuri/@28.70241,77.28598,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfc0a70f1a93d:0xc5dd4376009b897b!8m2!3d28.70241!4d77.28598!16s%2Fg%2F11cs22pjvm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"kanhaiya_nagar": {
 		"id": "kanhaiya_nagar",
@@ -34279,7 +34525,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}}
+		"platforms": {"2": {"destination": "shaheed_sthal_new_bus_adda"}, "1": {"destination": "rithala"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kanhaiya+Nagar/@28.68237,77.16481,17z/data=!3m1!4b1!4m6!3m5!1s0x390d0246bc0d7a89:0x6278a43a80c822b3!8m2!3d28.68237!4d77.16481!16s%2Fg%2F1pty73l29?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jama_masjid": {
 		"id": "jama_masjid",
@@ -34457,7 +34704,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jama+Masjid+metro+station/@28.6503075,77.2380777,17z/data=!4m10!1m2!2m1!1sJama+Masjid+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfd1facdd3537:0x7b09bf9c620e66b7!8m2!3d28.651065!4d77.2381355!15sCi5KYW1hIE1hc2ppZCBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhkgEXbG9naWNhbF90cmFuc2l0X3N0YXRpb27gAQA!16s%2Fm%2F012vy1gk?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"raja_nahar_singh_ballabhgarh": {
 		"id": "raja_nahar_singh_ballabhgarh",
@@ -34584,7 +34832,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Raja+Nahar+Singh(Ballabgarh)/@28.339587,77.3164031,17z/data=!4m10!1m2!2m1!1sRaja+Nahar+Singh+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cdb96b454000b:0xa9842a3e18ae022f!8m2!3d28.339801!4d77.316446!15sCjNSYWphIE5haGFyIFNpbmdoIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWFaMiIwcmFqYSBuYWhhciBzaW5naCBtZXRybyBzdGF0aW9uIGRlbGhpIGluZGlhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11c1nczmg4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_76": {
 		"id": "noida_sector_76",
@@ -34594,7 +34843,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+76/@28.565448,77.379768,17z/data=!3m1!4b1!4m6!3m5!1s0x390cef5f40e0ca3b:0x60ed1756709a196e!8m2!3d28.565448!4d77.379768!16s%2Fg%2F11fy4tjxrv?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector_53_54": {
 		"id": "sector_53_54",
@@ -34739,7 +34989,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+53-54/@28.4460164,77.100622,17z/data=!4m10!1m2!2m1!1sSector-53-54+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d18b49ae620bf:0x8661b9b415e80ad5!8m2!3d28.4464177!4d77.1004521!15sCi9TZWN0b3ItNTMtNTQgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11dxlbk6ck?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"madipur": {
 		"id": "madipur",
@@ -34858,7 +35109,8 @@
 		"platforms": {
 			"2": {"destination": "inderlok", "destination_second": "kirti_nagar"},
 			"1": {"destination": "brig_hoshiar_singh"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Madipur/@28.676372,77.1193281,17z/data=!4m10!1m2!2m1!1sMadipur+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d03915278b4c3:0x7a048e601d2a0ae2!8m2!3d28.67634!4d77.11974!15sCipNYWRpcHVyIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F1jkv_mrq5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"phase_1": {
 		"id": "phase_1",
@@ -35003,7 +35255,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}}
+		"platforms": {"2": {"destination": "dlf_phase_3"}, "1": {"destination": "sector_55_56"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Phase+1/@28.4713,77.0939,17z/data=!3m1!4b1!4m6!3m5!1s0x390d18d654b76f0f:0xd8951eaf86e90e59!8m2!3d28.4713!4d77.0939!16s%2Fg%2F11g7_hck73?entry=ttu"
 	},
 	"kalindi_kunj": {
 		"id": "kalindi_kunj",
@@ -35119,7 +35372,8 @@
 		"platforms": {
 			"2": {"destination": "janakpuri_west", "destination_second": "krishna_park_extension"},
 			"1": {"destination": "botanical_garden"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kalindi+Kunj/@28.542835,77.310175,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce4202e1dd459:0x98e4638e9d17e546!8m2!3d28.542835!4d77.310175!16s%2Fg%2F11c543j6k5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"kaushambi": {
 		"id": "kaushambi",
@@ -35235,7 +35489,8 @@
 		"platforms": {
 			"Pl2": {"destination": "yamuna_bank", "destination_second": "dwarka_sector_21"},
 			"1": {"destination": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kaushambi/@28.64548,77.32436,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfb2584373de5:0x2b94a37d38184baa!8m2!3d28.64548!4d77.32436!16s%2Fm%2F0g5rtpz?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_sector_21": {
 		"id": "dwarka_sector_21",
@@ -35416,7 +35671,8 @@
 			"4": {"destination": "new_delhi_yellow_airport_line"},
 			"3": {"destination": "new_delhi_yellow_airport_line"},
 			"PF2": {"destination": "yashobhoomi_dwarka_sector_25"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Sector+-+21/@28.5524282,77.0582759,17z/data=!4m10!1m2!2m1!1sDwarka+Sector+-+21+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d1bad131a7b4b:0xec0ac145ce72128f!8m2!3d28.5522057!4d77.0583048!15sCjVEd2Fya2EgU2VjdG9yIC0gMjEgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fm%2F0ds4p50?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"yashobhoomi_dwarka_sector_25": {
 		"id": "yashobhoomi_dwarka_sector_25",
@@ -35764,7 +36020,8 @@
 				}
 			}
 		},
-		"platforms": {"1": {"destination": "new_delhi_yellow_airport_line"}, "2": {"destination": "yashobhoomi_dwarka_sector_25"}}
+		"platforms": {"1": {"destination": "new_delhi_yellow_airport_line"}, "2": {"destination": "yashobhoomi_dwarka_sector_25"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Yashobhoomi+Dwarka+Sector-25/@28.55105,77.04538,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1a50736b30eb:0x5a42a8748f085e39!8m2!3d28.55105!4d77.04538!16s%2Fg%2F11t3__27vy?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"inderlok": {
 		"id": "inderlok",
@@ -35906,7 +36163,8 @@
 			"3": {"destination": "brig_hoshiar_singh"},
 			"2": {"destination": "shaheed_sthal_new_bus_adda"},
 			"1": {"destination": "rithala"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Inderlok/@28.6733739,77.1681265,16z/data=!4m10!1m2!2m1!1sInderlok+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d025d750f7115:0xeb9466638df74f18!8m2!3d28.6735427!4d77.1702925!15sCitJbmRlcmxvayBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhWioiKGluZGVybG9rIG1ldHJvIHN0YXRpb24gZGVsaGkgaW5kaWEgaW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0b_zxj3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bata_chowk": {
 		"id": "bata_chowk",
@@ -36081,7 +36339,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}}
+		"platforms": {"2": {"destination": "kashmere_gate"}, "1": {"destination": "raja_nahar_singh_ballabhgarh"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bata+Chowk/@28.3857718,77.313115,17z/data=!4m10!1m2!2m1!1sBata+Chowk+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cdc46cc975fbf:0x9838665e30946c48!8m2!3d28.38599!4d77.31342!15sCi1CYXRhIENob3drIE1ldHJvIFN0YXRpb24sIERlbGhpLCBJbmRpYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11bbwnnmj3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dwarka_sector_12": {
 		"id": "dwarka_sector_12",
@@ -36174,7 +36433,8 @@
 		"platforms": {
 			"2": {"destination": "dwarka_sector_21"},
 			"1": {"destination": "noida_electronic_city", "destination_second": "vaishali"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dwarka+Sec+12/@28.59231,77.04063,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1ac5ca62f503:0x7c747b9dea566eb6!8m2!3d28.59231!4d77.04063!16s%2Fm%2F0c3yhm7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"noida_sector_18": {
 		"id": "noida_sector_18",
@@ -36298,7 +36558,8 @@
 				}
 			}
 		},
-		"platforms": {"PF2": {"destination": "dwarka_sector_21"}, "PF1": {"destination": "noida_electronic_city"}}
+		"platforms": {"PF2": {"destination": "dwarka_sector_21"}, "PF1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Noida+Sec-18/@28.570751,77.326188,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce44ead05b9b5:0x7147452f8d8b9ede!8m2!3d28.570751!4d77.326188!16s%2Fm%2F0by0px9?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"knowledge_park_ii": {
 		"id": "knowledge_park_ii",
@@ -36308,7 +36569,8 @@
 		"parkings": [],
 		"facilities": {},
 		"nearby_places": {},
-		"vertical_transit": {"lifts": {}, "escalators": {}}
+		"vertical_transit": {"lifts": {}, "escalators": {}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Knowledge+Park+2/@28.45686,77.5003,17z/data=!3m1!4b1!4m6!3m5!1s0x390cc1db6d5672ad:0xca7f8554159c0350!8m2!3d28.45686!4d77.5003!16s%2Fg%2F11fy4tjxqp?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mayur_vihar_extension": {
 		"id": "mayur_vihar_extension",
@@ -36426,7 +36688,8 @@
 				}
 			}
 		},
-		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}}
+		"platforms": {"2": {"destination": "dwarka_sector_21"}, "1": {"destination": "noida_electronic_city"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mayur+Vihar+Extension/@28.59422,77.29474,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce484facb724f:0xbbeff697745d952b!8m2!3d28.59422!4d77.29474!16s%2Fg%2F1tjddkp8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"burari": {
 		"id": "burari",
@@ -36573,7 +36836,8 @@
 		"platforms": {
 			"PF1": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"PF2": {"destination": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Burari+Metro/@28.7298596,77.1994632,17z/data=!3m1!4b1!4m6!3m5!1s0x390cff001b87cdf9:0x993c47fbaaddd19a!8m2!3d28.7298596!4d77.1994632!16s%2Fg%2F11y168f0c8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jharoda_majra": {
 		"id": "jharoda_majra",
@@ -36689,7 +36953,8 @@
 		"platforms": {
 			"PF1": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"PF2": {"destination": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jharoda+Majra+Metro+Station/@28.7247732,77.2136682,17z/data=!3m1!4b1!4m6!3m5!1s0x390cff54ccd32dd9:0x85c02b4dcb1b5334!8m2!3d28.7247732!4d77.2136682!16s%2Fg%2F11v0j7ym2l?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jagatpur_wazirabad": {
 		"id": "jagatpur_wazirabad",
@@ -36829,7 +37094,8 @@
 		"platforms": {
 			"PF1": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"PF2": {"destination": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jagatpur-Wazirabad/@28.72126,77.22392,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfe76ad9e7b09:0xed25b0f265e508b8!8m2!3d28.72126!4d77.22392!16s%2Fg%2F11z2ffr30w?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"soorghat": {
 		"id": "soorghat",
@@ -36844,7 +37110,8 @@
 		"platforms": {
 			"PF2": {"destination": "maujpur_babarpur"},
 			"PF1": {"destination": "majlis_park", "destination_second": "yamuna_vihar"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Soorghat/@28.71043,77.22746,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfdd98aec4a1b:0x3c5b82f29ca98298!8m2!3d28.71043!4d77.22746!16s%2Fg%2F11z1hyn38z?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"nanaksar_sonia_vihar": {
 		"id": "nanaksar_sonia_vihar",
@@ -36990,7 +37257,8 @@
 		"platforms": {
 			"PF1": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"PF2": {"destination": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nanaksar-Sonia+Vihar/@28.70878,77.24219,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfc2d1e388cd5:0xd79af7a0992b2ac7!8m2!3d28.70878!4d77.24219!16s%2Fg%2F11n9r8p4zc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"khajuri_khas": {
 		"id": "khajuri_khas",
@@ -37138,7 +37406,8 @@
 		"platforms": {
 			"PF1": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"PF2": {"destination": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Khajuri+Khas/@28.70528,77.25412,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfc3aef44b295:0x11738fbf0db8c2a!8m2!3d28.70528!4d77.25412!16s%2Fg%2F11z1hyqh7r?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bhajanpura": {
 		"id": "bhajanpura",
@@ -37322,7 +37591,8 @@
 		"platforms": {
 			"PF1": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
 			"PF2": {"destination": "maujpur_babarpur"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bhajanpura/@28.70358,77.26235,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfc3deb488db7:0x41b5dad6194e83f4!8m2!3d28.70358!4d77.26235!16s%2Fg%2F11n9r8vdw9?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"yamuna_vihar": {
 		"id": "yamuna_vihar",
@@ -37488,7 +37758,8 @@
 				}
 			}
 		},
-		"platforms": {"PF1": {"destination": "majlis_park"}, "PF2": {"destination": "maujpur_babarpur"}}
+		"platforms": {"PF1": {"destination": "majlis_park"}, "PF2": {"destination": "maujpur_babarpur"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Yamuna+Vihar/@28.6997926,77.2743425,16z/data=!4m10!1m2!2m1!1sYamuna+Vihar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390cfc0dca20fbf1:0x87ddb46c8293362f!8m2!3d28.7023!4d77.27752!15sCi9ZYW11bmEgVmloYXIgTWV0cm8gU3RhdGlvbiwgRGVsaGksIEluZGlhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11z21z7qwx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"prashant_vihar": {
 		"id": "prashant_vihar",
@@ -37621,7 +37892,8 @@
 				}
 			}
 		},
-		"platforms": {"PF1": {"destination": "deepali_chowk"}, "PF2": {"destination": "majlis_park"}}
+		"platforms": {"PF1": {"destination": "deepali_chowk"}, "PF2": {"destination": "majlis_park"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Uttari+Pitampura-Prashant+Vihar/@28.7115948,77.1342846,15z/data=!4m10!1m2!2m1!1sPrashant+Vihar+Metro+Station,+Delhi,+India,+India!3m6!1s0x390d017c9e90669d:0x84a5fea51cbb4e6a!8m2!3d28.71305!4d77.13876!15sCjFQcmFzaGFudCBWaWhhciBNZXRybyBTdGF0aW9uLCBEZWxoaSwgSW5kaWEsIEluZGlhWjAiLnByYXNoYW50IHZpaGFyIG1ldHJvIHN0YXRpb24gZGVsaGkgaW5kaWEgaW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbpoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyeENURk5IY0hsaWJtUlRUbFZLTmt4WFRrTmtWMDVxV2xoS2JHTXhSUkFC4AEA-gEECAAQMQ!16s%2Fg%2F11n9r997tq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"haiderpur_village": {
 		"id": "haiderpur_village",
@@ -37834,7 +38106,8 @@
 					"last_update": "2021-10-27"
 				}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Haiderpur+Badli+Mor/@28.7300015,77.1491765,17z/data=!3m1!4b1!4m6!3m5!1s0x390d019fdd169753:0x6af1b5f8b0c2cc7a!8m2!3d28.7300015!4d77.1491765!16s%2Fg%2F11cry9j5g1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"deepali_chowk": {
 		"id": "deepali_chowk",
@@ -37971,7 +38244,8 @@
 				}
 			}
 		},
-		"platforms": {"PF1": {"destination": "majlis_park"}, "PF2": {"destination": "terminal_1_igi_airport"}}
+		"platforms": {"PF1": {"destination": "majlis_park"}, "PF2": {"destination": "terminal_1_igi_airport"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Deepali+Chowk/@28.69806,77.11822,17z/data=!3m1!4b1!4m6!3m5!1s0x390d03e440cabd95:0x534aea33bcb431da!8m2!3d28.69806!4d77.11822!16s%2Fg%2F11z1hz0vdc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bhalaswa": {
 		"id": "bhalaswa",
@@ -38128,7 +38402,8 @@
 				}
 			}
 		},
-		"platforms": {"PF1": {"destination": "deepali_chowk"}, "PF2": {"destination": "majlis_park"}}
+		"platforms": {"PF1": {"destination": "deepali_chowk"}, "PF2": {"destination": "majlis_park"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bhalaswa/@28.73688,77.16798,17z/data=!3m1!4b1!4m6!3m5!1s0x390d01bee54dc0c5:0xf51c7e23833dcf14!8m2!3d28.73688!4d77.16798!16s%2Fg%2F11n9r8c60k?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sahibabad": {
 		"id": "sahibabad",
@@ -38258,7 +38533,8 @@
 				"6": {"code": "ESC_6", "name": "G3-E1", "location": "From Ground to Concourse, at Gate 3", "status": true, "direction": "Up"},
 				"7": {"code": "ESC_7", "name": "G2-E1", "location": "From Ground to Concourse, at Gate 2", "status": true, "direction": "Unknown"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sahibabad+RRTS/@28.6675748,77.368124,17z/data=!4m10!1m2!2m1!1sSahibabad+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390cfbec20813fb7:0xf4b045515524eb01!8m2!3d28.6675396!4d77.3680679!15sCkRTYWhpYmFiYWQgTWV0cm8gU3RhdGlvbiwgRGVsaGkgTWVlcnV0IFJSVFMgTmFtbyBCaGFyYXQsIEluZGlhLCBJbmRpYVpDIkFzYWhpYmFiYWQgbWV0cm8gc3RhdGlvbiBkZWxoaSBtZWVydXQgcnJ0cyBuYW1vIGJoYXJhdCBpbmRpYSBpbmRpYZIBEHJhaWx3YXlfc2VydmljZXOaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnhzZVU5Vk1XbGpTRkpHVlROb2NsWXlXbTFZTVUwMVlrWlNVMk51WXhBQuABAPoBBAgAEEc!16s%2Fg%2F11q26835mz?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ghaziabad": {
 		"id": "ghaziabad",
@@ -38411,7 +38687,8 @@
 				"11": {"code": "ESC_11", "name": "U2-E1", "location": "From Upper PD to Concourse, at Gate 4", "status": true, "direction": "Up"},
 				"12": {"code": "ESC_12", "name": "U2-E2", "location": "From Upper PD to Concourse, at Gate 4", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ghaziabad+RRTS+Station/@28.672128,77.413192,17z/data=!3m1!4b1!4m6!3m5!1s0x390cf1923eb45c6d:0x7c735d481b7a918a!8m2!3d28.672128!4d77.413192!16s%2Fg%2F11sbcvg52_?entry=ttu"
 	},
 	"guldhar": {
 		"id": "guldhar",
@@ -38547,7 +38824,8 @@
 				"5": {"code": "ESC_5", "name": "G1 -E1", "location": "From Ground to Concourse, at Gate 1", "status": true, "direction": "Up"},
 				"6": {"code": "ESC_6", "name": "G2-E1", "location": "From Ground to Concourse, at Gate 2", "status": true, "direction": "Up"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Guldhar+RRTS+Station/@28.699461,77.445686,17z/data=!3m1!4b1!4m6!3m5!1s0x390cf10d201e1487:0x3e96b36a0f26ec3f!8m2!3d28.69953!4d77.44582!16s%2Fg%2F11l5smsj8v?entry=ttu"
 	},
 	"duhai": {
 		"id": "duhai",
@@ -38714,7 +38992,8 @@
 				"7": {"code": "ESC_7", "name": "G3-E1", "location": "From Ground to Concourse, at Gate 3", "status": true, "direction": "Up"},
 				"8": {"code": "ESC_8", "name": "G4-E1", "location": "From Ground to Concourse, at Gate 4", "status": true, "direction": "Up"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Duhai+RRTS+metro+station/@28.7268412,77.4713682,17z/data=!4m10!1m2!2m1!1sDuhai+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390cf3b7eaa128b7:0x881bdf386315ee5e!8m2!3d28.7264424!4d77.4709464!15sCkBEdWhhaSBNZXRybyBTdGF0aW9uLCBEZWxoaSBNZWVydXQgUlJUUyBOYW1vIEJoYXJhdCwgSW5kaWEsIEluZGlhWj8iPWR1aGFpIG1ldHJvIHN0YXRpb24gZGVsaGkgbWVlcnV0IHJydHMgbmFtbyBiaGFyYXQgaW5kaWEgaW5kaWHgAQA!16s%2Fg%2F11khkgwpt7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"duhai_depot": {
 		"id": "duhai_depot",
@@ -38806,7 +39085,8 @@
 					"status": true
 				}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Duhai+RRTS+metro+station/@28.7343224,77.469865,15z/data=!4m10!1m2!2m1!1sDuhai+Depot+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390cf3b7eaa128b7:0x881bdf386315ee5e!8m2!3d28.7264424!4d77.4709464!15sCkZEdWhhaSBEZXBvdCBNZXRybyBTdGF0aW9uLCBEZWxoaSBNZWVydXQgUlJUUyBOYW1vIEJoYXJhdCwgSW5kaWEsIEluZGlhWkUiQ2R1aGFpIGRlcG90IG1ldHJvIHN0YXRpb24gZGVsaGkgbWVlcnV0IHJydHMgbmFtbyBiaGFyYXQgaW5kaWEgaW5kaWHgAQA!16s%2Fg%2F11khkgwpt7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"murad_nagar": {
 		"id": "murad_nagar",
@@ -38921,7 +39201,8 @@
 				"5": {"code": "ESC_5", "name": "C3-E1", "location": "From Concourse to Platform 2", "status": true, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C3-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Murad+Nagar+RRTS+Station/@28.77038,77.51076,17z/data=!3m1!4b1!4m6!3m5!1s0x390cf45ea13afc03:0x3e322531a32007e0!8m2!3d28.77038!4d77.51076!16s%2Fg%2F11h5kxsl9r?entry=ttu"
 	},
 	"modi_nagar_south": {
 		"id": "modi_nagar_south",
@@ -39036,7 +39317,8 @@
 				"5": {"code": "ESC_5", "name": "C3-E1", "location": "From Concourse to Platform 2", "status": false, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C3-E2", "location": "From Concourse to Platform 1", "status": false, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Modi+Nagar+South/@28.81696,77.55586,17z/data=!3m1!4b1!4m6!3m5!1s0x390cf54a201db159:0xac039ac85870da0!8m2!3d28.81696!4d77.55586!16s%2Fg%2F11y3_hpvl8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"modi_nagar_north": {
 		"id": "modi_nagar_north",
@@ -39151,7 +39433,8 @@
 				"5": {"code": "ESC_5", "name": "C3-E1", "location": "From Concourse to Platform 2", "status": true, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C3-E2", "location": "From Concourse to Platform 1", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Modinagar+north/@28.84345,77.58322,17z/data=!3m1!4b1!4m6!3m5!1s0x390c601fbcd2e145:0x9ad014eb01bf9d64!8m2!3d28.84345!4d77.58322!16s%2Fg%2F11y3jjcj1v?entry=ttu"
 	},
 	"meerut_south": {
 		"id": "meerut_south",
@@ -39285,7 +39568,8 @@
 				"7": {"code": "ESC_7", "name": "C3-E1", "location": "From Concourse to Platform 1 (Meerut End)", "status": true, "direction": "Down"},
 				"8": {"code": "ESC_8", "name": "C3-E2", "location": "From Concourse to Platform 2&3 (Meerut End)", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Meerut+South/@28.90436,77.63249,17z/data=!3m1!4b1!4m6!3m5!1s0x390c616d6bf56765:0xddd75ed884bdbce1!8m2!3d28.90436!4d77.63249!16s%2Fg%2F11vz2zb3gx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"partapur": {
 		"id": "partapur",
@@ -39389,7 +39673,8 @@
 				"1": {"code": "ESC_1", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
 				"2": {"code": "ESC_2", "name": "G2-E1", "location": "", "status": true, "direction": "Up"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Partapur+Meerut+Metro+Station/@28.9218945,77.6503904,17z/data=!4m10!1m2!2m1!1sPartapur+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390c6100330055f1:0xc013d20d770c8d8a!8m2!3d28.921847!4d77.6502648!15sCkNQYXJ0YXB1ciBNZXRybyBTdGF0aW9uLCBEZWxoaSBNZWVydXQgUlJUUyBOYW1vIEJoYXJhdCwgSW5kaWEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11ycy9ndrf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"rithani": {
 		"id": "rithani",
@@ -39497,7 +39782,8 @@
 				"5": {"code": "ESC_5", "name": "G1-E1", "location": "", "status": true, "direction": "Up"},
 				"6": {"code": "ESC_6", "name": "G2-E1", "location": "", "status": true, "direction": "Up"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rithani+Metro+Station/@28.9326874,77.661348,17z/data=!3m1!4b1!4m6!3m5!1s0x390c630031859cf5:0xa9858ff935c72059!8m2!3d28.9326874!4d77.661348!16s%2Fg%2F11xgk_kwrx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shatabdi_nagar": {
 		"id": "shatabdi_nagar",
@@ -39607,7 +39893,8 @@
 				"5": {"code": "ESC_5", "name": "C3-E1", "location": "", "status": true, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C3-E2", "location": "", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shatabdi+nagar+RRTS/@28.9261114,77.6532371,14z/data=!4m10!1m2!2m1!1sShatabdi+Nagar+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390c65565f7b5411:0x3dd1df435e354959!8m2!3d28.9474245!4d77.6735732!15sCklTaGF0YWJkaSBOYWdhciBNZXRybyBTdGF0aW9uLCBEZWxoaSBNZWVydXQgUlJUUyBOYW1vIEJoYXJhdCwgSW5kaWEsIEluZGlh4AEA!16s%2Fg%2F11sbd00gvp?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"brahampuri": {
 		"id": "brahampuri",
@@ -39715,7 +40002,8 @@
 				"5": {"code": "ESC_5", "name": "C1-E4", "location": "", "status": true, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C1-E3", "location": "", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Brahampuri+Meerut/@28.9506,77.6866,17z/data=!3m1!4b1!4m6!3m5!1s0x390c65c28e8e6ab7:0xdbb7305988220556!8m2!3d28.9506!4d77.6866!16s%2Fg%2F11sbcvg52_?entry=ttu"
 	},
 	"meerut_central": {
 		"id": "meerut_central",
@@ -39815,7 +40103,8 @@
 				"5": {"code": "ESC_5", "name": "C1-E3", "location": "", "status": true, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C1-E4", "location": "", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/MEERUT+CENTRAL+STATION/@28.9712537,77.6901707,17z/data=!4m10!1m2!2m1!1sMeerut+Central+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390c65499fdce1c1:0xb9d87699e2014942!8m2!3d28.9712537!4d77.6901707!15sCklNZWVydXQgQ2VudHJhbCBNZXRybyBTdGF0aW9uLCBEZWxoaSBNZWVydXQgUlJUUyBOYW1vIEJoYXJhdCwgSW5kaWEsIEluZGlhkgEQY29ycG9yYXRlX29mZmljZeABAA!16s%2Fg%2F11j3983mrz?entry=ttu"
 	},
 	"bhaisali": {
 		"id": "bhaisali",
@@ -39907,7 +40196,8 @@
 				"5": {"code": "ESC_5", "name": "C3-E7", "location": "", "status": true, "direction": "Up"},
 				"6": {"code": "ESC_6", "name": "C3-E8", "location": "", "status": true, "direction": "Up"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bhaisali+Bus+Terminal+Meerut/@28.9878968,77.6970234,17z/data=!3m1!4b1!4m6!3m5!1s0x390c65a0b8a4a581:0xa7d82531a32007e0!8m2!3d28.9878968!4d77.6970234!16s%2Fg%2F11c30g_pgj?entry=ttu"
 	},
 	"begumpul": {
 		"id": "begumpul",
@@ -40012,7 +40302,8 @@
 				"8": {"code": "ESC_8", "name": "C4-E3", "location": "", "status": true, "direction": "Up"},
 				"9": {"code": "ESC_9", "name": "C4-E4", "location": "", "status": true, "direction": "Up"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Begumpul/@28.99665,77.7058,17z/data=!4m10!1m2!2m1!1sBegumpul+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390c65040f895565:0xbad6b5e993886acf!8m2!3d28.99665!4d77.7058!15sCkNCZWd1bXB1bCBNZXRybyBTdGF0aW9uLCBEZWxoaSBNZWVydXQgUlJUUyBOYW1vIEJoYXJhdCwgSW5kaWEsIEluZGlhkgEPdHJhbnNpdF9zdGF0aW9u4AEA!16s%2Fg%2F11hdx1tzpw?entry=ttu"
 	},
 	"mes_colony": {
 		"id": "mes_colony",
@@ -40120,7 +40411,8 @@
 				"5": {"code": "ESC_5", "name": "C3-E1", "location": "", "status": true, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C3-E2", "location": "", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/MES+Colony+Meerut/@29.0066066,77.7017383,17z/data=!3m1!4b1!4m6!3m5!1s0x390c6f555f7b5411:0x3dd1df435e354959!8m2!3d29.0066066!4d77.7017383!16s%2Fg%2F11sbd00gvp?entry=ttu"
 	},
 	"daurli": {
 		"id": "daurli",
@@ -40210,7 +40502,8 @@
 				"2": {"code": "ESC_2", "name": "C1-E1", "location": "", "status": true, "direction": "Up"},
 				"3": {"code": "ESC_3", "name": "C1-E2", "location": "", "status": true, "direction": "Up"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Daurli+Meerut/@29.0268,77.705,17z/data=!3m1!4b1!4m6!3m5!1s0x390c6f666b8e6ab7:0xdbb7305988220556!8m2!3d29.0268!4d77.705!16s%2Fg%2F11xgk_kwrx?entry=ttu"
 	},
 	"meerut_north": {
 		"id": "meerut_north",
@@ -40318,7 +40611,8 @@
 				"5": {"code": "ESC_5", "name": "C3-E1", "location": "", "status": true, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C3-E2", "location": "", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Meerut+North/@29.053525,77.707973,17z/data=!4m10!1m2!2m1!1sMeerut+North+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390c6f99807addb9:0x39cc3400434ed398!8m2!3d29.053525!4d77.707973!15sCkdNZWVydXQgTm9ydGggTWV0cm8gU3RhdGlvbiwgRGVsaGkgTWVlcnV0IFJSVFMgTmFtbyBCaGFyYXQsIEluZGlhLCBJbmRpYZIBDXRyYWluX3N0YXRpb27gAQA!16s%2Fg%2F11n4t9rgvd?entry=ttu"
 	},
 	"modipuram": {
 		"id": "modipuram",
@@ -40422,6 +40716,7 @@
 				"5": {"code": "ESC_5", "name": "C3-E1", "location": "", "status": true, "direction": "Down"},
 				"6": {"code": "ESC_6", "name": "C3-E2", "location": "", "status": true, "direction": "Down"}
 			}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Modipuram/@29.07202,77.70892,17z/data=!4m10!1m2!2m1!1sModipuram+Metro+Station,+Delhi+Meerut+RRTS+Namo+Bharat,+India,+India!3m6!1s0x390c6faf964a0fc3:0x70da394e781cedc4!8m2!3d29.07202!4d77.70892!15sCkRNb2RpcHVyYW0gTWV0cm8gU3RhdGlvbiwgRGVsaGkgTWVlcnV0IFJSVFMgTmFtbyBCaGFyYXQsIEluZGlhLCBJbmRpYZIBD3RyYW5zaXRfc3RhdGlvbuABAA!16s%2Fg%2F11z0l9d6p3?entry=ttu"
 	}
 }

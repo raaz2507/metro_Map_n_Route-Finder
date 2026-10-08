@@ -149,7 +149,8 @@
 				{"name": "Jogeshwari Vikhroli Link Road", "connected": false, "walking_min": 1.1904761904761905}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Aarey+JVLR/@19.131079,72.884324,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c81d7995110d:0x8994a1dbe874e569!8m2!3d19.131079!4d72.884324!16s%2Fg%2F11wfx4m6v_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"seepz": {
 		"name": {"en": "SEEPZ", "mr": "सीप्झ", "hi": "सीप्झ"},
@@ -326,7 +327,8 @@
 				{"name": "Chota Kashmir", "connected": false, "walking_min": 66, "pub_transport_min": 22}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/SEEPZ+Metro+Station,LINE+3/@19.1257536,72.873437,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c93f14ab5a53:0xb56a8fd46473ff16!8m2!3d19.1257536!4d72.873437!16s%2Fg%2F11h396b_30?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"midc_andheri": {
 		"name": {"en": "Midc-andheri", "mr": "एम.आय.डी.सी-अंधेरी", "hi": "एम.आय.डी.सी-अंधेरी"},
@@ -518,7 +520,8 @@
 			],
 			"Commercial": [{"name": "MCGM Market", "connected": false, "walking_min": 20.238095238095237}]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/MIDC+-+Andheri/@19.117373,72.873829,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c83d6c9b00f3:0x68dc1b7ac8c9dec7!8m2!3d19.117373!4d72.873829!16s%2Fg%2F11wfx3d4j3?entry=ttu"
 	},
 	"marol_naka": {
 		"name": {"en": "Marol Naka", "mr": "मरोळ नाका", "hi": "मरोळ नाका"},
@@ -754,7 +757,8 @@
 			"3": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
 			"4": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}
 		},
-		"id": "marol_naka"
+		"id": "marol_naka",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Marol+Naka/@19.1081288,72.8794774,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c814cca3f923:0x44d97a6bf70eb188!8m2!3d19.1081288!4d72.8794774!16s%2Fm%2F0115l7zh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"csmi_airport_t2": {
 		"name": {"en": "Csmi-airport - T2", "mr": "सी. एस. एम. आय विमानतळ - T2", "hi": "सी. एस. एम. आय विमानतळ - T2"},
@@ -972,7 +976,8 @@
 				{"name": "Sahar Police Station", "connected": false, "walking_min": 10.119047619047619}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/CSMI+Airport+-+T2/@19.102033,72.874445,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c841f801ea71:0x6dceff6f02a0ccb1!8m2!3d19.102033!4d72.874445!16s%2Fg%2F11ltwy3jbx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sahar_road": {
 		"name": {"en": "Sahar Road", "mr": "सहार रोड", "hi": "सहार रोड"},
@@ -1186,7 +1191,8 @@
 				{"name": "Chakala Metro Station (Line-1)", "connected": false, "walking_min": 17.857142857142858}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sahar+Road/@19.102128,72.864803,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c846134fd09d:0x74cb3d79ed5cb48a!8m2!3d19.102128!4d72.864803!16s%2Fg%2F11ltwttxg2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"csmi_airport_t1": {
 		"name": {"en": "CSMI Airport-t1", "mr": "सी. एस. एम. आय विमानतळ - T1", "hi": "सी. एस. एम. आय विमानतळ - T1"},
@@ -1359,7 +1365,8 @@
 			],
 			"Commercial": [{"name": "ATC Tower", "connected": false, "walking_min": 3.5714285714285716}]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/CSMI+Airport-T1/@19.0979615,72.8639353,16z/data=!4m10!1m2!2m1!1sCSMI+Airport-t1+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7c8529b872e97:0xf0dd9410ad8fb55a!8m2!3d19.0938899!4d72.8534256!15sCjlDU01JIEFpcnBvcnQtdDEgTWV0cm8gU3RhdGlvbiwgTXVtYmFpLCBNYWhhcmFzaHRyYSwgSW5kaWFaOCI2Y3NtaSBhaXJwb3J0IHQxIG1ldHJvIHN0YXRpb24gbXVtYmFpIG1haGFyYXNodHJhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11wj9cc3j1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"santacruz_metro": {
 		"name": {"en": "Santacruz Metro", "mr": "सांताक्रूझ मेट्रो", "hi": "सांताक्रूझ मेट्रो"},
@@ -1586,7 +1593,8 @@
 				{"name": "Juhu Beach", "connected": false, "walking_min": 60, "pub_transport_min": 25}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Santacruz/@19.0793126,72.8467934,17z/data=!4m10!1m2!2m1!1sSantacruz+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7c90121715e97:0xaa7d38793716b3ce!8m2!3d19.078981!4d72.8469045!15sCjNTYW50YWNydXogTWV0cm8gU3RhdGlvbiwgTXVtYmFpLCBNYWhhcmFzaHRyYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16zL20vMGZkbWRf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bandra_colony": {
 		"name": {"en": "Bandra Colony", "mr": "वांद्रे कॉलनी", "hi": "वांद्रे कॉलनी"},
@@ -1796,7 +1804,8 @@
 				{"name": "AITA Trust Tennis Courts", "connected": false, "walking_min": 11.904761904761905}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bandra+Colony/@19.0699738,72.849432,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c91d3b1fdb7d:0x72dfc0f3d8b6995f!8m2!3d19.0699738!4d72.849432!16s%2Fg%2F11wfx0nxrq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bandra_kurla_complex": {
 		"name": {"en": "Bandra-kurla Complex", "mr": "वांद्रे-कुर्ला कॉम्प्लेक्स", "hi": "वांद्रे-कुर्ला कॉम्प्लेक्स"},
@@ -2089,7 +2098,8 @@
 			"3": {"line": "mumbai.aqua", "destination": "cuffe_parade"},
 			"2B": {"line": "mumbai.aqua", "destination": "aarey_jvlr"},
 			"2A": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bandra-Kurla+Complex/@19.060141,72.8550422,17z/data=!4m10!1m2!2m1!1sBandra-kurla+Complex+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7c8e083a02f87:0xc887e8623b193689!8m2!3d19.060417!4d72.85492!15sCj5CYW5kcmEta3VybGEgQ29tcGxleCBNZXRybyBTdGF0aW9uLCBNdW1iYWksIE1haGFyYXNodHJhLCBJbmRpYVo9IjtiYW5kcmEga3VybGEgY29tcGxleCBtZXRybyBzdGF0aW9uIG11bWJhaSBtYWhhcmFzaHRyYSBpbmRpYZIBDnN1YndheV9zdGF0aW9umgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJZYW5CaFQyeEJSUkFC4AEA-gEECAAQOQ!16s%2Fg%2F11wfx4rgj4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dharavi": {
 		"name": {"en": "Dharavi", "mr": "Dharavi", "hi": "Dharavi"},
@@ -2280,7 +2290,8 @@
 			],
 			"Tourist Place": [{"name": "Mahim Fort", "connected": false, "walking_min": 23}]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dharavi+Metro+Station/@19.0462343,72.849877,17z/data=!4m10!1m2!2m1!1sDharavi+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7c9003c5fe147:0x9c81e555c6b518c3!8m2!3d19.0461986!4d72.8498021!15sCjFEaGFyYXZpIE1ldHJvIFN0YXRpb24sIE11bWJhaSwgTWFoYXJhc2h0cmEsIEluZGlhWjAiLmRoYXJhdmkgbWV0cm8gc3RhdGlvbiBtdW1iYWkgbWFoYXJhc2h0cmEgaW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbpoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQycG5kRTVXVGtKaldHdDVWRzVXTUZKV1VraGtNRlV4Vkd0b05tUklZeEFC4AEA-gEECAAQNw!16s%2Fg%2F11x9559y6_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"shitala_devi_mandir": {
 		"name": {"en": "Shitala Devi Mandir", "mr": "Shitala Devi Mandir", "hi": "Shitala Devi Mandir"},
@@ -2543,7 +2554,8 @@
 			"Heritage": [{"name": "Mahim Fort", "connected": false, "walking_min": 8}],
 			"Recreation": [{"name": "Paradise E. Square Cinema", "connected": false, "walking_min": 1}]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shitala+Devi+Mandir+Metro+Station/@19.0389115,72.8418904,17z/data=!4m10!1m2!2m1!1sShitala+Devi+Mandir+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7c9007b476e37:0xce7fbd80f18df282!8m2!3d19.0395229!4d72.8416478!15sCj1TaGl0YWxhIERldmkgTWFuZGlyIE1ldHJvIFN0YXRpb24sIE11bWJhaSwgTWFoYXJhc2h0cmEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11xcxph4rq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dadar_metro": {
 		"name": {"en": "Dadar Metro", "mr": "दादर मेट्रो", "hi": "दादर मेट्रो"},
@@ -2808,7 +2820,8 @@
 			"Residental": [{"name": "Mayor’S Bungalow", "connected": false, "walking_min": 17}],
 			"Restaurants": [{"name": "Gypsy Chinese", "connected": false, "walking_min": 2}]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dadar+Metro/@19.0225571,72.8382927,17z/data=!4m10!1m2!2m1!1sDadar+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7cec556be6d49:0xdf0874a6f32ecf16!8m2!3d19.02368!4d72.83929!15sCi9EYWRhciBNZXRybyBTdGF0aW9uLCBNdW1iYWksIE1haGFyYXNodHJhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11nk10qcph?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"siddhivinayak": {
 		"name": {"en": "Siddhivinayak", "mr": "सिध्दिविनायक", "hi": "सिध्दिविनायक"},
@@ -3085,7 +3098,8 @@
 				{"name": "Shree Siddhivinayak Ganpati Mandir", "connected": false, "walking_min": 1}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Siddhivinayak+Metro+Station/@19.0165474,72.8297123,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cec0dee4b28f:0x5799db2ae5d2155!8m2!3d19.0165474!4d72.8297123!16s%2Fg%2F11dylwt_9k?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"worli": {
 		"name": {"en": "Worli", "mr": "वरळी", "hi": "वरळी"},
@@ -3295,7 +3309,8 @@
 			],
 			"Tourist Place": [{"name": "Worli Fort", "connected": false, "walking_min": 25}]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Worli+Metro+Station/@19.008279,72.819147,17z/data=!4m10!1m2!2m1!1sWorli+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7ce970406d057:0x42d8806191d13809!8m2!3d19.007244!4d72.818669!15sCi9Xb3JsaSBNZXRybyBTdGF0aW9uLCBNdW1iYWksIE1haGFyYXNodHJhLCBJbmRpYZIBCGJ1c19zdG9w4AEA!16s%2Fg%2F11zf6hn_wn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"acharya_atre_chowk": {
 		"name": {"en": "Acharya Atre Chowk", "mr": "Acharya Atre Chowk", "hi": "Acharya Atre Chowk"},
@@ -3502,7 +3517,8 @@
 			],
 			"Private Offices": [{"name": "Ambe Internationa Humane", "connected": false, "walking_min": 9}]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Acharya+Atre+Chowk/@18.997126,72.818179,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7ce8fba2545c5:0x1e52f1b363ff659d!8m2!3d18.997126!4d72.818179!16s%2Fg%2F11xfkknkqs?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"science_centre": {
 		"name": {"en": "Science Centre", "mr": "Science Centre", "hi": "Science Centre"},
@@ -3754,7 +3770,8 @@
 				{"name": "Love Grove Waste Water Treatment Plant", "distance_km": 1.2, "connected": false, "walking_min": 14.2857142857143}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Science+Centre/@18.9910661,72.8212473,17z/data=!4m10!1m2!2m1!1sScience+Centre+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7ce8986cd735b:0x91e301d6b8adbdfb!8m2!3d18.990318!4d72.82177!15sCjhTY2llbmNlIENlbnRyZSBNZXRybyBTdGF0aW9uLCBNdW1iYWksIE1haGFyYXNodHJhLCBJbmRpYVo3IjVzY2llbmNlIGNlbnRyZSBtZXRybyBzdGF0aW9uIG11bWJhaSBtYWhhcmFzaHRyYSBpbmRpYZIBDnN1YndheV9zdGF0aW9umgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJwR2JGVXhRa1JTUmxwWldURmtObUpWTVVwU1J6RllaR3BTY21GVlJSQULgAQD6AQUI4gcQQw!16s%2Fg%2F11x_94kr9c?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mahalaxmi_metro": {
 		"name": {"en": "Mahalaxmi Metro", "mr": "महालक्ष्मी मेट्रो", "hi": "महालक्ष्मी मेट्रो"},
@@ -4007,7 +4024,8 @@
 				{"name": "Essar House", "distance_km": 2.9, "connected": false, "walking_min": 34.5238095238095}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mahalaxmi+Metro/@18.9811593,72.8245392,18z/data=!4m10!1m2!2m1!1sMahalaxmi+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7ce67aa1ad613:0xdf5b402a7b161564!8m2!3d18.979485!4d72.825295!15sCjNNYWhhbGF4bWkgTWV0cm8gU3RhdGlvbiwgTXVtYmFpLCBNYWhhcmFzaHRyYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11zjrp7dn7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jagannath_shankar_sheth_metro": {
 		"name": {"en": "Jagannath Shankar Sheth Metro", "mr": "जेएसएस मेट्रो", "hi": "जेएसएस मेट्रो"},
@@ -4363,7 +4381,8 @@
 				{"name": "National Museum Of Indian Cinema", "distance_km": 2.7, "connected": false, "walking_min": 32.1428571428571}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jagannath+Shankar+Sheth+Metro/@18.970603,72.821382,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7ce6ea83c7463:0x5cc18ba24108be76!8m2!3d18.970603!4d72.821382!16s%2Fg%2F11x_94cwtl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"grant_road_metro": {
 		"name": {"en": "Grant Road Metro", "mr": "ग्रँट रोड मेट्रो", "hi": "ग्रँट रोड मेट्रो"},
@@ -4657,7 +4676,8 @@
 				{"name": "Mani Bhavan", "distance_km": 1, "connected": false, "walking_min": 11.9047619047619}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Grant+Road+Metro/@18.9631336,72.8171361,17z/data=!4m10!1m2!2m1!1sGrant+Road+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7ce12ea260437:0x440f6ff26c9f82db!8m2!3d18.9629438!4d72.8180146!15sCjRHcmFudCBSb2FkIE1ldHJvIFN0YXRpb24sIE11bWJhaSwgTWFoYXJhc2h0cmEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11yvkph851?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"girgaon": {
 		"name": {"en": "Girgaon", "mr": "गिरगाव", "hi": "गिरगाव"},
@@ -4911,7 +4931,8 @@
 				}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Girgaon/@18.951929,72.822606,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7ce198d24d291:0x3099a126881d0eed!8m2!3d18.951929!4d72.822606!16s%2Fg%2F11y0v5dl0r?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"kalbadevi": {
 		"name": {"en": "Kalbadevi", "mr": "काळबादेवी", "hi": "काळबादेवी"},
@@ -5226,7 +5247,8 @@
 				}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kalbadevi/@18.9469924,72.8266084,17z/data=!4m10!1m2!2m1!1sKalbadevi+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7cf869c77d73b:0x3ebd78f23e7f351c!8m2!3d18.9470909!4d72.8262888!15sCjNLYWxiYWRldmkgTWV0cm8gU3RhdGlvbiwgTXVtYmFpLCBNYWhhcmFzaHRyYSwgSW5kaWGSARptZXRyb3BvbGl0YW5fdHJhaW5fY29tcGFueeABAA!16s%2Fg%2F11pz1d4sgr?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"chhatrapati_shivaji_maharaj_terminus_metro": {
 		"name": {"en": "Chhatrapati Shivaji Maharaj Terminus Metro", "mr": "सीएसएमटी मेट्रो", "hi": "सीएसएमटी मेट्रो"},
@@ -5580,7 +5602,8 @@
 				{"name": "The Cama & Albless Hospital", "distance_km": 0.04, "connected": false, "walking_min": 0.476190476190476}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Chhatrapati+Shivaji+Maharaj+Terminus+Metro/@18.9401035,72.8341311,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7d1df182c9ca1:0x37945284d5645a7!8m2!3d18.9401035!4d72.8341311!16s%2Fg%2F11mf8l1_j0?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"hutatma_chowk": {
 		"name": {"en": "Hutatma Chowk", "mr": "हुतात्मा चौक", "hi": "हुतात्मा चौक"},
@@ -5956,7 +5979,8 @@
 				{"name": "Marine Drive View Point", "distance_km": 1.5, "connected": false, "walking_min": 17.8571428571429}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Hutatma+Chowk/@18.934579,72.832826,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7d1dc6393f581:0x30b1565c6ffc7db3!8m2!3d18.934579!4d72.832826!16s%2Fg%2F11x_94rq00?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"churchgate_metro": {
 		"name": {"en": "Churchgate Metro", "mr": "चर्चगेट मेट्रो", "hi": "चर्चगेट मेट्रो"},
@@ -6240,7 +6264,8 @@
 				{"name": "Marine Drive View Point (Near Air India)", "distance_km": 0.45, "connected": false, "walking_min": 5.35714285714286}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Churchgate+Metro/@18.9329613,72.8266775,17z/data=!4m10!1m2!2m1!1sChurchgate+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7d1e875b89b1d:0x5d2d62e2b908364b!8m2!3d18.930663!4d72.826163!15sCjRDaHVyY2hnYXRlIE1ldHJvIFN0YXRpb24sIE11bWJhaSwgTWFoYXJhc2h0cmEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11zjrp8rsn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"vidhan_bhavan": {
 		"name": {"en": "Vidhan Bhavan", "mr": "विधान भवन", "hi": "विधान भवन"},
@@ -6625,7 +6650,8 @@
 				{"name": "Manora MLA Hostel", "distance_km": 0.05, "connected": false, "walking_min": 0.595238095238095}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vidhan+Bhavan+Metro/@18.9240959,72.8250061,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7d188ce94bf37:0x2bce3d72995e48fc!8m2!3d18.9240959!4d72.8250061!16s%2Fg%2F11sfdbfbql?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"cuffe_parade": {
 		"name": {"en": "Cuffe Parade", "mr": "कफ परेड", "hi": "कफ परेड"},
@@ -6822,7 +6848,8 @@
 				{"name": "World Trade Center", "distance_km": 0.4, "connected": false, "walking_min": 4.76190476190476}
 			]
 		},
-		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}}
+		"platforms": {"1": {"line": "mumbai.aqua", "destination": "cuffe_parade"}, "2": {"line": "mumbai.aqua", "destination": "aarey_jvlr"}},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Cuffe+Parade/@18.912955,72.820196,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7d19161fb0eb5:0x2e9813266c5d71c4!8m2!3d18.912955!4d72.820196!16s%2Fg%2F11zjrrsrh2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_dahisareast": {
 		"name": {"en": "Dahisar East", "mr": "दहिसर पूर्व", "hi": "दहिसर पूर्व"},
@@ -6913,7 +6940,8 @@
 			"2": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"3": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"}
 		},
-		"id": "mmmocl_2a_dahisareast"
+		"id": "mmmocl_2a_dahisareast",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dahisar+(East)/@19.2509583,72.8668387,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b108c4276ec5:0xbfbe4b50eacd409b!8m2!3d19.2509583!4d72.8668387!16s%2Fg%2F11n0685mhy?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_anandnagar": {
 		"name": {"en": "Anand Nagar", "mr": "आनंद नगर", "hi": "आनंद नगर"},
@@ -7002,7 +7030,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_anandnagar"
+		"id": "mmmocl_2a_anandnagar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Anand+Nagar/@19.257239,72.865966,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b0f0321f4251:0x8c744d0f5c341c43!8m2!3d19.257239!4d72.865966!16s%2Fg%2F11ts49h_8w?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_kandarpada": {
 		"name": {"en": "Kandarpada", "mr": "कांदरपाडा", "hi": "कांदरपाड़ा"},
@@ -7092,7 +7121,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_kandarpada"
+		"id": "mmmocl_2a_kandarpada",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kandarpada/@19.25658,72.850575,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b10296f793cd:0xdaefb17a2e1c9092!8m2!3d19.25658!4d72.850575!16s%2Fg%2F11sxvy0mxq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_mandapeshwariccolony": {
 		"name": {"en": "Mandapeshwar (I.C. Colony)", "mr": "मंडपेश्वर (आय. सी. कॉलनी)", "hi": "मंडपेश्वर (आई. सी. कॉलोनी)"},
@@ -7185,7 +7215,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_mandapeshwariccolony"
+		"id": "mmmocl_2a_mandapeshwariccolony",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mandapeshwar-I.C.Colony/@19.249385,72.84568,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b11c07f22293:0xd256cfceaaf1e20c!8m2!3d19.249385!4d72.84568!16s%2Fg%2F11q574123w?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_eksar": {
 		"name": {"en": "Eksar", "mr": "एकसर", "hi": "एकसर"},
@@ -7278,7 +7309,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_eksar"
+		"id": "mmmocl_2a_eksar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Eksar/@19.240626,72.843772,17z/data=!4m10!1m2!2m1!1sEksar+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7b1224e3063a1:0xb003a38d58046fde!8m2!3d19.240398!4d72.843481!15sCi9Fa3NhciBNZXRybyBTdGF0aW9uLCBNdW1iYWksIE1haGFyYXNodHJhLCBJbmRpYVouIixla3NhciBtZXRybyBzdGF0aW9uIG11bWJhaSBtYWhhcmFzaHRyYSBpbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11rw6nq2xh?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_borivaliwest": {
 		"name": {"en": "Borivali West", "mr": "बोरिवली पश्चिम", "hi": "बोरीवली पश्चिम"},
@@ -7368,7 +7400,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_borivaliwest"
+		"id": "mmmocl_2a_borivaliwest",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Borivali+(West)/@19.231312,72.840864,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b1255eb6a181:0xfed8cd0478b974f2!8m2!3d19.231312!4d72.840864!16s%2Fg%2F11rw6ngzn4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_shimpoli": {
 		"name": {"en": "Pahadi Shimpoli", "mr": "पहाडी शिंपोली", "hi": "पहाड़ी शिंपोली"},
@@ -7457,7 +7490,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_shimpoli"
+		"id": "mmmocl_2a_shimpoli",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shimpoli/@19.222828,72.840914,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b12d9946bf17:0x91d859b2f3044bec!8m2!3d19.222828!4d72.840914!16s%2Fg%2F11rw6nq7z_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_kandivaliwest": {
 		"name": {"en": "Kandivali West", "mr": "कांदिवली पश्चिम", "hi": "कांदिवली पश्चिम"},
@@ -7550,7 +7584,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_kandivaliwest"
+		"id": "mmmocl_2a_kandivaliwest",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kandivali+(West)/@19.213984,72.837315,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b6cdd1aa4631:0xc9c36830f676c682!8m2!3d19.213984!4d72.837315!16s%2Fg%2F11sxvxs6t5?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_dahanukarwadi": {
 		"name": {"en": "Dahanukarwadi", "mr": "डहाणूकरवाडी", "hi": "डहाणूकरवाड़ी"},
@@ -7639,7 +7674,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_dahanukarwadi"
+		"id": "mmmocl_2a_dahanukarwadi",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dahanukarwadi/@19.206103,72.834753,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b6c5e9b51783:0xa24cabf369ae5ee5!8m2!3d19.206103!4d72.834753!16s%2Fg%2F11rw6np3w0?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_valnaimeethchowky": {
 		"name": {"en": "Valnai (Meeth Chowky)", "mr": "वलनाई (मीठ चौकी)", "hi": "वलनाई (मीठ चौकी)"},
@@ -7731,7 +7767,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_valnaimeethchowky"
+		"id": "mmmocl_2a_valnaimeethchowky",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Valnai+-+Meeth+Chowky/@19.196907,72.833869,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b6c21dfb328f:0x5be43cfc7353d390!8m2!3d19.196907!4d72.833869!16s%2Fg%2F11trcfkz36?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_maladwest": {
 		"name": {"en": "Malad West", "mr": "मालाड पश्चिम", "hi": "मलाड पश्चिम"},
@@ -7821,7 +7858,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_maladwest"
+		"id": "mmmocl_2a_maladwest",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Malad+West+Metro+Station/@19.1855406,72.8358285,17z/data=!4m10!1m2!2m1!1sMalad+West+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7b6ee38e72547:0x1f2dab2f8d815860!8m2!3d19.1858281!4d72.835771!15sCjRNYWxhZCBXZXN0IE1ldHJvIFN0YXRpb24sIE11bWJhaSwgTWFoYXJhc2h0cmEsIEluZGlhWjMiMW1hbGFkIHdlc3QgbWV0cm8gc3RhdGlvbiBtdW1iYWkgbWFoYXJhc2h0cmEgaW5kaWGSARNzdWJ1cmJhbl90cmFpbl9saW5l4AEA!16s%2Fg%2F11dyl_f798?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_lowermalad": {
 		"name": {"en": "Lower Malad", "mr": "लोअर मालाड", "hi": "लोअर मलाड"},
@@ -7911,7 +7949,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_lowermalad"
+		"id": "mmmocl_2a_lowermalad",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Lower+Malad/@19.172919,72.836405,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b65883d57713:0x23bc2802f6ca2ea9!8m2!3d19.172919!4d72.836405!16s%2Fg%2F11trnbdjzj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_bangurnagar": {
 		"name": {"en": "Bangur Nagar", "mr": "बांगूर नगर", "hi": "बांगुर नगर"},
@@ -8000,7 +8039,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_bangurnagar"
+		"id": "mmmocl_2a_bangurnagar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bangur+Nagar+Metro+Station/@19.1623264,72.8348147,17z/data=!4m10!1m2!2m1!1sBangur+Nagar+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7b65b45a066e9:0x60e17153e346d9d!8m2!3d19.1622718!4d72.8347514!15sCjZCYW5ndXIgTmFnYXIgTWV0cm8gU3RhdGlvbiwgTXVtYmFpLCBNYWhhcmFzaHRyYSwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11f3x5pqkb?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_goregaonwest": {
 		"name": {"en": "Pahadi Goregaon", "mr": "पहाडी गोरेगाव", "hi": "पहाड़ी गोरेगांव"},
@@ -8090,7 +8130,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_goregaonwest"
+		"id": "mmmocl_2a_goregaonwest",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Goregaon+West+Metro+Station/@19.153024,72.835666,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b65b45a066e9:0x60e17153e346d9d!8m2!3d19.153024!4d72.835666!16s%2Fg%2F11f3x5pqkb?entry=ttu"
 	},
 	"mmmocl_2a_oshiwara": {
 		"name": {"en": "Oshiwara (Adarsh Nagar)", "mr": "ओशिवरा", "hi": "ओशिवरा"},
@@ -8180,7 +8221,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_oshiwara"
+		"id": "mmmocl_2a_oshiwara",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Oshiwara/@19.1433435,72.83282,17z/data=!4m10!1m2!2m1!1sOshiwara+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7b6393313df95:0x79ffc04a1c5f8c1e!8m2!3d19.146041!4d72.833945!15sCjJPc2hpd2FyYSBNZXRybyBTdGF0aW9uLCBNdW1iYWksIE1haGFyYXNodHJhLCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11k99qhr9b?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_loweroshiwara": {
 		"name": {"en": "Lower Oshiwara", "mr": "लोअर ओशिवरा", "hi": "लोअर ओशिवरा"},
@@ -8273,7 +8315,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_andheriwest"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_loweroshiwara"
+		"id": "mmmocl_2a_loweroshiwara",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Lower+Oshiwara/@19.140646,72.831695,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b63cf0b7c0e3:0xdaeb984955bec47a!8m2!3d19.140646!4d72.831695!16s%2Fg%2F11k99q6_2t?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_2a_andheriwest": {
 		"name": {"en": "Andheri West", "mr": "अंधेरी पश्चिम", "hi": "अंधेरी पश्चिम"},
@@ -8365,7 +8408,8 @@
 			"1": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"},
 			"2": {"line": "mumbai.yellow", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_2a_andheriwest"
+		"id": "mmmocl_2a_andheriwest",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Andheri+(West)/@19.129144,72.8314277,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b620fbaefbd9:0x8a2d91e9af2aacff!8m2!3d19.129144!4d72.8314277!16s%2Fg%2F11shffd8rz?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_gundavali": {
 		"name": {"en": "Gundavali", "mr": "गुंदवली", "hi": "गुंदावली"},
@@ -8455,7 +8499,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_gundavali"
+		"id": "mmmocl_7_gundavali",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Gundavali/@19.114858,72.855182,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c83252108ad9:0xb025ac04a2205ee8!8m2!3d19.114858!4d72.855182!16s%2Fg%2F11k99pznb4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_mogra": {
 		"name": {"en": "Mogra", "mr": "मोगरा", "hi": "मोगरा"},
@@ -8544,7 +8589,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_mogra"
+		"id": "mmmocl_7_mogra",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mogra/@19.128656,72.855361,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c82a773dcae9:0xd6f176f2d155ee!8m2!3d19.128656!4d72.855361!16s%2Fg%2F11trnbj9d8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_jogeshwarieast": {
 		"name": {"en": "Jogeshwari East", "mr": "जोगेश्वरी पूर्व", "hi": "जोगेश्वरी पूर्व"},
@@ -8635,7 +8681,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_jogeshwarieast"
+		"id": "mmmocl_7_jogeshwarieast",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jogeshwari+(East)/@19.142824,72.855085,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b7cdae5db8eb:0x92f804537da97d3a!8m2!3d19.142824!4d72.855085!16s%2Fg%2F11shffdmwx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_goregaoneast": {
 		"name": {"en": "Goregaon East", "mr": "गोरेगाव पूर्व", "hi": "गोरेगांव पूर्व"},
@@ -8725,7 +8772,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_goregaoneast"
+		"id": "mmmocl_7_goregaoneast",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Goregaon+(East)/@19.152507,72.856522,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b7b5f11e60fb:0x9277b9b2e3aa6ab9!8m2!3d19.152507!4d72.856522!16s%2Fg%2F11k99q1pzn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_aarey": {
 		"name": {"en": "Aarey", "mr": "आरे", "hi": "आरे"},
@@ -8815,7 +8863,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_aarey"
+		"id": "mmmocl_7_aarey",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Aarey+Metro+Station/@19.16927,72.858735,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b7aeb44d9b83:0x9cb8d073c37d482b!8m2!3d19.16927!4d72.858735!16s%2Fg%2F11rw6nqfn0?entry=ttu"
 	},
 	"mmmocl_7_dindoshi": {
 		"name": {"en": "Dindoshi", "mr": "दिंडोशी", "hi": "डिंडोशी"},
@@ -8905,7 +8954,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_dindoshi"
+		"id": "mmmocl_7_dindoshi",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dindoshi/@19.179639,72.858258,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b706b83a37c3:0x1e29975c77849953!8m2!3d19.179639!4d72.858258!16s%2Fg%2F11sxvxw_kb?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_kurar": {
 		"name": {"en": "Kurar", "mr": "कुरार", "hi": "कुरार"},
@@ -8994,7 +9044,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_kurar"
+		"id": "mmmocl_7_kurar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kurar/@19.187198,72.858456,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b71b4ee9108b:0xfdbc18cf340140fe!8m2!3d19.187198!4d72.858456!16s%2Fg%2F11q5744215?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_akurli": {
 		"name": {"en": "Akurli", "mr": "आकुर्ली", "hi": "आकुर्ली"},
@@ -9084,7 +9135,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_akurli"
+		"id": "mmmocl_7_akurli",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Akurli/@19.198211,72.86065,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b7187ee505a5:0xac570652025a88c3!8m2!3d19.198211!4d72.86065!16s%2Fg%2F11sxvy3nss?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_poisar": {
 		"name": {"en": "Poisar", "mr": "पोईसर", "hi": "पोइसर"},
@@ -9175,7 +9227,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_poisar"
+		"id": "mmmocl_7_poisar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Poisar/@19.203847,72.863403,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b73cad305ce9:0xbd395c1b306cee07!8m2!3d19.203847!4d72.863403!16s%2Fg%2F11sxvy09bx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_magathane": {
 		"name": {"en": "Magathane", "mr": "मागाठाणे", "hi": "मागाठाणे"},
@@ -9265,7 +9318,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_magathane"
+		"id": "mmmocl_7_magathane",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Magathane/@19.216952,72.866928,17z/data=!4m10!1m2!2m1!1sMagathane+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7b733ce85d6c9:0xcbbe3540d3ad7ca8!8m2!3d19.217179!4d72.866723!15sCjNNYWdhdGhhbmUgTWV0cm8gU3RhdGlvbiwgTXVtYmFpLCBNYWhhcmFzaHRyYSwgSW5kaWFaMiIwbWFnYXRoYW5lIG1ldHJvIHN0YXRpb24gbXVtYmFpIG1haGFyYXNodHJhIGluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11rw6njx1h?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_devipada": {
 		"name": {"en": "Devipada", "mr": "देवीपाडा", "hi": "देवीपाड़ा"},
@@ -9355,7 +9409,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_devipada"
+		"id": "mmmocl_7_devipada",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Devipada/@19.22424,72.864231,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b0cd70cf8435:0x24ed339e60d7a4fc!8m2!3d19.22424!4d72.864231!16s%2Fg%2F11rw6nktj9?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_nationalpark": {
 		"name": {"en": "Rashtriya Udyan (National Park)", "mr": "राष्ट्रीय उद्यान", "hi": "राष्ट्रीय उद्यान"},
@@ -9448,7 +9503,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_nationalpark"
+		"id": "mmmocl_7_nationalpark",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rashtriya+Udyan/@19.234665,72.863139,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b0daca65dd17:0x928c6c74a870ee5f!8m2!3d19.234665!4d72.863139!16s%2Fg%2F11q5749nnc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmmocl_7_ovaripada": {
 		"name": {"en": "Ovaripada", "mr": "ओवरीपाडा", "hi": "ओवरीपाड़ा"},
@@ -9537,7 +9593,8 @@
 			"1": {"line": "mumbai.red", "destination": "mmmocl_7_gundavali"},
 			"2": {"line": "mumbai.red", "destination": "mmmocl_2a_dahisareast"}
 		},
-		"id": "mmmocl_7_ovaripada"
+		"id": "mmmocl_7_ovaripada",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ovaripada/@19.243269,72.864199,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b0c2c79323df:0xa46112ce86afe55e!8m2!3d19.243269!4d72.864199!16s%2Fg%2F11sxvy22f_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_versova": {
 		"name": {"en": "Versova", "mr": "वर्सोवा", "hi": "वर्सोवा"},
@@ -9618,7 +9675,8 @@
 			"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"},
 			"2": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}
 		},
-		"id": "mmopl_1_versova"
+		"id": "mmopl_1_versova",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Versova/@19.1303249,72.8214049,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7b61c10d2b357:0x3001a23cd9e2b2b4!8m2!3d19.1303249!4d72.8214049!16s%2Fm%2F010vq9qc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_dnnagar": {
 		"name": {"en": "D.N. Nagar", "mr": "डी. एन. नगर", "hi": "डी. एन. नगर"},
@@ -9697,7 +9755,8 @@
 			"Health": [{"name": "Dr. R.N. Cooper Municipal Hospital", "walking_min": 14}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_dnnagar"
+		"id": "mmopl_1_dnnagar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/D+N+Nagar/@19.128316,72.8303036,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c87c55555555:0xdafda5cf7a5b46b!8m2!3d19.128316!4d72.8303036!16s%2Fm%2F01113h42?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_azadnagar": {
 		"name": {"en": "Azad Nagar", "mr": "आझाद नगर", "hi": "आज़ाद नगर"},
@@ -9775,7 +9834,8 @@
 			"Commercial": [{"name": "Veera Desai Industrial Estate", "walking_min": 8}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_azadnagar"
+		"id": "mmopl_1_azadnagar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Azad+Nagar/@19.1268998,72.8376982,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c9d873a2d211:0xfe44c020c940078b!8m2!3d19.1268998!4d72.8376982!16s%2Fm%2F011144yd?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_andheri": {
 		"name": {"en": "Andheri", "mr": "अंधेरी", "hi": "अंधेरी"},
@@ -9856,7 +9916,8 @@
 			"Commercial": [{"name": "Shoppers Stop Andheri West", "walking_min": 4}, {"name": "S.V. Road Commercial Market", "walking_min": 2}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_andheri"
+		"id": "mmopl_1_andheri",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Andheri/@19.1203574,72.8481931,17z/data=!4m10!1m2!2m1!1sAndheri+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7c9d3a393dee9:0x19b306b3eae68e89!8m2!3d19.120561!4d72.8487279!15sCjFBbmRoZXJpIE1ldHJvIFN0YXRpb24sIE11bWJhaSwgTWFoYXJhc2h0cmEsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F1s049dmmn?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_westernexpresshighway": {
 		"name": {"en": "Western Express Highway", "mr": "वेस्टर्न एक्सप्रेस हायवे", "hi": "वेस्टर्न एक्सप्रेस हाईवे"},
@@ -9948,7 +10009,8 @@
 			"Commercial": [{"name": "Solitaire Corporate Park", "walking_min": 6}, {"name": "Bisleri Corporate Headquarters", "walking_min": 4}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_westernexpresshighway"
+		"id": "mmopl_1_westernexpresshighway",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Western+Exp+Highway/@19.115875,72.85648,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c8323f86fd5d:0x4a86fb1739f797ca!8m2!3d19.115875!4d72.85648!16s%2Fm%2F010x7s7f?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_chakala": {
 		"name": {"en": "Chakala (J.B. Nagar)", "mr": "चकाला (जे. बी. नगर)", "hi": "चकाला (जे. बी. नगर)"},
@@ -10026,7 +10088,8 @@
 			"Commercial": [{"name": "MIDC Cross Road Commercial Hub", "walking_min": 8}, {"name": "Holy Family Church Chakala", "walking_min": 5}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_chakala"
+		"id": "mmopl_1_chakala",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Chakala/@19.1119393,72.8675939,17z/data=!4m10!1m2!2m1!1sChakala+Metro+Station,+Mumbai,+Maharashtra,+India!3m6!1s0x3be7c83966044071:0xdf3c0601bbc89ec!8m2!3d19.1120538!4d72.8676571!15sCjFDaGFrYWxhIE1ldHJvIFN0YXRpb24sIE11bWJhaSwgTWFoYXJhc2h0cmEsIEluZGlhWjAiLmNoYWthbGEgbWV0cm8gc3RhdGlvbiBtdW1iYWkgbWFoYXJhc2h0cmEgaW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fm%2F0113gw23?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_airportroad": {
 		"name": {"en": "Airport Road", "mr": "एअरपोर्ट रोड", "hi": "एयरपोर्ट रोड"},
@@ -10104,7 +10167,8 @@
 			"Commercial": [{"name": "Kanakia Boomerang Corporate Park", "walking_min": 12}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_airportroad"
+		"id": "mmopl_1_airportroad",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Airport+Road/@19.1101477,72.8742319,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c83fcef12d03:0x73ffb25188038ab8!8m2!3d19.1101477!4d72.8742319!16s%2Fm%2F01114fwd?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_sakinaka": {
 		"name": {"en": "Saki Naka", "mr": "साकी नाका", "hi": "साकी नाका"},
@@ -10182,7 +10246,8 @@
 			"Transit": [{"name": "Saki Naka BEST Junction Stop", "walking_min": 1}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_sakinaka"
+		"id": "mmopl_1_sakinaka",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Saki+Naka/@19.1034835,72.8879697,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c87204f8fcf1:0x3fc380686ed4cd51!8m2!3d19.1034835!4d72.8879697!16s%2Fm%2F01111y0z?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_asalpha": {
 		"name": {"en": "Asalpha", "mr": "असल्फा", "hi": "असल्फा"},
@@ -10259,7 +10324,8 @@
 			"Landmarks": [{"name": "Subhash Nagar Ground", "walking_min": 4}, {"name": "Asalpha Ganesh Mandir", "walking_min": 3}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_asalpha"
+		"id": "mmopl_1_asalpha",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Asalpha/@19.0963497,72.8948792,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c879b9351757:0x9415df49724839d3!8m2!3d19.0963497!4d72.8948792!16s%2Fm%2F010xdrpm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_jagrutinagar": {
 		"name": {"en": "Jagruti Nagar", "mr": "जागृती नगर", "hi": "जागृती नगर"},
@@ -10337,7 +10403,8 @@
 			"Institutional": [{"name": "Hindi High School Ghatkopar", "walking_min": 5}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_ghatkopar"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_jagrutinagar"
+		"id": "mmopl_1_jagrutinagar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jagruti+Nagar/@19.0924711,72.9018642,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c7d42d2db3e9:0x2e4896e551434ddc!8m2!3d19.0924711!4d72.9018642!16s%2Fm%2F010xfd26?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mmopl_1_ghatkopar": {
 		"name": {"en": "Ghatkopar", "mr": "घाटकोपर", "hi": "घाटकोपर"},
@@ -10418,7 +10485,8 @@
 			"Commercial": [{"name": "R-City Mall Ghatkopar", "walking_min": 15}, {"name": "Ghatkopar West Market (LBS Marg)", "walking_min": 3}]
 		},
 		"platforms": {"1": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}, "2": {"line": "mumbai.blue", "destination": "mmopl_1_versova"}},
-		"id": "mmopl_1_ghatkopar"
+		"id": "mmopl_1_ghatkopar",
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ghatkopar/@19.0867792,72.9080649,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c62d218e1d23:0x4ab93892dc0dfac9!8m2!3d19.0867792!4d72.9080649!16s%2Fm%2F010qrn6y?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"belapur": {
 		"name": {"en": "CBD Belapur", "mr": "सी.बी.डी. बेलापूर", "hi": "सी.बी.डी. बेलापूर"},
@@ -10494,7 +10562,8 @@
 		"nearby_places": {
 			"Transit": [{"name": "CBD Belapur Suburban Railway Station", "walking_min": 2}],
 			"Commercial": [{"name": "Sakal Bhavan Corporate Area", "walking_min": 4}, {"name": "CIDCO Bhavan", "walking_min": 8}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/CBD+Belapur+Metro+Station/@19.0186,73.0389,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c3b2ae68bbd5:0xca268cd619470e23!8m2!3d19.0186!4d73.0389!16s%2Fg%2F11l6zn9d0x?entry=ttu"
 	},
 	"sector7": {
 		"name": {"en": "Sector 7 (Belapur)", "mr": "सेक्टर ७ (बेलापूर)", "hi": "सेक्टर ७ (बेलापूर)"},
@@ -10570,7 +10639,8 @@
 		"nearby_places": {
 			"Culture": [{"name": "Navi Mumbai Kala Bhavan", "walking_min": 4}],
 			"Civic": [{"name": "Belapur Police Station", "walking_min": 6}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/RBI+Colony/@19.022964,73.047933,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c24e5d6464e1:0xa2caeafad1de49f1!8m2!3d19.022964!4d73.047933!16s%2Fg%2F11l6znks7w?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sciencepark": {
 		"name": {"en": "CIDCO Science Park", "mr": "सिडको सायन्स पार्क", "hi": "सिडको साइंस पार्क"},
@@ -10646,7 +10716,8 @@
 		"nearby_places": {
 			"Education": [{"name": "CIDCO Science Park Centre", "walking_min": 2}],
 			"Parks": [{"name": "Kharghar Valley Golf Course Access", "walking_min": 12}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Belpada+metro+station/@19.0254324,73.0552703,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c245b4cbb063:0x7bad4e4a145dc22!8m2!3d19.0254324!4d73.0552703!16s%2Fg%2F11g65f6mn0?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"utsavchowk": {
 		"name": {"en": "Utsav Chowk (Kharghar)", "mr": "उत्सव चौक (खारघर)", "hi": "उत्सव चौक (खारघर)"},
@@ -10734,7 +10805,8 @@
 		"nearby_places": {
 			"Landmarks": [{"name": "Iconic Utsav Chowk Circle", "walking_min": 1}],
 			"Commercial": [{"name": "Hiranandani Kharghar Shopping Plaza", "walking_min": 5}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Utsav+Chowk/@19.032727,73.059098,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c240a5a445d7:0xa99b07e70cbfe4b2!8m2!3d19.032727!4d73.059098!16s%2Fg%2F11l6znhyfy?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector11": {
 		"name": {"en": "Sector 11 (Kharghar)", "mr": "सेक्टर ११ (खारघर)", "hi": "सेक्टर ११ (खारघर)"},
@@ -10822,7 +10894,8 @@
 		"nearby_places": {
 			"Commercial": [{"name": "Shilp Chowk Market", "walking_min": 4}],
 			"Education": [{"name": "NIFT Mumbai Campus", "walking_min": 10}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kendriya+Vihar+Metro+Station+Rd,+Kharghar,+Panvel,+Maharashtra+410210/@19.037914,73.0643566,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c23e28656971:0xc714a9aedef0b9e9!8m2!3d19.037914!4d73.0643566!16s%2Fg%2F11x2b70m8t?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector14": {
 		"name": {"en": "Sector 14 (Kharghar)", "mr": "सेक्टर १४ (खारघर)", "hi": "सेक्टर १४ (खारघर)"},
@@ -10909,7 +10982,8 @@
 		},
 		"nearby_places": {
 			"Residential": [{"name": "Kendriya Vihar Complex", "walking_min": 3}, {"name": "Jalvayu Vihar", "walking_min": 5}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kharghar+Village/@19.043315,73.074466,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c2104aaa900f:0x5b79739a86b8be63!8m2!3d19.043315!4d73.074466!16s%2Fg%2F11l6zn8xc_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"centralpark": {
 		"name": {"en": "Central Park (Kharghar)", "mr": "सेंट्रल पार्क (खारघर)", "hi": "सेंट्रल पार्क (खारघर)"},
@@ -10997,7 +11071,8 @@
 		"nearby_places": {
 			"Parks & Leisure": [{"name": "Navi Mumbai Central Park", "walking_min": 2}],
 			"Spiritual": [{"name": "ISKCON Temple Kharghar", "walking_min": 6}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Central+Park/@19.0535619,73.0761272,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c2034ab3c399:0xb3c4d36d10d8933d!8m2!3d19.0535619!4d73.0761272!16s%2Fg%2F1s04g3q10?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"pethpada": {
 		"name": {"en": "Pethpada", "mr": "पेठपाडा", "hi": "पेठपाड़ा"},
@@ -11073,7 +11148,8 @@
 		"nearby_places": {
 			"Education": [{"name": "Saraswati College of Engineering", "walking_min": 6}],
 			"Nature": [{"name": "Kharghar Hills View Point", "walking_min": 10}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Pethpada/@19.06401,73.077462,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c1fa21e60e79:0x581e6f0ef15256d2!8m2!3d19.06401!4d73.077462!16s%2Fg%2F11vj6w2r1j?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"sector34": {
 		"name": {"en": "Sector 34 (Kharghar)", "mr": "सेक्टर ३४ (खारघर)", "hi": "सेक्टर ३४ (खारघर)"},
@@ -11160,7 +11236,8 @@
 		},
 		"nearby_places": {
 			"Residential": [{"name": "Valley Shilp CIDCO Housing", "walking_min": 4}, {"name": "Swapnapurti Township", "walking_min": 8}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Amandoot/@19.073782,73.081866,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c1e389e39a75:0x52388ac5281af7c0!8m2!3d19.073782!4d73.081866!16s%2Fg%2F11vj6vzk8x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"panchanand": {
 		"name": {"en": "Panchanand", "mr": "पंचानंद", "hi": "पंचानंद"},
@@ -11233,7 +11310,8 @@
 			"mr": "उत्तर खारघर आणि तळोजा एमआयडीसी परिसराच्या सीमेवरील पंचानंद मेट्रो स्थानक.",
 			"hi": "उत्तर खारघर और तलोजा एमआईडीसी सीमा पर स्थित पंचानंद मेट्रो स्टेशन।"
 		},
-		"nearby_places": {"Civic": [{"name": "Panchanand Municipal School", "walking_min": 5}]}
+		"nearby_places": {"Civic": [{"name": "Panchanand Municipal School", "walking_min": 5}]},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Pethali+Taloja+%E0%A4%AA%E0%A5%87%E0%A4%A0%E0%A4%BE%E0%A4%B2%E0%A5%80+%E0%A4%A4%E0%A4%B3%E0%A5%8B%E0%A4%9C%E0%A4%BE+%E0%A4%AE%E0%A5%87%E0%A4%9F%E0%A5%8D%E0%A4%B0%E0%A5%8B+%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A5%87%E0%A4%B6%E0%A4%A8+%E0%A4%A8%E0%A4%82%E0%A4%AC%E0%A4%B0+10/@19.0745889,73.0907319,17z/data=!4m10!1m2!2m1!1sPethali+-+Taloja+Metro+Station,+Navi+Mumbai,+Maharashtra,+India!3m6!1s0x3be7ebc8ea6c9363:0x5c97683eaf84b74c!8m2!3d19.0745137!4d73.0906999!15sCj9QZXRoYWxpIC0gVGFsb2phIE1ldHJvIFN0YXRpb24sIE5hdmkgTXVtYmFpLCBNYWhhcmFzaHRyYSwgSW5kaWFaPCI6cGV0aGFsaSB0YWxvamEgbWV0cm8gc3RhdGlvbiBuYXZpIG11bWJhaSBtYWhhcmFzaHRyYSBpbmRpYZIBFnRyYW5zcG9ydGF0aW9uX3NlcnZpY2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUjBiVGxFWmkxUlJSQULgAQD6AQQIABAz!16s%2Fg%2F11vf6zv398?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"pendhar": {
 		"name": {"en": "Pendhar", "mr": "पेंधर", "hi": "पेंधर"},
@@ -11309,7 +11387,8 @@
 		"nearby_places": {
 			"Transit": [{"name": "Taloja Metro Maintenance Depot", "walking_min": 2}],
 			"Industrial": [{"name": "Taloja MIDC Phase 1", "walking_min": 6}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Pendhar+Metro+Station/@19.0719003,73.098191,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7eb02b490af73:0xd4b4bf67068c862d!8m2!3d19.0719003!4d73.098191!16s%2Fg%2F11j3tx62pq?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"chembur": {
 		"name": {"en": "Chembur", "mr": "चेंबूर", "hi": "चेंबूर"},
@@ -11383,7 +11462,8 @@
 		"nearby_places": {
 			"Transit": [{"name": "Chembur Suburban Railway Station", "walking_min": 1}],
 			"Commercial": [{"name": "Chembur Station Market", "walking_min": 2}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Chembur/@19.0612316,72.8975238,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c8a061aff38f:0x87dcf2f2a2551ec0!8m2!3d19.0612316!4d72.8975238!16s%2Fm%2F0_lmdbg?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"vnp_rcmarg": {
 		"name": {"en": "V.N. Purav Marg (RC Marg)", "mr": "व्ही. एन. पुरव मार्ग", "hi": "वी. एन. पुरव मार्ग"},
@@ -11468,7 +11548,8 @@
 		},
 		"nearby_places": {
 			"Education": [{"name": "Tata Institute of Social Sciences (TISS)", "walking_min": 8}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/VNP+%26+RC+Marg+Junction/@19.0526406,72.8942423,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c8a618fb64cf:0x750bc3a4deb556bc!8m2!3d19.0526406!4d72.8942423!16s%2Fg%2F1q5glvtr3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"fertiliser": {
 		"name": {"en": "Fertiliser Township", "mr": "फर्टिलायझर टाउनशिप", "hi": "फर्टिलाइजर टाउनशिप"},
@@ -11551,7 +11632,8 @@
 			"mr": "राष्ट्रीय केमिकल्स अँड फर्टिलायझर्स (आरसीएफ) टाउनशिप परिसराला सेवा देणारे स्थानक.",
 			"hi": "राष्ट्रीय केमिकल्स एंड फर्टिलाइजर्स (आरसीएफ) आवासीय टाउनशिप को कनेक्टिविटी देने वाला स्टेशन।"
 		},
-		"nearby_places": {"Industrial Township": [{"name": "RCF Police Colony & Township", "walking_min": 3}]}
+		"nearby_places": {"Industrial Township": [{"name": "RCF Police Colony & Township", "walking_min": 3}]},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Fertilizer+Township/@19.043926,72.893416,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c8ab845d1cc1:0x68d762397890881d!8m2!3d19.043926!4d72.893416!16s%2Fm%2F0_qd1g3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bharat_petroleum": {
 		"name": {"en": "Bharat Petroleum", "mr": "भारत पेट्रोलियम", "hi": "भारत पेट्रोलियम"},
@@ -11622,7 +11704,8 @@
 			"mr": "भारत पेट्रोलियम (बीपीसीएल) रिफायनरी आणि माहुल औद्योगिक परिसरातील स्थानक.",
 			"hi": "भारत पेट्रोलियम (बीपीसीएल) रिफाइनरी कॉम्प्लेक्स और माहुल क्षेत्र के समीप स्थित मोनोरेल स्टेशन।"
 		},
-		"nearby_places": {"Industrial": [{"name": "BPCL Mumbai Refinery", "walking_min": 4}]}
+		"nearby_places": {"Industrial": [{"name": "BPCL Mumbai Refinery", "walking_min": 4}]},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bharat+Petroleum+Monorail+Platform/@19.0354057,72.8954866,17z/data=!4m10!1m2!2m1!1sBharat+Petroleum+Metro+Station,+Mumbai+Monorail,+Maharashtra,+India!3m6!1s0x3be7cf4e4cac03f9:0x3d38ea2315429e14!8m2!3d19.0354661!4d72.8954351!15sCkNCaGFyYXQgUGV0cm9sZXVtIE1ldHJvIFN0YXRpb24sIE11bWJhaSBNb25vcmFpbCwgTWFoYXJhc2h0cmEsIEluZGlhWkIiQGJoYXJhdCBwZXRyb2xldW0gbWV0cm8gc3RhdGlvbiBtdW1iYWkgbW9ub3JhaWwgbWFoYXJhc2h0cmEgaW5kaWGSAQp0cmFpbl95YXJkmgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU14YjJKWGEzUkJSUkFC4AEA-gEECAAQFg!16s%2Fg%2F11h22j1551?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mysore_colony": {
 		"name": {"en": "Mysore Colony", "mr": "म्हैसूर कॉलनी", "hi": "मैसूर कॉलोनी"},
@@ -11693,7 +11776,8 @@
 			"mr": "म्हैसूर कॉलनी आणि एचपीसीएल वसाहतींना सेवा पुरवणारे मोनोरेल स्थानक.",
 			"hi": "मैसूर कॉलोनी और एचपीसीएल आवासीय क्वार्टर्स को सेवा प्रदान करने वाला स्टेशन।"
 		},
-		"nearby_places": {"Residential": [{"name": "Mysore Colony Garden", "walking_min": 3}]}
+		"nearby_places": {"Residential": [{"name": "Mysore Colony Garden", "walking_min": 3}]},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mysore+Colony/@19.0276855,72.8913413,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cf5a6b3e9a8f:0xdef8f663e1ccf3b9!8m2!3d19.0276855!4d72.8913413!16s%2Fm%2F0_l5079?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"bhakti_park": {
 		"name": {"en": "Bhakti Park", "mr": "भक्ती पार्क", "hi": "भक्ति पार्क"},
@@ -11767,7 +11851,8 @@
 		"nearby_places": {
 			"Entertainment": [{"name": "IMAX Dome Theatre Wadala", "walking_min": 4}],
 			"Transit": [{"name": "Eastern Freeway Wadala Ramp", "walking_min": 6}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Bhakti+Park+monorail+station/@19.0292588,72.8777655,17z/data=!4m10!1m2!2m1!1sBhakti+Park+Metro+Station,+Mumbai+Monorail,+Maharashtra,+India!3m6!1s0x3be7cf485d88cd93:0xe8e0fe017773a511!8m2!3d19.029058!4d72.877633!15sCj5CaGFrdGkgUGFyayBNZXRybyBTdGF0aW9uLCBNdW1iYWkgTW9ub3JhaWwsIE1haGFyYXNodHJhLCBJbmRpYZIBF2xvZ2ljYWxfdHJhbnNpdF9zdGF0aW9u4AEA!16s%2Fm%2F0_lfjnc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"wadala_depot": {
 		"name": {"en": "Wadala Depot", "mr": "वडाळा आगार", "hi": "वडाला डिपो"},
@@ -11841,7 +11926,8 @@
 		"nearby_places": {
 			"Transit HQ": [{"name": "MMRDA Monorail Central Car Depot", "walking_min": 1}],
 			"Residential": [{"name": "Pratiksha Nagar Housing Colony", "walking_min": 5}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Wadala+Depot+Monorail+Station/@19.03901,72.87472,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c9b7ef179219:0x24f79a2261f1b0b!8m2!3d19.03901!4d72.87472!16s%2Fg%2F11f9fwfwtt?entry=ttu"
 	},
 	"gtb_nagar": {
 		"name": {"en": "GTB Nagar", "mr": "जी.टी.बी. नगर", "hi": "जी.टी.बी. नगर"},
@@ -11915,7 +12001,8 @@
 		"nearby_places": {
 			"Transit": [{"name": "GTB Nagar Harbour Line Railway Station", "walking_min": 6}],
 			"Landmarks": [{"name": "Sion Koliwada Market", "walking_min": 4}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Guru+Tegh+Bahadur+Nagar/@19.0367365,72.8708585,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cf34eb4a2bbd:0x5d2d132147ca610c!8m2!3d19.0367365!4d72.8708585!16s%2Fg%2F11h6vnxmms?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"antop_hill": {
 		"name": {"en": "Antop Hill", "mr": "अंटॉप हिल", "hi": "अंटॉप हिल"},
@@ -11988,7 +12075,8 @@
 		},
 		"nearby_places": {
 			"Civic": [{"name": "Antop Hill Post Office", "walking_min": 3}, {"name": "Barkat Ali Dargah", "walking_min": 5}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Antop+Hill/@19.030256,72.866979,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cf310febb0c3:0xf0a154799ff8ea01!8m2!3d19.030256!4d72.866979!16s%2Fg%2F11h6x543zc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"acharya_atre": {
 		"name": {"en": "Acharya Atre Nagar", "mr": "आचार्य अत्रे नगर", "hi": "आचार्य अत्रे नगर"},
@@ -12059,7 +12147,8 @@
 			"mr": "वडाळा पूर्व येथील आचार्य अत्रे नगर आणि स्थानिक शाळा-कॉलेजांना जोडणारे स्थानक.",
 			"hi": "वडाला पूर्व में आचार्य अत्रे नगर और आवासीय कॉलोनियों को सेवा देने वाला स्टेशन।"
 		},
-		"nearby_places": {"Community": [{"name": "Acharya Atre Ground", "walking_min": 4}]}
+		"nearby_places": {"Community": [{"name": "Acharya Atre Ground", "walking_min": 4}]},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Acharya+Atre+Nagar+Monorail+Station/@19.023888,72.8638647,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cf3ad15a0235:0x2cff51c3f3e5673!8m2!3d19.023888!4d72.8638647!16s%2Fg%2F11fkxqk9lv?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"wadala_bridge": {
 		"name": {"en": "Wadala Bridge", "mr": "वडाळा ब्रिज", "hi": "वडाला ब्रिज"},
@@ -12132,7 +12221,8 @@
 		},
 		"nearby_places": {
 			"Transit": [{"name": "Wadala Suburban Railway Station East", "walking_min": 5}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Wadala+Bridge/@19.0175236,72.8593816,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cf23b47962c5:0x96cd7750a53931d6!8m2!3d19.0175236!4d72.8593816!16s%2Fg%2F11h139nljp?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"dadar_east": {
 		"name": {"en": "Dadar East", "mr": "दादर पूर्व", "hi": "दादर पूर्व"},
@@ -12206,7 +12296,8 @@
 		"nearby_places": {
 			"Cinema & Heritage": [{"name": "Historic Chitra Cinema", "walking_min": 4}],
 			"Transit": [{"name": "Dadar Central Railway Station East Link", "walking_min": 12}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dadar+East+Monorail+Station/@19.016311,72.852302,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cf00138e02ed:0x1261030e8e776bfa!8m2!3d19.016311!4d72.852302!16s%2Fg%2F11mcnnw0d0?entry=ttu"
 	},
 	"naigaon": {
 		"name": {"en": "Naigaon", "mr": "नायगाव", "hi": "नायगांव"},
@@ -12279,7 +12370,8 @@
 		},
 		"nearby_places": {
 			"Civic": [{"name": "Naigaon Police Training Ground", "walking_min": 3}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Naigaon/@19.0096314,72.8479076,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cee10ff22a6b:0x5080ceb07edfa0cd!8m2!3d19.0096314!4d72.8479076!16s%2Fg%2F11fkw7yrj2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"ambedkar_nagar": {
 		"name": {"en": "Ambedkar Nagar", "mr": "आंबेडकर नगर", "hi": "आंबेडकर नगर"},
@@ -12352,7 +12444,8 @@
 		},
 		"nearby_places": {
 			"Health": [{"name": "KEM Municipal Hospital Parel", "walking_min": 8}, {"name": "Tata Memorial Cancer Hospital", "walking_min": 10}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ambedkar+Nagar/@19.0016213,72.8442071,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cee4ca811d69:0x2e3462657738dc!8m2!3d19.0016213!4d72.8442071!16s%2Fg%2F11f7bjt60m?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"mint_colony": {
 		"name": {"en": "Mint Colony", "mr": "मिंट कॉलनी", "hi": "मिंट कॉलोनी"},
@@ -12426,7 +12519,8 @@
 		"nearby_places": {
 			"Transit": [{"name": "Currey Road Central Railway Station", "walking_min": 7}],
 			"Heritage": [{"name": "India Government Mint Estate", "walking_min": 3}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mint+Colony/@18.9945383,72.843298,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cef9722b65df:0x191f4fb0be499909!8m2!3d18.9945383!4d72.843298!16s%2Fg%2F11fl5gpktk?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"lower_parel": {
 		"name": {"en": "Lower Parel", "mr": "लोअर परळ", "hi": "लोअर परेल"},
@@ -12500,7 +12594,8 @@
 		"nearby_places": {
 			"Shopping & Corporate": [{"name": "High Street Phoenix & Palladium Mall", "walking_min": 4}, {"name": "Peninsula Corporate Park", "walking_min": 6}],
 			"Transit": [{"name": "Lower Parel Western Railway Station", "walking_min": 8}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Lower+Parel+Monorail+Station/@18.9931816,72.8315064,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cef4790d24b3:0x9fb305636b121e95!8m2!3d18.9931816!4d72.8315064!16s%2Fg%2F11h6vp6g80?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	},
 	"jacob_circle": {
 		"name": {
@@ -12596,6 +12691,7 @@
 		"nearby_places": {
 			"Transit": [{"name": "Mahalaxmi Western Railway Station", "walking_min": 6}],
 			"Landmarks": [{"name": "Mahalaxmi Racecourse", "walking_min": 8}, {"name": "Dhobi Ghat Historical Landmark", "walking_min": 7}]
-		}
+		},
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sant+Gadge+Maharaj+Chowk/@18.983165,72.828624,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7ce5e05f33f27:0x1cd9eec24e625f6d!8m2!3d18.983165!4d72.828624!16s%2Fg%2F11jk3v2f69?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D"
 	}
 }

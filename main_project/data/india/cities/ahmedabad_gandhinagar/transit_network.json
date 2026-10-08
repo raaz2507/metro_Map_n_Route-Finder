@@ -167,14 +167,7 @@
 			"style": "dashed",
 			"status": "under_construction",
 			"route": {"from": "koteshwar_road", "to": "airport"},
-			"stations": [
-				"koteshwar_road",
-				"ashram_road",
-				"koteshwar_prachin_mandir",
-				"sabarmati_river",
-				"sardarnagar",
-				"airport"
-			]
+			"stations": ["koteshwar_road", "ashram_road", "koteshwar_prachin_mandir", "sabarmati_river", "sardarnagar", "airport"]
 		},
 		"gmrc.biotech": {
 			"id": "gmrc.biotech",
@@ -188,10 +181,7 @@
 			"style": "dashed",
 			"status": "under_construction",
 			"route": {"from": "gift_city_house", "to": "gujarat_biotechnology_university"},
-			"stations": [
-				"gift_city_house",
-				"gujarat_biotechnology_university"
-			]
+			"stations": ["gift_city_house", "gujarat_biotechnology_university"]
 		}
 	},
 	"station_types": {
@@ -202,84 +192,42 @@
 	"transfers": {
 		"old_high_court": {
 			"gmrc.blue": {
-				"old_high_court:gmrc.red": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"old_high_court:gmrc.red": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"gmrc.red": {
-				"old_high_court:gmrc.blue": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"old_high_court:gmrc.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		},
 		"motera_stadium": {
 			"gmrc.red": {
-				"motera_stadium:gmrc.yellow": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"motera_stadium:gmrc.yellow": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			},
 			"gmrc.yellow": {
-				"motera_stadium:gmrc.red": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"motera_stadium:gmrc.red": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			}
 		},
 		"gnlu": {
 			"gmrc.yellow": {
-				"gnlu:gmrc.violet": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"gnlu:gmrc.violet": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			},
 			"gmrc.violet": {
-				"gnlu:gmrc.yellow": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"gnlu:gmrc.yellow": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			}
 		},
 		"koteshwar_road": {
 			"gmrc.yellow": {
-				"koteshwar_road:gmrc.airport": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 25
-				}
+				"koteshwar_road:gmrc.airport": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 25}
 			},
 			"gmrc.airport": {
-				"koteshwar_road:gmrc.yellow": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 25
-				}
+				"koteshwar_road:gmrc.yellow": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 25}
 			}
 		},
 		"gift_city_house": {
 			"gmrc.violet": {
-				"gift_city_house:gmrc.biotech": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"gift_city_house:gmrc.biotech": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			},
 			"gmrc.biotech": {
-				"gift_city_house:gmrc.violet": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"gift_city_house:gmrc.violet": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			}
 		}
 	},
@@ -582,7 +530,11 @@
 			"name": {"en": "Koteshwar Road", "gu": "કોટેશ્વર રોડ"},
 			"lines": ["gmrc.yellow", "gmrc.airport"],
 			"properties": {"layout": "elevated", "status": "operational", "station_type": "interchange"},
-			"neighbors": [{"station": "motera_stadium", "line": "gmrc.yellow"}, {"station": "vishwakarma_college", "line": "gmrc.yellow"}, {"station": "ashram_road", "line": "gmrc.airport"}],
+			"neighbors": [
+				{"station": "motera_stadium", "line": "gmrc.yellow"},
+				{"station": "vishwakarma_college", "line": "gmrc.yellow"},
+				{"station": "ashram_road", "line": "gmrc.airport"}
+			],
 			"platforms": {},
 			"location": {"decimal": {"lat": 23.105944, "lon": 72.603489}}
 		},
@@ -795,7 +747,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [{"station": "koteshwar_road", "line": "gmrc.airport"}, {"station": "koteshwar_prachin_mandir", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.1025, "lon": 72.6075}}
+			"location": {"decimal": {"lat": 23.0464075, "lon": 72.578037}}
 		},
 		"koteshwar_prachin_mandir": {
 			"id": "koteshwar_prachin_mandir",
@@ -804,7 +756,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [{"station": "ashram_road", "line": "gmrc.airport"}, {"station": "sabarmati_river", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0977, "lon": 72.6140}}
+			"location": {"decimal": {"lat": 23.1002629, "lon": 72.6082251}}
 		},
 		"sabarmati_river": {
 			"id": "sabarmati_river",
@@ -813,7 +765,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [{"station": "koteshwar_prachin_mandir", "line": "gmrc.airport"}, {"station": "sardarnagar", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0910, "lon": 72.6205}}
+			"location": {"decimal": {"lat": 23.0784124, "lon": 72.5896937}}
 		},
 		"sardarnagar": {
 			"id": "sardarnagar",
@@ -822,7 +774,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [{"station": "sabarmati_river", "line": "gmrc.airport"}, {"station": "airport", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0818, "lon": 72.6270}}
+			"location": {"decimal": {"lat": 23.0597985, "lon": 72.5970013}}
 		},
 		"airport": {
 			"id": "airport",
@@ -831,7 +783,7 @@
 			"properties": {"layout": "underground", "status": "under_construction"},
 			"neighbors": [{"station": "sardarnagar", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0772, "lon": 72.6347}}
+			"location": {"decimal": {"lat": 23.0470787, "lon": 72.591846}}
 		},
 		"gujarat_biotechnology_university": {
 			"id": "gujarat_biotechnology_university",

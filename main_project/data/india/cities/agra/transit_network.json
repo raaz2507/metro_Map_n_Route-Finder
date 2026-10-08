@@ -55,6 +55,7 @@
 			"short_name": {"en": "Yellow Line (Line 1)", "hi": "यलो लाइन"},
 			"color": "#FBC02D",
 			"color_name": "yellow",
+			"farePolicy": "agra_metro_standard",
 			"style": "solid",
 			"route": {"from": "taj_east_gate", "to": "mankameshwar_mandir"},
 			"stations": ["taj_east_gate", "shaheed_captain_shubham_gupta", "fatehabad_road", "taj_mahal", "agra_fort", "mankameshwar_mandir"]
@@ -69,7 +70,7 @@
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "shaheed_captain_shubham_gupta", "line": "upmrc_agra.yellow"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 27.1632364, "lon": 78.0470442}}
+			"location": {"decimal": {"lat": 27.15842, "lon": 78.05791}}
 		},
 		"shaheed_captain_shubham_gupta": {
 			"id": "shaheed_captain_shubham_gupta",

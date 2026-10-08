@@ -130,9 +130,12 @@ export class PwaManager {
 		utilityBtn.addEventListener('click', (e) => {
 			e.stopPropagation();
 			const isOpen = utilityMenu.classList.contains('show');
-			// Close any other open dropdowns first
-			document.querySelectorAll('.custom-dropdown-menu.show').forEach(m => {
-				if (m !== utilityMenu) m.classList.remove('show');
+			
+			// Close all dropdowns across the header
+			document.querySelectorAll('.custom-dropdown-menu.show, .font-scale-panel.show, .city-dropdown-menu.show').forEach(m => {
+				m.classList.remove('show');
+				const btn = m.closest('.dropdown-container')?.querySelector('[aria-expanded="true"]');
+				if (btn) btn.setAttribute('aria-expanded', 'false');
 			});
 
 			if (isOpen) {

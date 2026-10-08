@@ -41,7 +41,8 @@
 	<main class="help-main-container">
 		
 		<!-- 1. HERO SEARCH HUB SECTION -->
-		<section class="help-hero">
+		<section class="help-hero" id="helpHero">
+			<button type="button" class="help-drawer-close-btn" id="heroCloseBtn" aria-label="Close search" title="Close">✕</button>
 			<div class="help-hero-badge">
 				<span class="help-ico ico-help ico-sm" aria-hidden="true"></span>
 				<span data-i18n="help.hero.badge">YatraMarg User Guide &amp; Knowledge Base</span>
@@ -80,6 +81,7 @@
 			<!-- CATEGORY FILTER CHIPS -->
 			<div class="help-filter-chips" id="helpFilterChips" role="tablist" aria-label="Help categories">
 				<button type="button" class="chip-btn active" data-filter="all" data-i18n="help.chips.all">All Topics</button>
+				<button type="button" class="chip-btn" data-filter="networks" data-i18n="help.chips.networks">Networks &amp; Cities</button>
 				<button type="button" class="chip-btn" data-filter="routes" data-i18n="help.chips.routes">Route Planning</button>
 				<button type="button" class="chip-btn" data-filter="smart" data-i18n="help.chips.smart">Smart Features &amp; Sensors</button>
 				<button type="button" class="chip-btn" data-filter="fares" data-i18n="help.chips.fares">Fares &amp; Cards</button>
@@ -94,26 +96,73 @@
 			<aside class="help-sidebar" id="helpSidebar" aria-label="Table of Contents">
 				<div class="sidebar-sticky-box">
 					<div class="sidebar-heading-badge">
-						<span class="help-ico ico-index ico-sm" aria-hidden="true"></span>
-						<span>Quick Index</span>
+						<div class="heading-badge-left">
+							<span class="help-ico ico-index ico-sm" aria-hidden="true"></span>
+							<span data-i18n="help.sidebar.quickIndex">Quick Index</span>
+						</div>
+						<button type="button" class="help-drawer-close-btn" id="sidebarCloseBtn" aria-label="Close index" title="Close">✕</button>
 					</div>
 					<nav class="help-sidebar-nav" id="helpSidebarNav">
-						<a href="#sec-routes" class="sidebar-nav-item active" data-target="sec-routes">
-							<span class="nav-step-pill">1</span>
-							<span class="nav-label" data-i18n="help.nav.step1">1. Route Planning</span>
-						</a>
-						<a href="#sec-smart" class="sidebar-nav-item" data-target="sec-smart">
-							<span class="nav-step-pill">2</span>
-							<span class="nav-label" data-i18n="help.nav.step2">2. Smart Journey &amp; Sensors</span>
-						</a>
-						<a href="#sec-fares" class="sidebar-nav-item" data-target="sec-fares">
-							<span class="nav-step-pill">3</span>
-							<span class="nav-label" data-i18n="help.nav.step3">3. Fares &amp; Smart Cards</span>
-						</a>
-						<a href="#sec-troubleshoot" class="sidebar-nav-item" data-target="sec-troubleshoot">
-							<span class="nav-step-pill">4</span>
-							<span class="nav-label" data-i18n="help.nav.step4">4. Troubleshooting &amp; Settings</span>
-						</a>
+						<div class="sidebar-nav-group">
+							<a href="#sec-networks" class="sidebar-nav-item active" data-target="sec-networks">
+								<span class="nav-step-pill">1</span>
+								<span class="nav-label" data-i18n="help.nav.stepNetworks">1. Select City &amp; Network</span>
+							</a>
+							<!-- Sub-section / Topics -->
+							<div class="sidebar-sub-nav">
+								<a href="#card-city-select" class="sidebar-sub-item" data-target="card-city-select">
+									<span class="sub-nav-dot"></span>
+									<span data-i18n="help.nav.topicCitySelect">अपना शहर कैसे चुनें</span>
+								</a>
+								<a href="#card-mode-filter" class="sidebar-sub-item" data-target="card-mode-filter">
+									<span class="sub-nav-dot"></span>
+									<span data-i18n="help.nav.topicModeFilter">मेट्रो, RRTS व फ़िल्टर</span>
+								</a>
+								<a href="#card-combined-net" class="sidebar-sub-item" data-target="card-combined-net">
+									<span class="sub-nav-dot"></span>
+									<span data-i18n="help.nav.topicCombinedNet">कंबाइंड (ऑल नेटवर्क)</span>
+								</a>
+							</div>
+						</div>
+						<div class="sidebar-nav-group">
+							<a href="#sec-routes" class="sidebar-nav-item" data-target="sec-routes">
+								<span class="nav-step-pill">2</span>
+								<span class="nav-label" data-i18n="help.nav.step1">2. Route Planning</span>
+							</a>
+						</div>
+						<div class="sidebar-nav-group">
+							<a href="#sec-smart" class="sidebar-nav-item" data-target="sec-smart">
+								<span class="nav-step-pill">3</span>
+								<span class="nav-label" data-i18n="help.nav.step2">3. Smart Journey &amp; Sensors</span>
+							</a>
+							<!-- Sub-section / Topics -->
+							<div class="sidebar-sub-nav">
+								<a href="#card-dest-alarm" class="sidebar-sub-item" data-target="card-dest-alarm">
+									<span class="sub-nav-dot"></span>
+									<span data-i18n="help.nav.topicDestAlarm">डेस्टिनेशन अलार्म</span>
+								</a>
+								<a href="#card-sensors-gps" class="sidebar-sub-item" data-target="card-sensors-gps">
+									<span class="sub-nav-dot"></span>
+									<span data-i18n="help.nav.topicSensorsGps">लाइव GPS व सेंसर</span>
+								</a>
+								<a href="#card-recharge-card" class="sidebar-sub-item" data-target="card-recharge-card">
+									<span class="sub-nav-dot"></span>
+									<span data-i18n="help.nav.topicRecharge">स्मार्ट कार्ड रीचार्ज</span>
+								</a>
+							</div>
+						</div>
+						<div class="sidebar-nav-group">
+							<a href="#sec-fares" class="sidebar-nav-item" data-target="sec-fares">
+								<span class="nav-step-pill">4</span>
+								<span class="nav-label" data-i18n="help.nav.step3">4. Fares &amp; Smart Cards</span>
+							</a>
+						</div>
+						<div class="sidebar-nav-group">
+							<a href="#sec-troubleshoot" class="sidebar-nav-item" data-target="sec-troubleshoot">
+								<span class="nav-step-pill">5</span>
+								<span class="nav-label" data-i18n="help.nav.step4">5. Troubleshooting &amp; Settings</span>
+							</a>
+						</div>
 					</nav>
 				</div>
 			</aside>
@@ -132,12 +181,170 @@
 				</div>
 
 				<!-- =========================================================
-				 SECTION 1: ROUTE PLANNING & NAVIGATION
+				 SECTION 1: TRANSIT NETWORKS & CITY SELECTION
+				 ========================================================= -->
+				<div class="help-section-group" id="sec-networks" data-category="networks">
+					<div class="section-badge-header">
+						<div class="section-title-wrap">
+							<span class="section-num-tag">01</span>
+							<div>
+								<h2 class="section-title" data-i18n="help.sections.networksTitle">Select City &amp; Transit Network</h2>
+								<p class="section-sub" data-i18n="help.sections.networksSubtitle">Discover and switch between Metro, RRTS, Monorail and suburban systems across cities</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="help-card-list">
+						<!-- Card 1.1: Select City -->
+						<div class="help-card-item" id="card-city-select" data-keywords="city network select change switch delhi mumbai bangalore kolkata hyderabad jaipur chennai search registry">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<div class="card-bullet-icon icon-blue">
+										<span class="help-ico ico-pin" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.citySelect.title">अपना शहर और मेट्रो नेटवर्क कैसे चुनें</h4>
+										<span data-i18n="help.cards.citySelect.subtitle">सर्च, सिटी कार्ड्स और तुरंत मैप लोड करने का तरीका</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.citySelect.desc">यात्रा-मार्ग में भारत के सभी प्रमुख मेट्रो शहरों का डेटा उपलब्ध है:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.citySelect.fact1">Networks पेज पर अपने शहर का नाम या स्टेशन का नाम सर्च करें।</li>
+									<li data-i18n="help.cards.citySelect.fact2">शहर के कार्ड पर क्लिक करते ही वह शहर एक्टिव हो जाता है और रूट मैप खुल जाता है।</li>
+									<li data-i18n="help.cards.citySelect.fact3">आपकी चुनी हुई सिटी फोन में सुरक्षित रहती है, बार-बार चुनने की ज़रूरत नहीं होती।</li>
+								</ul>
+
+								<!-- Text-like More... Action Link -->
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.citySelect.moreBtn" data-less-key="help.cards.citySelect.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.citySelect.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<!-- Extended Details -->
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.citySelect.detailHeading">शहर चुनने के आसान स्टेप्स:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.citySelect.step1">Networks मेनू खोलें: ऊपर नेविगेशन बार में 'Networks' विकल्प पर क्लिक करें।</li>
+										<li data-i18n="help.cards.citySelect.step2">सर्च करें या लिस्ट देखें: सर्च बार में अपने शहर (जैसे Delhi, Mumbai, Bengaluru) का नाम लिखें।</li>
+										<li data-i18n="help.cards.citySelect.step3">कार्ड पर टैप करें: अपने शहर के कार्ड पर क्लिक करें।</li>
+										<li data-i18n="help.cards.citySelect.step4">डायरेक्ट स्टेशन सर्च: सर्च बॉक्स में 'AIIMS' या 'Rajiv Chowk' लिखने पर डायरेक्ट स्टेशन भी चुन सकते हैं।</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.citySelect.tipBadge">आसान तरीका:</span>
+										<span class="tip-text" data-i18n="help.cards.citySelect.tipText">अगर आप किसी भी पेज पर हैं, तो ऊपर हेडर में बने 'शहर के नाम (City Pill)' पर क्लिक करके भी तुरंत शहर बदल सकते हैं।</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 1.2: Mode & Status Filter -->
+						<div class="help-card-item" id="card-mode-filter" data-keywords="mode status filter rrts monorail metrolite metroneo operational under construction sort alpha">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<div class="card-bullet-icon icon-indigo">
+										<span class="help-ico ico-activity" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.modeFilter.title">मेट्रो, RRTS और मोनोरेल फ़िल्टर कैसे इस्तेमाल करें</h4>
+										<span data-i18n="help.cards.modeFilter.subtitle">ट्रांज़िट मोड और प्रोजेक्ट स्टेटस के आधार पर सिस्टम छांटना</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.modeFilter.desc">विभिन्न प्रकार के रेल सिस्टम को अलग-अलग फ़िल्टर करके देखें:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.modeFilter.fact1">Mode फ़िल्टर: केवल Metro, केवल RRTS (नमो भारत), या Monorail कार्ड देखने के लिए चिप्स दबाएं।</li>
+									<li data-i18n="help.cards.modeFilter.fact2">Status फ़िल्टर: चालू (Operational) लाइनें और निर्माणाधीन (Under Construction) प्रोजेक्ट्स अलग देखें।</li>
+									<li data-i18n="help.cards.modeFilter.fact3">Sort By: शहरों को A to Z नाम या स्टेटस के अनुसार क्रमबद्ध करें।</li>
+								</ul>
+
+								<!-- Text-like More... Action Link -->
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.modeFilter.moreBtn" data-less-key="help.cards.modeFilter.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.modeFilter.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<!-- Extended Details -->
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.modeFilter.detailHeading">फ़िल्टर और स्टेटस के नियम:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.modeFilter.step1">चालू सिस्टम (Operational): इन पर क्लिक करते ही तुरंत पूरा मैप और टाइम-टेबल खुल जाता है।</li>
+										<li data-i18n="help.cards.modeFilter.step2">निर्माणाधीन सिस्टम (Under Construction): इन पर क्लिक करने पर स्क्रीन पर निर्माण कार्य की स्थिति का मैसेज दिखता है।</li>
+										<li data-i18n="help.cards.modeFilter.step3">सॉर्टिंग बदलना: 'City (A → Z)' बटन दबाकर शहरों को वर्णमाला के अनुसार सजा सकते हैं।</li>
+										<li data-i18n="help.cards.modeFilter.step4">फ़िल्टर रीसेट: 'All Modes' और 'All Status' दबाकर दोबारा सभी सिस्टम देख सकते हैं।</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.modeFilter.tipBadge">खास जानकारी:</span>
+										<span class="tip-text" data-i18n="help.cards.modeFilter.tipText">आपकी सॉर्टिंग पसंद फोन में सुरक्षित रहती है, अगली बार खोलने पर भी वही क्रम मिलेगा।</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 1.3: Combined All Networks -->
+						<div class="help-card-item" id="card-combined-net" data-keywords="combined all networks group card dmrc rapid metro rrts transfer multi modal">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<div class="card-bullet-icon icon-purple">
+										<span class="help-ico ico-transfer" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.combinedNet.title">कंबाइंड (ऑल नेटवर्क्स) कार्ड क्या है?</h4>
+										<span data-i18n="help.cards.combinedNet.subtitle">एक ही शहर के सभी अलग-अलग ट्रांज़िट सिस्टम को एक साथ देखना</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.combinedNet.desc">जिन शहरों में एक से ज़्यादा सिस्टम चलते हैं, उनके लिए कंबाइंड कार्ड बनता है:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.combinedNet.fact1">दिल्ली-एनसीआर में DMRC मेट्रो, रैपिड मेट्रो और नमो भारत RRTS तीनों एक साथ दिखते हैं।</li>
+									<li data-i18n="help.cards.combinedNet.fact2">कंबाइंड कार्ड चुनने पर सभी सिस्टम के इंटरचेंज स्टेशन एक ही नक्शे पर आपस में जुड़े दिखते हैं।</li>
+									<li data-i18n="help.cards.combinedNet.fact3">अगर आप केवल एक विशेष नेटवर्क देखना चाहते हैं, तो नीचे अलग इंडिविजुअल कार्ड भी चुन सकते हैं।</li>
+								</ul>
+
+								<!-- Text-like More... Action Link -->
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.combinedNet.moreBtn" data-less-key="help.cards.combinedNet.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.combinedNet.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<!-- Extended Details -->
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.combinedNet.detailHeading">कंबाइंड कार्ड इस्तेमाल करने का फायदा:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.combinedNet.step1">पूरे शहर का संपूर्ण नक्शा: अलग-अलग ऐप या मैप खोलने की ज़रूरत नहीं पड़ती।</li>
+										<li data-i18n="help.cards.combinedNet.step2">मल्टी-मॉडल रूट प्लानिंग: एक सिस्टम से दूसरे सिस्टम में ट्रांसफर (जैसे DMRC से RRTS) अपने आप कैलकुलेट होता है।</li>
+										<li data-i18n="help.cards.combinedNet.step3">एक क्लिक स्विच: कभी भी ऊपर हेडर से सिंगल नेटवर्क या ऑल नेटवर्क में बदल सकते हैं।</li>
+										<li data-i18n="help.cards.combinedNet.step4">किराया और इंटरचेंज: दोनों नेटवर्क के बीच सही टिकट और गेट की जानकारी मिलती है।</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.combinedNet.tipBadge">सुझाव:</span>
+										<span class="tip-text" data-i18n="help.cards.combinedNet.tipText">रोजाना यात्रा करने वालों के लिए 'All Networks' मोड सबसे सुविधाजनक रहता है।</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- =========================================================
+				 SECTION 2: ROUTE PLANNING & NAVIGATION
 				 ========================================================= -->
 				<div class="help-section-group" id="sec-routes" data-category="routes">
 					<div class="section-badge-header">
 						<div class="section-title-wrap">
-							<span class="section-num-tag">01</span>
+							<span class="section-num-tag">02</span>
 							<div>
 								<h2 class="section-title" data-i18n="help.sections.routesTitle">Route Planning &amp; Navigation</h2>
 								<p class="section-sub" data-i18n="help.sections.routesSubtitle">Finding optimal transit paths, stations, and interchange guides</p>
@@ -226,7 +433,7 @@
 				<div class="help-section-group" id="sec-smart" data-category="smart">
 					<div class="section-badge-header">
 						<div class="section-title-wrap">
-							<span class="section-num-tag">02</span>
+							<span class="section-num-tag">03</span>
 							<div>
 								<h2 class="section-title" data-i18n="help.sections.smartTitle">Smart Journey &amp; Sensors</h2>
 								<p class="section-sub" data-i18n="help.sections.smartSubtitle">Destination wake-up alarms, GPS tracking, and card recharge gateway</p>
@@ -256,6 +463,29 @@
 									<li data-i18n="help.cards.destAlarm.fact2">Uses low-power background Geolocation API and motion telemetry to track proximity.</li>
 									<li data-i18n="help.cards.destAlarm.fact3">Sounds a prominent audio chime and activates device vibration upon approaching the target station.</li>
 								</ul>
+
+								<!-- Text-like More... Action Link -->
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.destAlarm.moreBtn" data-less-key="help.cards.destAlarm.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.destAlarm.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<!-- Extended Details (Initially collapsed, reveals on click) -->
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.destAlarm.detailHeading">अलार्म कैसे लगाएं और कैसे काम करता है?</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.destAlarm.step1">रूट खोजें: होम पेज पर शुरुआती और आखिरी स्टेशन चुनकर रूट देखें।</li>
+										<li data-i18n="help.cards.destAlarm.step2">अलार्म बटन दबाएं: नीचे यात्रा कार्ड पर दिख रहे घंटी (Alarm) बटन पर टैप करें।</li>
+										<li data-i18n="help.cards.destAlarm.step3">दूरी चुनें: तय करें कि आपको 1 स्टेशन पहले या 2 स्टेशन पहले अलर्ट चाहिए।</li>
+										<li data-i18n="help.cards.destAlarm.step4">लोकेशन ऑन रखें: स्क्रीन पर परमिशन मांगते ही Location Allow करें।</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.destAlarm.tipBadge">खास सुझाव:</span>
+										<span class="tip-text" data-i18n="help.cards.destAlarm.tipText">अगर फोन साइलेंट है तब भी वाइब्रेशन काम करेगा, और ईयरफोन लगे होने पर बीप आवाज़ साफ सुनाई देगी।</span>
+									</div>
+								</div>
 							</div>
 						</div>
 
@@ -315,7 +545,7 @@
 				<div class="help-section-group" id="sec-fares" data-category="fares">
 					<div class="section-badge-header">
 						<div class="section-title-wrap">
-							<span class="section-num-tag">03</span>
+							<span class="section-num-tag">04</span>
 							<div>
 								<h2 class="section-title" data-i18n="help.sections.faresTitle">Fares, Smart Cards &amp; Station Rules</h2>
 								<p class="section-sub" data-i18n="help.sections.faresSubtitle">Discounts, penalty rules, overstay limits, and holiday fare slabs</p>
@@ -404,7 +634,7 @@
 				<div class="help-section-group" id="sec-troubleshoot" data-category="troubleshoot">
 					<div class="section-badge-header">
 						<div class="section-title-wrap">
-							<span class="section-num-tag">04</span>
+							<span class="section-num-tag">05</span>
 							<div>
 								<h2 class="section-title" data-i18n="help.sections.troubleshootTitle">App Settings &amp; Troubleshooting</h2>
 								<p class="section-sub" data-i18n="help.sections.troubleshootSubtitle">Offline mode, location fix, theme personalization, and cache reset</p>
@@ -515,6 +745,22 @@
 		</div>
 
 	</main>
+
+	<!-- MOBILE FLOATING ACTION BAR -->
+	<nav class="help-mobile-bar" id="helpMobileBar" aria-label="Mobile Help Navigation">
+		<button type="button" class="mobile-bar-btn" id="mobileIndexBtn" aria-haspopup="dialog" aria-expanded="false">
+			<span class="help-ico ico-index" aria-hidden="true"></span>
+			<span class="mobile-bar-label" data-i18n="help.mobileBar.index">विषय-सूची</span>
+		</button>
+		<div class="mobile-bar-divider" aria-hidden="true"></div>
+		<button type="button" class="mobile-bar-btn" id="mobileSearchBtn" aria-haspopup="dialog" aria-expanded="false">
+			<span class="help-ico ico-search" aria-hidden="true"></span>
+			<span class="mobile-bar-label" data-i18n="help.mobileBar.search">खोज व फ़िल्टर</span>
+		</button>
+	</nav>
+
+	<!-- BACKDROP FOR MOBILE DRAWERS -->
+	<div class="help-backdrop hidden" id="helpBackdrop"></div>
 
 	<!-- GLOBAL FOOTER -->
 	<div id="app-footer"></div>

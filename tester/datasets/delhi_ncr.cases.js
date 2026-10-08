@@ -9,18 +9,30 @@ export const delhiNcrTestCases = [
 	// =========================================================================
 	{
 		id: "YEL-01",
-		desc: "Rajiv Chowk Southbound to Millennium City Centre",
+		desc: "Rajiv Chowk Southbound to Patel Chowk (Adjacent Station)",
 		from: "rajiv_chowk",
 		to: "patel_chowk",
+		sourceVerification: {
+			officialUrl: "https://www.delhimetrorail.com",
+			notificationRef: "DMRC Standard Tariff Slab (0-2 km)",
+			notes: "Base tariff slab is ₹11."
+		},
+		expectedFare: 11,
 		expectedPlatforms: [
 			{ atStation: "rajiv_chowk", line: "dmrc.yellow", platform: "1" }
 		]
 	},
 	{
 		id: "YEL-02",
-		desc: "Rajiv Chowk Northbound to Samaypur Badli",
+		desc: "Rajiv Chowk Northbound to New Delhi (Yellow Line)",
 		from: "rajiv_chowk",
 		to: "new_delhi_yellow_airport_line",
+		sourceVerification: {
+			officialUrl: "https://www.delhimetrorail.com",
+			notificationRef: "DMRC Standard Tariff Slab (0-2 km)",
+			notes: "Base tariff slab is ₹11."
+		},
+		expectedFare: 11,
 		expectedPlatforms: [
 			{ atStation: "rajiv_chowk", line: "dmrc.yellow", platform: "2" }
 		]

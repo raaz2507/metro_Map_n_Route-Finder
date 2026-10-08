@@ -115,19 +115,47 @@ export class TestRunner {
 			}
 		}
 
+		// 4. Verify Fare Calculation (Official Benchmark & Zero-Fare Invariant)
+		if (testCase.expectedFare !== undefined || routeResult.calculatedFare !== undefined) {
+			const actualFare = Number(routeResult.calculatedFare?.totalFare ?? routeResult.fare ?? 0);
+			const currency = routeResult.calculatedFare?.currency || "INR";
+
+			// Invariant Check: Different origin & dest can never be ₹0
+			if (testCase.from !== testCase.to && actualFare <= 0) {
+				failures.push(`Fare Invariant Violation: Calculated fare is ₹0 or negative (${actualFare})! Missing farePolicy or faulty slab.`);
+			}
+
+			// Expected Benchmark Check
+			if (testCase.expectedFare !== undefined) {
+				const expected = Number(testCase.expectedFare);
+				if (actualFare !== expected) {
+					failures.push(
+						`Fare mismatch: expected official fare ₹${expected}, but engine calculated ₹${actualFare} ${currency}`
+					);
+				}
+			}
+		}
+
 		// Output result
 		const routeTitle = `${testCase.from} ➔ ${testCase.to}`;
 		if (failures.length === 0) {
 			this.#stats.passed++;
 			const stepsStr = routeResult.steps.map(s => `${s.fromStation} [Plat ${s.platformNo}]`).join(" ➔ ");
-			console.log(`  ${c.green}✔ [PASS]${c.reset} ${c.bright}${testCase.id || "Route"}:${c.reset} ${testCase.desc}`);
+			const fareStr = routeResult.calculatedFare ? ` | Fare: ₹${routeResult.calculatedFare.totalFare}` : "";
+			console.log(`  ${c.green}✔ [PASS]${c.reset} ${c.bright}${testCase.id || "Route"}:${c.reset} ${testCase.desc}${c.green}${fareStr}${c.reset}`);
 			console.log(`    ${c.gray}Steps: ${stepsStr} ➔ ${testCase.to}${c.reset}`);
+			if (testCase.sourceVerification?.officialUrl) {
+				console.log(`    ${c.dim}Source: ${testCase.sourceVerification.officialUrl} (${testCase.sourceVerification.notificationRef || "Official Notice"})${c.reset}`);
+			}
 			return true;
 		} else {
 			this.#stats.failed++;
 			console.log(`  ${c.red}✖ [FAIL]${c.reset} ${c.bright}${testCase.id || "Route"}:${c.reset} ${testCase.desc}`);
 			for (const f of failures) {
 				console.log(`    ${c.red}→ ${f}${c.reset}`);
+			}
+			if (testCase.sourceVerification?.officialUrl) {
+				console.log(`    ${c.yellow}Official Source Benchmark: ${testCase.sourceVerification.officialUrl}${c.reset}`);
 			}
 			console.log(`    ${c.dim}Actual Steps:${c.reset}`);
 			routeResult.steps.forEach((s, idx) => {

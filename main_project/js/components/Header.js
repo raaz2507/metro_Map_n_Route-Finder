@@ -4,7 +4,6 @@
  */
 import { appStateStore } from "../core/app-state-store.js";
 import i18n, { SUPPORTED_LANGUAGES, LANGUAGE_CATEGORIES } from "../core/i18n.js";
-import { RechargeModalComponent } from "./RechargeModal.js";
 import { themeEngine } from "../core/ThemeEngine.js";
 import { pwaManager } from "../core/PwaManager.js";
 
@@ -18,14 +17,16 @@ export class HeaderComponent {
 			currentTheme = 'classic';
 			localStorage.setItem('app-theme', 'classic');
 		}
-		const currentMode = localStorage.getItem('app-mode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 		const currentLang = localStorage.getItem('app-lang') || localStorage.getItem('language') || 'en';
+
+		const savedMode = localStorage.getItem('app-mode') || 'auto';
+		const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const effectiveMode = savedMode === 'auto' ? (systemDark ? 'dark' : 'light') : savedMode;
 
 		// Set initial theme, mode & lang attributes on body
 		document.body.setAttribute('data-theme', currentTheme);
-		document.body.setAttribute('data-mode', currentMode);
+		document.body.setAttribute('data-mode', effectiveMode);
 		document.body.setAttribute('data-lang', currentLang);
-
 		// Apply saved font scale
 		const savedFontScale = localStorage.getItem('app-font-scale') || '100';
 		document.documentElement.style.setProperty('--app-font-scale', `${savedFontScale}%`);
@@ -38,7 +39,7 @@ export class HeaderComponent {
 		}
 
 		const availableThemes = themeEngine.getThemes();
-		container.innerHTML = HeaderComponent.#HTMLStrucher(activePage, currentTheme, currentMode, currentLang, availableThemes);
+		container.innerHTML = HeaderComponent.#HTMLStrucher(activePage, currentTheme, savedMode, currentLang, availableThemes);
 
 		this.initEvents();
 
@@ -62,20 +63,10 @@ export class HeaderComponent {
 		// Font Scale Slider Dropdown
 		this.#setupFontScaleDropdown();
 
-		// Recharge Modal Trigger
-		const rechargeModal = RechargeModalComponent.getInstance();
-		const rechargeBtn = document.getElementById('nav-recharge-btn');
-		if (rechargeBtn) {
-			rechargeBtn.addEventListener('click', (e) => {
-				e.preventDefault();
-				rechargeModal.open();
-			});
-		}
-
 		this.#setupDropdown('theme-btn', 'theme-menu', (val) => {
 			appStateStore.setState({ currentTheme: val });
 		});
-		this.#setupThemeModeToggle();
+		this.#setupAppearanceMode();
 
 		this.#setupDropdown('lang-btn', 'lang-menu', async (val) => {
 			await appStateStore.setState({ currentLang: val });
@@ -142,7 +133,7 @@ export class HeaderComponent {
 		btn.addEventListener('click', (e) => {
 			e.stopPropagation();
 			const isOpen = panel.classList.contains('show');
-			document.querySelectorAll('.custom-dropdown-menu.show, .city-dropdown-menu.show').forEach(m => m.classList.remove('show'));
+			HeaderComponent.#closeAllDropdowns(panel);
 			if (!isOpen) {
 				panel.classList.add('show');
 				btn.setAttribute('aria-expanded', 'true');
@@ -231,9 +222,14 @@ export class HeaderComponent {
 				</li>`;
 
 				if (isActive && countryKey === 'india') {
-					// Only show cities with hasData: true
+					// Only show cities with hasData: true, sorted alphabetically by localized name
 					const availableCities = Object.entries(indiaRegistry.cities)
-						.filter(([, c]) => c.hasData === true);
+						.filter(([, c]) => c.hasData === true)
+						.sort(([keyA, cityA], [keyB, cityB]) => {
+							const nameA = cityA.name?.[activeLang] || cityA.name?.en || keyA;
+							const nameB = cityB.name?.[activeLang] || cityB.name?.en || keyB;
+							return nameA.localeCompare(nameB, activeLang, { sensitivity: 'base' });
+						});
 
 					for (const [cityKey, cityMeta] of availableCities) {
 						const cityName = cityMeta.name?.[activeLang] || cityMeta.name?.en || cityKey;
@@ -297,8 +293,7 @@ export class HeaderComponent {
 		btn.addEventListener('click', (e) => {
 			e.stopPropagation();
 			const isOpen = menu.classList.contains('show');
-			document.querySelectorAll('.custom-dropdown-menu.show, .font-scale-panel.show, .city-dropdown-menu.show')
-				.forEach(m => m.classList.remove('show'));
+			HeaderComponent.#closeAllDropdowns(menu);
 			if (!isOpen) {
 				menu.classList.add('show');
 				btn.setAttribute('aria-expanded', 'true');
@@ -317,36 +312,44 @@ export class HeaderComponent {
 	}
 
 
-	/**
-	 * Dual-Mode (Light / Dark) Toggle Handler (Pure Icon + i18n Safe)
+		/**
+	 * Segmented Appearance Mode (Light / Dark / Auto) Controller
+	 * Native Radio Group with zero manual class toggling
+	 * 100% Compatible with Web, PWA, and Capacitor Native Android OS theme changes
 	 */
-	static #setupThemeModeToggle() {
-		const modeBtn = document.getElementById('theme-mode-btn');
-		const modeIcon = document.getElementById('mode-icon');
-		if (!modeBtn) return;
+	static #setupAppearanceMode() {
+		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-		modeBtn.addEventListener('click', (e) => {
-			e.preventDefault();
-			const currentMode = document.body.getAttribute('data-mode') === 'dark' ? 'dark' : 'light';
-			const newMode = currentMode === 'dark' ? 'light' : 'dark';
+		const applyMode = (mode) => {
+			const effective = mode === 'auto' ? (mediaQuery.matches ? 'dark' : 'light') : mode;
+			document.body.setAttribute('data-mode', effective);
+			localStorage.setItem('app-mode', mode);
 
-			// 1. Update Body Attribute & Local Storage
-			document.body.setAttribute('data-mode', newMode);
-			localStorage.setItem('app-mode', newMode);
+			// Sync radio checked state if triggered programmatically
+			const targetRadio = document.querySelector(`input[name="app-appearance-mode"][value="${mode}"]`);
+			if (targetRadio && !targetRadio.checked) targetRadio.checked = true;
 
-			// 2. Pure Icon Toggle
-			if (modeIcon) {
-				modeIcon.textContent = newMode === 'dark' ? '🌙' : '☀️';
+			window.dispatchEvent(new CustomEvent('app-mode-changed', { detail: { mode: effective, setting: mode } }));
+		};
+
+		// Prevent dropdown menu from closing on segmented bar clicks
+		const bar = document.querySelector('.theme-mode-segmented-bar');
+		if (bar) {
+			bar.addEventListener('click', (e) => e.stopPropagation());
+			bar.addEventListener('change', (e) => {
+				if (e.target && e.target.name === 'app-appearance-mode') {
+					applyMode(e.target.value);
+				}
+			});
+		}
+
+		// Dynamic OS / Android Dark Mode Listener
+		mediaQuery.addEventListener('change', (e) => {
+			if (localStorage.getItem('app-mode') === 'auto') {
+				const effective = e.matches ? 'dark' : 'light';
+				document.body.setAttribute('data-mode', effective);
+				window.dispatchEvent(new CustomEvent('app-mode-changed', { detail: { mode: effective, setting: 'auto' } }));
 			}
-
-			// 3. Dynamic i18n Safe Tooltip & Aria
-			const i18nKey = newMode === 'dark' ? 'header.mode.switchToLight' : 'header.mode.switchToDark';
-			const localizedTitle = i18n.t(i18nKey);
-			modeBtn.setAttribute('title', localizedTitle);
-			modeBtn.setAttribute('aria-label', localizedTitle);
-
-			// 4. Dispatch global event for theme listeners
-			window.dispatchEvent(new CustomEvent('app-mode-changed', { detail: { mode: newMode } }));
 		});
 	}
 
@@ -364,7 +367,7 @@ export class HeaderComponent {
 		btn.addEventListener('click', (e) => {
 			e.stopPropagation();
 			const isOpen = menu.classList.contains('show');
-			document.querySelectorAll('.custom-dropdown-menu.show').forEach(m => m.classList.remove('show'));
+			HeaderComponent.#closeAllDropdowns(menu);
 			if (!isOpen) {
 				menu.classList.add('show');
 				btn.setAttribute('aria-expanded', 'true');
@@ -392,6 +395,20 @@ export class HeaderComponent {
 
 		document.addEventListener('keydown', (e) => {
 			if (e.key === 'Escape') close();
+		});
+	}
+
+	/**
+	 * Centrally close all header dropdowns and reset aria-expanded
+	 */
+	static #closeAllDropdowns(except = null) {
+		document.querySelectorAll('.custom-dropdown-menu.show, .font-scale-panel.show, .city-dropdown-menu.show').forEach(m => {
+			if (m !== except) {
+				m.classList.remove('show');
+				const container = m.closest('.dropdown-container');
+				const trigger = container ? container.querySelector('[aria-expanded="true"]') : null;
+				if (trigger) trigger.setAttribute('aria-expanded', 'false');
+			}
 		});
 	}
 
@@ -472,7 +489,6 @@ export class HeaderComponent {
 					</div>
 
 					<section class="toolbar">
-						<section class="toolbar">
 						${!isNative ? `
 						<!-- 📱 Smart App Utility & PWA Hub Dropdown -->
 						<div class="dropdown-container app-utility-container">
@@ -499,7 +515,7 @@ export class HeaderComponent {
 											<path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
 										</svg>
 									</span>
-									<span data-i18n="header.hardRefresh">Clear Cache & Refresh</span>
+									<span data-i18n="header.hardRefresh">Refresh</span>
 								</li>
 							</ul>
 						</div>
@@ -546,41 +562,56 @@ export class HeaderComponent {
 						</div>
 
 						
-						<!-- ☀️ / 🌙 Pure Icon Dual-Mode Toggle Button (Zero Extra Text) -->
-						
-						<section class="theme-container">
-							<button type="button" class="btn-25d mode-toggle-btn" id="theme-mode-btn"
-								data-i18n-attr="aria-label:header.mode.switchTo${currentMode === 'dark' ? 'Light' : 'Dark'};title:header.mode.switchTo${currentMode === 'dark' ? 'Light' : 'Dark'}">
-								<span class="btn-icon" id="mode-icon">${currentMode === 'dark' ? '🌙' : '☀️'}</span>
+						<!-- 🎨 Unified Theme & Appearance Selector -->
+						<div class="dropdown-container">
+							<button type="button" class="btn-25d theme-selector" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme & Appearance Selector">
+								<span class="btn-icon">🎨</span>
+								<span class="btn-text">Theme</span>
 							</button>
-							<div class="dropdown-container">
-								<button type="button" class="btn-25d theme-selector" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme Selector">
-									<span class="btn-icon">🎨</span>
-									<span class="btn-text">Theme</span>
-								</button>
-								<ul class="custom-dropdown-menu" id="theme-menu" role="listbox">
-									${(() => {
-										// Group themes by category dynamically from manifest
-										const groups = {};
-										availableThemes.forEach(t => {
-											const cat = t.category || "🎨 Themes";
-											if (!groups[cat]) groups[cat] = [];
-											groups[cat].push(t);
-										});
-										return Object.entries(groups).map(([categoryName, themes]) => `
-											<li class="dropdown-category-header" role="presentation">
-												<span>${categoryName}</span>
+							<ul class="custom-dropdown-menu" id="theme-menu" role="listbox">
+								<!-- ☀️ / 🌙 / 💻 Semantic Radio Mode Switcher Segment -->
+								<li class="dropdown-header-segment-wrapper" role="presentation">
+									<fieldset class="theme-mode-segmented-bar" aria-label="Appearance Mode">
+										<input type="radio" name="app-appearance-mode" id="mode-opt-light" value="light" class="mode-radio-input" ${(currentMode === 'light') ? 'checked' : ''}>
+										<label for="mode-opt-light" class="mode-pill-label">
+											<span class="mode-icon">☀️</span>
+											<span class="mode-text">Light</span>
+										</label>
+										<input type="radio" name="app-appearance-mode" id="mode-opt-dark" value="dark" class="mode-radio-input" ${(currentMode === 'dark') ? 'checked' : ''}>
+										<label for="mode-opt-dark" class="mode-pill-label">
+											<span class="mode-icon">🌙</span>
+											<span class="mode-text">Dark</span>
+										</label>
+										<input type="radio" name="app-appearance-mode" id="mode-opt-auto" value="auto" class="mode-radio-input" ${(currentMode === 'auto') ? 'checked' : ''}>
+										<label for="mode-opt-auto" class="mode-pill-label">
+											<span class="mode-icon">💻</span>
+											<span class="mode-text">Auto</span>
+										</label>
+									</fieldset>
+								</li>
+								<li class="dropdown-divider" role="separator"></li>
+								${(() => {
+									// Group themes by category dynamically from manifest
+									const groups = {};
+									availableThemes.forEach(t => {
+										const cat = t.category || "🎨 Themes";
+										if (!groups[cat]) groups[cat] = [];
+										groups[cat].push(t);
+									});
+									return Object.entries(groups).map(([categoryName, themes]) => `
+										<li class="dropdown-category-header" role="presentation">
+											<span>${categoryName}</span>
+										</li>
+										${themes.map(t => `
+											<li class="custom-dropdown-item ${currentTheme === t.id ? 'active' : ''}" role="option" data-value="${t.id}">
+												${t.name}
 											</li>
-											${themes.map(t => `
-												<li class="custom-dropdown-item ${currentTheme === t.id ? 'active' : ''}" role="option" data-value="${t.id}">
-													${t.name}
-												</li>
-											`).join('')}
-										`).join('');
-									})()}
-								</ul>
-							</div>
-						</section>
+										`).join('')}
+									`).join('');
+								})()}
+							</ul>
+						</div>
+						<!-- 🌐 Language Selector -->
 						<div class="dropdown-container">
 							<button type="button" class="btn-25d lang-selector" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language Selector">
 								<span class="btn-icon">🌐</span>
@@ -612,7 +643,6 @@ export class HeaderComponent {
 						</div>
 					</section>
 				</div>
-
 				<p class="header-tagline" data-i18n="header.tagLine">Maps • Routes • Fares • Journey Assistance</p>
 			</header>
 
@@ -638,9 +668,9 @@ export class HeaderComponent {
 						</a>
 					</li>
 					<li class="header-nav-item">
-						<a href="javascript:void(0)" id="nav-recharge-btn" class="nav-link ${activePage === 'recharge' ? 'active' : ''}" data-target="recharge">
+						<a href="smart_card_ticket.html${cityParam}" class="nav-link ${activePage === 'recharge' ? 'active' : ''}" data-target="recharge">
 							<span class="nav-icon"><svg><use href="#icon-recharge"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.recharge">Recharge Card</span>
+							<span class="nav-label" data-i18n="nav-header.recharge">Smart Card/ Tokken</span>
 						</a>
 					</li>
 					<li class="header-nav-item">

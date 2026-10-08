@@ -12,6 +12,12 @@ export const mumbaiTestCases = [
 		desc: "Ghatkopar Westbound to Jagruti Nagar (towards Versova)",
 		from: "mmopl_1_ghatkopar",
 		to: "mmopl_1_jagrutinagar",
+		sourceVerification: {
+			officialUrl: "https://www.reliancemumbaimetro.com",
+			notificationRef: "MMOPL Line 1 Tariff Slab (0-3 km)",
+			notes: "Minimum token fare is ₹10."
+		},
+		expectedFare: 10,
 		expectedPlatforms: [
 			{ atStation: "mmopl_1_ghatkopar", line: "mumbai.blue", platform: "1" }
 		]
@@ -21,6 +27,12 @@ export const mumbaiTestCases = [
 		desc: "Andheri Eastbound to WEH (towards Ghatkopar)",
 		from: "mmopl_1_andheri",
 		to: "mmopl_1_westernexpresshighway",
+		sourceVerification: {
+			officialUrl: "https://www.reliancemumbaimetro.com",
+			notificationRef: "MMOPL Line 1 Tariff Slab (0-3 km)",
+			notes: "Minimum token fare is ₹10."
+		},
+		expectedFare: 10,
 		expectedPlatforms: [
 			{ atStation: "mmopl_1_andheri", line: "mumbai.blue", platform: "1" }
 		]
@@ -85,20 +97,20 @@ export const mumbaiTestCases = [
 	{
 		id: "MUM-NAV-01",
 		desc: "Belapur to Sector 7 (Navi Mumbai Metro Line 1)",
-		from: "nmm_1_belapur",
-		to: "nmm_1_sector7",
+		from: "belapur",
+		to: "sector7",
 		expectedPlatforms: [
-			{ atStation: "nmm_1_belapur", line: "mumbai.navi_mumbai_1", platform: "1" }
+			{ atStation: "belapur", line: "mumbai.navi_mumbai_1", platform: "1" }
 		]
 	},
 	{
 		id: "MUM-MONO-01",
 		desc: "Chembur to V.N. Purav Marg (Mumbai Monorail - Suspended Line Test)",
-		from: "mm_mono_chembur",
-		to: "mm_mono_vnp_rcmarg",
+		from: "chembur",
+		to: "vnp_rcmarg",
 		options: { includeUnderConstruction: true },
 		expectedPlatforms: [
-			{ atStation: "mm_mono_chembur", line: "mumbai.monorail", platform: "1" }
+			{ atStation: "chembur", line: "mumbai.monorail", platform: "1" }
 		]
 	},
 

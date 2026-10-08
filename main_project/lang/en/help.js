@@ -12,20 +12,37 @@ export default {
 		clearSearch: "Clear search",
 		searchStats: "Showing {count} matching topics"
 	},
+	sidebar: {
+		quickIndex: "Quick Index"
+	},
+	mobileBar: {
+		index: "Index",
+		search: "Search & Filter"
+	},
 	chips: {
 		all: "All Topics",
+		networks: "Networks & Cities",
 		routes: "Route Planning",
 		smart: "Smart Features & Sensors",
 		fares: "Fares & Cards",
 		troubleshoot: "Troubleshooting"
 	},
 	nav: {
-		step1: "1. Route Planning",
-		step2: "2. Smart Journey & Sensors",
-		step3: "3. Fares & Smart Cards",
-		step4: "4. Troubleshooting & Settings"
+		stepNetworks: "1. Select City & Network",
+		topicCitySelect: "How to Select City",
+		topicModeFilter: "Metro, RRTS & Filters",
+		topicCombinedNet: "Combined (All Networks)",
+		step1: "2. Route Planning",
+		step2: "3. Smart Journey & Sensors",
+		step3: "4. Fares & Smart Cards",
+		step4: "5. Troubleshooting & Settings",
+		topicDestAlarm: "Destination Alarm",
+		topicSensorsGps: "Live GPS & Sensors",
+		topicRecharge: "Smart Card Recharge"
 	},
 	sections: {
+		networksTitle: "Select City & Transit Network",
+		networksSubtitle: "Discover and switch between Metro, RRTS, Monorail and suburban systems across cities",
 		routesTitle: "Route Planning & Navigation",
 		routesSubtitle: "Finding optimal transit paths, stations, and interchange guides",
 		smartTitle: "Smart Journey & Sensors",
@@ -36,6 +53,58 @@ export default {
 		troubleshootSubtitle: "Offline mode, location fix, theme personalization, and cache reset"
 	},
 	cards: {
+		// Section: Networks & City Selection
+		citySelect: {
+			title: "How to Select Your City & Transit Network",
+			subtitle: "Search, city cards, and loading interactive maps",
+			desc: "YatraMarg supports operational networks across major cities in India:",
+			fact1: "Search your city name or station code on the Networks page.",
+			fact2: "Clicking a city card activates that transit system and loads its map immediately.",
+			fact3: "Your chosen city stays saved locally on your device for future visits.",
+			moreBtn: "Learn more...",
+			lessBtn: "Show less",
+			detailHeading: "Easy steps to choose your city:",
+			step1: "Open Networks: Click the 'Networks' item in the top navigation bar.",
+			step2: "Search or browse: Type your city (e.g. Delhi, Mumbai, Bengaluru) in the search bar.",
+			step3: "Tap City Card: Click your desired city card to activate it.",
+			step4: "Direct Station Search: You can also search landmarks like 'AIIMS' to jump straight to that station.",
+			tipBadge: "Quick Shortcut:",
+			tipText: "You can also switch cities anytime by clicking the 'City Pill' in the universal header on any page."
+		},
+		modeFilter: {
+			title: "Using Metro, RRTS, and Monorail Filters",
+			subtitle: "Filter networks by transit mode and construction status",
+			desc: "Easily explore different types of urban transit systems:",
+			fact1: "Mode filter: Filter between Metro, RRTS (Namo Bharat), and Monorail systems.",
+			fact2: "Status filter: Toggle Operational corridors versus Under Construction projects.",
+			fact3: "Sort By: Sort networks alphabetically or by operational priority.",
+			moreBtn: "Learn more...",
+			lessBtn: "Show less",
+			detailHeading: "Filter and status rules:",
+			step1: "Operational Systems: Clicking these instantly opens the full route map and schedules.",
+			step2: "Under Construction: Displays a helpful status notice regarding ongoing project construction.",
+			step3: "Sort preference: Tap 'City (A → Z)' to view alphabetically.",
+			step4: "Reset filters: Tap 'All Modes' and 'All Status' to view everything.",
+			tipBadge: "Saved Preference:",
+			tipText: "Your sorting preference is stored locally so you won't need to reconfigure it."
+		},
+		combinedNet: {
+			title: "What is the Combined (All Networks) Card?",
+			subtitle: "Viewing multiple interconnected transit networks on one map",
+			desc: "Cities with multiple transit systems offer a unified combined network:",
+			fact1: "Delhi NCR includes DMRC Metro, Rapid Metro, and Namo Bharat RRTS simultaneously.",
+			fact2: "Selecting the combined card shows all interchange points connected on one unified map canvas.",
+			fact3: "You can still choose individual network cards below if you only need a single operator.",
+			moreBtn: "Learn more...",
+			lessBtn: "Show less",
+			detailHeading: "Benefits of using the Combined Network:",
+			step1: "Complete City Map: No need to switch between different apps or separate maps.",
+			step2: "Multi-Modal Routes: Seamless transfer times between DMRC, RRTS, and Rapid Metro are calculated automatically.",
+			step3: "One-Click Switch: Toggle between individual systems or all networks from the header anytime.",
+			step4: "Accurate Interchanges: Clear walking transfer times and platform guidance between systems.",
+			tipBadge: "Recommendation:",
+			tipText: "We recommend using 'All Networks' for everyday daily commuting across large metropolitan regions."
+		},
 		// Section 1: Route Planning
 		searchStations: {
 			title: "How to Search Stations & Plan a Route",
@@ -69,7 +138,16 @@ export default {
 			desc: "Never miss your destination station while reading, listening to music, or napping:",
 			fact1: "Set an alert radius (e.g., 1 or 2 stations before arrival) from the floating alarm button.",
 			fact2: "Uses low-power background Geolocation API and motion telemetry to track proximity.",
-			fact3: "Sounds a prominent audio chime and activates device vibration upon approaching the target station."
+			fact3: "Sounds a prominent audio chime and activates device vibration upon approaching the target station.",
+			moreBtn: "Learn more...",
+			lessBtn: "Show less",
+			detailHeading: "How to set up the alarm and how it operates:",
+			step1: "Search Route: Enter your source and destination stations on the home screen to calculate your path.",
+			step2: "Tap Alarm Button: Tap the floating bell icon located at the bottom of the journey details.",
+			step3: "Choose Distance: Select whether you want the alert 1 station or 2 stations before your destination.",
+			step4: "Grant Location: Allow location permissions when prompted to enable real-time tracking.",
+			tipBadge: "Pro Tip:",
+			tipText: "Vibration alerts work even if your phone is in silent mode, and an audible chime will play through connected earphones."
 		},
 		sensorsGps: {
 			title: "Live GPS, Speedometer & Sensor Permissions",

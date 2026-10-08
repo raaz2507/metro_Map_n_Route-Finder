@@ -1,0 +1,207 @@
+@layer reset, tokens, base, components, utilities;
+
+@import url("../base/base.css");
+@import url("../layout/layout.css");
+@import url("../layout/header.css");
+@import url("../layout/footer.css");
+@import url("../layout/navbar-main.css");
+@import url("../components/toast.css");
+
+@layer components {
+	/* 1. Page Workspace Wrapper */
+	main.smartcard-page-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		flex: 1 0 auto;
+		width: 100%;
+		max-width: 1150px;
+		margin: 0 auto;
+		padding: var(--space-md) var(--space-md) var(--space-2xl) var(--space-md);
+		box-sizing: border-box;
+	}
+
+	/* 2. Multi-Card Auto-Grid (Ready for Future Cards) */
+	.smartcard-cards-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(340px, 380px));
+		justify-content: center;
+		gap: var(--space-xl);
+		width: 100%;
+	}
+
+	/* 3. 💳 True 3.5-Inch Compact Metro Smart Card */
+	.smartcard-unit-card {
+		width: 100%;
+		max-width: 380px;
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-top: 2px solid rgba(255, 255, 255, var(--op-glass));
+		border-bottom: 3.5px solid var(--border-color);
+		border-radius: var(--radius-lg);
+		box-shadow: 0 12px 28px -4px rgba(0, 0, 0, var(--op-shadow));
+		padding: var(--space-md) var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		box-sizing: border-box;
+		position: relative;
+	}
+
+	/* Card Top Header */
+	.card-top-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: var(--space-2xs);
+	}
+
+	.card-brand {
+		display: flex;
+		align-items: center;
+		gap: var(--space-2xs);
+	}
+
+	.card-brand-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+	}
+
+	.contactless-symbol {
+		font-size: var(--fs-sm);
+		color: var(--text-muted);
+	}
+
+	/* Info Banner */
+	.recharge-info-banner {
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		border-left: 3px solid rgb(var(--color-primary-rgb));
+		padding: 4px var(--space-xs);
+		border-radius: var(--radius-2xs);
+		font-size: 11px;
+		color: var(--text-secondary);
+		line-height: 1.35;
+		display: flex;
+		align-items: center;
+		gap: var(--space-2xs);
+	}
+
+	/* Form Fields */
+	.card-content-area {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.card-fields-row {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.card-form-field {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.card-form-field label {
+		font-family: var(--font-main);
+		font-size: 11px;
+		font-weight: var(--fw-bold);
+		color: var(--text-secondary);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	.card-text-input {
+		width: 100%;
+		padding: 6px var(--space-xs);
+		background-color: var(--input-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xs);
+		color: var(--text-primary);
+		font-family: var(--font-main);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-semibold);
+		outline: none;
+		box-sizing: border-box;
+		transition: border-color var(--transition-fast);
+	}
+
+	.card-text-input:focus {
+		border-color: rgb(var(--color-primary-rgb));
+	}
+
+	/* Chips Row */
+	.recharge-amount-chips {
+		display: flex;
+		gap: 6px;
+		margin-top: 4px;
+	}
+
+	.recharge-chip-btn {
+		flex: 1;
+		background: var(--btn-reset-bg);
+		border: 1px solid var(--border-color);
+		color: var(--text-primary);
+		padding: 4px var(--space-2xs);
+		border-radius: var(--radius-xs);
+		font-family: var(--font-main);
+		font-size: 11px;
+		font-weight: var(--fw-bold);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+	}
+
+	.recharge-chip-btn:hover {
+		border-color: rgb(var(--color-primary-rgb));
+	}
+
+	.recharge-chip-btn.active {
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		border-color: rgb(var(--color-primary-rgb));
+		color: rgb(var(--color-primary-rgb));
+	}
+
+	/* ⚡ Solid High-Contrast Action Button (Fixes White-on-White) */
+	.card-bottom-bar {
+		padding-top: var(--space-2xs);
+	}
+
+	.card-action-btn {
+		width: 100%;
+		background-color: rgb(var(--color-primary-rgb));
+		color: #ffffff !important;
+		border: none;
+		border-radius: var(--radius-sm);
+		padding: 8px var(--space-sm);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-2xs);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, var(--op-shadow));
+		transition: filter var(--transition-fast), transform var(--transition-fast);
+	}
+
+	.card-action-btn span {
+		color: #ffffff !important;
+	}
+
+	.card-action-btn:hover {
+		filter: brightness(1.1);
+		transform: translateY(-1px);
+	}
+
+	.card-action-btn:active {
+		transform: translateY(1px);
+	}
+}

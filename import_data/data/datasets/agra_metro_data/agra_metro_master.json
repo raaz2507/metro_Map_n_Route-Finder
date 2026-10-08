@@ -9,6 +9,7 @@
 			"short_name": {"en": "Yellow Line (Line 1)", "hi": "यलो लाइन"},
 			"color": "#FBC02D",
 			"color_name": "yellow",
+			"farePolicy": "agra_metro_standard",
 			"style": "solid",
 			"route": {"from": "taj_east_gate", "to": "mankameshwar_mandir"},
 			"stations": ["taj_east_gate", "shaheed_captain_shubham_gupta", "fatehabad_road", "taj_mahal", "agra_fort", "mankameshwar_mandir"]

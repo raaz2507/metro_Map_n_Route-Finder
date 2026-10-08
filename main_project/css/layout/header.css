@@ -1,4 +1,4 @@
-@import url("../components/recharge_modal.css");
+
 
 @layer components {
 	/* ==========================================================================
@@ -97,10 +97,86 @@
 		gap: var(--space-sm);
 	}
 
-	header.main-header .theme-container {
+	/* ==========================================================================
+	THEME & APPEARANCE MODE SEGMENTED CONTROL (Semantic Radio + Touch Friendly)
+	========================================================================== */
+	header.main-header .dropdown-header-segment-wrapper {
+		padding: var(--space-xs) var(--space-sm);
+		user-select: none;
+	}
+
+	header.main-header .theme-mode-segmented-bar {
+		display: flex;
+		align-items: center;
+		background: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: 2px;
+		gap: 2px;
+		margin: 0;
+	}
+
+	/* Hide native radio inputs off-screen visually */
+	header.main-header .mode-radio-input {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+		margin: 0;
+		width: 0;
+		height: 0;
+	}
+
+	header.main-header .mode-pill-label {
+		flex: 1;
 		display: inline-flex;
 		align-items: center;
-		gap: var(--space-xs);
+		justify-content: center;
+		gap: var(--space-2xs);
+		background: transparent;
+		padding: var(--space-2xs) var(--space-xs);
+		min-height: 32px;
+		border-radius: var(--radius-sm);
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-semibold);
+		color: var(--text-secondary);
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		user-select: none;
+		transition:
+			background-color var(--transition-fast),
+			color var(--transition-fast),
+			box-shadow var(--transition-fast);
+	}
+
+	header.main-header .mode-pill-label .mode-icon {
+		font-size: var(--fs-xs);
+		line-height: 1;
+	}
+
+	header.main-header .mode-pill-label:hover {
+		color: var(--text-primary);
+	}
+
+	/* Native CSS State: Checked State */
+	header.main-header .mode-radio-input:checked + .mode-pill-label {
+		background: var(--card-bg);
+		color: var(--text-primary);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, var(--op-shadow));
+		font-weight: var(--fw-bold);
+	}
+
+	/* Keyboard Accessibility Focus */
+	header.main-header .mode-radio-input:focus-visible + .mode-pill-label {
+		outline: 2px solid var(--color-primary);
+		outline-offset: 1px;
+	}
+
+	header.main-header .dropdown-divider {
+		height: 1px;
+		background-color: var(--border-color);
+		margin: var(--space-2xs) 0;
+		list-style: none;
 	}
 
 	/* ==========================================================================
@@ -218,15 +294,20 @@
 	========================================================================== */
 	header.main-header .dropdown-container {
 		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	header.main-header .custom-dropdown-menu {
 		display: none;
 		position: absolute;
-		top: calc(100% + var(--space-xs));
-		right: 0;
-		left: auto;
+		top: calc(100% + 4px);
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%);
 		width: max-content;
+		min-width: 140px;
 		max-width: calc(100vw - var(--space-xl));
 		background: var(--card-bg);
 		border: 1px solid var(--border-color);
@@ -253,11 +334,11 @@
 	@keyframes dropdownFadeIn {
 		from {
 			opacity: 0;
-			transform: translateY(-4px);
+			margin-top: -6px;
 		}
 		to {
 			opacity: 1;
-			transform: translateY(0);
+			margin-top: 0;
 		}
 	}
 
@@ -302,8 +383,6 @@
 	========================================================================== */
 		/* Theme Menu */
 	header.main-header #theme-menu {
-		right: 0;
-		left: auto;
 		min-width: calc(var(--space-3xl) * 3.6);
 		padding: var(--space-xs) 0;
 		border-radius: var(--radius-md);
@@ -311,9 +390,6 @@
 
 	/* Language Menu */
 	header.main-header #lang-menu.categorized-lang-menu {
-		right: 0;
-		left: auto;
-		min-width: calc(var(--space-3xl) * 2.6);
 		padding: var(--space-2xs) 0;
 		border-radius: var(--radius-md);
 	}
@@ -405,10 +481,9 @@
 	}
 
 	header.main-header .app-utility-menu {
-		left: 0;
-		right: auto;
-		min-width: calc(var(--space-3xl) * 4.5);
-		padding: var(--space-xs) 0;
+		width: max-content;
+		min-width: auto;
+		padding: var(--space-2xs) 0;
 		border-radius: var(--radius-md);
 		box-shadow:
 			0 12px 30px -4px rgba(0, 0, 0, var(--op-shadow)),
@@ -528,7 +603,7 @@
 	header.main-header .font-scale-panel {
 		display: none;
 		position: absolute;
-		top: calc(100% + var(--space-xs));
+		top: calc(100% + 4px);
 		left: 50%;
 		right: auto;
 		transform: translateX(-50%);
@@ -551,18 +626,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-sm);
-		animation: panelCenterFadeIn var(--transition-fast) ease-out;
-	}
-
-	@keyframes panelCenterFadeIn {
-		from {
-			opacity: 0;
-			transform: translate(-50%, -4px);
-		}
-		to {
-			opacity: 1;
-			transform: translate(-50%, 0);
-		}
+		animation: dropdownFadeIn var(--transition-fast) ease-out;
 	}
 
 
@@ -800,14 +864,15 @@
 		transform: rotate(180deg);
 	}
 
-	/* City dropdown menu */
+	/* City dropdown menu — Centered right under City Selector button */
 	header.main-header .city-dropdown-menu {
 		display: none;
 		position: absolute;
-		top: calc(100% + var(--space-xs));
-		right: 0;
-		left: auto;
-		width: clamp(200px, 70vw, 280px);
+		top: calc(100% + 4px);
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%);
+		width: clamp(220px, 80vw, 290px);
 		max-height: 60vh;
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -833,10 +898,6 @@
 		animation: dropdownFadeIn var(--transition-fast) ease-out;
 	}
 
-	/* Reuse existing .dropdown-category-header for country groups */
-	header.main-header .city-dropdown-menu .dropdown-category-header {
-		/* Inherits all styles from existing .dropdown-category-header rule */
-	}
 
 	/* City list items */
 	header.main-header .city-dropdown-item {
@@ -918,17 +979,9 @@
 				flex-shrink: 0;
 			}
 
-			/* Mobile: फॉन्ट पैनल को स्क्रीन बाउंड्री के अंदर सुरक्षित रखें */
-			header.main-header .font-scale-panel {
-				left: 0;
-				transform: none;
-				max-width: calc(100vw - var(--space-2xl));
-			}
 
-			header.main-header .font-scale-panel.show {
-				animation: dropdownFadeIn var(--transition-fast) ease-out;
-			}
-			/* बटनों को 2 पंक्तियों में संतुलित रहने दें (No Single-Line Squeeze) */
+
+			/* বাটनों को 2 पंक्तियों में संतुलित रहने दें (No Single-Line Squeeze) */
 			header.main-header .toolbar {
 				width: 100%;
 				display: flex;
@@ -944,12 +997,11 @@
 				display: inline;
 			}
 
-			/* ड्रॉपडाउन स्क्रीन से बाहर कटने से बचाने के लिए */
-			header.main-header #theme-menu,
-			header.main-header #lang-menu.categorized-lang-menu {
-				right: 0;
-				left: auto;
-				max-width: calc(100vw - var(--space-2xl));
+			/* ड्रॉपडाउन स्क्रीन से बाहर कटने से बचाने के लिए safe max-width */
+			header.main-header .custom-dropdown-menu,
+			header.main-header .font-scale-panel,
+			header.main-header .city-dropdown-menu {
+				max-width: calc(100vw - var(--space-xl));
 			}
 		}
 	}

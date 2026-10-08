@@ -175,14 +175,25 @@ class ProductionEmitter:
 						base_net["fareRules"] = auto_fares
 						updated = True
 
-					# ऑटो-लिंकिंग: यदि किसी लाइन में farePolicy मिसिंग है, तो उपलब्ध पॉलिसी से लिंक करें
-					avail_policies = list(base_net.get("fareRules", {}).get("policies", {}).keys())
-					if avail_policies and "lines" in base_net:
-						def_policy = avail_policies[0]
+					# यदि किसी लाइन में farePolicy मिसिंग है, तो केवल उसी के नेटवर्क की आधिकारिक पॉलिसी से लिंक करें
+					policies = base_net.get("fareRules", {}).get("policies", {})
+					if policies and "lines" in base_net:
 						for l_obj in base_net["lines"].values():
 							if not l_obj.get("farePolicy"):
-								l_obj["farePolicy"] = def_policy
-								updated = True
+								l_net = l_obj.get("network")
+								matched = None
+								for pol_id, pol_obj in policies.items():
+									if isinstance(pol_obj, dict) and pol_obj.get("network") == l_net:
+										matched = pol_id
+										break
+								if not matched and l_net:
+									for pol_id in policies:
+										if l_net in pol_id or pol_id in l_net:
+											matched = pol_id
+											break
+								if matched:
+									l_obj["farePolicy"] = matched
+									updated = True
 
 					if updated:
 						UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_net, compact=True)

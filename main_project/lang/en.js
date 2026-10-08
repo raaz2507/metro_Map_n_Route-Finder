@@ -10,6 +10,8 @@ import passengerSupport from "./en/passenger_support.js";
 import help from "./en/help.js";
 import about from "./en/about.js";
 import countrySelector from "./en/country_selector.js";
+import smartCardTicket from "./en/smart_card_ticket.js";
+
 
 export default {
 	...common,
@@ -24,5 +26,6 @@ export default {
 	tvmDispenser: tvmDispenser,
 	passengerSupport,
 	help,
-	about
+	about,
+	smartCardTicket
 };

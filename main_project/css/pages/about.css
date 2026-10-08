@@ -391,7 +391,7 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 
 	.developers-grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: var(--space-xl);
 	}
 
@@ -424,6 +424,14 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		border-color: rgba(var(--color-info-rgb), 0.35);
 	}
 
+	.developer-card.dev-card-ai {
+		border-top-color: #8b5cf6;
+	}
+
+	.developer-card.dev-card-ai:hover {
+		border-color: rgba(139, 92, 246, 0.45);
+	}
+
 	.developer-card::before {
 		content: "";
 		position: absolute;
@@ -438,6 +446,10 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 
 	.developer-card.dev-card-alt::before {
 		background: radial-gradient(circle, rgba(var(--color-info-rgb), 0.08) 0%, transparent 70%);
+	}
+
+	.developer-card.dev-card-ai::before {
+		background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
 	}
 
 	.developer-header {
@@ -480,6 +492,13 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		box-shadow: 0 4px 12px rgba(var(--color-info-rgb), 0.15);
 	}
 
+	.developer-avatar.dev-avatar-ai {
+		background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(6, 182, 212, 0.18));
+		border-color: rgba(139, 92, 246, 0.45);
+		color: #a855f7;
+		box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
+	}
+
 	.developer-card:hover .developer-avatar {
 		transform: scale(1.05);
 	}
@@ -499,6 +518,11 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		border: 2px solid var(--card-bg);
 		border-radius: var(--radius-full);
 		box-shadow: 0 0 6px rgba(var(--color-success-rgb), 0.6);
+	}
+
+	.developer-status-dot.dot-ai {
+		background: #a855f7;
+		box-shadow: 0 0 8px rgba(168, 85, 247, 0.7);
 	}
 
 	.developer-header-info {
@@ -534,11 +558,21 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		border-color: rgba(var(--color-info-rgb), 0.25);
 	}
 
+	.developer-tag.dev-tag-ai {
+		color: #a855f7;
+		background: rgba(168, 85, 247, 0.12);
+		border-color: rgba(168, 85, 247, 0.3);
+	}
+
 	.developer-status-text {
 		font-family: var(--font-main);
 		font-size: var(--fs-xs);
 		color: rgb(var(--color-success-rgb));
 		font-weight: var(--fw-semibold);
+	}
+
+	.developer-status-text.text-ai {
+		color: #a855f7;
 	}
 
 	.developer-name {
@@ -580,6 +614,11 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 	.developer-card.dev-card-alt .developer-quote-box {
 		background: rgba(var(--color-info-rgb), 0.04);
 		border-left-color: rgb(var(--color-info-rgb));
+	}
+
+	.developer-card.dev-card-ai .developer-quote-box {
+		background: rgba(139, 92, 246, 0.05);
+		border-left-color: #8b5cf6;
 	}
 
 	.developer-quote-text {
@@ -627,6 +666,10 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		color: rgb(var(--color-info-rgb));
 	}
 
+	.developer-card.dev-card-ai .dev-spec-pill .about-ico {
+		color: #a855f7;
+	}
+
 	.developer-footer-actions {
 		display: flex;
 		flex-direction: column;
@@ -639,6 +682,23 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 	.dev-action-btn {
 		width: 100%;
 		justify-content: center;
+	}
+
+	.community-btn.dev-btn-ai {
+		background: linear-gradient(135deg, rgba(139, 92, 246, 0.14), rgba(6, 182, 212, 0.12));
+		border: 1px solid rgba(139, 92, 246, 0.35);
+		color: var(--text-primary);
+	}
+
+	.community-btn.dev-btn-ai:hover {
+		background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(6, 182, 212, 0.22));
+		border-color: rgba(139, 92, 246, 0.6);
+		color: #ffffff;
+		box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+	}
+
+	.community-btn.dev-btn-ai .about-ico {
+		color: #a855f7;
 	}
 
 	/* 5. Independent Feedback & Suggestions Section */

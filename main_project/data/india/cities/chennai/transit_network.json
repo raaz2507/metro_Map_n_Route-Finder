@@ -1,1481 +1,536 @@
 {
-  "defaults": {
-    "stationType": "normal",
-    "layout": "elevated"
-  },
-  "fareRules": {
-    "currency": "INR",
-    "networks": {
-      "cmrl": {
-        "operator": "Chennai Metro Rail Limited (CMRL)",
-        "avgSpeedMetersPerMin": 550,
-        "stationHaltMinutes": 0.5
-      }
-    },
-    "policies": {
-      "cmrl_standard": {
-        "network": "cmrl",
-        "effectiveFrom": "2021-02-22",
-        "fareModel": "distance_based",
-        "calculation": {
-          "distanceUnit": "km",
-          "rounding": "nearest"
-        },
-        "fareTables": {
-          "weekday": [
-            {
-              "minKm": 0,
-              "maxKm": 2,
-              "fare": 10
-            },
-            {
-              "minKm": 2,
-              "maxKm": 5,
-              "fare": 20
-            },
-            {
-              "minKm": 5,
-              "maxKm": 12,
-              "fare": 30
-            },
-            {
-              "minKm": 12,
-              "maxKm": 21,
-              "fare": 40
-            },
-            {
-              "minKm": 21,
-              "maxKm": 99,
-              "fare": 50
-            }
-          ]
-        },
-        "products": {
-          "token": {
-            "type": "base",
-            "label": {
-              "en": "Single Journey Token / Paper QR",
-              "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"
-            }
-          },
-          "smart_card": {
-            "type": "discount",
-            "baseProduct": "token",
-            "discountPercent": 20,
-            "timeRule": null,
-            "label": {
-              "en": "CMRL Smart Card / WhatsApp QR (20% Off)",
-              "hi": "स्मार्ट कार्ड / वॉट्सऐप क्यूआर (20% छूट)"
-            }
-          }
-        },
-        "timeRules": null,
-        "stationStayRules": {
-          "sameStationExitFare": 10,
-          "sameStationTimeLimitMinutes": 20,
-          "differentStationTimeLimitMinutes": 120,
-          "overstayPenaltyPerHour": 10,
-          "maxOverstayPenalty": 50
-        }
-      }
-    }
-  },
-  "lines": {
-    "cmrl.blue": {
-      "id": "cmrl.blue",
-      "network": "chennai_metro",
-      "operator": "Chennai Metro Rail Limited (CMRL)",
-      "label": "B",
-      "short_name": {
-        "en": "Blue Line (Corridor 1)",
-        "ta": "நீல வழித்தடம்"
-      },
-      "color": "#005BA6",
-      "color_name": "blue",
-      "style": "solid",
-      "farePolicy": "cmrl_standard",
-      "route": {
-        "from": "wimco-nagar-depot-metro",
-        "to": "chennai-international-airport"
-      },
-      "stations": [
-        "wimco-nagar-depot-metro",
-        "wimco-nagar-metro",
-        "thiruvotriyur-metro",
-        "thiruvottriyur-theradi-metro",
-        "kaladipet-metro",
-        "tollgate-metro",
-        "new-washermenpet-metro",
-        "tondiarpet-metro",
-        "sir-thiyagaraya-college-metro",
-        "washermenpet-metro",
-        "mannadi",
-        "highcourt",
-        "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
-        "government-estate",
-        "lic",
-        "thousand-lights",
-        "ag-dms",
-        "teynampet",
-        "nandanam",
-        "saidapet-metro",
-        "little-mount",
-        "guindy",
-        "arignar-anna-alandur-metro",
-        "ota-nanganallur-road",
-        "meenambakkam",
-        "chennai-international-airport"
-      ]
-    },
-    "cmrl.green": {
-      "id": "cmrl.green",
-      "network": "chennai_metro",
-      "operator": "Chennai Metro Rail Limited (CMRL)",
-      "label": "G",
-      "short_name": {
-        "en": "Green Line (Corridor 2)",
-        "ta": "பச்சை வழித்தடம்"
-      },
-      "color": "#008752",
-      "color_name": "green",
-      "style": "solid",
-      "farePolicy": "cmrl_standard",
-      "route": {
-        "from": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
-        "to": "st-thomas-mount-metro"
-      },
-      "stations": [
-        "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
-        "egmore-metro",
-        "nehru-park",
-        "kilpauk",
-        "pachaiyappas-college",
-        "shenoy-nagar",
-        "anna-nagar-east",
-        "anna-nagar-tower",
-        "thirumangalam",
-        "koyambedu",
-        "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
-        "arumbakkam",
-        "vadapalani",
-        "ashok-nagar",
-        "ekkattuthangal",
-        "arignar-anna-alandur-metro",
-        "st-thomas-mount-metro"
-      ]
-    }
-  },
-  "transfers": {
-    "puratchi-thalaivar-dr-m-g-ramachandran-central-metro": {
-      "cmrl.blue": {
-        "puratchi-thalaivar-dr-m-g-ramachandran-central-metro:cmrl.green": {
-          "type": "interchange",
-          "transfer_mode": "vertical",
-          "distance_meters": 40,
-          "levels": 1
-        }
-      },
-      "cmrl.green": {
-        "puratchi-thalaivar-dr-m-g-ramachandran-central-metro:cmrl.blue": {
-          "type": "interchange",
-          "transfer_mode": "vertical",
-          "distance_meters": 40,
-          "levels": 1
-        }
-      }
-    },
-    "arignar-anna-alandur-metro": {
-      "cmrl.blue": {
-        "arignar-anna-alandur-metro:cmrl.green": {
-          "type": "interchange",
-          "transfer_mode": "vertical",
-          "distance_meters": 40,
-          "levels": 1
-        }
-      },
-      "cmrl.green": {
-        "arignar-anna-alandur-metro:cmrl.blue": {
-          "type": "interchange",
-          "transfer_mode": "vertical",
-          "distance_meters": 40,
-          "levels": 1
-        }
-      }
-    }
-  },
-  "stationData": {
-    "wimco-nagar-depot-metro": {
-      "id": "wimco-nagar-depot-metro",
-      "name": {
-        "en": "Wimco Nagar Depot Metro",
-        "ta": "விம்கோ நகர்"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "wimco-nagar-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.1833,
-          "lon": 80.3086
-        }
-      }
-    },
-    "wimco-nagar-metro": {
-      "id": "wimco-nagar-metro",
-      "name": {
-        "en": "Wimco Nagar Metro",
-        "ta": "விம்கோ நகர்"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "wimco-nagar-depot-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "thiruvotriyur-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.1792,
-          "lon": 80.3072
-        }
-      }
-    },
-    "thiruvotriyur-metro": {
-      "id": "thiruvotriyur-metro",
-      "name": {
-        "en": "Thiruvotriyur Metro",
-        "ta": "Thiruvotriyur Metro"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "wimco-nagar-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "thiruvottriyur-theradi-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.1661,
-          "lon": 80.3039
-        }
-      }
-    },
-    "thiruvottriyur-theradi-metro": {
-      "id": "thiruvottriyur-theradi-metro",
-      "name": {
-        "en": "Thiruvottriyur Theradi Metro",
-        "ta": "Thiruvottriyur Theradi Metro"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "thiruvotriyur-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "kaladipet-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.1599,
-          "lon": 80.2998
-        }
-      }
-    },
-    "kaladipet-metro": {
-      "id": "kaladipet-metro",
-      "name": {
-        "en": "Kaladipet Metro",
-        "ta": "காலடிபேட்டை"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "thiruvottriyur-theradi-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "tollgate-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.15102,
-          "lon": 80.2995
-        }
-      }
-    },
-    "tollgate-metro": {
-      "id": "tollgate-metro",
-      "name": {
-        "en": "Tollgate Metro",
-        "ta": "சுங்கச்சாவடி"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "kaladipet-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "new-washermenpet-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.14347,
-          "lon": 80.2964
-        }
-      }
-    },
-    "new-washermenpet-metro": {
-      "id": "new-washermenpet-metro",
-      "name": {
-        "en": "New Washermenpet Metro",
-        "ta": "New Washermenpet Metro"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "tollgate-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "tondiarpet-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.1343,
-          "lon": 80.2929
-        }
-      }
-    },
-    "tondiarpet-metro": {
-      "id": "tondiarpet-metro",
-      "name": {
-        "en": "Tondiarpet Metro",
-        "ta": "தண்டையார்பேட்டை"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "new-washermenpet-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "sir-thiyagaraya-college-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.1244,
-          "lon": 80.2888
-        }
-      }
-    },
-    "sir-thiyagaraya-college-metro": {
-      "id": "sir-thiyagaraya-college-metro",
-      "name": {
-        "en": "Sir Thiyagaraya College Metro",
-        "ta": "Sir Thiyagaraya College Metro"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "tondiarpet-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "washermenpet-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.1158,
-          "lon": 80.2847
-        }
-      }
-    },
-    "washermenpet-metro": {
-      "id": "washermenpet-metro",
-      "name": {
-        "en": "Washermenpet Metro",
-        "ta": "Washermenpet Metro"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "sir-thiyagaraya-college-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "mannadi",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.1076,
-          "lon": 80.2862
-        }
-      }
-    },
-    "mannadi": {
-      "id": "mannadi",
-      "name": {
-        "en": "Mannadi",
-        "ta": "மண்ணடி"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "washermenpet-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "highcourt",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0951661,
-          "lon": 80.2861603
-        }
-      }
-    },
-    "highcourt": {
-      "id": "highcourt",
-      "name": {
-        "en": "Highcourt",
-        "ta": "உயர் நீதிமன்றம்"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "mannadi",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.087394,
-          "lon": 80.285064
-        }
-      }
-    },
-    "puratchi-thalaivar-dr-m-g-ramachandran-central-metro": {
-      "id": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
-      "name": {
-        "en": "Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro",
-        "ta": "புரட்சித் தலைவர் டாக்டர். எம்.ஜி. இராமச்சந்திரன் சென்ட்ரல்"
-      },
-      "lines": [
-        "cmrl.blue",
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "highcourt",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "government-estate",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "egmore-metro",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0833285,
-          "lon": 80.2741482
-        }
-      }
-    },
-    "government-estate": {
-      "id": "government-estate",
-      "name": {
-        "en": "Government Estate",
-        "ta": "அரசினர் தோட்டம்"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "lic",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.069682,
-          "lon": 80.272741
-        }
-      }
-    },
-    "lic": {
-      "id": "lic",
-      "name": {
-        "en": "LIC",
-        "ta": "எல். ஐ. சி."
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "government-estate",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "thousand-lights",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0645232,
-          "lon": 80.2660489
-        }
-      }
-    },
-    "thousand-lights": {
-      "id": "thousand-lights",
-      "name": {
-        "en": "Thousand Lights",
-        "ta": "ஆயிரம் விளக்கு"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "lic",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "ag-dms",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0583557,
-          "lon": 80.2585174
-        }
-      }
-    },
-    "ag-dms": {
-      "id": "ag-dms",
-      "name": {
-        "en": "AG – DMS",
-        "ta": "ஏ.ஜி. – டி.எம்.எஸ்."
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "thousand-lights",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "teynampet",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0446825,
-          "lon": 80.2480329
-        }
-      }
-    },
-    "teynampet": {
-      "id": "teynampet",
-      "name": {
-        "en": "Teynampet",
-        "ta": "தேனாம்பேட்டை"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "ag-dms",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "nandanam",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0373532,
-          "lon": 80.2466509
-        }
-      }
-    },
-    "nandanam": {
-      "id": "nandanam",
-      "name": {
-        "en": "Nandanam",
-        "ta": "நந்தனம்"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "teynampet",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "saidapet-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.03165,
-          "lon": 80.24104
-        }
-      }
-    },
-    "saidapet-metro": {
-      "id": "saidapet-metro",
-      "name": {
-        "en": "Saidapet Metro",
-        "ta": "சைதாப்பேட்டை"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "nandanam",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "little-mount",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.023618,
-          "lon": 80.228108
-        }
-      }
-    },
-    "little-mount": {
-      "id": "little-mount",
-      "name": {
-        "en": "Little Mount",
-        "ta": "சின்னமலை"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "saidapet-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "guindy",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.014505,
-          "lon": 80.223857
-        }
-      }
-    },
-    "guindy": {
-      "id": "guindy",
-      "name": {
-        "en": "Guindy",
-        "ta": "கிண்டி"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "little-mount",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "arignar-anna-alandur-metro",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0093336,
-          "lon": 80.2131005
-        }
-      }
-    },
-    "arignar-anna-alandur-metro": {
-      "id": "arignar-anna-alandur-metro",
-      "name": {
-        "en": "Arignar Anna Alandur Metro",
-        "ta": "அறிஞர் அண்ணா ஆலந்தூர்"
-      },
-      "lines": [
-        "cmrl.blue",
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "guindy",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "ota-nanganallur-road",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "ekkattuthangal",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "st-thomas-mount-metro",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.004218,
-          "lon": 80.201461
-        }
-      }
-    },
-    "ota-nanganallur-road": {
-      "id": "ota-nanganallur-road",
-      "name": {
-        "en": "OTA-Nanganallur Road",
-        "ta": "நங்கநல்லூர் சாலை"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "arignar-anna-alandur-metro",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "meenambakkam",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 12.999961,
-          "lon": 80.194037
-        }
-      }
-    },
-    "meenambakkam": {
-      "id": "meenambakkam",
-      "name": {
-        "en": "Meenambakkam",
-        "ta": "மீனம்பாக்கம்"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "ota-nanganallur-road",
-          "line": "cmrl.blue"
-        },
-        {
-          "station": "chennai-international-airport",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 12.987735,
-          "lon": 80.1764
-        }
-      }
-    },
-    "chennai-international-airport": {
-      "id": "chennai-international-airport",
-      "name": {
-        "en": "Chennai International Airport",
-        "ta": "சென்னை பன்னாட்டு விமான நிலையம்"
-      },
-      "lines": [
-        "cmrl.blue"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "meenambakkam",
-          "line": "cmrl.blue"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 12.9808628,
-          "lon": 80.1641647
-        }
-      }
-    },
-    "egmore-metro": {
-      "id": "egmore-metro",
-      "name": {
-        "en": "Egmore Metro",
-        "ta": "எழும்பூர்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "nehru-park",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0790271,
-          "lon": 80.2586441
-        }
-      }
-    },
-    "nehru-park": {
-      "id": "nehru-park",
-      "name": {
-        "en": "Nehru Park",
-        "ta": "நேரு பூங்கா"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "egmore-metro",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "kilpauk",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0786275,
-          "lon": 80.2508538
-        }
-      }
-    },
-    "kilpauk": {
-      "id": "kilpauk",
-      "name": {
-        "en": "Kilpauk",
-        "ta": "கீழ்ப்பாக்கம்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "nehru-park",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "pachaiyappas-college",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.077685,
-          "lon": 80.242809
-        }
-      }
-    },
-    "pachaiyappas-college": {
-      "id": "pachaiyappas-college",
-      "name": {
-        "en": "Pachaiyappa’s College",
-        "ta": "பச்சையப்பன் கல்லூரி"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "kilpauk",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "shenoy-nagar",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0766294,
-          "lon": 80.2375618
-        }
-      }
-    },
-    "shenoy-nagar": {
-      "id": "shenoy-nagar",
-      "name": {
-        "en": "Shenoy Nagar",
-        "ta": "செனாய் நகர்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "pachaiyappas-college",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "anna-nagar-east",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0784251,
-          "lon": 80.2265534
-        }
-      }
-    },
-    "anna-nagar-east": {
-      "id": "anna-nagar-east",
-      "name": {
-        "en": "Anna Nagar East",
-        "ta": "அண்ணா நகர் கிழக்கு"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "shenoy-nagar",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "anna-nagar-tower",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0847633,
-          "lon": 80.2196589
-        }
-      }
-    },
-    "anna-nagar-tower": {
-      "id": "anna-nagar-tower",
-      "name": {
-        "en": "Anna Nagar Tower",
-        "ta": "அண்ணா நகர் கோபுரம்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "anna-nagar-east",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "thirumangalam",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0848861,
-          "lon": 80.2142749
-        }
-      }
-    },
-    "thirumangalam": {
-      "id": "thirumangalam",
-      "name": {
-        "en": "Thirumangalam",
-        "ta": "திருமங்கலம்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "underground",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "anna-nagar-tower",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "koyambedu",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0852626,
-          "lon": 80.201574
-        }
-      }
-    },
-    "koyambedu": {
-      "id": "koyambedu",
-      "name": {
-        "en": "Koyambedu",
-        "ta": "கோயம்பேடு"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "thirumangalam",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0710846,
-          "lon": 80.1993768
-        }
-      }
-    },
-    "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro": {
-      "id": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
-      "name": {
-        "en": "Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro",
-        "ta": "புரட்சித் தலைவி டாக்டர். ஜெ. ஜெயலலிதா புறநகர் பேருந்து நிலையம்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "koyambedu",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "arumbakkam",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.068594,
-          "lon": 80.203913
-        }
-      }
-    },
-    "arumbakkam": {
-      "id": "arumbakkam",
-      "name": {
-        "en": "Arumbakkam",
-        "ta": "அரும்பாக்கம்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "vadapalani",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0620745,
-          "lon": 80.2116729
-        }
-      }
-    },
-    "vadapalani": {
-      "id": "vadapalani",
-      "name": {
-        "en": "Vadapalani",
-        "ta": "வடபழனி"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "arumbakkam",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "ashok-nagar",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0507344,
-          "lon": 80.2120723
-        }
-      }
-    },
-    "ashok-nagar": {
-      "id": "ashok-nagar",
-      "name": {
-        "en": "Ashok Nagar",
-        "ta": "அசோக் நகர்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "vadapalani",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "ekkattuthangal",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0355384,
-          "lon": 80.211135
-        }
-      }
-    },
-    "ekkattuthangal": {
-      "id": "ekkattuthangal",
-      "name": {
-        "en": "Ekkattuthangal",
-        "ta": "ஈக்காட்டுத்தாங்கல்"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "ashok-nagar",
-          "line": "cmrl.green"
-        },
-        {
-          "station": "arignar-anna-alandur-metro",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 13.0165829,
-          "lon": 80.2052759
-        }
-      }
-    },
-    "st-thomas-mount-metro": {
-      "id": "st-thomas-mount-metro",
-      "name": {
-        "en": "St. Thomas Mount Metro",
-        "ta": "பரங்கிமலை"
-      },
-      "lines": [
-        "cmrl.green"
-      ],
-      "properties": {
-        "layout": "elevated",
-        "status": "operational"
-      },
-      "neighbors": [
-        {
-          "station": "arignar-anna-alandur-metro",
-          "line": "cmrl.green"
-        }
-      ],
-      "platforms": {},
-      "location": {
-        "decimal": {
-          "lat": 12.9948433,
-          "lon": 80.197446
-        }
-      }
-    }
-  }
+	"defaults": {"stationType": "normal", "layout": "elevated"},
+	"fareRules": {
+		"currency": "INR",
+		"networks": {
+			"cmrl": {"operator": "Chennai Metro Rail Limited (CMRL)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
+		},
+		"policies": {
+			"cmrl_standard": {
+				"network": "cmrl",
+				"effectiveFrom": "2021-02-22",
+				"fareModel": "distance_based",
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"fareTables": {
+					"weekday": [
+						{"minKm": 0, "maxKm": 2, "fare": 10},
+						{"minKm": 2, "maxKm": 5, "fare": 20},
+						{"minKm": 5, "maxKm": 12, "fare": 30},
+						{"minKm": 12, "maxKm": 21, "fare": 40},
+						{"minKm": 21, "maxKm": 99, "fare": 50}
+					]
+				},
+				"products": {
+					"token": {
+						"type": "base",
+						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 20,
+						"timeRule": null,
+						"label": {"en": "CMRL Smart Card / WhatsApp QR (20% Off)", "hi": "स्मार्ट कार्ड / वॉट्सऐप क्यूआर (20% छूट)"}
+					}
+				},
+				"timeRules": null,
+				"stationStayRules": {
+					"sameStationExitFare": 10,
+					"sameStationTimeLimitMinutes": 20,
+					"differentStationTimeLimitMinutes": 120,
+					"overstayPenaltyPerHour": 10,
+					"maxOverstayPenalty": 50
+				}
+			}
+		}
+	},
+	"lines": {
+		"cmrl.blue": {
+			"id": "cmrl.blue",
+			"network": "chennai_metro",
+			"operator": "Chennai Metro Rail Limited (CMRL)",
+			"label": "B",
+			"short_name": {"en": "Blue Line (Corridor 1)", "ta": "நீல வழித்தடம்"},
+			"color": "#005BA6",
+			"color_name": "blue",
+			"style": "solid",
+			"farePolicy": "cmrl_standard",
+			"route": {"from": "wimco-nagar-depot-metro", "to": "chennai-international-airport"},
+			"stations": [
+				"wimco-nagar-depot-metro",
+				"wimco-nagar-metro",
+				"thiruvotriyur-metro",
+				"thiruvottriyur-theradi-metro",
+				"kaladipet-metro",
+				"tollgate-metro",
+				"new-washermenpet-metro",
+				"tondiarpet-metro",
+				"sir-thiyagaraya-college-metro",
+				"washermenpet-metro",
+				"mannadi",
+				"highcourt",
+				"puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
+				"government-estate",
+				"lic",
+				"thousand-lights",
+				"ag-dms",
+				"teynampet",
+				"nandanam",
+				"saidapet-metro",
+				"little-mount",
+				"guindy",
+				"arignar-anna-alandur-metro",
+				"ota-nanganallur-road",
+				"meenambakkam",
+				"chennai-international-airport"
+			]
+		},
+		"cmrl.green": {
+			"id": "cmrl.green",
+			"network": "chennai_metro",
+			"operator": "Chennai Metro Rail Limited (CMRL)",
+			"label": "G",
+			"short_name": {"en": "Green Line (Corridor 2)", "ta": "பச்சை வழித்தடம்"},
+			"color": "#008752",
+			"color_name": "green",
+			"style": "solid",
+			"farePolicy": "cmrl_standard",
+			"route": {"from": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "to": "st-thomas-mount-metro"},
+			"stations": [
+				"puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
+				"egmore-metro",
+				"nehru-park",
+				"kilpauk",
+				"pachaiyappas-college",
+				"shenoy-nagar",
+				"anna-nagar-east",
+				"anna-nagar-tower",
+				"thirumangalam",
+				"koyambedu",
+				"puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
+				"arumbakkam",
+				"vadapalani",
+				"ashok-nagar",
+				"ekkattuthangal",
+				"arignar-anna-alandur-metro",
+				"st-thomas-mount-metro"
+			]
+		}
+	},
+	"transfers": {
+		"puratchi-thalaivar-dr-m-g-ramachandran-central-metro": {
+			"cmrl.blue": {
+				"puratchi-thalaivar-dr-m-g-ramachandran-central-metro:cmrl.green": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 40, "levels": 1}
+			},
+			"cmrl.green": {
+				"puratchi-thalaivar-dr-m-g-ramachandran-central-metro:cmrl.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 40, "levels": 1}
+			}
+		},
+		"arignar-anna-alandur-metro": {
+			"cmrl.blue": {
+				"arignar-anna-alandur-metro:cmrl.green": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 40, "levels": 1}
+			},
+			"cmrl.green": {
+				"arignar-anna-alandur-metro:cmrl.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 40, "levels": 1}
+			}
+		}
+	},
+	"stationData": {
+		"wimco-nagar-depot-metro": {
+			"id": "wimco-nagar-depot-metro",
+			"name": {"en": "Wimco Nagar Depot Metro", "ta": "விம்கோ நகர்"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "wimco-nagar-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.1833, "lon": 80.3086}}
+		},
+		"wimco-nagar-metro": {
+			"id": "wimco-nagar-metro",
+			"name": {"en": "Wimco Nagar Metro", "ta": "விம்கோ நகர்"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "wimco-nagar-depot-metro", "line": "cmrl.blue"}, {"station": "thiruvotriyur-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.1792, "lon": 80.3072}}
+		},
+		"thiruvotriyur-metro": {
+			"id": "thiruvotriyur-metro",
+			"name": {"en": "Thiruvotriyur Metro", "ta": "Thiruvotriyur Metro"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "wimco-nagar-metro", "line": "cmrl.blue"}, {"station": "thiruvottriyur-theradi-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.1661, "lon": 80.3039}}
+		},
+		"thiruvottriyur-theradi-metro": {
+			"id": "thiruvottriyur-theradi-metro",
+			"name": {"en": "Thiruvottriyur Theradi Metro", "ta": "Thiruvottriyur Theradi Metro"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "thiruvotriyur-metro", "line": "cmrl.blue"}, {"station": "kaladipet-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.1599, "lon": 80.2998}}
+		},
+		"kaladipet-metro": {
+			"id": "kaladipet-metro",
+			"name": {"en": "Kaladipet Metro", "ta": "காலடிபேட்டை"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "thiruvottriyur-theradi-metro", "line": "cmrl.blue"}, {"station": "tollgate-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.15102, "lon": 80.2995}}
+		},
+		"tollgate-metro": {
+			"id": "tollgate-metro",
+			"name": {"en": "Tollgate Metro", "ta": "சுங்கச்சாவடி"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kaladipet-metro", "line": "cmrl.blue"}, {"station": "new-washermenpet-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.14347, "lon": 80.2964}}
+		},
+		"new-washermenpet-metro": {
+			"id": "new-washermenpet-metro",
+			"name": {"en": "New Washermenpet Metro", "ta": "New Washermenpet Metro"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "tollgate-metro", "line": "cmrl.blue"}, {"station": "tondiarpet-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.1343, "lon": 80.2929}}
+		},
+		"tondiarpet-metro": {
+			"id": "tondiarpet-metro",
+			"name": {"en": "Tondiarpet Metro", "ta": "தண்டையார்பேட்டை"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "new-washermenpet-metro", "line": "cmrl.blue"}, {"station": "sir-thiyagaraya-college-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.1244, "lon": 80.2888}}
+		},
+		"sir-thiyagaraya-college-metro": {
+			"id": "sir-thiyagaraya-college-metro",
+			"name": {"en": "Sir Thiyagaraya College Metro", "ta": "Sir Thiyagaraya College Metro"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "tondiarpet-metro", "line": "cmrl.blue"}, {"station": "washermenpet-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.1158, "lon": 80.2847}}
+		},
+		"washermenpet-metro": {
+			"id": "washermenpet-metro",
+			"name": {"en": "Washermenpet Metro", "ta": "Washermenpet Metro"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "sir-thiyagaraya-college-metro", "line": "cmrl.blue"}, {"station": "mannadi", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.1076, "lon": 80.2862}}
+		},
+		"mannadi": {
+			"id": "mannadi",
+			"name": {"en": "Mannadi", "ta": "மண்ணடி"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "washermenpet-metro", "line": "cmrl.blue"}, {"station": "highcourt", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0951661, "lon": 80.2861603}}
+		},
+		"highcourt": {
+			"id": "highcourt",
+			"name": {"en": "Highcourt", "ta": "உயர் நீதிமன்றம்"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [
+				{"station": "mannadi", "line": "cmrl.blue"},
+				{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"}
+			],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.087394, "lon": 80.285064}}
+		},
+		"puratchi-thalaivar-dr-m-g-ramachandran-central-metro": {
+			"id": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro",
+			"name": {
+				"en": "Puratchi Thalaivar Dr. M.G.Ramachandran Central Metro",
+				"ta": "புரட்சித் தலைவர் டாக்டர். எம்.ஜி. இராமச்சந்திரன் சென்ட்ரல்"
+			},
+			"lines": ["cmrl.blue", "cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [
+				{"station": "highcourt", "line": "cmrl.blue"},
+				{"station": "government-estate", "line": "cmrl.blue"},
+				{"station": "egmore-metro", "line": "cmrl.green"}
+			],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0833285, "lon": 80.2741482}}
+		},
+		"government-estate": {
+			"id": "government-estate",
+			"name": {"en": "Government Estate", "ta": "அரசினர் தோட்டம்"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [
+				{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"},
+				{"station": "lic", "line": "cmrl.blue"}
+			],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.069682, "lon": 80.272741}}
+		},
+		"lic": {
+			"id": "lic",
+			"name": {"en": "LIC", "ta": "எல். ஐ. சி."},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "government-estate", "line": "cmrl.blue"}, {"station": "thousand-lights", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0645232, "lon": 80.2660489}}
+		},
+		"thousand-lights": {
+			"id": "thousand-lights",
+			"name": {"en": "Thousand Lights", "ta": "ஆயிரம் விளக்கு"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "lic", "line": "cmrl.blue"}, {"station": "ag-dms", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0583557, "lon": 80.2585174}}
+		},
+		"ag-dms": {
+			"id": "ag-dms",
+			"name": {"en": "AG – DMS", "ta": "ஏ.ஜி. – டி.எம்.எஸ்."},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "thousand-lights", "line": "cmrl.blue"}, {"station": "teynampet", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0446825, "lon": 80.2480329}}
+		},
+		"teynampet": {
+			"id": "teynampet",
+			"name": {"en": "Teynampet", "ta": "தேனாம்பேட்டை"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "ag-dms", "line": "cmrl.blue"}, {"station": "nandanam", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0373532, "lon": 80.2466509}}
+		},
+		"nandanam": {
+			"id": "nandanam",
+			"name": {"en": "Nandanam", "ta": "நந்தனம்"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "teynampet", "line": "cmrl.blue"}, {"station": "saidapet-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.03165, "lon": 80.24104}}
+		},
+		"saidapet-metro": {
+			"id": "saidapet-metro",
+			"name": {"en": "Saidapet Metro", "ta": "சைதாப்பேட்டை"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "nandanam", "line": "cmrl.blue"}, {"station": "little-mount", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.023618, "lon": 80.228108}}
+		},
+		"little-mount": {
+			"id": "little-mount",
+			"name": {"en": "Little Mount", "ta": "சின்னமலை"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "saidapet-metro", "line": "cmrl.blue"}, {"station": "guindy", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.014505, "lon": 80.223857}}
+		},
+		"guindy": {
+			"id": "guindy",
+			"name": {"en": "Guindy", "ta": "கிண்டி"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "little-mount", "line": "cmrl.blue"}, {"station": "arignar-anna-alandur-metro", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0093336, "lon": 80.2131005}}
+		},
+		"arignar-anna-alandur-metro": {
+			"id": "arignar-anna-alandur-metro",
+			"name": {"en": "Arignar Anna Alandur Metro", "ta": "அறிஞர் அண்ணா ஆலந்தூர்"},
+			"lines": ["cmrl.blue", "cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [
+				{"station": "guindy", "line": "cmrl.blue"},
+				{"station": "ota-nanganallur-road", "line": "cmrl.blue"},
+				{"station": "ekkattuthangal", "line": "cmrl.green"},
+				{"station": "st-thomas-mount-metro", "line": "cmrl.green"}
+			],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.004218, "lon": 80.201461}}
+		},
+		"ota-nanganallur-road": {
+			"id": "ota-nanganallur-road",
+			"name": {"en": "OTA-Nanganallur Road", "ta": "நங்கநல்லூர் சாலை"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "arignar-anna-alandur-metro", "line": "cmrl.blue"}, {"station": "meenambakkam", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 12.999961, "lon": 80.194037}}
+		},
+		"meenambakkam": {
+			"id": "meenambakkam",
+			"name": {"en": "Meenambakkam", "ta": "மீனம்பாக்கம்"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ota-nanganallur-road", "line": "cmrl.blue"}, {"station": "chennai-international-airport", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 12.987735, "lon": 80.1764}}
+		},
+		"chennai-international-airport": {
+			"id": "chennai-international-airport",
+			"name": {"en": "Chennai International Airport", "ta": "சென்னை பன்னாட்டு விமான நிலையம்"},
+			"lines": ["cmrl.blue"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "meenambakkam", "line": "cmrl.blue"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 12.9808628, "lon": 80.1641647}}
+		},
+		"egmore-metro": {
+			"id": "egmore-metro",
+			"name": {"en": "Egmore Metro", "ta": "எழும்பூர்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [
+				{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.green"},
+				{"station": "nehru-park", "line": "cmrl.green"}
+			],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0790271, "lon": 80.2586441}}
+		},
+		"nehru-park": {
+			"id": "nehru-park",
+			"name": {"en": "Nehru Park", "ta": "நேரு பூங்கா"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "egmore-metro", "line": "cmrl.green"}, {"station": "kilpauk", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0786275, "lon": 80.2508538}}
+		},
+		"kilpauk": {
+			"id": "kilpauk",
+			"name": {"en": "Kilpauk", "ta": "கீழ்ப்பாக்கம்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "nehru-park", "line": "cmrl.green"}, {"station": "pachaiyappas-college", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.077685, "lon": 80.242809}}
+		},
+		"pachaiyappas-college": {
+			"id": "pachaiyappas-college",
+			"name": {"en": "Pachaiyappa’s College", "ta": "பச்சையப்பன் கல்லூரி"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "kilpauk", "line": "cmrl.green"}, {"station": "shenoy-nagar", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0766294, "lon": 80.2375618}}
+		},
+		"shenoy-nagar": {
+			"id": "shenoy-nagar",
+			"name": {"en": "Shenoy Nagar", "ta": "செனாய் நகர்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "pachaiyappas-college", "line": "cmrl.green"}, {"station": "anna-nagar-east", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0784251, "lon": 80.2265534}}
+		},
+		"anna-nagar-east": {
+			"id": "anna-nagar-east",
+			"name": {"en": "Anna Nagar East", "ta": "அண்ணா நகர் கிழக்கு"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "shenoy-nagar", "line": "cmrl.green"}, {"station": "anna-nagar-tower", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0847633, "lon": 80.2196589}}
+		},
+		"anna-nagar-tower": {
+			"id": "anna-nagar-tower",
+			"name": {"en": "Anna Nagar Tower", "ta": "அண்ணா நகர் கோபுரம்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "anna-nagar-east", "line": "cmrl.green"}, {"station": "thirumangalam", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0848861, "lon": 80.2142749}}
+		},
+		"thirumangalam": {
+			"id": "thirumangalam",
+			"name": {"en": "Thirumangalam", "ta": "திருமங்கலம்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "anna-nagar-tower", "line": "cmrl.green"}, {"station": "koyambedu", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0852626, "lon": 80.201574}}
+		},
+		"koyambedu": {
+			"id": "koyambedu",
+			"name": {"en": "Koyambedu", "ta": "கோயம்பேடு"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [
+				{"station": "thirumangalam", "line": "cmrl.green"},
+				{"station": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro", "line": "cmrl.green"}
+			],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0710846, "lon": 80.1993768}}
+		},
+		"puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro": {
+			"id": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro",
+			"name": {"en": "Puratchi Thalaivi Dr.J.Jayalalithaa CMBT Metro", "ta": "புரட்சித் தலைவி டாக்டர். ஜெ. ஜெயலலிதா புறநகர் பேருந்து நிலையம்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "koyambedu", "line": "cmrl.green"}, {"station": "arumbakkam", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.068594, "lon": 80.203913}}
+		},
+		"arumbakkam": {
+			"id": "arumbakkam",
+			"name": {"en": "Arumbakkam", "ta": "அரும்பாக்கம்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [
+				{"station": "puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro", "line": "cmrl.green"},
+				{"station": "vadapalani", "line": "cmrl.green"}
+			],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0620745, "lon": 80.2116729}}
+		},
+		"vadapalani": {
+			"id": "vadapalani",
+			"name": {"en": "Vadapalani", "ta": "வடபழனி"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "arumbakkam", "line": "cmrl.green"}, {"station": "ashok-nagar", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0507344, "lon": 80.2120723}}
+		},
+		"ashok-nagar": {
+			"id": "ashok-nagar",
+			"name": {"en": "Ashok Nagar", "ta": "அசோக் நகர்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "vadapalani", "line": "cmrl.green"}, {"station": "ekkattuthangal", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0355384, "lon": 80.211135}}
+		},
+		"ekkattuthangal": {
+			"id": "ekkattuthangal",
+			"name": {"en": "Ekkattuthangal", "ta": "ஈக்காட்டுத்தாங்கல்"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ashok-nagar", "line": "cmrl.green"}, {"station": "arignar-anna-alandur-metro", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 13.0165829, "lon": 80.2052759}}
+		},
+		"st-thomas-mount-metro": {
+			"id": "st-thomas-mount-metro",
+			"name": {"en": "St. Thomas Mount Metro", "ta": "பரங்கிமலை"},
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "arignar-anna-alandur-metro", "line": "cmrl.green"}],
+			"platforms": {},
+			"location": {"decimal": {"lat": 12.9948433, "lon": 80.197446}}
+		}
+	}
 }

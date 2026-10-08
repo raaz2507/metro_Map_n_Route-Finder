@@ -11,7 +11,7 @@ export default {
 		"appName": "यात्रा मार्ग",
 		"tagLine": "नक्शे • मार्ग • किराया • यात्रा सहायता",
 		"installApp": "ऐप इंस्टॉल करें",
-		"hardRefresh": "कैश साफ करें व रीफ्रेश करें",
+		"hardRefresh": "रीफ्रेश",
 		"appOptions": "ऐप सेटिंग्स व रिफ्रेश",
 		"mode": {
 			"switchToDark": "डार्क मोड पर बदलें",
@@ -32,7 +32,7 @@ export default {
 		"networks": "नेटवर्क",
 		"home": "होम",
 		"stations": "स्टेशन",
-		"recharge": "कार्ड रीचार्ज",
+		"recharge": "स्मार्ट कार्ड / टोकन",
 		"passengerSupport": "यात्री सहायता",
 		"help": "सहायता",
 		"about": "जानकारी"
@@ -56,17 +56,5 @@ export default {
 		"developedBy": "❤️ के साथ विकसित",
 		"tapToZoom": "🔍 बड़ा करने के लिए टैप करें",
 		"enlargeQrAria": "QR कोड बड़ा करने के लिए क्लिक करें"
-	},
-	"rechargeModal": {
-		"title": "स्मार्ट कार्ड त्वरित टॉप-अप",
-		"closeAria": "बंद करें",
-		"infoBanner": "सीधा रीचार्ज सहायक: कार्ड नंबर कॉपी हो जाएगा और DMRC का आधिकारिक टॉप-अप पोर्टल 1 क्लिक में खुल जाएगा।",
-		"cardIdLabel": "स्मार्ट कार्ड नंबर (कार्ड पर दर्ज)",
-		"cardIdPlaceholder": "उदा. 12345678",
-		"amountLabel": "रीचार्ज राशि (₹)",
-		"amountPlaceholder": "राशि (न्यूनतम ₹100)",
-		"submitBtn": "कार्ड नंबर कॉपी करें और DMRC पोर्टल खोलें",
-		"toastInvalid": "कृपया 8 से 11 अंकों का मान्य मेट्रो कार्ड नंबर दर्ज करें।",
-		"toastSuccess": "कार्ड नंबर {cardId} कॉपी हो गया! DMRC पोर्टल खुल रहा है..."
 	}
 };

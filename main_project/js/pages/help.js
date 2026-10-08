@@ -34,6 +34,7 @@ class HelpController extends BaseSearchEngine {
 
 		// 3. Bind Accordion Toggles
 		this.#bindAccordion();
+		this.#bindMoreDetails();
 
 		// 4. Bind Search & Filter Chips
 		this.#bindSearch();
@@ -42,11 +43,21 @@ class HelpController extends BaseSearchEngine {
 		// 5. Bind Sticky Sidebar Nav & ScrollSpy
 		this.#bindScrollSpy();
 
+		// 6. Bind Mobile Action Bar & Off-Canvas Drawers
+		this.#bindMobileBar();
+
 		// 6. Subscribe to Dynamic Language Switch
 		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
 			if (this.#dom.searchInput) {
 				this.#dom.searchInput.placeholder = i18n.t("help.hero.searchPlaceholder");
 			}
+			const mobileIndexLabel = document.querySelector("#mobileIndexBtn .mobile-bar-label");
+			if (mobileIndexLabel) mobileIndexLabel.textContent = i18n.t("help.mobileBar.index");
+			const mobileSearchLabel = document.querySelector("#mobileSearchBtn .mobile-bar-label");
+			if (mobileSearchLabel) mobileSearchLabel.textContent = i18n.t("help.mobileBar.search");
+			const quickIndexLabel = document.querySelector(".sidebar-heading-badge [data-i18n]");
+			if (quickIndexLabel) quickIndexLabel.textContent = i18n.t("help.sidebar.quickIndex");
+
 			if (this.#searchQuery) {
 				this.#filterContent();
 			}
@@ -74,7 +85,15 @@ class HelpController extends BaseSearchEngine {
 			sidebarLinks: document.querySelectorAll(".help-sidebar-nav .sidebar-nav-item"),
 			emptyState: document.getElementById("helpEmptyState"),
 			emptyStateDesc: document.getElementById("emptyStateDesc"),
-			btnReset: document.getElementById("helpBtnReset")
+			btnReset: document.getElementById("helpBtnReset"),
+			helpHero: document.getElementById("helpHero"),
+			helpSidebar: document.getElementById("helpSidebar"),
+			mobileBar: document.getElementById("helpMobileBar"),
+			mobileIndexBtn: document.getElementById("mobileIndexBtn"),
+			mobileSearchBtn: document.getElementById("mobileSearchBtn"),
+			heroCloseBtn: document.getElementById("heroCloseBtn"),
+			sidebarCloseBtn: document.getElementById("sidebarCloseBtn"),
+			helpBackdrop: document.getElementById("helpBackdrop")
 		};
 	}
 
@@ -263,22 +282,150 @@ class HelpController extends BaseSearchEngine {
 	}
 
 	/**
-	 * 🧭 Sticky Sidebar Smooth Scroll & ScrollSpy
+	 * 📖 Bind "Learn More / और जानें..." Extended Drawer Toggles
 	 */
-	#bindScrollSpy() {
-		const { sidebarLinks } = this.#dom;
-		if (!sidebarLinks) return;
-		sidebarLinks.forEach((link) => {
-			link.addEventListener("click", (e) => {
-				e.preventDefault();
-				const targetId = link.getAttribute("data-target") || link.hash?.replace("#", "");
-				const targetSection = document.getElementById(targetId);
-				if (targetSection) {
-					sidebarLinks.forEach((l) => l.classList.toggle("active", l === link));
-					targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+	#bindMoreDetails() {
+		document.querySelectorAll(".drawer-more-btn").forEach((btn) => {
+			btn.addEventListener("click", (e) => {
+				e.stopPropagation();
+				const drawer = btn.closest(".card-drawer");
+				if (!drawer) return;
+				const details = drawer.querySelector(".drawer-extended-details");
+				if (!details) return;
+
+				const isCurrentlyOpen = !details.classList.contains("hidden");
+				details.classList.toggle("hidden", isCurrentlyOpen);
+				btn.setAttribute("aria-expanded", String(!isCurrentlyOpen));
+
+				const labelSpan = btn.querySelector(".more-btn-label");
+				if (labelSpan) {
+					const targetKey = !isCurrentlyOpen 
+						? btn.getAttribute("data-less-key") 
+						: btn.getAttribute("data-more-key");
+					if (targetKey) {
+						labelSpan.textContent = i18n.t(targetKey);
+						labelSpan.setAttribute("data-i18n", targetKey);
+					}
 				}
 			});
 		});
+	}
+
+	/**
+	 * 🧭 Sticky Sidebar Smooth Scroll & ScrollSpy (Supports sections & topic sub-items)
+	 */
+	#bindScrollSpy() {
+		const allNavLinks = document.querySelectorAll(".help-sidebar-nav a");
+
+		allNavLinks.forEach((link) => {
+			link.addEventListener("click", (e) => {
+				e.preventDefault();
+				const targetId = link.getAttribute("data-target") || link.hash?.replace("#", "");
+				const targetEl = document.getElementById(targetId);
+				if (!targetEl) return;
+
+				// If target is an accordion card item, automatically expand it
+				if (targetEl.classList.contains("help-card-item")) {
+					targetEl.classList.remove("collapsed");
+					const summary = targetEl.querySelector(".card-summary");
+					if (summary) summary.setAttribute("aria-expanded", "true");
+				}
+
+				allNavLinks.forEach((l) => l.classList.remove("active"));
+				link.classList.add("active");
+
+				// Also activate parent sidebar-nav-item if this is a sub-item
+				const parentGroup = link.closest(".sidebar-nav-group");
+				if (parentGroup) {
+					const parentMainLink = parentGroup.querySelector(".sidebar-nav-item");
+					if (parentMainLink && parentMainLink !== link) {
+						parentMainLink.classList.add("active");
+					}
+				}
+
+				targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+
+				// Auto-close mobile drawer when user taps an index item
+				this._closeMobileDrawers?.();
+			});
+		});
+	}
+
+	/**
+	 * 📱 Bind Mobile Floating Action Bar & Off-Canvas Drawers
+	 */
+	#bindMobileBar() {
+		const {
+			helpHero,
+			helpSidebar,
+			mobileIndexBtn,
+			mobileSearchBtn,
+			heroCloseBtn,
+			sidebarCloseBtn,
+			helpBackdrop,
+			searchInput
+		} = this.#dom;
+
+		const closeAllDrawers = () => {
+			helpSidebar?.classList.remove("mobile-open");
+			helpHero?.classList.remove("mobile-open");
+			helpBackdrop?.classList.add("hidden");
+			mobileIndexBtn?.setAttribute("aria-expanded", "false");
+			mobileSearchBtn?.setAttribute("aria-expanded", "false");
+			document.body.style.overflow = "";
+		};
+
+		const openSidebarDrawer = () => {
+			closeAllDrawers();
+			helpSidebar?.classList.add("mobile-open");
+			helpBackdrop?.classList.remove("hidden");
+			mobileIndexBtn?.setAttribute("aria-expanded", "true");
+			document.body.style.overflow = "hidden";
+		};
+
+		const openHeroDrawer = () => {
+			closeAllDrawers();
+			helpHero?.classList.add("mobile-open");
+			helpBackdrop?.classList.remove("hidden");
+			mobileSearchBtn?.setAttribute("aria-expanded", "true");
+			document.body.style.overflow = "hidden";
+			setTimeout(() => searchInput?.focus(), 250);
+		};
+
+		// 1. Toggle Index Drawer
+		mobileIndexBtn?.addEventListener("click", () => {
+			const isOpen = helpSidebar?.classList.contains("mobile-open");
+			if (isOpen) {
+				closeAllDrawers();
+			} else {
+				openSidebarDrawer();
+			}
+		});
+
+		// 2. Toggle Search & Filter Drawer
+		mobileSearchBtn?.addEventListener("click", () => {
+			const isOpen = helpHero?.classList.contains("mobile-open");
+			if (isOpen) {
+				closeAllDrawers();
+			} else {
+				openHeroDrawer();
+			}
+		});
+
+		// 3. Close Buttons
+		sidebarCloseBtn?.addEventListener("click", closeAllDrawers);
+		heroCloseBtn?.addEventListener("click", closeAllDrawers);
+
+		// 4. Backdrop Click Closes
+		helpBackdrop?.addEventListener("click", closeAllDrawers);
+
+		// 5. Escape Key Closes
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape") closeAllDrawers();
+		});
+
+		// Expose closer for scrollspy link clicks
+		this._closeMobileDrawers = closeAllDrawers;
 	}
 }
 

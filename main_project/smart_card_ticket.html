@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+	<!-- Open Graph / Social Sharing -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/smart_card_ticket.html">
+	<meta property="og:title" content="Smart Card Quick Top-Up | YatraMarg">
+	<meta property="og:description" content="Quick metro smart card recharge helper and official portal gateway.">
+	<meta property="og:image" content="assets/images/share_image_com.png">
+
+	<link rel="icon" type="image/svg+xml" href="assets/images/site_icon.svg">
+	<link rel="manifest" href="manifest.webmanifest">
+	<meta name="theme-color" content="#0f172a">
+
+	<title data-i18n="smartCardTicket.pageTitle">Smart Card Quick Top-Up | YatraMarg</title>
+
+	<!-- Page Stylesheet -->
+	<link rel="stylesheet" href="css/pages/smart_card_ticket.css">
+</head>
+<body>
+	<!-- GLOBAL DYNAMIC HEADER -->
+	<div id="app-header"></div>
+
+	<!-- MAIN WORKSPACE -->
+	<main class="smartcard-page-container">
+		<!-- 📦 Multi-Card Grid (380px Cards, Scalable for Future Cards) -->
+		<div class="smartcard-cards-grid">
+			
+			<!-- CARD 1: SMART CARD TOP-UP (380px Compact Transit Card) -->
+			<article class="smartcard-unit-card">
+				<header class="card-top-bar">
+					<div class="card-brand">
+						<span class="chip-icon">💳</span>
+						<span class="card-brand-title" data-i18n="smartCardTicket.title">Smart Card Quick Top-Up</span>
+					</div>
+					<span class="contactless-symbol" aria-hidden="true">🛜</span>
+				</header>
+
+				<div class="card-content-area">
+					<div class="recharge-info-banner">
+						<span>ℹ️</span>
+						<span data-i18n="smartCardTicket.infoBanner">Direct Recharge Helper: Card ID will be copied and DMRC's official top-up portal will open in 1 click.</span>
+					</div>
+
+					<div class="card-fields-row">
+						<!-- Field 1: Card ID -->
+						<div class="card-form-field">
+							<label for="rechargeCardId" data-i18n="smartCardTicket.cardIdLabel">Smart Card ID (Engraved No.)</label>
+							<input type="text" id="rechargeCardId" class="card-text-input" data-i18n-placeholder="smartCardTicket.cardIdPlaceholder" placeholder="e.g. 12345678" maxlength="11" autocomplete="off" />
+						</div>
+
+						<!-- Field 2: Amount & Chips -->
+						<div class="card-form-field">
+							<label for="rechargeAmount" data-i18n="smartCardTicket.amountLabel">Recharge Amount (₹)</label>
+							<input type="number" id="rechargeAmount" class="card-text-input" data-i18n-placeholder="smartCardTicket.amountPlaceholder" placeholder="Amount (min ₹100)" min="100" max="2000" step="50" />
+							<div class="recharge-amount-chips">
+								<button type="button" class="recharge-chip-btn" data-val="100">₹100</button>
+								<button type="button" class="recharge-chip-btn active" data-val="200">₹200</button>
+								<button type="button" class="recharge-chip-btn" data-val="500">₹500</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<footer class="card-bottom-bar">
+					<button type="button" id="rechargeSubmitBtn" class="card-action-btn">
+						<span class="btn-flash-icon">⚡</span>
+						<span data-i18n="smartCardTicket.submitBtn">Copy Card ID &amp; Open DMRC Portal</span>
+					</button>
+				</footer>
+			</article>
+
+			<!-- 🔮 FUTURE CARD 2 SLOT (जब आप दूसरा कार्ड जोड़ेंगे तो सीधे यहाँ आएगा) -->
+
+		</div>
+	</main>
+
+	<!-- GLOBAL DYNAMIC FOOTER -->
+	<div id="app-footer"></div>
+
+	<!-- Page Controller Script -->
+	<script type="module" src="./js/pages/smart_card_ticket.js"></script>
+</body>
+</html>

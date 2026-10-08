@@ -76,20 +76,10 @@
 	"transfers": {
 		"sitabuldi": {
 			"mahametro_nagpur.orange": {
-				"sitabuldi:mahametro_nagpur.aqua": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"sitabuldi:mahametro_nagpur.aqua": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"mahametro_nagpur.aqua": {
-				"sitabuldi:mahametro_nagpur.orange": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"sitabuldi:mahametro_nagpur.orange": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		}
 	},

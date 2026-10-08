@@ -85,7 +85,15 @@ export default {
 		dev2Quote: "Dedicated to making urban commuting hassle-free with reliable schedules, intuitive interfaces, and smooth transit navigation for everyone.",
 		dev2Spec1: "India",
 		dev2Spec2: "Transit Data & UI",
-		dev2Btn: "GitHub Profile"
+		dev2Btn: "GitHub Profile",
+		dev3Tag: "AI Architect & Pair Programmer",
+		dev3Status: "Active AI Engine",
+		dev3Name: "Antigravity",
+		dev3Role: "AI Pair Developer & System Design",
+		dev3Quote: "Autonomous code intelligence and modern agentic engineering driving high-performance, offline-first transit architectures.",
+		dev3Spec1: "Google DeepMind",
+		dev3Spec2: "Agentic AI & Core Systems",
+		dev3Btn: "Google DeepMind"
 	},
 	feedback: {
 		badge: "Community Voice",
