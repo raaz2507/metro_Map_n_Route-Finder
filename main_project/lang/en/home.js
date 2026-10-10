@@ -255,13 +255,18 @@ export default {
 		interchangeAlert: "Prepare to change line",
 		destinationAlert: "Approaching destination! Prepare to deboard",
 		trackingActive: "🛰️ Live Tracking Active",
-		snoozeBtn: "⏱️ Snooze",
-		dismissBtn: "🔕 Dismiss",
+		snoozeBtn: "Snooze",
+		dismissBtn: "Dismiss",
 		stopAlarmBtn: "🛑 Stop",
 		dismissToast: "🔔 Next alert: Destination station",
 		snoozeToast: "⏱️ Alarm snoozed for 2 minutes",
 		enabledToast: "🔔 Live journey alarm enabled!",
-		stoppedToast: "🛑 Live alarm disabled."
+		stoppedToast: "🛑 Live alarm disabled.",
+		stationAlert: "STATION ALERT",
+		noAlarmSet: "No Alarm Set",
+		alarmTag: "Alarm",
+		statusRunning: "RUNNING",
+		statusStandby: "STANDBY"
 	},
 
 	// 8.1 GPS & Location Status Messages

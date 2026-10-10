@@ -14,9 +14,7 @@ export class PwaManager {
 	#isInitialized = false;
 
 	#dom = {
-		// Header Dropdown Controls
-		utilityBtn: null,
-		utilityMenu: null,
+		// Header Menu Controls
 		installMenuItem: null,
 		refreshMenuItem: null,
 		// Optional Banner Controls (home page)
@@ -89,12 +87,9 @@ export class PwaManager {
 	bindHeaderUI() {
 		this.init(); // Ensure lifecycle events are active
 
-		this.#dom.utilityBtn = document.getElementById('app-utility-btn');
-		this.#dom.utilityMenu = document.getElementById('app-utility-menu');
 		this.#dom.installMenuItem = document.getElementById('menu-install-pwa');
 		this.#dom.refreshMenuItem = document.getElementById('menu-hard-refresh');
 
-		this.#setupDropdownBehavior();
 		this.#bindMenuActions();
 		this.#updateUI();
 	}
@@ -118,56 +113,12 @@ export class PwaManager {
 		this.#updateUI();
 	}
 
-	#setupDropdownBehavior() {
-		const { utilityBtn, utilityMenu } = this.#dom;
-		if (!utilityBtn || !utilityMenu) return;
-
-		const closeMenu = () => {
-			utilityMenu.classList.remove('show');
-			utilityBtn.setAttribute('aria-expanded', 'false');
-		};
-
-		utilityBtn.addEventListener('click', (e) => {
-			e.stopPropagation();
-			const isOpen = utilityMenu.classList.contains('show');
-			
-			// Close all dropdowns across the header
-			document.querySelectorAll('.custom-dropdown-menu.show, .font-scale-panel.show, .city-dropdown-menu.show').forEach(m => {
-				m.classList.remove('show');
-				const btn = m.closest('.dropdown-container')?.querySelector('[aria-expanded="true"]');
-				if (btn) btn.setAttribute('aria-expanded', 'false');
-			});
-
-			if (isOpen) {
-				closeMenu();
-			} else {
-				utilityMenu.classList.add('show');
-				utilityBtn.setAttribute('aria-expanded', 'true');
-			}
-		});
-
-		document.addEventListener('click', (e) => {
-			if (!utilityBtn.contains(e.target) && !utilityMenu.contains(e.target)) {
-				closeMenu();
-			}
-		});
-
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape' && utilityMenu.classList.contains('show')) {
-				closeMenu();
-				utilityBtn.focus();
-			}
-		});
-	}
-
 	#bindMenuActions() {
-		const { utilityBtn, utilityMenu, installMenuItem, refreshMenuItem } = this.#dom;
+		const { installMenuItem, refreshMenuItem } = this.#dom;
 
 		// 1. Install Action
 		if (installMenuItem) {
 			installMenuItem.addEventListener('click', () => {
-				if (utilityMenu) utilityMenu.classList.remove('show');
-				if (utilityBtn) utilityBtn.setAttribute('aria-expanded', 'false');
 				this.promptInstall();
 			});
 		}
@@ -175,8 +126,6 @@ export class PwaManager {
 		// 2. Hard Refresh Action
 		if (refreshMenuItem) {
 			refreshMenuItem.addEventListener('click', () => {
-				if (utilityMenu) utilityMenu.classList.remove('show');
-				if (utilityBtn) utilityBtn.setAttribute('aria-expanded', 'false');
 				this.hardRefresh();
 			});
 		}

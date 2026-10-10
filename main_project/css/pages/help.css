@@ -2,8 +2,15 @@
 @import url("../layout/layout.css");
 @import url("../layout/header.css");
 @import url("../layout/navbar_header.css");
+@import url("../layout/navbar-main.css");
 @import url("../layout/footer.css");
 @import url("../components/universal_search.css");
+@import url("../components/app-settings.css");
+@import url("../components/alarm-widget-25d.css");
+@import url("../components/widget-speedometer.css");
+@import url("../components/routeSearch.css");
+@import url("../components/recentSearch.css");
+@import url("../components/pwa-app-styling.css");
 
 /* ==========================================================================
 HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
@@ -128,15 +135,15 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	.help-hero-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 6px;
+		gap: var(--space-xs);
 		font-family: var(--font-title);
-		font-size: 11px;
+		font-size: var(--fs-2xs);
 		font-weight: var(--fw-bold);
 		text-transform: uppercase;
 		letter-spacing: 0.6px;
 		color: rgb(var(--color-primary-rgb));
 		background: rgba(var(--color-primary-rgb), 0.1);
-		padding: 4px 12px;
+		padding: var(--space-xs) var(--space-md);
 		border-radius: var(--radius-full);
 		border: 1px solid rgba(var(--color-primary-rgb), 0.2);
 	}
@@ -267,12 +274,12 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	.sidebar-heading-badge {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: var(--space-sm);
 		font-family: var(--font-title);
-		font-size: 11px;
+		font-size: var(--fs-2xs);
 		font-weight: var(--fw-bold);
 		text-transform: uppercase;
-		letter-spacing: 0.8px;
+		letter-spacing: 0.08em;
 		color: var(--text-secondary);
 		padding-bottom: var(--space-md);
 		border-bottom: 1px solid var(--border-color);
@@ -282,14 +289,34 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	.help-sidebar-nav {
 		display: flex;
 		flex-direction: column;
-		gap: 4px;
+		gap: var(--space-xs);
+	}
+
+	.sidebar-nav-list {
+		list-style: none;
+		counter-reset: help-section;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.sidebar-nav-group {
+		counter-increment: help-section;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
 	}
 
 	.sidebar-nav-item {
 		display: flex;
 		align-items: center;
-		gap: 10px;
-		padding: 8px 12px;
+		gap: var(--space-sm);
+		padding: var(--space-sm) var(--space-md);
 		border-radius: var(--radius-md);
 		text-decoration: none;
 		font-family: var(--font-main);
@@ -318,9 +345,13 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		border-radius: var(--radius-full);
 		background: rgba(var(--color-primary-rgb), 0.1);
 		color: rgb(var(--color-primary-rgb));
-		font-size: 11px;
+		font-size: var(--fs-2xs);
 		font-weight: var(--fw-bold);
 		flex-shrink: 0;
+	}
+
+	.nav-step-pill::before {
+		content: counter(help-section);
 	}
 
 	.sidebar-nav-item.active .nav-step-pill {
@@ -334,30 +365,33 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		white-space: nowrap;
 	}
 
-	.sidebar-nav-group {
+	.sidebar-sub-list {
+		list-style: none;
+		counter-reset: subsec;
+		padding: 0 0 0 var(--space-md);
+		margin: var(--space-2xs) 0 var(--space-xs) var(--space-lg);
+		border-left: 2px solid rgba(var(--color-primary-rgb), 0.18);
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
+		gap: var(--space-2xs);
 	}
 
-	.sidebar-sub-nav {
-		display: flex;
-		flex-direction: column;
-		gap: 2px;
-		padding-left: 12px;
-		margin: 2px 0 6px 16px;
-		border-left: 2px solid rgba(var(--color-primary-rgb), 0.18);
+	.sidebar-sub-item-wrap {
+		counter-increment: subsec;
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
 	.sidebar-sub-item {
 		display: flex;
 		align-items: center;
-		gap: 8px;
-		padding: 4px 8px;
+		gap: var(--space-sm);
+		padding: var(--space-xs) var(--space-sm);
 		border-radius: var(--radius-sm);
 		text-decoration: none;
 		font-family: var(--font-main);
-		font-size: 11px;
+		font-size: var(--fs-2xs);
 		font-weight: var(--fw-medium);
 		color: var(--text-secondary);
 		transition: all var(--transition-fast);
@@ -374,21 +408,197 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		background: rgba(var(--color-primary-rgb), 0.12);
 	}
 
-	.sub-nav-dot {
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background-color: var(--text-secondary);
-		opacity: 0.5;
+	/* Level 2 Sub-Nav Number (e.g. 1.1, 1.2, 1.3) */
+	.sub-nav-num {
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-muted);
+		min-width: 20px;
 		flex-shrink: 0;
-		transition: transform var(--transition-fast), background-color var(--transition-fast);
+		transition: color var(--transition-fast);
 	}
 
-	.sidebar-sub-item:hover .sub-nav-dot,
-	.sidebar-sub-item.active .sub-nav-dot {
-		background-color: rgb(var(--color-primary-rgb));
-		opacity: 1;
-		transform: scale(1.3);
+	.sub-nav-num::before {
+		content: counter(help-section) "." counter(subsec);
+	}
+
+	.sidebar-sub-item:hover .sub-nav-num,
+	.sidebar-sub-item.active .sub-nav-num {
+		color: rgb(var(--color-primary-rgb));
+	}
+
+	/* -------------------------------------------------------------------------
+	Level 2 Area Headings & Level 3 Nested Sub-topics
+	------------------------------------------------------------------------- */
+	.sidebar-sub-group {
+		counter-increment: subsec;
+		list-style: none;
+		margin-top: var(--space-xs);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.sidebar-sub-heading {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		padding: var(--space-2xs) var(--space-xs);
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--text-muted);
+		user-select: none;
+	}
+
+	/* Level 2 Area Heading Number (e.g. 2.1, 2.2, 2.3) */
+	.sub-heading-num {
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-extrabold);
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.12);
+		padding: 1px var(--space-xs);
+		border-radius: var(--radius-xs);
+		flex-shrink: 0;
+	}
+
+	.sub-heading-num::before {
+		content: counter(help-section) "." counter(subsec);
+	}
+
+	.sidebar-nested-list {
+		list-style: none;
+		counter-reset: subtopic;
+		padding: 0 0 0 var(--space-sm);
+		margin: 1px 0 var(--space-xs) var(--space-sm);
+		border-left: 1.5px dashed rgba(var(--color-primary-rgb), 0.16);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.sidebar-nested-item {
+		counter-increment: subtopic;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.sidebar-nested-link {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		padding: var(--space-2xs) var(--space-xs);
+		border-radius: var(--radius-sm);
+		text-decoration: none;
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-secondary);
+		transition: all var(--transition-fast);
+	}
+
+	.sidebar-nested-link:hover {
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.05);
+	}
+
+	.sidebar-nested-link.active {
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-semibold);
+		background: rgba(var(--color-primary-rgb), 0.1);
+	}
+
+	/* Level 3 Nested Topic Number (e.g. 2.1.1, 2.1.2) */
+	.nested-num {
+		font-family: var(--font-title);
+		font-size: var(--fs-3xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-muted);
+		min-width: 28px;
+		flex-shrink: 0;
+		transition: all var(--transition-fast);
+	}
+
+	.nested-num::before {
+		content: counter(help-section) "." counter(subsec) "." counter(subtopic);
+	}
+
+	.sidebar-nested-link:hover .nested-num,
+	.sidebar-nested-link.active .nested-num {
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-bold);
+	}
+
+	/* -------------------------------------------------------------------------
+	Level 4 Deep Nested List / Tabs (e.g. 2.1.3.1, 2.1.3.2)
+	------------------------------------------------------------------------- */
+	.sidebar-deep-list {
+		list-style: none;
+		counter-reset: deepitem;
+		padding: 0 0 0 var(--space-sm);
+		margin: var(--space-2xs) 0 var(--space-xs) 6px;
+		border-left: 1px dotted rgba(var(--color-primary-rgb), 0.22);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.sidebar-deep-item {
+		counter-increment: deepitem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.sidebar-deep-link {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		padding: var(--space-2xs) var(--space-xs);
+		border-radius: var(--radius-sm);
+		text-decoration: none;
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-secondary);
+		transition: all var(--transition-fast);
+	}
+
+	.sidebar-deep-link:hover {
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.05);
+	}
+
+	.sidebar-deep-link.active {
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-semibold);
+		background: rgba(var(--color-primary-rgb), 0.1);
+	}
+
+	/* Level 4 Deep Topic Number (e.g. 2.1.3.1, 2.1.3.2) */
+	.deep-num {
+		font-family: var(--font-title);
+		font-size: var(--fs-3xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-muted);
+		min-width: 36px;
+		flex-shrink: 0;
+		transition: all var(--transition-fast);
+	}
+
+	.deep-num::before {
+		content: counter(help-section) "." counter(subsec) "." counter(subtopic) "." counter(deepitem);
+	}
+
+	.sidebar-deep-link:hover .deep-num,
+	.sidebar-deep-link.active .deep-num {
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-bold);
 	}
 
 	/* -------------------------------------------------------------------------
@@ -399,11 +609,164 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		flex-direction: column;
 		gap: var(--space-2xl);
 		min-width: 0;
+		counter-reset: content-section;
 	}
 
 	.help-section-group {
 		scroll-margin-top: 90px;
+		counter-increment: content-section;
+		counter-reset: content-subsec;
 	}
+
+	/* -------------------------------------------------------------------------
+	Sub-Area Containers & Counter Rules (e.g. 2.1, 2.2, 2.3, 2.4)
+	------------------------------------------------------------------------- */
+	.help-sub-area-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+	}
+
+	.help-sub-area {
+		counter-increment: content-subsec;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.sub-area-badge-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		padding: 6px 12px;
+		background: rgba(var(--color-primary-rgb), 0.05);
+		border-left: 3px solid rgb(var(--color-primary-rgb));
+		border-radius: 0 var(--radius-md) var(--radius-md) 0;
+		margin-bottom: 2px;
+	}
+
+	.sub-area-num-tag {
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.12);
+		padding: 2px var(--space-xs);
+		border-radius: var(--radius-xs);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.sub-area-num-tag::before {
+		content: counter(content-section) "." counter(content-subsec);
+	}
+
+	.sub-area-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	/* Card Counters inside Sub-Areas (e.g. 2.1.1, 2.1.2) */
+	.help-sub-area .help-card-list {
+		counter-reset: content-topic;
+	}
+
+	.help-sub-area .help-card-item {
+		counter-increment: content-topic;
+	}
+
+	.help-sub-area .card-num-badge::before {
+		content: counter(content-section) "." counter(content-subsec) "." counter(content-topic);
+	}
+
+	/* Level 4 Deep Card Counters for Settings Tabs (e.g. 2.1.3.1, 2.1.3.2) */
+	.help-deep-card-list {
+		list-style: none;
+		counter-reset: content-deep;
+		padding: var(--space-sm) var(--space-md);
+		margin: var(--space-sm) 0 0 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		background: rgba(var(--color-primary-rgb), 0.03);
+		border-top: 1px dashed var(--border-color);
+	}
+
+	.help-deep-card-item {
+		counter-increment: content-deep;
+		list-style: none;
+		padding: var(--space-sm) var(--space-md);
+		margin: 0;
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		transition: border-color var(--transition-fast);
+	}
+
+	.help-deep-card-item:hover {
+		border-color: rgba(var(--color-primary-rgb), 0.4);
+	}
+
+	.deep-card-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.deep-card-num-badge {
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.12);
+		padding: 2px var(--space-xs);
+		border-radius: var(--radius-xs);
+		flex-shrink: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 38px;
+	}
+
+	.deep-card-num-badge::before {
+		content: counter(content-section) "." counter(content-subsec) "." counter(content-topic) "." counter(content-deep);
+	}
+
+	.deep-card-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	.deep-card-desc {
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		color: var(--text-secondary);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	/* -------------------------------------------------------------------------
+	6. Unified Knowledge-Base Accordion Container (Solution 1)
+	------------------------------------------------------------------------- */
 
 	.section-badge-header {
 		background: var(--card-bg);
@@ -434,6 +797,14 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		padding: 3px 9px;
 		border-radius: var(--radius-sm);
 		border: 1px solid rgba(var(--color-primary-rgb), 0.25);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 28px;
+	}
+
+	.section-num-tag::before {
+		content: counter(content-section, decimal-leading-zero);
 	}
 
 	.section-title {
@@ -457,6 +828,10 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	6. Unified Knowledge-Base Accordion Container (Solution 1)
 	------------------------------------------------------------------------- */
 	.help-card-list {
+		list-style: none;
+		counter-reset: card-index;
+		padding: 0;
+		margin: 0;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
@@ -470,6 +845,10 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	}
 
 	.help-card-item {
+		counter-increment: card-index;
+		list-style: none;
+		padding: 0;
+		margin: 0;
 		background: transparent;
 		border: none;
 		border-bottom: 1px solid var(--border-color);
@@ -518,6 +897,34 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		min-width: 0;
 	}
 
+	/* Card Hierarchical Number Badge (e.g. 1.1, 1.2, 1.3) */
+	.card-num-badge {
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.1);
+		border: 1px solid rgba(var(--color-primary-rgb), 0.22);
+		padding: 2px var(--space-sm);
+		border-radius: var(--radius-sm);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 32px;
+		flex-shrink: 0;
+		transition: all var(--transition-fast);
+	}
+
+	.card-num-badge::before {
+		content: counter(content-section) "." counter(card-index);
+	}
+
+	.help-card-item:hover .card-num-badge {
+		background: rgb(var(--color-primary-rgb));
+		color: #ffffff;
+		border-color: rgb(var(--color-primary-rgb));
+	}
+
 	/* Bullet Icon Variances */
 	.card-bullet-icon {
 		width: 36px;
@@ -560,7 +967,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	.card-heading-texts span {
 		font-family: var(--font-main);
-		font-size: 11px;
+		font-size: var(--fs-2xs);
 		color: var(--text-secondary);
 		line-height: 1.3;
 	}
@@ -612,8 +1019,8 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		left: 4px;
 		top: -1px;
 		color: rgb(var(--color-primary-rgb));
-		font-size: 14px;
-		font-weight: bold;
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-bold);
 	}
 
 	/* Text-like More... Toggle Action */
@@ -627,7 +1034,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		padding: 4px 0;
 		margin: 0;
 		font-family: var(--font-main);
-		font-size: 12px;
+		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
 		color: rgb(var(--color-primary-rgb));
 		cursor: pointer;
@@ -646,7 +1053,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	.more-btn-icon {
 		display: inline-block;
-		font-size: 11px;
+		font-size: var(--fs-2xs);
 		transition: transform var(--transition-fast);
 	}
 
@@ -684,7 +1091,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	.extended-heading {
 		font-family: var(--font-title);
-		font-size: 12.5px;
+		font-size: var(--fs-xs);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
 		margin: 0;
@@ -701,7 +1108,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	.extended-steps li {
 		font-family: var(--font-main);
-		font-size: 11.5px;
+		font-size: var(--fs-2xs);
 		color: var(--text-secondary);
 		line-height: 1.55;
 	}
@@ -714,7 +1121,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		background: rgba(var(--color-primary-rgb), 0.08);
 		border-left: 3px solid rgb(var(--color-primary-rgb));
 		border-radius: var(--radius-sm);
-		font-size: 11px;
+		font-size: var(--fs-2xs);
 		line-height: 1.45;
 	}
 
@@ -729,7 +1136,150 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	}
 
 	/* -------------------------------------------------------------------------
-	7. Highlight Match in Search Results
+	7. Living UI Component Mockup Frames (Zero-Duplicate Live Visuals)
+	------------------------------------------------------------------------- */
+	.live-ui-mockup-wrapper {
+		margin: var(--space-sm) 0;
+		padding: var(--space-md);
+		background: rgba(var(--color-bg-base-rgb), 0.35);
+		border: 1px dashed var(--border-color);
+		border-radius: var(--radius-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.live-mockup-label {
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		letter-spacing: 0.05em;
+		color: var(--text-secondary);
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.live-mockup-badge {
+		font-size: var(--fs-3xs);
+		font-weight: var(--fw-extrabold);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.12);
+		border: 1px solid rgba(var(--color-primary-rgb), 0.25);
+		padding: 2px var(--space-xs);
+		border-radius: var(--radius-xs);
+	}
+
+	.live-ui-mockup-frame {
+		pointer-events: none;
+		user-select: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: fit-content;
+		max-width: 100%;
+		overflow: hidden;
+	}
+
+	/* Compact sizing for embedded navigation mockups */
+	.live-ui-mockup-frame .sidebar-nav {
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xs);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.live-ui-mockup-frame .sidebar-nav-list {
+		flex-direction: row;
+		gap: var(--space-xs);
+	}
+
+	.live-ui-mockup-frame .sidebar-link {
+		width: 54px;
+		min-height: 48px;
+		font-size: var(--fs-2xs);
+	}
+
+	/* Contained positioning & resets for embedded mockups */
+	.live-ui-mockup-frame .speedometer-tooltip,
+	.live-ui-mockup-frame .telemetry-guide-popover {
+		display: none;
+	}
+
+	.live-ui-mockup-frame .settings-folder-tabs {
+		margin: 0;
+	}
+
+	.live-ui-mockup-frame .route-priority {
+		margin: 0;
+		width: 100%;
+	}
+
+	.live-ui-mockup-frame .alarm-widget-card {
+		max-width: 385px;
+		filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28))
+		        drop-shadow(0 3px 8px rgba(234, 88, 12, 0.45));
+	}
+
+	.live-ui-mockup-frame .settings-tab-panel {
+		width: 100%;
+		max-width: 480px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.live-ui-mockup-frame .settings-fieldset {
+		margin: 0;
+		width: 100%;
+		max-width: 480px;
+	}
+
+	.live-ui-mockup-frame .pwa-install-banner {
+		position: static;
+		transform: none;
+		width: 100%;
+		max-width: 440px;
+		display: flex;
+		box-shadow: var(--shadow-sm);
+		animation: none;
+	}
+
+	.live-ui-mockup-frame header.main-header {
+		width: auto;
+		max-width: 100%;
+		margin: 0;
+		padding: var(--space-xs) var(--space-md);
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-sm);
+		transform: none;
+	}
+
+	.live-ui-mockup-frame header.main-header .toolbar {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		background: transparent;
+		border: none;
+		padding: 0;
+	}
+
+	.live-ui-mockup-frame header.main-header .custom-dropdown-menu,
+	.live-ui-mockup-frame header.main-header .font-scale-panel {
+		display: none;
+	}
+
+	.live-ui-mockup-frame .footer-pass-card {
+		max-width: 440px;
+		margin: 0;
+	}
+
+
+
+	/* -------------------------------------------------------------------------
+	8. Highlight Match in Search Results
 	------------------------------------------------------------------------- */
 	mark.search-highlight {
 		background: rgba(245, 158, 11, 0.3);
@@ -839,13 +1389,13 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		.mobile-bar-btn {
 			display: flex;
 			align-items: center;
-			gap: 8px;
-			padding: 8px 16px;
+			gap: var(--space-sm);
+			padding: var(--space-sm) var(--space-lg);
 			border: none;
 			background: transparent;
 			color: var(--text-primary);
 			font-family: var(--font-main);
-			font-size: 13px;
+			font-size: var(--fs-xs);
 			font-weight: var(--fw-semibold);
 			border-radius: var(--radius-full);
 			cursor: pointer;
@@ -892,7 +1442,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			border: 1px solid var(--border-color);
 			background: rgba(var(--color-bg-base-rgb), 0.5);
 			color: var(--text-secondary);
-			font-size: 13px;
+			font-size: var(--fs-xs);
 			cursor: pointer;
 			transition: all var(--transition-fast);
 		}
@@ -915,7 +1465,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			z-index: 1000 !important;
 			background: var(--card-bg);
 			border-top: 1px solid var(--border-color);
-			border-radius: 20px 20px 0 0;
+			border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 			box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
 			transform: translateY(105%);
 			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -946,14 +1496,14 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			display: flex !important;
 			justify-content: space-between;
 			align-items: center;
-			margin-bottom: 12px;
+			margin-bottom: var(--space-md);
 			padding-bottom: 10px;
 		}
 
 		.heading-badge-left {
 			display: flex;
 			align-items: center;
-			gap: 8px;
+			gap: var(--space-sm);
 		}
 
 		/* Pure Vertical Nested Nav List - 100% Identical to Desktop */
@@ -968,21 +1518,21 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		.sidebar-nav-group {
 			display: flex;
 			flex-direction: column;
-			gap: 2px;
+			gap: var(--space-2xs);
 		}
 
-		.sidebar-sub-nav {
+		.sidebar-sub-list {
 			display: flex;
 			flex-direction: column;
-			gap: 4px;
-			padding-left: 12px;
-			margin: 2px 0 6px 16px;
+			gap: var(--space-xs);
+			padding-left: var(--space-md);
+			margin: var(--space-2xs) 0 var(--space-xs) var(--space-lg);
 			border-left: 2px solid rgba(var(--color-primary-rgb), 0.18);
 		}
 
 		.sidebar-nav-item {
 			flex: 1 1 auto;
-			padding: 8px 12px;
+			padding: var(--space-sm) var(--space-md);
 			font-size: var(--fs-xs);
 		}
 
@@ -997,7 +1547,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			top: auto !important;
 			max-height: 86vh;
 			z-index: 1000 !important;
-			border-radius: 20px 20px 0 0;
+			border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 			border-top: 1px solid var(--border-color);
 			box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
 			transform: translateY(105%);
@@ -1022,7 +1572,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		}
 
 		.help-hero-desc {
-			font-size: 12px;
+			font-size: var(--fs-xs);
 		}
 
 		/* Extra padding at bottom so content is never hidden behind floating bar */

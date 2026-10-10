@@ -1,5 +1,5 @@
 /**
- * 🔔 AlarmBannerView - Floating Ringing Banner, Speedometer & Floating Nav Controller
+ * 🔔 AlarmBannerView - 2.5D Unified Alarm & Transit Tracker View Controller
  * Enterprise ES2022 Decoupled UI Component
  */
 
@@ -22,15 +22,16 @@ export class AlarmBannerView {
 
 	#queryElements() {
 		this.#elements = {
-			banner: document.getElementById("alarmRingingBanner"),
-			stationName: document.getElementById("alarmTargetStationName"),
-			subtext: document.getElementById("alarmTargetSubtext"),
+			wrapper: document.getElementById("alarmWidgetWrapper"),
+			widget: document.getElementById("alarmWidget"),
+			stationName: document.getElementById("alarmStationName"),
+			screenIcon: document.getElementById("alarmScreenIcon"),
+			statusLabel: document.getElementById("alarmStatusLabel"),
 			btnDismiss: document.getElementById("btnAlarmDismiss"),
 			btnSnooze: document.getElementById("btnAlarmSnooze"),
-			btnStop: document.getElementById("btnAlarmStop"),
-			floatingAlarmBtn: document.getElementById("floatingAlarmBtn"),
-			floatingAlarmIcon: document.getElementById("floatingAlarmIcon"),
-			floatingAlarmNav: document.getElementById("floatingAlarmNav"),
+			podBtn: document.getElementById("alarmPodBtn"),
+			podIcon: document.getElementById("alarmPodIcon"),
+			liveDistance: document.getElementById("alarmLiveDistance"),
 		};
 	}
 
@@ -38,44 +39,39 @@ export class AlarmBannerView {
 		const el = this.#elements;
 		const signal = this.#abortController.signal;
 
-		// 1. Dismiss Button (Current Alarm Stops, Destination Alert active)
+		// 1. Dismiss Button (Dismisses current station alert)
 		el.btnDismiss?.addEventListener("click", () => {
 			centerClass.dismissAlarm();
-			this.#hideBanner();
 			eventBus.emit("SHOW_TOAST", {
 				message: i18n.t("pages.home.alarmBanner.dismissToast") || "🔔 अगला अलर्ट: गंतव्य स्टेशन",
 				type: "success"
 			});
 		}, { signal });
-		// 2. Snooze Button (Snooze 2 Min)
+
+		// 2. Snooze Button (Snoozes 2 Minutes)
 		el.btnSnooze?.addEventListener("click", () => {
 			centerClass.snoozeAlarm(2);
-			this.#hideBanner();
 			eventBus.emit("SHOW_TOAST", {
 				message: i18n.t("pages.home.alarmBanner.snoozeToast") || "⏱️ अलार्म 2 मिनट के लिए स्नूज़ किया गया",
 				type: "warning"
 			});
 		}, { signal });
-		// 3. Stop Button (Stop Entire Alarm)
-		el.btnStop?.addEventListener("click", () => {
-			centerClass.stopLiveJourney();
-			this.#hideBanner();
-			this.#setVisualToggleState(false);
-			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.alarmBanner.stoppedToast") || "🛑 लाइव अलार्म बंद कर दिया गया",
-				type: "info"
-			});
+
+		// 3. 2.5D Left Alarm Pod Button Toggle (ON / OFF)
+		el.podBtn?.addEventListener("click", (e) => {
+			e.preventDefault();
+			this.#handlePodBtnClick();
 		}, { signal });
 
-		// 4. Floating Nav Alarm Button Toggle
-		el.floatingAlarmBtn?.addEventListener("click", (e) => {
-			e.preventDefault();
-			this.#handleFloatingBtnClick();
-		}, { signal });
+		// 4. Live GPS Telemetry Stream (Distance to Next Station)
+		eventBus.on("TELEMETRY_UPDATE", (telemetry) => {
+			if (telemetry && telemetry.type === "GPS" && typeof telemetry.distanceMeters === "number") {
+				this.#updateLiveDistance(telemetry.distanceMeters);
+			}
+		});
 	}
 
 	#syncWithCenterClass() {
-		// A. अलार्म स्टेट लिसनर
 		centerClass.bindAlarmState((alarmState) => {
 			this.#handleStateChange(alarmState);
 		});
@@ -88,7 +84,7 @@ export class AlarmBannerView {
 	#handleStateChange(alarmState) {
 		if (!alarmState) return;
 		this.#currentAlarmState = alarmState.state || "INACTIVE";
-		// ⚠️ यदि फ़ॉलबैक मोड एक्टिव हुआ है, तो View Layer टोस्ट दिखाएगा
+
 		if (alarmState.isFallback) {
 			const fallbackKey = alarmState.fallbackReason === "PERMISSION_DENIED"
 				? "pages.home.gps.permissionDenied"
@@ -96,75 +92,47 @@ export class AlarmBannerView {
 					? "pages.home.gps.unavailable" 
 					: "pages.home.gps.gpsFallbackWarning");
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t(fallbackKey) || "⚠️ GPS is unavailable. Alarm will rely on estimated travel time.",
+				message: i18n.t(fallbackKey) || "⚠️ GPS unavailable. Using estimated travel time.",
 				type: "warning"
 			});
 		}
 
+		const isArmed = this.#currentAlarmState === "ARMED" || this.#currentAlarmState === "RINGING" || this.#currentAlarmState === "SNOOZED";
+		this.#setVisualToggleState(isArmed);
 
 		const el = this.#elements;
 
-		// 1. यदि अलार्म बज रहा है (RINGING)
-		if (this.#currentAlarmState === "RINGING") {
-			const target = alarmState.targetStation || {};
-			const lang = i18n.getLanguage || "en";
-			const name = lang === "hi" ? (target.name?.hi || target.id) : (target.name?.en || target.id);
-
-			if (el.stationName) el.stationName.textContent = name;
-			
-			if (el.subtext) {
-				const subtextKey = target.isInterchange 
-					? "pages.home.alarmBanner.interchangeAlert" 
-					: "pages.home.alarmBanner.destinationAlert";
-				el.subtext.textContent = i18n.t(subtextKey);
+		if (isArmed) {
+			if (alarmState.targetStation) {
+				const target = alarmState.targetStation;
+				const lang = i18n.getLanguage ? i18n.getLanguage() : "en";
+				const name = lang === "hi" ? (target.name?.hi || target.id) : (target.name?.en || target.id);
+				if (el.stationName) el.stationName.textContent = name;
 			}
-			this.#showBanner();
 		} else {
-			this.#hideBanner();
-		}
-
-		// 2. फ़्लोटिंग बटन का आइकन और स्टेटस टॉगल
-		const isArmed = this.#currentAlarmState === "ARMED" || this.#currentAlarmState === "RINGING";
-		
-		if (el.floatingAlarmIcon) {
-			if (isArmed) {
-				el.floatingAlarmIcon.classList.replace("alarm-off-iocn", "alarm-on-iocn");
-			} else {
-				el.floatingAlarmIcon.classList.replace("alarm-on-iocn", "alarm-off-iocn");
+			if (el.stationName) {
+				el.stationName.textContent = i18n.t("pages.home.alarmBanner.noAlarmSet");
+			}
+			if (el.liveDistance) {
+				el.liveDistance.textContent = "---";
 			}
 		}
-
-		if (el.floatingAlarmNav) {
-			el.floatingAlarmNav.classList.toggle("alarm-active", isArmed);
-		}
-
 	}
 
-		/**
-	 * 🔔 फ़्लोटिंग अलार्म बटन क्लिक हैंडलर (Decision Table Logic)
+	/**
+	 * 🔔 2.5D Left Alarm Pod Button Click Handler
 	 */
-	#handleFloatingBtnClick() {
+	#handlePodBtnClick() {
 		const activeRoute = appStateStore.getState("activeRoute");
-		const isCurrentlyActive = this.#currentAlarmState === "ARMED" || this.#currentAlarmState === "RINGING";
-		const isBannerVisible = this.#elements.banner?.classList.contains("active");
+		const isCurrentlyActive = this.#currentAlarmState === "ARMED" || this.#currentAlarmState === "RINGING" || this.#currentAlarmState === "SNOOZED";
 
-		// 🎯 स्थिति A: यदि अलार्म पहले से ON है
+		// स्थिति A: यदि अलार्म ON है -> सीधे OFF करें
 		if (isCurrentlyActive) {
-			// यदि रूट मौजूद है -> 2-Line बैनर टॉगल / शो करें (यूजर्स बैनर के Stop से अलार्म बंद कर सकेंगे)
-			if (activeRoute?.path?.length) {
-				if (isBannerVisible) {
-					this.#hideBanner();
-				} else {
-					this.#populateTargetInfoFromRoute(activeRoute);
-					this.#showBanner();
-				}
-				return;
-			}
-
-			// यदि रूट नहीं था -> सीधे अलार्म बंद करें
 			centerClass.stopLiveJourney();
 			this.#setVisualToggleState(false);
-			this.#hideBanner();
+			if (this.#elements.stationName) {
+				this.#elements.stationName.textContent = i18n.t("pages.home.alarmBanner.noAlarmSet");
+			}
 			eventBus.emit("SHOW_TOAST", {
 				message: i18n.t("pages.home.alarmBanner.stoppedToast") || "🛑 लाइव अलार्म बंद किया गया",
 				type: "info"
@@ -172,7 +140,7 @@ export class AlarmBannerView {
 			return;
 		}
 
-		// 🔔 स्थिति B: यदि अलार्म OFF था -> अलार्म ON करें (Banner = 0)
+		// स्थिति B: यदि अलार्म OFF था -> अलार्म आर्म (ARM) करें
 		const savedSettings = localStorage.getItem("metro_alarm_settings");
 		const alarmSettings = savedSettings ? JSON.parse(savedSettings) : {};
 
@@ -185,6 +153,11 @@ export class AlarmBannerView {
 		});
 
 		this.#setVisualToggleState(true);
+
+		if (activeRoute) {
+			this.#populateTargetInfoFromRoute(activeRoute);
+		}
+
 		eventBus.emit("SHOW_TOAST", {
 			message: i18n.t("pages.home.alarmBanner.enabledToast") || "🔔 लाइव यात्रा अलार्म सक्रिय है",
 			type: "success"
@@ -192,12 +165,12 @@ export class AlarmBannerView {
 	}
 
 	/**
-	 * रूट से टारगेट स्टेशन का नाम और सब-टेक्स्ट सेट करें
+	 * रूट से टारगेट स्टेशन का नाम सेट करें
 	 */
 	#populateTargetInfoFromRoute(activeRoute) {
 		if (!activeRoute) return;
 		const el = this.#elements;
-		const lang = i18n.getLanguage || "en";
+		const lang = i18n.getLanguage ? i18n.getLanguage() : "en";
 		
 		const targetName = activeRoute.destination?.name?.[lang] 
 			|| activeRoute.destination?.name?.en 
@@ -205,43 +178,56 @@ export class AlarmBannerView {
 			|| "Destination";
 		
 		if (el.stationName) el.stationName.textContent = targetName;
-		if (el.subtext) {
-			el.subtext.textContent = i18n.t("pages.home.alarmBanner.trackingActive") || (lang === "hi" ? "🛰️ लाइव ट्रैकिंग सक्रिय" : "🛰️ Live Tracking Active");
-		}
 	}
 
 	/**
-	 * 🎨 आइकन और बटन का विज़ुअल स्टेटस टॉगल करें
-	 * @param {boolean} isArmed 
+	 * 🎨 2.5D विजेट का विज़ुअल स्टेटस टॉगल करें
 	 */
 	#setVisualToggleState(isArmed) {
 		this.#currentAlarmState = isArmed ? "ARMED" : "INACTIVE";
 		const el = this.#elements;
-		if (el.floatingAlarmIcon) {
+
+		if (el.widget) {
+			el.widget.classList.toggle("is-active", isArmed);
+			el.widget.classList.toggle("is-inactive", !isArmed);
+		}
+
+		if (el.wrapper) {
+			el.wrapper.classList.toggle("is-active", isArmed);
+			el.wrapper.classList.toggle("is-inactive", !isArmed);
+		}
+
+		if (el.podIcon) {
 			if (isArmed) {
-				el.floatingAlarmIcon.classList.replace("alarm-off-iocn", "alarm-on-iocn");
+				el.podIcon.classList.replace("alarm-off-iocn", "alarm-on-iocn");
 			} else {
-				el.floatingAlarmIcon.classList.replace("alarm-on-iocn", "alarm-off-iocn");
+				el.podIcon.classList.replace("alarm-on-iocn", "alarm-off-iocn");
 			}
 		}
-		if (el.floatingAlarmNav) {
-			el.floatingAlarmNav.classList.toggle("alarm-active", isArmed);
+
+		if (el.statusLabel) {
+			const statusKey = isArmed ? "pages.home.alarmBanner.statusRunning" : "pages.home.alarmBanner.statusStandby";
+			el.statusLabel.textContent = i18n.t(statusKey) || (isArmed ? "RUNNING" : "STANDBY");
+		}
+
+		if (!isArmed && el.liveDistance) {
+			el.liveDistance.textContent = "---";
 		}
 	}
 
+	/**
+	 * 📍 रियल-टाइम GPS डिस्टेंस अपडेट
+	 */
+	#updateLiveDistance(distanceMeters) {
+		const el = this.#elements.liveDistance;
+		if (!el) return;
 
-	#showBanner() {
-		if (this.#elements.banner) {
-			this.#elements.banner.classList.add("active");
-			this.#elements.banner.setAttribute("aria-hidden", "false");
+		if (distanceMeters === null || distanceMeters === undefined || this.#currentAlarmState === "INACTIVE") {
+			el.textContent = "---";
+			return;
 		}
-	}
 
-	#hideBanner() {
-		if (this.#elements.banner) {
-			this.#elements.banner.classList.remove("active");
-			this.#elements.banner.setAttribute("aria-hidden", "true");
-		}
+		el.textContent = `${Math.round(distanceMeters)} m`;
 	}
 
 	destroy() {

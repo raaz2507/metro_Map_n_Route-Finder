@@ -509,60 +509,62 @@
 				</div>
 			</section>
 
-			<!-- 🔔 Ringing Alarm Floating Action Banner -->
-			<div id="alarmRingingBanner" class="alarm-ringing-banner" role="alert" aria-live="assertive" aria-hidden="true">
-				<div class="banner-glass-pill">
-					<div class="banner-info">
-						<span class="banner-pulse-icon" aria-hidden="true">🔔</span>
-						<div class="banner-text-wrap">
-							<span id="alarmTargetStationName" class="banner-station-name">---</span>
-							<span id="alarmTargetSubtext" class="banner-subtext" data-i18n="pages.home.alarmBanner.approaching">Approaching Station</span>
+			<!-- =========================================================================
+			     🔔 2.5D UNIFIED ALARM & LIVE TRANSIT TRACKER WIDGET
+			     ========================================================================= -->
+			<div class="alarm-widget-wrapper is-inactive" id="alarmWidgetWrapper" role="region" aria-label="Live Metro Alarm Tracker">
+				<div class="alarm-widget-card is-inactive" id="alarmWidget">
+					<!-- Perforated Notch Rims -->
+					<div class="alarm-widget-notch-top" aria-hidden="true"></div>
+					<div class="alarm-widget-notch-bottom" aria-hidden="true"></div>
+
+					<!-- Left Wing: Alarm Pod Button & Status Micro-Badge -->
+					<div class="alarm-pod-wing">
+						<div class="alarm-status-pill">
+							<span class="alarm-status-dot" aria-hidden="true"></span>
+							<span class="alarm-status-label" id="alarmStatusLabel" data-i18n="pages.home.alarmBanner.statusStandby">STANDBY</span>
 						</div>
+						<button type="button" class="alarm-pod-btn" id="alarmPodBtn" data-i18n-aria-label="pages.home.alarmBanner.alarmTag" data-i18n-title="pages.home.alarmBanner.alarmTag" aria-label="Alarm" title="Alarm">
+							<span class="icon alarm-off-iocn" id="alarmPodIcon" aria-hidden="true"></span>
+						</button>
+						<span class="alarm-pod-label" data-i18n="pages.home.alarmBanner.alarmTag">Alarm</span>
 					</div>
-					<div class="banner-actions">
-						<button type="button" id="btnAlarmDismiss" class="banner-btn btn-dismiss">
-							<span data-i18n="pages.home.alarmBanner.dismissBtn">🔕 Dismiss</span>
-						</button>
-						<button type="button" id="btnAlarmSnooze" class="banner-btn btn-snooze">
-							<span data-i18n="pages.home.alarmBanner.snoozeBtn">⏱️ Snooze</span>
-						</button>
-						<button type="button" id="btnAlarmStop" class="banner-btn btn-stop">
-							<span data-i18n="pages.home.alarmBanner.stopAlarmBtn">🛑 Stop</span>
-						</button>
+
+					<!-- Right Wing: Display Screen & Control Strip -->
+					<div class="alarm-body-wing">
+						<!-- Top: Look 5 Dark LED Station Screen -->
+						<div class="alarm-screen-pill">
+							<span class="alarm-screen-icon" id="alarmScreenIcon" aria-hidden="true">🔔</span>
+							<span class="alarm-station-name" id="alarmStationName" data-i18n="pages.home.alarmBanner.noAlarmSet">No Alarm Set</span>
+						</div>
+
+						<!-- Bottom: Alert Tagline + Action Buttons + Live Distance -->
+						<div class="alarm-bottom-bar">
+							<div class="alarm-bottom-left-group">
+								<span class="alarm-tagline" data-i18n="pages.home.alarmBanner.stationAlert">STATION ALERT</span>
+								<div class="alarm-bottom-actions">
+									<button type="button" class="btn-alarm-action btn-alarm-snooze" id="btnAlarmSnooze">
+										<span aria-hidden="true">⏱️</span>
+										<span data-i18n="pages.home.alarmBanner.snoozeBtn">Snooze</span>
+									</button>
+									<button type="button" class="btn-alarm-action btn-alarm-dismiss" id="btnAlarmDismiss">
+										<span aria-hidden="true">🔕</span>
+										<span data-i18n="pages.home.alarmBanner.dismissBtn">Dismiss</span>
+									</button>
+								</div>
+							</div>
+							<!-- Live GPS Distance Badge -->
+							<div class="alarm-distance-badge" id="alarmDistanceBadge" title="Remaining Distance to Station">
+								<span aria-hidden="true">📍</span>
+								<span id="alarmLiveDistance">---</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-
-			<nav class="floating-nav-wrapper" id="floating-nav-wrapper" data-i18n-aria-label="pages.home.navFloating.wrapperAria" aria-label="Floating Navigation Wrapper">
-				<svg width="0" height="0" class="nav-mask-svg" aria-hidden="true">
-					<defs>
-						<mask id="nav-mask" maskContentUnits="userSpaceOnUse">
-							<rect width="1000" height="70" fill="white" />
-							<path id="cutout-path" d="M -45 0 C -33 0, -28 32, 0 32 C 28 32, 33 0, 45 0 Z" fill="black" transform="translate(50, 0)" />
-						</mask>
-					</defs>
-				</svg>
-				<div class="floating-nav" data-i18n-aria-label="pages.home.navFloating.mobileNavAria" aria-label="Mobile Navigation">
-					<ul class="floating-nav-list">
-						<li class="floating-nav-item" id="floatingAlarmNav" data-tab="alarm">
-							<a href="#" id="floatingAlarmBtn" data-i18n-aria-label="pages.home.navFloating.alarm" aria-label="Alarm Tracker">
-								<span class="icon alarm-off-iocn" id="floatingAlarmIcon"></span>
-								<span class="text" data-i18n="pages.home.navFloating.alarm">Alarm</span>
-							</a>
-						</li>
-						<li class="floating-nav-item active" id="floatingTicketNav" data-tab="ticket">
-							<a href="metro_QR_ticket.html" data-i18n-aria-label="pages.home.navFloating.ticket" aria-label="Metro QR Ticket Wallet">
-								<span class="icon ticket-iocn"></span>
-								<span class="text" data-i18n="pages.home.navFloating.ticket">🎟️ Ticket</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
 		</main>
 
 		<div id="app-footer"></div>
-
 		<!-- =========================================================================
 		 SHARE ROUTE CUSTOM MODAL (Desktop & Fallback Popup)
 	========================================================================= -->

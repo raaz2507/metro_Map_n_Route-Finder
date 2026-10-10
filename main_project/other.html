@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+		<!-- Open Graph / Social Sharing -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/other.html" />
+		<meta property="og:title" content="Transit Cards | YatraMarg" />
+		<meta property="og:description" content="Transit Navigation and Video Walkthroughs." />
+		<meta property="og:image" content="assets/images/share_image_com.png" />
+
+		<!-- Favicon & PWA App Standards -->
+		<link rel="icon" type="image/svg+xml" href="assets/images/site_icon.svg" />
+		<link rel="manifest" href="manifest.webmanifest" />
+		<meta name="theme-color" content="#ffffff" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+		<title>Transit Cards | YatraMarg</title>
+
+		<!-- 🎯 Single CSS Entry Point Architecture (Includes Base, Header & Footer CSS) -->
+		<link rel="stylesheet" href="css/pages/other.css" />
+	</head>
+
+	<body>
+		<!-- GLOBAL DYNAMIC HEADER -->
+		<div id="app-header"></div>
+
+		<!-- MAIN WORKSPACE: 2 Pocket 2.5D Action Cards -->
+		<main class="showcase-main">
+			<div class="cards-gallery-grid">
+				<!-- CARD 1: YOUTUBE (Red 2.5D Theme - SVG loaded via CSS url) -->
+				<a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="transit-action-card card-theme-youtube" id="card-youtube-link">
+					<div class="card-top">
+						<div class="card-icon-bubble icon-bubble-youtube" aria-hidden="true"></div>
+						<span class="action-badge">Watch Video</span>
+					</div>
+
+					<div class="card-body">
+						<h2 class="card-title">YouTube Guide</h2>
+					</div>
+
+					<div class="card-footer">
+						<span class="action-arrow" aria-hidden="true"></span>
+					</div>
+				</a>
+
+				<!-- CARD 2: METRO MAP (Google Maps Green & Skyblue Theme - SVG loaded via CSS url) -->
+				<a href="index.html" class="transit-action-card card-theme-map" id="card-map-link">
+					<div class="card-top">
+						<div class="card-icon-bubble icon-bubble-map" aria-hidden="true"></div>
+						<span class="action-badge">Live Map</span>
+					</div>
+
+					<div class="card-body">
+						<h2 class="card-title">Official Metro Map</h2>
+					</div>
+
+					<div class="card-footer">
+						<span class="action-arrow" aria-hidden="true"></span>
+					</div>
+				</a>
+			</div>
+		</main>
+
+		<!-- GLOBAL DYNAMIC FOOTER -->
+		<div id="app-footer"></div>
+
+		<!-- Page Controller Script -->
+		<script type="module" src="./js/pages/other.js"></script>
+	</body>
+</html>

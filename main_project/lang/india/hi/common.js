@@ -34,6 +34,7 @@ export default {
 		"stations": "स्टेशन",
 		"recharge": "स्मार्ट कार्ड / टोकन",
 		"passengerSupport": "यात्री सहायता",
+		"other": "अन्य",
 		"help": "सहायता",
 		"about": "जानकारी"
 	},

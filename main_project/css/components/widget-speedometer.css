@@ -6,9 +6,7 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 	Floating Glassmorphic Speedometer Widget (Dynamic Speed Colors & Tooltip)
 	========================================================================= */
 	.speedometer-widget {
-		position: absolute;
-		bottom: calc(var(--space-xl) + 185px);
-		right: calc(var(--space-xl) - 5px);
+		position: relative;
 		width: 80px;
 		height: 66px;
 		border-radius: var(--radius-full);
@@ -34,6 +32,14 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 	.speedometer-widget:hover,
 	.speedometer-widget:focus-visible {
 		transform: scale(1.05);
+	}
+
+	/* Map Overlay Placement (Positioned absolute over the map in index.html) */
+	.map-section > .speedometer-widget,
+	#speedometer-widget {
+		position: absolute;
+		bottom: calc(var(--space-xl) + 185px);
+		right: calc(var(--space-xl) - 5px);
 	}
 
 	.speedometer-widget .speed-number {

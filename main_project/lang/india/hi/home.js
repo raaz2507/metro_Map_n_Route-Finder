@@ -255,13 +255,18 @@ export default {
 		interchangeAlert: "लाइन बदलने की तैयारी करें",
 		destinationAlert: "गंतव्य स्टेशन आ रहा है! उतरने की तैयारी करें",
 		trackingActive: "🛰️ लाइव ट्रैकिंग सक्रिय",
-		snoozeBtn: "⏱️ स्नूज़",
-		dismissBtn: "🔕 बंद करें",
+		snoozeBtn: "स्नूज़",
+		dismissBtn: "बंद करें",
 		stopAlarmBtn: "🛑 रोकें",
 		dismissToast: "🔔 अगला अलर्ट: गंतव्य स्टेशन",
 		snoozeToast: "⏱️ अलार्म 2 मिनट के लिए स्नूज़ किया गया",
 		enabledToast: "🔔 लाइव यात्रा अलार्म सक्रिय हो गया!",
-		stoppedToast: "🛑 लाइव अलार्म बंद कर दिया गया।"
+		stoppedToast: "🛑 लाइव अलार्म बंद कर दिया गया।",
+		stationAlert: "STATION ALERT",
+		noAlarmSet: "अलार्म सेट नहीं है",
+		alarmTag: "अलार्म",
+		statusRunning: "RUNNING",
+		statusStandby: "STANDBY"
 	},
 
 	// 8.1 GPS & Location Status Messages

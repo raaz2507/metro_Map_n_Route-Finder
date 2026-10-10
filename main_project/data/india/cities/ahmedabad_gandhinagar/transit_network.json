@@ -738,7 +738,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction", "station_type": "interchange"},
 			"neighbors": [{"station": "gift_city", "line": "gmrc.violet"}, {"station": "gujarat_biotechnology_university", "line": "gmrc.biotech"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.153439, "lon": 72.685681}}
+			"location": {"decimal": {"lat": 23.1647, "lon": 72.6802}}
 		},
 		"ashram_road": {
 			"id": "ashram_road",
@@ -747,7 +747,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [{"station": "koteshwar_road", "line": "gmrc.airport"}, {"station": "koteshwar_prachin_mandir", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0464075, "lon": 72.578037}}
+			"location": {"decimal": {"lat": 23.0982, "lon": 72.6015}}
 		},
 		"koteshwar_prachin_mandir": {
 			"id": "koteshwar_prachin_mandir",
@@ -756,7 +756,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [{"station": "ashram_road", "line": "gmrc.airport"}, {"station": "sabarmati_river", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.1002629, "lon": 72.6082251}}
+			"location": {"decimal": {"lat": 23.0946, "lon": 72.612}}
 		},
 		"sabarmati_river": {
 			"id": "sabarmati_river",
@@ -765,7 +765,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [{"station": "koteshwar_prachin_mandir", "line": "gmrc.airport"}, {"station": "sardarnagar", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0784124, "lon": 72.5896937}}
+			"location": {"decimal": {"lat": 23.0885, "lon": 72.6052}}
 		},
 		"sardarnagar": {
 			"id": "sardarnagar",
@@ -783,7 +783,7 @@
 			"properties": {"layout": "underground", "status": "under_construction"},
 			"neighbors": [{"station": "sardarnagar", "line": "gmrc.airport"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.0470787, "lon": 72.591846}}
+			"location": {"decimal": {"lat": 23.0772, "lon": 72.6347}}
 		},
 		"gujarat_biotechnology_university": {
 			"id": "gujarat_biotechnology_university",
@@ -792,7 +792,7 @@
 			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [{"station": "gift_city_house", "line": "gmrc.biotech"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 23.044857, "lon": 72.543619}}
+			"location": {"decimal": {"lat": 23.1612, "lon": 72.6805}}
 		}
 	}
 }

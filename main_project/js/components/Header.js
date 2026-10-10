@@ -60,6 +60,9 @@ export class HeaderComponent {
 	}
 
 	static initEvents() {
+		// App Utility Dropdown
+		this.#setupDropdown('app-utility-btn', 'app-utility-menu');
+
 		// Font Scale Slider Dropdown
 		this.#setupFontScaleDropdown();
 
@@ -449,6 +452,11 @@ export class HeaderComponent {
 					<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
 					<path d="M9 12h2l1-2 2 4 1-2h2"/>
 				</symbol>
+				<symbol id="icon-other" viewBox="0 0 24 24">
+					<circle cx="12" cy="12" r="9"/>
+					<path d="M16 8l-3 8-5 2 3-8 5-2z"/>
+					<circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+				</symbol>
 				<symbol id="icon-help" viewBox="0 0 24 24">
 					<circle cx="12" cy="12" r="9"/>
 					<circle cx="12" cy="12" r="4"/>
@@ -677,6 +685,12 @@ export class HeaderComponent {
 						<a href="passenger_support.html${cityParam}" class="nav-link ${activePage === 'passenger_support' ? 'active' : ''}" data-target="support">
 							<span class="nav-icon"><svg><use href="#icon-support"></use></svg></span>
 							<span class="nav-label" data-i18n="nav-header.passengerSupport">Passenger Support</span>
+						</a>
+					</li>
+					<li class="header-nav-item">
+						<a href="other.html${cityParam}" class="nav-link ${activePage === 'other' ? 'active' : ''}" data-target="other">
+							<span class="nav-icon"><svg><use href="#icon-other"></use></svg></span>
+							<span class="nav-label" data-i18n="nav-header.other">Other</span>
 						</a>
 					</li>
 					<li class="header-nav-item">

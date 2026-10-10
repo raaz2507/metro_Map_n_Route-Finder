@@ -1,0 +1,499 @@
+/* =========================================================================
+   2.5D UNIFIED ALARM & TRANSIT TRACKER WIDGET
+   Architecture: Skeuomorphic Transit Ticket with Cutout Notch & Look 5 Dark LED Screen
+   Position: Bottom-Left Overlay on Interactive Metro Map
+   ========================================================================= */
+
+@layer components {
+
+	/* 1. Outer Wrapper (Positioned at Bottom-Left, traces notch drop shadow) */
+	.alarm-widget-wrapper {
+		position: absolute;
+		bottom: calc(var(--space-lg) + 12px);
+		left: var(--space-lg);
+		z-index: var(--z-sidebar);
+		width: 100%;
+		max-width: 385px;
+		filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28))
+		        drop-shadow(0 3px 8px rgba(234, 88, 12, 0.45));
+		transition: filter var(--transition-smooth), opacity var(--transition-smooth), transform var(--transition-smooth);
+		pointer-events: none;
+	}
+
+	.alarm-widget-wrapper > * {
+		pointer-events: auto;
+	}
+
+	.alarm-widget-wrapper.is-inactive {
+		filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22))
+		        drop-shadow(0 2.5px 7px rgba(234, 88, 12, 0.35));
+	}
+
+	/* 2. The Card Body with Radial Cutout Mask */
+	.alarm-widget-card {
+		width: 100%;
+		background: var(--card-bg);
+		border: var(--bw-thin) solid var(--border-color);
+		border-top: 2px solid var(--specular-rim);
+		border-bottom: 4px solid #ea580c;
+		border-radius: var(--radius-lg);
+		display: flex;
+		position: relative;
+		box-sizing: border-box;
+		transition: all var(--transition-smooth);
+		/* 🎟️ Physical Cutout: Notch curves out at x = 76px */
+		-webkit-mask-image: 
+			radial-gradient(circle 7px at 76px 0%, transparent 7px, #000 7.5px),
+			radial-gradient(circle 7px at 76px 100%, transparent 7px, #000 7.5px);
+		mask-image: 
+			radial-gradient(circle 7px at 76px 0%, transparent 7px, #000 7.5px),
+			radial-gradient(circle 7px at 76px 100%, transparent 7px, #000 7.5px);
+		-webkit-mask-composite: source-in;
+		mask-composite: intersect;
+	}
+
+	.alarm-widget-card.is-inactive {
+		border-bottom-color: #ea580c;
+	}
+
+	/* 3. Decorative Notch Rim Borders (Follow the cutout curve) */
+	.alarm-widget-notch-top,
+	.alarm-widget-notch-bottom {
+		position: absolute;
+		left: 69px;
+		width: 14px;
+		height: 14px;
+		border-radius: var(--radius-full);
+		pointer-events: none;
+		z-index: 5;
+		box-sizing: border-box;
+	}
+
+	.alarm-widget-notch-top {
+		top: -7px;
+		border-bottom: var(--bw-thin) solid var(--border-color);
+	}
+
+	.alarm-widget-notch-bottom {
+		bottom: -7px;
+		border-top: 4px solid #ea580c;
+		transition: border-color var(--transition-smooth);
+	}
+
+	.alarm-widget-card.is-inactive .alarm-widget-notch-bottom {
+		border-top-color: #ea580c;
+	}
+
+	/* =========================================================================
+	   LEFT WING: Bouncing Alarm Pod & Status Badge
+	   ========================================================================= */
+	.alarm-pod-wing {
+		width: 76px;
+		background: rgba(234, 88, 12, 0.08);
+		border-right: var(--bw-thin) dashed var(--border-color);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		padding: 5px 3px;
+		box-sizing: border-box;
+		position: relative;
+		transition: background var(--transition-smooth);
+	}
+
+	.alarm-widget-card.is-inactive .alarm-pod-wing {
+		background: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	/* Micro Status Pill */
+	.alarm-status-pill {
+		font-family: var(--font-main);
+		font-size: 8.5px;
+		font-weight: var(--fw-bold);
+		padding: 1px 5px;
+		border-radius: var(--radius-full);
+		border: var(--bw-thin) solid var(--border-color);
+		background: var(--card-bg);
+		color: var(--text-secondary);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 3px;
+		flex-shrink: 0;
+		letter-spacing: 0.04em;
+		line-height: 1.2;
+		user-select: none;
+		margin-bottom: 2px;
+		transition: all var(--transition-smooth);
+	}
+
+	.alarm-status-dot {
+		width: 3.5px;
+		height: 3.5px;
+		border-radius: var(--radius-full);
+		background: var(--text-muted);
+		transition: all var(--transition-smooth);
+	}
+
+	.alarm-widget-card.is-active .alarm-status-pill {
+		background: rgba(234, 88, 12, 0.15);
+		border-color: #ea580c;
+		color: #ea580c;
+		box-shadow: 0 0 6px rgba(234, 88, 12, 0.3);
+	}
+
+	.alarm-widget-card.is-active .alarm-status-dot {
+		background: #ea580c;
+		box-shadow: 0 0 6px #ea580c;
+		animation: alarm-dot-pulse 1s infinite alternate;
+	}
+
+	.alarm-widget-card.is-inactive .alarm-status-pill {
+		background: var(--input-bg);
+		border-color: var(--border-color);
+		color: var(--text-muted);
+	}
+
+	.alarm-widget-card.is-inactive .alarm-status-dot {
+		background: var(--text-muted);
+		animation: none;
+		box-shadow: none;
+	}
+
+	/* Bouncing Alarm Pod Button (Always Active & Interactive) */
+	.alarm-pod-btn {
+		width: 34px;
+		height: 34px;
+		border-radius: var(--radius-full);
+		background: var(--input-bg);
+		border: var(--bw-thin) solid var(--border-color);
+		border-top: 1.5px solid var(--specular-rim);
+		border-bottom: 3px solid var(--border-color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, var(--op-subtle));
+		cursor: pointer;
+		color: var(--text-primary);
+		pointer-events: auto;
+		margin-bottom: 2px;
+		padding: 0;
+		transition: all var(--transition-spring);
+	}
+
+	.alarm-widget-card.is-active .alarm-pod-btn {
+		background: #ea580c;
+		color: #ffffff;
+		border-color: #ea580c;
+		border-bottom-color: #c2410c;
+		box-shadow: 0 3px 8px rgba(234, 88, 12, 0.45);
+		animation: alarm-pod-bounce 0.8s infinite alternate ease-in-out;
+	}
+
+	.alarm-widget-card.is-inactive .alarm-pod-btn {
+		opacity: 1;
+		transform: none;
+		animation: none;
+		background: var(--card-bg);
+		border-color: var(--border-color);
+		border-bottom-color: var(--text-secondary);
+		color: var(--text-secondary);
+		box-shadow: 0 1.5px 4px rgba(0, 0, 0, var(--op-subtle));
+	}
+
+	.alarm-pod-btn:hover {
+		transform: translateY(-1.5px);
+		box-shadow: 0 3px 6px rgba(0, 0, 0, var(--op-shadow));
+	}
+
+	.alarm-pod-btn:active {
+		transform: translateY(1.5px);
+		border-bottom-width: 1px;
+		box-shadow: var(--shadow-25d-pressed);
+	}
+
+	.alarm-pod-btn .icon {
+		width: 17px;
+		height: 17px;
+	}
+
+	.alarm-pod-label {
+		font-family: var(--font-title);
+		font-size: 9.5px;
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	/* =========================================================================
+	   RIGHT WING: Display Screen & Control Strip
+	   ========================================================================= */
+	.alarm-body-wing {
+		flex: 1;
+		padding: 5px 8px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 5px;
+		min-width: 0;
+		box-sizing: border-box;
+		transition: opacity var(--transition-smooth), filter var(--transition-smooth);
+	}
+
+	.alarm-widget-card.is-inactive .alarm-body-wing {
+		opacity: 0.55;
+		filter: grayscale(0.5);
+		pointer-events: none;
+	}
+
+	/* Top Screen: Look 5 High-Tech Dark LED Metro Screen */
+	.alarm-screen-pill {
+		background: #0f172a;
+		border: var(--bw-thin) solid #334155;
+		border-top: 1.5px solid rgba(255, 255, 255, 0.18);
+		border-bottom: 2.5px solid #090d16;
+		border-radius: var(--radius-sm);
+		padding: 4px 8px;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
+		min-width: 0;
+		flex: 1;
+		transition: all var(--transition-smooth);
+	}
+
+	.alarm-widget-card.is-inactive .alarm-screen-pill {
+		background: #1e293b;
+		border-color: #334155;
+		opacity: 0.7;
+	}
+
+	.alarm-screen-icon {
+		font-size: 15px;
+		flex-shrink: 0;
+		color: #94a3b8;
+		transition: color var(--transition-smooth);
+	}
+
+	.alarm-widget-card.is-active .alarm-screen-icon {
+		color: #fbbf24;
+		animation: alarm-bell-wiggle 0.7s infinite alternate ease-in-out;
+	}
+
+	.alarm-station-name {
+		font-family: var(--font-title);
+		font-size: 13px;
+		font-weight: var(--fw-bold);
+		color: #38bdf8;
+		letter-spacing: 0.02em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: 1.25;
+		transition: color var(--transition-smooth), text-shadow var(--transition-smooth);
+	}
+
+	.alarm-widget-card.is-active .alarm-station-name {
+		color: #facc15;
+		text-shadow: 0 0 8px rgba(250, 204, 21, 0.65);
+	}
+
+	/* Bottom Bar: Tagline + Action Buttons + Live Distance */
+	.alarm-bottom-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 4px;
+		padding-top: 3px;
+		border-top: var(--bw-thin) solid var(--border-color);
+	}
+
+	.alarm-bottom-left-group {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		min-width: 0;
+		flex-wrap: wrap;
+	}
+
+	.alarm-tagline {
+		font-family: var(--font-title);
+		font-size: 8.5px;
+		font-weight: var(--fw-bold);
+		color: var(--text-muted);
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.alarm-bottom-actions {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		flex-shrink: 0;
+	}
+
+	/* 2.5D Action Buttons: Touch Friendly & Beveled */
+	.btn-alarm-action {
+		font-family: var(--font-main);
+		font-size: 11px;
+		font-weight: var(--fw-bold);
+		padding: 2.5px 7px;
+		border-radius: var(--radius-xs);
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 3px;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, var(--op-subtle));
+		user-select: none;
+		white-space: nowrap;
+		transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+	}
+
+	.btn-alarm-action:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 2.5px 5px rgba(0, 0, 0, var(--op-shadow));
+	}
+
+	.btn-alarm-action:active {
+		transform: translateY(1px);
+		border-bottom-width: 1px !important;
+		box-shadow: var(--shadow-25d-pressed) !important;
+	}
+
+	/* Button 1: Snooze (Soft Translucent Yellow Tint) */
+	.btn-alarm-snooze {
+		background: rgba(250, 204, 21, 0.16);
+		border: 1.5px solid rgba(234, 179, 8, 0.65);
+		border-top: 1.5px solid var(--specular-rim);
+		border-bottom: 2.5px solid rgba(202, 138, 4, 0.85);
+		color: #b45309;
+	}
+
+	.btn-alarm-snooze:hover {
+		background: rgba(250, 204, 21, 0.28);
+		border-bottom-color: rgba(180, 83, 9, 1);
+		color: #92400e;
+	}
+
+	[data-mode="dark"] .btn-alarm-snooze {
+		color: #fde047;
+	}
+
+	/* Button 2: Dismiss (Soft Translucent Orange Tint) */
+	.btn-alarm-dismiss {
+		background: rgba(249, 115, 22, 0.16);
+		border: 1.5px solid rgba(234, 88, 12, 0.65);
+		border-top: 1.5px solid var(--specular-rim);
+		border-bottom: 2.5px solid rgba(194, 65, 12, 0.85);
+		color: #c2410c;
+	}
+
+	.btn-alarm-dismiss:hover {
+		background: rgba(249, 115, 22, 0.28);
+		border-bottom-color: rgba(154, 52, 18, 1);
+		color: #9a3412;
+	}
+
+	[data-mode="dark"] .btn-alarm-dismiss {
+		color: #fdba74;
+	}
+
+	/* 2.5D GPS Distance Badge */
+	.alarm-distance-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		border: var(--bw-thin) solid rgba(var(--color-primary-rgb), var(--op-translucent));
+		border-top: 1.5px solid var(--specular-rim);
+		border-bottom: 2px solid rgba(var(--color-primary-rgb), var(--op-semi-heavy));
+		padding: 2.5px 6px;
+		border-radius: var(--radius-xs);
+		font-family: var(--map-font, monospace);
+		font-size: 11px;
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-primary-rgb));
+		box-shadow: 0 1px 3px rgba(0, 0, 0, var(--op-subtle));
+		flex-shrink: 0;
+		white-space: nowrap;
+		transition: all var(--transition-fast);
+	}
+
+	.alarm-widget-card.is-active .alarm-distance-badge {
+		background: rgba(234, 88, 12, 0.12);
+		border-color: rgba(234, 88, 12, 0.4);
+		border-bottom-color: #ea580c;
+		color: #ea580c;
+		box-shadow: 0 0 6px rgba(234, 88, 12, 0.25);
+	}
+
+	.alarm-widget-card.is-inactive .alarm-distance-badge {
+		background: var(--card-bg);
+		border-color: var(--border-color);
+		color: var(--text-muted);
+	}
+
+	/* =========================================================================
+	   ANIMATIONS & RESPONSIVE BEHAVIOR
+	   ========================================================================= */
+	@keyframes alarm-pod-bounce {
+		0% {
+			transform: translateY(0) scale(1);
+		}
+		100% {
+			transform: translateY(-5px) scale(1.04);
+		}
+	}
+
+	@keyframes alarm-dot-pulse {
+		0% {
+			transform: scale(0.85);
+			opacity: 0.6;
+		}
+		100% {
+			transform: scale(1.2);
+			opacity: 1;
+		}
+	}
+
+	@keyframes alarm-bell-wiggle {
+		0%, 100% {
+			transform: rotate(0deg);
+		}
+		20% {
+			transform: rotate(-15deg);
+		}
+		40% {
+			transform: rotate(15deg);
+		}
+		60% {
+			transform: rotate(-10deg);
+		}
+		80% {
+			transform: rotate(10deg);
+		}
+	}
+
+	/* Sidebar open hone par widget smooth hide ho sake (same as speedometer) */
+	body[data-active-tab="recent"] .alarm-widget-wrapper,
+	body[data-active-tab="route"] .alarm-widget-wrapper,
+	body[data-active-tab="app-settings"] .alarm-widget-wrapper {
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(20px);
+	}
+
+	/* Mobile Screen Adaptations */
+	@media (max-width: 768px) {
+		.alarm-widget-wrapper {
+			bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
+			left: var(--space-md);
+		}
+	}
+}

@@ -14,7 +14,7 @@
 @import url("../components/map_genrator.css");
 @import url("../components/toast.css");
 @import url("../components/app-settings.css");
-@import url("../components/alarm-banner.css");
+@import url("../components/alarm-widget-25d.css");
 @import url("../components/widget-speedometer.css");
 @import url("../components/widget-telemetry.css");
 @import url("../components/station-callout.css");
@@ -66,6 +66,11 @@
 	}
 
 	@layer components {
+		/* 📱 मोबाइल मोड में फुटर हमेशा छुपा रहेगा */
+		#app-footer, footer, .site-footer {
+			display: none;
+		}
+
 		/* साइडबार टैब खुलने पर ज़ूम बटन की तरह स्पीडोमीटर भी छुप जाएगा */
 		body[data-active-tab="recent"] .speedometer-widget,
 		body[data-active-tab="route"] .speedometer-widget {

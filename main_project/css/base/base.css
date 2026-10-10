@@ -76,6 +76,7 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		--fw-black: 900;
 
 		/* Font Sizes System */
+		--fs-3xs: 0.5625rem; /* 9px (Micro Badges/Indicators) */
 		--fs-2xs: 0.625rem; /* 10px (Micro Sub-labels) */
 		--fs-xs: 0.75rem;/* 12px */
 		--fs-sm: 0.875rem;/* 14px */

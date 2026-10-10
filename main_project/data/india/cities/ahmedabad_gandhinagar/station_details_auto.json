@@ -1,7 +1,247 @@
 {
-	"_meta": {
-		"generated_at": "2026-10-07T18:22:59.740218+00:00Z",
-		"total_delta_stations": 0,
-		"status": "buffer_promoted_and_reset"
+	"_meta": {"generated_at": "2026-10-07T18:22:59.740218+00:00Z", "total_delta_stations": 0, "status": "buffer_promoted_and_reset"},
+	"rabari_colony": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rabari+Colony/@23.005541,72.635462,17z/data=!3m1!4b1!4m6!3m5!1s0x395e866bcdde8a59:0xa6ad8294fdbb7b79!8m2!3d23.005541!4d72.635462!16s%2Fg%2F11h5v8_x11?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"gujarat_university": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Gujarat+University/@23.044857,72.543619,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84bd825db871:0x130959e100d946da!8m2!3d23.044857!4d72.543619!16s%2Fg%2F11tdzw5_8m?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"narmada_canal": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Narmada+Canal/@23.125157,72.62214,17z/data=!3m1!4b1!4m6!3m5!1s0x395e8185f202abd1:0x5633525d8a6cf78f!8m2!3d23.125157!4d72.62214!16s%2Fg%2F11x762vwjt?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"gnlu": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/GNLU+Metro+Station/@23.1545364,72.6475521,17z/data=!4m10!1m2!2m1!1sGNLU+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e810047326281:0x3fa75c228046a7e8!8m2!3d23.1545177!4d72.6475473!15sCi1HTkxVIE1ldHJvIFN0YXRpb24sIEFobWVkYWJhZCwgR3VqYXJhdCwgSW5kaWFaLCIqZ25sdSBtZXRybyBzdGF0aW9uIGFobWVkYWJhZCBndWphcmF0IGluZGlhkgERZ292ZXJubWVudF9vZmZpY2WaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjVLYjFJeFVuQmxiVnBNVXpBMVUxb3pSakZWYm1OM1l6Qm5NVmt4UlJBQuABAPoBBAgAEEU!16s%2Fg%2F11w95v7cs7?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"akshardham": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Akshardham+Metro+Station/@23.22368,72.66418,17z",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sardarnagar": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Motera+Stadium/@23.0597985,72.5970013,13z/data=!4m10!1m2!2m1!1sSardarnagar+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e83c68f6732a7:0xd7f675388455b9e8!8m2!3d23.096754!4d72.596685!15sCjRTYXJkYXJuYWdhciBNZXRybyBTdGF0aW9uLCBBaG1lZGFiYWQsIEd1amFyYXQsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11v6sgtb6p?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"gandhigram": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/GANDHIGRAM+METRO+STATION/@23.0272286,72.5689808,17z/data=!3m1!4b1!4m6!3m5!1s0x395e850028e5b88d:0x9f5fbe6450a7f4a!8m2!3d23.0272286!4d72.5689808!16s%2Fg%2F11w98ff96f?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"gheekanta": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Metro+Station+gheekanta/@23.0286869,72.5870775,17z/data=!4m10!1m2!2m1!1sGheekanta+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e85ec11b920f5:0x28350aeb4b7c20ec!8m2!3d23.0287779!4d72.587319!15sCjJHaGVla2FudGEgTWV0cm8gU3RhdGlvbiwgQWhtZWRhYmFkLCBHdWphcmF0LCBJbmRpYVoxIi9naGVla2FudGEgbWV0cm8gc3RhdGlvbiBhaG1lZGFiYWQgZ3VqYXJhdCBpbmRpYZIBFnRyYW5zcG9ydGF0aW9uX3NlcnZpY2XgAQA!16s%2Fg%2F11rj5jwqb4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"koba_circle": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Koba+Circle/@23.132259,72.631064,17z/data=!3m1!4b1!4m6!3m5!1s0x395e8191614dc805:0x3c590a2e2942d834!8m2!3d23.132259!4d72.631064!16s%2Fg%2F11xcj3bypc?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"amraivadi": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Amraiwadi+Metro+Station,+Satyam+Nagar,+Ahmedabad,+Gujarat+380026/@23.0080763,72.630189,17z/data=!3m1!4b1!4m6!3m5!1s0x395e866ef9993e57:0x8f3cdc41170d0b3f!8m2!3d23.0080763!4d72.630189!16s%2Fg%2F11xp6f9dk4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"doordarshan_kendra": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Doordarshan+Kendra/@23.048171,72.524482,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84adb1592e7b:0x9fa68f5e22400b5f!8m2!3d23.048171!4d72.524482!16s%2Fg%2F11jsxmj93p?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"kalupur": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kalupur/@23.025107,72.603045,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84320639733b:0x574b3f549c6bfa7e!8m2!3d23.025107!4d72.603045!16s%2Fg%2F11s8y5s23d?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"koteshwar_prachin_mandir": {
+		"generated_google_maps_url": "https://www.google.com/maps/search/?api=1&query=23.0946,72.6120",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sabarmati_railway_station": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sabarmati+Jn/@23.0784124,72.5896937,16z/data=!4m10!1m2!2m1!1sSabarmati+Railway+Station+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e83925ee95f55:0x8421f2ab003f3846!8m2!3d23.0712078!4d72.5871134!15sCkJTYWJhcm1hdGkgUmFpbHdheSBTdGF0aW9uIE1ldHJvIFN0YXRpb24sIEFobWVkYWJhZCwgR3VqYXJhdCwgSW5kaWGSAQ90cmFuc2l0X3N0YXRpb27gAQA!16s%2Fm%2F0czd554?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"nirant_cross_road": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Nirant+Cross+Road/@22.999817,72.658914,17z/data=!3m1!4b1!4m6!3m5!1s0x395e863450ef4977:0xf59784bdd0b09bc4!8m2!3d22.999817!4d72.658914!16s%2Fg%2F11h0b1rc8x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"commerce_six_road": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Commerce+Six+Road/@23.04071,72.553029,17z/data=!3m1!4b1!4m6!3m5!1s0x395e8492534a7de1:0xf64b04c6324480c9!8m2!3d23.04071!4d72.553029!16s%2Fg%2F11jt0glyfy?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"koteshwar_road": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Koteshwar+Road/@23.105944,72.603489,17z/data=!3m1!4b1!4m6!3m5!1s0x395e83d1fc5242a1:0x19a3e9cfb52d7d16!8m2!3d23.105944!4d72.603489!16s%2Fg%2F11xcj3fwpx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"aec": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/A+E+C/@23.075069,72.593227,17z/data=!3m1!4b1!4m6!3m5!1s0x395e83f294b67915:0x7055b75d14200eed!8m2!3d23.075069!4d72.593227!16s%2Fg%2F11s8y58lth?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"apmc": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/A+P+M+C/@22.997704,72.537271,17z/data=!3m1!4b1!4m6!3m5!1s0x395e853b9ba3aad9:0x1a63a694b61f52ce!8m2!3d22.997704!4d72.537271!16s%2Fg%2F11tf2vsglx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sabarmati_river": {
+		"generated_google_maps_url": "https://www.google.com/maps/search/?api=1&query=23.0885,72.6052",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"old_high_court": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Old+High+Court/@23.037333,72.567043,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84f56881322f:0x49c1fda6db9f688e!8m2!3d23.037333!4d72.567043!16s%2Fg%2F11tdzvtk8z?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"apparel_park": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Apparel+Park+Metro+Station/@23.0107009,72.6180701,17z/data=!4m10!1m2!2m1!1sApparel+Park+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e8679d2e6cc1f:0x3387214e32fdc10b!8m2!3d23.0107008!4d72.6180712!15sCjVBcHBhcmVsIFBhcmsgTWV0cm8gU3RhdGlvbiwgQWhtZWRhYmFkLCBHdWphcmF0LCBJbmRpYZIBDnN1YndheV9zdGF0aW9u4AEA!16s%2Fg%2F11gfd7hvy3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"gift_city": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/GIFT+City/@23.153439,72.685681,17z/data=!3m1!4b1!4m6!3m5!1s0x395e803d794a0949:0x9eddd6c71f5560f8!8m2!3d23.153439!4d72.685681!16s%2Fg%2F11lp8hq9sw?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"gurukul_road": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Gurukul+Road/@23.04588,72.53493,17z/data=!3m1!4b1!4m6!3m5!1s0x395e84bad966a321:0x567054c5a129f624!8m2!3d23.04588!4d72.53493!16s%2Fg%2F11jsxn4zb8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sector_16": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector+16+Metro+Station/@23.2284,72.6509,17z",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"gujarat_biotechnology_university": {
+		"generated_google_maps_url": "https://www.google.com/maps/search/?api=1&query=23.1612,72.6805",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"randesan": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Metro+Station,+Randesan/@23.1791288,72.6473415,17z/data=!4m10!1m2!2m1!1sRandesan+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395c2bb8a5128459:0xd0270b8c230da265!8m2!3d23.1791295!4d72.647311!15sCjFSYW5kZXNhbiBNZXRybyBTdGF0aW9uLCBBaG1lZGFiYWQsIEd1amFyYXQsIEluZGlhWjAiLnJhbmRlc2FuIG1ldHJvIHN0YXRpb24gYWhtZWRhYmFkIGd1amFyYXQgaW5kaWGSARZ0cmFuc3BvcnRhdGlvbl9zZXJ2aWNlmgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU16YUc5MVJ6Rm5SUkFC4AEA-gEECAAQRw!16s%2Fg%2F11s860nhxm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"tapovan_circle": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Tapovan+Circle/@23.120192,72.615871,17z/data=!3m1!4b1!4m6!3m5!1s0x395e81874534685b:0x7cc995c7b2d39505!8m2!3d23.120192!4d72.615871!16s%2Fg%2F11x762d7ps?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"usmanpura": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Usmanpura/@23.04601,72.565013,17z/data=!3m1!4b1!4m6!3m5!1s0x395e8489a03415fb:0x9b8b1a64939ddf2d!8m2!3d23.04601!4d72.565013!16s%2Fg%2F11jt0gmp47?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"ashram_road": {
+		"generated_google_maps_url": "https://www.google.com/maps/search/?api=1&query=23.0982,72.6015",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sachivalaya": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sachivalaya/@23.214966,72.658709,17z/data=!3m1!4b1!4m6!3m5!1s0x395c2babc7fcf5a1:0xbd1197bbe2f6af79!8m2!3d23.214966!4d72.658709!16s%2Fg%2F11xcj44h93?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sp_stadium": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/S+P+Stadium/@23.03987,72.561661,17z/data=!3m1!4b1!4m6!3m5!1s0x395e848c9f720e11:0xe8286a04d8d125bc!8m2!3d23.03987!4d72.561661!16s%2Fg%2F11v6kg16sl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sector_10a": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector-10A/@23.210898,72.651157,17z/data=!3m1!4b1!4m6!3m5!1s0x395c2bad5c89bebb:0xd966e9acf69b42de!8m2!3d23.210898!4d72.651157!16s%2Fg%2F11xcj38s6h?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"airport": {
+		"generated_google_maps_url": "https://www.google.com/maps/search/?api=1&query=23.0772,72.6347",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"paldi": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Paldi/@23.0194142,72.5622527,17z/data=!4m10!1m2!2m1!1sPaldi+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e84fe811f4263:0x7592a622acb2d867!8m2!3d23.018455!4d72.562163!15sCi5QYWxkaSBNZXRybyBTdGF0aW9uLCBBaG1lZGFiYWQsIEd1amFyYXQsIEluZGlhWi0iK3BhbGRpIG1ldHJvIHN0YXRpb24gYWhtZWRhYmFkIGd1amFyYXQgaW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11jt0gf_y1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"mahatama_mandir": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Mahatma+Mandir/@23.2339692,72.6339725,17z/data=!3m1!4b1!4m6!3m5!1s0x395c2bebcc743a99:0xc6f8924ec4e16166!8m2!3d23.2339692!4d72.6339725!16s%2Fg%2F11yvybstsz?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"ranip": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Ranip/@23.067708,72.57413,17z/data=!3m1!4b1!4m6!3m5!1s0x395e8386b1854343:0xf58b1546ead28b6f!8m2!3d23.067708!4d72.57413!16s%2Fg%2F11jt0grm40?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"kankaria_east": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Kankaria+East/@23.015193,72.606993,17z/data=!3m1!4b1!4m6!3m5!1s0x395e85d3da78c5e9:0xd5b53c9a134cbef7!8m2!3d23.015193!4d72.606993!16s%2Fg%2F11s8y5qpgd?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"koba_gam": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Koba+Gam/@23.139518,72.637262,16z/data=!4m10!1m2!2m1!1sKoba+Gam+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e81c3eba0cbcd:0x2ece2b4ec5075026!8m2!3d23.146777!4d72.64346!15sCjFLb2JhIEdhbSBNZXRybyBTdGF0aW9uLCBBaG1lZGFiYWQsIEd1amFyYXQsIEluZGlhkgEOc3Vid2F5X3N0YXRpb27gAQA!16s%2Fg%2F11zj225n5v?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sabarmati": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sabarmati/@23.085617,72.592274,17z/data=!3m1!4b1!4m6!3m5!1s0x395e83eada93c44d:0x21fb55d6ce3ea169!8m2!3d23.085617!4d72.592274!16s%2Fg%2F11jt0gj9sd?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sector_24": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector-24+Metro+Station/@23.238574,72.64151,17z",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"shreyas": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shreyas/@23.013653,72.549448,17z/data=!3m1!4b1!4m6!3m5!1s0x395e851e036dcaff:0xc58e1de409a6839b!8m2!3d23.013653!4d72.549448!16s%2Fg%2F11jt0ggy6_?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"rajivnagar": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Rajiv+Nagar/@23.009748,72.536863,17z/data=!3m1!4b1!4m6!3m5!1s0x395e852720414e01:0x2b24cf2f7a9e215d!8m2!3d23.009748!4d72.536863!16s%2Fg%2F11s8y58t7q?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"pdeu": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/PDEU/@23.15501,72.661007,17z/data=!3m1!4b1!4m6!3m5!1s0x395e81d2c1ee60ff:0xfc1aabddb3f3adec!8m2!3d23.15501!4d72.661007!16s%2Fg%2F11w98_nnrx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"thaltej": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Thaltej+Metro+Station/@23.0500825,72.51237,17z/data=!4m10!1m2!2m1!1sThaltej+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e9bcdfab63de3:0xc2c727124ecd4fda!8m2!3d23.0497594!4d72.51673!15sCjBUaGFsdGVqIE1ldHJvIFN0YXRpb24sIEFobWVkYWJhZCwgR3VqYXJhdCwgSW5kaWGSARptZXRyb3BvbGl0YW5fdHJhaW5fY29tcGFueeABAA!16s%2Fg%2F11ptqq8c83?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"motera_stadium": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Motera+Stadium/@23.0968402,72.5967185,17z/data=!4m10!1m2!2m1!1sMotera+Stadium+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e83c68f6732a7:0xd7f675388455b9e8!8m2!3d23.096754!4d72.596685!15sCjdNb3RlcmEgU3RhZGl1bSBNZXRybyBTdGF0aW9uLCBBaG1lZGFiYWQsIEd1amFyYXQsIEluZGlhWjYiNG1vdGVyYSBzdGFkaXVtIG1ldHJvIHN0YXRpb24gYWhtZWRhYmFkIGd1amFyYXQgaW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VSV2FqWlBNMlpuRUFF4AEA-gEECAAQQQ!16s%2Fg%2F11v6sgtb6p?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"vastral_gam": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vastral+Gam+Metro/@23.000413,72.6581355,16z/data=!4m10!1m2!2m1!1sVastral+Gam+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e87999975dea7:0xfb290c47604adef3!8m2!3d22.9977889!4d72.6651991!15sCjRWYXN0cmFsIEdhbSBNZXRybyBTdGF0aW9uLCBBaG1lZGFiYWQsIEd1amFyYXQsIEluZGlhkgEWdHJhbnNwb3J0YXRpb25fc2VydmljZeABAA!16s%2Fg%2F11fpk_tgds?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"infocity": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Infocity+Metro+Station+-GMRC/@23.1925955,72.6397039,17z/data=!3m1!4b1!4m6!3m5!1s0x395c2b9062133a77:0xe157163b74c5ff8!8m2!3d23.1925955!4d72.6397039!16s%2Fg%2F11l5s0hnxw?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"vijaynagar": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vijay+Nagar/@23.056195,72.562402,17z/data=!3m1!4b1!4m6!3m5!1s0x395e8481510e0e77:0x5307964d15376b09!8m2!3d23.056195!4d72.562402!16s%2Fg%2F11jt0gh4t0?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"shahpur": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Shahpur+Metro+Station+-+North/@23.0392892,72.5804283,17z/data=!4m10!1m2!2m1!1sShahpur+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e851e333ecfc1:0x952126fae5730b99!8m2!3d23.0393814!4d72.5796147!15sCjBTaGFocHVyIE1ldHJvIFN0YXRpb24sIEFobWVkYWJhZCwgR3VqYXJhdCwgSW5kaWFaLyItc2hhaHB1ciBtZXRybyBzdGF0aW9uIGFobWVkYWJhZCBndWphcmF0IGluZGlhkgEUdHJhaW5fdGlja2V0X2NvdW50ZXKaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTTNNWEpJUVVsM0VBReABAPoBBAgAECY!16s%2Fg%2F11tdmp9dc8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"sector_1": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Sector-1/@23.205302,72.643477,17z/data=!3m1!4b1!4m6!3m5!1s0x395c2a4b99de3763:0x4b8f51de4d44cd67!8m2!3d23.205302!4d72.643477!16s%2Fg%2F11w991rx28?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"vishwakarma_college": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vishwakrma+College+Metro+Station/@23.1151303,72.609579,17z/data=!4m10!1m2!2m1!1sVishwakarma+College+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e83e76616a037:0x30d9aa351ce618cd!8m2!3d23.1157906!4d72.61045!15sCjxWaXNod2FrYXJtYSBDb2xsZWdlIE1ldHJvIFN0YXRpb24sIEFobWVkYWJhZCwgR3VqYXJhdCwgSW5kaWGSAQ5zdWJ3YXlfc3RhdGlvbuABAA!16s%2Fg%2F11v0x2pt_g?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"vastral": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vastral/@23.000413,72.657556,16z/data=!4m10!1m2!2m1!1sVastral+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e8647a07d192b:0xae68b45073d6b022!8m2!3d23.003595!4d72.647628!15sCjBWYXN0cmFsIE1ldHJvIFN0YXRpb24sIEFobWVkYWJhZCwgR3VqYXJhdCwgSW5kaWFaLyItdmFzdHJhbCBtZXRybyBzdGF0aW9uIGFobWVkYWJhZCBndWphcmF0IGluZGlhkgEOc3Vid2F5X3N0YXRpb26aAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnhXUTFadE1IbFpWemxDVm14c2FHUnNXbXhYYkdSTVdraG9abEpWUlJBQuABAPoBBAgAECw!16s%2Fg%2F11fk3s4fsx?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"dholakuva_circle": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Dholakuva+Circle/@23.185941,72.643409,17z/data=!3m1!4b1!4m6!3m5!1s0x395c2a41e1b5cd29:0xd590fc77ddbf2840!8m2!3d23.185941!4d72.643409!16s%2Fg%2F11w994cyv1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"raysan": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Raysan/@23.166411,72.648405,17z/data=!3m1!4b1!4m6!3m5!1s0x395c2a77087c3229:0x4864faeb4a25c58d!8m2!3d23.166411!4d72.648405!16s%2Fg%2F11lp8hk951?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"jivraj_park": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Jivraj+Park/@23.005502,72.533607,17z/data=!3m1!4b1!4m6!3m5!1s0x395e8525e8ff7c2f:0x36d3b6bdbcfd2022!8m2!3d23.005502!4d72.533607!16s%2Fg%2F11s8y5cmc6?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"vadaj": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Vadaj+Metro+Station+-+GMRC/@23.0677209,72.5658093,17z/data=!4m10!1m2!2m1!1sVadaj+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e837776e9818f:0xef3bad9c0aa9f845!8m2!3d23.0677369!4d72.5658117!15sCi5WYWRhaiBNZXRybyBTdGF0aW9uLCBBaG1lZGFiYWQsIEd1amFyYXQsIEluZGlhWi0iK3ZhZGFqIG1ldHJvIHN0YXRpb24gYWhtZWRhYmFkIGd1amFyYXQgaW5kaWGSARZ0cmFuc3BvcnRhdGlvbl9zZXJ2aWNlmgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJXY1VwSVVXaEJSUkFC4AEA-gEECAAQRg!16s%2Fg%2F11snqv91rl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"gift_city_house": {
+		"generated_google_maps_url": "https://www.google.com/maps/search/?api=1&query=23.1647,72.6802",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"juna_sachivalaya": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Juna+Sachivalaya/@23.228989,72.659406,17z/data=!4m6!3m5!1s0x395c2ba1274460e3:0x1f7c1c9981ba510f!8m2!3d23.228989!4d72.659406!16s%2Fg%2F11yw037dht?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"thaltej_gam": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Thaltej+Metro+Station/@23.0500825,72.51237,17z/data=!4m10!1m2!2m1!1sThaltej+Gam+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e9bcdfab63de3:0xc2c727124ecd4fda!8m2!3d23.0497594!4d72.51673!15sCjRUaGFsdGVqIEdhbSBNZXRybyBTdGF0aW9uLCBBaG1lZGFiYWQsIEd1amFyYXQsIEluZGlhkgEabWV0cm9wb2xpdGFuX3RyYWluX2NvbXBhbnngAQA!16s%2Fg%2F11ptqq8c83?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
+	},
+	"juna_koba": {
+		"generated_google_maps_url": "https://www.google.com/maps/place/Juna+Koba+Metro+Station,Koba+Road/@23.1381343,72.6362012,17z/data=!4m10!1m2!2m1!1sJuna+Koba+Metro+Station,+Ahmedabad,+Gujarat,+India!3m6!1s0x395e81006d0bcc73:0x91b4c600acf946cf!8m2!3d23.1344565!4d72.6339224!15sCjJKdW5hIEtvYmEgTWV0cm8gU3RhdGlvbiwgQWhtZWRhYmFkLCBHdWphcmF0LCBJbmRpYZIBEWdvdmVybm1lbnRfb2ZmaWNl4AEA!16s%2Fg%2F11x10j12h9?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+		"_meta": {"is_new": false, "modified_fields": ["generated_google_maps_url"]}
 	}
 }

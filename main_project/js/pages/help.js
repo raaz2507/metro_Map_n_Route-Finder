@@ -6,6 +6,7 @@
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { BaseSearchEngine } from "../services/search/BaseSearchEngine.js";
+import { LivePreviewService } from "../services/LivePreviewService.js";
 import { appStateStore } from "../core/app-state-store.js";
 import i18n from "../core/i18n.js";
 
@@ -46,7 +47,10 @@ class HelpController extends BaseSearchEngine {
 		// 6. Bind Mobile Action Bar & Off-Canvas Drawers
 		this.#bindMobileBar();
 
-		// 6. Subscribe to Dynamic Language Switch
+		// 7. Mount Living UI Component Previews (Headless Cloner)
+		await LivePreviewService.mountAll();
+
+		// 8. Subscribe to Dynamic Language Switch
 		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
 			if (this.#dom.searchInput) {
 				this.#dom.searchInput.placeholder = i18n.t("help.hero.searchPlaceholder");
@@ -57,6 +61,9 @@ class HelpController extends BaseSearchEngine {
 			if (mobileSearchLabel) mobileSearchLabel.textContent = i18n.t("help.mobileBar.search");
 			const quickIndexLabel = document.querySelector(".sidebar-heading-badge [data-i18n]");
 			if (quickIndexLabel) quickIndexLabel.textContent = i18n.t("help.sidebar.quickIndex");
+
+			// Re-translate live UI component previews
+			LivePreviewService.mountAll();
 
 			if (this.#searchQuery) {
 				this.#filterContent();
@@ -288,9 +295,9 @@ class HelpController extends BaseSearchEngine {
 		document.querySelectorAll(".drawer-more-btn").forEach((btn) => {
 			btn.addEventListener("click", (e) => {
 				e.stopPropagation();
-				const drawer = btn.closest(".card-drawer");
-				if (!drawer) return;
-				const details = drawer.querySelector(".drawer-extended-details");
+				const container = btn.closest(".help-deep-card-item") || btn.closest(".card-drawer");
+				if (!container) return;
+				const details = container.querySelector(".drawer-extended-details");
 				if (!details) return;
 
 				const isCurrentlyOpen = !details.classList.contains("hidden");

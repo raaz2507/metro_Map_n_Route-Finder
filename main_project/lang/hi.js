@@ -11,6 +11,7 @@ import help from "./india/hi/help.js";
 import about from "./india/hi/about.js";
 import countrySelector from "./india/hi/country_selector.js";
 import smartCardTicket from "./india/hi/smart_card_ticket.js";
+import other from "./india/hi/other.js";
 
 export default {
 	...common,
@@ -18,7 +19,8 @@ export default {
 		home,
 		networks,
 		countrySelector,
-		all_stations: allStations
+		all_stations: allStations,
+		other
 	},
 	station_info: stationInfo,
 	metroTicket: metroQrTicket,
@@ -26,5 +28,6 @@ export default {
 	passengerSupport,
 	help,
 	about,
-	smartCardTicket
+	smartCardTicket,
+	other
 };

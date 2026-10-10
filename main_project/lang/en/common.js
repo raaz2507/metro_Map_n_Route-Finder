@@ -35,6 +35,7 @@ export default {
 		"stations": "Stations",
 		"recharge": "Smart Card/ Tokken",
 		"passengerSupport": "Passenger Support",
+		"other": "Other",
 		"help": "Help",
 		"about": "About"
 	},

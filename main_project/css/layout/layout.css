@@ -73,14 +73,6 @@
 		z-index: var(--z-map);
 	}
 
-	/* .floating-nav-wrapper is the wrapper for floating menu */
-	.floating-nav-wrapper:has(.floating-nav) {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		z-index: var(--z-modal);
-	}
-
 	/* site-footer parent layout */
 	.site-footer {
 		display: flex;
@@ -107,15 +99,6 @@
 	}
 
 	@layer components {
-		.floating-nav-wrapper:has(.floating-nav) {
-			position: absolute;
-			top: auto;
-			bottom: 2.75rem; /* 👈 बॉर्डर से पर्याप्त ऊपर फ्लोट कराने के लिए */
-			left: 50%;
-			transform: translateX(-50%);
-			z-index: var(--z-modal, 1000);
-		}
-
 		.site-footer {
 			display: grid;
 			grid-template-columns: 2fr 1fr 1.5fr;
@@ -165,17 +148,7 @@
 			max-width: 100%; /* 👈 320px ki limit hata di */
 		}
 
-		/* Mobile floating nav fixed to bottom (Safe Floating Elevation) */
-		.floating-nav-wrapper:has(.floating-nav) {
-			position: fixed;
-			bottom: max(32px, calc(env(safe-area-inset-bottom, 0px) + 20px));
-			left: 50%;
-			transform: translateX(-50%);
-			z-index: var(--z-modal);
-		}
-
-		/* Hide main site footer only on interactive map view with floating bottom nav */
-		body:has(.floating-nav) footer.site-footer,
+		/* Hide main site footer on interactive map view */
 		body:has(#map) footer.site-footer {
 			display: none;
 		}

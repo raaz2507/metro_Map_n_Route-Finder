@@ -4,7 +4,6 @@
  */
 import { HeaderComponent } from '../components/Header.js';
 import { FooterComponent } from '../components/Footer.js';
-import { FloatingNav } from "../components/floating-nav.js";
 import { SettingsView } from "../components/SettingsView.js";
 import { centerClass } from "../core/CenterClass.js";
 import { appStateStore } from "../core/app-state-store.js";
@@ -170,7 +169,6 @@ class HomePageController {
 		});
 
 		this.#shareModalComponent = new ShareModalComponent();
-		new FloatingNav();
 	}
 
 	/**

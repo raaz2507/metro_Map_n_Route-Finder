@@ -109,7 +109,7 @@
 		transition: all var(--transition-fast);
 		outline: none;
 		text-align: center;
-		min-width: 0;
+		min-width: max-content;
 	}
 
 	.filter-chips button:hover {

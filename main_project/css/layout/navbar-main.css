@@ -1,6 +1,5 @@
 @import url("./navbar_header.css") layer(components);
 @import url("./navbar_sidebar.css") layer(components);
-@import url("./navbar_floating.css") layer(components);
 
 @layer components {
 	/* 1. Base Icon Container */

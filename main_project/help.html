@@ -26,7 +26,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<title data-i18n="help.pageTitle">Help & Commuter FAQ Guide | YatraMarg Metro</title>
+	<title data-i18n="help.meta.title">Help &amp; Commuter FAQ Guide | YatraMarg Metro</title>
 
 	<!-- 🎯 Single CSS Entry Point Architecture -->
 	<link rel="stylesheet" href="css/pages/help.css">
@@ -82,9 +82,12 @@
 			<div class="help-filter-chips" id="helpFilterChips" role="tablist" aria-label="Help categories">
 				<button type="button" class="chip-btn active" data-filter="all" data-i18n="help.chips.all">All Topics</button>
 				<button type="button" class="chip-btn" data-filter="networks" data-i18n="help.chips.networks">Networks &amp; Cities</button>
-				<button type="button" class="chip-btn" data-filter="routes" data-i18n="help.chips.routes">Route Planning</button>
-				<button type="button" class="chip-btn" data-filter="smart" data-i18n="help.chips.smart">Smart Features &amp; Sensors</button>
-				<button type="button" class="chip-btn" data-filter="fares" data-i18n="help.chips.fares">Fares &amp; Cards</button>
+				<button type="button" class="chip-btn" data-filter="home" data-i18n="help.chips.home">Home &amp; Route Finder</button>
+				<button type="button" class="chip-btn" data-filter="stations" data-i18n="help.chips.stations">Stations &amp; Facilities</button>
+				<button type="button" class="chip-btn" data-filter="support" data-i18n="help.chips.support">Passenger Support &amp; Safety</button>
+				<button type="button" class="chip-btn" data-filter="header" data-i18n="help.chips.header">Header &amp; Nav</button>
+				<button type="button" class="chip-btn" data-filter="footer" data-i18n="help.chips.footer">Footer Hub</button>
+				<button type="button" class="chip-btn" data-filter="pwa" data-i18n="help.chips.pwa">PWA &amp; Offline</button>
 				<button type="button" class="chip-btn" data-filter="troubleshoot" data-i18n="help.chips.troubleshoot">Troubleshooting</button>
 			</div>
 		</section>
@@ -102,67 +105,404 @@
 						</div>
 						<button type="button" class="help-drawer-close-btn" id="sidebarCloseBtn" aria-label="Close index" title="Close">✕</button>
 					</div>
-					<nav class="help-sidebar-nav" id="helpSidebarNav">
-						<div class="sidebar-nav-group">
-							<a href="#sec-networks" class="sidebar-nav-item active" data-target="sec-networks">
-								<span class="nav-step-pill">1</span>
-								<span class="nav-label" data-i18n="help.nav.stepNetworks">1. Select City &amp; Network</span>
-							</a>
-							<!-- Sub-section / Topics -->
-							<div class="sidebar-sub-nav">
-								<a href="#card-city-select" class="sidebar-sub-item" data-target="card-city-select">
-									<span class="sub-nav-dot"></span>
-									<span data-i18n="help.nav.topicCitySelect">अपना शहर कैसे चुनें</span>
+					<nav class="help-sidebar-nav" id="helpSidebarNav" aria-label="Table of Contents">
+						<ol class="sidebar-nav-list">
+							<li class="sidebar-nav-group">
+								<a href="#sec-networks" class="sidebar-nav-item active" data-target="sec-networks">
+									<span class="nav-step-pill"></span>
+									<span class="nav-label" data-i18n="help.nav.stepNetworks">Select City &amp; Network</span>
 								</a>
-								<a href="#card-mode-filter" class="sidebar-sub-item" data-target="card-mode-filter">
-									<span class="sub-nav-dot"></span>
-									<span data-i18n="help.nav.topicModeFilter">मेट्रो, RRTS व फ़िल्टर</span>
+								<!-- Sub-section / Topics -->
+								<ol class="sidebar-sub-list">
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-city-select" class="sidebar-sub-item" data-target="card-city-select">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicCitySelect">अपना शहर कैसे चुनें</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-mode-filter" class="sidebar-sub-item" data-target="card-mode-filter">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicModeFilter">मेट्रो, RRTS व फ़िल्टर</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-combined-net" class="sidebar-sub-item" data-target="card-combined-net">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicCombinedNet">कंबाइंड (ऑल नेटवर्क)</span>
+										</a>
+									</li>
+								</ol>
+							</li>
+							<li class="sidebar-nav-group">
+								<a href="#sec-home" class="sidebar-nav-item" data-target="sec-home">
+									<span class="nav-step-pill"></span>
+									<span class="nav-label" data-i18n="help.nav.stepHome">Home &amp; Route Finder</span>
 								</a>
-								<a href="#card-combined-net" class="sidebar-sub-item" data-target="card-combined-net">
-									<span class="sub-nav-dot"></span>
-									<span data-i18n="help.nav.topicCombinedNet">कंबाइंड (ऑल नेटवर्क)</span>
+								<!-- Level 2: Core Functional Areas -->
+								<ol class="sidebar-sub-list">
+									<!-- 2.1 Sidebar Panels Area -->
+									<li class="sidebar-sub-group">
+										<div class="sidebar-sub-heading">
+											<span class="sub-heading-num"></span>
+											<span data-i18n="help.nav.areaSidebar">Sidebar Panels</span>
+										</div>
+										<!-- Level 3: Nested Topics -->
+										<ol class="sidebar-nested-list">
+											<li class="sidebar-nested-item">
+												<a href="#card-route-search" class="sidebar-nested-link" data-target="card-route-search">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicRouteSearch">Route Finder &amp; Fares</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-recent-backup" class="sidebar-nested-link" data-target="card-recent-backup">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicRecent">Recent Searches (A-Z)</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-alarm-audio" class="sidebar-nested-link" data-target="card-alarm-audio">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicSettings">App Settings</span>
+												</a>
+												<!-- Level 4: Settings Tabs -->
+												<ol class="sidebar-deep-list">
+													<li class="sidebar-deep-item">
+														<a href="#card-setting-alarm" class="sidebar-deep-link" data-target="card-setting-alarm">
+															<span class="deep-num"></span>
+															<span data-i18n="help.nav.settingAlarmTab">Alarm Settings Tab</span>
+														</a>
+													</li>
+													<li class="sidebar-deep-item">
+														<a href="#card-setting-map" class="sidebar-deep-link" data-target="card-setting-map">
+															<span class="deep-num"></span>
+															<span data-i18n="help.nav.settingMapTab">Map Display Tab</span>
+														</a>
+													</li>
+													<li class="sidebar-deep-item">
+														<a href="#card-setting-packs" class="sidebar-deep-link" data-target="card-setting-packs">
+															<span class="deep-num"></span>
+															<span data-i18n="help.nav.settingPacksTab">Packs Tab (Themes &amp; Languages)</span>
+														</a>
+													</li>
+													<li class="sidebar-deep-item">
+														<a href="#card-setting-backup" class="sidebar-deep-link" data-target="card-setting-backup">
+															<span class="deep-num"></span>
+															<span data-i18n="help.nav.settingBackupTab">Backup &amp; Restore Tab</span>
+														</a>
+													</li>
+												</ol>
+											</li>
+										</ol>
+									</li>
+
+									<!-- 2.2 Interactive SVG Map Area -->
+									<li class="sidebar-sub-group">
+										<div class="sidebar-sub-heading">
+											<span class="sub-heading-num"></span>
+											<span data-i18n="help.nav.areaMap">Interactive Map</span>
+										</div>
+										<ol class="sidebar-nested-list">
+											<li class="sidebar-nested-item">
+												<a href="#card-map-legend" class="sidebar-nested-link" data-target="card-map-legend">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicMapLegend">Map Navigation &amp; Legend</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-station-dot" class="sidebar-nested-link" data-target="card-station-dot">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicStationDot">Station Dot Tap &amp; Pins</span>
+												</a>
+											</li>
+										</ol>
+									</li>
+
+									<!-- 2.3 Live Widgets & Telemetry Area -->
+									<li class="sidebar-sub-group">
+										<div class="sidebar-sub-heading">
+											<span class="sub-heading-num"></span>
+											<span data-i18n="help.nav.areaWidgets">Widgets &amp; Sensors</span>
+										</div>
+										<ol class="sidebar-nested-list">
+											<li class="sidebar-nested-item">
+												<a href="#card-speedo-telemetry" class="sidebar-nested-link" data-target="card-speedo-telemetry">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicSpeedoTelemetry">Speedometer &amp; GPS</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-alarm-widget" class="sidebar-nested-link" data-target="card-alarm-widget">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicAlarmWidget">2.5D Alarm Tracker Widget</span>
+												</a>
+											</li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+							<li class="sidebar-nav-group">
+								<a href="#sec-stations" class="sidebar-nav-item" data-target="sec-stations">
+									<span class="nav-step-pill"></span>
+									<span class="nav-label" data-i18n="help.nav.stepStations">Stations &amp; Facilities</span>
 								</a>
-							</div>
-						</div>
-						<div class="sidebar-nav-group">
-							<a href="#sec-routes" class="sidebar-nav-item" data-target="sec-routes">
-								<span class="nav-step-pill">2</span>
-								<span class="nav-label" data-i18n="help.nav.step1">2. Route Planning</span>
-							</a>
-						</div>
-						<div class="sidebar-nav-group">
-							<a href="#sec-smart" class="sidebar-nav-item" data-target="sec-smart">
-								<span class="nav-step-pill">3</span>
-								<span class="nav-label" data-i18n="help.nav.step2">3. Smart Journey &amp; Sensors</span>
-							</a>
-							<!-- Sub-section / Topics -->
-							<div class="sidebar-sub-nav">
-								<a href="#card-dest-alarm" class="sidebar-sub-item" data-target="card-dest-alarm">
-									<span class="sub-nav-dot"></span>
-									<span data-i18n="help.nav.topicDestAlarm">डेस्टिनेशन अलार्म</span>
+								<!-- Level 2: Core Functional Areas -->
+								<ol class="sidebar-sub-list">
+									<!-- 3.1 All Stations Directory Area -->
+									<li class="sidebar-sub-group">
+										<div class="sidebar-sub-heading">
+											<span class="sub-heading-num"></span>
+											<span data-i18n="help.nav.areaAllStations">All Stations Directory</span>
+										</div>
+										<ol class="sidebar-nested-list">
+											<li class="sidebar-nested-item">
+												<a href="#card-stations-filter" class="sidebar-nested-link" data-target="card-stations-filter">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicStationsFilter">Directory &amp; Line Filter</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-stations-coach" class="sidebar-nested-link" data-target="card-stations-coach">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicStationsCoach">Coach View &amp; Sequence</span>
+												</a>
+											</li>
+										</ol>
+									</li>
+
+									<!-- 3.2 Station Details & Facilities Area -->
+									<li class="sidebar-sub-group">
+										<div class="sidebar-sub-heading">
+											<span class="sub-heading-num"></span>
+											<span data-i18n="help.nav.areaStationInfo">Station Facilities</span>
+										</div>
+										<ol class="sidebar-nested-list">
+											<li class="sidebar-nested-item">
+												<a href="#card-station-timings" class="sidebar-nested-link" data-target="card-station-timings">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicStationTimings">First &amp; Last Train Timings</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-station-platforms" class="sidebar-nested-link" data-target="card-station-platforms">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicStationPlatforms">Platforms &amp; Directions</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-station-gates" class="sidebar-nested-link" data-target="card-station-gates">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicStationGates">Gates, Exits &amp; Places</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-station-facilities" class="sidebar-nested-link" data-target="card-station-facilities">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicStationFacilities">Lifts, Parking &amp; Amenities</span>
+												</a>
+											</li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+							<li class="sidebar-nav-group">
+								<a href="#sec-support" class="sidebar-nav-item" data-target="sec-support">
+									<span class="nav-step-pill"></span>
+									<span class="nav-label" data-i18n="help.nav.stepSupport">Passenger Support &amp; Safety</span>
 								</a>
-								<a href="#card-sensors-gps" class="sidebar-sub-item" data-target="card-sensors-gps">
-									<span class="sub-nav-dot"></span>
-									<span data-i18n="help.nav.topicSensorsGps">लाइव GPS व सेंसर</span>
+								<!-- Level 2: Core Functional Areas -->
+								<ol class="sidebar-sub-list">
+									<!-- 4.1 Statutory Safety & Baggage Area -->
+									<li class="sidebar-sub-group">
+										<div class="sidebar-sub-heading">
+											<span class="sub-heading-num"></span>
+											<span data-i18n="help.nav.areaSupportSafety">Statutory Safety &amp; Baggage</span>
+										</div>
+										<ol class="sidebar-nested-list">
+											<li class="sidebar-nested-item">
+												<a href="#card-support-vigilance" class="sidebar-nested-link" data-target="card-support-vigilance">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicSupportVigilance">Vigilance &amp; CISF Rules</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-support-baggage" class="sidebar-nested-link" data-target="card-support-baggage">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicSupportBaggage">Baggage Limits &amp; Weight</span>
+												</a>
+											</li>
+										</ol>
+									</li>
+
+									<!-- 4.2 Commuter Rights & Amenities Area -->
+									<li class="sidebar-sub-group">
+										<div class="sidebar-sub-heading">
+											<span class="sub-heading-num"></span>
+											<span data-i18n="help.nav.areaSupportRights">Commuter Rights &amp; Amenities</span>
+										</div>
+										<ol class="sidebar-nested-list">
+											<li class="sidebar-nested-item">
+												<a href="#card-support-women" class="sidebar-nested-link" data-target="card-support-women">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicSupportWomen">Women Reserved Coach</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-support-accessibility" class="sidebar-nested-link" data-target="card-support-accessibility">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicSupportAccessibility">Barrier-Free Accessibility</span>
+												</a>
+											</li>
+											<li class="sidebar-nested-item">
+												<a href="#card-support-parking" class="sidebar-nested-link" data-target="card-support-parking">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicSupportParking">Parking Rules &amp; Tariffs</span>
+												</a>
+											</li>
+										</ol>
+									</li>
+
+									<!-- 4.3 24x7 Emergency Helplines Area -->
+									<li class="sidebar-sub-group">
+										<div class="sidebar-sub-heading">
+											<span class="sub-heading-num"></span>
+											<span data-i18n="help.nav.areaSupportHelplines">Emergency Helplines</span>
+										</div>
+										<ol class="sidebar-nested-list">
+											<li class="sidebar-nested-item">
+												<a href="#card-support-helplines" class="sidebar-nested-link" data-target="card-support-helplines">
+													<span class="nested-num"></span>
+													<span data-i18n="help.nav.topicSupportHelplines">24x7 Control Rooms &amp; SOS</span>
+												</a>
+											</li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+							<li class="sidebar-nav-group">
+								<a href="#sec-header" class="sidebar-nav-item" data-target="sec-header">
+									<span class="nav-step-pill"></span>
+									<span class="nav-label" data-i18n="help.nav.stepHeader">Global Header &amp; Navigation</span>
 								</a>
-								<a href="#card-recharge-card" class="sidebar-sub-item" data-target="card-recharge-card">
-									<span class="sub-nav-dot"></span>
-									<span data-i18n="help.nav.topicRecharge">स्मार्ट कार्ड रीचार्ज</span>
+								<ol class="sidebar-sub-list">
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-header-city" class="sidebar-sub-item" data-target="card-header-city">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicCitySelector">शहर व नेटवर्क बदलाव</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-header-themes" class="sidebar-sub-item" data-target="card-header-themes">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicThemeSwitcher">थीम व डार्क/लाइट मोड</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-header-language" class="sidebar-sub-item" data-target="card-header-language">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicLangSwitcher">बहुभाषी इंटरफ़ेस व अनुवाद</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-header-font" class="sidebar-sub-item" data-target="card-header-font">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicFontScale">टेक्स्ट साइज़ एडजस्टर (फ़ॉन्ट स्केल)</span>
+										</a>
+									</li>
+								</ol>
+							</li>
+							<li class="sidebar-nav-group">
+								<a href="#sec-footer" class="sidebar-nav-item" data-target="sec-footer">
+									<span class="nav-step-pill"></span>
+									<span class="nav-label" data-i18n="help.nav.stepFooter">Universal Footer Hub</span>
 								</a>
-							</div>
-						</div>
-						<div class="sidebar-nav-group">
-							<a href="#sec-fares" class="sidebar-nav-item" data-target="sec-fares">
-								<span class="nav-step-pill">4</span>
-								<span class="nav-label" data-i18n="help.nav.step3">4. Fares &amp; Smart Cards</span>
-							</a>
-						</div>
-						<div class="sidebar-nav-group">
-							<a href="#sec-troubleshoot" class="sidebar-nav-item" data-target="sec-troubleshoot">
-								<span class="nav-step-pill">5</span>
-								<span class="nav-label" data-i18n="help.nav.step4">5. Troubleshooting &amp; Settings</span>
-							</a>
-						</div>
+								<ol class="sidebar-sub-list">
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-footer-portals" class="sidebar-sub-item" data-target="card-footer-portals">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicFooterLinks">क्विक पोर्टल्स व लिंक्स</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-footer-pass" class="sidebar-sub-item" data-target="card-footer-pass">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicFooterQr">स्कैन एंड राइड 2.5D मोबाइल पास</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-footer-disclaimer" class="sidebar-sub-item" data-target="card-footer-disclaimer">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicFooterLegal">ट्रांज़िट एडवाइज़री व नियम</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-footer-status" class="sidebar-sub-item" data-target="card-footer-status">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicFooterStatus">बिल्ड वर्शन व कनेक्टिविटी</span>
+										</a>
+									</li>
+								</ol>
+							</li>
+							<li class="sidebar-nav-group">
+								<a href="#sec-pwa" class="sidebar-nav-item" data-target="sec-pwa">
+									<span class="nav-step-pill"></span>
+									<span class="nav-label" data-i18n="help.nav.stepPwa">PWA &amp; Offline Installation</span>
+								</a>
+								<ol class="sidebar-sub-list">
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-pwa-install" class="sidebar-sub-item" data-target="card-pwa-install">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicPwaInstall">ऐप की तरह इंस्टॉल (PWA)</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-pwa-caching" class="sidebar-sub-item" data-target="card-pwa-caching">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicPwaServiceWorker">ऑफलाइन इंजन व सर्विस वर्कर</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-pwa-storage" class="sidebar-sub-item" data-target="card-pwa-storage">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicPwaStorage">ऑफलाइन डेटा व पैक्स स्टोरेज</span>
+										</a>
+									</li>
+								</ol>
+							</li>
+							<li class="sidebar-nav-group">
+								<a href="#sec-troubleshoot" class="sidebar-nav-item" data-target="sec-troubleshoot">
+									<span class="nav-step-pill"></span>
+									<span class="nav-label" data-i18n="help.nav.stepTroubleshoot">Diagnostics &amp; Troubleshooting</span>
+								</a>
+								<ol class="sidebar-sub-list">
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-troubleshoot-gps" class="sidebar-sub-item" data-target="card-troubleshoot-gps">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicGpsUnderground">टनल में GPS सिग्नल फिक्स</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-troubleshoot-cache" class="sidebar-sub-item" data-target="card-troubleshoot-cache">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicCacheReload">कैशे साफ़ करना व हार्ड रीलोड</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-troubleshoot-storage" class="sidebar-sub-item" data-target="card-troubleshoot-storage">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicStorageReset">ऐप स्टोरेज व डेटा रीसेट</span>
+										</a>
+									</li>
+									<li class="sidebar-sub-item-wrap">
+										<a href="#card-troubleshoot-network" class="sidebar-sub-item" data-target="card-troubleshoot-network">
+											<span class="sub-nav-num"></span>
+											<span data-i18n="help.nav.topicNetworkErrors">नेटवर्क एरर व ऑफलाइन रिकवरी</span>
+										</a>
+									</li>
+								</ol>
+							</li>
+						</ol>
 					</nav>
 				</div>
 			</aside>
@@ -186,7 +526,7 @@
 				<div class="help-section-group" id="sec-networks" data-category="networks">
 					<div class="section-badge-header">
 						<div class="section-title-wrap">
-							<span class="section-num-tag">01</span>
+							<span class="section-num-tag"></span>
 							<div>
 								<h2 class="section-title" data-i18n="help.sections.networksTitle">Select City &amp; Transit Network</h2>
 								<p class="section-sub" data-i18n="help.sections.networksSubtitle">Discover and switch between Metro, RRTS, Monorail and suburban systems across cities</p>
@@ -194,11 +534,12 @@
 						</div>
 					</div>
 
-					<div class="help-card-list">
+					<ol class="help-card-list">
 						<!-- Card 1.1: Select City -->
-						<div class="help-card-item" id="card-city-select" data-keywords="city network select change switch delhi mumbai bangalore kolkata hyderabad jaipur chennai search registry">
+						<li class="help-card-item" id="card-city-select" data-keywords="city network select change switch delhi mumbai bangalore kolkata hyderabad jaipur chennai search registry">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-blue">
 										<span class="help-ico ico-pin" aria-hidden="true"></span>
 									</div>
@@ -240,12 +581,13 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</li>
 
 						<!-- Card 1.2: Mode & Status Filter -->
-						<div class="help-card-item" id="card-mode-filter" data-keywords="mode status filter rrts monorail metrolite metroneo operational under construction sort alpha">
+						<li class="help-card-item" id="card-mode-filter" data-keywords="mode status filter rrts monorail metrolite metroneo operational under construction sort alpha">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-indigo">
 										<span class="help-ico ico-activity" aria-hidden="true"></span>
 									</div>
@@ -287,12 +629,13 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</li>
 
 						<!-- Card 1.3: Combined All Networks -->
-						<div class="help-card-item" id="card-combined-net" data-keywords="combined all networks group card dmrc rapid metro rrts transfer multi modal">
+						<li class="help-card-item" id="card-combined-net" data-keywords="combined all networks group card dmrc rapid metro rrts transfer multi modal">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-purple">
 										<span class="help-ico ico-transfer" aria-hidden="true"></span>
 									</div>
@@ -334,411 +677,2016 @@
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
+						</li>
+					</ol>
 				</div>
 
 				<!-- =========================================================
-				 SECTION 2: ROUTE PLANNING & NAVIGATION
+				 SECTION 2: HOME PAGE, ROUTE FINDER & INTERACTIVE MAP
 				 ========================================================= -->
-				<div class="help-section-group" id="sec-routes" data-category="routes">
+				<div class="help-section-group" id="sec-home" data-category="home">
 					<div class="section-badge-header">
 						<div class="section-title-wrap">
-							<span class="section-num-tag">02</span>
+							<span class="section-num-tag"></span>
 							<div>
-								<h2 class="section-title" data-i18n="help.sections.routesTitle">Route Planning &amp; Navigation</h2>
-								<p class="section-sub" data-i18n="help.sections.routesSubtitle">Finding optimal transit paths, stations, and interchange guides</p>
+								<h2 class="section-title" data-i18n="help.sections.homeTitle">Home Page, Route Finder &amp; Interactive Map</h2>
+								<p class="section-sub" data-i18n="help.sections.homeSubtitle">Route planning, dynamic fare engine, map legend, destination alarm &amp; speedometer</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="help-card-list">
-						<!-- Card 1.1: Search Stations -->
-						<div class="help-card-item" id="card-search-stations" data-keywords="search find station plan route fuzzy acronym rc recent history swap reverse">
+					<ol class="help-sub-area-list">
+						<!-- =====================================================
+						 AREA 2.1: SIDEBAR PANELS
+						 ===================================================== -->
+						<li class="help-sub-area" id="area-sidebar">
+							<div class="sub-area-badge-header">
+								<span class="sub-area-num-tag"></span>
+								<h3 class="sub-area-title" data-i18n="help.nav.areaSidebar">Sidebar Panels</h3>
+							</div>
+							<ol class="help-card-list">
+								<!-- Card 2.1.1: Route Finder & Fares -->
+								<li class="help-card-item" id="card-route-search" data-keywords="search find station plan route fuzzy acronym swap reverse priority shortest fastest least transfer share whatsapp telegram copy fare dynamic ticket">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-blue">
+												<span class="help-ico ico-routes" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.routeSearch.title">रूट कैसे खोजें और प्राथमिकता (Priority) कैसे चुनें</h4>
+												<span data-i18n="help.cards.routeSearch.subtitle">टाइपो-सपोर्ट सर्च, स्टेशन स्वैप और सबसे छोटा रूट फ़िल्टर</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.routeSearch.desc">यात्रा-मार्ग में किसी भी दो स्टेशनों के बीच तुरंत सर्वोत्तम रास्ता खोजें:</p>
+
+										<!-- Live UI Blueprint Preview (Dynamically mounted from index.html) -->
+										<div class="live-ui-mockup-wrapper">
+											<div class="live-mockup-label">
+												<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+												<span data-i18n="help.mockup.sidebarNavTitle">नेविगेशन साइडबार डॉक (Sidebar Navigation)</span>
+											</div>
+											<div id="live-mockup-sidebar-nav"></div>
+										</div>
+
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.routeSearch.fact1">शुरुआती और आखिरी स्टेशन का नाम लिखते ही टाइपिंग मिस्टेक होने पर भी सही स्टेशन सुझाव मिल जाते हैं।</li>
+											<li data-i18n="help.cards.routeSearch.fact2">स्टेशनों की अदला-बदली के लिए बीच में बने स्वैप बटन (⇄) को दबाएं।</li>
+											<li data-i18n="help.cards.routeSearch.fact3">प्राथमिकता (Priority): सबसे तेज़ यात्रा के लिए 'Shortest' या कम लाइन बदलने के लिए 'Less Interchange' चुनें।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.routeSearch.moreBtn" data-less-key="help.cards.routeSearch.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.routeSearch.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.routeSearch.detailHeading">रूट खोजने और शेयर करने के आसान स्टेप्स:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.routeSearch.step1">Start Station लिखें: 'From' बॉक्स में स्टेशन का नाम या 2 अक्षरों का कोड (जैसे राजीव चौक के लिए 'RC') लिखें।</li>
+												<li data-i18n="help.cards.routeSearch.step2">Destination Station चुनें: 'To' बॉक्स में अपना अंतिम स्टेशन चुनें।</li>
+												<li data-i18n="help.cards.routeSearch.step3">Priority टॉगल करें: अगर जल्दी पहुंचना है तो 'Shortest' रखें, अगर आराम से बिना ट्रेन बदले जाना है तो 'Less Interchange' चुनें।</li>
+												<li data-i18n="help.cards.routeSearch.step4">शेयर रूट: रूट मिलने पर ऊपर बने शेयर बटन (📤) से व्हाट्सएप, टेलीग्राम या एसएमएस पर पूरी यात्रा शेयर करें।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.routeSearch.tipBadge">स्मार्ट ऑटो-फिल:</span>
+												<span class="tip-text" data-i18n="help.cards.routeSearch.tipText">ऐप आपके आखिरी बार खोजे गए रूट को याद रखता है और ऐप दोबारा खोलने पर अपने-आप भर देता है।</span>
+											</div>
+
+											<!-- Live UI Blueprint Preview: Route Priority Switcher -->
+											<div class="live-ui-mockup-wrapper">
+												<div class="live-mockup-label">
+													<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+													<span data-i18n="help.mockup.routePriorityTitle">रूट प्रायोरिटी सिलेक्टर (Shortest व Less Interchange)</span>
+												</div>
+												<div id="live-mockup-route-priority"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 2.1.2: Recent Searches -->
+								<li class="help-card-item" id="card-recent-backup" data-keywords="recent searches history most used az backup restore json export share import">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-teal">
+												<span class="help-ico ico-transfer" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.recentBackup.title">रीसेंट सर्च हिस्ट्री, मैप सेटिंग्स और बैकअप / रीस्टोर</h4>
+												<span data-i18n="help.cards.recentBackup.subtitle">पुरानी यात्राएं 1-टैप में लोड करना, मैप पर भविष्य की लाइनें और JSON बैकअप</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.recentBackup.desc">अपनी यात्राओं का इतिहास रखें और सेटिंग्स को हमेशा सुरक्षित रखें:</p>
+
+										<!-- Live UI Blueprint Preview: Recent Searches Filter Chips -->
+										<div class="live-ui-mockup-wrapper">
+											<div class="live-mockup-label">
+												<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+												<span data-i18n="help.mockup.recentChipsTitle">सर्च हिस्ट्री फ़िल्टर चिप्स (Recent, Most Used, A-Z)</span>
+											</div>
+											<div id="live-mockup-recent-chips"></div>
+										</div>
+
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.recentBackup.fact1">Recent Searches टैब में आपकी खोजी गई यात्राएं सेव रहती हैं; 1-टैप में पूरा रूट दोबारा खुल जाता है।</li>
+											<li data-i18n="help.cards.recentBackup.fact2">मैप सेटिंग्स में जाकर निर्माणाधीन (Dashed) और प्रस्तावित (Dotted) लाइनों को ऑन या ऑफ किया जा सकता है।</li>
+											<li data-i18n="help.cards.recentBackup.fact3">Backup टैब से अपनी सभी सेव की गई यात्राएं और सेटिंग्स JSON फ़ाइल के रूप में डाउनलोड या दोस्तों के साथ शेयर कर सकते हैं।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.recentBackup.moreBtn" data-less-key="help.cards.recentBackup.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.recentBackup.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.recentBackup.detailHeading">सर्च हिस्ट्री और बैकअप का उपयोग करने के स्टेप्स:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.recentBackup.step1">रीसेंट फ़िल्टर: साइडबार में 'Recent' दबाएं; Recent (हाल की), Most Used (सबसे ज़्यादा खोजी), या A-Z चिप्स से यात्राएं छांटें।</li>
+												<li data-i18n="help.cards.recentBackup.step2">हिस्ट्री साफ़ करना: पूरी सर्च हिस्ट्री हटाने के लिए ऊपर बने 'Clear All' बटन पर क्लिक करें।</li>
+												<li data-i18n="help.cards.recentBackup.step3">मैप डिस्प्ले बदलना: Settings के 'Map' टैब में जाकर 'Show Under Construction' या 'Show Approved' स्विच बंद या चालू करें।</li>
+												<li data-i18n="help.cards.recentBackup.step4">डेटा डाउनलोड व शेयर: 'Backup / Restore' टैब में 'Download' दबाकर बैकअप फ़ाइल सेव करें या 'Share' से भेजें।</li>
+												<li data-i18n="help.cards.recentBackup.step5">डेटा इंपोर्ट करना: नए फोन में 'Import' बटन दबाकर अपनी पुरानी JSON बैकअप फ़ाइल चुनते ही सारी सेटिंग्स वापस आ जाती हैं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.recentBackup.tipBadge">ऑफ़लाइन पैक्स:</span>
+												<span class="tip-text" data-i18n="help.cards.recentBackup.tipText">'Packs' टैब में जाकर ऑफलाइन भाषाएं और थीम डाउनलोड की जा सकती हैं, जिससे बिना इंटरनेट भी ऐप पूरी तरह काम करता है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 2.1.3: App Settings (With 4 Deep Tabs) -->
+								<li class="help-card-item" id="card-alarm-audio" data-keywords="alarm geofence audio mp3 volume chime beep siren vibration haptic tts voice announcement map display packs themes languages backup restore">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-purple">
+												<span class="help-ico ico-settings" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.settingsPanel.title">ऐप सेटिंग्स और कॉन्फ़िगरेशन पैनल</h4>
+												<span data-i18n="help.cards.settingsPanel.subtitle">अलार्म, मैप डिस्प्ले, थीम्स/भाषा पैक्स और बैकअप / रीस्टोर</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.settingsPanel.desc">सेटिंग्स पैनल में अपनी प्राथमिकताओं को सेट करने के लिए 4 मुख्य टैब मिलते हैं:</p>
+
+										<!-- Live UI Blueprint Preview: Settings Folder Tabs -->
+										<div class="live-ui-mockup-wrapper">
+											<div class="live-mockup-label">
+												<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+												<span data-i18n="help.mockup.settingsTabsTitle">सेटिंग्स फ़ोल्डर टैब्स (Alarm, Map, Packs, Backup)</span>
+											</div>
+											<div id="live-mockup-settings-tabs"></div>
+										</div>
+
+										<!-- Level 4 Deep Tabs: 2.1.3.1 to 2.1.3.4 -->
+										<ol class="help-deep-card-list">
+											<li class="help-deep-card-item" id="card-setting-alarm">
+												<div class="deep-card-header">
+													<span class="deep-card-num-badge"></span>
+													<h5 class="deep-card-title" data-i18n="help.cards.settingAlarm.title">अलार्म सेटिंग्स टैब (Alarm Tab)</h5>
+												</div>
+												<p class="deep-card-desc" data-i18n="help.cards.settingAlarm.desc">स्टेशन आने की पूर्व-चेतावनी दूरी (200m, 500m, 1km, या 1 स्टेशन पहले), कस्टम MP3 ऑडियो, वॉल्यूम, हैप्टिक वाइब्रेशन पैटर्न और ऑफलाइन वॉइस अनाउंसमेंट (TTS) सेट करें।</p>
+
+												<!-- Live UI Blueprint Preview: Alarm Geofence Controls -->
+												<div class="live-ui-mockup-wrapper">
+													<div class="live-mockup-label">
+														<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+														<span data-i18n="help.mockup.settingAlarmTitle">अलार्म जियोफेंस व आगमन चेतावनी कंट्रोल्स</span>
+													</div>
+													<div id="live-mockup-setting-alarm"></div>
+												</div>
+
+												<ul class="drawer-facts">
+													<li data-i18n="help.cards.settingAlarm.fact1">पूर्व-चेतावनी दूरी (Trigger Distance): 1 स्टेशन पहले (Proximity), 200m (~1 min), 500m (अनुशंसित), 1.0 km, या 2.0 km में से चुनें।</li>
+													<li data-i18n="help.cards.settingAlarm.fact2">गंतव्य व इंटरचेंज अलर्ट्स: डेस्टिनेशन स्टेशन और लाइन बदलने वाले इंटरचेंज जंक्शन पर स्वतंत्र अलार्म टॉगल।</li>
+													<li data-i18n="help.cards.settingAlarm.fact3">ऑडियो टोन व कस्टम MP3: मेलोडिक चाइम, पल्स बीप, इमरजेंसी सायरन या खुद का MP3/WAV गाना (0–100% वॉल्यूम कंट्रोल)।</li>
+													<li data-i18n="help.cards.settingAlarm.fact4">वाइब्रेशन व वॉइस (TTS): लॉन्ग, शॉर्ट, SOS पैटर्न और आगामी स्टेशन का नाम बोलकर बताने वाली ऑफलाइन वॉइस अनाउंसमेंट।</li>
+												</ul>
+												<div class="drawer-more-wrapper">
+													<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.settingAlarm.moreBtn" data-less-key="help.cards.settingAlarm.lessBtn">
+														<span class="more-btn-label" data-i18n="help.cards.settingAlarm.moreBtn">और जानें...</span>
+														<span class="more-btn-icon" aria-hidden="true">▾</span>
+													</button>
+												</div>
+												<div class="drawer-extended-details hidden">
+													<h5 class="extended-heading" data-i18n="help.cards.settingAlarm.detailHeading">अलार्म कॉन्फ़िगर करने के स्टेप्स:</h5>
+													<ol class="extended-steps">
+														<li data-i18n="help.cards.settingAlarm.step1">दूरी चुनें: 'Arrival Alert Distance' ड्रॉपडाउन से अपनी सुविधानुसार दूरी (जैसे 500m) चुनें।</li>
+														<li data-i18n="help.cards.settingAlarm.step2">टोन व आवाज़ जांचें: 'Test Sound' और 'Test Vibration' बटन दबाकर वॉल्यूम और वाइब्रेशन की जांच करें।</li>
+														<li data-i18n="help.cards.settingAlarm.step3">वॉइस अलर्ट ऑन करें: 'Voice Announcements (TTS)' चालू रखने पर भीड़ में स्टेशन का नाम स्पष्ट सुनाई देगा।</li>
+														<li data-i18n="help.cards.settingAlarm.step4">डिफ़ॉल्ट रीसेट: किसी भी समय नीचे 'Reset to Default' बटन दबाकर मूल सेटिंग्स वापस पा सकते हैं।</li>
+													</ol>
+													<div class="extended-tip-box">
+														<span class="tip-badge" data-i18n="help.cards.settingAlarm.tipBadge">महत्वपूर्ण सुझाव:</span>
+														<span class="tip-text" data-i18n="help.cards.settingAlarm.tipText">भीड़भाड़ वाली यात्रा में 500m या '1 Station Before' चुनना सबसे सुरक्षित रहता है ताकि ट्रेन रुकने से पहले आप गेट के पास पहुंच सकें।</span>
+													</div>
+												</div>
+											</li>
+											<li class="help-deep-card-item" id="card-setting-map">
+												<div class="deep-card-header">
+													<span class="deep-card-num-badge"></span>
+													<h5 class="deep-card-title" data-i18n="help.cards.settingMap.title">मैप डिस्प्ले सेटिंग्स टैब (Map Tab)</h5>
+												</div>
+												<p class="deep-card-desc" data-i18n="help.cards.settingMap.desc">मैप पर निर्माणाधीन लाइनों (Dashed) व स्वीकृत लाइनों (Dotted) को चालू/बंद करें, और ज़ूम स्तर के अनुसार स्टेशन नामों की भाषा व लेबल प्राथमिकता नियंत्रित करें।</p>
+
+												<!-- Live UI Blueprint Preview: Map Display Controls -->
+												<div class="live-ui-mockup-wrapper">
+													<div class="live-mockup-label">
+														<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+														<span data-i18n="help.mockup.settingMapTitle">मैप डिस्प्ले, निर्माणाधीन व स्वीकृत लाइन टॉगल्स</span>
+													</div>
+													<div id="live-mockup-setting-map"></div>
+												</div>
+
+												<ul class="drawer-facts">
+													<li data-i18n="help.cards.settingMap.fact1">निर्माणाधीन लाइनें (Under Construction): डैश्ड (Dashed) लाइनों और निर्माणाधीन स्टेशनों को मैप पर दिखाने या छुपाने का टॉगल।</li>
+													<li data-i18n="help.cards.settingMap.fact2">स्वीकृत व प्रस्तावित लाइनें (Approved & Planned): भविष्य के स्वीकृत मेट्रो कॉरिडोर्स को डॉटेड (Dotted) स्टाइल में देखने की सुविधा।</li>
+													<li data-i18n="help.cards.settingMap.fact3">डायनामिक SVG लेबल्स: ज़ूम स्तर के अनुसार स्टेशन नामों की स्पष्टता और पठनीयता का स्वतः संतुलन।</li>
+												</ul>
+												<div class="drawer-more-wrapper">
+													<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.settingMap.moreBtn" data-less-key="help.cards.settingMap.lessBtn">
+														<span class="more-btn-label" data-i18n="help.cards.settingMap.moreBtn">और जानें...</span>
+														<span class="more-btn-icon" aria-hidden="true">▾</span>
+													</button>
+												</div>
+												<div class="drawer-extended-details hidden">
+													<h5 class="extended-heading" data-i18n="help.cards.settingMap.detailHeading">मैप डिस्प्ले सेटिंग्स के स्टेप्स:</h5>
+													<ol class="extended-steps">
+														<li data-i18n="help.cards.settingMap.step1">चालू नेटवर्क देखें: केवल वर्तमान में चल रही लाइनें देखने के लिए 'Show Under Construction' बंद रखें।</li>
+														<li data-i18n="help.cards.settingMap.step2">भविष्य के विस्तार देखें: आगामी मेट्रो विस्तार देखने के लिए 'Show Approved & Planned' चालू करें।</li>
+														<li data-i18n="help.cards.settingMap.step3">ज़ूम व पैन: दो उंगलियों से पिंच-ज़ूम करके छोटे स्टेशनों के नाम भी उच्च स्पष्टता में देखें।</li>
+													</ol>
+													<div class="extended-tip-box">
+														<span class="tip-badge" data-i18n="help.cards.settingMap.tipBadge">स्पष्ट दृश्य:</span>
+														<span class="tip-text" data-i18n="help.cards.settingMap.tipText">दैनिक यात्रा की योजना बनाते समय केवल चालू लाइनों पर ध्यान केंद्रित करने के लिए निर्माणाधीन टॉगल बंद रख सकते हैं।</span>
+													</div>
+												</div>
+											</li>
+											<li class="help-deep-card-item" id="card-setting-packs">
+												<div class="deep-card-header">
+													<span class="deep-card-num-badge"></span>
+													<h5 class="deep-card-title" data-i18n="help.cards.settingPacks.title">पैक्स टैब: थीम्स व भाषा (Packs Tab)</h5>
+												</div>
+												<p class="deep-card-desc" data-i18n="help.cards.settingPacks.desc">ऑफलाइन उपयोग के लिए अतिरिक्त भाषा पैक और कलर थीम पैक डाउनलोड करें ताकि बिना इंटरनेट भी ऐप सहज चले।</p>
+
+												<!-- Live UI Blueprint Preview: Packs Manager Controls -->
+												<div class="live-ui-mockup-wrapper">
+													<div class="live-mockup-label">
+														<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+														<span data-i18n="help.mockup.settingPacksTitle">ऑफलाइन भाषा व थीम पैक्स मैनेजर</span>
+													</div>
+													<div id="live-mockup-setting-packs"></div>
+												</div>
+
+												<ul class="drawer-facts">
+													<li data-i18n="help.cards.settingPacks.fact1">ऑफलाइन भाषा पैक्स: हिन्दी, अंग्रेज़ी और क्षेत्रीय भाषाओं के सम्पूर्ण शब्दकोश को फ़ोन में लोकली सेव करने की सुविधा।</li>
+													<li data-i18n="help.cards.settingPacks.fact2">प्लगेबल थीम पैक्स: Classic Light, Sleek Dark, Neon Cyberpunk, Vintage Retro, Forest Mint, Ghibli और Comic थीम्स।</li>
+													<li data-i18n="help.cards.settingPacks.fact3">स्टोरेज प्रबंधन: प्रत्येक पैक का सटीक साइज़ (KB/MB) प्रदर्शित होता है और 1-टैप में स्टोरेज खाली किया जा सकता है।</li>
+												</ul>
+												<div class="drawer-more-wrapper">
+													<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.settingPacks.moreBtn" data-less-key="help.cards.settingPacks.lessBtn">
+														<span class="more-btn-label" data-i18n="help.cards.settingPacks.moreBtn">और जानें...</span>
+														<span class="more-btn-icon" aria-hidden="true">▾</span>
+													</button>
+												</div>
+												<div class="drawer-extended-details hidden">
+													<h5 class="extended-heading" data-i18n="help.cards.settingPacks.detailHeading">पैक्स डाउनलोड व प्रबंधित करने के स्टेप्स:</h5>
+													<ol class="extended-steps">
+														<li data-i18n="help.cards.settingPacks.step1">पैक्स सूची देखें: 'Packs' टैब में जाकर उपलब्ध भाषा या थीम पैक्स का कैटलॉग देखें।</li>
+														<li data-i18n="help.cards.settingPacks.step2">डाउनलोड करें: अपनी पसंद के पैक पर 'Download' बटन दबाएं ताकि वह IndexedDB में सुरक्षित हो जाए।</li>
+														<li data-i18n="help.cards.settingPacks.step3">बिना नेटवर्क उपयोग: एक बार सेव होने के बाद भूमिगत टनल या फ्लाइट मोड में भी बिना डेटा के पैक काम करता है।</li>
+													</ol>
+													<div class="extended-tip-box">
+														<span class="tip-badge" data-i18n="help.cards.settingPacks.tipBadge">डेटा बचत:</span>
+														<span class="tip-text" data-i18n="help.cards.settingPacks.tipText">सफर पर निकलने से पहले घर या ऑफिस के वाई-फाई पर अपनी पसंदीदा थीम्स व भाषा पैक डाउनलोड कर लें।</span>
+													</div>
+												</div>
+											</li>
+											<li class="help-deep-card-item" id="card-setting-backup">
+												<div class="deep-card-header">
+													<span class="deep-card-num-badge"></span>
+													<h5 class="deep-card-title" data-i18n="help.cards.settingBackup.title">बैकअप व रीस्टोर टैब (Backup / Restore Tab)</h5>
+												</div>
+												<p class="deep-card-desc" data-i18n="help.cards.settingBackup.desc">अपनी सेव की गई सेटिंग्स और खोजी गई यात्राओं की हिस्ट्री को JSON फ़ाइल में एक्सपोर्ट करें, शेयर करें या नए फोन में 1-क्लिक में रीस्टोर करें।</p>
+
+												<!-- Live UI Blueprint Preview: Backup & Restore Controls -->
+												<div class="live-ui-mockup-wrapper">
+													<div class="live-mockup-label">
+														<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+														<span data-i18n="help.mockup.settingBackupTitle">बैकअप डाउनलोड, शेयर व रीस्टोर एक्शन बार</span>
+													</div>
+													<div id="live-mockup-setting-backup"></div>
+												</div>
+
+												<ul class="drawer-facts">
+													<li data-i18n="help.cards.settingBackup.fact1">सिंगल-फ़ाइल JSON बैकअप: आपकी सभी कस्टम सेटिंग्स, अलार्म दूरी, टोन और हालिया सर्च हिस्ट्री एक सुरक्षित फ़ाइल में पैक होती है।</li>
+													<li data-i18n="help.cards.settingBackup.fact2">1-टैप शेयरिंग (Web Share API): बैकअप फ़ाइल को WhatsApp, Google Drive या ईमेल से तुरंत दूसरे डिवाइस पर भेजें।</li>
+													<li data-i18n="help.cards.settingBackup.fact3">त्वरित रीस्टोर (Instant Import): नया फोन लेने पर 'Import' बटन से 1 सेकंड में पूरा डेटा बहाल करें।</li>
+												</ul>
+												<div class="drawer-more-wrapper">
+													<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.settingBackup.moreBtn" data-less-key="help.cards.settingBackup.lessBtn">
+														<span class="more-btn-label" data-i18n="help.cards.settingBackup.moreBtn">और जानें...</span>
+														<span class="more-btn-icon" aria-hidden="true">▾</span>
+													</button>
+												</div>
+												<div class="drawer-extended-details hidden">
+													<h5 class="extended-heading" data-i18n="help.cards.settingBackup.detailHeading">बैकअप व रीस्टोर करने के स्टेप्स:</h5>
+													<ol class="extended-steps">
+														<li data-i18n="help.cards.settingBackup.step1">डेटा डाउनलोड करें: 'Download' बटन दबाकर `yatramarg-backup.json` फ़ाइल अपने डिवाइस में सेव करें।</li>
+														<li data-i18n="help.cards.settingBackup.step2">फ़ाइल शेयर करें: 'Share' बटन पर क्लिक करके बैकअप फ़ाइल को अपने ईमेल या ड्राइव में सुरक्षित रखें।</li>
+														<li data-i18n="help.cards.settingBackup.step3">नया फोन रीस्टोर: नए डिवाइस पर 'Import' बटन दबाएं और बैकअप फ़ाइल चुनें; सब कुछ तुरंत रीस्टोर हो जाएगा।</li>
+													</ol>
+													<div class="extended-tip-box">
+														<span class="tip-badge" data-i18n="help.cards.settingBackup.tipBadge">100% प्राइवेट:</span>
+														<span class="tip-text" data-i18n="help.cards.settingBackup.tipText">आपका बैकअप डेटा कभी किसी बाहरी सर्वर पर नहीं जाता; यह पूरी तरह आपके डिवाइस और निजी फ़ाइल में रहता है।</span>
+													</div>
+												</div>
+											</li>
+										</ol>
+									</div>
+								</li>
+							</ol>
+						</li>
+
+						<!-- =====================================================
+						 AREA 2.2: INTERACTIVE MAP
+						 ===================================================== -->
+						<li class="help-sub-area" id="area-map">
+							<div class="sub-area-badge-header">
+								<span class="sub-area-num-tag"></span>
+								<h3 class="sub-area-title" data-i18n="help.nav.areaMap">Interactive Map</h3>
+							</div>
+							<ol class="help-card-list">
+								<!-- Card 2.2.1: Map Navigation & Legend -->
+								<li class="help-card-item" id="card-map-legend" data-keywords="svg map interactive zoom pan pinch legend lines filter operational under construction planned solid dashed dotted">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-indigo">
+												<span class="help-ico ico-compass" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.mapLegend.title">इंटरैक्टिव मैप और लेजेंड का उपयोग कैसे करें</h4>
+												<span data-i18n="help.cards.mapLegend.subtitle">ज़ूम, पैन, लाइनों को अलग देखना और स्टेशन के प्रकार समझना</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.mapLegend.desc">वेक्टर SVG मैप पर पूरे शहर का नेटवर्क स्पष्ट और तेज़ी से दिखता है:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.mapLegend.fact1">मैप को दो उंगलियों से पिंच करके ज़ूम-इन/आउट करें और उंगली से किसी भी दिशा में ड्रैग (Pan) करें।</li>
+											<li data-i18n="help.cards.mapLegend.fact2">Legend बटन दबाकर सभी लाइनों की सूची देखें; किसी लाइन पर क्लिक करके केवल उसी लाइन को मैप पर देख सकते हैं।</li>
+											<li data-i18n="help.cards.mapLegend.fact3">लेजेंड में चालू (सॉलिड), निर्माणाधीन (डैश्ड) और प्रस्तावित (डॉटेड) लाइनों की अलग पहचान दी गई है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.mapLegend.moreBtn" data-less-key="help.cards.mapLegend.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.mapLegend.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.mapLegend.detailHeading">लेजेंड और मैप सिंबल के नियम:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.mapLegend.step1">लाइन फ़िल्टर: लेजेंड में किसी खास मेट्रो लाइन पर क्लिक करने पर बाकी लाइनें हल्की हो जाती हैं और वह लाइन चमकने लगती है।</li>
+												<li data-i18n="help.cards.mapLegend.step2">स्टेशन के प्रकार: सामान्य स्टेशन (सर्कल), इंटरचेंज जंक्शन (वॉकवे सिंबल), मल्टीमॉडल स्टेशन (मेट्रो + RRTS) और टर्मिनल स्टेशन आसानी से पहचाने जा सकते हैं।</li>
+												<li data-i18n="help.cards.mapLegend.step3">रूट हाईलाइट: जब आप कोई रूट खोजते हैं, तो मैप पर वही रास्ता रंगीन रेखा और पिन (▲ और ▼) के साथ चमकता है।</li>
+												<li data-i18n="help.cards.mapLegend.step4">रूट साफ़ करना: लेजेंड के ऊपर बने 'Clear Route' बटन से खोजे गए रास्ते को मैप से हटा सकते हैं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.mapLegend.tipBadge">तेज़ नेविगेशन:</span>
+												<span class="tip-text" data-i18n="help.cards.mapLegend.tipText">मैप पर किसी भी स्टेशन के नाम पर डबल-टैप करने से मैप अपने-आप उस स्टेशन पर ज़ूम हो जाता है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 2.2.2: Direct Station Dot Selection -->
+								<li class="help-card-item" id="card-station-dot" data-keywords="station dot circle tap callout from to pin direct select info details link popup">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-rose">
+												<span class="help-ico ico-pin" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.stationDot.title">मैप पर स्टेशन डॉट दबाकर रूट और जानकारी कैसे देखें</h4>
+												<span data-i18n="help.cards.stationDot.subtitle">बिना टाइप किए सीधा मैप से स्टेशन चुनना और स्टेशन पेज खोलना</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.stationDot.desc">नक्शे पर सीधे स्टेशन देखकर रूट बनाने की सबसे तेज़ सुविधा:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.stationDot.fact1">मैप पर किसी भी स्टेशन के गोल बिंदु (Dot) पर क्लिक करते ही स्टेशन कॉलआउट कार्ड खुल जाता है।</li>
+											<li data-i18n="help.cards.stationDot.fact2">कॉलआउट कार्ड में स्टेशन का नाम, स्टेटस (चालू/निर्माणाधीन) और 'स्टेशन विवरण' देखने का सीधा लिंक मिलता है।</li>
+											<li data-i18n="help.cards.stationDot.fact3">'FROM (▲)' और 'TO (▼)' बटन दबाकर बिना टाइप किए सीधे मैप से रूट सेट किया जा सकता है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.stationDot.moreBtn" data-less-key="help.cards.stationDot.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.stationDot.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.stationDot.detailHeading">मैप से सीधा रूट बनाने के स्टेप्स:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.stationDot.step1">स्टार्ट स्टेशन चुनें: जिस स्टेशन से यात्रा शुरू करनी है, उसके डॉट पर क्लिक करें और 'FROM' दबाएं (वहां ▲ पिन लग जाएगा)।</li>
+												<li data-i18n="help.cards.stationDot.step2">डेस्टिनेशन स्टेशन चुनें: जहां जाना है, उसके डॉट पर क्लिक करके 'TO' दबाएं (वहां ▼ पिन लग जाएगा)।</li>
+												<li data-i18n="help.cards.stationDot.step3">कन्फर्म करें: दोनों स्टेशन चुनते ही स्क्रीन पर तुरंत रूट खोजने का कन्फर्मेशन बॉक्स आता है, 'Find Route' दबाते ही रास्ता दिख जाता है।</li>
+												<li data-i18n="help.cards.stationDot.step4">स्टेशन जानकारी लिंक: कॉलआउट के ऊपर बने इन्फो बटन (ℹ️) पर क्लिक करके उस स्टेशन के गेट, प्लेटफॉर्म और पहली/आखिरी ट्रेन की पूरी जानकारी देख सकते हैं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.stationDot.tipBadge">सुविधाजनक तरीका:</span>
+												<span class="tip-text" data-i18n="help.cards.stationDot.tipText">अगर आप स्टेशन का नाम टाइप नहीं करना चाहते, तो मैप देखकर सीधे स्टेशनों के डॉट्स दबाकर सबसे तेज़ी से रूट निकाल सकते हैं।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</li>
+
+						<!-- =====================================================
+						 AREA 2.3: WIDGETS & SENSORS
+						 ===================================================== -->
+						<li class="help-sub-area" id="area-widgets">
+							<div class="sub-area-badge-header">
+								<span class="sub-area-num-tag"></span>
+								<h3 class="sub-area-title" data-i18n="help.nav.areaWidgets">Widgets &amp; Sensors</h3>
+							</div>
+							<ol class="help-card-list">
+								<!-- Card 2.3.1: Live Speedometer & Telemetry -->
+								<li class="help-card-item" id="card-speedo-telemetry" data-keywords="speedometer telemetry kmh top speed gps signal satellite lock tunnel dead reckoning fallback accuracy precision">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-amber">
+												<span class="help-ico ico-activity" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.speedoTelemetry.title">लाइव स्पीडोमीटर और GPS सिग्नल टेलीमेट्री कैसे देखें</h4>
+												<span data-i18n="help.cards.speedoTelemetry.subtitle">ट्रेन की असली गति, सैटेलाइट सिग्नल की ताकत और टनल फॉलबैक</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.speedoTelemetry.desc">यात्रा के दौरान ट्रेन की गति और जीपीएस एक्यूरेसी पर पूरी नज़र रखें:</p>
+
+										<!-- Live UI Blueprint Preview: Live Speedometer Widget -->
+										<div class="live-ui-mockup-wrapper">
+											<div class="live-mockup-label">
+												<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+												<span data-i18n="help.mockup.speedoTitle">लाइव स्पीडोमीटर विजेट</span>
+											</div>
+											<div id="live-mockup-speedometer"></div>
+										</div>
+
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.speedoTelemetry.fact1">स्पीडोमीटर विजेट स्क्रीन पर ट्रेन की असली रफ्तार (km/h) और टॉप स्पीड रियल-टाइम में दिखाता है।</li>
+											<li data-i18n="help.cards.speedoTelemetry.fact2">टेलीमेट्री कार्ड GPS सैटेलाइट सिग्नल का प्रतिशत और लोकेशन एक्यूरेसी (±मीटर) प्रदर्शित करता है।</li>
+											<li data-i18n="help.cards.speedoTelemetry.fact3">टनल में जाने पर (GPS सिग्नल खोने पर) ऐप ऑटोमैटिक टाइमर फॉलबैक मोड में आ जाता है ताकि स्टेशन ट्रैकिंग न रुके।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.speedoTelemetry.moreBtn" data-less-key="help.cards.speedoTelemetry.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.speedoTelemetry.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.speedoTelemetry.detailHeading">स्पीड और सिग्नल स्टेटस को समझना:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.speedoTelemetry.step1">स्पीडोमीटर टूलटिप: स्पीड विजेट पर क्लिक करने पर टॉप स्पीड, GPS सटीकता और ट्रेन की गति (रुकी है या चल रही है) की डिटेल खुलती है।</li>
+												<li data-i18n="help.cards.speedoTelemetry.step2">मज़बूत सिग्नल (🟢 80%-100%): ट्रेन खुली जगह में है और सैटेलाइट लॉक बहुत सटीक है।</li>
+												<li data-i18n="help.cards.speedoTelemetry.step3">मध्यम सिग्नल (🟡 40%-79%): स्टेशन प्लेटफॉर्म या एलिवेटेड ट्रैक पर हल्का सिग्नल।</li>
+												<li data-i18n="help.cards.speedoTelemetry.step4">टनल फॉलबैक (🔴 In Tunnel): अंडरग्राउंड टनल में GPS कटने पर ऐप स्टेशन के समय के हिसाब से फॉलबैक टाइमर चलाता है।</li>
+												<li data-i18n="help.cards.speedoTelemetry.step5">सिग्नल गाइड: टेलीमेट्री कार्ड के ऊपर बने प्रश्न चिन्ह (?) बटन को दबाकर पूरा सिग्नल गाइड कभी भी देख सकते हैं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.speedoTelemetry.tipBadge">बैटरी सुरक्षा:</span>
+												<span class="tip-text" data-i18n="help.cards.speedoTelemetry.tipText">यह सेंसर सिस्टम लो-पावर जियोलोकेशन का इस्तेमाल करता है, जिससे यात्रा के दौरान फोन की बैटरी बहुत कम खर्च होती है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 2.3.2: 2.5D Unified Live Metro Alarm & Transit Tracker Widget -->
+								<li class="help-card-item" id="card-alarm-widget" data-keywords="alarm widget tracker 2.5d pod status standby active snooze dismiss live distance rajiv chowk gps transit ticket notch">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-rose">
+												<span class="help-ico ico-alarm" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.alarmWidget.title">2.5D लाइव मेट्रो अलार्म व ट्रांज़िट ट्रैकर विजेट</h4>
+												<span data-i18n="help.cards.alarmWidget.subtitle">2.5D फिजिकल टिकट कार्ड, लाइव स्टेशन स्क्रीन, स्नूज़ और जीपीएस ट्रैकिंग</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.alarmWidget.desc">स्टेशन मॉनिटरिंग और आगमन अलर्ट के लिए 2.5D यूनिफाइड लाइव ट्रांज़िट ट्रैकर विजेट:</p>
+
+										<!-- Live UI Blueprint Preview: 2.5D Metro Alarm Widget -->
+										<div class="live-ui-mockup-wrapper">
+											<div class="live-mockup-label">
+												<span class="live-mockup-badge" data-i18n="help.mockup.liveBadge">Live UI Blueprint</span>
+												<span data-i18n="help.mockup.alarmWidgetTitle">2.5D लाइव मेट्रो अलार्म व ट्रांज़िट ट्रैकर विजेट</span>
+											</div>
+											<div id="live-mockup-alarm-widget"></div>
+										</div>
+
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.alarmWidget.fact1">पॉड बटन और स्टैंडबाय/एक्टिव स्टेटस: रूट सेट करने पर विजेट तुरंत सक्रिय होता है और लाइव पल्स दिखाता है।</li>
+											<li data-i18n="help.cards.alarmWidget.fact2">लुक 5 डार्क एलईडी स्टेशन स्क्रीन: अगला गंतव्य स्टेशन (जैसे राजीव चौक) और बची हुई दूरी (मीटर में) स्पष्ट दिखती है।</li>
+											<li data-i18n="help.cards.alarmWidget.fact3">स्नूज़, डिसमिस व ट्रैकिंग कंट्रोल: स्टेशन नज़दीक आने पर रिंगटोन बंद करने, 5 मिनट स्नूज़ करने या ट्रैकिंग रोकने के सीधे बटन मिलते हैं।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.alarmWidget.moreBtn" data-less-key="help.cards.alarmWidget.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.alarmWidget.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.alarmWidget.detailHeading">2.5D अलार्म ट्रैकर विजेट के प्रमुख फीचर्स:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.alarmWidget.step1">स्मार्ट जियोफेंस अलर्ट: निर्धारित दूरी (जैसे 500m) में प्रवेश करते ही अलार्म रिंगिंग और हैप्टिक वाइब्रेशन शुरू हो जाता है।</li>
+												<li data-i18n="help.cards.alarmWidget.step2">लाइव जीपीएस दूरी: ट्रेन आगे बढ़ने के साथ बची हुई दूरी और स्टेशन का नाम रियल-टाइम में अपडेट होता है।</li>
+												<li data-i18n="help.cards.alarmWidget.step3">वन-टैप एक्शन्स: अलर्ट बजने पर 'Dismiss' से आवाज़ बंद करें या 'Snooze' से 5 मिनट बाद दोबारा याद दिलाएं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.alarmWidget.tipBadge">स्मार्ट ऑटो-स्टॉप:</span>
+												<span class="tip-text" data-i18n="help.cards.alarmWidget.tipText">स्टेशन पर ट्रेन रुकने और आपके उतरने के बाद ऐप अलार्म ट्रैकिंग को सुरक्षित रूप से समाप्त कर देता है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</div>
+
+				<!-- =========================================================
+				 SECTION 3: STATIONS DIRECTORY & STATION DETAILS
+				 ========================================================= -->
+				<div class="help-section-group" id="sec-stations" data-category="stations">
+					<div class="section-badge-header">
+						<div class="section-title-wrap">
+							<span class="section-num-tag"></span>
+							<div>
+								<h2 class="section-title" data-i18n="help.sections.stationsTitle">Stations Directory &amp; Station Details</h2>
+								<p class="section-sub" data-i18n="help.sections.stationsSubtitle">Line-wise directory, coach sequence, operating hours, platforms, gates &amp; amenities</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Level 2 Sub-Areas List -->
+					<ol class="help-sub-area-list">
+						<!-- =====================================================
+						 AREA 3.1: ALL STATIONS DIRECTORY
+						 ===================================================== -->
+						<li class="help-sub-area" id="area-all-stations">
+							<div class="sub-area-badge-header">
+								<span class="sub-area-num-tag"></span>
+								<h3 class="sub-area-title" data-i18n="help.nav.areaAllStations">All Stations Directory</h3>
+							</div>
+							<ol class="help-card-list">
+								<!-- Card 3.1.1: Station Directory & Line-wise Filter Chips -->
+								<li class="help-card-item" id="card-stations-filter" data-keywords="all stations directory line filter chips search code autocomplete english hindi interchange status">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-teal">
+												<span class="help-ico ico-compass" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.stationsFilter.title">स्टेशन डायरेक्टरी व लाइन फ़िल्टर चिप्स</h4>
+												<span data-i18n="help.cards.stationsFilter.subtitle">मेट्रो लाइन के अनुसार स्टेशन छांटना और नाम व कोड से त्वरित खोज</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.stationsFilter.desc">All Stations पेज पर शहर के सभी मेट्रो स्टेशनों की व्यवस्थित सूची उपलब्ध है:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.stationsFilter.fact1">लाइन चिप्स: 'All Lines', 'Red Line', 'Yellow Line' आदि चिप्स दबाकर केवल उस लाइन के स्टेशन देखें।</li>
+											<li data-i18n="help.cards.stationsFilter.fact2">यूनिवर्सल सर्च: सर्च बार में स्टेशन का पूरा नाम, हिंदी वर्तनी, या 3-अक्षर का कोड (जैसे RCK, AIIMS) लिखकर तुरंत खोजें।</li>
+											<li data-i18n="help.cards.stationsFilter.fact3">इंटरचेंज बैज: जंक्शन स्टेशनों के आगे जुड़े हुए अन्य नेटवर्क और लाइनों के रंगीन टैग दिखाई देते हैं।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.stationsFilter.moreBtn" data-less-key="help.cards.stationsFilter.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.stationsFilter.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.stationsFilter.detailHeading">डायरेक्टरी सर्च के आसान स्टेप्स:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.stationsFilter.step1">डायरेक्टरी खोलें: मुख्य नेविगेशन मेनू से 'All Stations' पेज पर जाएं।</li>
+												<li data-i18n="help.cards.stationsFilter.step2">लाइन चुनें: ऊपर दिए गए रंगीन लाइन चिप्स पर क्लिक करके अपनी पसंदीदा लाइन चुनें।</li>
+												<li data-i18n="help.cards.stationsFilter.step3">ऑटोकम्प्लीट सुझाव: सर्च बॉक्स में टाइप करते ही ड्रॉपडाउन में सही स्टेशन का सुझाव तुरंत मिलता है।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.stationsFilter.tipBadge">तेज़ तरीका:</span>
+												<span class="tip-text" data-i18n="help.cards.stationsFilter.tipText">सर्च बॉक्स में लैंडमार्क (जैसे AIIMS, Airport, Railway) लिखने पर भी संबंधित मेट्रो स्टेशन तुरंत मिल जाता है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 3.1.2: Coach Train Grid & Station Sequence -->
+								<li class="help-card-item" id="card-stations-coach" data-keywords="coach train grid layout station sequence terminal stop direct details route">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-indigo">
+												<span class="help-ico ico-activity" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.stationsCoach.title">कोच ट्रेन ग्रिड व स्टेशन क्रम</h4>
+												<span data-i18n="help.cards.stationsCoach.subtitle">शुरुआती स्टेशन से अंतिम स्टेशन तक का वास्तविक क्रम और 1-क्लिक विवरण</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.stationsCoach.desc">स्टेशनों को मेट्रो कोच के सुंदर विज़ुअल क्रम में व्यवस्थित किया गया है:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.stationsCoach.fact1">ट्रैक क्रम: स्टेशन उसी क्रम में सजते हैं जिस क्रम में ट्रेन ट्रैक पर चलती है (Origin to Terminus)।</li>
+											<li data-i18n="help.cards.stationsCoach.fact2">1-क्लिक स्टेशन पेज: किसी भी स्टेशन कार्ड पर क्लिक करते ही उसकी पूरी डिटेल (गेट, प्लेटफॉर्म, समय) खुल जाती है।</li>
+											<li data-i18n="help.cards.stationsCoach.fact3">रूट शॉर्टकट: कार्ड के साथ सीधे 'Find Route' शॉर्टकट मिलता है जिससे आप वहीं से रूट प्लानिंग शुरू कर सकते हैं।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.stationsCoach.moreBtn" data-less-key="help.cards.stationsCoach.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.stationsCoach.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.stationsCoach.detailHeading">कोच ग्रिड के नियम:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.stationsCoach.step1">टर्मिनल पहचान: लाइन के दोनों छोर के टर्मिनल स्टेशनों पर विशेष 'Terminus' इंडिकेटर बना होता है।</li>
+												<li data-i18n="help.cards.stationsCoach.step2">इंटरचेंज कनेक्टिविटी: जंक्शन स्टेशनों पर कौन-सी दूसरी लाइन मिलती है, वह सीधे कोच कार्ड पर दिखता है।</li>
+												<li data-i18n="help.cards.stationsCoach.step3">स्मार्ट स्क्रॉल: लंबी लाइनों पर स्मूथ स्क्रॉलिंग के साथ स्टेशन जल्दी ढूंढे जा सकते हैं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.stationsCoach.tipBadge">ऑफ़लाइन सपोर्ट:</span>
+												<span class="tip-text" data-i18n="help.cards.stationsCoach.tipText">एक बार लोड होने के बाद पूरी डायरेक्टरी बिना इंटरनेट कनेक्शन के भी तेज़ी से ब्राउज़ की जा सकती है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</li>
+
+						<!-- =====================================================
+						 AREA 3.2: STATION DETAILS & FACILITIES
+						 ===================================================== -->
+						<li class="help-sub-area" id="area-station-info">
+							<div class="sub-area-badge-header">
+								<span class="sub-area-num-tag"></span>
+								<h3 class="sub-area-title" data-i18n="help.nav.areaStationInfo">Station Facilities</h3>
+							</div>
+							<ol class="help-card-list">
+								<!-- Card 3.2.1: First & Last Train Timings and Helpline Contacts -->
+								<li class="help-card-item" id="card-station-timings" data-keywords="first train last train timings operating hours platform schedule emergency helpline contacts">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-amber">
+												<span class="help-ico ico-compass" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.stationTimings.title">पहली व आखिरी ट्रेन का समय और हेल्पलाइन</h4>
+												<span data-i18n="help.cards.stationTimings.subtitle">प्लेटफ़ॉर्म-वाइज सुबह की पहली व रात की अंतिम ट्रेन, कंट्रोल रूम व आपातकालीन नंबर</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.stationTimings.desc">स्टेशन विवरण पेज पर ट्रेन संचालन समय और महत्वपूर्ण संपर्क उपलब्ध हैं:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.stationTimings.fact1">पहली ट्रेन (☀️): दोनों दिशाओं के लिए सुबह की पहली ट्रेन का सटीक समय प्लेटफॉर्म-वार दिखता है।</li>
+											<li data-i18n="help.cards.stationTimings.fact2">आखिरी ट्रेन (🌙): रात की अंतिम ट्रेन का समय स्पष्ट रूप से प्रदर्शित होता है ताकि ट्रेन छूटने का जोखिम न रहे।</li>
+											<li data-i18n="help.cards.stationTimings.fact3">हेल्पलाइन: स्टेशन कंट्रोल रूम, सुरक्षा हेल्पलाइन और महिला सुरक्षा के 1-टैप कॉलिंग नंबर मिलते हैं।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.stationTimings.moreBtn" data-less-key="help.cards.stationTimings.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.stationTimings.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.stationTimings.detailHeading">समय और संपर्क के नियम:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.stationTimings.step1">दिशा चुनना: जिस दिशा में आपको जाना है, उस टर्मिनल की पहली और आखिरी ट्रेन का समय जांचें।</li>
+												<li data-i18n="help.cards.stationTimings.step2">रविवार व अवकाश: रविवार और राष्ट्रीय अवकाश के दिन सुबह का समय थोड़ा अलग हो सकता है।</li>
+												<li data-i18n="help.cards.stationTimings.step3">आपातकालीन संपर्क: किसी भी असुविधा पर सीधे स्टेशन मास्टर या सुरक्षा कंट्रोल रूम को कॉल कर सकते हैं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.stationTimings.tipBadge">महत्वपूर्ण सुझाव:</span>
+												<span class="tip-text" data-i18n="help.cards.stationTimings.tipText">देर रात यात्रा करते समय हमेशा अंतिम ट्रेन से कम से कम 10 मिनट पहले स्टेशन पहुंचें।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 3.2.2: Platforms & Terminus Directions -->
+								<li class="help-card-item" id="card-station-platforms" data-keywords="platforms terminus directions track layout walkway interchange interchange route">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-rose">
+												<span class="help-ico ico-transfer" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.stationPlatforms.title">प्लेटफॉर्म व टर्मिनस दिशाएं</h4>
+												<span data-i18n="help.cards.stationPlatforms.subtitle">प्लेटफॉर्म 1 व 2 की ट्रैक दिशा, अंतिम स्टेशन और इंटरचेंज वॉकवे गाइड</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.stationPlatforms.desc">प्लेटफॉर्म सेक्शन में सही ट्रेन पकड़ने के लिए संपूर्ण गाइड दी गई है:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.stationPlatforms.fact1">प्लेटफॉर्म नंबर: Platform 1 और Platform 2 किस टर्मिनल स्टेशन की तरफ जाते हैं, साफ लिखा होता है।</li>
+											<li data-i18n="help.cards.stationPlatforms.fact2">रूट कैप्सूल: उस प्लेटफॉर्म से जाने वाले अगले मुख्य स्टेशनों की सूची दिखाई देती है।</li>
+											<li data-i18n="help.cards.stationPlatforms.fact3">इंटरचेंज ट्रांसफर: जंक्शन स्टेशनों पर दूसरी लाइन पर जाने के लिए वॉकवे और फुट-ओवर-ब्रिज का मार्गदर्शन मिलता है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.stationPlatforms.moreBtn" data-less-key="help.cards.stationPlatforms.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.stationPlatforms.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.stationPlatforms.detailHeading">सही प्लेटफॉर्म खोजने के स्टेप्स:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.stationPlatforms.step1">टर्मिनस जांचें: जिस दिशा में जाना है, उस अंतिम स्टेशन (जैसे Samaypur Badli या Millennium City Centre) का नाम देखें।</li>
+												<li data-i18n="help.cards.stationPlatforms.step2">प्लेटफॉर्म पहचान: टर्मिनस के सामने लिखे प्लेटफॉर्म नंबर (1 या 2) पर जाएं।</li>
+												<li data-i18n="help.cards.stationPlatforms.step3">लाइन चेंज: इंटरचेंज स्टेशन पर फर्श पर बने रंगीन तीरों का पालन करके दूसरी लाइन के प्लेटफॉर्म पर पहुंचें।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.stationPlatforms.tipBadge">आसान तरीका:</span>
+												<span class="tip-text" data-i18n="help.cards.stationPlatforms.tipText">स्टेशन के अंदर प्रवेश करते ही ऊपर लगे इलेक्ट्रॉनिक डिस्प्ले पर भी वही टर्मिनस नाम दिखता है जो इस ऐप में दिया गया है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 3.2.3: Station Gates, Exits & Nearby Places -->
+								<li class="help-card-item" id="card-station-gates" data-keywords="station gates exits nearby places landmarks hospital market railway bus gate numbers">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-emerald">
+												<span class="help-ico ico-pin" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.stationGates.title">स्टेशन गेट, निकास और आसपास के स्थल</h4>
+												<span data-i18n="help.cards.stationGates.subtitle">सही गेट नंबर से बाहर निकलना, प्रमुख अस्पताल, बाज़ार और रेलवे स्टेशन</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.stationGates.desc">गलत गेट से निकलने पर समय खराब न हो, इसके लिए प्रत्येक गेट की विस्तृत जानकारी उपलब्ध है:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.stationGates.fact1">गेट नंबर मैपिंग: Gate 1, Gate 2, Gate 3 किस सड़क या कॉलोनी की ओर खुलते हैं, स्पष्ट लिखा होता है।</li>
+											<li data-i18n="help.cards.stationGates.fact2">प्रमुख स्थल (Nearby Places): स्टेशन के नज़दीक स्थित अस्पताल, कॉलेज, मॉल, बस स्टैंड और रेलवे जंक्शन की सूची।</li>
+											<li data-i18n="help.cards.stationGates.fact3">वॉकिंग डिस्टेंस: गंतव्य तक पैदल या ऑटो से पहुंचने का अनुमानित रास्ता बताया जाता है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.stationGates.moreBtn" data-less-key="help.cards.stationGates.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.stationGates.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.stationGates.detailHeading">सही गेट चुनने के नियम:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.stationGates.step1">अपना गंतव्य देखें: 'Nearby Places' लिस्ट में देखें कि आपका अस्पताल या मॉल किस गेट के सबसे पास है।</li>
+												<li data-i18n="help.cards.stationGates.step2">गेट नंबर याद रखें: ट्रेन से उतरकर स्टेशन कॉनकोर्स में उसी गेट नंबर के साइनबोर्ड की ओर बढ़ें।</li>
+												<li data-i18n="help.cards.stationGates.step3">फीडर बस व ऑटो: किस गेट के बाहर ऑटो स्टैंड या फीडर बस स्टॉप है, उसकी भी जानकारी मिलती है।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.stationGates.tipBadge">समय की बचत:</span>
+												<span class="tip-text" data-i18n="help.cards.stationGates.tipText">कनॉट प्लेस (राजीव चौक) या कश्मीरी गेट जैसे बड़े स्टेशनों पर सही गेट चुनने से 10-15 मिनट की पैदल दूरी बचती है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 3.2.4: Accessibility & Amenities (Lifts, Escalators, Parking) -->
+								<li class="help-card-item" id="card-station-facilities" data-keywords="accessibility amenities lifts escalators ramps wheelchair parking tariff ev feeder bus">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-cyan">
+												<span class="help-ico ico-settings" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.stationFacilities.title">सुलभ यात्रा, सुविधाएं और पार्किंग</h4>
+												<span data-i18n="help.cards.stationFacilities.subtitle">लिफ्ट, एस्केलेटर, व्हीलचेयर सहायता, टॉयलेट, पेयजल और पार्किंग शुल्क</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.stationFacilities.desc">बुजुर्गों, दिव्यांगजनों और दैनिक यात्रियों के लिए सभी सुविधाओं की जानकारी:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.stationFacilities.fact1">वर्टिकल ट्रांज़िट: स्ट्रीट से कॉनकोर्स और कॉनकोर्स से प्लेटफॉर्म तक लिफ्ट (Lifts) व एस्केलेटर की उपलब्धता।</li>
+											<li data-i18n="help.cards.stationFacilities.fact2">सुलभ सुविधाएं: व्हीलचेयर रैंप, दृष्टिहीनों के लिए टैक्टाइल टाइल्स और सुलभ शौचालय।</li>
+											<li data-i18n="help.cards.stationFacilities.fact3">पार्किंग क्षमता व दरें: 2-व्हीलर, 4-व्हीलर पार्किंग, प्रति घंटा शुल्क और रात भर (Night) का टैरिफ।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.stationFacilities.moreBtn" data-less-key="help.cards.stationFacilities.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.stationFacilities.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.stationFacilities.detailHeading">सुविधाओं का उपयोग करने के नियम:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.stationFacilities.step1">लिफ्ट स्थिति: भारी सामान या व्हीलचेयर के साथ यात्रा करते समय सीधे लिफ्ट गेट पर पहुंचें।</li>
+												<li data-i18n="help.cards.stationFacilities.step2">पार्किंग उपलब्धता: पार्किंग कार्ड में देखें कि स्टेशन पर कार या बाइक पार्क करने की जगह है या नहीं।</li>
+												<li data-i18n="help.cards.stationFacilities.step3">फीडर बस कनेक्टिविटी: लास्ट-माइल कनेक्टिविटी के लिए स्टेशन से चलने वाली फीडर बस के रूट नंबर देखें।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.stationFacilities.tipBadge">स्मार्ट कार्ड छूट:</span>
+												<span class="tip-text" data-i18n="help.cards.stationFacilities.tipText">कई मेट्रो नेटवर्क्स में पार्किंग का भुगतान स्मार्ट कार्ड या फास्टैग से करने पर अतिरिक्त सुविधा मिलती है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</div>
+
+				<!-- =========================================================
+				 SECTION 4: PASSENGER SUPPORT, SAFETY & LEGAL DIRECTORY
+				 ========================================================= -->
+				<div class="help-section-group" id="sec-support" data-category="support">
+					<div class="section-badge-header">
+						<div class="section-title-wrap">
+							<span class="section-num-tag"></span>
+							<div>
+								<h2 class="section-title" data-i18n="help.sections.supportTitle">Passenger Support &amp; Safety</h2>
+								<p class="section-sub" data-i18n="help.sections.supportSubtitle">Statutory compliance, baggage carriage limits, women coach reservation, and 24x7 emergency helplines</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Level 2 Sub-Areas List -->
+					<ol class="help-sub-area-list">
+						<!-- =====================================================
+						 AREA 4.1: STATUTORY SAFETY & BAGGAGE
+						 ===================================================== -->
+						<li class="help-sub-area" id="area-support-safety">
+							<div class="sub-area-badge-header">
+								<span class="sub-area-num-tag"></span>
+								<h3 class="sub-area-title" data-i18n="help.nav.areaSupportSafety">Statutory Safety &amp; Baggage</h3>
+							</div>
+							<ol class="help-card-list">
+								<!-- Card 4.1.1: Vigilance & CISF Security Guidelines -->
+								<li class="help-card-item" id="card-support-vigilance" data-keywords="vigilance complaint portal cvc cisf security screening prohibited items baggage scan anti-corruption">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-rose">
+												<span class="help-ico ico-shield" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.supportVigilance.title">विजिलेंस शिकायत पोर्टल व CISF सुरक्षा नियम</h4>
+												<span data-i18n="help.cards.supportVigilance.subtitle">भ्रष्टाचार निवारण (CVC) पोर्टल और प्रतिबंधित वस्तुओं की सुरक्षा जांच</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.supportVigilance.desc">मेट्रो परिसर में वैधानिक सुरक्षा और पारदर्शिता के कड़े नियम लागू हैं:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.supportVigilance.fact1">विजिलेंस पोर्टल: किसी भी प्रकार के भ्रष्टाचार या रिश्वतखोरी की रिपोर्टिंग सीधे CVC दिशा-निर्देशों के तहत सरकारी पोर्टल पर की जा सकती है।</li>
+											<li data-i18n="help.cards.supportVigilance.fact2">CISF स्कैनिंग: स्टेशन में प्रवेश से पहले सभी बैग X-BIS एक्स-रे स्कैनर से जांचे जाते हैं।</li>
+											<li data-i18n="help.cards.supportVigilance.fact3">प्रतिबंधित वस्तुएं: ज्वलनशील पदार्थ, विस्फोटक, हथियार और पेट्रोलियम उत्पाद मेट्रो में ले जाना सख्त वर्जित है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.supportVigilance.moreBtn" data-less-key="help.cards.supportVigilance.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.supportVigilance.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.supportVigilance.detailHeading">सुरक्षा प्रोटोकॉल के नियम:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.supportVigilance.step1">आधिकारिक शिकायत: विजिलेंस शिकायत दर्ज करने पर आधिकारिक सरकारी टोकन नंबर मिलता है जिससे लाइव स्थिति ट्रैक होती है।</li>
+												<li data-i18n="help.cards.supportVigilance.step2">सुरक्षा जांच में सहयोग: सुरक्षा द्वारों पर मैटल डिटेक्टर (DFMD) से गुजरते समय सुरक्षा कर्मियों का सहयोग करें।</li>
+												<li data-i18n="help.cards.supportVigilance.step3">संदेहास्पद वस्तु: परिसर में कोई लावारिस वस्तु दिखने पर तुरंत CISF जवान या स्टेशन स्टाफ को सूचित करें।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.supportVigilance.tipBadge">कानूनी सुरक्षा:</span>
+												<span class="tip-text" data-i18n="help.cards.supportVigilance.tipText">केंद्रीय सतर्कता आयोग (CVC) के नियमों के अनुसार शिकायतकर्ता की पहचान पूरी तरह गोपनीय रखी जाती है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 4.1.2: Baggage Limits & Dimensions -->
+								<li class="help-card-item" id="card-support-baggage" data-keywords="baggage carriage rules maximum weight dimensions luggage limit 15kg 25kg trolley bag">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-amber">
+												<span class="help-ico ico-compass" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.supportBaggage.title">सामान का अधिकतम वज़न और आकार सीमा</h4>
+												<span data-i18n="help.cards.supportBaggage.subtitle">मेट्रो में ले जाने योग्य लगेज का वज़न (15-25 kg) और डाइमेंशन नियम</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.supportBaggage.desc">मेट्रो कैरिज नियमों के अनुसार प्रत्येक यात्री के लिए सामान की सीमा तय है:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.supportBaggage.fact1">अधिकतम वज़न: सामान्य मेट्रो में 15 किग्रा और एयरपोर्ट एक्सप्रेस लाइनों पर 25 से 32 किग्रा तक अनुमत है।</li>
+											<li data-i18n="help.cards.supportBaggage.fact2">अधिकतम आकार: बैग का कुल आयाम 80 सेमी (लंबाई) × 50 सेमी (चौड़ाई) × 30 सेमी (ऊंचाई) से अधिक नहीं होना चाहिए।</li>
+											<li data-i18n="help.cards.supportBaggage.fact3">स्कैनर क्षमता: निर्धारित आकार से बड़ा बैग स्कैनर मशीन में नहीं आता और स्टेशन पर प्रवेश वर्जित कर दिया जाता है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.supportBaggage.moreBtn" data-less-key="help.cards.supportBaggage.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.supportBaggage.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.supportBaggage.detailHeading">सामान ले जाने के नियम:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.supportBaggage.step1">ट्रॉली बैग मापन: मानक 24-इंच तक का मध्यम ट्रॉली बैग आसानी से अनुमति प्राप्त होता है।</li>
+												<li data-i18n="help.cards.supportBaggage.step2">अतिरिक्त सामान: निर्धारित सीमा से अधिक भारी सामान होने पर वाणिज्यिक ट्रांसपोर्ट या कैब का उपयोग करें।</li>
+												<li data-i18n="help.cards.supportBaggage.step3">कोच में स्थान: सामान को ट्रेन के दरवाजे के सामने न रखें ताकि अन्य यात्रियों का रास्ता न रुके।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.supportBaggage.tipBadge">एयरपोर्ट लाइन छूट:</span>
+												<span class="tip-text" data-i18n="help.cards.supportBaggage.tipText">एयरपोर्ट मेट्रो कॉरिडोर पर अंतरराष्ट्रीय उड़ान यात्रियों के लिए बड़े लगेज और चेक-इन सुविधा उपलब्ध रहती है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</li>
+
+						<!-- =====================================================
+						 AREA 4.2: COMMUTER RIGHTS & AMENITIES
+						 ===================================================== -->
+						<li class="help-sub-area" id="area-support-rights">
+							<div class="sub-area-badge-header">
+								<span class="sub-area-num-tag"></span>
+								<h3 class="sub-area-title" data-i18n="help.nav.areaSupportRights">Commuter Rights &amp; Amenities</h3>
+							</div>
+							<ol class="help-card-list">
+								<!-- Card 4.2.1: Women Safety & Reserved Coach -->
+								<li class="help-card-item" id="card-support-women" data-keywords="women safety coach reserved first coach section 64 fine male entry prohibited ladies coach">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-rose">
+												<span class="help-ico ico-transfer" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.supportWomen.title">महिला सुरक्षा व आरक्षित कोच नियम</h4>
+												<span data-i18n="help.cards.supportWomen.subtitle">मेट्रो एक्ट की धारा 64 के तहत पहला कोच आरक्षित, प्रवेश पर तुरंत जुर्माना</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.supportWomen.desc">महिला यात्रियों की सुरक्षित व आरामदायक यात्रा के लिए विशेष कानूनी प्रावधान:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.supportWomen.fact1">पहला कोच आरक्षित: ट्रेन के चलने की दिशा में सबसे पहला डिब्बा केवल महिला यात्रियों के लिए सुरक्षित रहता है।</li>
+											<li data-i18n="help.cards.supportWomen.fact2">सख्त कानूनी कार्रवाई: पुरुष यात्रियों का इस कोच में प्रवेश गैरकानूनी है, जिस पर तुरंत जुर्माना और ट्रेन से उतारा जाता है।</li>
+											<li data-i18n="help.cards.supportWomen.fact3">प्लेटफॉर्म मार्किंग: प्लेटफॉर्म पर पहले कोच के रुकने का स्थान चमकीले गुलाबी (Pink) रंग से चिह्नित होता है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.supportWomen.moreBtn" data-less-key="help.cards.supportWomen.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.supportWomen.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.supportWomen.detailHeading">महिला सुरक्षा प्रोटोकॉल:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.supportWomen.step1">फ्लाईंग स्क्वॉड चेकिंग: महिला कोच में नियमित रूप से सुरक्षा दस्ता औचक निरीक्षण करता है।</li>
+												<li data-i18n="help.cards.supportWomen.step2">इमरजेंसी टॉकबैक (PEB): कोच के अंदर आपातकालीन स्थिति में सीधे ट्रेन ऑपरेटर (ड्राइवर) से बात करने का बटन लगा होता है।</li>
+												<li data-i18n="help.cards.supportWomen.step3">सीसीटीवी निगरानी: सभी कोच और प्लेटफॉर्म 24 घंटे लाइव सीसीटीवी कैमरों की निगरानी में रहते हैं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.supportWomen.tipBadge">बच्चों की अनुमति:</span>
+												<span class="tip-text" data-i18n="help.cards.supportWomen.tipText">12 वर्ष तक की आयु के बालक अपनी माता या महिला अभिभावक के साथ महिला कोच में यात्रा कर सकते हैं।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 4.2.2: Barrier-Free Accessibility (Divyangjan) -->
+								<li class="help-card-item" id="card-support-accessibility" data-keywords="accessibility divyangjan wheelchair tactile paths ramps lifts escorts assistance special needs">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-emerald">
+												<span class="help-ico ico-compass" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.supportAccessibility.title">बाधा-मुक्त सुलभ यात्रा (दिव्यांगजन सहायता)</h4>
+												<span data-i18n="help.cards.supportAccessibility.subtitle">व्हीलचेयर सहायता, स्पर्शनीय (टैक्टाइल) मार्ग और ब्रेल साइनेज सुविधाएं</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.supportAccessibility.desc">दिव्यांग और वरिष्ठ यात्रियों के लिए 100% सुलभ बुनियादी ढांचा उपलब्ध कराया गया है:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.supportAccessibility.fact1">टैक्टाइल टाइल्स: स्टेशन प्रवेश द्वार से प्लेटफॉर्म और ट्रेन के दरवाजे तक पीले रंग का स्पर्शनीय मार्ग बना है।</li>
+											<li data-i18n="help.cards.supportAccessibility.fact2">व्हीलचेयर एस्कॉर्ट: स्टेशन कंट्रोल रूम से अनुरोध करने पर कर्मचारी व्हीलचेयर सहायता के लिए तुरंत उपलब्ध होते हैं।</li>
+											<li data-i18n="help.cards.supportAccessibility.fact3">ब्रेल लिफ्ट बटन: सभी लिफ्टों में ब्रेल लिपि वाले बटन और ऑडियो उद्घोषणा प्रणाली लगी है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.supportAccessibility.moreBtn" data-less-key="help.cards.supportAccessibility.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.supportAccessibility.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.supportAccessibility.detailHeading">सुलभ यात्रा के स्टेप्स:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.supportAccessibility.step1">लिफ्ट प्रवेश: सड़क स्तर से कॉनकोर्स और प्लेटफॉर्म पर पहुंचने के लिए समर्पित लिफ्ट का उपयोग करें।</li>
+												<li data-i18n="help.cards.supportAccessibility.step2">वाइड ऑटोमैटिक गेट: व्हीलचेयर और सामान के लिए सामान्य से अधिक चौड़े विशेष एएफसी (AFC) गेट बने होते हैं।</li>
+												<li data-i18n="help.cards.supportAccessibility.step3">ट्रेन में व्हीलचेयर स्थान: कोच के अंदर व्हीलचेयर लॉक करने और सहारा लेने के लिए विशेष सीटिंग बे मौजूद है।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.supportAccessibility.tipBadge">मुफ्त सहायता:</span>
+												<span class="tip-text" data-i18n="help.cards.supportAccessibility.tipText">स्टेशन परिसर में व्हीलचेयर सेवा पूरी तरह निःशुल्क प्रदान की जाती है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<!-- Card 4.2.3: Metro Parking Regulations & Tariffs -->
+								<li class="help-card-item" id="card-support-parking" data-keywords="metro parking regulations tariff rates fastag smart card authorized contractor timings">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-indigo">
+												<span class="help-ico ico-settings" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.supportParking.title">मेट्रो पार्किंग नियम, FASTag व शुल्क दरें</h4>
+												<span data-i18n="help.cards.supportParking.subtitle">प्राधिकृत ठेकेदार दरें, समय (05:00 AM से 11:30 PM) व रात भर का पार्किंग नियम</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.supportParking.desc">प्रमुख स्टेशनों पर अधिकृत वाहनों के लिए सुरक्षित पार्किंग सुविधा उपलब्ध है:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.supportParking.fact1">संचालन समय: पार्किंग स्थल सुबह 05:00 बजे से रात 11:30 बजे तक चालू रहते हैं।</li>
+											<li data-i18n="help.cards.supportParking.fact2">कैशलेस भुगतान: कई पार्किंग लॉट्स में फास्टैग (FASTag) और मेट्रो स्मार्ट कार्ड से ऑटोमैटिक भुगतान की सुविधा है।</li>
+											<li data-i18n="help.cards.supportParking.fact3">मानकीकृत स्लैब: साइकिल, 2-व्हीलर और 4-व्हीलर के लिए घंटे के हिसाब से तय वैधानिक शुल्क लिया जाता है।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.supportParking.moreBtn" data-less-key="help.cards.supportParking.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.supportParking.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.supportParking.detailHeading">पार्किंग के मुख्य नियम:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.supportParking.step1">रसीद सुरक्षित रखें: बिना FASTag वाले लॉट में प्रवेश पर मिलने वाली कम्प्यूटरीकृत रसीद को सुरक्षित रखें।</li>
+												<li data-i18n="help.cards.supportParking.step2">ओवरनाइट पार्किंग: रात में गाड़ी खड़ी करने पर नाइट पार्किंग का निर्धारित स्लैब लागू होता है।</li>
+												<li data-i18n="help.cards.supportParking.step3">हेलमेट व सामान: 2-व्हीलर पार्क करते समय वाहन पर मूल्यवान वस्तुएं न छोड़ें।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.supportParking.tipBadge">अधिकृत दर बोर्ड:</span>
+												<span class="tip-text" data-i18n="help.cards.supportParking.tipText">पार्किंग गेट पर लगे आधिकारिक रेट बोर्ड के अनुसार ही भुगतान करें; अधिक शुल्क मांगे जाने पर हेल्पलाइन पर शिकायत दर्ज करें।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</li>
+
+						<!-- =====================================================
+						 AREA 4.3: 24X7 EMERGENCY HELPLINES
+						 ===================================================== -->
+						<li class="help-sub-area" id="area-support-helplines">
+							<div class="sub-area-badge-header">
+								<span class="sub-area-num-tag"></span>
+								<h3 class="sub-area-title" data-i18n="help.nav.areaSupportHelplines">Emergency Helplines</h3>
+							</div>
+							<ol class="help-card-list">
+								<!-- Card 4.3.1: 24x7 Control Rooms & SOS Directory -->
+								<li class="help-card-item" id="card-support-helplines" data-keywords="helpline 24x7 customer care emergency 112 cisf security control room women sos contacts">
+									<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+										<div class="card-summary-left">
+											<span class="card-num-badge"></span>
+											<div class="card-bullet-icon icon-teal">
+												<span class="help-ico ico-activity" aria-hidden="true"></span>
+											</div>
+											<div class="card-heading-texts">
+												<h4 data-i18n="help.cards.supportHelplines.title">24x7 आपातकालीन हेल्पलाइन व कंट्रोल रूम डायरेक्टरी</h4>
+												<span data-i18n="help.cards.supportHelplines.subtitle">कस्टमर केयर, CISF सुरक्षा नियंत्रण कक्ष और महिला आपातकालीन SOS नंबर</span>
+											</div>
+										</div>
+										<span class="card-chevron" aria-hidden="true"></span>
+									</div>
+									<div class="card-drawer">
+										<p class="drawer-desc" data-i18n="help.cards.supportHelplines.desc">यात्रा के दौरान किसी भी आपात स्थिति या सहायता के लिए 24 घंटे उपलब्ध हेल्पलाइन:</p>
+										<ul class="drawer-facts">
+											<li data-i18n="help.cards.supportHelplines.fact1">राष्ट्रीय आपातकालीन नंबर 112: पुलिस, एम्बुलेंस और सुरक्षा सहायता के लिए एकीकृत हेल्पलाइन।</li>
+											<li data-i18n="help.cards.supportHelplines.fact2">मेट्रो कस्टमर केयर: खोया-पाया (Lost & Found), स्मार्ट कार्ड पूछताछ और ट्रेन रूट जानकारी।</li>
+											<li data-i18n="help.cards.supportHelplines.fact3">महिला हेल्पलाइन SOS: त्वरित सुरक्षा हस्तक्षेप के लिए समर्पित महिला आपातकालीन संपर्क।</li>
+										</ul>
+
+										<!-- More Action Link -->
+										<div class="drawer-more-wrapper">
+											<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.supportHelplines.moreBtn" data-less-key="help.cards.supportHelplines.lessBtn">
+												<span class="more-btn-label" data-i18n="help.cards.supportHelplines.moreBtn">और जानें...</span>
+												<span class="more-btn-icon" aria-hidden="true">▾</span>
+											</button>
+										</div>
+
+										<!-- Extended Details -->
+										<div class="drawer-extended-details hidden">
+											<h5 class="extended-heading" data-i18n="help.cards.supportHelplines.detailHeading">सहायता प्राप्त करने के स्टेप्स:</h5>
+											<ol class="extended-steps">
+												<li data-i18n="help.cards.supportHelplines.step1">खोया सामान: यदि आपका कोई सामान ट्रेन या स्टेशन पर छूट गया है, तो तुरंत स्टेशन कंट्रोल रूम में संपर्क करें।</li>
+												<li data-i18n="help.cards.supportHelplines.step2">मेडिकल इमरजेंसी: स्टेशन पर प्राथमिक उपचार किट और निकटतम अस्पताल के लिए एम्बुलेंस सुविधा तुरंत मंगाई जा सकती है।</li>
+												<li data-i18n="help.cards.supportHelplines.step3">टोल-फ्री डायल: पैसेंजर सपोर्ट पेज पर 'Call' बटन दबाकर सीधे 1-टैप में कॉल मिला सकते हैं।</li>
+											</ol>
+											<div class="extended-tip-box">
+												<span class="tip-badge" data-i18n="help.cards.supportHelplines.tipBadge">त्वरित कार्रवाई:</span>
+												<span class="tip-text" data-i18n="help.cards.supportHelplines.tipText">स्टेशन परिसर में किसी भी समस्या पर ग्राहक सेवा केंद्र (Customer Care) पर जाकर सीधे सहायता प्राप्त की जा सकती है।</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</div>
+
+				<!-- =========================================================
+				 SECTION 5: GLOBAL HEADER & NAVIGATION
+				 ========================================================= -->
+				<div class="help-section-group" id="sec-header" data-category="header">
+					<div class="section-badge-header">
+						<div class="section-title-wrap">
+							<span class="section-num-tag"></span>
+							<div>
+								<h2 class="section-title" data-i18n="help.sections.headerTitle">Global Header &amp; Navigation Hub</h2>
+								<p class="section-sub" data-i18n="help.sections.headerSubtitle">City selection, instant color themes, language switching, and accessible text scaling</p>
+							</div>
+						</div>
+					</div>
+
+					<ol class="help-card-list">
+						<!-- Card 5.1: City Selector -->
+						<li class="help-card-item" id="card-header-city" data-keywords="city selector change network switcher delhi mumbai kanpur lucknow ahmedabad bengaluru chennai header">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-blue">
-										<span class="help-ico ico-routes" aria-hidden="true"></span>
+										<span class="help-ico ico-compass" aria-hidden="true"></span>
 									</div>
 									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.searchStations.title">How to Search Stations &amp; Plan a Route</h4>
-										<span data-i18n="help.cards.searchStations.subtitle">Fuzzy search, station codes, and recent search history</span>
+										<h4 data-i18n="help.cards.headerCity.title">City Selector &amp; Universal Search</h4>
+										<span data-i18n="help.cards.headerCity.subtitle">One-click switching across all Indian metro networks and rapid search</span>
 									</div>
 								</div>
 								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
 							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.searchStations.desc">YatraMarg features an intelligent fuzzy search engine to make route selection seamless:</p>
+								<p class="drawer-desc" data-i18n="help.cards.headerCity.desc">The top navigation bar lets you change your active transit city at any time:</p>
 								<ul class="drawer-facts">
-									<li data-i18n="help.cards.searchStations.fact1">Type station name, landmark, or 2-letter acronym (e.g. 'RC' for Rajiv Chowk).</li>
-									<li data-i18n="help.cards.searchStations.fact2">Recent searches are saved locally on your device for instant 1-tap reselection.</li>
-									<li data-i18n="help.cards.searchStations.fact3">Tap the swap icon (⇄) between Start and End stations to reverse your journey path immediately.</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Card 1.2: Route Modes -->
-						<div class="help-card-item" id="card-route-modes" data-keywords="shortest route minimum interchange fastest quick travel time lines comfort">
-							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
-								<div class="card-summary-left">
-									<div class="card-bullet-icon icon-indigo">
-										<span class="help-ico ico-activity" aria-hidden="true"></span>
-									</div>
-									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.routeModes.title">Shortest Route vs. Minimum Interchange</h4>
-										<span data-i18n="help.cards.routeModes.subtitle">Understanding route optimization preferences</span>
-									</div>
-								</div>
-								<span class="card-chevron" aria-hidden="true"></span>
-							</div>
-							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.routeModes.desc">You can toggle routing priority based on your travel preferences:</p>
-								<ul class="drawer-facts">
-									<li data-i18n="help.cards.routeModes.fact1">Shortest Route: Finds the quickest path with lowest travel time, even if it requires an extra interchange.</li>
-									<li data-i18n="help.cards.routeModes.fact2">Minimum Interchange: Prioritizes single-line direct journeys or least train transfers for comfort.</li>
-									<li data-i18n="help.cards.routeModes.fact3">Interactive path highlighting displays intermediate stations and line switch colors on the map.</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Card 1.3: Interchange Tips -->
-						<div class="help-card-item" id="card-interchange-tips" data-keywords="interchange transfer line change platform walking bridge lifts escalator kashmere gate hauz khas">
-							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
-								<div class="card-summary-left">
-									<div class="card-bullet-icon icon-purple">
-										<span class="help-ico ico-transfer" aria-hidden="true"></span>
-									</div>
-									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.interchangeTips.title">How Interchanges &amp; Platform Transfers Work</h4>
-										<span data-i18n="help.cards.interchangeTips.subtitle">Walking time, transfer bridges, and signage</span>
-									</div>
-								</div>
-								<span class="card-chevron" aria-hidden="true"></span>
-							</div>
-							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.interchangeTips.desc">When changing lines at major interchange hubs:</p>
-								<ul class="drawer-facts">
-									<li data-i18n="help.cards.interchangeTips.fact1">Our route timeline displays transfer walking time (typically 3 to 6 minutes) calculated in the total journey.</li>
-									<li data-i18n="help.cards.interchangeTips.fact2">Follow color-coded foot-trails on station platforms matching your next metro line.</li>
-									<li data-i18n="help.cards.interchangeTips.fact3">Stations like Rajiv Chowk, Kashmere Gate, and Hauz Khas have multi-level platform lifts and escalators.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- =========================================================
-				 SECTION 2: SMART JOURNEY & SENSORS
-				 ========================================================= -->
-				<div class="help-section-group" id="sec-smart" data-category="smart">
-					<div class="section-badge-header">
-						<div class="section-title-wrap">
-							<span class="section-num-tag">03</span>
-							<div>
-								<h2 class="section-title" data-i18n="help.sections.smartTitle">Smart Journey &amp; Sensors</h2>
-								<p class="section-sub" data-i18n="help.sections.smartSubtitle">Destination wake-up alarms, GPS tracking, and card recharge gateway</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="help-card-list">
-						<!-- Card 2.1: Destination Alarm -->
-						<div class="help-card-item" id="card-dest-alarm" data-keywords="alarm wake up destination alert chime vibration sound stop ring geo fence proximity">
-							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
-								<div class="card-summary-left">
-									<div class="card-bullet-icon icon-rose">
-										<span class="help-ico ico-alarm" aria-hidden="true"></span>
-									</div>
-									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.destAlarm.title">Destination Wake-Up Alarm (How it Works)</h4>
-										<span data-i18n="help.cards.destAlarm.subtitle">Geo-fenced sound &amp; vibration alert before your stop</span>
-									</div>
-								</div>
-								<span class="card-chevron" aria-hidden="true"></span>
-							</div>
-							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.destAlarm.desc">Never miss your destination station while reading, listening to music, or napping:</p>
-								<ul class="drawer-facts">
-									<li data-i18n="help.cards.destAlarm.fact1">Set an alert radius (e.g., 1 or 2 stations before arrival) from the floating alarm button.</li>
-									<li data-i18n="help.cards.destAlarm.fact2">Uses low-power background Geolocation API and motion telemetry to track proximity.</li>
-									<li data-i18n="help.cards.destAlarm.fact3">Sounds a prominent audio chime and activates device vibration upon approaching the target station.</li>
+									<li data-i18n="help.cards.headerCity.fact1">All Metros Supported: Switch between Delhi NCR, Kanpur, Lucknow, Mumbai, Ahmedabad, Bengaluru, Chennai, and more.</li>
+									<li data-i18n="help.cards.headerCity.fact2">Instant State Refresh: Changing the city immediately reloads the route finder, fare tables, and interactive map.</li>
+									<li data-i18n="help.cards.headerCity.fact3">Local Memory: Your selected city is remembered automatically across visits.</li>
 								</ul>
 
-								<!-- Text-like More... Action Link -->
 								<div class="drawer-more-wrapper">
-									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.destAlarm.moreBtn" data-less-key="help.cards.destAlarm.lessBtn">
-										<span class="more-btn-label" data-i18n="help.cards.destAlarm.moreBtn">और जानें...</span>
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.headerCity.moreBtn" data-less-key="help.cards.headerCity.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.headerCity.moreBtn">और जानें...</span>
 										<span class="more-btn-icon" aria-hidden="true">▾</span>
 									</button>
 								</div>
 
-								<!-- Extended Details (Initially collapsed, reveals on click) -->
 								<div class="drawer-extended-details hidden">
-									<h5 class="extended-heading" data-i18n="help.cards.destAlarm.detailHeading">अलार्म कैसे लगाएं और कैसे काम करता है?</h5>
+									<h5 class="extended-heading" data-i18n="help.cards.headerCity.detailHeading">City Switching Guide:</h5>
 									<ol class="extended-steps">
-										<li data-i18n="help.cards.destAlarm.step1">रूट खोजें: होम पेज पर शुरुआती और आखिरी स्टेशन चुनकर रूट देखें।</li>
-										<li data-i18n="help.cards.destAlarm.step2">अलार्म बटन दबाएं: नीचे यात्रा कार्ड पर दिख रहे घंटी (Alarm) बटन पर टैप करें।</li>
-										<li data-i18n="help.cards.destAlarm.step3">दूरी चुनें: तय करें कि आपको 1 स्टेशन पहले या 2 स्टेशन पहले अलर्ट चाहिए।</li>
-										<li data-i18n="help.cards.destAlarm.step4">लोकेशन ऑन रखें: स्क्रीन पर परमिशन मांगते ही Location Allow करें।</li>
+										<li data-i18n="help.cards.headerCity.step1">Tap City Pill: Click the city selector badge in the top-left corner of the header.</li>
+										<li data-i18n="help.cards.headerCity.step2">Browse or Search: Type your city name or pick from the categorized regional list.</li>
+										<li data-i18n="help.cards.headerCity.step3">Seamless Transition: All active routes and station indexes adapt without reloading the webpage.</li>
 									</ol>
 									<div class="extended-tip-box">
-										<span class="tip-badge" data-i18n="help.cards.destAlarm.tipBadge">खास सुझाव:</span>
-										<span class="tip-text" data-i18n="help.cards.destAlarm.tipText">अगर फोन साइलेंट है तब भी वाइब्रेशन काम करेगा, और ईयरफोन लगे होने पर बीप आवाज़ साफ सुनाई देगी।</span>
+										<span class="tip-badge" data-i18n="help.cards.headerCity.tipBadge">Commuter Tip:</span>
+										<span class="tip-text" data-i18n="help.cards.headerCity.tipText">If traveling between NCR regions (e.g. Delhi to Noida or Meerut RRTS), select Delhi NCR to view all combined corridors.</span>
 									</div>
 								</div>
 							</div>
-						</div>
+						</li>
 
-						<!-- Card 2.2: Sensors & GPS -->
-						<div class="help-card-item" id="card-sensors-gps" data-keywords="gps sensors location permission privacy battery speed speedometer accelerometer motion telemetry">
+						<!-- Card 5.2: Themes & Modes -->
+						<li class="help-card-item" id="card-header-themes" data-keywords="themes dark mode light mode cyberpunk retro mint ghibli color palette appearance style">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
-									<div class="card-bullet-icon icon-amber">
-										<span class="help-ico ico-compass" aria-hidden="true"></span>
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-purple">
+										<span class="help-ico ico-index" aria-hidden="true"></span>
 									</div>
 									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.sensorsGps.title">Live GPS, Speedometer &amp; Sensor Permissions</h4>
-										<span data-i18n="help.cards.sensorsGps.subtitle">Why permissions are requested and battery optimization</span>
+										<h4 data-i18n="help.cards.headerThemes.title">Themes &amp; Light/Dark Appearance Mode</h4>
+										<span data-i18n="help.cards.headerThemes.subtitle">Tailor colors and contrast for bright outdoor sunlight or late night rides</span>
 									</div>
 								</div>
 								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
 							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.sensorsGps.desc">YatraMarg utilizes device hardware strictly client-side with zero tracking server uploads:</p>
+								<p class="drawer-desc" data-i18n="help.cards.headerThemes.desc">YatraMarg features an enterprise Pluggable Theme Engine with 6 bespoke color palettes:</p>
 								<ul class="drawer-facts">
-									<li data-i18n="help.cards.sensorsGps.fact1">Location Permission (High Accuracy): Computes live train speed (km/h) and station arrival estimation.</li>
-									<li data-i18n="help.cards.sensorsGps.fact2">Accelerometer / Motion: Automatically pauses telemetry when stationary to save up to 80% battery.</li>
-									<li data-i18n="help.cards.sensorsGps.fact3">All telemetry data is strictly processed inside your browser sandbox and never sent to any server.</li>
+									<li data-i18n="help.cards.headerThemes.fact1">6 Distinct Palettes: Classic Light, Sleek Dark, Cyberpunk, Vintage Retro, Mint Green, and Ghibli Studio.</li>
+									<li data-i18n="help.cards.headerThemes.fact2">Auto System Sync: Matches your phone or computer dark mode preference automatically.</li>
+									<li data-i18n="help.cards.headerThemes.fact3">Instant Shader Swap: Theme changes apply instantly via pure CSS variables without page flickering.</li>
 								</ul>
-							</div>
-						</div>
 
-						<!-- Card 2.3: Recharge Card -->
-						<div class="help-card-item" id="card-recharge-card" data-keywords="recharge card smart card topup paytm amazon pay payment gateway balance modal">
+								<!-- Live Component Visual Blueprint -->
+								<div class="live-ui-mockup-wrapper">
+									<div class="live-mockup-label">
+										<span class="live-mockup-badge">Live Blueprint</span>
+										<span>Universal Header Controls Toolbar</span>
+									</div>
+									<div id="live-mockup-header-toolbar"></div>
+								</div>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.headerThemes.moreBtn" data-less-key="help.cards.headerThemes.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.headerThemes.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.headerThemes.detailHeading">Changing Themes:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.headerThemes.step1">Open Palette Menu: Tap the 'Palette' icon in the top header toolbar.</li>
+										<li data-i18n="help.cards.headerThemes.step2">Select Aesthetic: Pick your favorite theme card to preview colors in real-time.</li>
+										<li data-i18n="help.cards.headerThemes.step3">Toggle Appearance: Use the Light / Dark / Auto segmented bar to set your preferred contrast.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.headerThemes.tipBadge">Battery Saver:</span>
+										<span class="tip-text" data-i18n="help.cards.headerThemes.tipText">On OLED/AMOLED mobile screens, Sleek Dark and Cyberpunk themes significantly reduce battery consumption.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<!-- Card 5.3: Multilingual Interface -->
+						<li class="help-card-item" id="card-header-language" data-keywords="language hindi english locale switch translation local regional dictionary">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-emerald">
+										<span class="help-ico ico-help" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.headerLanguage.title">Multilingual Interface &amp; Instant Localisation</h4>
+										<span data-i18n="help.cards.headerLanguage.subtitle">Full native language support with zero-reload dynamic translations</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.headerLanguage.desc">Commute in your mother tongue with seamless on-the-fly language switching:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.headerLanguage.fact1">Bilingual Standard: 100% complete Hindi (हिन्दी) and English language translations across all screens.</li>
+									<li data-i18n="help.cards.headerLanguage.fact2">Zero Page Reload: The interface translates dynamically using reactive app state store subscribers.</li>
+									<li data-i18n="help.cards.headerLanguage.fact3">Regional Station Names: Station names and directions are rendered with authentic regional scripts.</li>
+								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.headerLanguage.moreBtn" data-less-key="help.cards.headerLanguage.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.headerLanguage.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.headerLanguage.detailHeading">Switching Language:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.headerLanguage.step1">Tap Language Button: Click the 'EN / HI' toggle button in the header toolbar.</li>
+										<li data-i18n="help.cards.headerLanguage.step2">Choose Locale: Select English or हिन्दी from the dropdown menu.</li>
+										<li data-i18n="help.cards.headerLanguage.step3">Auto-Saved Preference: The app automatically remembers your choice on subsequent visits.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.headerLanguage.tipBadge">Offline Pack:</span>
+										<span class="tip-text" data-i18n="help.cards.headerLanguage.tipText">Language translation dictionaries are cached offline so you can read station guides without network connectivity.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<!-- Card 5.4: Font Scale Accessibility -->
+						<li class="help-card-item" id="card-header-font" data-keywords="font scale text size zoom accessibility large small typography readable">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-amber">
 										<span class="help-ico ico-card" aria-hidden="true"></span>
 									</div>
 									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.rechargeCard.title">Smart Card Recharge Gateway</h4>
-										<span data-i18n="help.cards.rechargeCard.subtitle">Fast online top-up via official portals</span>
+										<h4 data-i18n="help.cards.headerFontScale.title">Text Size Adjuster (Font Scale)</h4>
+										<span data-i18n="help.cards.headerFontScale.subtitle">Accessible typography scaling from 85% to 130% without layout breakage</span>
 									</div>
 								</div>
 								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
 							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.rechargeCard.desc">Top up your metro smart card directly within the application:</p>
+								<p class="drawer-desc" data-i18n="help.cards.headerFontScale.desc">Adjust text readability comfortably on high-resolution mobile and desktop screens:</p>
 								<ul class="drawer-facts">
-									<li data-i18n="help.cards.rechargeCard.fact1">Click 'Recharge Card' in the top navigation bar to open the recharge dialog.</li>
-									<li data-i18n="help.cards.rechargeCard.fact2">Input your 8 to 11 digit Smart Card engraved number and choose your preferred recharge amount.</li>
-									<li data-i18n="help.cards.rechargeCard.fact3">Redirects securely to official transit recharge partners (DMRC / Paytm / Amazon Pay / Metro Web).</li>
+									<li data-i18n="help.cards.headerFontScale.fact1">Custom Scaling Slider: Fine-tune typography between 85% (compact) and 130% (extra large).</li>
+									<li data-i18n="help.cards.headerFontScale.fact2">No Layout Breakage: Fluid responsive font sizing preserves touch buttons, menus, and grid alignments.</li>
+									<li data-i18n="help.cards.headerFontScale.fact3">Instant Reset: Easily restore standard 100% typography scaling with a single click.</li>
 								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.headerFontScale.moreBtn" data-less-key="help.cards.headerFontScale.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.headerFontScale.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.headerFontScale.detailHeading">Adjusting Font Size:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.headerFontScale.step1">Open Font Adjuster: Tap the 'Aa' icon in the header toolbar.</li>
+										<li data-i18n="help.cards.headerFontScale.step2">Drag Slider: Slide the range handle left for compact view or right for larger, easier-to-read text.</li>
+										<li data-i18n="help.cards.headerFontScale.step3">Reset if Needed: Tap 'Reset' to instantly return to default 100% scale.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.headerFontScale.tipBadge">Accessibility:</span>
+										<span class="tip-text" data-i18n="help.cards.headerFontScale.tipText">Recommended for commuters with low vision or when using small smartphone screens in bumpy trains.</span>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
+						</li>
+					</ol>
 				</div>
 
 				<!-- =========================================================
-				 SECTION 3: FARES, SMART CARDS & RULES
+				 SECTION 6: UNIVERSAL FOOTER HUB
 				 ========================================================= -->
-				<div class="help-section-group" id="sec-fares" data-category="fares">
+				<div class="help-section-group" id="sec-footer" data-category="footer">
 					<div class="section-badge-header">
 						<div class="section-title-wrap">
-							<span class="section-num-tag">04</span>
+							<span class="section-num-tag"></span>
 							<div>
-								<h2 class="section-title" data-i18n="help.sections.faresTitle">Fares, Smart Cards &amp; Station Rules</h2>
-								<p class="section-sub" data-i18n="help.sections.faresSubtitle">Discounts, penalty rules, overstay limits, and holiday fare slabs</p>
+								<h2 class="section-title" data-i18n="help.sections.footerTitle">Universal Footer Hub &amp; Commuter Portal</h2>
+								<p class="section-sub" data-i18n="help.sections.footerSubtitle">Quick navigation links, mobile QR pass card, transit policies, and live network status</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="help-card-list">
-						<!-- Card 3.1: Discounts -->
-						<div class="help-card-item" id="card-discounts" data-keywords="fare ticket discounts smart card peak non peak 10 20 sunday holiday cheap save price">
+					<ol class="help-card-list">
+						<!-- Card 6.1: Direct Portals -->
+						<li class="help-card-item" id="card-footer-portals" data-keywords="footer links navigation route finder stations smart card support home">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-teal">
-										<span class="help-ico ico-calculator" aria-hidden="true"></span>
+										<span class="help-ico ico-routes" aria-hidden="true"></span>
 									</div>
 									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.discounts.title">Smart Card Discounts &amp; Peak vs Non-Peak Fares</h4>
-										<span data-i18n="help.cards.discounts.subtitle">Save 10% to 20% on every ride</span>
+										<h4 data-i18n="help.cards.footerPortals.title">Direct Navigation Portals &amp; Quick Page Links</h4>
+										<span data-i18n="help.cards.footerPortals.subtitle">Rapid access to Home, Stations, Smart Card, and Passenger Support</span>
 									</div>
 								</div>
 								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
 							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.discounts.desc">Smart card holders receive standard tiered transit discounts:</p>
+								<p class="drawer-desc" data-i18n="help.cards.footerPortals.desc">The universal footer provides dependable 1-click links to every major section:</p>
 								<ul class="drawer-facts">
-									<li data-i18n="help.cards.discounts.fact1">Flat 10% discount on all journeys paid using a valid Metro Smart Card.</li>
-									<li data-i18n="help.cards.discounts.fact2">Additional 10% discount (Total 20%) during non-peak hours (e.g. before 08:00 AM, 12:00 PM to 05:00 PM, after 09:00 PM).</li>
-									<li data-i18n="help.cards.discounts.fact3">Special discounted fare slabs apply on Sundays and National Holidays.</li>
+									<li data-i18n="help.cards.footerPortals.fact1">All Major Portals: Jump directly to Route Finder, All Stations Directory, Recharge Calculator, and Help Guide.</li>
+									<li data-i18n="help.cards.footerPortals.fact2">Universal Consistency: Visible at the base of every page across all devices and screen orientations.</li>
+									<li data-i18n="help.cards.footerPortals.fact3">Safe Deep Links: URLs preserve selected city and language parameters across page transitions.</li>
 								</ul>
-							</div>
-						</div>
 
-						<!-- Card 3.2: Overstay Limit -->
-						<div class="help-card-item" id="card-overstay" data-keywords="overstay time limit fine penalty afc gate 20 min 65 min 180 min duration rules">
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.footerPortals.moreBtn" data-less-key="help.cards.footerPortals.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.footerPortals.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.footerPortals.detailHeading">Using Footer Navigation:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.footerPortals.step1">Scroll to Bottom: Navigate to the bottom strip of any page in the portal.</li>
+										<li data-i18n="help.cards.footerPortals.step2">Select Destination: Tap any link to open that specific portal without navigating back to Home.</li>
+										<li data-i18n="help.cards.footerPortals.step3">Seamless Experience: Footer transitions maintain your active theme and selected metro city.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.footerPortals.tipBadge">Quick Shortcut:</span>
+										<span class="tip-text" data-i18n="help.cards.footerPortals.tipText">Use footer shortcuts when you need to quickly check station facilities while reviewing a fare route.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<!-- Card 6.2: Mobile Pass QR Card -->
+						<li class="help-card-item" id="card-footer-pass" data-keywords="mobile pass qr code scan ride phone camera lightbox zoom tactile 2.5d">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-rose">
-										<span class="help-ico ico-clock" aria-hidden="true"></span>
+										<span class="help-ico ico-card" aria-hidden="true"></span>
 									</div>
 									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.overstayLimit.title">Station Overstay &amp; Maximum Time Limit Rules</h4>
-										<span data-i18n="help.cards.overstayLimit.subtitle">Avoid automatic AFC gate penalty deduction</span>
+										<h4 data-i18n="help.cards.footerMobilePass.title">Scan &amp; Ride 2.5D Mobile Pass Card</h4>
+										<span data-i18n="help.cards.footerMobilePass.subtitle">Instant QR code lightbox to open YatraMarg directly on your mobile smartphone</span>
 									</div>
 								</div>
 								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
 							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.overstayLimit.desc">Metro systems impose maximum duration limits inside the paid area:</p>
+								<p class="drawer-desc" data-i18n="help.cards.footerMobilePass.desc">Seamlessly transition your desktop research to your pocket mobile device:</p>
 								<ul class="drawer-facts">
-									<li data-i18n="help.cards.overstayLimit.fact1">Same Station Entry/Exit: Maximum 20 minutes allowed (nominal minimum fare applicable).</li>
-									<li data-i18n="help.cards.overstayLimit.fact2">Different Station (Under 10 km): Maximum 65 minutes inside transit system.</li>
-									<li data-i18n="help.cards.overstayLimit.fact3">Long Journeys (> 10 km): Maximum 180 minutes. Exceeding limits incurs a standard hourly fine at AFC exit gates.</li>
+									<li data-i18n="help.cards.footerMobilePass.fact1">Tactile 2.5D Card: Beautiful elevated commuter card featuring an authentic scan-to-ride QR code.</li>
+									<li data-i18n="help.cards.footerMobilePass.fact2">Interactive Lightbox: Tap the QR code to open an enlarged modal with high-contrast scanning bounds.</li>
+									<li data-i18n="help.cards.footerMobilePass.fact3">No App Store Needed: Open your phone camera, scan the QR, and the full app launches instantly.</li>
 								</ul>
-							</div>
-						</div>
 
-						<!-- Card 3.3: Luggage Rules -->
-						<div class="help-card-item" id="card-luggage" data-keywords="luggage baggage weight cisf scan 25 kg airport express bag dimensions">
+								<!-- Live Component Visual Blueprint -->
+								<div class="live-ui-mockup-wrapper">
+									<div class="live-mockup-label">
+										<span class="live-mockup-badge">Live Blueprint</span>
+										<span>Universal Footer Mobile Pass Card</span>
+									</div>
+									<div id="live-mockup-footer-pass"></div>
+								</div>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.footerMobilePass.moreBtn" data-less-key="help.cards.footerMobilePass.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.footerMobilePass.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.footerMobilePass.detailHeading">Scanning the Mobile Pass:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.footerMobilePass.step1">Tap QR Code: Click 'Tap to Zoom' on the footer card to open the accessible lightbox modal.</li>
+										<li data-i18n="help.cards.footerMobilePass.step2">Scan with Phone: Point your smartphone camera or Google Lens at the enlarged QR code.</li>
+										<li data-i18n="help.cards.footerMobilePass.step3">Ride on the Go: Tap the prompted link on your phone to continue your commute seamlessly.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.footerMobilePass.tipBadge">Zero Installation:</span>
+										<span class="tip-text" data-i18n="help.cards.footerMobilePass.tipText">The QR code points directly to the PWA web app, requiring no heavy 100MB downloads from app stores.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<!-- Card 6.3: Transit Disclaimer -->
+						<li class="help-card-item" id="card-footer-disclaimer" data-keywords="disclaimer legal policy privacy official data authority guidelines rules">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
-									<div class="card-bullet-icon icon-cyan">
-										<span class="help-ico ico-luggage" aria-hidden="true"></span>
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-amber">
+										<span class="help-ico ico-shield" aria-hidden="true"></span>
 									</div>
 									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.luggageRules.title">Baggage Dimensions &amp; Weight Allowance</h4>
-										<span data-i18n="help.cards.luggageRules.subtitle">Permissible personal luggage standards</span>
+										<h4 data-i18n="help.cards.footerDisclaimer.title">Transit Advisory &amp; Official Data Policies</h4>
+										<span data-i18n="help.cards.footerDisclaimer.subtitle">Reference fare guidelines, timetable disclaimers, and passenger safety advisory</span>
 									</div>
 								</div>
 								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
 							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.luggageRules.desc">Passenger baggage regulations for smooth CISF screening:</p>
+								<p class="drawer-desc" data-i18n="help.cards.footerDisclaimer.desc">Clear legal and operational clarity regarding transit information:</p>
 								<ul class="drawer-facts">
-									<li data-i18n="help.cards.luggageRules.fact1">Maximum weight: Up to 25 kg of personal luggage allowed per commuter.</li>
-									<li data-i18n="help.cards.luggageRules.fact2">Maximum dimensions: 80 cm (length) × 100 cm (width) × 60 cm (height).</li>
-									<li data-i18n="help.cards.luggageRules.fact3">Airport Express Line commuters are permitted up to 32 kg depending on airline check-in baggage policies.</li>
+									<li data-i18n="help.cards.footerDisclaimer.fact1">Reference Only: All fare calculations, schedules, and route graphs are curated for commuter reference.</li>
+									<li data-i18n="help.cards.footerDisclaimer.fact2">Official Authority Priority: In rare cases of emergency diversions or fare revisions, metro corporation notices prevail.</li>
+									<li data-i18n="help.cards.footerDisclaimer.fact3">Zero User Tracking: The application respects commuter privacy and stores 0 personal trip records on external servers.</li>
 								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.footerDisclaimer.moreBtn" data-less-key="help.cards.footerDisclaimer.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.footerDisclaimer.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.footerDisclaimer.detailHeading">Advisory &amp; Guidelines:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.footerDisclaimer.step1">Fare Validity: Fares shown are standard tokens/smart card tariffs; holiday discounts may apply.</li>
+										<li data-i18n="help.cards.footerDisclaimer.step2">Schedule Adherence: Live train intervals may fluctuate during peak rush hours or signaling maintenance.</li>
+										<li data-i18n="help.cards.footerDisclaimer.step3">Safety Reporting: For security incidents or suspicious baggage, report immediately to station CISF personnel.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.footerDisclaimer.tipBadge">Official Rules:</span>
+										<span class="tip-text" data-i18n="help.cards.footerDisclaimer.tipText">Check station customer care desks for official refund policies on partially completed smart card journeys.</span>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
+						</li>
+
+						<!-- Card 6.4: System Status & Credits -->
+						<li class="help-card-item" id="card-footer-status" data-keywords="version build credits open source release connectivity online offline status">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-indigo">
+										<span class="help-ico ico-activity" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.footerSystemStatus.title">Build Version, Connectivity Indicator &amp; Credits</h4>
+										<span data-i18n="help.cards.footerSystemStatus.subtitle">Real-time network indicator, software build release, and open source transit credits</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.footerSystemStatus.desc">Transparent software build information and system diagnostics in the bottom credit strip:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.footerSystemStatus.fact1">Live Connectivity Status: Subtle indicator informs whether the app is currently Online or working Offline.</li>
+									<li data-i18n="help.cards.footerSystemStatus.fact2">Semantic Versioning: Clear release tags ensure you know which metro timetable revision is active.</li>
+									<li data-i18n="help.cards.footerSystemStatus.fact3">Commuter-First Design: Dedicated to daily metro riders across India with zero commercial advertisements.</li>
+								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.footerSystemStatus.moreBtn" data-less-key="help.cards.footerSystemStatus.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.footerSystemStatus.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.footerSystemStatus.detailHeading">Checking System Status:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.footerSystemStatus.step1">Inspect Bottom Strip: View copyright, release date, and development credits at the very bottom.</li>
+										<li data-i18n="help.cards.footerSystemStatus.step2">Check Network Pulse: If offline, an indicator badge confirms the app is operating from device storage.</li>
+										<li data-i18n="help.cards.footerSystemStatus.step3">Automatic Updates: When you connect to Wi-Fi, background service workers verify new timetable releases.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.footerSystemStatus.tipBadge">Ad-Free Commute:</span>
+										<span class="tip-text" data-i18n="help.cards.footerSystemStatus.tipText">YatraMarg is 100% ad-free, ensuring clean, distraction-free transit navigation on crowded trains.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ol>
 				</div>
 
 				<!-- =========================================================
-				 SECTION 4: APP SETTINGS & TROUBLESHOOTING
+				 SECTION 7: PWA & OFFLINE INSTALLATION
+				 ========================================================= -->
+				<div class="help-section-group" id="sec-pwa" data-category="pwa">
+					<div class="section-badge-header">
+						<div class="section-title-wrap">
+							<span class="section-num-tag"></span>
+							<div>
+								<h2 class="section-title" data-i18n="help.sections.pwaTitle">Progressive Web App (PWA) &amp; Offline Mode</h2>
+								<p class="section-sub" data-i18n="help.sections.pwaSubtitle">Zero-install web app, homescreen shortcuts, service worker caching, and tunnel-ready offline access</p>
+							</div>
+						</div>
+					</div>
+
+					<ol class="help-card-list">
+						<!-- Card 7.1: PWA Installation -->
+						<li class="help-card-item" id="card-pwa-install" data-keywords="pwa install progressive web app android ios chrome safari desktop add homescreen">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-emerald">
+										<span class="help-ico ico-download" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.pwaInstall.title">Installing YatraMarg as a Progressive Web App (PWA)</h4>
+										<span data-i18n="help.cards.pwaInstall.subtitle">Install on Android, iOS, Windows &amp; Mac with native app experience and zero app store clutter</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.pwaInstall.desc">Install YatraMarg directly onto your smartphone home screen or desktop without using Google Play or App Store:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.pwaInstall.fact1">Android Chrome: Tap the 'Install' banner or browser menu (⋮) -> 'Install App' / 'Add to Home Screen'.</li>
+									<li data-i18n="help.cards.pwaInstall.fact2">Apple iOS (Safari): Tap the Share button (⎋) -> scroll down and select 'Add to Home Screen' (+).</li>
+									<li data-i18n="help.cards.pwaInstall.fact3">Desktop (Chrome/Edge): Click the install monitor icon in your browser URL bar for a standalone desktop window.</li>
+								</ul>
+
+								<!-- Live Component Visual Blueprint -->
+								<div class="live-ui-mockup-wrapper">
+									<div class="live-mockup-label">
+										<span class="live-mockup-badge">Live Blueprint</span>
+										<span>PWA Direct Install Floating Banner</span>
+									</div>
+									<div id="live-mockup-pwa-banner"></div>
+								</div>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.pwaInstall.moreBtn" data-less-key="help.cards.pwaInstall.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.pwaInstall.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.pwaInstall.detailHeading">PWA Installation Steps:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.pwaInstall.step1">Locate Install Banner: Look for the 'Install Metro App' banner at the bottom or the 'Install App' icon in the header.</li>
+										<li data-i18n="help.cards.pwaInstall.step2">Confirm Installation: Click 'Install' in the prompt to add the official icon to your device application launcher.</li>
+										<li data-i18n="help.cards.pwaInstall.step3">Full-Screen Standalone: Opens like a native app without browser URL bars, headers, or navigation buttons.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.pwaInstall.tipBadge">Ultra Light:</span>
+										<span class="tip-text" data-i18n="help.cards.pwaInstall.tipText">PWA takes less than 1 MB of storage compared to 80-150 MB native app store downloads.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<!-- Card 7.2: Service Worker Caching -->
+						<li class="help-card-item" id="card-pwa-caching" data-keywords="offline service worker cache storage fast instant tunnel zero data background">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-blue">
+										<span class="help-ico ico-wifi" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.pwaCaching.title">Service Worker Engine &amp; Instant Offline Launch</h4>
+										<span data-i18n="help.cards.pwaCaching.subtitle">Pre-cached vector maps, route solvers, and schedules ready for subterranean tunnels</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.pwaCaching.desc">How YatraMarg continues working smoothly even deep underground in flight mode:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.pwaCaching.fact1">Service Worker Caching: Crucial HTML, CSS, JavaScript, and metro station coordinates cache on initial load.</li>
+									<li data-i18n="help.cards.pwaCaching.fact2">Instant Offline Launch: The app opens in under 0.2 seconds even without active 4G/5G mobile connectivity.</li>
+									<li data-i18n="help.cards.pwaCaching.fact3">Background Cache Sync: Service workers periodically check for revised timetables whenever internet is restored.</li>
+								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.pwaCaching.moreBtn" data-less-key="help.cards.pwaCaching.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.pwaCaching.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.pwaCaching.detailHeading">Offline Caching Mechanics:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.pwaCaching.step1">First Visit Cache: On your first visit, the service worker pre-caches all critical assets into CacheStorage.</li>
+										<li data-i18n="help.cards.pwaCaching.step2">Subway Tunnel Access: When passing through tunnels with zero cellular bars, route searches execute client-side.</li>
+										<li data-i18n="help.cards.pwaCaching.step3">Zero Data Usage: Browsing station timetables and finding interchanges consumes zero mobile data quota.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.pwaCaching.tipBadge">Battery Efficiency:</span>
+										<span class="tip-text" data-i18n="help.cards.pwaCaching.tipText">Because no network radio pings occur while offline, your phone battery lasts significantly longer during travel.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<!-- Card 7.3: Offline Pack Storage -->
+						<li class="help-card-item" id="card-pwa-storage" data-keywords="offline packs storage language theme memory management remove download">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-purple">
+										<span class="help-ico ico-download" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.pwaStorage.title">Offline Language &amp; Theme Pack Storage</h4>
+										<span data-i18n="help.cards.pwaStorage.subtitle">Manage device memory, offline packs, and modular extensions safely</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.pwaStorage.desc">Control your device memory usage and offline pack management:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.pwaStorage.fact1">Modular Packs: Download only the languages and themes you need to keep storage usage minimal.</li>
+									<li data-i18n="help.cards.pwaStorage.fact2">Inspect Pack Sizes: Each language pack is approximately 100-140 KB, taking negligible device memory.</li>
+									<li data-i18n="help.cards.pwaStorage.fact3">One-Click Removal: Remove unused offline packs anytime via the App Settings 'Packs' tab.</li>
+								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.pwaStorage.moreBtn" data-less-key="help.cards.pwaStorage.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.pwaStorage.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.pwaStorage.detailHeading">Managing Offline Storage:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.pwaStorage.step1">Open Settings -> Packs: Navigate to the 'Packs' tab in the Home sidebar or Settings modal.</li>
+										<li data-i18n="help.cards.pwaStorage.step2">Download Packs: Tap the download button next to your regional language for full offline availability.</li>
+										<li data-i18n="help.cards.pwaStorage.step3">Uninstall Unused: Tap the trash icon next to any downloaded pack to instantly reclaim phone memory.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.pwaStorage.tipBadge">Smart Cleanup:</span>
+										<span class="tip-text" data-i18n="help.cards.pwaStorage.tipText">All packs remain safe in browser storage and will not be erased unless you clear browsing data.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
+
+				<!-- =========================================================
+				 SECTION 8: DIAGNOSTICS & TROUBLESHOOTING
 				 ========================================================= -->
 				<div class="help-section-group" id="sec-troubleshoot" data-category="troubleshoot">
 					<div class="section-badge-header">
 						<div class="section-title-wrap">
-							<span class="section-num-tag">05</span>
+							<span class="section-num-tag"></span>
 							<div>
-								<h2 class="section-title" data-i18n="help.sections.troubleshootTitle">App Settings &amp; Troubleshooting</h2>
-								<p class="section-sub" data-i18n="help.sections.troubleshootSubtitle">Offline mode, location fix, theme personalization, and cache reset</p>
+								<h2 class="section-title" data-i18n="help.sections.troubleshootTitle">Diagnostics &amp; Problem Solving</h2>
+								<p class="section-sub" data-i18n="help.sections.troubleshootSubtitle">GPS troubleshooting underground, cache reset, resolving sync errors, and device storage recovery</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="help-card-list">
-						<!-- Card 4.1: Offline Mode -->
-						<div class="help-card-item" id="card-offline" data-keywords="offline internet no signal underground cached pwa storage network">
+					<ol class="help-card-list">
+						<!-- Card 8.1: GPS Underground Fix -->
+						<li class="help-card-item" id="card-troubleshoot-gps" data-keywords="gps error underground tunnel lost fix signal tracking location accuracy high mode">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
-									<div class="card-bullet-icon icon-emerald">
-										<span class="help-ico ico-wifi" aria-hidden="true"></span>
-									</div>
-									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.offlineMode.title">Using YatraMarg in Offline Mode (No Internet)</h4>
-										<span data-i18n="help.cards.offlineMode.subtitle">Cached network schematics and offline route calculation</span>
-									</div>
-								</div>
-								<span class="card-chevron" aria-hidden="true"></span>
-							</div>
-							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.offlineMode.desc">You can find routes and view maps even underground without internet connection:</p>
-								<ul class="drawer-facts">
-									<li data-i18n="help.cards.offlineMode.fact1">Once loaded, station network coordinates and route graphs are cached locally in your browser (CacheStorage).</li>
-									<li data-i18n="help.cards.offlineMode.fact2">The vector SVG interactive map runs 100% client-side without pinging external tile servers.</li>
-									<li data-i18n="help.cards.offlineMode.fact3">To refresh latest station additions, simply reload the app when an active internet connection is available.</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Card 4.2: GPS Underground -->
-						<div class="help-card-item" id="card-gps-troubleshoot" data-keywords="gps error underground tunnel lost fix signal tracking location accuracy">
-							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
-								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-rose">
-										<span class="help-ico ico-trash" aria-hidden="true"></span>
+										<span class="help-ico ico-compass" aria-hidden="true"></span>
 									</div>
 									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.gpsTroubleshoot.title">Fixing GPS Location Errors Underground</h4>
-										<span data-i18n="help.cards.gpsTroubleshoot.subtitle">Overcoming cellular signal loss in underground metro tunnels</span>
+										<h4 data-i18n="help.cards.troubleshootGps.title">Fixing GPS Location Errors in Underground Tunnels</h4>
+										<span data-i18n="help.cards.troubleshootGps.subtitle">Overcoming cellular signal loss and satellite attenuation in subterranean corridors</span>
 									</div>
 								</div>
 								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
 							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.gpsTroubleshoot.desc">Satellite GPS signals naturally weaken when traveling in deep underground tunnels:</p>
+								<p class="drawer-desc" data-i18n="help.cards.troubleshootGps.desc">Satellite GPS signals naturally weaken when traveling through thick concrete metro tunnels:</p>
 								<ul class="drawer-facts">
-									<li data-i18n="help.cards.gpsTroubleshoot.fact1">Ensure 'Location Services' and 'High Accuracy Mode' are turned on in your device settings.</li>
-									<li data-i18n="help.cards.gpsTroubleshoot.fact2">Near above-ground elevated stations, GPS locks back in within 5 to 10 seconds.</li>
-									<li data-i18n="help.cards.gpsTroubleshoot.fact3">If GPS remains unavailable underground, use the 'Manual Station Check' feature in the journey tracker.</li>
+									<li data-i18n="help.cards.troubleshootGps.fact1">High Accuracy Mode: Enable 'Google Location Accuracy' or 'Precise Location' in device system settings.</li>
+									<li data-i18n="help.cards.troubleshootGps.fact2">Elevated Track Reconnection: Near above-ground elevated tracks, satellite GPS locks back in within 5-10 seconds.</li>
+									<li data-i18n="help.cards.troubleshootGps.fact3">Manual Station Check: If GPS drops underground, select your current station manually to track remaining stops.</li>
 								</ul>
-							</div>
-						</div>
 
-						<!-- Card 4.3: Themes & Language -->
-						<div class="help-card-item" id="card-themes-lang" data-keywords="theme dark light cyberpunk vintage mint ghibli language hindi english switch select">
-							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
-								<div class="card-summary-left">
-									<div class="card-bullet-icon icon-indigo">
-										<span class="help-ico ico-pin" aria-hidden="true"></span>
-									</div>
-									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.themesLanguage.title">Switching Themes &amp; App Language</h4>
-										<span data-i18n="help.cards.themesLanguage.subtitle">Personalize your visual experience &amp; native language</span>
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.troubleshootGps.moreBtn" data-less-key="help.cards.troubleshootGps.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.troubleshootGps.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.troubleshootGps.detailHeading">Troubleshooting Underground GPS:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.troubleshootGps.step1">Verify Permissions: Ensure location permission is set to 'While using app' with precise tracking enabled.</li>
+										<li data-i18n="help.cards.troubleshootGps.step2">Automatic Speed Estimator: While in tunnels, the telemetry widget utilizes average train speed estimations.</li>
+										<li data-i18n="help.cards.troubleshootGps.step3">Portal Exit Recovery: As your train emerges from underground onto elevated flyovers, GPS syncs immediately.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.troubleshootGps.tipBadge">Window Tip:</span>
+										<span class="tip-text" data-i18n="help.cards.troubleshootGps.tipText">Sitting near train windows improves satellite triangulation speed when arriving at surface platforms.</span>
 									</div>
 								</div>
-								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
-							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.themesLanguage.desc">Customize YatraMarg to suit your preference in bright sunlight or nighttime travel:</p>
-								<ul class="drawer-facts">
-									<li data-i18n="help.cards.themesLanguage.fact1">Theme Selector in Header: Switch between Classic Light, Sleek Dark, Neon Cyberpunk, Vintage Retro, Forest Mint, and Ghibli.</li>
-									<li data-i18n="help.cards.themesLanguage.fact2">Language Selector: Switch instantly between English and हिन्दी. All route labels, fares, and guides translate on the fly.</li>
-									<li data-i18n="help.cards.themesLanguage.fact3">Your preferred theme and language are saved permanently in your browser localStorage.</li>
-								</ul>
-							</div>
-						</div>
+						</li>
 
-						<!-- Card 4.4: Cache Reset -->
-						<div class="help-card-item" id="card-cache-reset" data-keywords="cache reset reload refresh clear data update stale stations fix">
+						<!-- Card 8.2: Cache Clearing & Hard Reload -->
+						<li class="help-card-item" id="card-troubleshoot-cache" data-keywords="cache reset reload refresh clear data update stale stations fix missing fare">
 							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
 								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
 									<div class="card-bullet-icon icon-teal">
 										<span class="help-ico ico-refresh" aria-hidden="true"></span>
 									</div>
 									<div class="card-heading-texts">
-										<h4 data-i18n="help.cards.cacheReset.title">How to Clear Cache &amp; Reload Latest Data</h4>
-										<span data-i18n="help.cards.cacheReset.subtitle">Fixing stale maps or outdated station data</span>
+										<h4 data-i18n="help.cards.troubleshootCache.title">Clearing Browser Cache &amp; Reloading Fresh Updates</h4>
+										<span data-i18n="help.cards.troubleshootCache.subtitle">Fixing stale maps, missing newly inaugurated stations, or outdated fares</span>
 									</div>
 								</div>
 								<span class="card-chevron" aria-hidden="true"></span>
 							</div>
 							<div class="card-drawer">
-								<p class="drawer-desc" data-i18n="help.cards.cacheReset.desc">If you notice missing newly inaugurated stations or mismatched fares:</p>
+								<p class="drawer-desc" data-i18n="help.cards.troubleshootCache.desc">If recently opened metro stations or updated fares are not appearing:</p>
 								<ul class="drawer-facts">
-									<li data-i18n="help.cards.cacheReset.fact1">Hard refresh your browser by pressing Ctrl + F5 (Windows) or Cmd + Shift + R (Mac).</li>
-									<li data-i18n="help.cards.cacheReset.fact2">On mobile devices, open browser settings -> Site Settings -> Clear Data for this site.</li>
-									<li data-i18n="help.cards.cacheReset.fact3">New data updates are checked automatically by the Service Worker on every initial app visit.</li>
+									<li data-i18n="help.cards.troubleshootCache.fact1">Hard Refresh Shortcut: Press Ctrl + F5 (Windows) or Cmd + Shift + R (Mac) to bypass cached files.</li>
+									<li data-i18n="help.cards.troubleshootCache.fact2">Mobile Browser Refresh: Swipe down firmly from the top of the browser or use browser menu -> Refresh.</li>
+									<li data-i18n="help.cards.troubleshootCache.fact3">App Utility Menu: Tap the phone icon in the header toolbar and select 'Refresh' to trigger a fresh sync.</li>
 								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.troubleshootCache.moreBtn" data-less-key="help.cards.troubleshootCache.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.troubleshootCache.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.troubleshootCache.detailHeading">Cache Clearing Steps:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.troubleshootCache.step1">Use In-App Refresh: Tap the header utility menu and click 'Refresh' to flush stale timetable caches.</li>
+										<li data-i18n="help.cards.troubleshootCache.step2">Browser Site Data: In mobile Chrome or Safari settings, go to Site Settings -> Data Stored -> Clear.</li>
+										<li data-i18n="help.cards.troubleshootCache.step3">Verify Updates: Reopen the app with an active internet connection to receive the newest network schematics.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.troubleshootCache.tipBadge">New Corridors:</span>
+										<span class="tip-text" data-i18n="help.cards.troubleshootCache.tipText">Whenever new lines or stations are inaugurated, an in-app refresh ensures the updated map is loaded.</span>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
+						</li>
+
+						<!-- Card 8.3: Storage Reset & Corrupt State -->
+						<li class="help-card-item" id="card-troubleshoot-storage" data-keywords="storage reset corrupted localstorage factory default restore backup json fix">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-indigo">
+										<span class="help-ico ico-trash" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.troubleshootStorage.title">Resetting Application Storage &amp; Resolving State Errors</h4>
+										<span data-i18n="help.cards.troubleshootStorage.subtitle">Fixing corrupted localStorage, resetting customized preferences, and restoring backups</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.troubleshootStorage.desc">If settings refuse to save or recent searches display inconsistent entries:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.troubleshootStorage.fact1">Reset to Default: Use the 'Reset to Default' button in Settings to safely restore factory values without data loss.</li>
+									<li data-i18n="help.cards.troubleshootStorage.fact2">Backup Protection: Export your saved routes and alarms to a JSON backup file before wiping device cache.</li>
+									<li data-i18n="help.cards.troubleshootStorage.fact3">Smart Merge Recovery: When restoring backups, use 'Smart Merge' to combine old and new journeys safely.</li>
+								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.troubleshootStorage.moreBtn" data-less-key="help.cards.troubleshootStorage.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.troubleshootStorage.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.troubleshootStorage.detailHeading">Storage Recovery Steps:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.troubleshootStorage.step1">Download Backup: Open Settings -> Backup tab -> tap 'Download' to save your preferences safely.</li>
+										<li data-i18n="help.cards.troubleshootStorage.step2">Perform Reset: Tap 'Reset to Default' in the Alarm or Settings footer to clear corrupted state keys.</li>
+										<li data-i18n="help.cards.troubleshootStorage.step3">Import Saved Data: Tap 'Import' in the Backup tab to reload your verified routes and preferences.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.troubleshootStorage.tipBadge">Data Privacy:</span>
+										<span class="tip-text" data-i18n="help.cards.troubleshootStorage.tipText">All saved data resides exclusively on your device; resetting your browser never transmits data to outside servers.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<!-- Card 8.4: Network Errors & Reconnection -->
+						<li class="help-card-item" id="card-troubleshoot-network" data-keywords="network error offline reconnect 2g 3g timeout connection dropped wifi fail-safe">
+							<div class="card-summary" role="button" tabindex="0" aria-expanded="true">
+								<div class="card-summary-left">
+									<span class="card-num-badge"></span>
+									<div class="card-bullet-icon icon-amber">
+										<span class="help-ico ico-wifi" aria-hidden="true"></span>
+									</div>
+									<div class="card-heading-texts">
+										<h4 data-i18n="help.cards.troubleshootNetwork.title">Network Connectivity Errors &amp; Offline Sync Recovery</h4>
+										<span data-i18n="help.cards.troubleshootNetwork.subtitle">Overcoming unstable 2G/3G connections and seamless background reconnection</span>
+									</div>
+								</div>
+								<span class="card-chevron" aria-hidden="true"></span>
+							</div>
+							<div class="card-drawer">
+								<p class="drawer-desc" data-i18n="help.cards.troubleshootNetwork.desc">How YatraMarg guarantees uninterrupted transit guidance even during intermittent network drops:</p>
+								<ul class="drawer-facts">
+									<li data-i18n="help.cards.troubleshootNetwork.fact1">Fail-Safe Offline Architecture: Network timeouts never crash the app; offline local caches take over seamlessly.</li>
+									<li data-i18n="help.cards.troubleshootNetwork.fact2">Silent Background Retry: When mobile connectivity drops to 2G or edge, non-critical background pings pause.</li>
+									<li data-i18n="help.cards.troubleshootNetwork.fact3">Auto-Reconnection Notice: The system automatically resumes live telemetries as soon as internet connectivity stabilizes.</li>
+								</ul>
+
+								<div class="drawer-more-wrapper">
+									<button type="button" class="drawer-more-btn" aria-expanded="false" data-more-key="help.cards.troubleshootNetwork.moreBtn" data-less-key="help.cards.troubleshootNetwork.lessBtn">
+										<span class="more-btn-label" data-i18n="help.cards.troubleshootNetwork.moreBtn">और जानें...</span>
+										<span class="more-btn-icon" aria-hidden="true">▾</span>
+									</button>
+								</div>
+
+								<div class="drawer-extended-details hidden">
+									<h5 class="extended-heading" data-i18n="help.cards.troubleshootNetwork.detailHeading">Recovering from Connection Drops:</h5>
+									<ol class="extended-steps">
+										<li data-i18n="help.cards.troubleshootNetwork.step1">Stay Calm in Flight Mode: Route calculations and fare tables remain 100% operational offline.</li>
+										<li data-i18n="help.cards.troubleshootNetwork.step2">Check Mobile Network: If recharges or external maps fail, ensure mobile data is enabled in device settings.</li>
+										<li data-i18n="help.cards.troubleshootNetwork.step3">Re-sync on Reconnect: The app silently updates cached transit notices the moment you connect to station Wi-Fi.</li>
+									</ol>
+									<div class="extended-tip-box">
+										<span class="tip-badge" data-i18n="help.cards.troubleshootNetwork.tipBadge">Zero Interruption:</span>
+										<span class="tip-text" data-i18n="help.cards.troubleshootNetwork.tipText">You can commute from origin to destination completely in flight mode without experiencing a single error.</span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ol>
 				</div>
 
 			</section>

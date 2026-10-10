@@ -395,7 +395,7 @@
 	}
 
 	header.main-header .dropdown-category-header {
-		padding: var(--space-xs) var(--space-sm) var(--space-2xs) var(--space-sm);
+		padding: var(--space-sm) var(--space-sm) var(--space-2xs) var(--space-sm);
 		font-size: var(--fs-2xs);
 		font-weight: var(--fw-bold);
 		text-transform: uppercase;
@@ -408,15 +408,14 @@
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
+		line-height: 1.2;
 		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 
 	header.main-header .dropdown-category-header:first-child {
 		border-top: none;
 		margin-top: 0;
-		padding-top: var(--space-2xs);
+		padding-top: var(--space-sm);
 	}
 
 	header.main-header #theme-menu .custom-dropdown-item {
@@ -607,13 +606,13 @@
 		left: 50%;
 		right: auto;
 		transform: translateX(-50%);
-		width: clamp(220px, 80vw, 290px);
+		width: 215px;
 		background: var(--card-bg);
 		border: var(--bw-thin) solid var(--border-color);
 		border-top: var(--bw-md) solid rgba(255, 255, 255, var(--op-glass));
 		border-bottom: var(--bw-thick) solid var(--border-color);
 		border-radius: var(--radius-md);
-		padding: var(--space-md);
+		padding: var(--space-sm) var(--space-md);
 		box-shadow:
 			0 10px 25px -5px rgba(0, 0, 0, var(--op-shadow)),
 			0 4px 10px -2px rgba(0, 0, 0, var(--op-subtle));
@@ -754,17 +753,67 @@
 		background: rgba(255, 255, 255, 0.9);
 	}
 
-	/* Native range thumb layered over custom styled track */
+	/* Range slider with visible, stylish draggable thumb button */
 	header.main-header .font-slider-track-wrap .font-scale-range {
 		position: absolute;
 		left: 0;
 		right: 0;
 		width: 100%;
 		height: 100%;
-		opacity: 0;
+		-webkit-appearance: none;
+		appearance: none;
+		background: transparent;
 		cursor: pointer;
 		margin: 0;
-		z-index: 2;
+		z-index: 5;
+	}
+
+	/* WebKit (Chrome, Edge, Safari, Android) thumb button */
+	header.main-header .font-scale-range::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: #ffffff;
+		border: 2.5px solid #00b074;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+		cursor: pointer;
+		margin-top: -5px;
+		transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+	}
+
+	header.main-header .font-scale-range::-webkit-slider-thumb:hover {
+		transform: scale(1.15);
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+	}
+
+	header.main-header .font-scale-range::-webkit-slider-thumb:active {
+		transform: scale(1.2);
+		background: #00b074;
+		border-color: #ffffff;
+	}
+
+	/* Firefox thumb button */
+	header.main-header .font-scale-range::-moz-range-thumb {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: #ffffff;
+		border: 2.5px solid #00b074;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+		cursor: pointer;
+		transition: transform var(--transition-fast);
+	}
+
+	header.main-header .font-scale-range::-webkit-slider-runnable-track {
+		background: transparent;
+		height: 6px;
+	}
+
+	header.main-header .font-scale-range::-moz-range-track {
+		background: transparent;
+		height: 6px;
 	}
 
 	/* Reset link */
@@ -872,7 +921,9 @@
 		left: 50%;
 		right: auto;
 		transform: translateX(-50%);
-		width: clamp(220px, 80vw, 290px);
+		width: max-content;
+		min-width: 190px;
+		max-width: min(260px, calc(100vw - var(--space-xl)));
 		max-height: 60vh;
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -881,7 +932,7 @@
 		border-top: var(--bw-md) solid rgba(255, 255, 255, var(--op-glass));
 		border-bottom: var(--bw-thick) solid var(--border-color);
 		border-radius: var(--radius-md);
-		padding: var(--space-2xs) 0;
+		padding: var(--space-xs) 0;
 		box-shadow:
 			0 10px 25px -5px rgba(0, 0, 0, var(--op-shadow)),
 			0 4px 10px -2px rgba(0, 0, 0, var(--op-subtle));
@@ -905,7 +956,7 @@
 		align-items: center;
 		gap: var(--space-sm);
 		padding: var(--space-xs) var(--space-sm);
-		margin: var(--space-2xs) var(--space-xs);
+		margin: 1px var(--space-xs);
 		border-radius: var(--radius-xs);
 		font-family: var(--font-main);
 		font-size: var(--fs-xs);
@@ -1002,6 +1053,18 @@
 			header.main-header .font-scale-panel,
 			header.main-header .city-dropdown-menu {
 				max-width: calc(100vw - var(--space-xl));
+			}
+
+			/* Mobile edge boundary protection in pure CSS (Zero inline styles) */
+			header.main-header .font-scale-panel {
+				left: 50%;
+				transform: translateX(-35%);
+			}
+
+			header.main-header #lang-menu.categorized-lang-menu {
+				right: 0;
+				left: auto;
+				transform: none;
 			}
 		}
 	}

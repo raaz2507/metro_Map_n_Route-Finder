@@ -76,13 +76,17 @@
 	.header-nav-item .nav-link[data-target="support"],
 	.header-nav-item:nth-child(5) { --item-rgb: var(--color-info-rgb); }
 
+	.header-nav-item[data-target="other"],
+	.header-nav-item .nav-link[data-target="other"],
+	.header-nav-item:nth-child(6) { --item-rgb: 249, 115, 22; }
+
 	.header-nav-item[data-target="help"],
 	.header-nav-item .nav-link[data-target="help"],
-	.header-nav-item:nth-child(6) { --item-rgb: var(--color-danger-rgb); }
+	.header-nav-item:nth-child(7) { --item-rgb: var(--color-danger-rgb); }
 
 	.header-nav-item[data-target="about"],
 	.header-nav-item .nav-link[data-target="about"],
-	.header-nav-item:nth-child(7) { --item-rgb: var(--color-primary-rgb); }
+	.header-nav-item:nth-child(8) { --item-rgb: var(--color-primary-rgb); }
 
 	/* Individual 2.5D Bogie / Link */
 	.header-nav-item .nav-link {

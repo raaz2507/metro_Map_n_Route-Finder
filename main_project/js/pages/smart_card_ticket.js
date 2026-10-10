@@ -36,6 +36,16 @@ class SmartCardPageController {
 		this.#amountInput = document.getElementById("rechargeAmount");
 		this.#submitBtn = document.getElementById("rechargeSubmitBtn");
 		this.#chipBtns = Array.from(document.querySelectorAll(".recharge-chip-btn"));
+
+		// Preserve city param on QR ticket link if active
+		const qrBtn = document.getElementById("qrTicketNavBtn");
+		if (qrBtn) {
+			const urlParams = new URLSearchParams(window.location.search);
+			const currentCity = urlParams.get('city') || localStorage.getItem('active_city') || '';
+			if (currentCity) {
+				qrBtn.href = `metro_QR_ticket.html?city=${encodeURIComponent(currentCity)}`;
+			}
+		}
 	}
 
 	#loadSavedData() {

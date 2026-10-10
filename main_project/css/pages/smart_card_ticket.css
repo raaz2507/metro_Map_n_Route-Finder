@@ -190,6 +190,8 @@
 		gap: var(--space-2xs);
 		box-shadow: 0 4px 10px rgba(0, 0, 0, var(--op-shadow));
 		transition: filter var(--transition-fast), transform var(--transition-fast);
+		text-decoration: none;
+		box-sizing: border-box;
 	}
 
 	.card-action-btn span {
@@ -203,5 +205,50 @@
 
 	.card-action-btn:active {
 		transform: translateY(1px);
+	}
+
+	/* QR Ticket Card Feature Highlights */
+	.qr-features-box {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.qr-feature-item {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		background-color: var(--input-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xs);
+		padding: var(--space-2xs) var(--space-xs);
+		box-sizing: border-box;
+	}
+
+	.qr-feature-icon {
+		font-size: var(--fs-sm);
+		flex-shrink: 0;
+		line-height: 1;
+	}
+
+	.qr-feature-text {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+	}
+
+	.qr-feature-text strong {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		line-height: 1.25;
+	}
+
+	.qr-feature-text span {
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		color: var(--text-secondary);
+		line-height: 1.25;
 	}
 }

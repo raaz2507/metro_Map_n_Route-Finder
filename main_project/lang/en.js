@@ -11,6 +11,7 @@ import help from "./en/help.js";
 import about from "./en/about.js";
 import countrySelector from "./en/country_selector.js";
 import smartCardTicket from "./en/smart_card_ticket.js";
+import other from "./en/other.js";
 
 
 export default {
@@ -19,7 +20,8 @@ export default {
 		home,
 		networks,
 		countrySelector,
-		all_stations: allStations
+		all_stations: allStations,
+		other
 	},
 	station_info: stationInfo,
 	metroTicket: metroQrTicket,
@@ -27,5 +29,6 @@ export default {
 	passengerSupport,
 	help,
 	about,
-	smartCardTicket
+	smartCardTicket,
+	other
 };
