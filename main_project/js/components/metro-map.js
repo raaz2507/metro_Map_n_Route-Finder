@@ -121,6 +121,20 @@ export class MetroMap {
 		this.#set_events();
 	}
 
+	#openLegend() {
+		if (!this.#elemts.legendPanel) return;
+		if (this.#elemts.legendToggleBtn) this.#elemts.legendToggleBtn.style.display = "none";
+		this.#elemts.legendPanel.classList.add("active");
+		document.body.setAttribute("data-legend-open", "true");
+	}
+
+	#closeLegend() {
+		if (!this.#elemts.legendPanel) return;
+		this.#elemts.legendPanel.classList.remove("active");
+		if (this.#elemts.legendToggleBtn) this.#elemts.legendToggleBtn.style.display = "";
+		document.body.removeAttribute("data-legend-open");
+	}
+
 	#legendGenerator(lang = "en") {
 		const signal = this.#abortController?.signal;
 		// Check if the legend panel elements are already created
@@ -189,19 +203,16 @@ export class MetroMap {
 
 			// 1. जब 'Legend' बटन पर क्लिक हो
 			legendPanelElemts.legendToggleBtn.addEventListener("click", () => {
-				legendPanelElemts.legendToggleBtn.style.display = "none"; // बटन छुपाएं
-				legendPanelElemts.legendPanel.classList.add("active");// लेजेंड पैनल दिखाएं
+				this.#openLegend();
 			});
 			// 2. जब क्लोज़ बटन "×" पर क्लिक हो
 			legendPanelElemts.legendCloseBtn.addEventListener("click", (e) => {
 				e.stopPropagation(); // क्लिक इवेंट को पैरेंट (पैनल) तक जाने से रोकें
-				legendPanelElemts.legendPanel.classList.remove("active"); // पैनल छुपाएं
-				legendPanelElemts.legendToggleBtn.style.display = ""; // CSS flex layout ko natural restore karein
+				this.#closeLegend();
 			});
 			// 3. जब लेजेंड पैनल कंटेनर पर कहीं भी क्लिक हो
 			legendPanelElemts.legendPanel.addEventListener("click", () => {
-				legendPanelElemts.legendPanel.classList.remove("active");
-				legendPanelElemts.legendToggleBtn.style.display = ""; // CSS flex layout ko natural restore karein
+				this.#closeLegend();
 			});
 		}
 
@@ -238,10 +249,7 @@ export class MetroMap {
 				li.addEventListener("click", (e) => {
 					e.stopPropagation();
 					this.highlightLine(lineKey);
-					if (this.#elemts.legendPanel) {
-						this.#elemts.legendPanel.classList.remove("active");
-						if (this.#elemts.legendToggleBtn) this.#elemts.legendToggleBtn.style.display = "";
-					}
+					this.#closeLegend();
 				});
 
 				track_line_legend.appendChild(li);
@@ -280,10 +288,7 @@ export class MetroMap {
 			li.addEventListener("click", (e) => {
 				e.stopPropagation();
 				this.highlightStationType(type);
-				if (this.#elemts.legendPanel) {
-					this.#elemts.legendPanel.classList.remove("active");
-					if (this.#elemts.legendToggleBtn) this.#elemts.legendToggleBtn.style.display = "";
-				}
+				this.#closeLegend();
 			});
 
 			station_type_legend.appendChild(li);
@@ -330,10 +335,7 @@ export class MetroMap {
 				li.addEventListener("click", (e) => {
 					e.stopPropagation();
 					this.highlightStatus(item.status);
-					if (this.#elemts.legendPanel) {
-						this.#elemts.legendPanel.classList.remove("active");
-						if (this.#elemts.legendToggleBtn) this.#elemts.legendToggleBtn.style.display = "";
-					}
+					this.#closeLegend();
 				});
 
 				status_legend.appendChild(li);

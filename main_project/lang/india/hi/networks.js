@@ -37,7 +37,7 @@ export default {
 	},
 	stats: {
 		loading: "भारत ट्रांजिट डायरेक्टरी लोड हो रही है...",
-		showingCount: "{count} पारगमन नेटवर्क दिखाए जा रहे हैं",
+		networksAvailable: "{count} मेट्रो नेटवर्क उपलब्ध हैं",
 		noNetworksFound: "कोई पारगमन नेटवर्क नहीं मिला",
 		noNetworksQuery: "\"{query}\" से मेल खाता कोई नेटवर्क नहीं मिला।"
 	},

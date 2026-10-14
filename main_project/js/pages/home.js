@@ -18,6 +18,7 @@ import { StationCalloutView } from "../components/StationCalloutView.js";
 import { AlarmBannerView } from "../components/AlarmBannerView.js";
 import { SpeedometerWidget } from "../components/WidgetSpeedometer.js";
 import { TelemetryWidget } from "../components/WidgetTelemetry.js";
+import { DishaAiView } from "../components/DishaAiView.js";
 import { pwaManager } from '../core/PwaManager.js';
 
 
@@ -49,6 +50,7 @@ class HomePageController {
 	#journeyDetailsView = null;
 	#recentSearchesView = null;
 	#stationCalloutView = null;
+	#dishaAiView = null;
 	// Lifecycle
 	#abortController = null;
 	#unsubscribeStore = null;
@@ -71,6 +73,7 @@ class HomePageController {
 		if (this.#recentSearchesView?.destroy) this.#recentSearchesView.destroy();
 		if (this.#shareModalComponent?.destroy) this.#shareModalComponent.destroy();
 		if (this.#stationCalloutView?.destroy) this.#stationCalloutView.destroy();
+		if (this.#dishaAiView?.destroy) this.#dishaAiView.destroy();
 	}
 	#get_element() {
 		const elemtMap = {
@@ -169,6 +172,10 @@ class HomePageController {
 		});
 
 		this.#shareModalComponent = new ShareModalComponent();
+
+		this.#dishaAiView = new DishaAiView({
+			lang: this.#settings.currentLang
+		});
 	}
 
 	/**
@@ -216,6 +223,7 @@ class HomePageController {
 			if (this.#mapObj) this.#mapObj.setLanguage = newLang;
 			if (this.#recentSearchesView) this.#recentSearchesView.render(newLang);
 			if (this.#stationCalloutView) this.#stationCalloutView.setLanguage(newLang);
+			if (this.#dishaAiView) this.#dishaAiView.setLanguage(newLang);
 			if (this.#currentRouteInfo && this.#journeyDetailsView) {
 				this.#journeyDetailsView.render(this.#currentRouteInfo, newLang);
 			}
@@ -291,11 +299,13 @@ class HomePageController {
 		});
 		form.addEventListener("reset", () => {
 			this.#currentRouteInfo = null;
+			appStateStore.setState({ activeRoute: null });
 			this.#journeyDetailsView.clear();
 			centerClass.clearMapHighlight();
 			this.#stationCalloutView?.hide();
 			this.#stationCalloutView?.resetDraft();
 			centerClass.clearRoutePins();
+			eventBus.emit("ROUTE_CLEARED");
 		}, { signal });
 		if (this.#elemts.shareRouteBtn) {
 			this.#elemts.shareRouteBtn.addEventListener("click", () => this.#handleShareRoute(), { signal });
@@ -399,6 +409,10 @@ class HomePageController {
 				if (section.id === targetId) section.classList.add("active");
 				else section.classList.remove("active");
 			});
+			document.body.dataset.activeTab = (targetId === "none" || !targetId) ? "map" : targetId;
+			if (targetId === "ai-assistant") {
+				this.#dishaAiView?.focusInput();
+			}
 		};
 		const initialActiveLink = document.querySelector(".sidebar-link.active");
 		if (initialActiveLink) {
@@ -418,6 +432,7 @@ class HomePageController {
 		const sidebarCloseBtn = document.getElementById("sidebarCloseBtn");
 		if (sidebarCloseBtn) {
 			sidebarCloseBtn.addEventListener("click", () => {
+				document.body.dataset.activeTab = "map";
 				sections.forEach((s) => s.classList.remove("active"));
 				sidebarLinks.forEach((l) => {
 					const isMapLink = l.getAttribute("data-target") === "none";

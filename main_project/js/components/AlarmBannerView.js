@@ -17,7 +17,14 @@ export class AlarmBannerView {
 		this.#abortController = new AbortController();
 		this.#queryElements();
 		this.#bindEvents();
+		this.#bindStoreSubscriptions();
 		this.#syncWithCenterClass();
+
+		// प्रारंभिक अवस्था: यदि स्टोर में पहले से सक्रिय रूट है तो प्रदर्शित करें
+		const currentRoute = appStateStore.getState("activeRoute");
+		if (currentRoute) {
+			this.#populateTargetInfoFromRoute(currentRoute);
+		}
 	}
 
 	#queryElements() {
@@ -71,6 +78,37 @@ export class AlarmBannerView {
 		});
 	}
 
+	/**
+	 * 🔄 रिएक्टिव स्टोर और रूट इवेंट्स से बाइंड करें
+	 */
+	#bindStoreSubscriptions() {
+		// A. जब भी सक्रिय रूट सेट या चेंज हो -> स्क्रीन पिल अपडेट करें
+		appStateStore.subscribe("activeRoute", (activeRoute) => {
+			if (activeRoute) {
+				this.#populateTargetInfoFromRoute(activeRoute);
+			} else if (this.#currentAlarmState === "INACTIVE") {
+				this.#resetStationNameDisplay();
+			}
+		});
+
+		// B. भाषा बदलने पर स्टेशन का नाम नई भाषा (उदा. हिन्दी / English) में अपडेट करें
+		appStateStore.subscribe("currentLang", () => {
+			const activeRoute = appStateStore.getState("activeRoute");
+			if (activeRoute) {
+				this.#populateTargetInfoFromRoute(activeRoute);
+			} else if (this.#currentAlarmState === "INACTIVE") {
+				this.#resetStationNameDisplay();
+			}
+		});
+
+		// C. रूट क्लियर होने पर स्क्रीन पिल रीसेट करें (यदि अलार्म इनएक्टिव हो)
+		eventBus.on("ROUTE_CLEARED", () => {
+			if (this.#currentAlarmState === "INACTIVE") {
+				this.#resetStationNameDisplay();
+			}
+		});
+	}
+
 	#syncWithCenterClass() {
 		centerClass.bindAlarmState((alarmState) => {
 			this.#handleStateChange(alarmState);
@@ -105,13 +143,26 @@ export class AlarmBannerView {
 		if (isArmed) {
 			if (alarmState.targetStation) {
 				const target = alarmState.targetStation;
-				const lang = i18n.getLanguage ? i18n.getLanguage() : "en";
-				const name = lang === "hi" ? (target.name?.hi || target.id) : (target.name?.en || target.id);
-				if (el.stationName) el.stationName.textContent = name;
+				const lang = this.#getCurrentLang();
+				let name = "";
+				if (target.name) {
+					name = typeof target.name === "object" ? (target.name[lang] || target.name.en || target.id) : target.name;
+				} else if (target.id) {
+					name = centerClass.getStationName(target.id, lang) || target.id;
+				}
+				this.#setStationNameDisplay(name);
+			} else {
+				const activeRoute = appStateStore.getState("activeRoute");
+				if (activeRoute) {
+					this.#populateTargetInfoFromRoute(activeRoute);
+				}
 			}
 		} else {
-			if (el.stationName) {
-				el.stationName.textContent = i18n.t("pages.home.alarmBanner.noAlarmSet");
+			const activeRoute = appStateStore.getState("activeRoute");
+			if (activeRoute) {
+				this.#populateTargetInfoFromRoute(activeRoute);
+			} else {
+				this.#resetStationNameDisplay();
 			}
 			if (el.liveDistance) {
 				el.liveDistance.textContent = "---";
@@ -123,15 +174,17 @@ export class AlarmBannerView {
 	 * 🔔 2.5D Left Alarm Pod Button Click Handler
 	 */
 	#handlePodBtnClick() {
-		const activeRoute = appStateStore.getState("activeRoute");
+		let activeRoute = appStateStore.getState("activeRoute");
 		const isCurrentlyActive = this.#currentAlarmState === "ARMED" || this.#currentAlarmState === "RINGING" || this.#currentAlarmState === "SNOOZED";
 
 		// स्थिति A: यदि अलार्म ON है -> सीधे OFF करें
 		if (isCurrentlyActive) {
 			centerClass.stopLiveJourney();
 			this.#setVisualToggleState(false);
-			if (this.#elements.stationName) {
-				this.#elements.stationName.textContent = i18n.t("pages.home.alarmBanner.noAlarmSet");
+			if (activeRoute) {
+				this.#populateTargetInfoFromRoute(activeRoute);
+			} else {
+				this.#resetStationNameDisplay();
 			}
 			eventBus.emit("SHOW_TOAST", {
 				message: i18n.t("pages.home.alarmBanner.stoppedToast") || "🛑 लाइव अलार्म बंद किया गया",
@@ -141,22 +194,46 @@ export class AlarmBannerView {
 		}
 
 		// स्थिति B: यदि अलार्म OFF था -> अलार्म आर्म (ARM) करें
+		// यदि स्टोर में activeRoute नहीं मिला, लेकिन इनपुट फील्ड्स में स्टेशन भरे हैं, तो फॉर्म सबमिट करें
+		if (!activeRoute) {
+			const startInput = document.getElementById("startStation");
+			const endInput = document.getElementById("endStation");
+			const startVal = startInput?.value?.trim();
+			const endVal = endInput?.value?.trim();
+
+			if (startVal && endVal) {
+				const form = document.querySelector(".routeFinder");
+				if (form) {
+					form.requestSubmit();
+					activeRoute = appStateStore.getState("activeRoute");
+				}
+			}
+		}
+
+		if (!activeRoute) {
+			eventBus.emit("SHOW_TOAST", {
+				message: i18n.t("pages.home.toast.alarm.noRoute") || "⚠️ अलार्म सक्रिय करने के लिए पहले रूट खोजें",
+				type: "warning"
+			});
+			return;
+		}
+
 		const savedSettings = localStorage.getItem("metro_alarm_settings");
 		const alarmSettings = savedSettings ? JSON.parse(savedSettings) : {};
 
+		const interchanges = activeRoute.interchanges 
+			|| (activeRoute.steps ? activeRoute.steps.filter(s => s.type === "interchange" && s.fromStation).map(s => s.fromStation) : []);
+
 		centerClass.startLiveJourney({
-			path: activeRoute?.path || [],
-			interchanges: activeRoute?.interchanges || [],
-			destinationId: activeRoute?.destination?.id || (activeRoute?.path ? activeRoute.path[activeRoute.path.length - 1] : null),
-			totalTravelTimeSeconds: activeRoute?.totalTravelTimeSeconds || 1800,
+			path: activeRoute.path || [],
+			interchanges: interchanges,
+			destinationId: activeRoute.destination?.id || (activeRoute.path ? activeRoute.path[activeRoute.path.length - 1] : null),
+			totalTravelTimeSeconds: activeRoute.totalTravelTimeSeconds || 1800,
 			alarmSettings: alarmSettings
 		});
 
 		this.#setVisualToggleState(true);
-
-		if (activeRoute) {
-			this.#populateTargetInfoFromRoute(activeRoute);
-		}
+		this.#populateTargetInfoFromRoute(activeRoute);
 
 		eventBus.emit("SHOW_TOAST", {
 			message: i18n.t("pages.home.alarmBanner.enabledToast") || "🔔 लाइव यात्रा अलार्म सक्रिय है",
@@ -169,15 +246,58 @@ export class AlarmBannerView {
 	 */
 	#populateTargetInfoFromRoute(activeRoute) {
 		if (!activeRoute) return;
-		const el = this.#elements;
-		const lang = i18n.getLanguage ? i18n.getLanguage() : "en";
+		const lang = this.#getCurrentLang();
 		
-		const targetName = activeRoute.destination?.name?.[lang] 
-			|| activeRoute.destination?.name?.en 
-			|| activeRoute.destination?.id 
-			|| "Destination";
-		
-		if (el.stationName) el.stationName.textContent = targetName;
+		let targetName = "";
+		if (activeRoute.destination) {
+			if (activeRoute.destination.name) {
+				targetName = typeof activeRoute.destination.name === "object"
+					? (activeRoute.destination.name[lang] || activeRoute.destination.name.en || activeRoute.destination.id)
+					: activeRoute.destination.name;
+			} else if (activeRoute.destination.id) {
+				targetName = centerClass.getStationName(activeRoute.destination.id, lang) || activeRoute.destination.id;
+			}
+		} else if (Array.isArray(activeRoute.path) && activeRoute.path.length > 0) {
+			const lastId = activeRoute.path[activeRoute.path.length - 1];
+			targetName = centerClass.getStationName(lastId, lang) || lastId;
+		}
+
+		if (targetName) {
+			this.#setStationNameDisplay(targetName);
+		}
+	}
+
+	/**
+	 * 🔤 स्टेशन नाम डिस्प्ले सेट करें (data-i18n क्लैश से सुरक्षा)
+	 */
+	#setStationNameDisplay(name) {
+		const el = this.#elements.stationName;
+		if (!el) return;
+		el.removeAttribute("data-i18n");
+		el.textContent = name || "---";
+	}
+
+	/**
+	 * 🔄 'No Alarm Set' टेक्स्ट रिसेट करें
+	 */
+	#resetStationNameDisplay() {
+		const el = this.#elements.stationName;
+		if (!el) return;
+		el.setAttribute("data-i18n", "pages.home.alarmBanner.noAlarmSet");
+		el.textContent = i18n.t("pages.home.alarmBanner.noAlarmSet") || "No Alarm Set";
+	}
+
+	/**
+	 * 🌐 सुरक्षित भाषा कोड एक्सट्रैक्टर (Getter vs Method Type-Safe)
+	 */
+	#getCurrentLang() {
+		if (typeof i18n.getLanguage === "function") {
+			return i18n.getLanguage();
+		}
+		if (typeof i18n.getLanguage === "string") {
+			return i18n.getLanguage;
+		}
+		return appStateStore.getState("currentLang") || "en";
 	}
 
 	/**

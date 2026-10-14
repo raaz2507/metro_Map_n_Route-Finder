@@ -12,7 +12,8 @@ import about from "./en/about.js";
 import countrySelector from "./en/country_selector.js";
 import smartCardTicket from "./en/smart_card_ticket.js";
 import other from "./en/other.js";
-
+import dishaAi from "./en/disha_ai.js";
+import dishaNlu from "./en/disha_nlu.js";
 
 export default {
 	...common,
@@ -30,5 +31,7 @@ export default {
 	help,
 	about,
 	smartCardTicket,
-	other
+	other,
+	ai: dishaAi,
+	aiNlu: dishaNlu
 };

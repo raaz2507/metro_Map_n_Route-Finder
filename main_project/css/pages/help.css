@@ -29,8 +29,8 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	------------------------------------------------------------------------- */
 	.help-ico {
 		display: inline-block;
-		width: 18px;
-		height: 18px;
+		width: var(--size-icon-md);
+		height: var(--size-icon-md);
 		background-color: currentColor;
 		-webkit-mask: var(--ico-url) no-repeat center / contain;
 		mask: var(--ico-url) no-repeat center / contain;
@@ -38,8 +38,8 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	}
 
 	.ico-sm {
-		width: 14px;
-		height: 14px;
+		width: var(--size-icon-sm);
+		height: var(--size-icon-sm);
 	}
 
 	.ico-lg {
@@ -64,12 +64,15 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	.ico-trash{ --ico-url: url("../../assets/icons/trash-can-solid-full.svg"); }
 	.ico-pin { --ico-url: url("../../assets/icons/ui/pin.svg"); }
 	.ico-refresh { --ico-url: url("../../assets/icons/ui/refresh.svg"); }
+	.ico-settings { --ico-url: url("../../assets/icons/setting.svg"); }
+	.ico-shield { --ico-url: url("../../assets/icons/ui/shield.svg"); }
+	.ico-download { --ico-url: url("../../assets/icons/download.svg"); }
 
 	/* Accordion Chevron Icon */
 	.card-chevron {
 		display: inline-block;
-		width: 14px;
-		height: 14px;
+		width: var(--size-icon-sm);
+		height: var(--size-icon-sm);
 		background-color: currentColor;
 		-webkit-mask: url("../../assets/icons/ui/chevron_down.svg") no-repeat center / contain;
 		mask: url("../../assets/icons/ui/chevron_down.svg") no-repeat center / contain;
@@ -100,14 +103,44 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	}
 
 	/* -------------------------------------------------------------------------
-	3. Hero Section (Search & Filter Hub)
+	3. Hero Section (Header & Search Hub)
 	------------------------------------------------------------------------- */
-	.help-hero {
+	.help-hero-header {
 		width: 100%;
 		background: var(--card-bg);
-		border: 1px solid var(--border-color);
+		border: var(--bw-thin) solid var(--border-color);
 		border-radius: var(--radius-xl);
-		padding: var(--space-2xl) var(--space-xl);
+		padding: var(--space-xl) var(--space-xl) var(--space-lg);
+		box-shadow: var(--shadow-sm);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: var(--space-xs);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.help-hero-header::before {
+		content: "";
+		position: absolute;
+		top: -50px;
+		right: -50px;
+		width: 180px;
+		height: 180px;
+		background: radial-gradient(circle, rgba(var(--color-primary-rgb), var(--op-subtle)) 0%, transparent 70%);
+		border-radius: var(--radius-full);
+		pointer-events: none;
+	}
+
+	.help-search-hub {
+		width: 100%;
+		background: var(--card-bg);
+		border: var(--bw-thin) solid var(--border-color);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xl);
 		box-shadow: var(--shadow-sm);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
@@ -120,18 +153,6 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		overflow: hidden;
 	}
 
-	.help-hero::before {
-		content: "";
-		position: absolute;
-		top: -50px;
-		right: -50px;
-		width: 180px;
-		height: 180px;
-		background: radial-gradient(circle, rgba(var(--color-primary-rgb), 0.12) 0%, transparent 70%);
-		border-radius: var(--radius-full);
-		pointer-events: none;
-	}
-
 	.help-hero-badge {
 		display: inline-flex;
 		align-items: center;
@@ -142,10 +163,10 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		text-transform: uppercase;
 		letter-spacing: 0.6px;
 		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.1);
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
 		padding: var(--space-xs) var(--space-md);
 		border-radius: var(--radius-full);
-		border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+		border: var(--bw-thin) solid rgba(var(--color-primary-rgb), var(--op-soft));
 	}
 
 	.help-hero-title {
@@ -172,7 +193,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		max-width: 580px;
 		margin-top: var(--space-xs);
 		background: var(--card-bg);
-		box-shadow: var(--shadow-xs);
+		box-shadow: var(--shadow-sm);
 	}
 
 	.help-search-box .search-icon {
@@ -191,11 +212,11 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-medium);
 		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.08);
-		padding: 4px 12px;
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		padding: var(--space-xs) var(--space-md);
 		border-radius: var(--radius-full);
-		border: 1px solid rgba(var(--color-primary-rgb), 0.15);
-		margin-top: -4px;
+		border: var(--bw-thin) solid rgba(var(--color-primary-rgb), var(--op-subtle));
+		margin-top: calc(-1 * var(--space-xs));
 	}
 
 	/* Filter Chips */
@@ -209,9 +230,9 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	.chip-btn {
 		background: transparent;
-		border: 1px solid var(--border-color);
+		border: var(--bw-thin) solid var(--border-color);
 		border-radius: var(--radius-full);
-		padding: 6px 14px;
+		padding: var(--radius-xs) 14px;
 		font-family: var(--font-main);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-medium);
@@ -231,7 +252,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		background: rgb(var(--color-primary-rgb));
 		color: #ffffff;
 		border-color: rgb(var(--color-primary-rgb));
-		box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.3);
+		box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), var(--op-shadow));
 	}
 
 	/* -------------------------------------------------------------------------
@@ -255,10 +276,10 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		width: 100%;
 		min-width: 0;
 		background: var(--card-bg);
-		border: 1px solid var(--border-color);
+		border: var(--bw-thin) solid var(--border-color);
 		border-radius: var(--radius-xl);
 		padding: var(--space-lg);
-		box-shadow: var(--shadow-xs);
+		box-shadow: var(--shadow-sm);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 	}
@@ -282,7 +303,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		letter-spacing: 0.08em;
 		color: var(--text-secondary);
 		padding-bottom: var(--space-md);
-		border-bottom: 1px solid var(--border-color);
+		border-bottom: var(--bw-thin) solid var(--border-color);
 		margin-bottom: var(--space-sm);
 	}
 
@@ -332,7 +353,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	}
 
 	.sidebar-nav-item.active {
-		background: rgba(var(--color-primary-rgb), 0.12);
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
 		color: rgb(var(--color-primary-rgb));
 		font-weight: var(--fw-semibold);
 	}
@@ -365,72 +386,56 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		white-space: nowrap;
 	}
 
+	/* -------------------------------------------------------------------------
+	UNIFIED SIDEBAR SUB-LISTS (Levels 2, 3, 4)
+	------------------------------------------------------------------------- */
 	.sidebar-sub-list {
 		list-style: none;
-		counter-reset: subsec;
-		padding: 0 0 0 var(--space-md);
-		margin: var(--space-2xs) 0 var(--space-xs) var(--space-lg);
-		border-left: 2px solid rgba(var(--color-primary-rgb), 0.18);
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-2xs);
 	}
 
+	.sidebar-sub-list.lvl-2 {
+		counter-reset: subsec;
+		padding: 0 0 0 var(--space-md);
+		margin: var(--space-2xs) 0 var(--space-xs) var(--space-lg);
+		border-left: var(--bw-md) solid rgba(var(--color-primary-rgb), 0.18);
+	}
+
+	.sidebar-sub-list.lvl-3 {
+		counter-reset: subtopic;
+		padding: 0 0 0 var(--space-sm);
+		margin: 1px 0 var(--space-xs) var(--space-sm);
+		border-left: 1.5px dashed rgba(var(--color-primary-rgb), 0.16);
+	}
+
+	.sidebar-sub-list.lvl-4 {
+		counter-reset: deepitem;
+		padding: 0 0 0 var(--space-sm);
+		margin: var(--space-2xs) 0 var(--space-xs) var(--radius-xs);
+		border-left: var(--bw-thin) dotted rgba(var(--color-primary-rgb), 0.22);
+	}
+
 	.sidebar-sub-item-wrap {
-		counter-increment: subsec;
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
 
-	.sidebar-sub-item {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-		padding: var(--space-xs) var(--space-sm);
-		border-radius: var(--radius-sm);
-		text-decoration: none;
-		font-family: var(--font-main);
-		font-size: var(--fs-2xs);
-		font-weight: var(--fw-medium);
-		color: var(--text-secondary);
-		transition: all var(--transition-fast);
+	.sidebar-sub-list.lvl-2 > .sidebar-sub-item-wrap {
+		counter-increment: subsec;
 	}
 
-	.sidebar-sub-item:hover {
-		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.06);
+	.sidebar-sub-list.lvl-3 > .sidebar-sub-item-wrap {
+		counter-increment: subtopic;
 	}
 
-	.sidebar-sub-item.active {
-		color: rgb(var(--color-primary-rgb));
-		font-weight: var(--fw-semibold);
-		background: rgba(var(--color-primary-rgb), 0.12);
+	.sidebar-sub-list.lvl-4 > .sidebar-sub-item-wrap {
+		counter-increment: deepitem;
 	}
 
-	/* Level 2 Sub-Nav Number (e.g. 1.1, 1.2, 1.3) */
-	.sub-nav-num {
-		font-family: var(--font-title);
-		font-size: var(--fs-2xs);
-		font-weight: var(--fw-bold);
-		color: var(--text-muted);
-		min-width: 20px;
-		flex-shrink: 0;
-		transition: color var(--transition-fast);
-	}
-
-	.sub-nav-num::before {
-		content: counter(help-section) "." counter(subsec);
-	}
-
-	.sidebar-sub-item:hover .sub-nav-num,
-	.sidebar-sub-item.active .sub-nav-num {
-		color: rgb(var(--color-primary-rgb));
-	}
-
-	/* -------------------------------------------------------------------------
-	Level 2 Area Headings & Level 3 Nested Sub-topics
-	------------------------------------------------------------------------- */
+	/* Level 2 Sub-Group Headings */
 	.sidebar-sub-group {
 		counter-increment: subsec;
 		list-style: none;
@@ -454,147 +459,120 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		user-select: none;
 	}
 
-	/* Level 2 Area Heading Number (e.g. 2.1, 2.2, 2.3) */
+	/* Unified Sub Link (Level 2, 3, 4) */
+	.sidebar-sub-link,
+	.sidebar-sub-item,
+	.sidebar-nested-link,
+	.sidebar-deep-link {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		padding: var(--space-xs) var(--space-sm);
+		border-radius: var(--radius-sm);
+		text-decoration: none;
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-secondary);
+		transition: all var(--transition-fast);
+	}
+
+	.sidebar-sub-list.lvl-3 .sidebar-sub-link,
+	.sidebar-sub-list.lvl-4 .sidebar-sub-link,
+	.sidebar-nested-link,
+	.sidebar-deep-link {
+		gap: var(--space-xs);
+		padding: var(--space-2xs) var(--space-xs);
+	}
+
+	.sidebar-sub-link:hover,
+	.sidebar-sub-item:hover,
+	.sidebar-nested-link:hover,
+	.sidebar-deep-link:hover {
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), 0.06);
+	}
+
+	.sidebar-sub-link.active,
+	.sidebar-sub-item.active,
+	.sidebar-nested-link.active,
+	.sidebar-deep-link.active {
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-semibold);
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+	}
+
+	/* Unified Sub Numbers */
+	.sidebar-sub-num,
+	.sub-nav-num,
+	.nested-num,
+	.deep-num,
 	.sub-heading-num {
 		font-family: var(--font-title);
+		color: var(--text-muted);
+		flex-shrink: 0;
+		transition: all var(--transition-fast);
+	}
+
+	/* Level 2 Sub-Nav Number (e.g. 1.1, 1.2, 1.3) */
+	.sidebar-sub-list.lvl-2 .sidebar-sub-num,
+	.sub-nav-num {
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		min-width: 20px;
+	}
+
+	.sidebar-sub-list.lvl-2 .sidebar-sub-num::before,
+	.sub-nav-num::before {
+		content: counter(help-section) "." counter(subsec);
+	}
+
+	/* Level 2 Area Heading Number (e.g. 2.1, 2.2, 2.3) */
+	.sidebar-sub-heading .sidebar-sub-num,
+	.sub-heading-num {
 		font-size: var(--fs-2xs);
 		font-weight: var(--fw-extrabold);
 		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.12);
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
 		padding: 1px var(--space-xs);
 		border-radius: var(--radius-xs);
-		flex-shrink: 0;
 	}
 
+	.sidebar-sub-heading .sidebar-sub-num::before,
 	.sub-heading-num::before {
 		content: counter(help-section) "." counter(subsec);
 	}
 
-	.sidebar-nested-list {
-		list-style: none;
-		counter-reset: subtopic;
-		padding: 0 0 0 var(--space-sm);
-		margin: 1px 0 var(--space-xs) var(--space-sm);
-		border-left: 1.5px dashed rgba(var(--color-primary-rgb), 0.16);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-2xs);
-	}
-
-	.sidebar-nested-item {
-		counter-increment: subtopic;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.sidebar-nested-link {
-		display: flex;
-		align-items: center;
-		gap: var(--space-xs);
-		padding: var(--space-2xs) var(--space-xs);
-		border-radius: var(--radius-sm);
-		text-decoration: none;
-		font-family: var(--font-main);
-		font-size: var(--fs-2xs);
-		font-weight: var(--fw-medium);
-		color: var(--text-secondary);
-		transition: all var(--transition-fast);
-	}
-
-	.sidebar-nested-link:hover {
-		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.05);
-	}
-
-	.sidebar-nested-link.active {
-		color: rgb(var(--color-primary-rgb));
-		font-weight: var(--fw-semibold);
-		background: rgba(var(--color-primary-rgb), 0.1);
-	}
-
 	/* Level 3 Nested Topic Number (e.g. 2.1.1, 2.1.2) */
+	.sidebar-sub-list.lvl-3 .sidebar-sub-num,
 	.nested-num {
-		font-family: var(--font-title);
 		font-size: var(--fs-3xs);
 		font-weight: var(--fw-medium);
-		color: var(--text-muted);
 		min-width: 28px;
-		flex-shrink: 0;
-		transition: all var(--transition-fast);
 	}
 
+	.sidebar-sub-list.lvl-3 .sidebar-sub-num::before,
 	.nested-num::before {
 		content: counter(help-section) "." counter(subsec) "." counter(subtopic);
 	}
 
-	.sidebar-nested-link:hover .nested-num,
-	.sidebar-nested-link.active .nested-num {
-		color: rgb(var(--color-primary-rgb));
-		font-weight: var(--fw-bold);
-	}
-
-	/* -------------------------------------------------------------------------
-	Level 4 Deep Nested List / Tabs (e.g. 2.1.3.1, 2.1.3.2)
-	------------------------------------------------------------------------- */
-	.sidebar-deep-list {
-		list-style: none;
-		counter-reset: deepitem;
-		padding: 0 0 0 var(--space-sm);
-		margin: var(--space-2xs) 0 var(--space-xs) 6px;
-		border-left: 1px dotted rgba(var(--color-primary-rgb), 0.22);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-2xs);
-	}
-
-	.sidebar-deep-item {
-		counter-increment: deepitem;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.sidebar-deep-link {
-		display: flex;
-		align-items: center;
-		gap: var(--space-xs);
-		padding: var(--space-2xs) var(--space-xs);
-		border-radius: var(--radius-sm);
-		text-decoration: none;
-		font-family: var(--font-main);
-		font-size: var(--fs-2xs);
-		font-weight: var(--fw-medium);
-		color: var(--text-secondary);
-		transition: all var(--transition-fast);
-	}
-
-	.sidebar-deep-link:hover {
-		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.05);
-	}
-
-	.sidebar-deep-link.active {
-		color: rgb(var(--color-primary-rgb));
-		font-weight: var(--fw-semibold);
-		background: rgba(var(--color-primary-rgb), 0.1);
-	}
-
 	/* Level 4 Deep Topic Number (e.g. 2.1.3.1, 2.1.3.2) */
+	.sidebar-sub-list.lvl-4 .sidebar-sub-num,
 	.deep-num {
-		font-family: var(--font-title);
 		font-size: var(--fs-3xs);
 		font-weight: var(--fw-medium);
-		color: var(--text-muted);
 		min-width: 36px;
-		flex-shrink: 0;
-		transition: all var(--transition-fast);
 	}
 
+	.sidebar-sub-list.lvl-4 .sidebar-sub-num::before,
 	.deep-num::before {
 		content: counter(help-section) "." counter(subsec) "." counter(subtopic) "." counter(deepitem);
 	}
 
+	.sidebar-sub-link:hover .sidebar-sub-num,
+	.sidebar-sub-link.active .sidebar-sub-num,
+	.sidebar-nested-link:hover .nested-num,
+	.sidebar-nested-link.active .nested-num,
 	.sidebar-deep-link:hover .deep-num,
 	.sidebar-deep-link.active .deep-num {
 		color: rgb(var(--color-primary-rgb));
@@ -618,9 +596,6 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		counter-reset: content-subsec;
 	}
 
-	/* -------------------------------------------------------------------------
-	Sub-Area Containers & Counter Rules (e.g. 2.1, 2.2, 2.3, 2.4)
-	------------------------------------------------------------------------- */
 	.help-sub-area-list {
 		list-style: none;
 		padding: 0;
@@ -640,43 +615,100 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		gap: var(--space-sm);
 	}
 
-	.sub-area-badge-header {
+	/* -------------------------------------------------------------------------
+	UNIFIED BADGE HEADERS (Section Header & Sub-Area Header)
+	------------------------------------------------------------------------- */
+	.section-badge-header {
+		background: var(--card-bg);
+		border: var(--bw-thin) solid var(--border-color);
+		border-radius: var(--radius-lg);
+		padding: var(--space-md) var(--space-lg);
+		box-shadow: var(--shadow-sm);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
 		display: flex;
 		align-items: center;
-		gap: var(--space-sm);
-		padding: 6px 12px;
-		background: rgba(var(--color-primary-rgb), 0.05);
-		border-left: 3px solid rgb(var(--color-primary-rgb));
-		border-radius: 0 var(--radius-md) var(--radius-md) 0;
-		margin-bottom: 2px;
+		justify-content: space-between;
+		margin-bottom: var(--space-md);
 	}
 
-	.sub-area-num-tag {
+	.section-badge-header.is-sub,
+	.sub-area-badge-header {
+		background: rgba(var(--color-primary-rgb), 0.05);
+		border: none;
+		border-left: var(--bw-thick) solid rgb(var(--color-primary-rgb));
+		border-radius: 0 var(--radius-md) var(--radius-md) 0;
+		box-shadow: none;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		padding: var(--radius-xs) var(--space-md);
+		margin-bottom: var(--space-2xs);
+		gap: var(--space-sm);
+		justify-content: flex-start;
+	}
+
+	.section-title-wrap {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.section-num-tag {
 		font-family: var(--font-title);
-		font-size: var(--fs-2xs);
-		font-weight: var(--fw-bold);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-extrabold);
 		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.12);
-		padding: 2px var(--space-xs);
-		border-radius: var(--radius-xs);
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		padding: 3px 9px;
+		border-radius: var(--radius-sm);
+		border: var(--bw-thin) solid rgba(var(--color-primary-rgb), 0.25);
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		flex-shrink: 0;
+		min-width: 28px;
 	}
 
+	.section-num-tag::before {
+		content: counter(content-section, decimal-leading-zero);
+	}
+
+	.section-num-tag.is-sub,
+	.sub-area-num-tag {
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		border: none;
+		padding: var(--space-2xs) var(--space-xs);
+		border-radius: var(--radius-xs);
+		min-width: auto;
+	}
+
+	.section-num-tag.is-sub::before,
 	.sub-area-num-tag::before {
 		content: counter(content-section) "." counter(content-subsec);
 	}
 
-	.sub-area-title {
+	.section-title {
 		font-family: var(--font-title);
-		font-size: var(--fs-xs);
+		font-size: var(--fs-md);
 		font-weight: var(--fw-bold);
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
 		color: var(--text-primary);
 		margin: 0;
+		line-height: 1.25;
+	}
+
+	.section-title.is-sub,
+	.sub-area-title {
+		font-size: var(--fs-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.section-sub {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		margin: 0;
+		line-height: 1.4;
 	}
 
 	/* Card Counters inside Sub-Areas (e.g. 2.1.1, 2.1.2) */
@@ -692,140 +724,8 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		content: counter(content-section) "." counter(content-subsec) "." counter(content-topic);
 	}
 
-	/* Level 4 Deep Card Counters for Settings Tabs (e.g. 2.1.3.1, 2.1.3.2) */
-	.help-deep-card-list {
-		list-style: none;
-		counter-reset: content-deep;
-		padding: var(--space-sm) var(--space-md);
-		margin: var(--space-sm) 0 0 0;
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-sm);
-		background: rgba(var(--color-primary-rgb), 0.03);
-		border-top: 1px dashed var(--border-color);
-	}
-
-	.help-deep-card-item {
-		counter-increment: content-deep;
-		list-style: none;
-		padding: var(--space-sm) var(--space-md);
-		margin: 0;
-		background: var(--card-bg);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-md);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-xs);
-		transition: border-color var(--transition-fast);
-	}
-
-	.help-deep-card-item:hover {
-		border-color: rgba(var(--color-primary-rgb), 0.4);
-	}
-
-	.deep-card-header {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-	}
-
-	.deep-card-num-badge {
-		font-family: var(--font-title);
-		font-size: var(--fs-2xs);
-		font-weight: var(--fw-bold);
-		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.12);
-		padding: 2px var(--space-xs);
-		border-radius: var(--radius-xs);
-		flex-shrink: 0;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 38px;
-	}
-
-	.deep-card-num-badge::before {
-		content: counter(content-section) "." counter(content-subsec) "." counter(content-topic) "." counter(content-deep);
-	}
-
-	.deep-card-title {
-		font-family: var(--font-title);
-		font-size: var(--fs-xs);
-		font-weight: var(--fw-semibold);
-		color: var(--text-primary);
-		margin: 0;
-	}
-
-	.deep-card-desc {
-		font-family: var(--font-main);
-		font-size: var(--fs-2xs);
-		color: var(--text-secondary);
-		line-height: 1.5;
-		margin: 0;
-	}
-
 	/* -------------------------------------------------------------------------
-	6. Unified Knowledge-Base Accordion Container (Solution 1)
-	------------------------------------------------------------------------- */
-
-	.section-badge-header {
-		background: var(--card-bg);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-lg);
-		padding: var(--space-md) var(--space-lg);
-		box-shadow: var(--shadow-xs);
-		backdrop-filter: blur(16px);
-		-webkit-backdrop-filter: blur(16px);
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: var(--space-md);
-	}
-
-	.section-title-wrap {
-		display: flex;
-		align-items: center;
-		gap: var(--space-md);
-	}
-
-	.section-num-tag {
-		font-family: var(--font-title);
-		font-size: var(--fs-xs);
-		font-weight: var(--fw-extrabold);
-		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.12);
-		padding: 3px 9px;
-		border-radius: var(--radius-sm);
-		border: 1px solid rgba(var(--color-primary-rgb), 0.25);
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 28px;
-	}
-
-	.section-num-tag::before {
-		content: counter(content-section, decimal-leading-zero);
-	}
-
-	.section-title {
-		font-family: var(--font-title);
-		font-size: var(--fs-md);
-		font-weight: var(--fw-bold);
-		color: var(--text-primary);
-		margin: 0;
-		line-height: 1.25;
-	}
-
-	.section-sub {
-		font-family: var(--font-main);
-		font-size: var(--fs-xs);
-		color: var(--text-secondary);
-		margin: 0;
-		line-height: 1.4;
-	}
-
-	/* -------------------------------------------------------------------------
-	6. Unified Knowledge-Base Accordion Container (Solution 1)
+	6. Unified Knowledge-Base Accordion & Deep Cards
 	------------------------------------------------------------------------- */
 	.help-card-list {
 		list-style: none;
@@ -836,12 +736,29 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		flex-direction: column;
 		width: 100%;
 		background: var(--card-bg);
-		border: 1px solid var(--border-color);
+		border: var(--bw-thin) solid var(--border-color);
 		border-radius: var(--radius-xl);
 		box-shadow: var(--shadow-sm);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
 		overflow: hidden;
+	}
+
+	.help-card-list.is-deep,
+	.help-deep-card-list {
+		counter-reset: content-deep;
+		padding: var(--space-sm) var(--space-md);
+		margin: var(--space-sm) 0 0 0;
+		gap: var(--space-sm);
+		background: rgba(var(--color-primary-rgb), 0.03);
+		border-top: var(--bw-thin) dashed var(--border-color);
+		border-left: none;
+		border-right: none;
+		border-bottom: none;
+		border-radius: 0;
+		box-shadow: none;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
 	}
 
 	.help-card-item {
@@ -851,7 +768,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		margin: 0;
 		background: transparent;
 		border: none;
-		border-bottom: 1px solid var(--border-color);
+		border-bottom: var(--bw-thin) solid var(--border-color);
 		border-radius: 0;
 		box-shadow: none;
 		overflow: hidden;
@@ -868,6 +785,40 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	.help-card-item.search-match {
 		background: rgba(var(--color-primary-rgb), 0.05);
+	}
+
+	/* Deep Card Item Modifier (Settings Tabs: 2.1.3.1 - 2.1.3.4) */
+	.help-card-item.is-deep,
+	.help-deep-card-item {
+		counter-increment: content-deep;
+		padding: var(--space-sm) var(--space-md);
+		margin: 0;
+		background: var(--card-bg);
+		border: var(--bw-thin) solid var(--border-color);
+		border-radius: var(--radius-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		transition: border-color var(--transition-fast);
+	}
+
+	.help-card-item.is-deep:hover,
+	.help-deep-card-item:hover {
+		border-color: rgba(var(--color-primary-rgb), 0.4);
+	}
+
+	.deep-card-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+	}
+
+	.deep-card-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		color: var(--text-primary);
+		margin: 0;
 	}
 
 	.card-summary {
@@ -904,8 +855,8 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		font-weight: var(--fw-bold);
 		color: rgb(var(--color-primary-rgb));
 		background: rgba(var(--color-primary-rgb), 0.1);
-		border: 1px solid rgba(var(--color-primary-rgb), 0.22);
-		padding: 2px var(--space-sm);
+		border: var(--bw-thin) solid rgba(var(--color-primary-rgb), 0.22);
+		padding: var(--space-2xs) var(--space-sm);
 		border-radius: var(--radius-sm);
 		display: inline-flex;
 		align-items: center;
@@ -925,6 +876,24 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		border-color: rgb(var(--color-primary-rgb));
 	}
 
+	/* Level 4 Deep Card Number Badge */
+	.card-num-badge.is-deep,
+	.deep-card-num-badge {
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		padding: var(--space-2xs) var(--space-xs);
+		border-radius: var(--radius-xs);
+		border: none;
+		min-width: 38px;
+	}
+
+	.card-num-badge.is-deep::before,
+	.deep-card-num-badge::before {
+		content: counter(content-section) "." counter(content-subsec) "." counter(content-topic) "." counter(content-deep);
+	}
+
 	/* Bullet Icon Variances */
 	.card-bullet-icon {
 		width: 36px;
@@ -940,19 +909,19 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		transform: scale(1.05);
 	}
 
-	.icon-blue{ background: rgba(59, 130, 246, 0.12); color: #3b82f6; }
-	.icon-indigo  { background: rgba(99, 102, 241, 0.12); color: #6366f1; }
-	.icon-purple  { background: rgba(168, 85, 247, 0.12); color: #a855f7; }
-	.icon-rose{ background: rgba(244, 63, 94, 0.12);  color: #f43f5e; }
-	.icon-amber{ background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
-	.icon-emerald { background: rgba(16, 185, 129, 0.12); color: #10b981; }
-	.icon-teal{ background: rgba(20, 184, 166, 0.12); color: #14b8a6; }
-	.icon-cyan{ background: rgba(6, 182, 212, 0.12);  color: #06b6d4; }
+	.icon-blue{ background: rgba(59, 130, 246, var(--op-subtle)); color: #3b82f6; }
+	.icon-indigo  { background: rgba(99, 102, 241, var(--op-subtle)); color: #6366f1; }
+	.icon-purple  { background: rgba(168, 85, 247, var(--op-subtle)); color: #a855f7; }
+	.icon-rose{ background: rgba(244, 63, 94, var(--op-subtle));  color: #f43f5e; }
+	.icon-amber{ background: rgba(245, 158, 11, var(--op-subtle)); color: #f59e0b; }
+	.icon-emerald { background: rgba(16, 185, 129, var(--op-subtle)); color: #10b981; }
+	.icon-teal{ background: rgba(20, 184, 166, var(--op-subtle)); color: #14b8a6; }
+	.icon-cyan{ background: rgba(6, 182, 212, var(--op-subtle));  color: #06b6d4; }
 
 	.card-heading-texts {
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
+		gap: var(--space-2xs);
 		min-width: 0;
 	}
 
@@ -975,7 +944,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	/* Accordion Drawer Content */
 	.card-drawer {
 		padding: var(--space-md) var(--space-xl) var(--space-lg);
-		border-top: 1px solid var(--border-color);
+		border-top: var(--bw-thin) solid var(--border-color);
 		background: rgba(var(--color-bg-base-rgb), 0.45);
 		display: flex;
 		flex-direction: column;
@@ -986,7 +955,8 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		display: none;
 	}
 
-	.drawer-desc {
+	.drawer-desc,
+	.deep-card-desc {
 		font-family: var(--font-main);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-medium);
@@ -995,13 +965,20 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		margin: 0;
 	}
 
+	.drawer-desc.is-deep,
+	.deep-card-desc {
+		font-size: var(--fs-2xs);
+		color: var(--text-secondary);
+		line-height: 1.5;
+	}
+
 	.drawer-facts {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 6px;
+		gap: var(--radius-xs);
 	}
 
 	.drawer-facts li {
@@ -1016,7 +993,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	.drawer-facts li::before {
 		content: "•";
 		position: absolute;
-		left: 4px;
+		left: var(--space-xs);
 		top: -1px;
 		color: rgb(var(--color-primary-rgb));
 		font-size: var(--fs-sm);
@@ -1025,13 +1002,13 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	/* Text-like More... Toggle Action */
 	.drawer-more-wrapper {
-		margin-top: 6px;
+		margin-top: var(--radius-xs);
 	}
 
 	.drawer-more-btn {
 		background: none;
 		border: none;
-		padding: 4px 0;
+		padding: var(--space-xs) 0;
 		margin: 0;
 		font-family: var(--font-main);
 		font-size: var(--fs-xs);
@@ -1048,7 +1025,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	.drawer-more-btn:hover {
 		text-decoration: underline;
-		opacity: 0.85;
+		opacity: var(--op-glass);
 	}
 
 	.more-btn-icon {
@@ -1066,7 +1043,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		margin-top: var(--space-xs);
 		padding: var(--space-md);
 		background: rgba(var(--color-bg-base-rgb), 0.55);
-		border: 1px solid var(--border-color);
+		border: var(--bw-thin) solid var(--border-color);
 		border-radius: var(--radius-md);
 		display: flex;
 		flex-direction: column;
@@ -1075,7 +1052,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	}
 
 	.drawer-extended-details.hidden {
-		display: none !important;
+		display: none;
 	}
 
 	@keyframes drawerFadeIn {
@@ -1103,7 +1080,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		margin: 0;
 		display: flex;
 		flex-direction: column;
-		gap: 6px;
+		gap: var(--radius-xs);
 	}
 
 	.extended-steps li {
@@ -1116,10 +1093,10 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	.extended-tip-box {
 		display: flex;
 		align-items: flex-start;
-		gap: 8px;
-		padding: 8px 12px;
-		background: rgba(var(--color-primary-rgb), 0.08);
-		border-left: 3px solid rgb(var(--color-primary-rgb));
+		gap: var(--space-sm);
+		padding: var(--space-sm) var(--space-md);
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		border-left: var(--bw-thick) solid rgb(var(--color-primary-rgb));
 		border-radius: var(--radius-sm);
 		font-size: var(--fs-2xs);
 		line-height: 1.45;
@@ -1142,7 +1119,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		margin: var(--space-sm) 0;
 		padding: var(--space-md);
 		background: rgba(var(--color-bg-base-rgb), 0.35);
-		border: 1px dashed var(--border-color);
+		border: var(--bw-thin) dashed var(--border-color);
 		border-radius: var(--radius-lg);
 		display: flex;
 		flex-direction: column;
@@ -1166,9 +1143,9 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
 		color: rgb(var(--color-primary-rgb));
-		background: rgba(var(--color-primary-rgb), 0.12);
-		border: 1px solid rgba(var(--color-primary-rgb), 0.25);
-		padding: 2px var(--space-xs);
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		border: var(--bw-thin) solid rgba(var(--color-primary-rgb), 0.25);
+		padding: var(--space-2xs) var(--space-xs);
 		border-radius: var(--radius-xs);
 	}
 
@@ -1186,7 +1163,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	/* Compact sizing for embedded navigation mockups */
 	.live-ui-mockup-frame .sidebar-nav {
 		background: var(--card-bg);
-		border: 1px solid var(--border-color);
+		border: var(--bw-thin) solid var(--border-color);
 		border-radius: var(--radius-xl);
 		padding: var(--space-xs);
 		box-shadow: var(--shadow-sm);
@@ -1220,7 +1197,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 	.live-ui-mockup-frame .alarm-widget-card {
 		max-width: 385px;
-		filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28))
+		filter: drop-shadow(0 8px 18px rgba(0, 0, 0, var(--op-soft)))
 		        drop-shadow(0 3px 8px rgba(234, 88, 12, 0.45));
 	}
 
@@ -1276,24 +1253,19 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		margin: 0;
 	}
 
-
-
 	/* -------------------------------------------------------------------------
-	8. Highlight Match in Search Results
+	8. Search Highlight & Empty State Card
 	------------------------------------------------------------------------- */
 	mark.search-highlight {
-		background: rgba(245, 158, 11, 0.3);
+		background: rgba(245, 158, 11, var(--op-shadow));
 		color: var(--text-primary);
 		padding: 1px 3px;
 		border-radius: 3px;
 	}
 
-	/* -------------------------------------------------------------------------
-	8. Empty State Card
-	------------------------------------------------------------------------- */
 	.help-empty-state {
 		background: var(--card-bg);
-		border: 1px solid var(--border-color);
+		border: var(--bw-thin) solid var(--border-color);
 		border-radius: var(--radius-xl);
 		padding: var(--space-3xl) var(--space-xl);
 		text-align: center;
@@ -1301,14 +1273,14 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		flex-direction: column;
 		align-items: center;
 		gap: var(--space-sm);
-		box-shadow: var(--shadow-xs);
+		box-shadow: var(--shadow-sm);
 	}
 
 	.empty-icon-wrap {
 		width: 64px;
 		height: 64px;
 		border-radius: var(--radius-full);
-		background: rgba(var(--color-primary-rgb), 0.08);
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
 		display: grid;
 		place-items: center;
 		color: rgb(var(--color-primary-rgb));
@@ -1338,7 +1310,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		color: #ffffff;
 		border: none;
 		border-radius: var(--radius-full);
-		padding: 8px 18px;
+		padding: var(--space-sm) 18px;
 		font-family: var(--font-main);
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
@@ -1347,43 +1319,42 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 	}
 
 	.help-btn-reset:hover {
-		opacity: 0.9;
+		opacity: var(--op-heavy);
 	}
 
 	/* -------------------------------------------------------------------------
 	9. MOBILE-FIRST RESPONSIVE ARCHITECTURE
 	------------------------------------------------------------------------- */
-	/* Desktop defaults: mobile-only widgets stay hidden */
 	.help-mobile-bar {
-		display: none !important;
+		display: none;
 	}
 
 	.help-backdrop {
-		display: none !important;
+		display: none;
 	}
 
 	.help-drawer-close-btn {
-		display: none !important;
+		display: none;
 	}
 
 	@media (max-width: 768px) {
 		/* Enable Mobile Floating Action Bar */
 		.help-mobile-bar {
-			display: flex !important;
+			display: flex;
 			align-items: center;
 			position: fixed;
-			bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+			bottom: calc(var(--space-lg) + env(safe-area-inset-bottom, 0px));
 			left: 50%;
 			transform: translateX(-50%);
-			z-index: 920;
+			z-index: var(--z-modal);
 			background: var(--card-bg);
-			border: 1px solid var(--border-color);
+			border: var(--bw-thin) solid var(--border-color);
 			border-radius: var(--radius-full);
-			padding: 5px 8px;
-			box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
+			padding: 5px var(--space-sm);
+			box-shadow: 0 10px 32px rgba(0, 0, 0, var(--op-soft));
 			backdrop-filter: blur(16px);
 			-webkit-backdrop-filter: blur(16px);
-			gap: 4px;
+			gap: var(--space-xs);
 		}
 
 		.mobile-bar-btn {
@@ -1405,12 +1376,12 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 		.mobile-bar-btn:active,
 		.mobile-bar-btn[aria-expanded="true"] {
-			background: rgba(var(--color-primary-rgb), 0.12);
+			background: rgba(var(--color-primary-rgb), var(--op-subtle));
 			color: rgb(var(--color-primary-rgb));
 		}
 
 		.mobile-bar-divider {
-			width: 1px;
+			width: var(--bw-thin);
 			height: 20px;
 			background: var(--border-color);
 			flex-shrink: 0;
@@ -1418,29 +1389,26 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 
 		/* Backdrop overlay for bottom drawers */
 		.help-backdrop {
-			display: block !important;
+			display: block;
 			position: fixed;
 			inset: 0;
-			background: rgba(0, 0, 0, 0.6);
-			backdrop-filter: blur(4px);
-			-webkit-backdrop-filter: blur(4px);
-			z-index: 980;
+			z-index: var(--z-modal);
 			transition: opacity 0.25s ease;
 		}
 
 		.help-backdrop.hidden {
-			display: none !important;
+			display: none;
 		}
 
 		/* Drawer Close Buttons */
 		.help-drawer-close-btn {
-			display: grid !important;
+			display: grid;
 			place-items: center;
 			width: 30px;
 			height: 30px;
 			border-radius: var(--radius-full);
-			border: 1px solid var(--border-color);
-			background: rgba(var(--color-bg-base-rgb), 0.5);
+			border: var(--bw-thin) solid var(--border-color);
+			background: rgba(var(--color-bg-base-rgb), var(--op-translucent));
 			color: var(--text-secondary);
 			font-size: var(--fs-xs);
 			cursor: pointer;
@@ -1453,23 +1421,23 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		}
 
 		/* ---------------------------------------------------------------------
-		 MOBILE SIDEBAR: OFF-CANVAS BOTTOM SHEET (NORMAL VERTICAL DESKTOP LIST)
+		 MOBILE SIDEBAR: OFF-CANVAS BOTTOM SHEET
 		 --------------------------------------------------------------------- */
 		.help-sidebar {
-			position: fixed !important;
-			bottom: 0 !important;
-			left: 0 !important;
-			right: 0 !important;
-			top: auto !important;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: auto;
 			max-height: 82vh;
-			z-index: 1000 !important;
+			z-index: var(--z-modal);
 			background: var(--card-bg);
-			border-top: 1px solid var(--border-color);
+			border-top: var(--bw-thin) solid var(--border-color);
 			border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 			box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
 			transform: translateY(105%);
 			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-			display: flex !important;
+			display: flex;
 			flex-direction: column;
 			overflow: hidden;
 		}
@@ -1479,13 +1447,13 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		}
 
 		.sidebar-sticky-box {
-			background: transparent !important;
-			border: none !important;
-			border-radius: 0 !important;
-			padding: 16px 20px 32px !important;
-			box-shadow: none !important;
-			backdrop-filter: none !important;
-			-webkit-backdrop-filter: none !important;
+			background: transparent;
+			border: none;
+			border-radius: 0;
+			padding: var(--space-lg) 20px var(--space-2xl);
+			box-shadow: none;
+			backdrop-filter: none;
+			-webkit-backdrop-filter: none;
 			display: flex;
 			flex-direction: column;
 			max-height: 82vh;
@@ -1493,7 +1461,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		}
 
 		.sidebar-heading-badge {
-			display: flex !important;
+			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			margin-bottom: var(--space-md);
@@ -1506,12 +1474,12 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			gap: var(--space-sm);
 		}
 
-		/* Pure Vertical Nested Nav List - 100% Identical to Desktop */
+		/* Vertical Nested Nav List in Mobile */
 		.help-sidebar-nav {
-			display: flex !important;
-			flex-direction: column !important;
-			flex-wrap: nowrap !important;
-			gap: 6px !important;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			gap: var(--radius-xs);
 			overflow-y: auto;
 		}
 
@@ -1527,7 +1495,7 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			gap: var(--space-xs);
 			padding-left: var(--space-md);
 			margin: var(--space-2xs) 0 var(--space-xs) var(--space-lg);
-			border-left: 2px solid rgba(var(--color-primary-rgb), 0.18);
+			border-left: var(--bw-md) solid rgba(var(--color-primary-rgb), 0.18);
 		}
 
 		.sidebar-nav-item {
@@ -1537,34 +1505,11 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 		}
 
 		/* ---------------------------------------------------------------------
-		 MOBILE HERO (SEARCH & FILTER HUB): OFF-CANVAS SLIDE SHEET
+		 MOBILE HERO HEADER & SEARCH DRAWER
 		 --------------------------------------------------------------------- */
-		.help-hero {
-			position: fixed !important;
-			bottom: 0 !important;
-			left: 0 !important;
-			right: 0 !important;
-			top: auto !important;
-			max-height: 86vh;
-			z-index: 1000 !important;
-			border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-			border-top: 1px solid var(--border-color);
-			box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
-			transform: translateY(105%);
-			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-			padding: 24px 18px 36px !important;
-			overflow-y: auto;
-		}
-
-		.help-hero.mobile-open {
-			transform: translateY(0);
-		}
-
-		.help-hero .help-drawer-close-btn {
-			position: absolute;
-			top: 14px;
-			right: 16px;
-			z-index: 10;
+		.help-hero-header {
+			padding: var(--space-lg) var(--space-md);
+			border-radius: var(--radius-lg);
 		}
 
 		.help-hero-title {
@@ -1575,9 +1520,61 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			font-size: var(--fs-xs);
 		}
 
-		/* Extra padding at bottom so content is never hidden behind floating bar */
+		.help-search-hub {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: auto;
+			max-height: 86vh;
+			z-index: var(--z-modal);
+			border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+			border-top: var(--bw-thin) solid var(--border-color);
+			box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
+			transform: translateY(105%);
+			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+			padding: 44px var(--space-sm) var(--space-xl);
+			overflow-y: auto;
+			gap: var(--space-xs);
+		}
+
+		.help-search-hub.mobile-open {
+			transform: translateY(0);
+		}
+
+		.help-search-hub .help-drawer-close-btn {
+			position: absolute;
+			top: var(--space-sm);
+			right: var(--space-md);
+			z-index: var(--z-map);
+		}
+
+		.help-search-hub .help-search-box {
+			width: 100%;
+			max-width: 100%;
+			margin-top: 0;
+		}
+
+		.help-search-hub .help-search-stats {
+			margin-top: 0;
+			padding: 2px 10px;
+		}
+
+		/* Compact Filter Chips in Mobile */
+		.help-filter-chips {
+			gap: var(--radius-xs);
+			margin-top: var(--space-xs);
+			justify-content: center;
+		}
+
+		.help-filter-chips .chip-btn {
+			padding: var(--space-xs) 10px;
+			line-height: 1.25;
+			white-space: nowrap;
+		}
+
 		main.help-main-container {
-			padding-bottom: calc(var(--space-3xl) + 80px) !important;
+			padding-bottom: calc(var(--space-3xl) + 80px);
 		}
 	}
 }

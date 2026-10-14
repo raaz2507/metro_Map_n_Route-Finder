@@ -40,9 +40,8 @@
 	<!-- MAIN HELP WORKSPACE CONTAINER -->
 	<main class="help-main-container">
 		
-		<!-- 1. HERO SEARCH HUB SECTION -->
-		<section class="help-hero" id="helpHero">
-			<button type="button" class="help-drawer-close-btn" id="heroCloseBtn" aria-label="Close search" title="Close">✕</button>
+		<!-- 1. HERO HEADER SECTION (Title & Subtitle) -->
+		<section class="help-hero-header">
 			<div class="help-hero-badge">
 				<span class="help-ico ico-help ico-sm" aria-hidden="true"></span>
 				<span data-i18n="help.hero.badge">YatraMarg User Guide &amp; Knowledge Base</span>
@@ -50,6 +49,11 @@
 			
 			<h1 class="help-hero-title" data-i18n="help.hero.title">How can we help your journey?</h1>
 			<p class="help-hero-desc" data-i18n="help.hero.desc">Find quick answers, learn smart sensor features, understand fare calculation rules, and troubleshoot app issues.</p>
+		</section>
+
+		<!-- 2. SEARCH & FILTER HUB (Interactive Search, Stats & Category Chips) -->
+		<section class="help-search-hub" id="helpHero">
+			<button type="button" class="help-drawer-close-btn" id="heroCloseBtn" aria-label="Close search" title="Close">✕</button>
 			
 			<!-- REUSABLE SEARCH BOX COMPONENT (Leverages universal_search.css) -->
 			<div class="search-box-wrapper help-search-box" id="helpSearchWrapper">
@@ -113,22 +117,22 @@
 									<span class="nav-label" data-i18n="help.nav.stepNetworks">Select City &amp; Network</span>
 								</a>
 								<!-- Sub-section / Topics -->
-								<ol class="sidebar-sub-list">
+								<ol class="sidebar-sub-list lvl-2">
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-city-select" class="sidebar-sub-item" data-target="card-city-select">
-											<span class="sub-nav-num"></span>
+										<a href="#card-city-select" class="sidebar-sub-link" data-target="card-city-select">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicCitySelect">अपना शहर कैसे चुनें</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-mode-filter" class="sidebar-sub-item" data-target="card-mode-filter">
-											<span class="sub-nav-num"></span>
+										<a href="#card-mode-filter" class="sidebar-sub-link" data-target="card-mode-filter">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicModeFilter">मेट्रो, RRTS व फ़िल्टर</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-combined-net" class="sidebar-sub-item" data-target="card-combined-net">
-											<span class="sub-nav-num"></span>
+										<a href="#card-combined-net" class="sidebar-sub-link" data-target="card-combined-net">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicCombinedNet">कंबाइंड (ऑल नेटवर्क)</span>
 										</a>
 									</li>
@@ -140,55 +144,55 @@
 									<span class="nav-label" data-i18n="help.nav.stepHome">Home &amp; Route Finder</span>
 								</a>
 								<!-- Level 2: Core Functional Areas -->
-								<ol class="sidebar-sub-list">
+								<ol class="sidebar-sub-list lvl-2">
 									<!-- 2.1 Sidebar Panels Area -->
 									<li class="sidebar-sub-group">
 										<div class="sidebar-sub-heading">
-											<span class="sub-heading-num"></span>
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.areaSidebar">Sidebar Panels</span>
 										</div>
 										<!-- Level 3: Nested Topics -->
-										<ol class="sidebar-nested-list">
-											<li class="sidebar-nested-item">
-												<a href="#card-route-search" class="sidebar-nested-link" data-target="card-route-search">
-													<span class="nested-num"></span>
+										<ol class="sidebar-sub-list lvl-3">
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-route-search" class="sidebar-sub-link" data-target="card-route-search">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicRouteSearch">Route Finder &amp; Fares</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-recent-backup" class="sidebar-nested-link" data-target="card-recent-backup">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-recent-backup" class="sidebar-sub-link" data-target="card-recent-backup">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicRecent">Recent Searches (A-Z)</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-alarm-audio" class="sidebar-nested-link" data-target="card-alarm-audio">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-alarm-audio" class="sidebar-sub-link" data-target="card-alarm-audio">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicSettings">App Settings</span>
 												</a>
 												<!-- Level 4: Settings Tabs -->
-												<ol class="sidebar-deep-list">
-													<li class="sidebar-deep-item">
-														<a href="#card-setting-alarm" class="sidebar-deep-link" data-target="card-setting-alarm">
-															<span class="deep-num"></span>
+												<ol class="sidebar-sub-list lvl-4">
+													<li class="sidebar-sub-item-wrap">
+														<a href="#card-setting-alarm" class="sidebar-sub-link" data-target="card-setting-alarm">
+															<span class="sidebar-sub-num"></span>
 															<span data-i18n="help.nav.settingAlarmTab">Alarm Settings Tab</span>
 														</a>
 													</li>
-													<li class="sidebar-deep-item">
-														<a href="#card-setting-map" class="sidebar-deep-link" data-target="card-setting-map">
-															<span class="deep-num"></span>
+													<li class="sidebar-sub-item-wrap">
+														<a href="#card-setting-map" class="sidebar-sub-link" data-target="card-setting-map">
+															<span class="sidebar-sub-num"></span>
 															<span data-i18n="help.nav.settingMapTab">Map Display Tab</span>
 														</a>
 													</li>
-													<li class="sidebar-deep-item">
-														<a href="#card-setting-packs" class="sidebar-deep-link" data-target="card-setting-packs">
-															<span class="deep-num"></span>
+													<li class="sidebar-sub-item-wrap">
+														<a href="#card-setting-packs" class="sidebar-sub-link" data-target="card-setting-packs">
+															<span class="sidebar-sub-num"></span>
 															<span data-i18n="help.nav.settingPacksTab">Packs Tab (Themes &amp; Languages)</span>
 														</a>
 													</li>
-													<li class="sidebar-deep-item">
-														<a href="#card-setting-backup" class="sidebar-deep-link" data-target="card-setting-backup">
-															<span class="deep-num"></span>
+													<li class="sidebar-sub-item-wrap">
+														<a href="#card-setting-backup" class="sidebar-sub-link" data-target="card-setting-backup">
+															<span class="sidebar-sub-num"></span>
 															<span data-i18n="help.nav.settingBackupTab">Backup &amp; Restore Tab</span>
 														</a>
 													</li>
@@ -200,19 +204,19 @@
 									<!-- 2.2 Interactive SVG Map Area -->
 									<li class="sidebar-sub-group">
 										<div class="sidebar-sub-heading">
-											<span class="sub-heading-num"></span>
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.areaMap">Interactive Map</span>
 										</div>
-										<ol class="sidebar-nested-list">
-											<li class="sidebar-nested-item">
-												<a href="#card-map-legend" class="sidebar-nested-link" data-target="card-map-legend">
-													<span class="nested-num"></span>
+										<ol class="sidebar-sub-list lvl-3">
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-map-legend" class="sidebar-sub-link" data-target="card-map-legend">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicMapLegend">Map Navigation &amp; Legend</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-station-dot" class="sidebar-nested-link" data-target="card-station-dot">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-station-dot" class="sidebar-sub-link" data-target="card-station-dot">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicStationDot">Station Dot Tap &amp; Pins</span>
 												</a>
 											</li>
@@ -222,19 +226,19 @@
 									<!-- 2.3 Live Widgets & Telemetry Area -->
 									<li class="sidebar-sub-group">
 										<div class="sidebar-sub-heading">
-											<span class="sub-heading-num"></span>
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.areaWidgets">Widgets &amp; Sensors</span>
 										</div>
-										<ol class="sidebar-nested-list">
-											<li class="sidebar-nested-item">
-												<a href="#card-speedo-telemetry" class="sidebar-nested-link" data-target="card-speedo-telemetry">
-													<span class="nested-num"></span>
+										<ol class="sidebar-sub-list lvl-3">
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-speedo-telemetry" class="sidebar-sub-link" data-target="card-speedo-telemetry">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicSpeedoTelemetry">Speedometer &amp; GPS</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-alarm-widget" class="sidebar-nested-link" data-target="card-alarm-widget">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-alarm-widget" class="sidebar-sub-link" data-target="card-alarm-widget">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicAlarmWidget">2.5D Alarm Tracker Widget</span>
 												</a>
 											</li>
@@ -248,23 +252,23 @@
 									<span class="nav-label" data-i18n="help.nav.stepStations">Stations &amp; Facilities</span>
 								</a>
 								<!-- Level 2: Core Functional Areas -->
-								<ol class="sidebar-sub-list">
+								<ol class="sidebar-sub-list lvl-2">
 									<!-- 3.1 All Stations Directory Area -->
 									<li class="sidebar-sub-group">
 										<div class="sidebar-sub-heading">
-											<span class="sub-heading-num"></span>
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.areaAllStations">All Stations Directory</span>
 										</div>
-										<ol class="sidebar-nested-list">
-											<li class="sidebar-nested-item">
-												<a href="#card-stations-filter" class="sidebar-nested-link" data-target="card-stations-filter">
-													<span class="nested-num"></span>
+										<ol class="sidebar-sub-list lvl-3">
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-stations-filter" class="sidebar-sub-link" data-target="card-stations-filter">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicStationsFilter">Directory &amp; Line Filter</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-stations-coach" class="sidebar-nested-link" data-target="card-stations-coach">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-stations-coach" class="sidebar-sub-link" data-target="card-stations-coach">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicStationsCoach">Coach View &amp; Sequence</span>
 												</a>
 											</li>
@@ -274,31 +278,31 @@
 									<!-- 3.2 Station Details & Facilities Area -->
 									<li class="sidebar-sub-group">
 										<div class="sidebar-sub-heading">
-											<span class="sub-heading-num"></span>
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.areaStationInfo">Station Facilities</span>
 										</div>
-										<ol class="sidebar-nested-list">
-											<li class="sidebar-nested-item">
-												<a href="#card-station-timings" class="sidebar-nested-link" data-target="card-station-timings">
-													<span class="nested-num"></span>
+										<ol class="sidebar-sub-list lvl-3">
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-station-timings" class="sidebar-sub-link" data-target="card-station-timings">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicStationTimings">First &amp; Last Train Timings</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-station-platforms" class="sidebar-nested-link" data-target="card-station-platforms">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-station-platforms" class="sidebar-sub-link" data-target="card-station-platforms">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicStationPlatforms">Platforms &amp; Directions</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-station-gates" class="sidebar-nested-link" data-target="card-station-gates">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-station-gates" class="sidebar-sub-link" data-target="card-station-gates">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicStationGates">Gates, Exits &amp; Places</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-station-facilities" class="sidebar-nested-link" data-target="card-station-facilities">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-station-facilities" class="sidebar-sub-link" data-target="card-station-facilities">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicStationFacilities">Lifts, Parking &amp; Amenities</span>
 												</a>
 											</li>
@@ -312,23 +316,23 @@
 									<span class="nav-label" data-i18n="help.nav.stepSupport">Passenger Support &amp; Safety</span>
 								</a>
 								<!-- Level 2: Core Functional Areas -->
-								<ol class="sidebar-sub-list">
+								<ol class="sidebar-sub-list lvl-2">
 									<!-- 4.1 Statutory Safety & Baggage Area -->
 									<li class="sidebar-sub-group">
 										<div class="sidebar-sub-heading">
-											<span class="sub-heading-num"></span>
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.areaSupportSafety">Statutory Safety &amp; Baggage</span>
 										</div>
-										<ol class="sidebar-nested-list">
-											<li class="sidebar-nested-item">
-												<a href="#card-support-vigilance" class="sidebar-nested-link" data-target="card-support-vigilance">
-													<span class="nested-num"></span>
+										<ol class="sidebar-sub-list lvl-3">
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-support-vigilance" class="sidebar-sub-link" data-target="card-support-vigilance">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicSupportVigilance">Vigilance &amp; CISF Rules</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-support-baggage" class="sidebar-nested-link" data-target="card-support-baggage">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-support-baggage" class="sidebar-sub-link" data-target="card-support-baggage">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicSupportBaggage">Baggage Limits &amp; Weight</span>
 												</a>
 											</li>
@@ -338,25 +342,25 @@
 									<!-- 4.2 Commuter Rights & Amenities Area -->
 									<li class="sidebar-sub-group">
 										<div class="sidebar-sub-heading">
-											<span class="sub-heading-num"></span>
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.areaSupportRights">Commuter Rights &amp; Amenities</span>
 										</div>
-										<ol class="sidebar-nested-list">
-											<li class="sidebar-nested-item">
-												<a href="#card-support-women" class="sidebar-nested-link" data-target="card-support-women">
-													<span class="nested-num"></span>
+										<ol class="sidebar-sub-list lvl-3">
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-support-women" class="sidebar-sub-link" data-target="card-support-women">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicSupportWomen">Women Reserved Coach</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-support-accessibility" class="sidebar-nested-link" data-target="card-support-accessibility">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-support-accessibility" class="sidebar-sub-link" data-target="card-support-accessibility">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicSupportAccessibility">Barrier-Free Accessibility</span>
 												</a>
 											</li>
-											<li class="sidebar-nested-item">
-												<a href="#card-support-parking" class="sidebar-nested-link" data-target="card-support-parking">
-													<span class="nested-num"></span>
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-support-parking" class="sidebar-sub-link" data-target="card-support-parking">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicSupportParking">Parking Rules &amp; Tariffs</span>
 												</a>
 											</li>
@@ -366,13 +370,13 @@
 									<!-- 4.3 24x7 Emergency Helplines Area -->
 									<li class="sidebar-sub-group">
 										<div class="sidebar-sub-heading">
-											<span class="sub-heading-num"></span>
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.areaSupportHelplines">Emergency Helplines</span>
 										</div>
-										<ol class="sidebar-nested-list">
-											<li class="sidebar-nested-item">
-												<a href="#card-support-helplines" class="sidebar-nested-link" data-target="card-support-helplines">
-													<span class="nested-num"></span>
+										<ol class="sidebar-sub-list lvl-3">
+											<li class="sidebar-sub-item-wrap">
+												<a href="#card-support-helplines" class="sidebar-sub-link" data-target="card-support-helplines">
+													<span class="sidebar-sub-num"></span>
 													<span data-i18n="help.nav.topicSupportHelplines">24x7 Control Rooms &amp; SOS</span>
 												</a>
 											</li>
@@ -385,28 +389,28 @@
 									<span class="nav-step-pill"></span>
 									<span class="nav-label" data-i18n="help.nav.stepHeader">Global Header &amp; Navigation</span>
 								</a>
-								<ol class="sidebar-sub-list">
+								<ol class="sidebar-sub-list lvl-2">
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-header-city" class="sidebar-sub-item" data-target="card-header-city">
-											<span class="sub-nav-num"></span>
+										<a href="#card-header-city" class="sidebar-sub-link" data-target="card-header-city">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicCitySelector">शहर व नेटवर्क बदलाव</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-header-themes" class="sidebar-sub-item" data-target="card-header-themes">
-											<span class="sub-nav-num"></span>
+										<a href="#card-header-themes" class="sidebar-sub-link" data-target="card-header-themes">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicThemeSwitcher">थीम व डार्क/लाइट मोड</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-header-language" class="sidebar-sub-item" data-target="card-header-language">
-											<span class="sub-nav-num"></span>
+										<a href="#card-header-language" class="sidebar-sub-link" data-target="card-header-language">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicLangSwitcher">बहुभाषी इंटरफ़ेस व अनुवाद</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-header-font" class="sidebar-sub-item" data-target="card-header-font">
-											<span class="sub-nav-num"></span>
+										<a href="#card-header-font" class="sidebar-sub-link" data-target="card-header-font">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicFontScale">टेक्स्ट साइज़ एडजस्टर (फ़ॉन्ट स्केल)</span>
 										</a>
 									</li>
@@ -417,28 +421,28 @@
 									<span class="nav-step-pill"></span>
 									<span class="nav-label" data-i18n="help.nav.stepFooter">Universal Footer Hub</span>
 								</a>
-								<ol class="sidebar-sub-list">
+								<ol class="sidebar-sub-list lvl-2">
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-footer-portals" class="sidebar-sub-item" data-target="card-footer-portals">
-											<span class="sub-nav-num"></span>
+										<a href="#card-footer-portals" class="sidebar-sub-link" data-target="card-footer-portals">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicFooterLinks">क्विक पोर्टल्स व लिंक्स</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-footer-pass" class="sidebar-sub-item" data-target="card-footer-pass">
-											<span class="sub-nav-num"></span>
+										<a href="#card-footer-pass" class="sidebar-sub-link" data-target="card-footer-pass">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicFooterQr">स्कैन एंड राइड 2.5D मोबाइल पास</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-footer-disclaimer" class="sidebar-sub-item" data-target="card-footer-disclaimer">
-											<span class="sub-nav-num"></span>
+										<a href="#card-footer-disclaimer" class="sidebar-sub-link" data-target="card-footer-disclaimer">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicFooterLegal">ट्रांज़िट एडवाइज़री व नियम</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-footer-status" class="sidebar-sub-item" data-target="card-footer-status">
-											<span class="sub-nav-num"></span>
+										<a href="#card-footer-status" class="sidebar-sub-link" data-target="card-footer-status">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicFooterStatus">बिल्ड वर्शन व कनेक्टिविटी</span>
 										</a>
 									</li>
@@ -449,22 +453,22 @@
 									<span class="nav-step-pill"></span>
 									<span class="nav-label" data-i18n="help.nav.stepPwa">PWA &amp; Offline Installation</span>
 								</a>
-								<ol class="sidebar-sub-list">
+								<ol class="sidebar-sub-list lvl-2">
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-pwa-install" class="sidebar-sub-item" data-target="card-pwa-install">
-											<span class="sub-nav-num"></span>
+										<a href="#card-pwa-install" class="sidebar-sub-link" data-target="card-pwa-install">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicPwaInstall">ऐप की तरह इंस्टॉल (PWA)</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-pwa-caching" class="sidebar-sub-item" data-target="card-pwa-caching">
-											<span class="sub-nav-num"></span>
+										<a href="#card-pwa-caching" class="sidebar-sub-link" data-target="card-pwa-caching">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicPwaServiceWorker">ऑफलाइन इंजन व सर्विस वर्कर</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-pwa-storage" class="sidebar-sub-item" data-target="card-pwa-storage">
-											<span class="sub-nav-num"></span>
+										<a href="#card-pwa-storage" class="sidebar-sub-link" data-target="card-pwa-storage">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicPwaStorage">ऑफलाइन डेटा व पैक्स स्टोरेज</span>
 										</a>
 									</li>
@@ -475,28 +479,28 @@
 									<span class="nav-step-pill"></span>
 									<span class="nav-label" data-i18n="help.nav.stepTroubleshoot">Diagnostics &amp; Troubleshooting</span>
 								</a>
-								<ol class="sidebar-sub-list">
+								<ol class="sidebar-sub-list lvl-2">
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-troubleshoot-gps" class="sidebar-sub-item" data-target="card-troubleshoot-gps">
-											<span class="sub-nav-num"></span>
+										<a href="#card-troubleshoot-gps" class="sidebar-sub-link" data-target="card-troubleshoot-gps">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicGpsUnderground">टनल में GPS सिग्नल फिक्स</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-troubleshoot-cache" class="sidebar-sub-item" data-target="card-troubleshoot-cache">
-											<span class="sub-nav-num"></span>
+										<a href="#card-troubleshoot-cache" class="sidebar-sub-link" data-target="card-troubleshoot-cache">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicCacheReload">कैशे साफ़ करना व हार्ड रीलोड</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-troubleshoot-storage" class="sidebar-sub-item" data-target="card-troubleshoot-storage">
-											<span class="sub-nav-num"></span>
+										<a href="#card-troubleshoot-storage" class="sidebar-sub-link" data-target="card-troubleshoot-storage">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicStorageReset">ऐप स्टोरेज व डेटा रीसेट</span>
 										</a>
 									</li>
 									<li class="sidebar-sub-item-wrap">
-										<a href="#card-troubleshoot-network" class="sidebar-sub-item" data-target="card-troubleshoot-network">
-											<span class="sub-nav-num"></span>
+										<a href="#card-troubleshoot-network" class="sidebar-sub-link" data-target="card-troubleshoot-network">
+											<span class="sidebar-sub-num"></span>
 											<span data-i18n="help.nav.topicNetworkErrors">नेटवर्क एरर व ऑफलाइन रिकवरी</span>
 										</a>
 									</li>
@@ -700,9 +704,9 @@
 						 AREA 2.1: SIDEBAR PANELS
 						 ===================================================== -->
 						<li class="help-sub-area" id="area-sidebar">
-							<div class="sub-area-badge-header">
-								<span class="sub-area-num-tag"></span>
-								<h3 class="sub-area-title" data-i18n="help.nav.areaSidebar">Sidebar Panels</h3>
+							<div class="section-badge-header is-sub">
+								<span class="section-num-tag is-sub"></span>
+								<h3 class="section-title is-sub" data-i18n="help.nav.areaSidebar">Sidebar Panels</h3>
 							</div>
 							<ol class="help-card-list">
 								<!-- Card 2.1.1: Route Finder & Fares -->
@@ -859,13 +863,13 @@
 										</div>
 
 										<!-- Level 4 Deep Tabs: 2.1.3.1 to 2.1.3.4 -->
-										<ol class="help-deep-card-list">
-											<li class="help-deep-card-item" id="card-setting-alarm">
+										<ol class="help-card-list is-deep">
+											<li class="help-card-item is-deep help-deep-card-item" id="card-setting-alarm">
 												<div class="deep-card-header">
-													<span class="deep-card-num-badge"></span>
+													<span class="card-num-badge is-deep"></span>
 													<h5 class="deep-card-title" data-i18n="help.cards.settingAlarm.title">अलार्म सेटिंग्स टैब (Alarm Tab)</h5>
 												</div>
-												<p class="deep-card-desc" data-i18n="help.cards.settingAlarm.desc">स्टेशन आने की पूर्व-चेतावनी दूरी (200m, 500m, 1km, या 1 स्टेशन पहले), कस्टम MP3 ऑडियो, वॉल्यूम, हैप्टिक वाइब्रेशन पैटर्न और ऑफलाइन वॉइस अनाउंसमेंट (TTS) सेट करें।</p>
+												<p class="drawer-desc is-deep" data-i18n="help.cards.settingAlarm.desc">स्टेशन आने की पूर्व-चेतावनी दूरी (200m, 500m, 1km, या 1 स्टेशन पहले), कस्टम MP3 ऑडियो, वॉल्यूम, हैप्टिक वाइब्रेशन पैटर्न और ऑफलाइन वॉइस अनाउंसमेंट (TTS) सेट करें।</p>
 
 												<!-- Live UI Blueprint Preview: Alarm Geofence Controls -->
 												<div class="live-ui-mockup-wrapper">
@@ -902,12 +906,12 @@
 													</div>
 												</div>
 											</li>
-											<li class="help-deep-card-item" id="card-setting-map">
+											<li class="help-card-item is-deep help-deep-card-item" id="card-setting-map">
 												<div class="deep-card-header">
-													<span class="deep-card-num-badge"></span>
+													<span class="card-num-badge is-deep"></span>
 													<h5 class="deep-card-title" data-i18n="help.cards.settingMap.title">मैप डिस्प्ले सेटिंग्स टैब (Map Tab)</h5>
 												</div>
-												<p class="deep-card-desc" data-i18n="help.cards.settingMap.desc">मैप पर निर्माणाधीन लाइनों (Dashed) व स्वीकृत लाइनों (Dotted) को चालू/बंद करें, और ज़ूम स्तर के अनुसार स्टेशन नामों की भाषा व लेबल प्राथमिकता नियंत्रित करें।</p>
+												<p class="drawer-desc is-deep" data-i18n="help.cards.settingMap.desc">मैप पर निर्माणाधीन लाइनों (Dashed) व स्वीकृत लाइनों (Dotted) को चालू/बंद करें, और ज़ूम स्तर के अनुसार स्टेशन नामों की भाषा व लेबल प्राथमिकता नियंत्रित करें।</p>
 
 												<!-- Live UI Blueprint Preview: Map Display Controls -->
 												<div class="live-ui-mockup-wrapper">
@@ -942,12 +946,12 @@
 													</div>
 												</div>
 											</li>
-											<li class="help-deep-card-item" id="card-setting-packs">
+											<li class="help-card-item is-deep help-deep-card-item" id="card-setting-packs">
 												<div class="deep-card-header">
-													<span class="deep-card-num-badge"></span>
+													<span class="card-num-badge is-deep"></span>
 													<h5 class="deep-card-title" data-i18n="help.cards.settingPacks.title">पैक्स टैब: थीम्स व भाषा (Packs Tab)</h5>
 												</div>
-												<p class="deep-card-desc" data-i18n="help.cards.settingPacks.desc">ऑफलाइन उपयोग के लिए अतिरिक्त भाषा पैक और कलर थीम पैक डाउनलोड करें ताकि बिना इंटरनेट भी ऐप सहज चले।</p>
+												<p class="drawer-desc is-deep" data-i18n="help.cards.settingPacks.desc">ऑफलाइन उपयोग के लिए अतिरिक्त भाषा पैक और कलर थीम पैक डाउनलोड करें ताकि बिना इंटरनेट भी ऐप सहज चले।</p>
 
 												<!-- Live UI Blueprint Preview: Packs Manager Controls -->
 												<div class="live-ui-mockup-wrapper">
@@ -982,12 +986,12 @@
 													</div>
 												</div>
 											</li>
-											<li class="help-deep-card-item" id="card-setting-backup">
+											<li class="help-card-item is-deep help-deep-card-item" id="card-setting-backup">
 												<div class="deep-card-header">
-													<span class="deep-card-num-badge"></span>
+													<span class="card-num-badge is-deep"></span>
 													<h5 class="deep-card-title" data-i18n="help.cards.settingBackup.title">बैकअप व रीस्टोर टैब (Backup / Restore Tab)</h5>
 												</div>
-												<p class="deep-card-desc" data-i18n="help.cards.settingBackup.desc">अपनी सेव की गई सेटिंग्स और खोजी गई यात्राओं की हिस्ट्री को JSON फ़ाइल में एक्सपोर्ट करें, शेयर करें या नए फोन में 1-क्लिक में रीस्टोर करें।</p>
+												<p class="drawer-desc is-deep" data-i18n="help.cards.settingBackup.desc">अपनी सेव की गई सेटिंग्स और खोजी गई यात्राओं की हिस्ट्री को JSON फ़ाइल में एक्सपोर्ट करें, शेयर करें या नए फोन में 1-क्लिक में रीस्टोर करें।</p>
 
 												<!-- Live UI Blueprint Preview: Backup & Restore Controls -->
 												<div class="live-ui-mockup-wrapper">
@@ -1032,9 +1036,9 @@
 						 AREA 2.2: INTERACTIVE MAP
 						 ===================================================== -->
 						<li class="help-sub-area" id="area-map">
-							<div class="sub-area-badge-header">
-								<span class="sub-area-num-tag"></span>
-								<h3 class="sub-area-title" data-i18n="help.nav.areaMap">Interactive Map</h3>
+							<div class="section-badge-header is-sub">
+								<span class="section-num-tag is-sub"></span>
+								<h3 class="section-title is-sub" data-i18n="help.nav.areaMap">Interactive Map</h3>
 							</div>
 							<ol class="help-card-list">
 								<!-- Card 2.2.1: Map Navigation & Legend -->
@@ -1139,9 +1143,9 @@
 						 AREA 2.3: WIDGETS & SENSORS
 						 ===================================================== -->
 						<li class="help-sub-area" id="area-widgets">
-							<div class="sub-area-badge-header">
-								<span class="sub-area-num-tag"></span>
-								<h3 class="sub-area-title" data-i18n="help.nav.areaWidgets">Widgets &amp; Sensors</h3>
+							<div class="section-badge-header is-sub">
+								<span class="section-num-tag is-sub"></span>
+								<h3 class="section-title is-sub" data-i18n="help.nav.areaWidgets">Widgets &amp; Sensors</h3>
 							</div>
 							<ol class="help-card-list">
 								<!-- Card 2.3.1: Live Speedometer & Telemetry -->
@@ -1284,9 +1288,9 @@
 						 AREA 3.1: ALL STATIONS DIRECTORY
 						 ===================================================== -->
 						<li class="help-sub-area" id="area-all-stations">
-							<div class="sub-area-badge-header">
-								<span class="sub-area-num-tag"></span>
-								<h3 class="sub-area-title" data-i18n="help.nav.areaAllStations">All Stations Directory</h3>
+							<div class="section-badge-header is-sub">
+								<span class="section-num-tag is-sub"></span>
+								<h3 class="section-title is-sub" data-i18n="help.nav.areaAllStations">All Stations Directory</h3>
 							</div>
 							<ol class="help-card-list">
 								<!-- Card 3.1.1: Station Directory & Line-wise Filter Chips -->
@@ -1389,9 +1393,9 @@
 						 AREA 3.2: STATION DETAILS & FACILITIES
 						 ===================================================== -->
 						<li class="help-sub-area" id="area-station-info">
-							<div class="sub-area-badge-header">
-								<span class="sub-area-num-tag"></span>
-								<h3 class="sub-area-title" data-i18n="help.nav.areaStationInfo">Station Facilities</h3>
+							<div class="section-badge-header is-sub">
+								<span class="section-num-tag is-sub"></span>
+								<h3 class="section-title is-sub" data-i18n="help.nav.areaStationInfo">Station Facilities</h3>
 							</div>
 							<ol class="help-card-list">
 								<!-- Card 3.2.1: First & Last Train Timings and Helpline Contacts -->
@@ -1606,9 +1610,9 @@
 						 AREA 4.1: STATUTORY SAFETY & BAGGAGE
 						 ===================================================== -->
 						<li class="help-sub-area" id="area-support-safety">
-							<div class="sub-area-badge-header">
-								<span class="sub-area-num-tag"></span>
-								<h3 class="sub-area-title" data-i18n="help.nav.areaSupportSafety">Statutory Safety &amp; Baggage</h3>
+							<div class="section-badge-header is-sub">
+								<span class="section-num-tag is-sub"></span>
+								<h3 class="section-title is-sub" data-i18n="help.nav.areaSupportSafety">Statutory Safety &amp; Baggage</h3>
 							</div>
 							<ol class="help-card-list">
 								<!-- Card 4.1.1: Vigilance & CISF Security Guidelines -->
@@ -1711,9 +1715,9 @@
 						 AREA 4.2: COMMUTER RIGHTS & AMENITIES
 						 ===================================================== -->
 						<li class="help-sub-area" id="area-support-rights">
-							<div class="sub-area-badge-header">
-								<span class="sub-area-num-tag"></span>
-								<h3 class="sub-area-title" data-i18n="help.nav.areaSupportRights">Commuter Rights &amp; Amenities</h3>
+							<div class="section-badge-header is-sub">
+								<span class="section-num-tag is-sub"></span>
+								<h3 class="section-title is-sub" data-i18n="help.nav.areaSupportRights">Commuter Rights &amp; Amenities</h3>
 							</div>
 							<ol class="help-card-list">
 								<!-- Card 4.2.1: Women Safety & Reserved Coach -->
@@ -1863,9 +1867,9 @@
 						 AREA 4.3: 24X7 EMERGENCY HELPLINES
 						 ===================================================== -->
 						<li class="help-sub-area" id="area-support-helplines">
-							<div class="sub-area-badge-header">
-								<span class="sub-area-num-tag"></span>
-								<h3 class="sub-area-title" data-i18n="help.nav.areaSupportHelplines">Emergency Helplines</h3>
+							<div class="section-badge-header is-sub">
+								<span class="section-num-tag is-sub"></span>
+								<h3 class="section-title is-sub" data-i18n="help.nav.areaSupportHelplines">Emergency Helplines</h3>
 							</div>
 							<ol class="help-card-list">
 								<!-- Card 4.3.1: 24x7 Control Rooms & SOS Directory -->

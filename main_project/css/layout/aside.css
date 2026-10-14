@@ -1,5 +1,6 @@
 @import url("../components/recentSearch.css") layer(components);
 @import url("../components/routeSearch.css") layer(components);
+@import url("../components/ai-ui.css") layer(components);
 
 @layer components {
 	/* =========================================================================
@@ -49,25 +50,26 @@
 		max-height: 100%;
 	}
 
-		/* =========================================================================
-	Sidebar Circular Glass Close Button (Half-Out Top-Right & Red Danger Theme)
-	========================================================================= */
+	/* =========================================================================
+	   Sidebar Close Button (Option 2: 180° Flip & Pulse Ripple - Centered SVG)
+	   ========================================================================= */
 	.sidebar-close-btn {
-		--btn-size: 26px;
+		--btn-size: 32px;
 		position: absolute;
-		top: calc(var(--btn-size) * -0.4);/* 👈 आधा ऊपर बाहर (-10px) */
-		right: calc(var(--btn-size) * -0.4); /* 👈 आधा दाएँ बाहर (-10px) */
+		top: var(--space-xs);  /* 👈 div के अंदर 8px ऊपर */
+		right: var(--space-xs); /* 👈 div के अंदर 8px दाएँ */
 		z-index: calc(var(--z-sidebar) + 2);
 
 		width: var(--btn-size);
 		height: var(--btn-size);
 		border-radius: var(--radius-full);
 		
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		/* ग्रिड आधारित 100% सटीक सेंटरिंग */
+		display: grid;
+		place-items: center;
+		padding: 0;
 
-		/* Clear All जैसी हल्की लाल (Danger) थीम */
+		/* हल्का लाल (Danger) ग्लास लुक */
 		background: rgba(var(--color-danger-rgb, 239, 68, 68), 0.12);
 		backdrop-filter: blur(var(--backdrop-blur));
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
@@ -75,36 +77,72 @@
 		color: rgb(var(--color-danger-rgb, 239, 68, 68));
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 		
-		font-size: var(--fs-md);
-		line-height: 1;
 		cursor: pointer;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 
-		transition: transform var(--transition-smooth), 
-					background var(--transition-smooth), 
-					color var(--transition-smooth), 
-					border-color var(--transition-smooth);
+		/* 180° स्मूथ फ़्लिप और रिपल ट्रांज़िशन */
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+					box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+					background var(--transition-fast),
+					border-color var(--transition-fast);
 	}
 
-	.sidebar-close-btn:hover {
-		transform: scale(1.12);
+	/* 🎯 SVG क्रॉस को गणितीय रूप से 14px और शार्प रखना */
+	.sidebar-close-btn svg {
+		width: 14px;
+		height: 14px;
+		display: block;
+		pointer-events: none;
+		stroke-width: 2.5;
+	}
+
+	/* 📱 44px का अदृश्य टच एरिया (ताकि मोबाइल पर टच कभी मिस न हो) */
+	.sidebar-close-btn::after {
+		content: "";
+		position: absolute;
+		inset: -6px;
+		border-radius: var(--radius-full);
+	}
+
+	/* 🎯 180° फ्लिप और रिपल वेव (Hover & Focus) */
+	.sidebar-close-btn:hover,
+	.sidebar-close-btn:focus-visible {
+		transform: rotate(180deg) scale(1.1);
 		background: rgba(var(--color-danger-rgb, 239, 68, 68), 0.25);
 		border-color: rgba(var(--color-danger-rgb, 239, 68, 68), 0.6);
-		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+		box-shadow: 0 0 0 5px rgba(var(--color-danger-rgb, 239, 68, 68), 0.2), 
+		            0 0 16px rgba(var(--color-danger-rgb, 239, 68, 68), 0.35);
 	}
 
+	/* 🔘 क्लिक / टच दबाने पर (Press Effect) */
 	.sidebar-close-btn:active {
-		transform: scale(0.94);
-		background: rgba(var(--color-danger-rgb, 239, 68, 68), 0.35);
+		transform: rotate(180deg) scale(0.92);
+		box-shadow: 0 0 0 2px rgba(var(--color-danger-rgb, 239, 68, 68), 0.4);
 	}
 
 	.sidebar-close-btn:focus-visible {
-		outline: 2px solid rgba(var(--color-danger-rgb, 239, 68, 68), 0.8);
+		outline: 2px solid rgb(var(--color-danger-rgb, 239, 68, 68));
 		outline-offset: 2px;
 	}
 
 	/* केवल Recent Searches कार्ड पर अंदरूनी पैडिंग (अलग विड्थ हटा दी गई) */
 	#recent-searches {
 		padding: var(--space-md);
+	}
+
+	/* Disha AI Section Height & Scrolling (Header sticky top, Footer input sticky bottom) */
+	#ai-assistant {
+		flex: 1 1 auto;
+		height: 100%;
+		max-height: 100%;
+		overflow: hidden;
+		padding: 0;
+		gap: 0;
+	}
+
+	aside:has(#ai-assistant.active) {
+		height: min(560px, calc(100dvh - 120px));
 	}
 
 	/* Route Finder Dynamic Height Overrides (अलग विड्थ हटा दी गई) */
@@ -159,6 +197,13 @@
 			height: 100%;
 			flex: 1 1 auto;
 			overflow-y: auto;
+		}
+
+
+		#ai-assistant {
+			height: 100%;
+			max-height: 100%;
+			overflow: hidden;
 		}
 
 		/* मोबाइल पर Recent Searches की पैडिंग कॉम्पैक्ट रखें ताकि जगह मिले */

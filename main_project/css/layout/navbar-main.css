@@ -41,6 +41,10 @@
 		-webkit-mask-image: url("../../assets/icons/gears-solid-full.svg");
 		mask-image: url("../../assets/icons/gears-solid-full.svg");
 	}
+	.ai-icon::after {
+		-webkit-mask-image: url("../../assets/icons/ai.svg");
+		mask-image: url("../../assets/icons/ai.svg");
+	}
 	.about-icon::after {
 		-webkit-mask-image: url("../../assets/icons/info.svg");
 		mask-image: url("../../assets/icons/info.svg");

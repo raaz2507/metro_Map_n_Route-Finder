@@ -113,7 +113,8 @@ export class AlarmManager {
 				this.#gpsTracker.setTarget(targetCoords.lat, targetCoords.lon);
 			}
 		}
-		// 🎯 बिना किसी रुकावट के GPS चालू करें और ARMED करें
+		// 🎯 बिना किसी रुकावट के ARMED करें और सेंसर्स चालू करें
+		this.#state = "ARMED";
 		this.#gpsTracker.startTracking();
 		this.#motionSensor.startListening();
 		this.#startTunnelTicker(); // ⚡ टनल हार्टबीट शुरू

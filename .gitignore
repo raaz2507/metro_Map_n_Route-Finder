@@ -11,6 +11,7 @@ yarn-error.log*
 # 2. ANDROID BUILD ARTIFACTS & LOCAL CONFIG (केवल गैर-ज़रूरी फाइल्स इग्नोर होंगी)
 # ==============================================================================
 # Gradle & Build Caches (रूट और सब-डायरेक्ट्रीज दोनों के लिए)
+/android-build/
 .gradle/
 android/.gradle/
 build/

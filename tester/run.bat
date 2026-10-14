@@ -28,6 +28,7 @@ echo    8) Pune                      16) Indore
 echo ------------------------------------------------------------------
 echo   17) ALL CITIES (Master Test)
 echo   18) AUDIT ONLY (Data and Fare Integrity Check)
+echo   19) DISHA AI HARNESS (NLU, Multi-Network & Multi-Turn Test)
 echo    0) Exit
 echo ==================================================================
 set "USER_INPUT="
@@ -85,12 +86,19 @@ if "%NUM%"=="18" (
     goto :EOF
 )
 
+if "%NUM%"=="19" (
+    echo.
+    echo [Option 19] Running DISHA AI Master Test Harness...
+    node tester\run-ai.js
+    goto :EOF
+)
+
 if "%NUM%"=="0" (
     exit /b 0
 )
 
 echo.
-echo Invalid option: %NUM% (Allowed: 0 to 18)
+echo Invalid option: %NUM% (Allowed: 0 to 19)
 goto :EOF
 
 :DONE

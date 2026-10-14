@@ -2,6 +2,7 @@
 	"version": "2.0",
 	"country": "India",
 	"last_updated": "2026-08-27",
+	"base" : "datasets/india",
 	"modes": [
 		"Metro",
 		"MetroNeo",
@@ -20,7 +21,7 @@
 					"status": "operational",
 					"operator": "Delhi Metro Rail Corporation",
 					"website": "https://www.delhimetrorail.com",
-					"dataPath": "datasets/dmrc_delhi_data"
+					"dataPath": "dmrc_delhi_data"
 				},
 				"nmrc": {
 					"name": "Noida Metro",
@@ -28,7 +29,7 @@
 					"status": "operational",
 					"operator": "Noida Metro Rail Corporation",
 					"website": "https://www.nmrcnoida.com",
-					"dataPath": "datasets/nmrc_noida_data"
+					"dataPath": "nmrc_noida_data"
 				},
 				"rapid_metro_gurugram": {
 					"name": "Rapid Metro Gurugram",
@@ -36,7 +37,7 @@
 					"status": "operational",
 					"operator": "HMRTC / DMRC",
 					"website": "https://hmrtc.org.in",
-					"dataPath": "datasets/rapid_metro_data"
+					"dataPath": "rapid_metro_data"
 				},
 				"delhi_meerut_rrts": {
 					"name": "Namo Bharat RRTS (Delhi-Meerut)",
@@ -44,7 +45,7 @@
 					"status": "operational_partial",
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
-					"dataPath": "datasets/ncrtc_rrts_data"
+					"dataPath": "ncrtc_rrts_data"
 				},
 				"delhi_alwar_rrts": {
 					"name": "Delhi-Alwar RRTS",
@@ -52,7 +53,7 @@
 					"status": "under_construction",
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
-					"dataPath": "datasets/delhi_alwar_rrts_data"
+					"dataPath": "delhi_alwar_rrts_data"
 				},
 				"delhi_panipat_rrts": {
 					"name": "Delhi-Panipat RRTS",
@@ -60,7 +61,7 @@
 					"status": "approved",
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
-					"dataPath": "datasets/delhi_panipat_rrts_data"
+					"dataPath": "delhi_panipat_rrts_data"
 				}
 			}
 		},
@@ -86,7 +87,7 @@
 					"operator": "MMRDA / MMRC / MMOPL",
 					"website": "https://mmrcl.com",
 					"hasData": true,
-					"dataPath": "datasets/mumbai_metro_data",
+					"dataPath": "mumbai_metro_data",
 					"icon": "assets/icons/networks/mumbai_metro.svg"
 				},
 				"mumbai_monorail": {
@@ -95,7 +96,7 @@
 					"status": "operational",
 					"operator": "MMRDA",
 					"website": "https://mmrda.maharashtra.gov.in",
-					"dataPath": "datasets/mumbai_monorail_data",
+					"dataPath": "mumbai_monorail_data",
 					"icon": "assets/icons/networks/mmrda-logo.svg"
 				},
 				"thane_metro": {
@@ -104,7 +105,7 @@
 					"status": "under_construction",
 					"operator": "MMRDA",
 					"website": "https://mmrda.maharashtra.gov.in",
-					"dataPath": "datasets/thane_metro_data"
+					"dataPath": "thane_metro_data"
 				},
 				"navi_mumbai_metro": {
 					"name": "Navi Mumbai Metro",
@@ -112,7 +113,7 @@
 					"status": "operational",
 					"operator": "CIDCO",
 					"website": "https://cidco.maharashtra.gov.in",
-					"dataPath": "datasets/navi_mumbai_metro_data",
+					"dataPath": "navi_mumbai_metro_data",
 					"icon": "assets/icons/networks/cidco-logo.svg"
 				}
 			}
@@ -127,7 +128,7 @@
 					"status": "operational",
 					"operator": "Metro Railway Kolkata / Indian Railways",
 					"website": "https://mtp.indianrailways.gov.in",
-					"dataPath": "datasets/kolkata_metro_data"
+					"dataPath": "kolkata_metro_data"
 				}
 			}
 		},
@@ -141,7 +142,7 @@
 					"status": "operational",
 					"operator": "BMRCL",
 					"website": "https://english.bmrc.co.in",
-					"dataPath": "datasets/bengaluru_metro_data"
+					"dataPath": "bengaluru_metro_data"
 				}
 			}
 		},
@@ -155,7 +156,7 @@
 					"status": "operational",
 					"operator": "L&T Metro Rail / HMRL",
 					"website": "https://www.ltmetro.com",
-					"dataPath": "datasets/hyderabad_metro_data"
+					"dataPath": "hyderabad_metro_data"
 				}
 			}
 		},
@@ -169,7 +170,7 @@
 					"status": "operational",
 					"operator": "CMRL",
 					"website": "https://chennaimetrorail.org",
-					"dataPath": "datasets/chennai_metro_data"
+					"dataPath": "chennai_metro_data"
 				},
 				"chennai_light_rail": {
 					"name": "Chennai Light Rail",
@@ -177,7 +178,7 @@
 					"status": "proposed",
 					"operator": "CMRL",
 					"website": "https://chennaimetrorail.org",
-					"dataPath": "datasets/chennai_light_rail_data"
+					"dataPath": "chennai_light_rail_data"
 				}
 			}
 		},
@@ -191,7 +192,7 @@
 					"status": "operational",
 					"operator": "KMRL",
 					"website": "https://kochimetro.org",
-					"dataPath": "datasets/kochi_metro_data"
+					"dataPath": "kochi_metro_data"
 				}
 			}
 		},
@@ -205,7 +206,7 @@
 					"status": "operational",
 					"operator": "GMRC",
 					"website": "https://www.gujaratmetrorail.com",
-					"dataPath": "datasets/ahmedabad_metro_data"
+					"dataPath": "ahmedabad_metro_data"
 				}
 			}
 		},
@@ -219,7 +220,7 @@
 					"status": "operational",
 					"operator": "Maha Metro",
 					"website": "https://www.mahametro.org",
-					"dataPath": "datasets/nagpur_metro_data"
+					"dataPath": "nagpur_metro_data"
 				}
 			}
 		},
@@ -233,7 +234,7 @@
 					"status": "operational",
 					"operator": "Maha Metro / PMRDA",
 					"website": "https://www.mahametro.org",
-					"dataPath": "datasets/pune_metro_data"
+					"dataPath": "pune_metro_data"
 				}
 			}
 		},
@@ -247,7 +248,7 @@
 					"status": "operational",
 					"operator": "JMRC",
 					"website": "https://transport.rajasthan.gov.in/jmrc",
-					"dataPath": "datasets/jaipur_metro_data"
+					"dataPath": "jaipur_metro_data"
 				}
 			}
 		},
@@ -261,7 +262,7 @@
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "datasets/lucknow_metro_data"
+					"dataPath": "lucknow_metro_data"
 				}
 			}
 		},
@@ -275,7 +276,7 @@
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "datasets/kanpur_metro_data"
+					"dataPath": "kanpur_metro_data"
 				}
 			}
 		},
@@ -289,7 +290,7 @@
 					"status": "operational",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "datasets/agra_metro_data"
+					"dataPath": "agra_metro_data"
 				}
 			}
 		},
@@ -303,7 +304,7 @@
 					"status": "operational_partial",
 					"operator": "MPMRCL",
 					"website": "https://mpmetrorail.com",
-					"dataPath": "datasets/indore_metro_data"
+					"dataPath": "indore_metro_data"
 				}
 			}
 		},
@@ -317,7 +318,7 @@
 					"status": "operational_partial",
 					"operator": "MPMRCL",
 					"website": "https://mpmetrorail.com",
-					"dataPath": "datasets/bhopal_metro_data"
+					"dataPath": "bhopal_metro_data"
 				}
 			}
 		},
@@ -331,7 +332,7 @@
 					"status": "under_construction",
 					"operator": "PMRC",
 					"website": "https://pmrc.bihar.gov.in",
-					"dataPath": "datasets/patna_metro_data"
+					"dataPath": "patna_metro_data"
 				}
 			}
 		},
@@ -345,7 +346,7 @@
 					"status": "under_construction",
 					"operator": "GMRC",
 					"website": "https://www.gujaratmetrorail.com",
-					"dataPath": "datasets/surat_metro_data"
+					"dataPath": "surat_metro_data"
 				}
 			}
 		},
@@ -359,7 +360,7 @@
 					"status": "under_construction",
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
-					"dataPath": "datasets/meerut_metro_data"
+					"dataPath": "meerut_metro_data"
 				}
 			}
 		},
@@ -373,7 +374,7 @@
 					"status": "approved",
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
-					"dataPath": "datasets/gorakhpur_metrolite_data"
+					"dataPath": "gorakhpur_metrolite_data"
 				}
 			}
 		},
@@ -387,7 +388,7 @@
 					"status": "approved",
 					"operator": "Government of J&K / JKMRTC",
 					"website": "https://jkmrtc.co.in",
-					"dataPath": "datasets/jammu_metrolite_data"
+					"dataPath": "jammu_metrolite_data"
 				}
 			}
 		},
@@ -401,7 +402,7 @@
 					"status": "approved",
 					"operator": "Government of J&K / JKMRTC",
 					"website": "https://jkmrtc.co.in",
-					"dataPath": "datasets/srinagar_metrolite_data"
+					"dataPath": "srinagar_metrolite_data"
 				}
 			}
 		},
@@ -415,7 +416,7 @@
 					"status": "proposed",
 					"operator": "UKMRC",
 					"website": null,
-					"dataPath": "datasets/dehradun_metroneo_data"
+					"dataPath": "dehradun_metroneo_data"
 				}
 			}
 		}

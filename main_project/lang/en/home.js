@@ -6,6 +6,7 @@ export default {
 		recent: "Recent",
 		map: "Map",
 		setting: "Setting",
+		ai: "Disha AI",
 		ariaNav: "Sidebar Navigation",
 		ariaPanel: "Sidebar Content Panel",
 		closeAria: "Close sidebar panel"
@@ -287,6 +288,8 @@ export default {
 		copyDetails: "Copy Details",
 		closeAria: "Close share modal"
 	},
+
+
 
 	// 10. Global Toast Notifications Hub
 	toast: {

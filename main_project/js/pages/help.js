@@ -295,7 +295,7 @@ class HelpController extends BaseSearchEngine {
 		document.querySelectorAll(".drawer-more-btn").forEach((btn) => {
 			btn.addEventListener("click", (e) => {
 				e.stopPropagation();
-				const container = btn.closest(".help-deep-card-item") || btn.closest(".card-drawer");
+				const container = btn.closest(".help-card-item") || btn.closest(".help-deep-card-item") || btn.closest(".card-drawer");
 				if (!container) return;
 				const details = container.querySelector(".drawer-extended-details");
 				if (!details) return;

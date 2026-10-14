@@ -4,6 +4,59 @@
 
 @layer components {
 	/* =========================================================================
+	0. 🎨 SCOPED TAB & PANEL TOKENS (Single Source of Truth)
+	========================================================================= */
+	:root {
+		/* 🔔 Alarm Tab Palettes (Amber) */
+		--tab-alarm-accent: #f59e0b;
+		--tab-alarm-accent-rgb: 245, 158, 11;
+		--tab-alarm-bg: rgba(var(--tab-alarm-accent-rgb), 0.05);
+		--tab-alarm-border: rgba(var(--tab-alarm-accent-rgb), 0.35);
+		--tab-alarm-glow: rgba(var(--tab-alarm-accent-rgb), 0.18);
+
+		/* 🗺️ Map Tab Palettes (Sky Blue) */
+		--tab-map-accent: #0ea5e9;
+		--tab-map-accent-rgb: 14, 165, 233;
+		--tab-map-bg: rgba(var(--tab-map-accent-rgb), 0.05);
+		--tab-map-border: rgba(var(--tab-map-accent-rgb), 0.35);
+		--tab-map-glow: rgba(var(--tab-map-accent-rgb), 0.18);
+
+		/* 💾 Backup Tab Palettes (Indigo / Purple) */
+		--tab-backup-accent: #6366f1;
+		--tab-backup-accent-rgb: 99, 102, 241;
+		--tab-backup-bg: rgba(var(--tab-backup-accent-rgb), 0.05);
+		--tab-backup-border: rgba(var(--tab-backup-accent-rgb), 0.35);
+		--tab-backup-glow: rgba(var(--tab-backup-accent-rgb), 0.18);
+
+		/* 📦 Packs Tab Palettes (Emerald Green) */
+		--tab-packs-accent: #10b981;
+		--tab-packs-accent-rgb: 16, 185, 129;
+		--tab-packs-bg: rgba(var(--tab-packs-accent-rgb), 0.05);
+		--tab-packs-border: rgba(var(--tab-packs-accent-rgb), 0.35);
+		--tab-packs-glow: rgba(var(--tab-packs-accent-rgb), 0.18);
+	}
+
+	/* Scoped tokens for Folder Tab Headers */
+	.folder-tab[data-tab="alarm"]  { --tab-accent: var(--tab-alarm-accent);  --tab-accent-rgb: var(--tab-alarm-accent-rgb);  --tab-border: var(--tab-alarm-border); }
+	.folder-tab[data-tab="map"]    { --tab-accent: var(--tab-map-accent);    --tab-accent-rgb: var(--tab-map-accent-rgb);    --tab-border: var(--tab-map-border); }
+	.folder-tab[data-tab="backup"] { --tab-accent: var(--tab-backup-accent); --tab-accent-rgb: var(--tab-backup-accent-rgb); --tab-border: var(--tab-backup-border); }
+	.folder-tab[data-tab="packs"]  { --tab-accent: var(--tab-packs-accent);  --tab-accent-rgb: var(--tab-packs-accent-rgb);  --tab-border: var(--tab-packs-border); }
+
+	/* Default & Scoped Panel Tokens */
+	.settings-tab-panel {
+		--panel-accent: var(--color-primary, #3b82f6);
+		--panel-accent-rgb: var(--color-primary-rgb, 59, 130, 246);
+		--panel-bg: rgba(var(--panel-accent-rgb), 0.05);
+		--panel-border: rgba(var(--panel-accent-rgb), 0.35);
+		--panel-glow: rgba(var(--panel-accent-rgb), 0.18);
+	}
+
+	.settings-tab-panel[data-panel="alarm"]  { --panel-accent: var(--tab-alarm-accent);  --panel-accent-rgb: var(--tab-alarm-accent-rgb);  --panel-bg: var(--tab-alarm-bg);  --panel-border: var(--tab-alarm-border);  --panel-glow: var(--tab-alarm-glow); }
+	.settings-tab-panel[data-panel="map"]    { --panel-accent: var(--tab-map-accent);    --panel-accent-rgb: var(--tab-map-accent-rgb);    --panel-bg: var(--tab-map-bg);    --panel-border: var(--tab-map-border);    --panel-glow: var(--tab-map-glow); }
+	.settings-tab-panel[data-panel="backup"] { --panel-accent: var(--tab-backup-accent); --panel-accent-rgb: var(--tab-backup-accent-rgb); --panel-bg: var(--tab-backup-bg); --panel-border: var(--tab-backup-border); --panel-glow: var(--tab-backup-glow); }
+	.settings-tab-panel[data-panel="packs"]  { --panel-accent: var(--tab-packs-accent);  --panel-accent-rgb: var(--tab-packs-accent-rgb);  --panel-bg: var(--tab-packs-bg);  --panel-border: var(--tab-packs-border);  --panel-glow: var(--tab-packs-glow); }
+
+	/* =========================================================================
 	1. SIDEBAR SETTINGS CONTAINER & HEADER
 	========================================================================= */
 	#app-settings {
@@ -76,6 +129,7 @@
 		transition: all var(--transition-fast);
 		outline: none;
 		user-select: none;
+		white-space: nowrap;
 	}
 
 	.folder-tab:hover {
@@ -83,13 +137,24 @@
 		color: var(--text-primary);
 	}
 
+	/* 🌟 Unified Active Tab Style for ALL Panels */
+	.folder-tab.active {
+		background: rgba(var(--tab-accent-rgb, var(--color-primary-rgb, 59, 130, 246)), 0.14);
+		color: var(--tab-accent, var(--color-primary, #3b82f6));
+		border-color: var(--tab-border, var(--border-color));
+		border-bottom-color: transparent;
+		margin-bottom: -1px;
+		z-index: 2;
+		box-shadow: 0 -2px 8px rgba(var(--tab-accent-rgb, 0, 0, 0), 0.15);
+	}
+
 	/* =========================================================================
-	3. 📂 FOLDER MAIN BODY (The Unified Open Folder)
+	3. 📂 FOLDER MAIN BODY & UNIFIED FIELDSET/LEGEND
 	========================================================================= */
 	.settings-folder-content {
 		flex: 1 1 auto;
 		overflow-y: auto;
-		padding: var(--space-md);
+		padding: clamp(var(--space-sm), 2vw, var(--space-md));
 		margin: 0 var(--space-sm) var(--space-sm) var(--space-sm);
 		background: rgba(var(--color-bg-base-rgb), 0.7);
 		backdrop-filter: blur(var(--backdrop-blur));
@@ -111,13 +176,53 @@
 		display: flex;
 	}
 
+	/* 🎴 Unified Fieldset (Card) for ALL Panels */
+	.settings-fieldset {
+		margin: 0;
+		min-width: 0;
+		max-width: 100%;
+		box-sizing: border-box;
+		padding: clamp(var(--space-sm), 2.5vw, var(--space-md));
+		border: 1px solid var(--panel-border);
+		border-radius: var(--radius-lg);
+		background: var(--panel-bg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+	}
+
+	.settings-fieldset:hover {
+		border-color: var(--panel-accent);
+		box-shadow: 0 4px 16px var(--panel-glow);
+	}
+
+	/* 🏷️ Unified Legend Badge for ALL Panels */
+	.settings-legend {
+		float: none;
+		width: auto;
+		padding: 4px var(--space-sm);
+		margin-left: -4px;
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--panel-accent);
+		background: rgba(var(--panel-accent-rgb), 0.12);
+		border: 1px solid var(--panel-border);
+		border-radius: var(--radius-full);
+	}
+
 	/* =========================================================================
-	4. 🎛️ SHARED FORM GROUPS & LABELS
+	4. 🎛️ SHARED FORM GROUPS, ROWS & LABELS (Fluid Responsive)
 	========================================================================= */
 	.settings-form-group {
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-xs);
+		min-width: 0;
+		max-width: 100%;
 	}
 
 	.settings-form-row {
@@ -126,13 +231,15 @@
 		justify-content: space-between;
 		gap: var(--space-md);
 		padding: var(--space-xs) 0;
+		flex-wrap: wrap;
 	}
 
 	.settings-label-wrapper {
 		display: flex;
 		flex-direction: column;
 		gap: 2px;
-		flex: 1;
+		flex: 1 1 180px;
+		min-width: 0;
 	}
 
 	.settings-label {
@@ -150,7 +257,7 @@
 	}
 
 	/* =========================================================================
-	5. 🔘 iOS-STYLE TOGGLE SWITCH
+	5. 🔘 UNIFIED iOS-STYLE TOGGLE SWITCH
 	========================================================================= */
 	.switch-toggle {
 		position: relative;
@@ -194,8 +301,8 @@
 	}
 
 	.switch-toggle input:checked + .switch-slider {
-		background-color: var(--color-primary, #3b82f6);
-		border-color: var(--color-primary, #3b82f6);
+		background-color: var(--panel-accent);
+		border-color: var(--panel-accent);
 	}
 
 	.switch-toggle input:checked + .switch-slider::before {
@@ -203,18 +310,22 @@
 	}
 
 	.switch-toggle input:focus-visible + .switch-slider {
-		outline: 2px solid var(--color-primary, #3b82f6);
+		outline: 2px solid var(--panel-accent);
 		outline-offset: 2px;
+		box-shadow: 0 0 0 3px var(--panel-glow);
 	}
 
 	/* =========================================================================
-	6. 🔽 COMPACT SELECT DROPDOWNS
+	6. 🔽 COMPACT & FLUID SELECT DROPDOWNS
 	========================================================================= */
 	.settings-select {
-		width: auto;
-		min-width: 220px;
+		width: 100%;
+		min-width: 0;
 		max-width: 100%;
-		align-self: flex-start;
+		box-sizing: border-box;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
 		padding: 7px 12px;
 		background: rgba(var(--color-bg-base-rgb), 0.85);
 		color: var(--text-primary);
@@ -230,8 +341,13 @@
 			box-shadow var(--transition-fast);
 	}
 
+	.settings-select:focus {
+		border-color: var(--panel-accent);
+		box-shadow: 0 0 0 3px var(--panel-glow);
+	}
+
 	/* =========================================================================
-	7. 🎚️ VOLUME / RANGE SLIDER WITH BADGE
+	7. 🎚️ VOLUME / RANGE SLIDER WITH BADGE (Scoped Accent)
 	========================================================================= */
 	.slider-header-row {
 		display: flex;
@@ -246,6 +362,9 @@
 		border-radius: var(--radius-full);
 		min-width: 44px;
 		text-align: center;
+		color: var(--panel-accent);
+		background: var(--panel-bg);
+		border: 1px solid var(--panel-border);
 	}
 
 	.slider-control-row {
@@ -259,14 +378,60 @@
 		height: 6px;
 		border-radius: var(--radius-full);
 		background: var(--border-color);
+		accent-color: var(--panel-accent);
 		outline: none;
 		cursor: pointer;
 		margin: 0;
 	}
 
 	/* =========================================================================
-	8. 🔄 FOOTER RESET ACTION
+	8. 🔘 UNIFIED ACTION BUTTONS & FOOTER RESET
 	========================================================================= */
+	.settings-action-row {
+		display: flex;
+		gap: var(--space-xs);
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+
+	.btn-settings-action-label {
+		cursor: pointer;
+		margin: 0;
+	}
+
+	.btn-settings-action,
+	.btn-pack-download {
+		flex: 1 1 auto;
+		min-width: min(100px, 100%);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-xs);
+		padding: var(--space-xs) var(--space-md);
+		background: var(--panel-bg);
+		border: 1px solid var(--panel-border);
+		color: var(--panel-accent);
+		border-radius: var(--radius-md);
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+	}
+
+	.btn-settings-action:hover,
+	.btn-pack-download:hover {
+		background: var(--panel-accent);
+		color: #ffffff;
+		box-shadow: 0 4px 12px var(--panel-glow);
+		transform: translateY(-1px);
+	}
+
+	.btn-settings-action:active,
+	.btn-pack-download:active {
+		transform: translateY(0);
+	}
+
 	.settings-footer-actions {
 		display: flex;
 		justify-content: flex-end;
@@ -298,61 +463,6 @@
 	/* =========================================================================
 	9. 📦 PACKS MANAGER (Languages & Themes Tab)
 	========================================================================= */
-	:root {
-		--tab-packs-accent: #10b981; /* Emerald/Green Accent */
-		--tab-packs-accent-rgb: 16, 185, 129;
-		--tab-packs-bg: rgba(var(--tab-packs-accent-rgb), 0.05);
-		--tab-packs-border: rgba(var(--tab-packs-accent-rgb), 0.35);
-		--tab-packs-glow: rgba(var(--tab-packs-accent-rgb), 0.18);
-	}
-
-	/* 🌟 Packs Active Folder Tab */
-	.folder-tab[data-tab="packs"].active {
-		background: rgba(var(--tab-packs-accent-rgb), 0.14);
-		color: var(--tab-packs-accent);
-		border-color: var(--tab-packs-border);
-		border-bottom-color: transparent;
-		margin-bottom: -1px;
-		z-index: 2;
-		box-shadow: 0 -2px 8px rgba(var(--tab-packs-accent-rgb), 0.15);
-	}
-
-	/* 🎴 Packs Scoped Fieldset & Legend */
-	.settings-tab-panel[data-panel="packs"] .settings-fieldset {
-		margin: 0 0 var(--space-md) 0;
-		padding: var(--space-md);
-		border: 1px solid var(--tab-packs-border);
-		border-radius: var(--radius-lg);
-		background: var(--tab-packs-bg);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-sm);
-		transition:
-			border-color var(--transition-smooth),
-			box-shadow var(--transition-smooth);
-	}
-
-	.settings-tab-panel[data-panel="packs"] .settings-fieldset:hover {
-		border-color: var(--tab-packs-accent);
-		box-shadow: 0 4px 16px var(--tab-packs-glow);
-	}
-
-	.settings-tab-panel[data-panel="packs"] .settings-legend {
-		float: none;
-		width: auto;
-		padding: 4px var(--space-sm);
-		margin-left: -4px;
-		font-family: var(--font-title);
-		font-size: var(--fs-xs);
-		font-weight: var(--fw-bold);
-		text-transform: uppercase;
-		letter-spacing: 0.06em;
-		color: var(--tab-packs-accent);
-		background: rgba(var(--tab-packs-accent-rgb), 0.12);
-		border: 1px solid var(--tab-packs-border);
-		border-radius: var(--radius-full);
-	}
-
 	/* ℹ️ Platform Web Info Notice */
 	.settings-notice-box {
 		display: flex;
@@ -426,18 +536,6 @@
 		border: 1px solid rgba(16, 185, 129, 0.3);
 	}
 
-	.btn-pack-download {
-		background: var(--tab-packs-bg);
-		border-color: var(--tab-packs-border);
-		color: var(--tab-packs-accent);
-	}
-
-	.btn-pack-download:hover {
-		background: var(--tab-packs-accent);
-		color: #ffffff;
-		box-shadow: 0 2px 8px var(--tab-packs-glow);
-	}
-
 	.btn-pack-uninstall {
 		background: rgba(239, 68, 68, 0.08);
 		border-color: rgba(239, 68, 68, 0.3);
@@ -455,14 +553,14 @@
 	}
 
 	/* ==========================================================================
-THEME & SKIN PACKS GALLERY STYLES (100% Design Token Powered)
-========================================================================== */
+	10. 🎨 THEME & SKIN PACKS GALLERY STYLES (100% Token Powered & Fluid)
+	========================================================================== */
 	#panel-setting-packs {
-		padding-bottom: 90px; /* फ्लोटिंग अलार्म/टिकट बटन्स के लिए सुरक्षित बॉटम स्पेस */
+		padding-bottom: max(var(--space-xl), calc(var(--space-xl) + env(safe-area-inset-bottom, 0px)));
 	}
 
 	.theme-skin-card {
-		padding: var(--space-md) var(--space-lg);
+		padding: var(--space-md) clamp(var(--space-sm), 3vw, var(--space-lg));
 		margin-bottom: var(--space-md);
 		border-radius: var(--radius-md);
 		border: 1.5px solid var(--border-color);
@@ -577,7 +675,9 @@ THEME & SKIN PACKS GALLERY STYLES (100% Design Token Powered)
 		border-radius: var(--radius-full);
 	}
 
-		/* 💾 Backup Restore Modal Dialog Styling */
+	/* =========================================================================
+	11. 💾 BACKUP RESTORE MODAL DIALOG
+	========================================================================= */
 	.restore-modal-backdrop {
 		position: fixed;
 		inset: 0;

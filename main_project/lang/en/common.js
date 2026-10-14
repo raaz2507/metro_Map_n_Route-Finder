@@ -26,6 +26,8 @@ export default {
 			"label":   "Select City",
 			"loading": "Loading...",
 			"soon":    "Soon",
+			"combinedNetworks": "Combined Networks",
+			"singleNetworks":   "Individual Networks"
 		}
 		
 	},

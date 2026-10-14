@@ -123,20 +123,7 @@
 	.chip-btn[data-status="under_construction"]:not(.active) .icon-status-construction { background-color: #F97316; }
 
 	/* =========================================================================
-	BLOCK 2: STATS SUMMARY BAR
-	========================================================================= */
-	.results-stats-bar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0 var(--space-xs);
-		font-size: var(--fs-sm);
-		color: var(--text-secondary);
-		font-weight: var(--fw-medium);
-	}
-
-	/* =========================================================================
-	ISLAND BLOCK 3: COUNTRY ACCORDION CARDS (passenger_support style)
+	ISLAND BLOCK 2: COUNTRY ACCORDION CARDS (passenger_support style)
 	========================================================================= */
 	.country-accordions-container {
 		display: flex;

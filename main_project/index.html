@@ -23,6 +23,7 @@
 	<link rel="icon" type="image/svg+xml" href="assets/images/site_icon.svg">
 	<link rel="manifest" href="manifest.webmanifest">
 	<meta name="theme-color" content="#0f172a">
+	<meta name="color-scheme" content="light dark">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -71,6 +72,14 @@
 								<span data-i18n="pages.home.navSidebar.route">Find Route</span>
 							</button>
 						</li>
+
+
+						<li class="sidebar-nav-item">
+							<button type="button" class="sidebar-link" data-target="ai-assistant" aria-controls="ai-assistant" aria-selected="false">
+								<span class="ai-icon icon" aria-hidden="true"></span>
+								<span data-i18n="pages.home.navSidebar.ai">Disha AI</span>
+							</button>
+						</li>
 						<li class="sidebar-nav-item">
 							<button type="button" class="sidebar-link" data-target="app-settings" aria-controls="app-settings" aria-selected="false">
 								<span class="settings-icon icon" aria-hidden="true"></span>
@@ -80,7 +89,12 @@
 					</ul>
 				</nav>
 				<aside data-i18n-aria-label="pages.home.navSidebar.ariaPanel" aria-label="Sidebar Content Panel" role="region">
-					<button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" data-i18n-aria-label="pages.home.navSidebar.closeAria" aria-label="Close sidebar panel">&times;</button>
+					<button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" data-i18n-aria-label="pages.home.navSidebar.closeAria" aria-label="Close sidebar panel">
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<line x1="18" y1="6" x2="6" y2="18"></line>
+							<line x1="6" y1="6" x2="18" y2="18"></line>
+						</svg>
+					</button>
 					<section id="app-settings" aria-labelledby="settings-section" class="sidebar-section">
 						<!-- Header -->
 						<header class="section-header settings-header">
@@ -433,6 +447,133 @@
 							<section class="route-overview" aria-labelledby="route-overview-heading" aria-live="polite">
 								<h2 id="route-overview-heading" data-i18n="pages.home.findRoute.journeyDetails">Journey Details</h2>
 							</section>
+						</div>
+					</section>
+
+					<section id="ai-assistant" class="ai-assistant-section sidebar-section" aria-labelledby="ai-assistant-heading">
+						<!-- 1. Header: Name, Icon, Live Status Indicator, and Toolbar Actions -->
+						<header class="section-header ai-header">
+							<div class="ai-header-title-wrap">
+								<span class="icon ai-icon ai-header-icon" aria-hidden="true"></span>
+								<h2 id="ai-assistant-heading" data-i18n="ai.title">Disha AI</h2>
+								<div class="ai-status-badge" aria-label="Online">
+									<span class="ai-status-dot" aria-hidden="true"></span>
+									<span class="ai-status-text" data-i18n="ai.online">Online</span>
+								</div>
+							</div>
+							<!-- 🔘 Title ke niche action buttons (Recent + New Chat) -->
+							<div class="ai-header-toolbar">
+								<button type="button" id="aiRecentChatBtn" class="ai-btn-toolbar" data-i18n-title="ai.recentChats" title="Recent Chats" aria-label="Recent Chats" aria-expanded="false">
+									<span class="ai-recent-icon" aria-hidden="true"></span>
+									<span data-i18n="ai.recent">Recent</span>
+								</button>
+								<button type="button" id="aiNewChatBtn" class="ai-btn-toolbar" data-i18n-title="ai.newChatTitle" title="New Chat" aria-label="New Chat">
+									<span class="ai-plus-icon" aria-hidden="true">+</span>
+									<span data-i18n="ai.newChat">New Chat</span>
+								</button>
+							</div>
+						</header>
+
+						<!-- 2. Main Body Container (Houses Inner Scroll Area & Absolute Drawer) -->
+						<div class="ai-body-wrapper" id="aiBodyWrapper">
+							<!-- Inner Scroll Area for Welcome Screen & Chat Messages -->
+							<div class="ai-chat-scroll-area" id="aiChatScrollArea">
+								<!-- State A: Welcome Screen -->
+								<div class="ai-welcome-screen" id="aiWelcomeScreen">
+									<div class="ai-welcome-hero">
+										<div class="ai-mascot-avatar" aria-hidden="true">
+											<span class="icon ai-icon mascot-icon"></span>
+										</div>
+										<h3 class="ai-welcome-title" data-i18n="ai.welcomeTitle">Namaste! How can I help you today?</h3>
+										<p class="ai-welcome-desc" data-i18n="ai.welcomeDesc">Your smart Metro transit guide for routes, fares, and station info.</p>
+									</div>
+
+									<!-- Minimal 2-Column Starter Options (No Subtitle, Clean & Compact) -->
+									<div class="ai-starter-grid">
+										<button type="button" class="ai-starter-btn" data-action="station">
+											<span class="starter-icon" aria-hidden="true">📍</span>
+											<span class="starter-label" data-i18n="ai.starterStation">Station Info</span>
+										</button>
+										<button type="button" class="ai-starter-btn" data-action="nearby">
+											<span class="starter-icon" aria-hidden="true">🧭</span>
+											<span class="starter-label" data-i18n="ai.starterNearby">Nearby Stations</span>
+										</button>
+
+										<button type="button" class="ai-starter-btn" data-action="route">
+											<span class="starter-icon" aria-hidden="true">🚏</span>
+											<span class="starter-label" data-i18n="ai.starterRoute">Route Info</span>
+										</button>
+										<button type="button" class="ai-starter-btn" data-action="fare">
+											<span class="starter-icon" aria-hidden="true">🎟️</span>
+											<span class="starter-label" data-i18n="ai.starterFare">Fare Info</span>
+										</button>
+									</div>
+								</div>
+
+								<!-- State B & C: Chat Messages List & Results -->
+								<div class="ai-chat-stream" id="aiChatStream" role="log" aria-live="polite" hidden>
+									<!-- Messages and Result Cards rendered dynamically by DishaAiView -->
+								</div>
+
+								<!-- Loading State Indicator (Hidden by default) -->
+								<div class="ai-typing-indicator" id="aiTypingIndicator" aria-hidden="true" hidden>
+									<div class="ai-typing-avatar">
+										<span class="icon ai-icon" aria-hidden="true"></span>
+									</div>
+									<div class="ai-typing-bubble">
+										<span class="ai-dot"></span>
+										<span class="ai-dot"></span>
+										<span class="ai-dot"></span>
+									</div>
+								</div>
+							</div>
+
+							<!-- 4. Slide-in History Drawer (Inside aiBodyWrapper: 78% Width + Blurred Backdrop) -->
+							<div class="ai-history-overlay" id="aiHistoryDrawer" aria-hidden="true" hidden>
+								<div class="ai-history-backdrop" id="aiHistoryBackdrop"></div>
+								<div class="ai-history-panel">
+									<div class="ai-history-header">
+										<h3 class="ai-history-title" data-i18n="ai.historyTitle">Recent Chats</h3>
+										<span class="ai-history-count" id="aiHistoryCount">0/25</span>
+									</div>
+
+									<!-- Scrollable History List -->
+									<div class="ai-history-list" id="aiHistoryList" role="list">
+										<!-- Populated dynamically: Title, Timestamp, Pin badge, and 3-dot Menu (⋮) -->
+									</div>
+
+									<!-- Empty State -->
+									<div class="ai-history-empty" id="aiHistoryEmpty" hidden>
+										<span class="empty-icon">💬</span>
+										<p data-i18n="ai.noChats">No previous chats yet</p>
+									</div>
+
+									<!-- Drawer Footer: Clear All -->
+									<div class="ai-history-footer">
+										<button type="button" class="ai-btn-clear-all" id="aiClearAllChatsBtn">
+											<span class="trash-icon" aria-hidden="true">🗑️</span>
+											<span data-i18n="ai.clearAll">Clear All Chats</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 3. Always Visible Sticky Bottom Input Bar -->
+						<div class="ai-footer-input" id="aiFooterInput">
+							<!-- Follow-up Suggestion Chips Bar -->
+							<div class="ai-suggestions-bar" id="aiSuggestionsBar" hidden>
+								<!-- Dynamically populated suggestion chips -->
+							</div>
+
+							<form class="ai-input-form" id="aiInputForm" autocomplete="off">
+								<div class="ai-input-wrapper">
+									<input type="text" id="aiMessageInput" class="ai-input" data-i18n-placeholder="ai.inputPlaceholder" placeholder="Or type your question..." aria-label="Message Disha AI" />
+									<button type="submit" id="aiSendBtn" class="ai-send-btn" data-i18n-aria-label="ai.send" aria-label="Send message" disabled>
+										<span class="send-icon" aria-hidden="true">➤</span>
+									</button>
+								</div>
+							</form>
 						</div>
 					</section>
 				</aside>

@@ -1,89 +1,9 @@
 @layer components {
 	/* =========================================================================
-	🔔 ALARM TAB SPECIFIC TOKENS & ACCENTS
+	🔔 ALARM TAB SPECIFIC COMPONENT STYLES
+	Common styles (.settings-fieldset, switches, tabs, range sliders)
+	are powered by scoped tokens in app-settings.css.
 	========================================================================= */
-	:root {
-		--tab-alarm-accent: #f59e0b;
-		--tab-alarm-accent-rgb: 245, 158, 11;
-		--tab-alarm-bg: rgba(var(--tab-alarm-accent-rgb), 0.05);
-		--tab-alarm-border: rgba(var(--tab-alarm-accent-rgb), 0.35);
-		--tab-alarm-glow: rgba(var(--tab-alarm-accent-rgb), 0.18);
-	}
-
-	/* 🌟 Alarm Active Tab Style */
-	.folder-tab[data-tab="alarm"].active {
-		background: rgba(var(--tab-alarm-accent-rgb), 0.14);
-		color: var(--tab-alarm-accent);
-		border-color: var(--tab-alarm-border);
-		border-bottom-color: transparent;
-		margin-bottom: -1px;
-		z-index: 2;
-		box-shadow: 0 -2px 8px rgba(var(--tab-alarm-accent-rgb), 0.15);
-	}
-
-	/* 🎴 Alarm Scoped Fieldsets (Cards) */
-	.settings-tab-panel[data-panel="alarm"] .settings-fieldset {
-		margin: 0;
-		padding: var(--space-md);
-		border: 1px solid var(--tab-alarm-border);
-		border-radius: var(--radius-lg);
-		background: var(--tab-alarm-bg);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-md);
-		transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
-	}
-
-	.settings-tab-panel[data-panel="alarm"] .settings-fieldset:hover {
-		border-color: var(--tab-alarm-accent);
-		box-shadow: 0 4px 16px var(--tab-alarm-glow);
-	}
-
-	.settings-tab-panel[data-panel="alarm"] .settings-legend {
-		float: none;
-		width: auto;
-		padding: 4px var(--space-sm);
-		margin-left: -4px;
-		font-family: var(--font-title);
-		font-size: var(--fs-xs);
-		font-weight: var(--fw-bold);
-		text-transform: uppercase;
-		letter-spacing: 0.06em;
-		color: var(--tab-alarm-accent);
-		background: rgba(var(--tab-alarm-accent-rgb), 0.12);
-		border: 1px solid var(--tab-alarm-border);
-		border-radius: var(--radius-full);
-	}
-
-	/* Alarm Toggle Active State */
-	.settings-tab-panel[data-panel="alarm"] .switch-toggle input:checked + .switch-slider {
-		background-color: var(--tab-alarm-accent);
-		border-color: var(--tab-alarm-accent);
-	}
-
-	.settings-tab-panel[data-panel="alarm"] .switch-toggle input:checked + .switch-slider::before {
-		transform: translateX(20px);
-	}
-
-	.settings-tab-panel[data-panel="alarm"] .switch-toggle input:focus-visible + .switch-slider {
-		box-shadow: 0 0 0 3px var(--tab-alarm-glow);
-	}
-
-	/* Alarm Slider & Badge Accent */
-	.settings-tab-panel[data-panel="alarm"] .slider-val-badge {
-		color: var(--tab-alarm-accent);
-		background: var(--tab-alarm-bg);
-		border: 1px solid var(--tab-alarm-border);
-	}
-
-	.settings-tab-panel[data-panel="alarm"] .settings-range-slider {
-		accent-color: var(--tab-alarm-accent);
-	}
-
-	.settings-tab-panel[data-panel="alarm"] .settings-select:focus {
-		border-color: var(--tab-alarm-accent);
-		box-shadow: 0 0 0 3px var(--tab-alarm-glow);
-	}
 
 	/* 🎵 Custom MP3 Audio Uploader Box */
 	.custom-audio-uploader {
@@ -146,49 +66,7 @@
 		display: none !important;
 	}
 
-	
-	/* 🔊 Action Row & Backup Import Button Styling */
-	.settings-action-row {
-		display: flex;
-		gap: var(--space-xs);
-		justify-content: flex-start;
-		flex-wrap: wrap;
-	}
-
-	.btn-settings-action-label {
-		cursor: pointer;
-		margin: 0;
-	}
-
-	.btn-settings-action {
-		flex: 1;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--space-xs);
-		padding: var(--space-xs) var(--space-md);
-		background: var(--tab-alarm-bg);
-		border: 1px solid var(--tab-alarm-border);
-		color: var(--tab-alarm-accent);
-		border-radius: var(--radius-md);
-		font-family: var(--font-title);
-		font-size: var(--fs-xs);
-		font-weight: var(--fw-bold);
-		cursor: pointer;
-		transition: all var(--transition-fast);
-	}
-
-	.btn-settings-action:hover {
-		background: var(--tab-alarm-accent);
-		color: #ffffff;
-		box-shadow: 0 4px 12px var(--tab-alarm-glow);
-		transform: translateY(-1px);
-	}
-
-	.btn-settings-action:active {
-		transform: translateY(0);
-	}
-
+	/* 🔊 Sound Test Button Playing Animation */
 	.btn-settings-action.playing {
 		background: #ef4444;
 		border-color: #ef4444;

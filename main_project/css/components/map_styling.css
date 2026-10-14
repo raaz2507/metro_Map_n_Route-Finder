@@ -285,8 +285,13 @@
 		align-items: center;
 		justify-content: center;
 		z-index: var(--z-sidebar);
-		gap: var(--space-xs);
-		transition: background-color var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+		transition: 
+			background-color var(--transition-smooth), 
+			border-color var(--transition-smooth), 
+			box-shadow var(--transition-smooth),
+			opacity var(--transition-smooth),
+			transform var(--transition-smooth),
+			visibility 0s 0s;
 	}
 
 	#zoomControls output {
@@ -441,10 +446,6 @@
 	/* Mobile responsive layout for Zoom Controls - Map specific logic */
 	@media (max-width: 768px) {
 		@layer components {
-			body[data-active-tab="recent"] #zoomControls,
-			body[data-active-tab="route"] #zoomControls {
-				display: none;
-			}
 			/* दाहिनी तरफ 12px का साफ़ मार्जिन दिया */
 			#zoomControls {
 				bottom: 90px;

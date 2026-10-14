@@ -37,7 +37,7 @@ export default {
 	},
 	stats: {
 		loading: "Loading India Transit Registry...",
-		showingCount: "Showing {count} transit networks",
+		networksAvailable: "{count} Transit Networks Available",
 		noNetworksFound: "No transit networks found",
 		noNetworksQuery: "No networks match \"{query}\"."
 	},

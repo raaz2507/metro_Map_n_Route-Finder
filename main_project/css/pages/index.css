@@ -67,14 +67,26 @@
 
 	@layer components {
 		/* 📱 मोबाइल मोड में फुटर हमेशा छुपा रहेगा */
-		#app-footer, footer, .site-footer {
+		#app-footer, body > footer, .site-footer {
 			display: none;
 		}
 
-		/* साइडबार टैब खुलने पर ज़ूम बटन की तरह स्पीडोमीटर भी छुप जाएगा */
-		body[data-active-tab="recent"] .speedometer-widget,
-		body[data-active-tab="route"] .speedometer-widget {
-			display: none;
+		/* 📱 मोबाइल मोड: जब Map टैब एक्टिव न हो, तो मैप के सभी फ्लोटिंग ओवरले कंट्रोल्स स्मूथली छुप जाएं */
+		body:not([data-active-tab="map"]) :is(
+			.alarm-widget-wrapper,
+			#speedometer-widget,
+			#zoomControls,
+			#telemetrySignalCard,
+			.metro-btn-overlay
+		) {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transform: translateY(16px);
+			transition: 
+				opacity var(--transition-smooth), 
+				transform var(--transition-smooth), 
+				visibility 0s var(--duration-normal);
 		}
 
 		/* 📱 मोबाइल पर बिना !important के 100% ओवरराइड होने वाला स्टाइल */
@@ -93,5 +105,37 @@
 			font-size: 0.5rem;
 			margin-top: 1px;
 		}
+	}
+}
+
+@layer components {
+	/* =========================================================================
+	🗺️ LEGEND OPEN STATE OVERLAYS HIDE (Desktop & Mobile)
+	जब Legend खुला हो, तो साइडबार नेव और सभी फ्लोटिंग ओवरले कंट्रोल्स स्मूथली छुप जाएं
+	========================================================================= */
+	body[data-legend-open="true"] :is(
+		#sidebar-nav,
+		.sidebar-nav,
+		.alarm-widget-wrapper,
+		#telemetrySignalCard,
+		#speedometer-widget,
+		#zoomControls
+	),
+	body:has(.legend-panel.active) :is(
+		#sidebar-nav,
+		.sidebar-nav,
+		.alarm-widget-wrapper,
+		#telemetrySignalCard,
+		#speedometer-widget,
+		#zoomControls
+	) {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transform: translateY(16px);
+		transition: 
+			opacity var(--transition-smooth), 
+			transform var(--transition-smooth), 
+			visibility 0s var(--duration-normal);
 	}
 }

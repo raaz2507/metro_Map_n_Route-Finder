@@ -6,6 +6,7 @@ export default {
 		recent: "हालिया खोज",
 		map: "नक्शा",
 		setting: "सेटिंग",
+		ai: "दिशा AI",
 		ariaNav: "साइडबार नेविगेशन",
 		ariaPanel: "साइडबार सामग्री पैनल",
 		closeAria: "साइडबार पैनल बंद करें"
@@ -287,6 +288,8 @@ export default {
 		copyDetails: "विवरण कॉपी करें",
 		closeAria: "शेयर मोडल बंद करें"
 	},
+
+
 
 	// 10. Global Toast Notifications Hub
 	toast: {

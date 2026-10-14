@@ -29,8 +29,7 @@ export class TransitNetworkSelector {
 		dropdown: null,
 		modeChipsWrapper: null,
 		statusChipsWrapper: null,
-		sortChipsWrapper: null,
-		statsCounterText: null
+		sortChipsWrapper: null
 	};
 
 	constructor() {
@@ -67,11 +66,6 @@ export class TransitNetworkSelector {
 				btn.setAttribute("aria-checked", isActive ? "true" : "false");
 			});
 		}
-		
-		await this.#searchEngine.init().catch(err => console.warn("[SearchEngine] Init notice:", err));
-		await this.#fetchRegistry();
-
-
 		// Subscribe to dynamic language toggle for instant in-place re-render
 		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
 			if (this.#dom.searchInput) {
@@ -92,7 +86,6 @@ export class TransitNetworkSelector {
 		this.#dom.modeChipsWrapper = document.getElementById("mode-chips-wrapper");
 		this.#dom.statusChipsWrapper = document.getElementById("status-chips-wrapper");
 		this.#dom.sortChipsWrapper = document.getElementById("sort-chips-wrapper");
-		this.#dom.statsCounterText = document.getElementById("stats-counter-text");
 	}
 
 	#bindEvents() {
@@ -438,11 +431,6 @@ export class TransitNetworkSelector {
 
 		const { totalNetworks, groupNetworks, individualNetworks } = this.#getFilteredData();
 
-		if (this.#dom.statsCounterText) {
-			const count = individualNetworks.length; // Count only distinct physical networks
-			this.#dom.statsCounterText.textContent = i18n.t("pages.networks.stats.showingCount", { count }) || `Showing ${count} transit networks`;
-		}
-
 		if (groupNetworks.length === 0 && individualNetworks.length === 0) {
 			const noMatchMsg = i18n.t("pages.networks.stats.noNetworksQuery", { query: this.#searchQuery }) || `No networks match "${this.#escapeHTML(this.#searchQuery)}".`;
 			this.#dom.container.innerHTML = `
@@ -462,6 +450,7 @@ export class TransitNetworkSelector {
 		const countryName = this.#registryData.country || "India";
 		const countryFlag = countryName.toLowerCase() === "india" ? "🇮🇳" : "🌐";
 		const totalCardsCount = individualNetworks.length;
+		const networksCountText = i18n.t("pages.networks.stats.networksAvailable", { count: totalCardsCount }) || `${totalCardsCount} Transit Networks Available`;
 
 		let subDecksHtml = "";
 
@@ -506,7 +495,7 @@ export class TransitNetworkSelector {
 						<span class="country-flag-icon" aria-hidden="true">${countryFlag}</span>
 						<div class="country-header-titles">
 							<h2>${this.#escapeHTML(countryName.toUpperCase())} TRANSIT DIRECTORY</h2>
-							<span class="country-networks-count">${totalCardsCount} Transit Networks Available</span>
+							<span class="country-networks-count">${this.#escapeHTML(networksCountText)}</span>
 						</div>
 					</div>
 					<span class="country-accordion-chevron" aria-hidden="true"></span>

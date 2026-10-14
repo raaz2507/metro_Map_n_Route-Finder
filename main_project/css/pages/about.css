@@ -485,6 +485,7 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		border-radius: inherit;
 	}
 
+	.developer-card.dev-card-alt .developer-avatar,
 	.developer-avatar.dev-avatar-alt {
 		background: linear-gradient(135deg, rgba(var(--color-info-rgb), 0.18), rgba(var(--color-success-rgb), 0.12));
 		border-color: rgba(var(--color-info-rgb), 0.35);
@@ -492,6 +493,7 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		box-shadow: 0 4px 12px rgba(var(--color-info-rgb), 0.15);
 	}
 
+	.developer-card.dev-card-ai .developer-avatar,
 	.developer-avatar.dev-avatar-ai {
 		background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(6, 182, 212, 0.18));
 		border-color: rgba(139, 92, 246, 0.45);
@@ -520,6 +522,7 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		box-shadow: 0 0 6px rgba(var(--color-success-rgb), 0.6);
 	}
 
+	.developer-card.dev-card-ai .developer-status-dot,
 	.developer-status-dot.dot-ai {
 		background: #a855f7;
 		box-shadow: 0 0 8px rgba(168, 85, 247, 0.7);
@@ -552,12 +555,14 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		border: 1px solid rgba(var(--color-primary-rgb), 0.25);
 	}
 
+	.developer-card.dev-card-alt .developer-tag,
 	.developer-tag.dev-tag-alt {
 		color: rgb(var(--color-info-rgb));
 		background: rgba(var(--color-info-rgb), 0.1);
 		border-color: rgba(var(--color-info-rgb), 0.25);
 	}
 
+	.developer-card.dev-card-ai .developer-tag,
 	.developer-tag.dev-tag-ai {
 		color: #a855f7;
 		background: rgba(168, 85, 247, 0.12);
@@ -571,6 +576,7 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		font-weight: var(--fw-semibold);
 	}
 
+	.developer-card.dev-card-ai .developer-status-text,
 	.developer-status-text.text-ai {
 		color: #a855f7;
 	}
@@ -684,12 +690,14 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		justify-content: center;
 	}
 
+	.developer-card.dev-card-ai .dev-action-btn,
 	.community-btn.dev-btn-ai {
 		background: linear-gradient(135deg, rgba(139, 92, 246, 0.14), rgba(6, 182, 212, 0.12));
 		border: 1px solid rgba(139, 92, 246, 0.35);
 		color: var(--text-primary);
 	}
 
+	.developer-card.dev-card-ai .dev-action-btn:hover,
 	.community-btn.dev-btn-ai:hover {
 		background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(6, 182, 212, 0.22));
 		border-color: rgba(139, 92, 246, 0.6);
@@ -697,6 +705,7 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
 	}
 
+	.developer-card.dev-card-ai .dev-action-btn .about-ico,
 	.community-btn.dev-btn-ai .about-ico {
 		color: #a855f7;
 	}

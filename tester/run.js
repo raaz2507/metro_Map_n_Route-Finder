@@ -17,22 +17,24 @@ import { FareCalculator } from '../main_project/js/services/fare/FareCalculator.
 import { calculateNeighborDistance } from '../main_project/js/core/data-utils.js';
 
 // Modular City Datasets Import
-import { delhiNcrTestCases } from './datasets/delhi_ncr.cases.js';
-import { mumbaiTestCases } from './datasets/mumbai.cases.js';
-import { bengaluruTestCases } from './datasets/bengaluru.cases.js';
-import { agraTestCases } from './datasets/agra.cases.js';
-import { jaipurTestCases } from './datasets/jaipur.cases.js';
-import { kanpurTestCases } from './datasets/kanpur.cases.js';
-import { lucknowTestCases } from './datasets/lucknow.cases.js';
-import { kolkataTestCases } from './datasets/kolkata.cases.js';
-import { hyderabadTestCases } from './datasets/hyderabad.cases.js';
-import { chennaiTestCases } from './datasets/chennai.cases.js';
-import { puneTestCases } from './datasets/pune.cases.js';
-import { nagpurTestCases } from './datasets/nagpur.cases.js';
-import { ahmedabadTestCases } from './datasets/ahmedabad_gandhinagar.cases.js';
-import { bhopalTestCases } from './datasets/bhopal.cases.js';
-import { indoreTestCases } from './datasets/indore.cases.js';
-import { kochiTestCases } from './datasets/kochi.cases.js';
+const base = "datasets/india";
+
+import { delhiNcrTestCases } from `./{base}/delhi_ncr.cases.js`;
+import { mumbaiTestCases } from `./{base}/mumbai.cases.js`;
+import { bengaluruTestCases } from `./{base}/bengaluru.cases.js`;
+import { agraTestCases } from `./{base}/agra.cases.js`;
+import { jaipurTestCases } from `./{base}/jaipur.cases.js`;
+import { kanpurTestCases } from `./{base}/kanpur.cases.js`;
+import { lucknowTestCases } from `./{base}/lucknow.cases.js`;
+import { kolkataTestCases } from `./{base}/kolkata.cases.js`;
+import { hyderabadTestCases } from `./{base}/hyderabad.cases.js`;
+import { chennaiTestCases } from `./{base}/chennai.cases.js`;
+import { puneTestCases } from `./{base}/pune.cases.js`;
+import { nagpurTestCases } from `./{base}/nagpur.cases.js`;
+import { ahmedabadTestCases } from `./{base}/ahmedabad_gandhinagar.cases.js`;
+import { bhopalTestCases } from `./{base}/bhopal.cases.js`;
+import { indoreTestCases } from `./{base}/indore.cases.js`;
+import { kochiTestCases } from `./{base}/kochi.cases.js`;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

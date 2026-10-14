@@ -57,6 +57,29 @@ class I18n {
 		return this.#currentLanguage;
 	}
 
+	/* Get current full loaded dictionary */
+	getDictionary() {
+		return this.#dictionary;
+	}
+
+	/* Register or inject language dictionary */
+	registerLanguage(lang, data) {
+		if (lang && data) {
+			this.#languageCache.set(lang, data);
+			if (lang === this.#currentLanguage) {
+				this.#dictionary = data;
+			}
+		}
+	}
+
+	/* Get active or specific language NLU profile */
+	getNluConfig(lang = null) {
+		if (lang && this.#languageCache.has(lang)) {
+			return this.#languageCache.get(lang)?.aiNlu || null;
+		}
+		return this.#dictionary?.aiNlu || (this.#languageCache.get(DEFAULT_LANGUAGE)?.aiNlu) || null;
+	}
+
 	/* Apply RTL/LTR layout */
 	#applyDirection(lang) {
 		const direction = this.#RTL_LANGUAGES.has(lang) ? "rtl" : "ltr";
@@ -103,6 +126,11 @@ class I18n {
 		}
 
 		return this.#interpolate(value, variables);
+	}
+
+	/* Public method to apply single-pass translations to DOM */
+	applyTranslations() {
+		this.#applyTranslations();
 	}
 
 	/**

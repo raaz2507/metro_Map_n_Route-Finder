@@ -12,6 +12,8 @@ import about from "./india/hi/about.js";
 import countrySelector from "./india/hi/country_selector.js";
 import smartCardTicket from "./india/hi/smart_card_ticket.js";
 import other from "./india/hi/other.js";
+import dishaAi from "./india/hi/disha_ai.js";
+import dishaNlu from "./india/hi/disha_nlu.js";
 
 export default {
 	...common,
@@ -29,5 +31,7 @@ export default {
 	help,
 	about,
 	smartCardTicket,
-	other
+	other,
+	ai: dishaAi,
+	aiNlu: dishaNlu
 };

@@ -46,7 +46,7 @@
 					"website": "https://www.nmrcnoida.com",
 					"hasData": true,
 					"dataPath": "data/cities/delhi_ncr",
-					"icon": "assets/icons/networks/nmrc.png"
+					"icon": "assets/icons/networks/nmrc.svg"
 				},
 				"rapid_metro_gurugram": {
 					"name": {
@@ -217,7 +217,7 @@
 					"website": "https://english.bmrc.co.in",
 					"hasData": true,
 					"dataPath": "bengaluru_metro_data",
-					"icon": "assets/icons/networks/namma_metro.png"
+					"icon": "assets/icons/networks/Namma_metro.svg"
 				}
 			},
 			"themeColor": "#059669"
@@ -312,7 +312,7 @@
 					"website": "https://kochimetro.org",
 					"hasData": true,
 					"dataPath": "data/cities/kochi",
-					"icon": "assets/icons/networks/kochi_metro.png"
+					"icon": "assets/icons/networks/kochi_metro.svg"
 				}
 			},
 			"themeColor": "#0D9488"
@@ -392,8 +392,7 @@
 					"operator": "Maha Metro / PMRDA",
 					"website": "https://www.mahametro.org",
 					"dataPath": "pune_metro_data",
-					"hasData": true,
-					"icon": "assets/icons/networks/pune_metro.png"
+					"hasData": true
 				}
 			},
 			"themeColor": "#D97706"

@@ -26,7 +26,9 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 		transition: 
 			border-color var(--transition-smooth), 
 			box-shadow var(--transition-smooth),
-			transform var(--transition-spring);
+			opacity var(--transition-smooth),
+			transform var(--transition-spring),
+			visibility 0s 0s;
 	}
 
 	.speedometer-widget:hover,

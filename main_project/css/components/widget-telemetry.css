@@ -132,7 +132,11 @@
 	gap: 2px;
 	z-index: var(--z-sidebar, 200);
 	user-select: none;
-	transition: border-color var(--transition-smooth);
+	transition: 
+		border-color var(--transition-smooth),
+		opacity var(--transition-smooth),
+		transform var(--transition-smooth),
+		visibility 0s 0s;
 }
 
 .telemetry-row {

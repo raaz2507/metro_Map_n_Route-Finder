@@ -54,7 +54,7 @@
 		box-shadow: var(--shadow-sm);
 		flex-shrink: 0;
 		margin-top: 4px;
-		margin-right: var(--space-xs);
+		margin-right: calc(32px + var(--space-xs));
 	}
 
 	#clearRecentSearches:hover {

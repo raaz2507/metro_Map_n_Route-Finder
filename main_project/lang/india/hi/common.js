@@ -25,7 +25,9 @@ export default {
 		"citySelector": {
 			"label": "शहर चुनें",
 			"soon": "जल्द आएगा",
-			"loadError": "शहर लोड नहीं हो सका"
+			"loadError": "शहर लोड नहीं हो सका",
+			"combinedNetworks": "संयुक्त नेटवर्क",
+			"singleNetworks":   "व्यक्तिगत नेटवर्क"
 		}
 	},
 	"nav-header": {

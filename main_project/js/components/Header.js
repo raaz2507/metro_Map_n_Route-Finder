@@ -38,17 +38,22 @@ export class HeaderComponent {
 			console.warn("[HeaderComponent] ThemeEngine init notice:", err);
 		}
 
-		const availableThemes = themeEngine.getThemes();
-		container.innerHTML = HeaderComponent.#HTMLStrucher(activePage, currentTheme, savedMode, currentLang, availableThemes);
-
-		this.initEvents();
-
 		// Centrally execute & apply global i18n translations across the entire page
 		try {
 			await i18n.initI18n();
 		} catch (err) {
 			console.warn("[HeaderComponent] i18n auto-init notice:", err);
 		}
+
+		const availableThemes = themeEngine.getThemes();
+		container.innerHTML = HeaderComponent.#HTMLStrucher(activePage, currentTheme, savedMode, currentLang, availableThemes);
+
+		// Re-apply translations for newly injected header elements
+		if (typeof i18n?.applyTranslations === 'function') {
+			i18n.applyTranslations();
+		}
+
+		this.initEvents();
 
 		// Smoothly bring active nav tab into view on mobile horizontal scroll
 		requestAnimationFrame(() => {
@@ -80,6 +85,14 @@ export class HeaderComponent {
 
 		// PWA & App Utility Hub Setup
 		pwaManager.bindHeaderUI();
+
+		// Auto-realign any active open dropdown on window resize / orientation change
+		window.addEventListener('resize', () => {
+			const openMenu = document.querySelector('.custom-dropdown-menu.show, .font-scale-panel.show, .city-dropdown-menu.show');
+			if (openMenu) {
+				HeaderComponent.#adjustDropdownPosition(openMenu);
+			}
+		});
 	}
 
 
@@ -130,6 +143,7 @@ export class HeaderComponent {
 
 		const closePanel = () => {
 			panel.classList.remove('show');
+			panel.style.transform = '';
 			btn.setAttribute('aria-expanded', 'false');
 		};
 
@@ -140,6 +154,7 @@ export class HeaderComponent {
 			if (!isOpen) {
 				panel.classList.add('show');
 				btn.setAttribute('aria-expanded', 'true');
+				HeaderComponent.#adjustDropdownPosition(panel);
 			} else {
 				closePanel();
 			}
@@ -234,18 +249,54 @@ export class HeaderComponent {
 							return nameA.localeCompare(nameB, activeLang, { sensitivity: 'base' });
 						});
 
-					for (const [cityKey, cityMeta] of availableCities) {
-						const cityName = cityMeta.name?.[activeLang] || cityMeta.name?.en || cityKey;
-						const isSelected = cityKey === activeCity;
-						// Escape cityKey for XSS safety
-						const safeCityKey = cityKey.replace(/[^a-z0-9_-]/gi, '');
-						html += `<li class="city-dropdown-item ${isSelected ? 'active' : ''}"
-							role="option"
-							aria-selected="${isSelected}"
-							data-city="${safeCityKey}"
-							tabindex="0">
-							${countryFlag} ${cityName}
+					// Separate into Combined (Group) Networks and Individual Networks
+					const combinedCities = availableCities.filter(([, c]) => {
+						const nets = Object.values(c.networks || {});
+						return nets.length > 1;
+					});
+					const singleCities = availableCities.filter(([, c]) => {
+						const nets = Object.values(c.networks || {});
+						return nets.length <= 1;
+					});
+
+					const getI18nLabel = (key, fallback) => {
+						if (!i18n?.t) return fallback;
+						const val = i18n.t(key);
+						return (val && val !== key) ? val : fallback;
+					};
+
+					const combinedLabel = getI18nLabel('header.citySelector.combinedNetworks', 'Combined Networks');
+					const singleLabel   = getI18nLabel('header.citySelector.singleNetworks', 'Individual Networks');
+
+					const renderCityItems = (citiesList) => {
+						let itemsHtml = '';
+						for (const [cityKey, cityMeta] of citiesList) {
+							const cityName = cityMeta.name?.[activeLang] || cityMeta.name?.en || cityKey;
+							const isSelected = cityKey === activeCity;
+							const safeCityKey = cityKey.replace(/[^a-z0-9_-]/gi, '');
+							itemsHtml += `<li class="city-dropdown-item ${isSelected ? 'active' : ''}"
+								role="option"
+								aria-selected="${isSelected}"
+								data-city="${safeCityKey}"
+								tabindex="0">
+								${countryFlag} ${cityName}
+							</li>`;
+						}
+						return itemsHtml;
+					};
+
+					if (combinedCities.length > 0) {
+						html += `<li class="dropdown-sub-category-header" role="presentation">
+							<span data-i18n="header.citySelector.combinedNetworks">${combinedLabel}</span>
 						</li>`;
+						html += renderCityItems(combinedCities);
+					}
+
+					if (singleCities.length > 0) {
+						html += `<li class="dropdown-sub-category-header" role="presentation">
+							<span data-i18n="header.citySelector.singleNetworks">${singleLabel}</span>
+						</li>`;
+						html += renderCityItems(singleCities);
 					}
 				} else if (!isActive) {
 					// Upcoming country — no city list, just the header badge
@@ -254,6 +305,9 @@ export class HeaderComponent {
 		}
 
 		menu.innerHTML = html;
+		if (typeof i18n?.applyTranslations === 'function') {
+			i18n.applyTranslations();
+		}
 
 		// --- Bind click events on items ---
 		menu.querySelectorAll('.city-dropdown-item[data-city]').forEach(item => {
@@ -290,6 +344,7 @@ export class HeaderComponent {
 		// --- Toggle menu ---
 		const closeMenu = () => {
 			menu.classList.remove('show');
+			menu.style.transform = '';
 			btn.setAttribute('aria-expanded', 'false');
 		};
 
@@ -300,6 +355,7 @@ export class HeaderComponent {
 			if (!isOpen) {
 				menu.classList.add('show');
 				btn.setAttribute('aria-expanded', 'true');
+				HeaderComponent.#adjustDropdownPosition(menu);
 			} else {
 				closeMenu();
 			}
@@ -335,10 +391,30 @@ export class HeaderComponent {
 			window.dispatchEvent(new CustomEvent('app-mode-changed', { detail: { mode: effective, setting: mode } }));
 		};
 
-		// Prevent dropdown menu from closing on segmented bar clicks
+		// Prevent dropdown menu from closing on segmented bar clicks & reliably handle touch/click on Android
 		const bar = document.querySelector('.theme-mode-segmented-bar');
 		if (bar) {
 			bar.addEventListener('click', (e) => e.stopPropagation());
+
+			// Direct pill tap handling for Android touch browsers
+			const labels = bar.querySelectorAll('.mode-pill-label');
+			labels.forEach(label => {
+				const activate = (e) => {
+					e.stopPropagation();
+					const targetId = label.getAttribute('for');
+					const radio = document.getElementById(targetId);
+					if (radio) {
+						radio.checked = true;
+						applyMode(radio.value);
+					}
+				};
+				label.addEventListener('click', activate);
+				label.addEventListener('touchend', (e) => {
+					e.preventDefault();
+					activate(e);
+				});
+			});
+
 			bar.addEventListener('change', (e) => {
 				if (e.target && e.target.name === 'app-appearance-mode') {
 					applyMode(e.target.value);
@@ -364,6 +440,7 @@ export class HeaderComponent {
 
 		const close = () => {
 			menu.classList.remove('show');
+			menu.style.transform = '';
 			btn.setAttribute('aria-expanded', 'false');
 		};
 
@@ -374,19 +451,26 @@ export class HeaderComponent {
 			if (!isOpen) {
 				menu.classList.add('show');
 				btn.setAttribute('aria-expanded', 'true');
+				HeaderComponent.#adjustDropdownPosition(menu);
 			} else {
 				close();
 			}
 		});
 
 		menu.querySelectorAll('.custom-dropdown-item').forEach(item => {
-			item.addEventListener('click', (e) => {
+			const selectItem = (e) => {
 				e.stopPropagation();
 				const val = item.getAttribute('data-value');
+				if (!val) return;
 				menu.querySelectorAll('.custom-dropdown-item').forEach(i => i.classList.remove('active'));
 				item.classList.add('active');
 				close();
 				if (onSelectCallback) onSelectCallback(val);
+			};
+			item.addEventListener('click', selectItem);
+			item.addEventListener('touchend', (e) => {
+				e.preventDefault();
+				selectItem(e);
 			});
 		});
 
@@ -408,11 +492,34 @@ export class HeaderComponent {
 		document.querySelectorAll('.custom-dropdown-menu.show, .font-scale-panel.show, .city-dropdown-menu.show').forEach(m => {
 			if (m !== except) {
 				m.classList.remove('show');
+				m.style.transform = '';
 				const container = m.closest('.dropdown-container');
 				const trigger = container ? container.querySelector('[aria-expanded="true"]') : null;
 				if (trigger) trigger.setAttribute('aria-expanded', 'false');
 			}
 		});
+	}
+
+	/**
+	 * Smart Viewport Boundary Collision Adjuster
+	 * Keeps dropdown centered under trigger button by default (translateX(-50%)).
+	 * Only shifts left or right if there is not enough space at the viewport edges.
+	 */
+	static #adjustDropdownPosition(menu) {
+		if (!menu) return;
+		menu.style.transform = '';
+
+		const rect = menu.getBoundingClientRect();
+		const margin = 12; // 12px safe margin from viewport edge
+		const viewportWidth = window.innerWidth;
+
+		if (rect.right > viewportWidth - margin) {
+			const overflow = Math.ceil(rect.right - (viewportWidth - margin));
+			menu.style.transform = `translateX(calc(-50% - ${overflow}px))`;
+		} else if (rect.left < margin) {
+			const underflow = Math.ceil(margin - rect.left);
+			menu.style.transform = `translateX(calc(-50% + ${underflow}px))`;
+		}
 	}
 
 	static #HTMLStrucher(activePage, currentTheme, currentMode, currentLang, availableThemes = []) {

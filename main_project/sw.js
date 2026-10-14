@@ -71,9 +71,10 @@ self.addEventListener('fetch', (event) => {
 					return networkResponse;
 				}).catch(() => {
 					// Offline fallback for HTML
-					if (event.request.headers.get('accept').includes('text/html')) {
+					if (event.request.headers.get('accept')?.includes('text/html')) {
 						return caches.match('./index.html');
 					}
+					return new Response('', { status: 408, statusText: 'Request timed out or offline' });
 				});
 				
 				// Return cached response instantly (0ms), or wait for network if not in cache

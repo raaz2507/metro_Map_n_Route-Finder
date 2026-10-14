@@ -39,17 +39,17 @@ os.makedirs(TARGET_DIR, exist_ok=True)
 # आधिकारिक वेरिफाइड लिंक्स की पूरी सूची
 LOGOS = [
 	("dmrc.svg", "https://upload.wikimedia.org/wikipedia/commons/6/65/Delhi_Metro_logo.svg"),
-	("nmrc.png", "https://upload.wikimedia.org/wikipedia/en/8/80/Noida_Metro_Logo.png"),
+	("nmrc.svg", "https://upload.wikimedia.org/wikipedia/fr/d/d6/Noida_Metro_logo.svg?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=original"),
 	("ncrtc.svg", "https://upload.wikimedia.org/wikipedia/commons/7/7c/NCRTC_logo.svg"),
 	("kolkata_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/4/4d/Kolkata_Metro_Logo_Blue_Line.svg"),
 	("chennai_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/8/8d/Chennai_Metro_logo.svg"),
 	("hyderabad_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/a/ae/Seal_of_Hyderabad_Metro_Rail.svg"),
-	("namma_metro.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Namma_Metro_Logo.jpg/512px-Namma_Metro_Logo.jpg"),
+	("Namma_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/0/02/Namma_metro_icon.svg?download"),
 	("mumbai_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/7/74/Logo_of_Mumbai_Metro_Line_1.svg"),
 	("up_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/6/6c/UPMRC.svg"),
-	("kochi_metro.png", "https://upload.wikimedia.org/wikipedia/en/1/18/Koch_Metro_Logo.png"),
-	("pune_metro.png", "https://upload.wikimedia.org/wikipedia/commons/5/58/PUNE_METRO_LOGO.png"),
-	("nagpur_metro.png", "https://upload.wikimedia.org/wikipedia/commons/0/09/Nagpur_Metro_Logo.png"),
+	("kochi_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/c/ce/Logo_of_Kochi_Metro.svg"),
+	("pune_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/a/af/Maha-metro-logo.svg"),
+	("nagpur_metro.svg", "https://upload.wikimedia.org/wikipedia/commons/a/af/Maha-metro-logo.svg"),
 ]
 
 headers = {
