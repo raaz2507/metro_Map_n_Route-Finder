@@ -11,12 +11,17 @@ export default {
 	hero: {
 		stationCode: "स्टेशन कोड",
 		layout: "लेआउट",
-		noDescription: "इस स्टेशन के लिए कोई विस्तृत विवरण उपलब्ध नहीं है।",
+		noDescription: "इस स्टेशन के लिए कोई विवरण उपलब्ध नहीं है।",
 		openInMaps: "📍 गूगल मैप्स पर देखें",
 		openInMapsAria: "गूगल मैप्स पर स्टेशन की लोकेशन देखें",
 		plusCode: "प्लस कोड",
 		coordinates: "निर्देशांक",
-		connectedLines: "🚆 जुड़ी हुई मेट्रो लाइन्स"
+		connectedLines: "🚆 जुड़ी हुई मेट्रो लाइन्स",
+		layouts: {
+			elevated: "एलिवेटेड",
+			underground: "अंडरग्राउंड",
+			"at-grade": "ग्राउंड लेवल"
+		}
 	},
 	timings: {
 		title: "संचालन समय सारणी",
@@ -44,29 +49,65 @@ export default {
 		standardAccess: "🚶 मानक पहुंच",
 		open: "खुला है",
 		closed: "बंद है",
+		defaultArea: "निकास द्वार क्षेत्र",
 		noGates: "इस स्टेशन के लिए कोई विशिष्ट गेट विवरण उपलब्ध नहीं है।"
 	},
 	facilities: {
-		title: "♿ स्टेशन सुविधाएं व सुविधाएं",
-		noFacilities: "इस स्टेशन के लिए कोई सुविधा रिकॉर्ड नहीं मिला।"
+		title: "♿ स्टेशन सुविधाएं",
+		noFacilities: "इस स्टेशन के लिए कोई सुविधा रिकॉर्ड नहीं मिला।",
+		categories: {
+			"ATM": "एटीएम (ATM)",
+			"Toilet": "शौचालय (टॉयलेट)",
+			"Food / Restaurant": "खान-पान व रेस्टोरेंट",
+			"Medical": "मेडिकल / प्राथमिक उपचार",
+			"Medical Needs": "मेडिकल व प्राथमिक चिकित्सा",
+			"Drinking Water": "पीने का पानी",
+			"Information": "पूछताछ केंद्र",
+			"Facilities for Differently Abled": "दिव्यांगजन सुविधाएं (व्हीलचेयर)",
+			"Ticket Facilities": "टिकट व स्मार्ट कार्ड सुविधाएं",
+			"Customer Services": "ग्राहक सेवा केंद्र (Customer Care)",
+			"Basic Facilities": "बुनियादी यात्री सुविधाएं",
+			"Women Facilities": "महिला सुरक्षा व विशेष सुविधाएं"
+		},
+		items: {
+			"First Aid Assistance": "प्राथमिक चिकित्सा सहायता (First Aid)",
+			"Reserved Spaces for wheelchair in train": "ट्रेन में व्हीलचेयर हेतु आरक्षित जगह",
+			"Extra Wide Automatic Flag Gates": "चौड़े ऑटोमैटिक फ्लैग गेट्स (व्हीलचेयर हेतु)",
+			"Separate Toilets": "अलग शौचालय (दिव्यांगजनों हेतु)",
+			"Differently Abled Friendly": "दिव्यांग अनुकूल वातावरण",
+			"Group Ticketing": "ग्रुप टिकट काउंटर",
+			"Ticket vending & Card recharge": "टिकट वेंडिंग मशीन (TVM) व कार्ड रिचार्ज",
+			"Customer care": "कस्टमर केयर / सहायता केंद्र",
+			"Drinking water facility": "पीने के पानी की सुविधा",
+			"Public Wifi Available": "मुफ़्त वाई-फाई (Free Wi-Fi)",
+			"Female CISF Staff": "महिला सुरक्षाकर्मी (CISF)"
+		},
+		locations: {
+			"Concourse": "कॉनकोर्स",
+			"Platform": "प्लेटफ़ॉर्म",
+			"Ground": "ग्राउंड लेवल"
+		}
 	},
 	parking: {
 		capacityTitle: "🅿️ पार्किंग क्षमता",
-		tariffsTitle: "💰 पार्किंग शुल्क व दर कार्ड",
+		tariffsTitle: "💰 पार्किंग शुल्क",
 		provider: "प्रदाता",
 		car: "🚗 कार",
 		bike: "🏍️ बाइक",
 		cycle: "🚲 साइकिल",
 		location: "स्थान",
+		notAvailable: "उपलब्ध नहीं",
+		nearExitGate: "निकास द्वार के पास",
+		authorisedParking: "अधिकृत पार्किंग",
 		dayCharges: "दिन का शुल्क",
-		nightCharges: "नाइट सरचार्ज",
+		nightCharges: "नाइट चार्ज",
 		monthlyPass: "मासिक पास",
-		helmetDeposit: "हेलमेट डिपॉज़िट",
+		helmetDeposit: "हेलमेट जमा",
 		bicycleStand: "साइकिल स्टैंड",
-		noParking: "🚫 इस स्टेशन पर कोई अधिकृत पार्किंग उपलब्ध नहीं है।",
+		noParking: "🚫 इस स्टेशन पर अधिकृत पार्किंग उपलब्ध नहीं है।",
 		noTariff: "मानक मेट्रो पार्किंग दरें लागू हैं।",
-		authorisedNoticeTitle: "🅿️ अधिकृत मल्टीमॉडल स्टेशन पार्किंग ({state})",
-		authorisedNoticeDesc: "स्वचालित स्मार्ट टिकटिंग, सीसीटीवी निगरानी और दिव्यांगों के लिए आरक्षित स्लॉट के साथ 24x7 उपलब्ध। नीचे दर कार्ड देखें।",
+		authorisedNoticeTitle: "🅿️ अधिकृत स्टेशन पार्किंग ({state})",
+		authorisedNoticeDesc: "स्वचालित स्मार्ट टिकटिंग, सीसीटीवी और दिव्यांगों के लिए आरक्षित स्लॉट के साथ 24x7 उपलब्ध।",
 		passes: {
 			dayOnly: "डे पास",
 			full247: "24/7 पास",
@@ -83,7 +124,7 @@ export default {
 		}
 	},
 	verticalTransit: {
-		title: "🛗 लिफ्ट व स्वचालित सीढ़ियां (वर्टिकल ट्रांजिट)",
+		title: "🛗 लिफ्ट व एस्केलेटर",
 		lifts: "🛗 लिफ्ट",
 		escalators: "🪜 एस्केलेटर",
 		code: "कोड",
@@ -96,13 +137,21 @@ export default {
 		direction: "दिशा",
 		up: "ऊपर (Up)",
 		down: "नीचे (Down)",
-		bidirectional: "द्वि-दिशात्मक",
+		bidirectional: "दोनों तरफ (Up/Down)",
 		status: "स्थिति",
 		yes: "✔️ हाँ",
 		no: "❌ नहीं",
-		active: "सक्रिय",
-		maintenance: "रखरखाव",
-		noTransit: "कोई वर्टिकल ट्रांजिट (लिफ्ट/एस्केलेटर) रिकॉर्ड उपलब्ध नहीं है।"
+		active: "चालू है",
+		maintenance: "रखरखाव जारी",
+		noTransit: "कोई लिफ्ट या एस्केलेटर रिकॉर्ड उपलब्ध नहीं है।",
+				locations: {
+			"Concourse to Platform": "कॉनकोर्स से प्लेटफ़ॉर्म",
+			"CONCOURSE TO PLATFORM": "कॉनकोर्स से प्लेटफ़ॉर्म",
+			"Ground to unpaid concourse": "ग्राउंड से कॉनकोर्स",
+			"GROUND TO UNPAID CONCOURSE": "ग्राउंड से कॉनकोर्स",
+			"Ground to Platform": "ग्राउंड से प्लेटफ़ॉर्म",
+			"GROUND TO PLATFORM": "ग्राउंड से प्लेटफ़ॉर्म"
+		}
 	},
 	feederBus: {
 		title: "🚌 फीडर बस सेवा व लास्ट-मील कनेक्टिविटी",
@@ -120,14 +169,38 @@ export default {
 		noLayout: "स्टेशन संरचनात्मक नक़्शा अपलोड नहीं है।"
 	},
 	nearby: {
-		title: "📍 नजदीकी स्थान व प्रमुख स्थल",
+		title: "📍 नजदीकी मुख्य स्थल",
 		walking: "🚶 {min} मिनट पैदल",
 		transit: "🚌 {min} मिनट वाहन से",
-		directFob: "सीधा फुट-ओवर ब्रिज जुड़ाव",
-		noNearby: "इस स्टेशन के लिए कोई नजदीकी स्थल दर्ज नहीं है।"
+		directFob: "सीधा फुट-ओवर ब्रिज",
+		noNearby: "इस स्टेशन के लिए कोई नजदीकी स्थल दर्ज नहीं है।",
+		categories: {
+			"Hospital": "अस्पताल (हॉस्पिटल)",
+			"Health": "स्वास्थ्य व क्लिनिक",
+			"Police Station": "पुलिस स्टेशन",
+			"Fire Station": "फायर स्टेशन",
+			"Bus Stand": "बस स्टैंड",
+			"Transportation": "परिवहन व बंदरगाह",
+			"Mall": "मॉल / शॉपिंग सेंटर",
+			"School": "स्कूल / कॉलेज",
+			"Institutional": "शैक्षणिक व संस्थान",
+			"Metro Station": "मेट्रो स्टेशन",
+			"Railway Station": "रेलवे स्टेशन",
+			"Park": "पार्क व मैदान",
+			"Recreation": "उद्यान व मनोरंजन",
+			"Hotel": "होटल",
+			"Government Offices": "सरकारी कार्यालय",
+			"Private Offices": "कॉर्पोरेट व प्राइवेट ऑफिस",
+			"Industry": "उद्योग व कंपनी",
+			"Religious": "धार्मिक स्थल / मंदिर",
+			"Tourist Place": "पर्यटन स्थल",
+			"Residental": "आवासीय क्षेत्र (रेजिडेंशियल)",
+			"Others": "अन्य स्थल"
+		}
 	},
 	notFound: {
 		title: "⚠️ स्टेशन नहीं मिला",
 		message: "अनुरोधित स्टेशन कोड/आईडी \"{stationId}\" हमारे मेट्रो डायरेक्टरी में नहीं मिला।"
-	}
+	},
+	
 };

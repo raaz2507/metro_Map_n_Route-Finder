@@ -133,7 +133,7 @@
 			gap: var(--space-xs);
 			width: auto;
 			max-width: calc(100% - var(--space-md));
-			height: calc(100% - 120px);
+			height: calc(100% - var(--space-md));
 			justify-content: flex-start;
 			align-items: flex-start;
 		}
@@ -153,16 +153,4 @@
 			display: none;
 		}
 	}
-}
-
-/* Modern iPhone Adjustments */
-@media (max-width: 390px) {
-}
-
-/* Most Android Phone Adjustments */
-@media (max-width: 360px) {
-}
-
-/* Old iPhone SE Adjustments */
-@media (max-width: 320px) {
 }

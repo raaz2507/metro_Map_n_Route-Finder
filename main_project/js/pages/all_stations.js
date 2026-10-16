@@ -1,9 +1,9 @@
 /**
  * All Stations Directory Page Controller - Template 2 (Coach Grid Layout)
  * Enterprise ES2022 OOP Class with Private Encapsulation (#)
- * Dynamically loads city transit data via metroDataStore and powers City-Scoped Universal Search.
+ * Dynamically loads city transit data via centerClass and powers City-Scoped Universal Search.
  */
-import { metroDataStore } from "../core/metro-data-store.js";
+import { centerClass } from "../core/CenterClass.js";
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { UniversalSearchEngine } from "../services/search/UniversalSearchEngine.js";
@@ -73,15 +73,16 @@ export class AllStationsDirectory {
 			this.#currentCity = urlParams.get("city") || localStorage.getItem("active_city") || "delhi_ncr";
 			const activeNetwork = urlParams.get("network") || localStorage.getItem("active_network") || null;
 
-			// 2. Central MetroDataStore se resolved city ka data load karein
-			this.#metroData = await metroDataStore.loadCity(this.#currentCity, activeNetwork);
+			// 2. Central CenterClass se resolved city ka data load karein
+			this.#metroData = await centerClass.loadCity(this.#currentCity, activeNetwork);
 			this.#lines = this.#metroData.lines || {};
 			this.#stations = this.#metroData.stationData || {};
 
 			// 3. Initialize City-Scoped Universal Search Engine
 			this.#searchEngine = new UniversalSearchEngine({
 				scope: "city",
-				activeCity: this.#currentCity
+				activeCity: this.#currentCity,
+				getStationName: (id) => centerClass.getStationName(id)
 			});
 			await this.#searchEngine.init().catch(err => console.warn("[SearchEngine] Init notice:", err));
 			
@@ -93,8 +94,9 @@ export class AllStationsDirectory {
 			this.#bindEvents();
 
 			// 5. Subscribe to dynamic language updates
-			this.#unsubscribeLang = appStateStore.subscribe("currentLang", (newLang) => {
+			this.#unsubscribeLang = appStateStore.subscribe("currentLang", async (newLang) => {
 				this.#lang = newLang || "en";
+				await centerClass.reloadLocale(this.#lang);
 				if (this.#dom.searchInput) {
 					this.#dom.searchInput.placeholder = i18n.t("pages.all_stations.controls.searchPlaceholder");
 				}
@@ -129,6 +131,19 @@ export class AllStationsDirectory {
 	 * Bind UI & Search Engine Events
 	 */
 	#bindEvents() {
+		// 🎯 हेडर पर क्लिक करने पर Expand / Collapse टॉगल
+		this.#dom.container?.addEventListener("click", (e) => {
+			const header = e.target.closest(".line-section-header");
+			if (header) {
+				const section = header.closest(".line-directory-section");
+				if (section) {
+					section.classList.toggle("collapsed");
+					const isExpanded = !section.classList.contains("collapsed");
+					header.setAttribute("aria-expanded", String(isExpanded));
+				}
+			}
+		});
+
 		// PLUG-AND-PLAY SEARCH ENGINE BINDING
 		if (this.#dom.searchInput && this.#dom.dropdown && this.#searchEngine) {
 			this.#searchEngine.bindUI({
@@ -312,7 +327,7 @@ export class AllStationsDirectory {
 			`;
 
 			group.lines.forEach(line => {
-				const shortName = line.short_name?.[this.#lang] || line.short_name?.en || line.name?.[this.#lang] || line.name?.en || line.id;
+				const shortName = centerClass.getLineShortName(line.id) || centerClass.getLineName(line.id) || line.id;
 				const activeClass = this.#activeFilter === line.id ? "active" : "";
 				const lineColor = line.color || "#007bff";
 				const count = (line.stations || []).length;
@@ -349,16 +364,11 @@ export class AllStationsDirectory {
 
 			const stationIds = line.stations || [];
 
-			// Real-time Bilingual Station Search Match
+			// Real-time Bilingual Station Search Match (query is already lowercased once on input)
 			const filteredStationIds = stationIds.filter(stId => {
 				if (!this.#searchQuery) return true;
-				const st = this.#stations[stId];
-				if (!st) return false;
-				const nameEn = (st.name?.en || "").toLowerCase();
-				const nameHi = (st.name?.hi || "").toLowerCase();
-				const code = (st.id || stId).toLowerCase();
-				const query = this.#searchQuery;
-				return nameEn.includes(query) || nameHi.includes(query) || code.includes(query);
+				const stName = centerClass.getStationName(stId);
+				return stId.includes(this.#searchQuery) || (stName && stName.toLowerCase().includes(this.#searchQuery));
 			});
 
 			if (filteredStationIds.length === 0) {
@@ -367,18 +377,22 @@ export class AllStationsDirectory {
 
 			matchedLineCount++;
 
-			const lineTitle = line.name?.[this.#lang] || line.name?.en || line.id;
-			const lineColor = line.color || "#c0282c";
+			const lineTitle = centerClass.getLineName(line.id) || line.id;
+			const lineColor = line.color;
 			const count = filteredStationIds.length;
 			const stationCountText = count === 1 
 				? (i18n.t("pages.all_stations.results.singleStationCount") || "1 Station")
 				: i18n.t("pages.all_stations.results.stationCount", { count });
 
 			html += `
-				<section class="line-directory-section" id="section-${this.#escapeHTML(line.id)}">
-					<div class="line-section-header" style="--line-color: ${this.#escapeHTML(lineColor)};">
+				<!-- 👈 --line-color पूरे कंटेनर (section) पर दिया ताकि पट्टी पूरे बॉक्स पर आए -->
+				<section class="line-directory-section" id="section-${this.#escapeHTML(line.id)}" style="--line-color: ${this.#escapeHTML(lineColor)};">
+					<div class="line-section-header" role="button" tabindex="0" aria-expanded="true">
 						<span>${this.#escapeHTML(lineTitle)}</span>
-						<span class="line-station-count-badge">${stationCountText}</span>
+						<div style="display: flex; align-items: center; gap: var(--space-sm);">
+							<span class="line-station-count-badge">${stationCountText}</span>
+							<span class="header-chevron" aria-hidden="true"></span>
+						</div>
 					</div>
 
 					<div class="train-track-row" style="--line-color: ${lineColor};">
@@ -420,10 +434,7 @@ export class AllStationsDirectory {
 				</div>`;
 		}
 
-		let stationTitle = (st.name?.en || stationId).toUpperCase();
-		if (this.#lang === "hi" && st.name?.hi) {
-			stationTitle = st.name.hi;
-		}
+		let stationTitle = centerClass.getStationName(stationId) || stationId.toUpperCase();
 
 		const lineColor = lineInfo.color || "#c0282c";
 		const firstTrain = this.#formatTo12Hour(st.train_schedule?.first_train);

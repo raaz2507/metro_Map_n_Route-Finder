@@ -313,9 +313,10 @@ class HyderabadStructure(BaseTransitStructurer):
 				master["stationData"][sid] = station_obj
 				master["stations"][sid] = station_obj
 
-		# 2. Preserve remaining stations (like secunderabad-railway-station, m-g-bus-station) for Zero Data Loss
+		# 2. Preserve remaining stations for Zero Data Loss (Skipping obsolete duplicate ghost slugs)
+		EXCLUDED_OBSOLETE_SLUGS = {"m-g-bus-station", "secunderabad-railway-station"}
 		for slug, entry in clean_lookup.items():
-			if slug in processed_slugs:
+			if slug in processed_slugs or slug in EXCLUDED_OBSOLETE_SLUGS:
 				continue
 			processed_slugs.add(slug)
 

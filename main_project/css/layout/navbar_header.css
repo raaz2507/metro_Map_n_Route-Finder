@@ -369,7 +369,7 @@
 		outline-offset: 3px;
 	}
 
-	/* Responsive: Mobile Multi-Line Wrap */
+	/* 1. Standard Mobile (Realme / बड़े फोन पर आरामदायक टच साइज़) */
 	@media (max-width: 768px) {
 		.header-nav {
 			width: 100%;
@@ -385,13 +385,24 @@
 			gap: var(--space-sm);
 			width: 100%;
 		}
-		/* लाइन टूटने पर हवा में लटकने वाले ट्रेन कपलर बार को छुपाएं */
 		.header-nav-item:not(:last-child)::after {
 			display: none;
 		}
-		.header-nav-item .nav-icon {
-			width: 16px;
-			height: 16px;
+	}
+	/* iPhone SE (<= 380px) - केवल बटन्स का Gap और Padding कम किया (फ़ॉन्ट वही रहेगा) */
+	@media (max-width: 380px) {
+		.header-nav {
+			padding: 0;
+			margin-top: var(--space-sm);
+		}
+
+		.header-nav-list {
+			gap: var(--space-xs); /* बटन्स के बीच का गैप 8px से घटाकर 4px */
+		}
+
+		.header-nav-item .nav-link {
+			padding: var(--space-xs) var(--space-sm); /* बटन की पैडिंग 8x12px से घटाकर 4x8px */
+			gap: var(--space-xs);                     /* आइकॉन और टेक्स्ट के बीच का गैप 4px */
 		}
 	}
 }

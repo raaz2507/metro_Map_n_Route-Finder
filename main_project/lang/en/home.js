@@ -192,7 +192,7 @@ export default {
 
 	// 6. Sensor Telemetry Widget
 	telemetry: {
-		title: "Live Commute Telemetry",
+		title: "Telemetry",
 		gpsBadge: "GPS Live",
 		gpsLabel: "GPS Status",
 		netLabel: "Network",

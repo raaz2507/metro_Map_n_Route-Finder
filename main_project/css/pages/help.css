@@ -1343,7 +1343,10 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			display: flex;
 			align-items: center;
 			position: fixed;
-			bottom: calc(var(--space-lg) + env(safe-area-inset-bottom, 0px));
+
+			/* 👈 var(--space-lg) की जगह var(--space-xl) कर दिया (थोड़ा ऊपर उठा दिया) */
+			bottom: calc(var(--space-xl) + env(safe-area-inset-bottom, 0px));
+
 			left: 50%;
 			transform: translateX(-50%);
 			z-index: var(--z-modal);
@@ -1533,7 +1536,9 @@ HELP & KNOWLEDGE BASE PAGE STYLES (Modular @layer Architecture)
 			box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
 			transform: translateY(105%);
 			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-			padding: 44px var(--space-sm) var(--space-xl);
+
+			/* 👇 यहाँ आखिरी वैल्यू (निचला गैप) 80px कर दी गई है */
+			padding: 44px var(--space-sm) calc(var(--space-3xl) + var(--space-2xl));
 			overflow-y: auto;
 			gap: var(--space-xs);
 		}

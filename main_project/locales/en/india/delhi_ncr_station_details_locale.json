@@ -1,0 +1,3171 @@
+{
+	"networks": {
+		"dmrc": "Delhi Metro",
+		"nmrc": "Noida Metro",
+		"rapid_metro_gurugram": "Rapid Metro Gurugram",
+		"ncrtc": "Namo Bharat (RRTS)"
+	},
+	"lines": {
+		"dmrc.red": {"name": "Line 1 - Red Line - Rithala to Shaheed Sthal (New Bus Adda)", "short_name": "Red Line"},
+		"dmrc.yellow": {"name": "Line 2 - Yellow Line - Samaypur Badli to Millennium City center Gurugram", "short_name": "Yellow Line"},
+		"dmrc.blue_main": {"name": "Line 3 - Blue Line - Dwarka Sec 21 to Noida Electronic City", "short_name": "Blue Line"},
+		"dmrc.blue_vaishali": {"name": "Line 4 - Blue Line - Yamuna Bank to Vaishali", "short_name": "Blue Line (Vaishali)"},
+		"dmrc.green": {"name": "Line 5 - Green Line - Kirti Nagar / Inderlok to Brig. Hoshiar Singh", "short_name": "Green Line"},
+		"dmrc.violet": {"name": "Line 6 - Violet Line - Kashmere Gate to Raja Nahar Singh (Ballabhgarh)", "short_name": "Violet Line"},
+		"dmrc.pink": {"name": "Line 7 - Pink Line - Majlis Park to Shiv Vihar", "short_name": "Pink Line"},
+		"dmrc.magenta": {"name": "Line 8 - Magenta Line - Janakpuri West to Botanical Garden", "short_name": "Magenta Line"},
+		"dmrc.grey": {"name": "Line 9 - Grey Line - Dwarka to Dhansa Bus Stand", "short_name": "Grey Line"},
+		"dmrc.airport_express": {"name": "Orange Line (Airport Express) - New Delhi to Yashobhoomi Dwarka Sec-25", "short_name": "Airport Express"},
+		"nmrc.aqua": {"name": "Aqua Line (Noida - Greater Noida) - Sector-51 to Depot Station", "short_name": "Aqua Line"},
+		"rapid_metro.rapid": {"name": "Rapid Metro (Gurugram) - Sector 55-56 to Phase-3", "short_name": "Rapid Metro"},
+		"ncrtc.delhi_meerut_rrts": {"name": "Delhi–Ghaziabad–Meerut Namo Bharat", "short_name": "Namo Bharat"},
+		"ncrtc.meerut_metro": {"name": "Meerut Metro - Meerut South to Modipuram", "short_name": "Meerut Metro"}
+	},
+	"stations": {
+		"adarsh_nagar": {
+			"name": "Adarsh Nagar",
+			"aliases": [],
+			"description": "Adarsh Nagar Metro station is an elevated station located on the Yellow line of DMRC network. \r\nIt is located near Asia’s largest wholesale market for fruits and vegetable i.e. Ch. Hira Singh Thok Sabzi Mandi alias Azadpur Mandi. Important nearby places include Adarsh Nagar railway station and Azadpur DTC Bus Depot which provide seamless connectivity with Indian railway and roadways. The famous Shaheed Captain Vikram Batra flyover is approx. 2.5km from Adarsh Nagar metro station.",
+			"gates": {
+				"4": "Sarai Pipal Thala",
+				"3": "Bharola Village",
+				"2": "Moolchand Colony",
+				"1": "Rajan Babu Road , Adarsh Nagar"
+			},
+			"landmarks": ["Sarai Pipal Thala", "Bharola Village", "Moolchand Colony", "Rajan Babu Road , Adarsh Nagar"]
+		},
+		"aiims": {
+			"name": "AIIMS",
+			"aliases": [],
+			"description": "The AIIMS Metro Station is an underground station . It is located on the Yellow Line of the Delhi Metro network on Aurobindo Marg. The prominent medical institution AIIMS hospital, Safdarjung hospital,,Vardhman Mahaveer Medical colledge and Jai PrakashNarayan Apex trama center are located here. Other nearby locality are yusuf sarai, Ansari Nagar East and west .",
+			"gates": {
+				"4": "Ring Road,Vardhman Mahavir Medical College & Safdarjung Hospital",
+				"3": "Ansari Nagar West, Post Office, Vardhman Mahavir Medical College & Safdarjung Hospital",
+				"2": "AIIMS Hospital, Ansari Nagar East, Yusuf Sarai",
+				"1": "AIIMSHospital, Kidwai Nagar"
+			},
+			"landmarks": ["Ring Road,Vardhman Mahavir Medical College & Safdarjung Hospital", "Ansari Nagar West, Post Office, Vardhman Mahavir Medical College & Safdarjung Hospital", "AIIMS Hospital, Ansari Nagar East, Yusuf Sarai", "AIIMSHospital, Kidwai Nagar"]
+		},
+		"airport_t_3": {
+			"name": "IGI Airport",
+			"aliases": [],
+			"description": "Terminal 1 IGI AIRPORT station is one of the Finnest station on Magenta Line. It is the key connectivity to Terminal 1 domestic IGI airport and Airforce Museum. It has also a SCVM for better facilitate to passengers. And also have a better painting, a stainless steel Tree which is the key attraction to the passenger.",
+			"gates": {
+				"Multiple Gates": "At Airport there are multiple entries which connects Airport(T-3) to metro station."
+			},
+			"landmarks": ["At Airport there are multiple entries which connects Airport(T-3) to metro station."]
+		},
+		"akshardham": {
+			"name": "Akshardham",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793164,7290021209.",
+			"gates": {
+				"3": "Foot Over Bridge",
+				"2": "Parking Side",
+				"1": "East Aproach Road"
+			},
+			"landmarks": ["Foot Over Bridge", "Parking Side", "East Aproach Road"]
+		},
+		"alpha_1_greater_noida": {
+			"name": "Alpha 1 Greater Noida",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"anand_vihar_isbt": {
+			"name": "Anand Vihar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793198,7290012939.",
+			"gates": {
+				"3": "Connected to FOB towards DMRC and Anand Vihar ISBT",
+				"2": "On road going towards Anand Vihar Terminal Railway station",
+				"1 (Pink Line)": "TOWARDS ANAND VIHAR ISBT",
+				"1": "On road going to Chaudhary Charan Singh Marg"
+			},
+			"landmarks": ["Connected to FOB towards DMRC and Anand Vihar ISBT", "On road going towards Anand Vihar Terminal Railway station", "TOWARDS ANAND VIHAR ISBT", "On road going to Chaudhary Charan Singh Marg"]
+		},
+		"arjan_garh": {
+			"name": "Arjan Garh",
+			"aliases": [],
+			"description": "The ARJANGARH metro station is an elevated station located on yellow line of the Delhi Metro between Ghitorni and Guru Dronacharya. The station is last station of Delhi towards Gurugram and located on M G Road.\r\nAyanagar village is located nearby gate1. The Aravali Biodiversity Park is on walking distance towards Gurugram. Sanskriti Museum is located nearby. Local fruit market is located near gate 1. MANOKAAMNA SIDH Hanuman Mandir and Local fruit market is located near gate 1.Air force Station and Indian meteorological department center are located nearby area.",
+			"gates": {
+				"2": "Gurugram Mehrauli Road Indian Metrological Department",
+				"1": "Mehrauli Gurugram Road Aya- Nagar"
+			},
+			"landmarks": ["Gurugram Mehrauli Road Indian Metrological Department", "Mehrauli Gurugram Road Aya- Nagar"]
+		},
+		"arthala": {
+			"name": "Arthala",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303498346,7290019646.",
+			"gates": {
+				"1": "Parsvnath Exotica, Arthala Peer, Commercial Tax Office",
+				"2": "ITS College, Arthala Village"
+			},
+			"landmarks": ["Parsvnath Exotica, Arthala Peer, Commercial Tax Office", "ITS College, Arthala Village"]
+		},
+		"ashok_park_main": {
+			"name": "Ashok Park Main",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793204,7290046988.",
+			"gates": {
+				"2": "SDM Office Rampura, Golden Park, Tri Nagar",
+				"1": "Manohar Park, Channamal Park, Ashoka Park Extension"
+			},
+			"landmarks": ["SDM Office Rampura, Golden Park, Tri Nagar", "Manohar Park, Channamal Park, Ashoka Park Extension"]
+		},
+		"ashram": {
+			"name": "Ashram",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448498296,7290019295.",
+			"gates": {
+				"3": "Maharani Bagh",
+				"2": "NAFED",
+				"1": "Harinagar Ashram, TVM and RCTM"
+			},
+			"landmarks": ["Maharani Bagh", "NAFED", "Harinagar Ashram, TVM and RCTM"]
+		},
+		"azadpur": {
+			"name": "Azadpur",
+			"aliases": [],
+			"description": "Azadpur metro station is an elevated (yellow Line) as well underground (pink line) metro station that provides interchange facility between above mentioned DMRC lines.\r\nThe station is situated near the famous Chhatrasal Stadium which has given many renowned atheletes. It also has direct foot-over-bridge connectivity to the prominent Azadpur DTC bus terminal for passenger ease. It is also connected to Azadpur railway station of Indian Railway at a walking distance (300 Mtrs). The DMRP police station is present near Gate no.1 for handelling of any operational/passenger related issues.",
+			"gates": {
+				"4": "Model Town 3",
+				"3": "Lal Bagh, GT Karnal Road",
+				"2": "Azadpur Bus Terminal",
+				"1": "MCD Flats"
+			},
+			"landmarks": ["Model Town 3", "Lal Bagh, GT Karnal Road", "Azadpur Bus Terminal", "MCD Flats"]
+		},
+		"badarpur_border": {
+			"name": "Badarpur Border",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793232,7290058098.",
+			"gates": {
+				"2": "IIHM Badarpur, Mohan Cooperative",
+				"1": "Faridabad Toll Plaza"
+			},
+			"landmarks": ["IIHM Badarpur, Mohan Cooperative", "Faridabad Toll Plaza"]
+		},
+		"badkal_mor": {
+			"name": "Badkal Mor",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7042398158,7290082726.",
+			"gates": {
+				"3": "Mathura Road towards Delhi",
+				"2": "Mahindra Chlaris Apartment",
+				"1": "Mathura Road towards Ballabhgarh"
+			},
+			"landmarks": ["Mathura Road towards Delhi", "Mahindra Chlaris Apartment", "Mathura Road towards Ballabhgarh"]
+		},
+		"bahadurgarh_city": {
+			"name": "Bahdurgarh City",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448788988,7290052022.",
+			"gates": {
+				"2": "Parnala Road",
+				"1": "Old Bus Stand"
+			},
+			"landmarks": ["Parnala Road", "Old Bus Stand"]
+		},
+		"barakhamba_road": {
+			"name": "Barakhamba",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793169,7290051510.",
+			"gates": {
+				"6": "New Delhi House",
+				"5": "Narayan Manzil",
+				"4": "Indra Prakash Building",
+				"3": "DCM/ HDFC Building",
+				"2": "Kunchanjangha Building",
+				"1": "Nirmal Tower"
+			},
+			"landmarks": ["New Delhi House", "Narayan Manzil", "Indra Prakash Building", "DCM/ HDFC Building", "Kunchanjangha Building", "Nirmal Tower"]
+		},
+		"bata_chowk": {
+			"name": "Bata Chowk",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as INDIAN OIL BATA CHOWK.For more information or queries kindly contact station officer at the following contact number: 7042398161,7290084929.",
+			"gates": {
+				"3": "Radisson Blue Hotel",
+				"2": "Silvercity Mall",
+				"1": "Eldeco Mall"
+			},
+			"landmarks": ["Radisson Blue Hotel", "Silvercity Mall", "Eldeco Mall"]
+		},
+		"begumpul": {
+			"name": "Begumpul",
+			"aliases": [],
+			"description": "1. Begumpul Station is the twentieth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is an underground NamoBharat/Meerut metro station. 2. Begumpul station is in the Meerut city on the NH 58 highway near Begum Bridge and Shiv Chowk. 3. Begumpul station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi",
+				"3": "On road going to Delhi",
+				"4": "On road going to Meerut"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"belvedere_towers": {
+			"name": "Belvedere Towers",
+			"aliases": [],
+			"description": "Belvedere Towers station is a station of Rapid Metro Gurgaon. The next station from Belvedere Towers station towards Sector 55-56 is Cyber City and towards the other end is Phase-2 station. Belvedere Towers station is connected to DMRC’s Yellow line through Sikanderpur Metro Station.Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800003.",
+			"gates": {
+				"1": "Main Road"
+			},
+			"landmarks": ["Main Road"]
+		},
+		"bhaisali": {
+			"name": "Bhaisali",
+			"aliases": [],
+			"description": "1. Bhaisali Station is the nineteenth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is Meerut metro underground station. 2. Bhaisali station is in the Meerut city on the NH 58 highway near Bhaisali Bus stand. 3. Bhaisali station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi",
+				"3": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"bhajanpura": {
+			"name": "Bhajanpura",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "BHAJANPURA MARKET",
+				"2": "CHAND BAGH"
+			},
+			"landmarks": ["BHAJANPURA MARKET", "CHAND BAGH"]
+		},
+		"bhalaswa": {
+			"name": "Bhalaswa",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "BHALASWA JAHANGIRPURI VILLAGE",
+				"2": "OUTER RING ROAD,BHALASWA LAKE, GOLF COURSE, MUKUNDPUR VILLAGE"
+			},
+			"landmarks": ["BHALASWA JAHANGIRPURI VILLAGE", "OUTER RING ROAD,BHALASWA LAKE, GOLF COURSE, MUKUNDPUR VILLAGE"]
+		},
+		"bhikaji_cama_place": {
+			"name": "Bhikaji Cama Place",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network.This station is also known as GAIL BHIKAJI CAMA PLACE.For more information or queries kindly contact station officer at the following contact number: 9667396685,7290069412.",
+			"gates": {
+				"3": "EIL Office",
+				"2": "DTC Sarojini Nagar Depot",
+				"1": "Palika Bhawan"
+			},
+			"landmarks": ["EIL Office", "DTC Sarojini Nagar Depot", "Palika Bhawan"]
+		},
+		"botanical_garden": {
+			"name": "Botanical Garden",
+			"aliases": [],
+			"description": "Botanical Garden Metro station is an interchange station for Blue & Megenta line. This is a major connectivity point between Delhi & Noida. This station is name after 'Botanical Garden of Indian Republic' which is the house of different species of plants.",
+			"gates": {
+				"1": "Captain Vijayat Thapar Marg",
+				"4": "Multilevel parking",
+				"3": "Capt. Vijyant thapar Marg",
+				"2": "Capt. Vijyant thapar Marg"
+			},
+			"landmarks": ["Captain Vijayat Thapar Marg", "Multilevel parking", "Capt. Vijyant thapar Marg"]
+		},
+		"brahampuri": {
+			"name": "Brahampuri",
+			"aliases": [],
+			"description": "1. Brahampuri Station is the seventeenth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is a Meerut metro elevated station. 2. Brahampuri station is in the Meerut city on the NH 58 highway near Transport Nagar and Naveen Sabzi Mandi. 3. Brahampuri station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"brig_hoshiar_singh": {
+			"name": "Brigadier Hoshiar Singh",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"2": "Iocl Petrol Pump",
+				"1": "Ch. Devilal Park"
+			},
+			"landmarks": ["Iocl Petrol Pump", "Ch. Devilal Park"]
+		},
+		"burari": {
+			"name": "Burari",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "SOUTH",
+				"2": "NORTH"
+			},
+			"landmarks": ["SOUTH", "NORTH"]
+		},
+		"central_secretariat": {
+			"name": "Central Secretariat",
+			"aliases": [],
+			"description": "Central Secretariat Metro Station is an underground station which is an interchange station for passengers traveling on Violet Line. This station is closest to land mark i.e. Parliament house, Rail Bhawan, Krishi Bhawan, Shashtri Bhawan, Ministry of Rural Development & Historical place like India gate. It is also close to New Parliament House (which is Under construction)",
+			"gates": {
+				"3": "India Gate",
+				"5": "Rail Bhawan",
+				"4": "Rastrapati Bhawan",
+				"2": "Krishi Bhawan",
+				"1": "Red Cross Building"
+			},
+			"landmarks": ["India Gate", "Rail Bhawan", "Rastrapati Bhawan", "Krishi Bhawan", "Red Cross Building"]
+		},
+		"chandni_chowk": {
+			"name": "Chandni Chowk",
+			"aliases": [],
+			"description": "Chandni Chowk Metro Station is an underground station. This station serves people for Delhi Oldest Market Chandni Chowk and Old-Delhi Railway station (Delhi junction). \r\nHistorical Shish Ganj Gurdwara, Red Fort, Jama Masjid, Fatehpuri Masjid and Delhi Oldest Locality Delhi - 6, Sadar Bazar, Historic Town Hall, Delhi Public library are situated in surrounding. This is one of the most massive and busiest metro station in the DMRC network.",
+			"gates": {
+				"5": "Chandni Chowk Market, Khari Baoli, Sadar Bazar",
+				"3": "Delhi Railway Station",
+				"2": "S P Mukherjee Road, Delhi Public Library",
+				"1": "Town Hall, Hardayal Library"
+			},
+			"landmarks": ["Chandni Chowk Market, Khari Baoli, Sadar Bazar", "Delhi Railway Station", "S P Mukherjee Road, Delhi Public Library", "Town Hall, Hardayal Library"]
+		},
+		"chawri_bazar": {
+			"name": "Chawri Bazar",
+			"aliases": [],
+			"description": "Chawri Bazar Metro Station is an underground station located yellow line of the Delhi Metro. Asia’s largest whole sale market Sadar Bazar and historical place Ajmeri gate is near to this metro station.\r\nThis station is located in the very congested chawri bazaar locality of Old Delhi. It is the second deepest metro station after Hauz Khas of magenta line. It is constructed by new Austrian Tunnelling method. Two vertical shafts are constructed in the small area available in this congested locality. These two shafts are ingress/egress point of the station and house station operational area and passenger amenities. Station building consists of 7 floors at north end and 11 floors at south end.",
+			"gates": {
+				"3": "Hauz Qazi, Nai Sadak",
+				"1": "Ajmeri Gate"
+			},
+			"landmarks": ["Hauz Qazi, Nai Sadak", "Ajmeri Gate"]
+		},
+		"chhatarpur": {
+			"name": "chhatarpur",
+			"aliases": [],
+			"description": "The Chhatarpur Metro Station is an elevated station located on Line 2 also known as “Yellow Line” of Delhi Metro.\r\nThis station is located on Delhi-Gurugram linked road.\r\nThis station provides seamless connectivity to Maa katyayani Saktipeeth (Chhatarpur Temple). This station is built completely with steel and has MMI facility for Last Mile Connectivity.",
+			"gates": {
+				"3": "Mg Road",
+				"2": "South West Delhi",
+				"1": "Mg Road"
+			},
+			"landmarks": ["Mg Road", "South West Delhi"]
+		},
+		"chirag_delhi": {
+			"name": "Chirag Delhi",
+			"aliases": [],
+			"description": "Chirag Delhi is one of the busiest metro stations, situated beneath the busy Chirag Delhi intersection of the outer ring road, on the Magenta Line. It is one stop destination for many popular neighbourhoods, commercial, tourist and educational institutional areas of South Delhi. Masjid moth, the ancient Chirag Delhi Village (The Illuminated Lamp of Delhi), Panchsheel Enclave, Select City Walk, Malviya Nagar market, Jahapanah City Forest, Shaheed Bhagat Singh College are some famous places which are close to this metro station.",
+			"gates": {
+				"5": "Chirag Delhi Village,Jahapanah city forest",
+				"4": "Ambedkar nagar, Khanpur",
+				"3": "DDA flats Masjid Moth(Ph-1&2)",
+				"2": "Rockland hotel",
+				"1": "Chirag Delhi Village"
+			},
+			"landmarks": ["Chirag Delhi Village,Jahapanah city forest", "Ambedkar nagar, Khanpur", "DDA flats Masjid Moth(Ph-1&2)", "Rockland hotel", "Chirag Delhi Village"]
+		},
+		"civil_lines": {
+			"name": "Civil Lines",
+			"aliases": [],
+			"description": "Civil Line Metro Station is an underground station. This station mostly serves people for one of the Oldest Delhi University College I P college, L G House, Delhi Vidhan Sabha, Sant Permanand Hospital, National center for Disease Control (Administrative Block, ministry of Health & Family welfare), Office of Labour Commissioner (Govt. of N.C.T. of Delhi) etc.",
+			"gates": {
+				"3": "Punjab National Bank",
+				"2": "Yulu Bikes, IP College",
+				"1": "Sant Parmanand Hospital"
+			},
+			"landmarks": ["Punjab National Bank", "Yulu Bikes, IP College", "Sant Parmanand Hospital"]
+		},
+		"cyber_city": {
+			"name": "Cyber City",
+			"aliases": [],
+			"description": "Cyber City station is a station of Rapid Metro Gurgaon. The next station from Cyber City station towards Sector 55-56 is Moulsari Avenue and towards the other end is Belvedere Towers station. This station is also known as INDUSIND BANK CYBER CITY STATION. Cyber City station is connected to DMRC’s Yellow line through Sikanderpur Metro Station. Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800004.",
+			"gates": {
+				"2": "Towards Gateway Towers",
+				"1": "Cyber Hub Road"
+			},
+			"landmarks": ["Towards Gateway Towers", "Cyber Hub Road"]
+		},
+		"dabri_mor_janakpuri_south": {
+			"name": "Dabri Mor - Janakpuri South",
+			"aliases": [],
+			"description": "Dabri Mor - Janakpuri South is the second last station on the Magenta Line in close vicinity ofhospitals - Mata Chanan Devi Hospital , Arya Hospital & Shri Dada Dev Matri Avum Shishu Chikitsalaya;BSES office andschools namely Kendriya Vidyalaya C-2 & Sumermal Jain Public School. It has also a remarkable pedestrian subway which is 185 metres long and built nine metres below the ground to facilitate pedestrian movement across the very busy Pankha Road.",
+			"gates": {
+				"3": "Towards Pankha Road",
+				"2": "Towards Jankapuri C-2",
+				"1": "Towards Pankha Road, Outer Ring Road"
+			},
+			"landmarks": ["Towards Pankha Road", "Towards Jankapuri C-2", "Towards Pankha Road, Outer Ring Road"]
+		},
+		"dashrathpuri": {
+			"name": "Dashrath Puri",
+			"aliases": [],
+			"description": "Dashrath puri stationis one of the Magenta line. It is close vicinty to SULABH INTERNATIONAL MUSEUM. Also connects to the residential area of Mahavir enclave and bengali colony.",
+			"gates": {
+				"3": "VIJAY ENCLAVE",
+				"2": "SULABH INTERNATIONAL",
+				"1": "NASIRPUR VILLAGE"
+			},
+			"landmarks": ["VIJAY ENCLAVE", "SULABH INTERNATIONAL", "NASIRPUR VILLAGE"]
+		},
+		"daurli": {
+			"name": "Daurli",
+			"aliases": [],
+			"description": "1. Daurli Station is the twenty-second station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is an elevated meerut metro station. 2. Daurli station is in the Meerut city on the Roorkee road near Indian Oil Petrol Pump. 3. Daurli station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"deepali_chowk": {
+			"name": "Deepali Chowk",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "SARASWATI VIHAR",
+				"2": "PRACHIN MAHAKALI MANDIR"
+			},
+			"landmarks": ["SARASWATI VIHAR", "PRACHIN MAHAKALI MANDIR"]
+		},
+		"delhi_aerocity": {
+			"name": "Delhi Aerocity",
+			"aliases": [],
+			"description": "The Delhi Aerocity Metro Station is an underground station located on theAirport Express Linealso known as “Orange Line “of theDelhi Metro. This station is located near the NH-8 highway and also falls in close proximity to IGI Terminal -1. The hospitality district of the Aerocity offers quick access to the Airport and New Delhi Railway Station, besides being centrally located between the business areas of Delhi and Gurgaon. Station is at walking distance to Mahipalpur which provides facility of budget hotels.",
+			"gates": {
+				"2": "Aerocity Side",
+				"1": "Mahipalpur Side"
+			},
+			"landmarks": ["Aerocity Side", "Mahipalpur Side"]
+		},
+		"delhi_cantt": {
+			"name": "Delhi Cantt",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as PIONEER DELHI CANT.For more information or queries kindly contact station officer at the following contact number: 8448088766,7290013508.",
+			"gates": {
+				"2": "Brar Square, Air Force Station, Naraina",
+				"1": "Army Medical College"
+			},
+			"landmarks": ["Brar Square, Air Force Station, Naraina", "Army Medical College"]
+		},
+		"delhi_gate": {
+			"name": "Delhi Gate",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9205682370,011-23265267.",
+			"gates": {
+				"5": "Arun Jaitley Stadium",
+				"4": "Ambedkar stadium",
+				"3": "Daryaganj",
+				"2": "G.B.Pant Hospital",
+				"1": "Mulana Azad Medical College"
+			},
+			"landmarks": ["Arun Jaitley Stadium", "Ambedkar stadium", "Daryaganj", "G.B.Pant Hospital", "Mulana Azad Medical College"]
+		},
+		"delta_1_greater_noida": {
+			"name": "Delta 1 Greater Noida",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"depot_greater_noida": {
+			"name": "Depot Greater Noida",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dhansa_bus_stand": {
+			"name": "Dhansa Bus Stand",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7428591275,7290046026.",
+			"gates": {
+				"1": "Fire Station Side",
+				"2": "MCD Office",
+				"3": "Dhansa Bus Stop"
+			},
+			"landmarks": ["Fire Station Side", "MCD Office", "Dhansa Bus Stop"]
+		},
+		"dhaula_kuan": {
+			"name": "Dhaula Kuan",
+			"aliases": [],
+			"description": "The Dhaula Kuan Metro Station is an only elevated station located on theAirport Express Linealso known as “Orange Line” of theDelhi Metro and also provides crucial connecting link with “Pink Line” for passengers through foot-overbridge (FOB) having travelator facility for smooth transition. This station is located at the point which provides roadways service to multi-modal travelers for Rajasthan and Haryana. The station also provides seamless connectivity to the India’s busiest Airport the IGI Terminal 3 & 2 and New Delhi Railway Station.",
+			"gates": {
+				"1": "NH-8 Side",
+				"2": "Jheel Side"
+			},
+			"landmarks": ["NH-8 Side", "Jheel Side"]
+		},
+		"dilli_haat_ina": {
+			"name": "Dilli Haat INA",
+			"aliases": [],
+			"description": "The DILLI HAAT INA metro station is the Sixteenth (16) station on Majlis Park - Shiv Vihar corridor (Line 7 - Pink Line) of Delhi metro' longest line having 38 Stations. DILLI HAAT - INA is an underground Interchange station between Yellow and Pink line. It is situated on the Sri Aurobindo Marg. The station provides hassle free interchange facility between the Yellow line and the Pink line of Delhi metro.\r\nThere are four platforms namely- 1,2,3,4 in which platforms -1(train for Huda City center) and 2 (train for Samaypur badli) are associated with Yellow line of The DILLI HAAT INA metro station whereas platforms -3(train for Majlis Park) and 4 (train for Shiv Vihar) are associated with Pink line of The DILLI HAAT INA metro station.\r\nThere are six entry-exit gates namely -1,2,3,4,5,6 available at the station in which gates -1,2,3 are under control of Yellow line of The DILLI-HAAT INA metro station whereas gates -4,5,6 belong to the Pink line of The DILLI HAAT INA metro station. The nearby important connecting areas & market places are the INA market, Laxmi Bai Nagar, Maharaja Agrasen Road, Sri Aurobindo Marg, Dilli haat complex, Kidwai Nagar, Kashmiri Haat, Tyagraj Stadium, Vikash Sadan & Sarojni Nagar Market.",
+			"gates": {
+				"6": "Towards INA Market",
+				"5": "Towards Dilli Haat",
+				"4": "Towards Laxmibai Nagar,Sanjay Lake",
+				"3": "Towards West Kidwai Nagar",
+				"2": "Towards INA Market",
+				"1": "Towards Dilli Haat"
+			},
+			"landmarks": ["Towards INA Market", "Towards Dilli Haat", "Towards Laxmibai Nagar,Sanjay Lake", "Towards West Kidwai Nagar"]
+		},
+		"dilshad_garden": {
+			"name": "Dilshad Garden",
+			"aliases": [],
+			"description": "Dilshad Garden is one of the elevated station of Red line. It is at border area of Delhi and Uttar Pradesh.",
+			"gates": {
+				"1": "Towards Parking",
+				"2": "Towards Dilshad Colony"
+			},
+			"landmarks": ["Towards Parking", "Towards Dilshad Colony"]
+		},
+		"dlf_phase_3": {
+			"name": "DLF Phase 3",
+			"aliases": [],
+			"description": "Phase-3 Station is a station in Rapid Metro Gurgaon. The next station from Phase-3 station towards Sector 55-56 is Phase-2 and towards the other end is Moulsari Avenue station. Phase-3 station is connected to DMRC’s Yellow line through Sikanderpur Metro Station.Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800006.",
+			"gates": {
+				"2": "Towards Building no-9",
+				"1": "Towards U Block"
+			},
+			"landmarks": ["Towards Building no-9", "Towards U Block"]
+		},
+		"dr_baba_saheb_ambedkar_hospital": {
+			"name": "Rohini West",
+			"aliases": [],
+			"description": "At Rohini West (RHW) station we have unity one Mall and city center Mall with Multilevel parking at gate number 3.",
+			"gates": {
+				"3": "Unity Mall",
+				"2": "Towards BR Ambedkar Hospital",
+				"1": "SEC-6 ROHINI"
+			},
+			"landmarks": ["Unity Mall", "Towards BR Ambedkar Hospital", "SEC-6 ROHINI"]
+		},
+		"duhai": {
+			"name": "Duhai",
+			"aliases": [],
+			"description": "1. Duhai is fourth station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Duhai is an elevated station. 2. Duhai Namo Bharat Station is located on Delhi -Meerut road and serves Duhai and Morta village of Ghaziabad. 3. Eastern Peripheral Expressway (EPE) is in the close proximity of the station. 4. Duhai is a divyangjan friendly station.",
+			"gates": {
+				"1": "Towards Delhi end on road going to Meerut, near Drizzling Land Water Park",
+				"2": "Towards Meerut end on road going to Meerut, near Babu Banarasi Das Institute of Technology",
+				"3": "Towards Meerut end on road going to Delhi, near IAMR Group of Institution's",
+				"4": "Towards Delhi end on road going to Delhi"
+			},
+			"landmarks": ["Towards Delhi end on road going to Meerut, near Drizzling Land Water Park", "Towards Meerut end on road going to Meerut, near Babu Banarasi Das Institute of Technology", "Towards Meerut end on road going to Delhi, near IAMR Group of Institution's", "Towards Delhi end on road going to Delhi"]
+		},
+		"duhai_depot": {
+			"name": "Duhai Depot",
+			"aliases": [],
+			"description": "1. Duhai Depot station is on Spur Line between Duhai and Duhai Depot on the presently operational section of Sahibabad to Modinagar North. Duhai Depot is an at grade station. 2. Duhai Depot Namo Bharat station is located on the Duhai-Bhikanpur Road and serves Duhai depot, Bhikanpur Village and nearby areas. 3. Duhai Depot is a divyangjan friendly station.",
+			"gates": {
+				"1": "Towards the Eastern Peripheral Highway (EPE)",
+				"2": "Towards the Eastern Peripheral Highway (EPE)",
+				"3": "Towards Duhai Depot and Village Bhikanpur."
+			},
+			"landmarks": ["Towards the Eastern Peripheral Highway (EPE)", "Towards Duhai Depot and Village Bhikanpur."]
+		},
+		"durgabai_deshmukh_south_campus": {
+			"name": "Durgabai Deshmukh South Campus",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448088767,7290013409.",
+			"gates": {
+				"2": "Smriti vatika, San Martin park, Northern railway eco park",
+				"1": "Sh. Venkateswar College, Satya Niketan"
+			},
+			"landmarks": ["Smriti vatika, San Martin park, Northern railway eco park", "Sh. Venkateswar College, Satya Niketan"]
+		},
+		"dwarka_kakrola": {
+			"name": "Dwarka",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793188,7290038098.",
+			"gates": {
+				"2": "CRPF Quarters, Vipin Garden, Nand Vihar",
+				"1": "CRPF Quarters, Kakrola Gaon",
+				"4": "CRPF Quarters,Vipin Garden, Nand Vihar",
+				"3": "CRPF Quarters,Vipin Garden, Nand Vihar"
+			},
+			"landmarks": ["CRPF Quarters, Vipin Garden, Nand Vihar", "CRPF Quarters, Kakrola Gaon", "CRPF Quarters,Vipin Garden, Nand Vihar"]
+		},
+		"dwarka_mor": {
+			"name": "Dwarka Mor",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793188,7290038098.",
+			"gates": {
+				"2": "Sewak Park Side",
+				"1": "Rama Park Side"
+			},
+			"landmarks": ["Sewak Park Side", "Rama Park Side"]
+		},
+		"dwarka_sector_10": {
+			"name": "Dwarka Sector 10",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as PNB Dwarka Sector 10 metro station. For more information or queries kindly contact station officer at the following contact number: 8800793194.",
+			"gates": {
+				"2 (Entry)": "Dwarka Court",
+				"1 (Entry)": "Welcome Hotel, PNB Corporate Office",
+				"3 (Exit)": "District court, Indira Gandhi Hospital",
+				"4 (Exit)": "NB , Welcome Hotel, NHAI, NCTE"
+			},
+			"landmarks": ["Dwarka Court", "Welcome Hotel, PNB Corporate Office", "District court, Indira Gandhi Hospital", "NB , Welcome Hotel, NHAI, NCTE"]
+		},
+		"dwarka_sector_11": {
+			"name": "Dwarka Sector 11",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793193,7290045015.",
+			"gates": {
+				"1": "Ambrahi Village",
+				"2": "St. Gregorious School"
+			},
+			"landmarks": ["Ambrahi Village", "St. Gregorious School"]
+		},
+		"dwarka_sector_12": {
+			"name": "Dwarka Sector 12",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793192,7290043013.",
+			"gates": {
+				"2": "City Centre Mall",
+				"1": "Service Road"
+			},
+			"landmarks": ["City Centre Mall", "Service Road"]
+		},
+		"dwarka_sector_13": {
+			"name": "Dwarka Sector 13",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793191,7290042082.",
+			"gates": {
+				"2": "Reliance Shopping Mall",
+				"1": "Abhinav Globel School"
+			},
+			"landmarks": ["Reliance Shopping Mall", "Abhinav Globel School"]
+		},
+		"dwarka_sector_14": {
+			"name": "Dwarka Sector 14",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793190,7290042062.",
+			"gates": {
+				"2": "Bharat Vihar",
+				"1": "National Law University, IP University"
+			},
+			"landmarks": ["Bharat Vihar", "National Law University, IP University"]
+		},
+		"dwarka_sector_21": {
+			"name": "Dwarka Sector 21",
+			"aliases": [],
+			"description": "The Dwarka Sector-21 Metro Station is an underground station located on theAirport Express Linealso known as “Orange Line” of theDelhi Metro. This station is located near Asia’s largest residential area, Dwarka. The station provides hassle-free interchange facility with “Blue Line” of the Delhi Metro. The station also provides seamless connectivity to the India’s busiest Airport the IGI Terminal 3 & 2 and New Delhi Railway Station.",
+			"gates": {
+				"2": "DWARKA SECTOR 21 PICK & DROP AREA",
+				"1": "DWARKA SECTOR 21 PICK & DROP AREA",
+				"5": "DWARKA SECTOR 21 PICK & DROP AREA",
+				"4": "DWARKA SECTOR 21 PICK & DROP AREA",
+				"3": "DWARKA SECTOR 21 PICK & DROP AREA"
+			},
+			"landmarks": ["DWARKA SECTOR 21 PICK & DROP AREA"]
+		},
+		"dwarka_sector_8": {
+			"name": "Dwarka Sector 8",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793196,.",
+			"gates": {
+				"1": "Special Protection Group staff quarters, Dwarka Sec-21 Airport express line depot"
+			},
+			"landmarks": ["Special Protection Group staff quarters, Dwarka Sec-21 Airport express line depot"]
+		},
+		"dwarka_sector_9": {
+			"name": "Dwarka Sector 9",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793195,.",
+			"gates": {
+				"2": "Gas Agency",
+				"1": "Sector - 23 Marble Market"
+			},
+			"landmarks": ["Gas Agency", "Sector - 23 Marble Market"]
+		},
+		"east_azad_nagar": {
+			"name": "East Azad Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282938,7290014436.",
+			"gates": {
+				"2": "Bhola Nath Nagar",
+				"1": "East Azad Nagar"
+			},
+			"landmarks": ["Bhola Nath Nagar", "East Azad Nagar"]
+		},
+		"east_vinod_nagar_mayur_vihar_ii": {
+			"name": "Vinod Nagar East",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282931,7290069426.",
+			"gates": {
+				"2": "Sports Complex, East Vinod Nagar",
+				"1": "Pocket C, East Vinod Nagar"
+			},
+			"landmarks": ["Sports Complex, East Vinod Nagar", "Pocket C, East Vinod Nagar"]
+		},
+		"escorts_mujesar": {
+			"name": "Escorts Mujesar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7042398162,7290084930.",
+			"gates": {
+				"3": "Motor Repair Market",
+				"2": "Main Mathura Road",
+				"1": "Main Mathura Road"
+			},
+			"landmarks": ["Motor Repair Market", "Main Mathura Road"]
+		},
+		"esi_basaidarapur": {
+			"name": "ESI BASAI DARAPUR",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448088762,7290013407.",
+			"gates": {
+				"2": "ESI Hospital,ISCKON Punjabi Bagh, Sudarshan park, Bali nagar, ESI colony, Punjabi Bagh club",
+				"1": "Rajdhani college, Shivaji college, Basaidarapur, Rajouri garden, Tagore garden EXT., Director Gen. of Home guards"
+			},
+			"landmarks": ["ESI Hospital,ISCKON Punjabi Bagh, Sudarshan park, Bali nagar, ESI colony, Punjabi Bagh club", "Rajdhani college, Shivaji college, Basaidarapur, Rajouri garden, Tagore garden EXT., Director Gen. of Home guards"]
+		},
+		"ghaziabad": {
+			"name": "Ghaziabad",
+			"aliases": [],
+			"description": "1. Ghaziabad is second station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Ghaziabad is an elevated station. 2. Ghaziabad Namo Bharat Station is located at Meerut trisection in the city of Ghaziabad and serves Arya Nagar, Seva Nagar, Bhim Nagar & Patel Nagar. 3. Ghaziabad Railway Station (approx. 3 KM) and Shaheed Sthal New Bus Adda Metro Station (approx. 250 M) are in the proximity of Ghaziabad Namo Bharat Station. 4. Ghaziabad is a divyangjan friendly station.",
+			"gates": {
+				"1": "Towards Delhi end on road going to Meerut, near Traffic Police Training Centre",
+				"2": "Towards Meerut end on road going to Meerut",
+				"3": "Towards Meerut end, near DMRC Saheed Sthal Metro Station/Meerut Mod Gol Chakkar",
+				"4": "Towards Delhi end, near Mahamaya Stadium",
+				"5": "Towards Meerut end"
+			},
+			"landmarks": ["Towards Delhi end on road going to Meerut, near Traffic Police Training Centre", "Towards Meerut end on road going to Meerut", "Towards Meerut end, near DMRC Saheed Sthal Metro Station/Meerut Mod Gol Chakkar", "Towards Delhi end, near Mahamaya Stadium", "Towards Meerut end"]
+		},
+		"ghevra_metro_station": {
+			"name": "Ghevra",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448788984,7290051061.",
+			"gates": {
+				"2": "Ghevra Railway Station, Sawda Colony",
+				"1": "Shri Vaishno Devi Mandir, Neelwal Gaon"
+			},
+			"landmarks": ["Ghevra Railway Station, Sawda Colony", "Shri Vaishno Devi Mandir, Neelwal Gaon"]
+		},
+		"ghitorni": {
+			"name": "Ghitorni",
+			"aliases": [],
+			"description": "The GHITORNI metro station is an elevated station located on yellow line of the Delhi Metro between Arjangarh and Sultanpur.DMRP PS Ghitorni is located near gate 1. The historical Ghitorni village is located nearby gate 2 which is famous for KUSHTI DANGALS. This is a beautiful urban village surrounded by Green Ridge.\r\nThe Ghitorni market is located nearby station towards Gurugram, which is famous for factory outlets of various brands and stone arts. Many farmhouses are located in nearby area. Sashastra Seema Bal intelligence training school is located nearby gate 1 towards Arjangarh on MG Road",
+			"gates": {
+				"2": "Ghitorni Village",
+				"1": "Gadaipur,DLF Farms"
+			},
+			"landmarks": ["Ghitorni Village", "Gadaipur,DLF Farms"]
+		},
+		"gnida_office": {
+			"name": "GNIDA Office",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gokulpuri": {
+			"name": "Gokulpuri",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282942,7290015758.",
+			"gates": {
+				"2": "Ambedkar College,Dayalpur police station.",
+				"1": "Ganga vihar, Gokulpuri village"
+			},
+			"landmarks": ["Ambedkar College,Dayalpur police station.", "Ganga vihar, Gokulpuri village"]
+		},
+		"golf_course": {
+			"name": "Golf Course",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793156,7290047027.",
+			"gates": {
+				"2": "Noida golf Course",
+				"1": "Arun Vihar Sector 37"
+			},
+			"landmarks": ["Noida golf Course", "Arun Vihar Sector 37"]
+		},
+		"govind_puri": {
+			"name": "Govind Puri",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793226,7290057067.",
+			"gates": {
+				"2": "Govindpuri & Alaknanda, CR Park, Kalkaji Mandir, Desh Bandhu College.",
+				"1": "B.D Chandiwala Hospital, G.B Pant Institute of Technology, Okhla Phase I,II & III, IIIT Delhi, NSIC Exibition Ground"
+			},
+			"landmarks": ["Govindpuri & Alaknanda, CR Park, Kalkaji Mandir, Desh Bandhu College.", "B.D Chandiwala Hospital, G.B Pant Institute of Technology, Okhla Phase I,II & III, IIIT Delhi, NSIC Exibition Ground"]
+		},
+		"greater_kailash": {
+			"name": "Greater Kailash",
+			"aliases": [],
+			"description": "Greater Kailash metrostation is one of the station of Magenta line in close vicinity of residential areas of GK 1 &2. This metro station is near to GK M Block market whichis a hub for fashion lovers and popular restaurants. Savitri Cinema complex, TCS office and TCIL Bhawan is also located at the walking distance from this metro station",
+			"gates": {
+				"3": "CR Park, Greater Kailash Enclave 2, Savitri Cinema Complex",
+				"2": "Pumposh Enclave, TCIL Building, Greater Kailash Enclave 1",
+				"1": "Masjid Moth, DDA Flats, BSES Office"
+			},
+			"landmarks": ["CR Park, Greater Kailash Enclave 2, Savitri Cinema Complex", "Pumposh Enclave, TCIL Building, Greater Kailash Enclave 1", "Masjid Moth, DDA Flats, BSES Office"]
+		},
+		"green_park": {
+			"name": "Green Park",
+			"aliases": [],
+			"description": "The Green Park Metro Station is located on the Yellow Line of the Delhi Metro network ऑन Aurobindo Marg. It is a short walk from Aurobindo Place, located on the same road just south of the station. Places like Yusuf Sarai Market, Green Park Extension, Green Park Market, Gulmohar Park, Gautam Nagar have access from this metro station only.\r\nRestaurants like A2B, Evergreen and the famous National Institute of Fashion Technology can be reached by walk from this metro station.",
+			"gates": {
+				"4": "Safdarganj Enclave,Gurudwara,Arjun Nagar,Green Park Extension",
+				"3": "Deer Park,Hauz Khas Village,Uphar Cinema,Gurudwara,Green Park Extension",
+				"2": "Sirifort Auditorium,Nift,Hauz Khas Market,Gulmohar Enclave,Indian Oil Building",
+				"1": "Yusuf Sarai,Indian Oil Building"
+			},
+			"landmarks": ["Safdarganj Enclave,Gurudwara,Arjun Nagar,Green Park Extension", "Deer Park,Hauz Khas Village,Uphar Cinema,Gurudwara,Green Park Extension", "Sirifort Auditorium,Nift,Hauz Khas Market,Gulmohar Enclave,Indian Oil Building", "Yusuf Sarai,Indian Oil Building"]
+		},
+		"guldhar": {
+			"name": "Guldhar",
+			"aliases": [],
+			"description": "1. Guldhar is third station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Guldhar is an elevated station. 2. Guldhar Namo Bharat Station is located on Delhi -Meerut road and it serves Raj Nagar, Raj Nagar Extension, Sanjay Nagar and Guldhar Village of Ghaziabad. 3. Guldhar Railway Station (approx. 1.3 KM) is in the proximity of Guldhar Namo Bharat Station. 4. Guldhar is a divyangjan friendly station.",
+			"gates": {
+				"1": "Towards Meerut end on road going to Meerut, near Raj Kumar Goel Institute of Technology",
+				"2": "Towards Delhi end on road going to Delhi"
+			},
+			"landmarks": ["Towards Meerut end on road going to Meerut, near Raj Kumar Goel Institute of Technology", "Towards Delhi end on road going to Delhi"]
+		},
+		"guru_dronacharya": {
+			"name": "Guru Dronacharya",
+			"aliases": [],
+			"description": "The Guru Dronacharya Metro Station is an elevated station located on yellow line of the Delhi Metro. The station is first station of Gurugram towards Delhi and located on M G Road\r\nThe Aravali Biodiversity Park is on walking distance towards Delhi.\r\nThere is Global Business Park towards gate no 1 which is a hub for different IT companies. Sikanderpur market is one of the main attractions nearby. Garden estate society is located towards gate no 2.\r\nThe night life of the area is worth watching.",
+			"gates": {
+				"2": "HP Petrol Pump",
+				"1": "Global Business Park"
+			},
+			"landmarks": ["HP Petrol Pump", "Global Business Park"]
+		},
+		"guru_teg_bahadur_nagar": {
+			"name": "Guru Tegh Bahadur Nagar",
+			"aliases": [],
+			"description": "Guru Tegh Bahadur Nagar metro station is an underground station located on the Yellow Line of the Delhi Metro network. Guru Tegh Bahadur Nagar station is located near Dr. Mukherjee Nagar which is Civil Service Coaching Hub, School for Blinds, Rajan Babu Institute of Pulmonary Medicines and Tuberculosis, Delhi University International Girls Hostel and Kamla Nagar market which is one of the Delhi’s major shopping centers.",
+			"gates": {
+				"5": "New Police Line",
+				"4": "Kingsway Camp Chowk",
+				"3": "Hudson Lane",
+				"2": "Batra Cinema",
+				"1": "Outram Lines"
+			},
+			"landmarks": ["New Police Line", "Kingsway Camp Chowk", "Hudson Lane", "Batra Cinema", "Outram Lines"]
+		},
+		"haiderpur_badli_mor": {
+			"name": "Haiderpur Badli Mor",
+			"aliases": [],
+			"description": "Haiderpur Badli Mor Metro station is an elevated station located on the Yellow line of DMRC network. \r\nIt is located near Mukarba chowk (Karnal Bypass) on Outer Ring Road, approx 2.1 km, which provide seamless connectivity with roadways. Important nearby place include Max hospital (Shalimaar Bagh), approx 400 mtrs and Passport office is approx 800 mtrs. Sanjay Gandhi Transport Nagar is approx 2.6 km from Haiderpur Badli Mor Metro station.",
+			"gates": {
+				"3": "Max Hospital,Shalimar Bagh",
+				"2": "Max Hospital, Shalimar Bagh Delhi",
+				"1": "Badli Village"
+			},
+			"landmarks": ["Max Hospital,Shalimar Bagh", "Max Hospital, Shalimar Bagh Delhi", "Badli Village"]
+		},
+		"haiderpur_village": {
+			"name": "Haiderpur Village",
+			"aliases": [],
+			"description": "Haiderpur Badli Mor Metro station is an elevated station located on the Yellow line of DMRC network. \r\nIt is located near Mukarba chowk (Karnal Bypass) on Outer Ring Road, approx 2.1 km, which provide seamless connectivity with roadways. Important nearby place include Max hospital (Shalimaar Bagh), approx 400 mtrs and Passport office is approx 800 mtrs. Sanjay Gandhi Transport Nagar is approx 2.6 km from Haiderpur Badli Mor Metro station.",
+			"gates": {
+				"3": "Max Hospital,Shalimar Bagh",
+				"2": "Max Hospital, Shalimar Bagh Delhi",
+				"1": "Badli Village"
+			},
+			"landmarks": ["Max Hospital,Shalimar Bagh", "Max Hospital, Shalimar Bagh Delhi", "Badli Village"]
+		},
+		"harkesh_nagar_okhla": {
+			"name": "Okhla",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 880079327,7290057077.",
+			"gates": {
+				"4": "Harkesh Nagar, Sanjay Colony, Okhla Phase 1,2&3.",
+				"3": "Harkesh Nagar, Sanjay Colony, Okhla Phase 1,2&3.",
+				"2": "Harkesh Nagar, Sanjay Colony, Okhla Phase 1,2&3.",
+				"1": "Shamshaan Ghat, IIIT Delhi"
+			},
+			"landmarks": ["Harkesh Nagar, Sanjay Colony, Okhla Phase 1,2&3.", "Shamshaan Ghat, IIIT Delhi"]
+		},
+		"hauz_khas": {
+			"name": "Hauz Khas",
+			"aliases": [],
+			"description": "Hauz Khas Metro Station is an underground interchange station which connects and reduces the travel time between Noida and Gurugram by approximately 30 minutes. It is the deepest metro station of DMRC and a civil engineering marvel composed of 7 technical levels.",
+			"gates": {
+				"4": "Kalu Sarai",
+				"2": "Laxman Public School",
+				"1": "Outer Ring Road Towards Iit",
+				"3": "Shri Krishna Chaitanya Mahaprabhu marg"
+			},
+			"landmarks": ["Kalu Sarai", "Laxman Public School", "Outer Ring Road Towards Iit", "Shri Krishna Chaitanya Mahaprabhu marg"]
+		},
+		"hindon_river": {
+			"name": "Hindon River",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303498347,7290018832.",
+			"gates": {
+				"1": "Hindon Vihar, Nandgram",
+				"2": "Sai Upvan Temple, Hindon Ghat"
+			},
+			"landmarks": ["Hindon Vihar, Nandgram", "Sai Upvan Temple, Hindon Ghat"]
+		},
+		"iffco_chowk": {
+			"name": "IFFCO Chowk",
+			"aliases": [],
+			"description": "Iffco chowk station is a station of DMRC yellow line. The station was opened for the public on 21 June 2010 as the intermediate and elevated station on yellow line corridor. Iffco chowk is a double line station. The next station from Iffco chowk station towards Samaypur Badli is M.G. Road and towards huda city center is huda city center. The station has three main entrances/exits. Iffco chowk metro station is a world-class metro rail station owned and operated by DMRC.",
+			"gates": {
+				"3": "Umkal Hospital",
+				"2": "Iffco Tower",
+				"1": "Bus Stand Towards M.G. Road"
+			},
+			"landmarks": ["Umkal Hospital", "Iffco Tower", "Bus Stand Towards M.G. Road"]
+		},
+		"iit": {
+			"name": "IIT Delhi",
+			"aliases": [],
+			"description": "IIT DELHI Metro Station is one of the stations of Magenta line. Famous places like Rose Garden, Deer Park and Hauz Khas Village are in close vicinity of this station. It is the key connectivity point to India’s prestigious educational institution IIT Delhi.",
+			"gates": {
+				"3": "IIT INSTITUTE",
+				"2": "SDA MARKET",
+				"1": "ROSE GARDEN"
+			},
+			"landmarks": ["IIT INSTITUTE", "SDA MARKET", "ROSE GARDEN"]
+		},
+		"inderlok": {
+			"name": "Inderlok",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793112,.",
+			"gates": {
+				"6": "CISF Dog Training Area",
+				"5": "Nirankari Bhawan",
+				"4": "Cooler Market",
+				"3": "Aadhaar Centre",
+				"2": "D.D.A Park Shastri Nagar",
+				"1": "Aadhaar Centre"
+			},
+			"landmarks": ["CISF Dog Training Area", "Nirankari Bhawan", "Cooler Market", "Aadhaar Centre", "D.D.A Park Shastri Nagar"]
+		},
+		"indraprastha": {
+			"name": "Indraprastha",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793133,7290051288.",
+			"gates": {
+				"1": "Mahatma Gandhi Marg, Ip Estate",
+				"2": "Near DTC headquarters"
+			},
+			"landmarks": ["Mahatma Gandhi Marg, Ip Estate", "Near DTC headquarters"]
+		},
+		"ip_extension": {
+			"name": "IP Extension",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282933,7290011274.",
+			"gates": {
+				"2": "National Victor Public School",
+				"1": "Max Hospital"
+			},
+			"landmarks": ["National Victor Public School", "Max Hospital"]
+		},
+		"ito": {
+			"name": "ITO",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9910977599,7290091461.",
+			"gates": {
+				"6": "Cr Building",
+				"5": "Police Head Quarter",
+				"4": "Passport Office",
+				"3": "Ugc,Foreign Post Office",
+				"2": "Mata Sundari College",
+				"1": "Andhara School,Gandhi Peace Foundation"
+			},
+			"landmarks": ["Cr Building", "Police Head Quarter", "Passport Office", "Ugc,Foreign Post Office", "Mata Sundari College", "Andhara School,Gandhi Peace Foundation"]
+		},
+		"jafrabad": {
+			"name": "Jaffrabad",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282940,7290014910.",
+			"gates": {
+				"2": "Janta Colony, BSES Office",
+				"1": "Zeenat Mahal School, Jafrabad"
+			},
+			"landmarks": ["Janta Colony, BSES Office", "Zeenat Mahal School, Jafrabad"]
+		},
+		"jagatpur_wazirabad": {
+			"name": "Jagatpur - Wazirabad",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "Gopalpur Crossing & Gopalpur Village",
+				"2": "Wazirabad Village, Jajatpur Village"
+			},
+			"landmarks": ["Gopalpur Crossing & Gopalpur Village", "Wazirabad Village, Jajatpur Village"]
+		},
+		"jahangirpuri": {
+			"name": "Jahangirpuri",
+			"aliases": [],
+			"description": "Jahangirpuri Metro station is an elevated station located on the Yellow line of DMRC network. \r\nIt is located near Jahangirpuri Industrial area is approx 1.8 km and Babu Jagjivan Ram Hospital is approx 800 mtrs. Important nearby places include Adarsh Nagar railway station and GTK Bus Depot which provide seamless connectivity with Indian railway and roadways. The famous Mukarba Chowk(Karnal Bypass) is approx 1.6 km from Jahangirpuri metro station and Sanjay Gandhi Transport Nagar (Approx 2.2 KM).",
+			"gates": {
+				"4": "Jahangirpuri Industrial Area",
+				"3": "Rajasthan Udyog Nagar",
+				"2": "Jahangirpuri Mahendra Park , DDA Flat & A Block",
+				"1": "Jahangirpuri Ram Garh , DDA Flat & A Block"
+			},
+			"landmarks": ["Jahangirpuri Industrial Area", "Rajasthan Udyog Nagar", "Jahangirpuri Mahendra Park , DDA Flat & A Block", "Jahangirpuri Ram Garh , DDA Flat & A Block"]
+		},
+		"jama_masjid": {
+			"name": "Jama Masjid",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9205682371,7290090325.",
+			"gates": {
+				"4": "Subhash Marg",
+				"3": "Lal Quila",
+				"2": "Jama Masjid",
+				"1": "Kasturba Hospital"
+			},
+			"landmarks": ["Subhash Marg", "Lal Quila", "Jama Masjid", "Kasturba Hospital"]
+		},
+		"jamia_millia_islamia": {
+			"name": "JAMIA MILLIA ISLAMIA",
+			"aliases": [],
+			"description": "Jamia Millia Islamia station is one of the Magenta line in close vicinity of Jamia Millia Islamia University, Batla House and Tikona Park. It is very near to . It is thekey connectivity for Joga bai, Jauhar bagh, Noor nagar, okhla village and Jamia community center.",
+			"gates": {
+				"3": "TIKONA PARK",
+				"2": "BATLA HOUSE",
+				"1": "JAMIA MILLIA ISLAMIA UNIVERSITY"
+			},
+			"landmarks": ["TIKONA PARK", "BATLA HOUSE", "JAMIA MILLIA ISLAMIA UNIVERSITY"]
+		},
+		"janakpuri_east": {
+			"name": "Janak Puri East",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793183,7290052455.",
+			"gates": {
+				"3": "Village Nangli Jalib and Janakpuri B1,B2 Block",
+				"2": "Amarleela Hospital and Bharti college",
+				"1": "Mahaveer Nagar and Vikas Puri"
+			},
+			"landmarks": ["Village Nangli Jalib and Janakpuri B1,B2 Block", "Amarleela Hospital and Bharti college", "Mahaveer Nagar and Vikas Puri"]
+		},
+		"janakpuri_west": {
+			"name": "Janak Puri West",
+			"aliases": [],
+			"description": "It is one of the several Elevated for Blue Line & Underground for Magenta Line stations on DMRC's metro network.This station is also known as Distric center. This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793184,7290036046.",
+			"gates": {
+				"3": "District Center,Auto Licencing office",
+				"2": "Shivaji Marg,Najafgarh Road",
+				"1": "Vikaspuri"
+			},
+			"landmarks": ["District Center,Auto Licencing office", "Shivaji Marg,Najafgarh Road", "Vikaspuri"]
+		},
+		"jangpura": {
+			"name": "Jangpura",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793220,163300.",
+			"gates": {
+				"3": "MTNL Building, JLN Stadium",
+				"2": "Jangpura Extension, Bhogal, Nizamuddin Railway Station, Pant Nagar, Eros.",
+				"1": "Electronic Niketan, Scope Complex, Soochna Bhawan."
+			},
+			"landmarks": ["MTNL Building, JLN Stadium", "Jangpura Extension, Bhogal, Nizamuddin Railway Station, Pant Nagar, Eros.", "Electronic Niketan, Scope Complex, Soochna Bhawan."]
+		},
+		"janpath": {
+			"name": "Janpath",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9205682372,7290037871.",
+			"gates": {
+				"4": "Eastern Court",
+				"3": "Cottage Emporium, Kg Marg",
+				"2": "Janpath Market",
+				"1": "Western Court"
+			},
+			"landmarks": ["Eastern Court", "Cottage Emporium, Kg Marg", "Janpath Market", "Western Court"]
+		},
+		"jasola_apollo": {
+			"name": "Jasola",
+			"aliases": [],
+			"description": "Jasola Vihar Shaheen Bagh metro station is one of thestations of magenta line of DMRC. It is a depot connecting station. Living style Mall, Good Samaritan school and Sanjivani Hospital are in close vicinity of this station.",
+			"gates": {
+				"2": "Container Corporation of India (CONCOR), Pacific Premium Outlets, Office of DCP South East District",
+				"1": "Indraprasth Apollo Hospital, Jasola District Park, Netaji Subhash Sports Complex."
+			},
+			"landmarks": ["Container Corporation of India (CONCOR), Pacific Premium Outlets, Office of DCP South East District", "Indraprasth Apollo Hospital, Jasola District Park, Netaji Subhash Sports Complex."]
+		},
+		"jasola_vihar_shaheen_bagh": {
+			"name": "Jasola Vihar Shaheen Bagh",
+			"aliases": [],
+			"description": "Jasola Vihar Shaheen Bagh metro station is one of thestations of magenta line of DMRC. It is a depot connecting station. Living style Mall, Good Samaritan school and Sanjivani Hospital are in close vicinity of this station.",
+			"gates": {
+				"5": "FOB Shaheen Bagh, Allama Shibli Nomani Marg",
+				"4": "DAV School, Living Style Mall, SFS Flats, Sector 7 & 8, Jasola Vihar DDA, Jasola Pocket 1 & 2",
+				"3": "Choudhary Charan Singh Udyan, Delhi Rides, Sarita Vihar,Madanpur Khadar",
+				"2": "Shaheen Bagh Police station,Grave Yard, Okhla Vihar",
+				"1": "Working Women's Hostel(YWCA), Good Samaritan School, HIG Flats, Sec-9A, Jasola Vihar(DDA), DDA Marriage Hall, Govt. Boys/Girls Senior Secondary School(Shaheen Bagh/ Jasola), Sanjeevni Hospital, Jasola Village, Shaheen Bagh Police station, Abdul Fazal Encl"
+			},
+			"landmarks": ["FOB Shaheen Bagh, Allama Shibli Nomani Marg", "DAV School, Living Style Mall, SFS Flats, Sector 7 & 8, Jasola Vihar DDA, Jasola Pocket 1 & 2", "Choudhary Charan Singh Udyan, Delhi Rides, Sarita Vihar,Madanpur Khadar", "Shaheen Bagh Police station,Grave Yard, Okhla Vihar", "Working Women's Hostel(YWCA), Good Samaritan School, HIG Flats, Sec-9A, Jasola Vihar(DDA), DDA Marriage Hall, Govt. Boys/Girls Senior Secondary School(Shaheen Bagh/ Jasola), Sanjeevni Hospital, Jasola Village, Shaheen Bagh Police station, Abdul Fazal Encl"]
+		},
+		"jhandewalan": {
+			"name": "Jhandewalan",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793171,7290051688.",
+			"gates": {
+				"1 A": "Jhandewalan Devi Mandir, Bhartiya Sanskritik Academy, Jhulelal Mandir",
+				"4": "Meghdoot Bhawan",
+				"3": "Hanuman Mandir, Baba Lal Mandir",
+				"2": "Videocon Tower",
+				"1": "Jhandewalan Devi Mandir"
+			},
+			"landmarks": ["Jhandewalan Devi Mandir, Bhartiya Sanskritik Academy, Jhulelal Mandir", "Meghdoot Bhawan", "Hanuman Mandir, Baba Lal Mandir", "Videocon Tower", "Jhandewalan Devi Mandir"]
+		},
+		"jharoda_majra": {
+			"name": "Jharoda Majra",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "SOUTH",
+				"2": "NORTH"
+			},
+			"landmarks": ["SOUTH", "NORTH"]
+		},
+		"jhilmil": {
+			"name": "JhilMil",
+			"aliases": [],
+			"description": "Jhilmil station is one of the elevated station of Red line. There is an industrial area near gate no. 1",
+			"gates": {
+				"1": "Jhilmil Industrial Area",
+				"2": "Towards GT Road"
+			},
+			"landmarks": ["Jhilmil Industrial Area", "Towards GT Road"]
+		},
+		"jln_stadium": {
+			"name": "Jawaharlal Nehru Stadium",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793219,7290054084.",
+			"gates": {
+				"5": "Dayal Singh College",
+				"4": "Lodhi road, NBCC",
+				"3": "JLN Stadium Gate.no 02",
+				"2": "CGO Complex",
+				"1": "Delhi Transco Office"
+			},
+			"landmarks": ["Dayal Singh College", "Lodhi road, NBCC", "JLN Stadium Gate.no 02", "CGO Complex", "Delhi Transco Office"]
+		},
+		"johri_enclave": {
+			"name": "Johri Enclave",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282943,7290015954.",
+			"gates": {
+				"2": "Near Samrat TVS Show room on Loni Road",
+				"1": "Near Arora Restaurant on Loni Road"
+			},
+			"landmarks": ["Near Samrat TVS Show room on Loni Road", "Near Arora Restaurant on Loni Road"]
+		},
+		"jor_bagh": {
+			"name": "Jor Bagh",
+			"aliases": [],
+			"description": "The Jor Bagh Metro Station is Under Ground station . It is located on the yellow line of the delhi metro network below the Aurbindo Marg. The prominent places are Safdar Jung Airport, Airport Authority of India, Air India office Rajeev Gandhi Bhavan. Near by places are institution are Safdar jung Tomb, Lodhi Garden, Safdarjung fire station, Karbala lane, Lodhi colony, Jor bagh.",
+			"gates": {
+				"3": "AAI Office, Safdarjung Airport",
+				"2": "Rajiv Gandhi Bhawan",
+				"1": "Jor Bagh Road, Lodhi Colony, Safdarjung Fire Station, Karbala Lane"
+			},
+			"landmarks": ["AAI Office, Safdarjung Airport", "Rajiv Gandhi Bhawan", "Jor Bagh Road, Lodhi Colony, Safdarjung Fire Station, Karbala Lane"]
+		},
+		"kailash_colony": {
+			"name": "Kailash Colony",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793223,163600.",
+			"gates": {
+				"2": "Lal Path Lab",
+				"1": "Café Coffee Day"
+			},
+			"landmarks": ["Lal Path Lab", "Café Coffee Day"]
+		},
+		"kalindi_kunj": {
+			"name": "Kalindi Kunj",
+			"aliases": [],
+			"description": "Kalindi Kunj Metro Station is 3rd station on Botanical Garden-Janakpuri west corridor (Line-8, Magenta line) of DMRC. It is located at Delhi-Up border on the bank of river Yamuna. Famous places nearby are Atlantic water park, Shaheen Bagh Market, Okhla Barrage, 9 no Yamuna jee Ghat. Madanpur-Khadar, Jaitpur residential area & Mithapur are residential areas nearby.",
+			"gates": {
+				"1": "South-West side towards kalindi kunj mithapur road"
+			},
+			"landmarks": ["South-West side towards kalindi kunj mithapur road"]
+		},
+		"kalkaji_mandir": {
+			"name": "Kalkaji Mandir",
+			"aliases": [],
+			"description": "Kalkaji mandir metro station is one of the interchange stations of DMRC. It connects Magenta line and Violet line of DMRC through a foot over bridge . It is situated very near to major tourist attractions and holistic places of Delhi like Kalkaji mandirLotus Temple and Prachin Bhairav Mandir.",
+			"gates": {
+				"1": "BLOCK 9,KALKAJI ,NEW DELHI,DELHI-110019",
+				"4": "BHAIRAV MANDIR",
+				"3": "MTNL BUILDING",
+				"2": "LOTUS TEMPLE, KALKAJI MANDIR"
+			},
+			"landmarks": ["BLOCK 9,KALKAJI ,NEW DELHI,DELHI-110019", "BHAIRAV MANDIR", "MTNL BUILDING", "LOTUS TEMPLE, KALKAJI MANDIR"]
+		},
+		"kanhaiya_nagar": {
+			"name": "Kanhaiya Nagar",
+			"aliases": [],
+			"description": "Kanhaiya nagar is one of the elevated station of Delhi metro, and near by areas of Kanhaiya nagar are JJ colony, Tri nagar and Ganesh Puran.",
+			"gates": {
+				"1": "Towards Tota Ram Bazaar",
+				"2": "Towards Tri Nagar",
+				"3": "Towards JJ Colony",
+				"4": "Towards MDC Complex"
+			},
+			"landmarks": ["Towards Tota Ram Bazaar", "Towards Tri Nagar", "Towards JJ Colony", "Towards MDC Complex"]
+		},
+		"karkarduma": {
+			"name": "Karkar Duma",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793199,7290049611.",
+			"gates": {
+				"4 (Pink Line)": "TOWARDS KARKARDOOMA VILLAGE",
+				"3 (Pink Line)": "TOWARDS KARKARDOOMA VILLAGE",
+				"2": "SHANTI MUKUND",
+				"1": "KARKARDOOMA VILLAGE, DIAMOND BANQUET HALL"
+			},
+			"landmarks": ["TOWARDS KARKARDOOMA VILLAGE", "SHANTI MUKUND", "KARKARDOOMA VILLAGE, DIAMOND BANQUET HALL"]
+		},
+		"karkarduma_court": {
+			"name": "Karkarduma Court",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282936,7290013853.",
+			"gates": {
+				"2": "Towards Karkarduma Court",
+				"1": "Garg hospital"
+			},
+			"landmarks": ["Towards Karkarduma Court", "Garg hospital"]
+		},
+		"karol_bagh": {
+			"name": "Karol Bagh",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as Karol Bagh Manyavar. For more information or queries kindly contact station officer at the following contact number: 8800793172,7290051711.",
+			"gates": {
+				"8": "Pusa Road",
+				"7": "Rajendra Nagar Block-C",
+				"6": "Pusa Road",
+				"5": "Pusa Road",
+				"4": "Pusa Road",
+				"3": "Pusa Road",
+				"2": "Pusa Road",
+				"1": "Ajmal Khan Road"
+			},
+			"landmarks": ["Pusa Road", "Rajendra Nagar Block-C", "Ajmal Khan Road"]
+		},
+		"kashmere_gate": {
+			"name": "Kashmere Gate",
+			"aliases": [],
+			"description": "Kashmere Gate Metro Station is an underground station which is an interchanging station for passengers traveling on Violet, Yellow and Red Line.\r\nThis station mostly serves people for Maharana Pratap ISBT Kashmere Gate Bus Terminal, Local DTC Bus Stand, Chief Electoral Office, GPO and Motor Spare parts Market. Kashmere Gate Delhi Metro Rail Police station is presents near gate no 01 for handling of any operational/ passengers' issues. This is one of the most massive and busiest metro station in the entire DMRC network.",
+			"gates": {
+				"8": "Maharana Pratap Inter State Bus Terminal ,KASHMERE GATE",
+				"7": "Maharana Pratap Inter State Bus Terminal ,KASHMERE GATE",
+				"6": "Lala Hardev Sahai Marg",
+				"5": "Lala Hardev Sahai Marg",
+				"4": "Lala Hardev Sahai Marg",
+				"3": "Lala Hardev Sahai Marg",
+				"1": "Intercity Smart Bus, Flix Bus, Laxmi Holidays, R S Yadav Smart Bus Pvt. Ltd., Raj Kalpana Travels Pvt. Ltd. and Nuego Travels"
+			},
+			"landmarks": ["Maharana Pratap Inter State Bus Terminal ,KASHMERE GATE", "Lala Hardev Sahai Marg", "Intercity Smart Bus, Flix Bus, Laxmi Holidays, R S Yadav Smart Bus Pvt. Ltd., Raj Kalpana Travels Pvt. Ltd. and Nuego Travels"]
+		},
+		"kaushambi": {
+			"name": "Kaushambi",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793235,7290049599.",
+			"gates": {
+				"3": "Passport office",
+				"2": "Towards Yashoda Hospital and wave cinema",
+				"1": "Towards Mohan Nagar Anand Vihar Road"
+			},
+			"landmarks": ["Passport office", "Towards Yashoda Hospital and wave cinema", "Towards Mohan Nagar Anand Vihar Road"]
+		},
+		"keshav_puram": {
+			"name": "Keshav Puram",
+			"aliases": [],
+			"description": "Keshav Puram is one of the elevated station of Delhi metro, and near by areas of Keshav Puram are Ashok Vihar.",
+			"gates": {
+				"1": "Towards Dispensary, Chotu Ram Dharamshala",
+				"2": "Towards Keshav Puram Residential Area",
+				"3": "Adjacent to parking",
+				"4": "Towards Ashok Vihar"
+			},
+			"landmarks": ["Towards Dispensary, Chotu Ram Dharamshala", "Towards Keshav Puram Residential Area", "Adjacent to parking", "Towards Ashok Vihar"]
+		},
+		"khajuri_khas": {
+			"name": "Khajuri Khas",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "SIGNATURE BRIDGE",
+				"2": "SHRI RAM COLONY(RAJIV NAGAR)"
+			},
+			"landmarks": ["SIGNATURE BRIDGE", "SHRI RAM COLONY(RAJIV NAGAR)"]
+		},
+		"khan_market": {
+			"name": "Khan Market",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793218,7290036096.",
+			"gates": {
+				"4": "Lok Nayak Bhawan",
+				"3": "The Ambassador Hotel",
+				"2": "Pandara Road, Golf Link",
+				"1": "R.S. Junior Modern School, Shahjahan Road"
+			},
+			"landmarks": ["Lok Nayak Bhawan", "The Ambassador Hotel", "Pandara Road, Golf Link", "R.S. Junior Modern School, Shahjahan Road"]
+		},
+		"kirti_nagar": {
+			"name": "Kirti Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793176,7290052077.",
+			"gates": {
+				"1": "Furniture Market"
+			},
+			"landmarks": ["Furniture Market"]
+		},
+		"knowledge_park_ii": {
+			"name": "Knowledge Park II",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kohat_enclave": {
+			"name": "Kohat Enclave",
+			"aliases": [],
+			"description": "It is an elevated station on DMRC's network located near Kohat Enclave.",
+			"gates": {
+				"3": "Kapil Vihar",
+				"1": "Maurya Enclave",
+				"2": "Kohat Enclave"
+			},
+			"landmarks": ["Kapil Vihar", "Maurya Enclave", "Kohat Enclave"]
+		},
+		"krishna_nagar": {
+			"name": "Krishna Nagar",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282937,7290014434.",
+			"gates": {
+				"2": "Vishwas Nagar",
+				"1": "Krishna Nagar Market"
+			},
+			"landmarks": ["Vishwas Nagar", "Krishna Nagar Market"]
+		},
+		"krishna_park_extension": {
+			"name": "Krishna Park Extension",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "DDA PARK",
+				"2": "GURU NANAK NAGAR"
+			},
+			"landmarks": ["DDA PARK", "GURU NANAK NAGAR"]
+		},
+		"lajpat_nagar": {
+			"name": "Lajpat Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as Bureau of Energy Efficiency Lajpat Nagar. This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793221,7290055015.",
+			"gates": {
+				"5 (Pink Line)": "Block 1 Lajpat Nagar Iii",
+				"3": "Defence Colony",
+				"2": "Lajpat Nagar Market",
+				"1": "Parking side-Lajpat Nagar Market"
+			},
+			"landmarks": ["Block 1 Lajpat Nagar Iii", "Defence Colony", "Lajpat Nagar Market", "Parking side-Lajpat Nagar Market"]
+		},
+		"lal_quila": {
+			"name": "Lal Quila",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9205682372,7290037871.",
+			"gates": {
+				"4": "Red Fort",
+				"3": "Netaji Subhash Marg,Yamuna Bazar",
+				"2": "Old Lajpat Rai Market",
+				"1": "Netaji Subhash Marg, Gauri Shankar Mandir"
+			},
+			"landmarks": ["Red Fort", "Netaji Subhash Marg,Yamuna Bazar", "Old Lajpat Rai Market", "Netaji Subhash Marg, Gauri Shankar Mandir"]
+		},
+		"laxmi_nagar": {
+			"name": "Laxmi Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. This station is also known as Laxmi Nagar Tecno. For more information or queries kindly contact station officer at the following contact number: 8800793202,7290049455.",
+			"gates": {
+				"5": "NEAR INDUSIND BANK ATM",
+				"4": "NEAR PATEL HOSPITAL",
+				"3": "NEAR PATEL HOSPITAL",
+				"2": "NEAR GANESH KACHUARI RED LIGHT",
+				"1": "NEAR CGHS DISPENSERY"
+			},
+			"landmarks": ["NEAR INDUSIND BANK ATM", "NEAR PATEL HOSPITAL", "NEAR GANESH KACHUARI RED LIGHT", "NEAR CGHS DISPENSERY"]
+		},
+		"lok_kalyan_marg": {
+			"name": "Lok Kalyan Marg",
+			"aliases": [],
+			"description": "The Lok Kalyan Marg Metro Station is an Underground station located on the Yellow Line of the Delhi Metro network , formerly also known as Race Course Metro Station.\r\nNagaland house and Tughlak road police station are located on the opposite side of the station gate number 1 and 2 respectively . The importance of this station is further enchanced by its close proximity to some prominent places such as the Prime minister’s House , Prime minister Office ,All the Embassy , Rail Museusm, Safdarjung Tomb , Nehru Memorial Library , Yaswant Palace , Gymkhana Club and Race Course. Some luxurious hotels and colleges are also located near it, which include Ashoka , Taj Palace , Claridge’s , Samrat , ITC Maurya , Jesus and Mary college, Maitri College, Air Force School.",
+			"gates": {
+				"2": "APJ ABDUL KALAM ROAD",
+				"1": "NAGALAND HOUSE"
+			},
+			"landmarks": ["APJ ABDUL KALAM ROAD", "NAGALAND HOUSE"]
+		},
+		"madipur": {
+			"name": "Madipur",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793207,7290047211.",
+			"gates": {
+				"2": "Railways Reservation Counter",
+				"1": "Madipur Village"
+			},
+			"landmarks": ["Railways Reservation Counter", "Madipur Village"]
+		},
+		"maharaja_surajmal_stadium": {
+			"name": "Maharaja Surajmal Stadium",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793212,7290021056.",
+			"gates": {
+				"2": "Maharaja Surajmal Stadium",
+				"1": "Rail Neer Plant"
+			},
+			"landmarks": ["Maharaja Surajmal Stadium", "Rail Neer Plant"]
+		},
+		"majlis_park": {
+			"name": "Majlis Park",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448088756,7290013281.",
+			"gates": {
+				"2": "Exit Towards Arihant Marg",
+				"1": "Entry From Arihant Marg"
+			},
+			"landmarks": ["Exit Towards Arihant Marg", "Entry From Arihant Marg"]
+		},
+		"major_mohit_sharma_rajendra_nagar": {
+			"name": "Major Mohit Sharma",
+			"aliases": [],
+			"description": "Major Mohit Sharma Rajendra Nagar Metro Station is elevated station located at Line 1 also known as Red Line. Asia's largest and biggest Hindon Air Force base is just 4.5 kilometres away from here.",
+			"gates": {
+				"1": "Near Bikanervala",
+				"2": "Near Durga Industrial Park"
+			},
+			"landmarks": ["Near Bikanervala", "Near Durga Industrial Park"]
+		},
+		"malviya_nagar": {
+			"name": "Malviya Nagar",
+			"aliases": [],
+			"description": "The Malviya Nagar Metro Station is an underground station located on the Yellow Line of the Delhi Metro network.\r\nIt is located just north of Saket's A block. The nearby prominent places are the PVR Cinemas multiplex, Max Hospital, Saket Court, Select CITYWALK a shopping center etc.It is nearer to Geetanjali Enclave.",
+			"gates": {
+				"4": "PVR Anupam Saket",
+				"3": "Select City Walk Mall,Max Hospital,Saket Court",
+				"1": "Mvnr Ps,Geetanjali Enclave"
+			},
+			"landmarks": ["PVR Anupam Saket", "Select City Walk Mall,Max Hospital,Saket Court", "Mvnr Ps,Geetanjali Enclave"]
+		},
+		"mandawali_west_vinod_nagar": {
+			"name": "Mandawali - West Vinod Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282932,7290069427.",
+			"gates": {
+				"1": "Delhi Jal Board"
+			},
+			"landmarks": ["Delhi Jal Board"]
+		},
+		"mandi_house": {
+			"name": "Mandi House",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793168,7290069421.",
+			"gates": {
+				"4": "National School Of Drama",
+				"3": "National School Of Drama",
+				"2": "Sikandara Road",
+				"1": "Himachal Bhawan"
+			},
+			"landmarks": ["National School Of Drama", "Sikandara Road", "Himachal Bhawan"]
+		},
+		"mansarovar_park": {
+			"name": "Mansarovar Park",
+			"aliases": [],
+			"description": "The Mansarovar park metro station is elevated station located between Jhilmil metro station and Shahdara metro station on line 1 know as Red line. one of it's entry is directly connected to GT road flyover. It is connected to TAHIR PUR Road and maharaja surajmal marg",
+			"gates": {
+				"1": "Jhilmil Industrial Area",
+				"2": "GT Road Flyover, Swami Dayanand Hospital, IHBAS, GTB Hospital"
+			},
+			"landmarks": ["Jhilmil Industrial Area", "GT Road Flyover, Swami Dayanand Hospital, IHBAS, GTB Hospital"]
+		},
+		"maujpur_babarpur": {
+			"name": "Maujpur",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282941,7290015488.",
+			"gates": {
+				"5": "Babarpur, Durgapuri",
+				"4": "Babarpur, Jyoti Colony, Durgapuri",
+				"3": "Kabir Nagar ,Kardam Puri",
+				"2": "Vijay Park,Yamuna Vihar",
+				"1": "Mujpur Chowk,Ghonda"
+			},
+			"landmarks": ["Babarpur, Durgapuri", "Babarpur, Jyoti Colony, Durgapuri", "Kabir Nagar ,Kardam Puri", "Vijay Park,Yamuna Vihar", "Mujpur Chowk,Ghonda"]
+		},
+		"mayapuri": {
+			"name": "Maya Puri",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448088764,7290012979.",
+			"gates": {
+				"2": "DTC Mayapuri Depot",
+				"1": "Priyadarshni Park"
+			},
+			"landmarks": ["DTC Mayapuri Depot", "Priyadarshni Park"]
+		},
+		"mayur_vihar_extension": {
+			"name": "Mayur Vihar Extention",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793162,7290024759.",
+			"gates": {
+				"2": "Club Avenue Road",
+				"1": "Service lane to Sahkarita Marg"
+			},
+			"landmarks": ["Club Avenue Road", "Service lane to Sahkarita Marg"]
+		},
+		"mayur_vihar_i": {
+			"name": "Mayur Vihar Phase-1",
+			"aliases": [],
+			"description": "Phase-1 station is a station in Rapid Metro Gurgaon. From Phase-1 station towards Sector 55-56 the next station is Sector 42-43 Chowk and towards the other end is Sikanderpur.Phase-1 station is connected to DMRC’s Yellow line through Sikanderpur Metro Station. Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800006",
+			"gates": {
+				"4 (Pink Line)": "Transport Authority",
+				"3 (Pink Line)": "Mayur Vihar Phase 1 Infront Of Gate No 02",
+				"2": "Noida Link Road",
+				"1": "IFS Apartment"
+			},
+			"landmarks": ["Transport Authority", "Mayur Vihar Phase 1 Infront Of Gate No 02", "Noida Link Road", "IFS Apartment"]
+		},
+		"meerut_central": {
+			"name": "Meerut Central",
+			"aliases": [],
+			"description": "1. Meerut Central Station is the eighteenth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor.This is a Meerut metro underground station. 2. Meerut Central station is in the Meerut city on the NH 58 highway near Metro Plaza. 3. Meerut Central station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"meerut_north": {
+			"name": "Meerut North",
+			"aliases": [],
+			"description": "1. Meerut North Station is the twenty-third station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is an elevated Meerut metro station. 2. Meerut North station is in the Meerut city on the National Highway 58 near Pallavpuram Phase 1 3. Meerut North station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"meerut_south": {
+			"name": "Meerut South",
+			"aliases": [],
+			"description": "1. Meerut South is eighth station from Delhi end and terminal station from Meerut end on the presently operational section of Sahibabad to Meerut South. Meerut South is an elevated station. 2. The station is located on Delhi-Meerut road and is in the outskirts City of Meerut at its southern end. 3. The starting point of Delhi-Meerut Expressway and Meerut By-pass road is in the close proximity of the station. 4. Meerut South is a divyangjan friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"mes_colony": {
+			"name": "MES Colony",
+			"aliases": [],
+			"description": "1. MES Colony Station is the twenty-first station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. This is an elevated Meerut Metro station. 2. MES Colony station is in the Meerut city on the Roorkee road, near Company Garden (Gandhi Bagh). 3. MES Colony station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"mewala_maharajpur": {
+			"name": "Mewala Maharajpur",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7042398156,7290082723.",
+			"gates": {
+				"3": "Sec-43, 44, 45, Pooja Forge",
+				"2": "S.R.S. IT Park, Mitra",
+				"1": "Havells chowk, Sec-30, Sec-31, Spring Field Colony"
+			},
+			"landmarks": ["Sec-43, 44, 45, Pooja Forge", "S.R.S. IT Park, Mitra", "Havells chowk, Sec-30, Sec-31, Spring Field Colony"]
+		},
+		"mg_road": {
+			"name": "MG Road",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as SYSKA MG ROAD.For more information or queries kindly contact station officer at the following contact number: 8800793152,7290054024.",
+			"gates": {
+				"2": "Mgf Metropoliton Mall",
+				"1": "Dt City Centre Mall"
+			},
+			"landmarks": ["Mgf Metropoliton Mall", "Dt City Centre Mall"]
+		},
+		"millennium_city_centre_gurugram": {
+			"name": "Huda City center",
+			"aliases": [],
+			"description": "Huda city center station is a station of DMRC of yellow line. The station was opened for the public on 21 June 2010 as the starting/ending and elevated station on yellow line corridor. Huda city center is a double line station. The next station from Huda city center station towards Samaypur Badli is IFFCO Chowk. The station has four main entrances/exits. Huda city center is a world-class metro rail station owned and operated by DMRC.",
+			"gates": {
+				"4": "Max Hospital",
+				"3": "Unitech Buisiness Park",
+				"2": "Fortis Hospital",
+				"1": "Fortis Hospital"
+			},
+			"landmarks": ["Max Hospital", "Unitech Buisiness Park", "Fortis Hospital"]
+		},
+		"model_town": {
+			"name": "Model Town",
+			"aliases": [],
+			"description": "Model Town metro station is an elevated station located on the Yellow Line of the Delhi Metro Network.This station is located near Police Station Model Town North-West Delhi and Chhatarsal Stadium.",
+			"gates": {
+				"4": "Gujranwala Town",
+				"3": "Kirpal Bagh",
+				"2": "Tagore Park",
+				"1": "Alpana Cinema"
+			},
+			"landmarks": ["Gujranwala Town", "Kirpal Bagh", "Tagore Park", "Alpana Cinema"]
+		},
+		"modi_nagar_north": {
+			"name": "Modi Nagar North",
+			"aliases": [],
+			"description": "1. Modinagar North is seventh station from Delhi end and terminal station from Meerut end on the presently operational section of Sahibabad to Modinagar North. Modinagar North is an elevated station. 2. Modinagar North Namo Bharat station is located on Delhi-Meerut road and serves the town of Modinagar. 3. Modinagar Railway Station (2 KM), Multanimal Modi College Modinagar (1 KM) and Modi Sugar mill (2.2 KM) are in the close proximity of the station. 4. Modinagar North is a divyangjan friendly station.",
+			"gates": {
+				"1": "Towards Meerut end on road going to Meerut",
+				"2": "Towards Delhi end on road going to Delhi"
+			},
+			"landmarks": ["Towards Meerut end on road going to Meerut", "Towards Delhi end on road going to Delhi"]
+		},
+		"modi_nagar_south": {
+			"name": "Modi Nagar South",
+			"aliases": [],
+			"description": "1. Modinagar South is sixth station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Modinagar South is an elevated station. 2. Modinagar South Namo Bharat station is located on Delhi-Meerut road and serves the town of Modinagar. 3. Modinagar Railway Station (2.1 KM), Modi Sugar mill (1.5 KM) and SRM University (2.8 KM) are in the close proximity of the station. 4. Modinagar South is a divyangjan friendly station.",
+			"gates": {
+				"1": "Towards Meerut end on road going to Meerut",
+				"2": "Towards Delhi end on road going to Delhi"
+			},
+			"landmarks": ["Towards Meerut end on road going to Meerut", "Towards Delhi end on road going to Delhi"]
+		},
+		"modipuram": {
+			"name": "Modipuram",
+			"aliases": [],
+			"description": "1. Modipuram Station is the twenty-fourth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat (RRTS/MRTS) corridor. Modipuram Station is for both RRTS & MRTS station. This is an elevated station. This is the terminal station for both MRTS & RRTS. 2. Modipuram station is in the Meerut city on the National Highway 58 near Panditji Dhaba and Shobhit University. 3. Modipuram station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"mohan_estate": {
+			"name": "Mohan Estate",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793226,7290058078.",
+			"gates": {
+				"2": "DMRC Staff Qtr",
+				"1": "Haldiram"
+			},
+			"landmarks": ["DMRC Staff Qtr", "Haldiram"]
+		},
+		"mohan_nagar": {
+			"name": "Mohan Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303498345,7290018560.",
+			"gates": {
+				"1": "Narendra Mohan Hospital, World Square Mall, Inter-State Bus Stand",
+				"2": "ITS College, Mohan Nagar Bus Stand, Mohan Meakin"
+			},
+			"landmarks": ["Narendra Mohan Hospital, World Square Mall, Inter-State Bus Stand", "ITS College, Mohan Nagar Bus Stand, Mohan Meakin"]
+		},
+		"moolchand": {
+			"name": "Moolchand",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793222,7290055025.",
+			"gates": {
+				"1": "Moolchand Hospital, Andrews Ganj"
+			},
+			"landmarks": ["Moolchand Hospital, Andrews Ganj"]
+		},
+		"moti_nagar": {
+			"name": "Moti Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793177,7290052099.",
+			"gates": {
+				"4": "Kirti Nagar",
+				"3": "Kalra Hospital",
+				"2": "Fun Cinema",
+				"1": "Moti Nagar Market"
+			},
+			"landmarks": ["Kirti Nagar", "Kalra Hospital", "Fun Cinema", "Moti Nagar Market"]
+		},
+		"moulsari_avenue": {
+			"name": "Moulsari Avenue",
+			"aliases": [],
+			"description": "Moulsari Avenue Station is a station in Rapid Metro Gurgaon. The next station from Moulsari Avenue station towards Sector 55-56 is Phase-3 and towards the other end is Cyber City station. Moulsari Avenue station is connected to DMRC’s Yellow line through Sikanderpur Metro Station. Cyber City Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800005.",
+			"gates": {
+				"1": "Moulsari Avenue Road"
+			},
+			"landmarks": ["Moulsari Avenue Road"]
+		},
+		"mundka": {
+			"name": "Mundka",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793216,7290022095.",
+			"gates": {
+				"2": "Metro Parking",
+				"1": "Rohtak Road"
+			},
+			"landmarks": ["Metro Parking", "Rohtak Road"]
+		},
+		"mundka_industrial_area_mia": {
+			"name": "Mundka Industrial Area (MIA)",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448788983,7290051031.",
+			"gates": {
+				"3": "Mundka Depot",
+				"2": "Bakkarwala",
+				"1": "Bakkarwala"
+			},
+			"landmarks": ["Mundka Depot", "Bakkarwala"]
+		},
+		"munirka": {
+			"name": "Munirka",
+			"aliases": [],
+			"description": "Munirkastation is an underground station at Magenta line. There are four entry/exit which connects itCPWD Colony, Vivekanda Marg, Jain Mandir, Munirka Market, Capital Court, DDA Market, RTO office vasant vihar, Vasant Vihar Police station, DTC Depot Vasant Vihar and Institute of Secretariat Training and Management. It is also near to JNU campus, IIT campus and Swami Malai Mandir. It is famous for it’s furniture market.",
+			"gates": {
+				"Subway": "MUNIRKA VILLAGE,MUNIRKA MARKET, CAPITAL COURT, DDA MARKET, VASANT VIHAR POLICE STATION,DTC DEPOT VASANT VIHAR",
+				"3": "MUNIRKA MARKET, CAPITAL COURT, DDA MARKET, VASANT VIHAR POLICE STATION",
+				"2": "CPWD COLONY, JAIN MANDIR",
+				"1": "CPWD COLONY,VIVEKANAND MARG"
+			},
+			"landmarks": ["MUNIRKA VILLAGE,MUNIRKA MARKET, CAPITAL COURT, DDA MARKET, VASANT VIHAR POLICE STATION,DTC DEPOT VASANT VIHAR", "MUNIRKA MARKET, CAPITAL COURT, DDA MARKET, VASANT VIHAR POLICE STATION", "CPWD COLONY, JAIN MANDIR", "CPWD COLONY,VIVEKANAND MARG"]
+		},
+		"murad_nagar": {
+			"name": "Murad Nagar",
+			"aliases": [],
+			"description": "1. Muradnagar is fifth station from Delhi end on the presently operational section of Sahibabad to Modinagar North. Murad Nagar is an elevated station. 2. Murad Nagar Namo Bharat station is located on Delhi-Meerut Road and serves the town of Murad Nagar. 3.Murad Nagar Railway Station (1.6 KM) and Ordinance Factory complex (1.6 KM) are in the close proximity of the station. 4. Murad Nagar is a divyangjan friendly station.",
+			"gates": {
+				"1": "Towards Meerut end on road going to Meerut",
+				"2": "Towards Delhi end on road going to Delhi"
+			},
+			"landmarks": ["Towards Meerut end on road going to Meerut", "Towards Delhi end on road going to Delhi"]
+		},
+		"najafgarh": {
+			"name": "Najafgarh",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7428591276,7290042065.",
+			"gates": {
+				"3": "Jyoti Memorial Hospital",
+				"2": "Govt Boys Sr. Sec School",
+				"1": "Near OPD Primary Health Care"
+			},
+			"landmarks": ["Jyoti Memorial Hospital", "Govt Boys Sr. Sec School", "Near OPD Primary Health Care"]
+		},
+		"nanaksar_sonia_vihar": {
+			"name": "Nanaksar - Sonia Vihar",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "1.DELHI JAL BOARD(EMERGENCY TANK SERVICES) 2.GURUDWARA NANAKSAR SAHAB",
+				"2": "1. BSF WAZIRABAD WATER SPORTS CLUB 2. I &FC DEPARTMENT SONIA VIHAR 3. WATER TREATMENT PLANT ,DJB SONIA VIAHR"
+			},
+			"landmarks": ["1.DELHI JAL BOARD(EMERGENCY TANK SERVICES) 2.GURUDWARA NANAKSAR SAHAB", "1. BSF WAZIRABAD WATER SPORTS CLUB 2. I &FC DEPARTMENT SONIA VIHAR 3. WATER TREATMENT PLANT ,DJB SONIA VIAHR"]
+		},
+		"nangli": {
+			"name": "Nangli",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7428591275,7290046026.",
+			"gates": {
+				"2": "Ranaji Enclave, Sainik Enclave",
+				"1": "Arjun Park, Indira Park, Anand Vihar, Nangli Sakrawati"
+			},
+			"landmarks": ["Ranaji Enclave, Sainik Enclave", "Arjun Park, Indira Park, Anand Vihar, Nangli Sakrawati"]
+		},
+		"nangloi": {
+			"name": "Nangloi",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793213,7290027678.",
+			"gates": {
+				"2": "Govt. Sarvodya Bal / Kanya Vidhalaya Nangloi, Govt Girls Sr. Sec School Nangloi",
+				"1": "Kirari Mor, Delhi Police Staff Quarter"
+			},
+			"landmarks": ["Govt. Sarvodya Bal / Kanya Vidhalaya Nangloi, Govt Girls Sr. Sec School Nangloi", "Kirari Mor, Delhi Police Staff Quarter"]
+		},
+		"nangloi_railway_station": {
+			"name": "Nangloi Railway Station",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793214,7290027679.",
+			"gates": {
+				"2": "Nangloi Railway Station Of Indian Railway, Govt. Boys Senior Secondary School",
+				"1": "Blooming Dales School"
+			},
+			"landmarks": ["Nangloi Railway Station Of Indian Railway, Govt. Boys Senior Secondary School", "Blooming Dales School"]
+		},
+		"naraina_vihar": {
+			"name": "Naraina Vihar",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448088465,7290013925.",
+			"gates": {
+				"2": "Naraina Village",
+				"1": "Road to Ring Road, DDA Market Complex"
+			},
+			"landmarks": ["Naraina Village", "Road to Ring Road, DDA Market Complex"]
+		},
+		"nawada": {
+			"name": "Nawada",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793187,7290038078.",
+			"gates": {
+				"5": "Matiyala Gaon",
+				"4": "Matiyala Gaon",
+				"3": "Kiran Garden",
+				"2": "Nawada Gaon",
+				"1": "Shyam Park"
+			},
+			"landmarks": ["Matiyala Gaon", "Kiran Garden", "Nawada Gaon", "Shyam Park"]
+		},
+		"neelam_chowk_ajronda": {
+			"name": "Neelam Chowk Ajronda",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as LAKHANI ARMAAN NEELAM CHWOKA AJRONDA.For more information or queries kindly contact station officer at the following contact number: 7042398160,7290082725.",
+			"gates": {
+				"3": "18/1 Mathura Road (Opposite Neelam Chowk Ajronda)",
+				"2": "LG04, Crown Plaza Mall, Azad Colony",
+				"1": "Lakhani Armaan, Neelam Chowk, Ajraonda, Mathura Road"
+			},
+			"landmarks": ["18/1 Mathura Road (Opposite Neelam Chowk Ajronda)", "LG04, Crown Plaza Mall, Azad Colony", "Lakhani Armaan, Neelam Chowk, Ajraonda, Mathura Road"]
+		},
+		"nehru_enclave": {
+			"name": "Nehru Enclave",
+			"aliases": [],
+			"description": "Nehru Enclave metrostation is one of the station of Magenta line in close vicinity of Nehru Place Market, Paras Cinema,Deshbandhu college, Ramanujan college, CDoc Fortis Hospital. This metro station is near to Veer Savarkar Govt School and Modi Tower(Nehru Place) whichis a hub for Computer & IT market.",
+			"gates": {
+				"5": "Kalkaji , Veer Savarkar Govt. Sarvodaya Kanya Vidyalaya, CR Park, Deshbandhu College, Ramanujan College, Apollo Cradle Royale Hospital",
+				"4": "Kalkaji , Veer Savarkar Govt. Sarvodaya Kanya Vidyalaya, CR Park, Deshbandhu College, Ramanujan College, Apollo Cradle Royale Hospital",
+				"3": "Kalkaji Extention, JIMS Kalkaji, Bhairav Mandir, Kalkaji Police Station",
+				"2": "Paras Cinema, Nehru Place Market, Modi Tower, International Trade Tower, Paharpur Business Centre",
+				"1": "Chirag Enclave, pamposh Enclave, Eros Intercontinental, Devika Tower, Fortis C-DAC Hospital"
+			},
+			"landmarks": ["Kalkaji , Veer Savarkar Govt. Sarvodaya Kanya Vidyalaya, CR Park, Deshbandhu College, Ramanujan College, Apollo Cradle Royale Hospital", "Kalkaji Extention, JIMS Kalkaji, Bhairav Mandir, Kalkaji Police Station", "Paras Cinema, Nehru Place Market, Modi Tower, International Trade Tower, Paharpur Business Centre", "Chirag Enclave, pamposh Enclave, Eros Intercontinental, Devika Tower, Fortis C-DAC Hospital"]
+		},
+		"nehru_place": {
+			"name": "Nehru Place",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793224,7290055045.",
+			"gates": {
+				"2": "Nehru Place Market, Eros Corporate Tower"
+			},
+			"landmarks": ["Nehru Place Market, Eros Corporate Tower"]
+		},
+		"netaji_subhash_place": {
+			"name": "Netaji Subash Place",
+			"aliases": [],
+			"description": "It is an elevated interchange station on DMRC's network located near Delhi Haat and TV Tower.",
+			"gates": {
+				"1": "Towards LOTS entry",
+				"2": "Towards Service Road",
+				"3": "Towards LOTS entry",
+				"2 (Pink Line)": "D-Mall",
+				"1 (Pink Line)": "Towards Punjab Kesari, Ring Road"
+			},
+			"landmarks": ["Towards LOTS entry", "Towards Service Road", "D-Mall", "Towards Punjab Kesari, Ring Road"]
+		},
+		"new_ashok_nagar": {
+			"name": "New Ashok Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793161,7290021505.",
+			"gates": {
+				"1": "On road going towards New Ashok Nagar Market side",
+				"2": "On road going towards DMRC"
+			},
+			"landmarks": ["On road going towards New Ashok Nagar Market side", "On road going towards DMRC"]
+		},
+		"new_delhi_yellow_airport_line": {
+			"name": "New Delhi",
+			"aliases": [],
+			"description": "The New Delhi Metro Station is an underground station located on theAirport Express Linealso known as “Orange Line” of theDelhi Metro which features City check-in facility. The station provides hassle-free interchange facility with “Yellow Line” of the Delhi Metro. This station is located at one of the busiest railway junction where many important trains to other parts of the country touch/originate. The station also provides seamless connectivity to the India’s busiest Airport the IGI Terminal 3 & 2 and\r\nNew Delhi Railway Station.",
+			"gates": {
+				"4": "Airport line , Civic center",
+				"3": "Kamla Market",
+				"2": "New Delhi Railway Station",
+				"1": "New Delhi Railway Station",
+				"6 (Airport Express)": "Pathway connecting to New Delhi Railway Station",
+				"5 (Airport Express)": "New Delhi Railway Station Road",
+				"7 (Airport Express)": "Bhavbhuti Marg"
+			},
+			"landmarks": ["Airport line , Civic center", "Kamla Market", "New Delhi Railway Station", "Pathway connecting to New Delhi Railway Station", "New Delhi Railway Station Road", "Bhavbhuti Marg"]
+		},
+		"nhpc_chowk": {
+			"name": "N.H.P.C. Chowk",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7042398155,7290059029.",
+			"gates": {
+				"3": "Motor 1 (Luxury Automotive Workshop)",
+				"2": "Jiva Ayurveda",
+				"1": "Kia Motors"
+			},
+			"landmarks": ["Motor 1 (Luxury Automotive Workshop)", "Jiva Ayurveda", "Kia Motors"]
+		},
+		"nirman_vihar": {
+			"name": "Nirman Vihar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793201,7290049477.",
+			"gates": {
+				"5": "V3S MALL",
+				"4": "NIRMAN VIHAR COLONY GATE",
+				"3": "NIRMAN VIHAR COLONY GATE",
+				"2": "TOWARDS MANDAWLI",
+				"1": "V3S MALL"
+			},
+			"landmarks": ["V3S MALL", "NIRMAN VIHAR COLONY GATE", "TOWARDS MANDAWLI"]
+		},
+		"noida_city_centre": {
+			"name": "Noida City Center",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793155,7292047037.",
+			"gates": {
+				"4": "Sector 39, 41, 50 & 51",
+				"3": "Logix mall side",
+				"2": "Sector 39.41,50 & 51",
+				"1": "DMRC parking side"
+			},
+			"landmarks": ["Sector 39, 41, 50 & 51", "Logix mall side", "Sector 39.41,50 & 51", "DMRC parking side"]
+		},
+		"noida_electronic_city": {
+			"name": "Noida Electronic City",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as Bank of Baroda Noida Electronic City Center.For more information or queries kindly contact station officer at the following contact number: 7303294915,7290020682.",
+			"gates": {
+				"3": "Highway Tower, I-Thumb Tower, Graphics Tower, Gol Chakkar sect-62",
+				"2": "Sect-63, H-Block Noida, SBI, PNB,HDFC Bank, Haldiram restaurant, Ginjer Hotel, Domino's",
+				"1": "Near DMRC Parking"
+			},
+			"landmarks": ["Highway Tower, I-Thumb Tower, Graphics Tower, Gol Chakkar sect-62", "Sect-63, H-Block Noida, SBI, PNB,HDFC Bank, Haldiram restaurant, Ginjer Hotel, Domino's", "Near DMRC Parking"]
+		},
+		"noida_sector_101": {
+			"name": "Noida Sector 101",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_137": {
+			"name": "Noida Sector 137",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_142": {
+			"name": "Noida Sector 142",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_143": {
+			"name": "Noida Sector 143",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_144": {
+			"name": "Noida Sector 144",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_145": {
+			"name": "Noida Sector 145",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_146": {
+			"name": "Noida Sector 146",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_147": {
+			"name": "Noida Sector 147",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_148": {
+			"name": "Noida Sector 148",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_15": {
+			"name": "Noida Sector 15",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793160,7290046036.",
+			"gates": {
+				"4": "Nya Bans,Noida Sec-14/15",
+				"3": "Noida Sec-2/4/6",
+				"2": "Traffic Police Authority",
+				"1": "Indian Oil Office"
+			},
+			"landmarks": ["Nya Bans,Noida Sec-14/15", "Noida Sec-2/4/6", "Traffic Police Authority", "Indian Oil Office"]
+		},
+		"noida_sector_16": {
+			"name": "Noida Sector 16",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793159,7290046056.",
+			"gates": {
+				"4": "Bluedart Express Ltd, Noida Post Office, Mcdonald'S",
+				"3": "HCL Technology",
+				"2": "World Trade Tower",
+				"1": "Rajnigandha Factory"
+			},
+			"landmarks": ["Bluedart Express Ltd, Noida Post Office, Mcdonald'S", "HCL Technology", "World Trade Tower", "Rajnigandha Factory"]
+		},
+		"noida_sector_18": {
+			"name": "Noida Sector 18",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793158,7290046076.",
+			"gates": {
+				"2": "GIP, DLF Mall",
+				"1": "Atta Market"
+			},
+			"landmarks": ["GIP, DLF Mall", "Atta Market"]
+		},
+		"noida_sector_50": {
+			"name": "Noida Sector 50",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_51": {
+			"name": "Noida Sector 51",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_76": {
+			"name": "Noida Sector 76",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_81": {
+			"name": "Noida Sector 81",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noida_sector_83": {
+			"name": "Noida Sector 83",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"north_pitampura": {
+			"name": "Pitam Pura",
+			"aliases": [],
+			"description": "Pitampura Metro Station is elevated metro station on red line. It is also known as Madhuban chowk. In the north part isMadhuban appartment , Shiva market , Rama market and Dundial appartment. In the south part is Rohini court , Vishakha enclave , southern Pitampura.",
+			"gates": {
+				"4": "Rohini Court",
+				"3": "South Pitampura, Vishakha Enclave",
+				"2 (Under Construction)": "ROHINI COURT",
+				"1": "Santom Hospital",
+				"2": "PVR Prashant Vihar"
+			},
+			"landmarks": ["Rohini Court", "South Pitampura, Vishakha Enclave", "ROHINI COURT", "Santom Hospital", "PVR Prashant Vihar"]
+		},
+		"nsez_noida": {
+			"name": "NSEZ Noida",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"okhla_bird_sanctuary": {
+			"name": "Okhla Bird Sanctuary",
+			"aliases": [],
+			"description": "Okhla Bird Sanctuary Metro station is name after nearby renowned bird sanctuary Okhla. This is also a feeding Metro station to 'Amity University' and 'HCL' & other IT companies. One other high rise'Supernova Building' is also situated infront of the station.",
+			"gates": {
+				"3": "Mahamaya Flyover",
+				"2": "Supertech Supernova",
+				"1": "Okhla Bird Sanctuary"
+			},
+			"landmarks": ["Mahamaya Flyover", "Supertech Supernova", "Okhla Bird Sanctuary"]
+		},
+		"okhla_nsic": {
+			"name": "Okhla NSIC",
+			"aliases": [],
+			"description": "Okhla NSIC station is one of the Magenta line stations and in close vicinity of LOTUS TEMPLE , OKHLA SABZI MANDI and NSIC OFFICE. It is very near to Okhla Railway Station . It is thekey connectivity for MODI MILL and LOTUS TEMPLE.",
+			"gates": {
+				"3": "NSIC, Okhla Phase-3, Okhla Railway Station, Shambhu Dayal Bagh, Captain Gaur Marg",
+				"2": "NSIC Exhibition Complex, Lotus Temple, Kalkaji Mandir",
+				"1": "NSIC, Okhla Phase-3, Okhla Railway Station, Shambhu Dayal Bagh, Captain Gaur Marg"
+			},
+			"landmarks": ["NSIC, Okhla Phase-3, Okhla Railway Station, Shambhu Dayal Bagh, Captain Gaur Marg", "NSIC Exhibition Complex, Lotus Temple, Kalkaji Mandir"]
+		},
+		"okhla_vihar": {
+			"name": "Okhla Vihar",
+			"aliases": [],
+			"description": "Okhla Vihar Elevated Metro Station situated on Magenta Line of Delhi Metro in close vicinity of Jamia Nagar Police station. It's very near to Okhla head, Al-shifa Hospital, Delhi Electoral office, Abul fazal Enclave andHari Kothi Road.",
+			"gates": {
+				"3": "Abul Fazal Enclave,Hari Kothi Road",
+				"2": "Okhla Head,Canal Colony",
+				"1": "Jamia Nagar Police station,Okhla Head"
+			},
+			"landmarks": ["Abul Fazal Enclave,Hari Kothi Road", "Okhla Head,Canal Colony", "Jamia Nagar Police station,Okhla Head"]
+		},
+		"old_faridabad": {
+			"name": "Old Faridabad",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7290085071,7042398159.",
+			"gates": {
+				"3": "EF3 MALL",
+				"2": "Main Mathura Road",
+				"1": "Sec 16 Faridabad"
+			},
+			"landmarks": ["EF3 MALL", "Main Mathura Road", "Sec 16 Faridabad"]
+		},
+		"palam": {
+			"name": "Palam",
+			"aliases": [],
+			"description": "Palam is one of the most crowded station on Magenta line. It is key connectivity to PALAM railway station and Dwarka Sub City.",
+			"gates": {
+				"3": "PALAM VILLAGE",
+				"2": "PALAM COLONY",
+				"1": "MANGLAPURI BUS TERMINAL"
+			},
+			"landmarks": ["PALAM VILLAGE", "PALAM COLONY", "MANGLAPURI BUS TERMINAL"]
+		},
+		"panchsheel_park": {
+			"name": "Panchsheel Park",
+			"aliases": [],
+			"description": "Panchsheel park station is one of the stations at Magenta line in close vicinity to Savitri Nagar/Sheikh Sarai, Panchsheel Park Colony, Panchsheel Enclave and Malviya nagar Market .Two hospitals namely- Max Super speciality hospital and Pt. Madan Mohan Malaviya Hospital are near this station. Electric bikes from Yolo Bike are also available outside this station for facilitating the commuter .This station provides very comfortable access to the metro rail network for people visiting the very busy Malviya nagar market and adjoining areas.",
+			"gates": {
+				"3": "SOAMI NAGAR (SOUTH)",
+				"2": "PANCHSHEEL ENCLAVE, MAX HOSPITAL",
+				"1": "PANCHSHEEL PARK S-BLOCK, SAVITRI NAGAR"
+			},
+			"landmarks": ["SOAMI NAGAR (SOUTH)", "PANCHSHEEL ENCLAVE, MAX HOSPITAL", "PANCHSHEEL PARK S-BLOCK, SAVITRI NAGAR"]
+		},
+		"pandit_shree_ram_sharma": {
+			"name": "Pandit Shree Ram Sharma",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448788987,7290051091.",
+			"gates": {
+				"2": "MIE Part A",
+				"1": "MIE Part B"
+			},
+			"landmarks": ["MIE Part A", "MIE Part B"]
+		},
+		"pari_chowk_greater_noida": {
+			"name": "Pari Chowk Greater Noida",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"partapur": {
+			"name": "Partapur",
+			"aliases": [],
+			"description": "1. Partapur Station is the thirteenth station from Jangpura Station, on Delhi-Ghaziabad-Meerut Namo Bharat corridor. Partapur is an elevated Meerut metro station. 2. Partapur station is on the outskirts City of Meerut. 3. The starting point of the Delhi-Meerut Expressway and Meerut by-pass road is near the station. 4. Partapur is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"paschim_vihar_east": {
+			"name": "Paschim Vihar (East)",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793208,7290047244.",
+			"gates": {
+				"2": "Ordnance Depot",
+				"1": "Bharti Vidyapeeth College"
+			},
+			"landmarks": ["Ordnance Depot", "Bharti Vidyapeeth College"]
+		},
+		"paschim_vihar_west": {
+			"name": "Paschim Vihar (West)",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793209,7290047299.",
+			"gates": {
+				"2": "PWD Office",
+				"1": "Shanti Kunj Apartment"
+			},
+			"landmarks": ["PWD Office", "Shanti Kunj Apartment"]
+		},
+		"patel_chowk": {
+			"name": "Patel Chowk",
+			"aliases": [],
+			"description": "Patel Chowk Metro Station is an underground station of Yellow Line. It houses the Metro Museum. This station is closest to land mark i.e. Gurudwara Bangla Sahib, Dak Bhawan, Jeevan Tara Building, Reserve Bank of India, Sanchar Bahwan, Kerala house& historical place like Jantar Mantar.",
+			"gates": {
+				"3": "Dak Bhawan, Sanchar Bhawan,NITI Bhawan",
+				"2": "Jantar Mantar, State Bank of India",
+				"1": "Jeevan Tara Building"
+			},
+			"landmarks": ["Dak Bhawan, Sanchar Bhawan,NITI Bhawan", "Jantar Mantar, State Bank of India", "Jeevan Tara Building"]
+		},
+		"patel_nagar": {
+			"name": "Patel Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793174,7290051744.",
+			"gates": {
+				"6": "Kailash Nursing Home",
+				"5": "Near Parking",
+				"4": "Shivaji Marg, Najafgarh Road",
+				"3": "Domino's",
+				"2": "Shivaji Marg, Najafgarh Road",
+				"1": "IDFC First Bank"
+			},
+			"landmarks": ["Kailash Nursing Home", "Near Parking", "Shivaji Marg, Najafgarh Road", "Domino's", "IDFC First Bank"]
+		},
+		"peeragarhi": {
+			"name": "Peera Garhi",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793210,7290025276.",
+			"gates": {
+				"2": "Udyog Nagar Industrial Area",
+				"1": "Ekta Enclave"
+			},
+			"landmarks": ["Udyog Nagar Industrial Area", "Ekta Enclave"]
+		},
+		"phase_1": {
+			"name": "DLF Phase 1",
+			"aliases": [],
+			"description": "Phase-1 station is a station in Rapid Metro Gurgaon. From Phase-1 station towards Sector 55-56 the next station is Sector 42-43 Chowk and towards the other end is Sikanderpur.Phase-1 station is connected to DMRC’s Yellow line through Sikanderpur Metro Station. Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800006",
+			"gates": {
+				"2": "Main Golf Course Road",
+				"1": "Main Golf Course Road"
+			},
+			"landmarks": ["Main Golf Course Road"]
+		},
+		"phase_2": {
+			"name": "DLF Phase 2",
+			"aliases": [],
+			"description": "Phase-2 station is a station in Rapid Metro Gurgaon. From Phase-2 station towards Sector 55-56 the next station is Sikanderpur and towards the other end is Belvedere Towers. Phase-2 station is connected to DMRC’s Yellow line through Sikanderpur Metro Station. Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800002",
+			"gates": {
+				"2": "Towards Yadav Bus Service Side",
+				"1": "Towards Building no-5"
+			},
+			"landmarks": ["Towards Yadav Bus Service Side", "Towards Building no-5"]
+		},
+		"prashant_vihar": {
+			"name": "Uttari Pitampura - Prashant Vihar",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "VIPS",
+				"2": "DEVENTURE HOTEL AND PETROL PUMP"
+			},
+			"landmarks": ["VIPS", "DEVENTURE HOTEL AND PETROL PUMP"]
+		},
+		"pratap_nagar": {
+			"name": "Pratap Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793110,7290048118.",
+			"gates": {
+				"1": "Towards Kishanganj Railway Station",
+				"2": "Towards Sabzi Mandi Railway Station"
+			},
+			"landmarks": ["Towards Kishanganj Railway Station", "Towards Sabzi Mandi Railway Station"]
+		},
+		"preet_vihar": {
+			"name": "Preet Vihar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793200,7290049549.",
+			"gates": {
+				"4": "TOWARDS PNB BANK",
+				"3": "TOWARDS SBI BANK",
+				"2": "TOWARDS CENTRE FOR SIGHT",
+				"1": "TOWARDS SHARP SIGHT CENTRE"
+			},
+			"landmarks": ["TOWARDS PNB BANK", "TOWARDS SBI BANK", "TOWARDS CENTRE FOR SIGHT", "TOWARDS SHARP SIGHT CENTRE"]
+		},
+		"pulbangash": {
+			"name": "Pul Bangash",
+			"aliases": [],
+			"description": "The Pul Bangsh metro station is one of the elevated non interlocking stations of Red Line. Periferal important areas are Kamla Nagar Market, Azad Market, Clock tower , Barf Khana, Sadar Market and Roshan Ara Road. This station has 1 entry gate. Gate no. 1 is differently able Friendly.",
+			"gates": {
+				"1": "Towards Roshanara Road"
+			},
+			"landmarks": ["Towards Roshanara Road"]
+		},
+		"punjabi_bagh": {
+			"name": "Punjabi Bagh",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793205,7290047122.",
+			"gates": {
+				"2": "Punjabi Bagh Transport Nagar, Post Office, Power House",
+				"1": "Punjabi Bagh Railway Colony, Jaidev Park, Bhagwan Das Nagar"
+			},
+			"landmarks": ["Punjabi Bagh Transport Nagar, Post Office, Power House", "Punjabi Bagh Railway Colony, Jaidev Park, Bhagwan Das Nagar"]
+		},
+		"punjabi_bagh_west": {
+			"name": "Punjabi Bagh West",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9999999999,7290020993.",
+			"gates": {
+				"2": "Rohtak Road,Punjabi bagh chauk, Maharaja agarsen Hospital, Shi Hans Satsang bhawan",
+				"1": "Punjabi bagh Club,Traffic training park,Jaidev Park,Karampura,Iskon Punjabi Bagh,Gurudwara Tikana Sahib"
+			},
+			"landmarks": ["Rohtak Road,Punjabi bagh chauk, Maharaja agarsen Hospital, Shi Hans Satsang bhawan", "Punjabi bagh Club,Traffic training park,Jaidev Park,Karampura,Iskon Punjabi Bagh,Gurudwara Tikana Sahib"]
+		},
+		"qutab_minar": {
+			"name": "Qutab Minar",
+			"aliases": [],
+			"description": "The Qutub Minar Metro Station is an Elevated station located on yellow line of the Delhi Metro. The adjoining stations are SAKET (Towards Samai Pur Badli) & Chhatarpur (Towards Huda City center), it is situated on Anuvart Marg adjacent to Mittal Garden.\r\nThis station is also having TSR Halt & Go facility available within the station premises.\r\nQutub Minar Metro Station is having two (02) Entry/Exit(s) namely Gate No.1 & 2.\r\nGate No. 1 is differently-abled friendly Entry meant for Entry from Anuvart Marg, located near to Foot-over Bridge towards North Side of the station on M.B. Road, this gate is also near to station parking entry.\r\nGate No. 2 is differently-abled friendly Exit, located towards South side of the Station on Anuvart Marg, this gate is located near to the Mittal Garden towards Chhatarpur.\r\nSulabh Toilet: There are 02 nos of Sulabh Toilets (01 near Parking lot towards North Side & 01 near Gate no 2 outside Station building gate) are available at Qutub Minar Station\r\nThis station is named after historic monument Qutub Minar, this station apart from tourists also caters to the residents of the Historic Mehrauli Town, Dadabadhi, Mittal Garden, Lado Sarai, Jain Mandir, Picnic Ghat, Andheriya Modh & Chattarpur Pahadi which are located near to the station.",
+			"gates": {
+				"2": "Anuvart Marg",
+				"1": "Anuvart Marg"
+			},
+			"landmarks": ["Anuvart Marg"]
+		},
+		"r_k_puram": {
+			"name": "RK Puram",
+			"aliases": [],
+			"description": "R K Puram is an underground station at magenta line. There are five entry/exit which connect it R K Puram sector 2&3, Jia Sarai, Ber Sarai, Indian Institute of Technology hostel, Institute of Secretariat and Training, Central Soil & Material Research station, Rose garden, Africa avenue road, DDA Sports complex ground, Gamal Abdel Nasser marg.",
+			"gates": {
+				"5": "ENTRY/EXIT FOR IIT HOSTEL,BER SARAI,CENTRAL SOIL & MATERIAL RESEARCH STATION,INSTITUTE OF SECRITARIAT TRAINING AND MANAGEMENT",
+				"4": "ENTRY/EXIT FOR ROSE GARDEN & IIT",
+				"3": "ENTRY/EXIT FOR DDA SPORTS COMPLEX GROUND",
+				"2": "ENTRY/EXIT FOR R .K.PURAM SEC. 3, & R K KHANNA TENNIS STATDIUM",
+				"1": "ENTRY/EXIT FOR R .K.PURAM SEC. 3, & R K KHANNA TENNIS STATDIUM"
+			},
+			"landmarks": ["ENTRY/EXIT FOR IIT HOSTEL,BER SARAI,CENTRAL SOIL & MATERIAL RESEARCH STATION,INSTITUTE OF SECRITARIAT TRAINING AND MANAGEMENT", "ENTRY/EXIT FOR ROSE GARDEN & IIT", "ENTRY/EXIT FOR DDA SPORTS COMPLEX GROUND", "ENTRY/EXIT FOR R .K.PURAM SEC. 3, & R K KHANNA TENNIS STATDIUM"]
+		},
+		"raj_bagh": {
+			"name": "Raj Bagh",
+			"aliases": [],
+			"description": "Rajbagh Metro Station is elevated station located at Line 1 also known as Red line.\r\nRam Manohar Lohia park is just 1 Kilometre away from here, it's beautiful,well managed park.",
+			"gates": {
+				"1": "Shalimar Garden, East India Udyog Limited",
+				"2": "Pipe Market"
+			},
+			"landmarks": ["Shalimar Garden, East India Udyog Limited", "Pipe Market"]
+		},
+		"raja_nahar_singh_ballabhgarh": {
+			"name": "Raja Nahar Singh",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9999999999,.",
+			"gates": {
+				"3": "Railway Station",
+				"2": "Govt. Hospital",
+				"1": "Ballabgarh Bus Stand"
+			},
+			"landmarks": ["Railway Station", "Govt. Hospital", "Ballabgarh Bus Stand"]
+		},
+		"rajdhani_park": {
+			"name": "Rajdhani Park",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793215,7290024752.",
+			"gates": {
+				"2": "MAFINGA EXAM CENTRE",
+				"1": "Timber Market",
+				"3": "MG GLOBAL EXAM CENTRE"
+			},
+			"landmarks": ["MAFINGA EXAM CENTRE", "Timber Market", "MG GLOBAL EXAM CENTRE"]
+		},
+		"rajendra_place": {
+			"name": "Rajendra Place",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as Rajendra Place Indraprasth Gas Limited. For more information or queries kindly contact station officer at the following contact number: 8800793173,7290051733.",
+			"gates": {
+				"4": "Krishi Kunj",
+				"3": "Old Rajender Nagar",
+				"2": "BLK Hospital",
+				"1": "Rajendra Bhawan"
+			},
+			"landmarks": ["Krishi Kunj", "Old Rajender Nagar", "BLK Hospital", "Rajendra Bhawan"]
+		},
+		"rajiv_chowk": {
+			"name": "Rajiv Chowk",
+			"aliases": [],
+			"description": "Rajiv Chowk Metro Station is an underground station, situated underneath of central Park at\r\nConnaught Place. It is an interchange station at the inter-section of Samaypur Badli–Huda\r\nCity center Metro corridor (Yellow Line) and DwarkaSector-21 – Noida Electronic City/Vaishali\r\nCorridor (Blue Line). The underground stations of both the lines are one below the other. The upper one is for Blue Line & the lower one is for Yellow Line. Rajiv Chowk Metro station is located in vicinity of Delhi’s famous market known as Connaught Place market. It is one of the busiest metro station in the DMRC network.",
+			"gates": {
+				"8": "Radial Road-3, Panchkuian Road , A Block",
+				"7": "Radial Road -2, Baba Kharak Singh Marg , A Block",
+				"6": "Radial Road-1, Janpath Road,Palika Bazar",
+				"5": "Radial Road-1, Janpath Road, F Block",
+				"4": "E Block, Barakhamba Road, Kasturba Gandhi Road",
+				"3": "D Block, Carnival Cinema(Odean)",
+				"2": ", PVR Plaza",
+				"1": "Radial Road-3, Panchkuian Road , B Block, Minto Road"
+			},
+			"landmarks": ["Radial Road-3, Panchkuian Road , A Block", "Radial Road -2, Baba Kharak Singh Marg , A Block", "Radial Road-1, Janpath Road,Palika Bazar", "Radial Road-1, Janpath Road, F Block", "E Block, Barakhamba Road, Kasturba Gandhi Road", "D Block, Carnival Cinema(Odean)", ", PVR Plaza", "Radial Road-3, Panchkuian Road , B Block, Minto Road"]
+		},
+		"rajouri_garden": {
+			"name": "Rajouri Garden",
+			"aliases": [],
+			"description": "It is one of the several Elevated for Blue Line & Underground for Pink Line stations on DMRC's metro network.This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793179,7290052355.",
+			"gates": {
+				"2": "Rajouri Garden",
+				"1": "Rajouri Garden",
+				"8": "Janta Market, Rajouri",
+				"7": "Nazafgarh Road",
+				"6": "Nazafgarh Road",
+				"5": "Nazafgarh Road",
+				"4": "Tdi Mall",
+				"3": "Towards Parking",
+				"2 (Pink Line)": "Dc Office",
+				"1 (Pink Line)": "Ring Road"
+			},
+			"landmarks": ["Rajouri Garden", "Janta Market, Rajouri", "Nazafgarh Road", "Tdi Mall", "Towards Parking", "Dc Office", "Ring Road"]
+		},
+		"ramakrishna_ashram_marg": {
+			"name": "R K Ashram Marg",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448498296,7290019295.",
+			"gates": {
+				"5": "Parking",
+				"4": "Lady Harding Hospital",
+				"3": "Goal Market",
+				"2": "Rama Krishan Mission, New Delhi Railway Station, Paharganj"
+			},
+			"landmarks": ["Parking", "Lady Harding Hospital", "Goal Market", "Rama Krishan Mission, New Delhi Railway Station, Paharganj"]
+		},
+		"ramesh_nagar": {
+			"name": "Ramesh Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793178,7290052352.",
+			"gates": {
+				"5": "Ramesh Nagar",
+				"4": "Namdhari Colony",
+				"3": "Raja Garden",
+				"2": "Basai Darapur",
+				"1": "Bali Nagar"
+			},
+			"landmarks": ["Ramesh Nagar", "Namdhari Colony", "Raja Garden", "Basai Darapur", "Bali Nagar"]
+		},
+		"rithala": {
+			"name": "Rithala",
+			"aliases": [],
+			"description": "The Rithala metro station is an elevated ,terminal and interlocking station located on the RED line of delhi metro .\r\nMetro walk is one of the most famous shopping mall cum amusement park which is just a walking distance from rithala metro station gate no 3 and there is crowne plaza 5starhotel which is also just at walking distance from gate no 3. \r\nThere is a tourist place named Japenese park which is which is expansive urban park featuring a playground , a tiny pond with birds and green space",
+			"gates": {
+				"3": "Towards SEC-11 ROHINI",
+				"2": "Towards SEC-24 ROHINI",
+				"1": "Towards SEC-5 ROHINI"
+			},
+			"landmarks": ["Towards SEC-11 ROHINI", "Towards SEC-24 ROHINI", "Towards SEC-5 ROHINI"]
+		},
+		"rithani": {
+			"name": "Rithani",
+			"aliases": [],
+			"description": "1. Rithani Station is the fourteenth station from Jangpura Station, on Delhi-Ghaziabad Meerut Namo Bharat corridor. Rithani is an elevated Meerut Metro station. 2. Rithani station is on the outskirts City of Meerut. 3. This station is close to Meerut city and Metro Estate society. 4. Rithani station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"rohini_east": {
+			"name": "Rohini East",
+			"aliases": [],
+			"description": "The Rohini East metro station is an Elevated type station located on the line 1 also known as Red Line of Delhi Metro. The station is Located near Bhagwan Mahavir Marg.",
+			"gates": {
+				"3": "Sec.9, Rohini Court, Fire Station",
+				"2": "SEC.7 & 8 ROHINI",
+				"1": "SEC.7 & 8 ROHINI"
+			},
+			"landmarks": ["Sec.9, Rohini Court, Fire Station", "SEC.7 & 8 ROHINI"]
+		},
+		"rohini_sector_18_19": {
+			"name": "Rohini Sector 18-19",
+			"aliases": [],
+			"description": "Rohini Sector -18 & 19 Metro station is an elevated station located on the yellow line of Delhi Metro network. This station is located near DDA residential area and provide hassles-free connectivity to the commuters. The station is in close proximity to NCC Bhawan",
+			"gates": {
+				"2": "Paradise Apartments",
+				"1": "Divyajyoti Apartments"
+			},
+			"landmarks": ["Paradise Apartments", "Divyajyoti Apartments"]
+		},
+		"sadar_bazar_cantonment": {
+			"name": "Sadar Bazaar Cantonment",
+			"aliases": [],
+			"description": "Sadar bazar cantonment station is one of the Magenta line in close vicinity of Airforce Museum, Army Prade Ground and kendriya vidyalaya sadar bazar. It also connects two railway station ( Palam and Delhi cantt). It is thekey connectivity to Armed forces families.",
+			"gates": {
+				"2": "DHRUV AUDITORIUM",
+				"1": "PRAHALAD PUR VILLAGE"
+			},
+			"landmarks": ["DHRUV AUDITORIUM", "PRAHALAD PUR VILLAGE"]
+		},
+		"sahibabad": {
+			"name": "Sahibabad",
+			"aliases": [],
+			"description": "1. Sahibabad is an elevated station on the operational corridor of Namo Bharat between New Ashok Nagar and Meerut South stations. 2. The station is located on Madan Mohan Malviya Marg and caters to Vasundhara Sectors 1–18, Sahibabad Village, Sahibabad Industrial Area, and the Naveen Fruits and Vegetable Market. 3. Sahibabad Namo Bharat Station is well connected to nearby transit points, with Sahibabad Railway Station (approx. 1.3 km), Shyam Park Metro Station (approx. 2.5 km), and Vaishali Metro Station (approx. 3.3 km) in close proximity. 4. Sahibabad is a divyangjan-friendly station, ensuring accessible facilities for all passengers.",
+			"gates": {
+				"1": "Towards Delhi end on road going to Mohan Nagar",
+				"2": "Towards Meerut end on road going to Mohan Nagar",
+				"3": "Towards Delhi end on road going to Delhi, near Shri Digambar Jain Mandir"
+			},
+			"landmarks": ["Towards Delhi end on road going to Mohan Nagar", "Towards Meerut end on road going to Mohan Nagar", "Towards Delhi end on road going to Delhi, near Shri Digambar Jain Mandir"]
+		},
+		"saket": {
+			"name": "Saket",
+			"aliases": [],
+			"description": "The SAKET Metro Station is an underground station located on yellow line of the Delhi Metro. The adjoining stations are Malviya Nagar (Towards Samai Pur Badli) & Qutub Minar Station (Towards Huda City center), it is situated at Mehrauli Badarpur Road (M.B. Road). SAKET Metro Station is having three (03) Entry/Exit(s) namely Gate No.1, 2 & 3.\r\nGate No. 1 is differently-abled friendly Entry/Exit, located near Vidya Niketan School towards North Side of the station on M.B. Road, this gate caters to the commuters willing to travel to Select City Mall SAKET, PVR Anupam, IGNOU center (Maidan Garhi) etc.\r\nGate No. 2 is differently-abled friendly Entry/Exit, located near Metro Parking Lot towards South Side of the Station on M.B. Road, this gate caters to the commuters from Said-Ul-Ajaib, Lado Sarai Village & visitors of Garden of Five Senses. This gate is near the Gramin Sewa Terminal which also has Sulabh facility in it.\r\nGate No. 3 is located near D-Block, SAKET (Opposite to DDA Park) mainly catering to the Residents of the colony along with the visitors to the CISF Canton facility situated adjacent to it. There are various cultural events taking place at The Garden of Five Senses located near to the Gate no 2 of SAKET Metro station, thus making this station very useful for the commuters to events due to its close proximity to the same.\r\nThis station is well situated near to various testing centers of competitive examinations conducted by various educational as well as career institutions, thus making this station more useful for the aspirants.",
+			"gates": {
+				"3": "Cisf Camp,Saket D Block",
+				"2": "Garden Of Five Senses",
+				"1": "Vidya Niketan"
+			},
+			"landmarks": ["Cisf Camp,Saket D Block", "Garden Of Five Senses", "Vidya Niketan"]
+		},
+		"samaypur_badli_dipo": {
+			"name": "Samaypur Badli (First Station)",
+			"aliases": [],
+			"description": "Samaypur Badli metro station is an elevated station located on the yellow line of Delhi Metro network.\r\nThis station is located adjacent to Badli railway station of Indian railway network and provides hassles-free connectivity to the commuters. Newly made foot-over Bridge enhances the seamless connectivity. Samaypur Badli metro station is in close proximity to Delhi Technical University which provides technical education and Sanjay Gandhi Transport Nagar (approx 1.5 KM).",
+			"gates": {
+				"3": "FOB Badli Railway Station",
+				"1": "Badli Railway Station"
+			},
+			"landmarks": ["FOB Badli Railway Station", "Badli Railway Station"]
+		},
+		"sant_surdas_sihi": {
+			"name": "Sant Surdas - Sihi",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448487767,165500.",
+			"gates": {
+				"3": "Goodyear Company",
+				"2": "Main Mathura Road",
+				"1": "Main Mathura Road"
+			},
+			"landmarks": ["Goodyear Company", "Main Mathura Road"]
+		},
+		"sarai": {
+			"name": "Sarai",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7042398154,7290059019.",
+			"gates": {
+				"3": "Near Crown Interiorz Mall",
+				"2": "L&T",
+				"1": "Vatika towers"
+			},
+			"landmarks": ["Near Crown Interiorz Mall", "L&T", "Vatika towers"]
+		},
+		"sarai_kale_khan_hazrat_nizamuddin": {
+			"name": "Sarai Kale Khan Hazrat Nizamuddin",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7042398154,7290059019.",
+			"gates": {
+				"3": "On road going to Meerut",
+				"2": "On road going to Meerut",
+				"1": "On road going to Meerut",
+				"4": "On road going to Delhi",
+				"5": "On road going to Delhi",
+				"6": "Yet to Open"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi", "Yet to Open"]
+		},
+		"sarita_vihar": {
+			"name": "Sarita Vihar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793229,7290058068.",
+			"gates": {
+				"2": "Sarita Vihar Residential Area",
+				"1": "Vodafone Office"
+			},
+			"landmarks": ["Sarita Vihar Residential Area", "Vodafone Office"]
+		},
+		"sarojini_nagar": {
+			"name": "Sarojini Nagar",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9667396686,7290069413.",
+			"gates": {
+				"2(Exit only)": "Pilanji Gaon",
+				"1(Entry only)": "Sarojini Nagar Market"
+			},
+			"landmarks": ["Pilanji Gaon", "Sarojini Nagar Market"]
+		},
+		"satguru_ram_singh_marg": {
+			"name": "Satguru Ram Singh Marg",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793234,7290046955.",
+			"gates": {
+				"1": "Patel Nagar Railway Station, Prem Nagar"
+			},
+			"landmarks": ["Patel Nagar Railway Station, Prem Nagar"]
+		},
+		"sector_28_faridabad": {
+			"name": "Sector 28 Faridabad",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7042398157,7290082724.",
+			"gates": {
+				"3": "Sector-27, Escorts Corp. Centre",
+				"2": "Maruti Workshop, Tarang Orchid Apartments",
+				"1": "Sector-28, Sector-30 Police Line"
+			},
+			"landmarks": ["Sector-27, Escorts Corp. Centre", "Maruti Workshop, Tarang Orchid Apartments", "Sector-28, Sector-30 Police Line"]
+		},
+		"sector_34_noida": {
+			"name": "Noida Sector 34",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303294910,7290020641.",
+			"gates": {
+				"2": "Sector 50, 51 Side",
+				"1": "Sector 34 Side"
+			},
+			"landmarks": ["Sector 50, 51 Side", "Sector 34 Side"]
+		},
+		"sector_42_43": {
+			"name": "Sector 42-43",
+			"aliases": [],
+			"description": "Sector 42-43 station is a station of the Rapid Metro Gurgaon. The next station from Sector 42-43 station towards Sector 55-56 is Sector 53-54 Chowk and towards Sikanderpur is Phase-1. Sector 42-43 station is connected to DMRC’s Yellow line through Sikanderpur Metro Station.Rapid Metro Gurgaon is a world-class metro rail owned by HMRTC and operated by DMRC. For more information or queries kindly contact station officer at the following contact number: 01242800007.",
+			"gates": {
+				"2": "Main Golf Course Road",
+				"1": "Main Golf Course Road"
+			},
+			"landmarks": ["Main Golf Course Road"]
+		},
+		"sector_52_noida": {
+			"name": "Noida Sector 52",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303294911,7290020672.",
+			"gates": {
+				"3": "Hosiyaar Pur , VDS Market, Sector 52",
+				"2": "Noida Sector 51",
+				"1": "52 Avenue Mall"
+			},
+			"landmarks": ["Hosiyaar Pur , VDS Market, Sector 52", "Noida Sector 51", "52 Avenue Mall"]
+		},
+		"sector_53_54": {
+			"name": "Sector 53-54",
+			"aliases": [],
+			"description": "Sector 53-54 station is a station of the Rapid Metro Gurgaon. The next station from Sector 53-54 station towards Sector 55-56 is Sector 54 Chowk and towards Sikanderpur is Sector 42-43. Sector 53-54 station is connected to DMRC’s Yellow line through Sikanderpur Metro Station. Rapid Metro Gurgaon is a world-class metro rail owned by HMRTC and operated by DMRC. For more information or queries kindly contact station officer at the following contact number: 01242800009.",
+			"gates": {
+				"2": "Main Golf Course Road",
+				"1": "Main Golf Course Road"
+			},
+			"landmarks": ["Main Golf Course Road"]
+		},
+		"sector_54_chowk": {
+			"name": "Sector 54 Chowk",
+			"aliases": [],
+			"description": "Sector 54 Chowk station is a station of Rapid Metro Gurgaon. The next station towards Sikanderpur from Sector 54 Chowk station is Sector 53-54 and the other end is Sector 55-56 metro station. Sector 54 Chowk station is connected to DMRC’s Yellow line through Sikanderpur Metro Station. Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For further information or queries, please contact the Station Officer at the following contact number: 01242800010.",
+			"gates": {
+				"2": "Main Golf Course Road",
+				"1": "Main Golf Course Road"
+			},
+			"landmarks": ["Main Golf Course Road"]
+		},
+		"sector_55_56": {
+			"name": "Sector 55-66",
+			"aliases": [],
+			"description": "Sector 55-56 station is a station of the Rapid Metro Gurgaon. The station is starting/ending station on Rapid Metro Gurgaon Corridor. The next station from Sector 55-56 station towards Sikanderpur is Sector 54 Chowk. Sector 55-56 station is connected to DMRC’s Yellow line through Sikanderpur Metro Station. Rapid Metro Gurgaon is a world-class metro rail owned by HMRTC and operated by DMRC. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"2": "Main Golf Course Road",
+				"1": "Main Golf Course Road"
+			},
+			"landmarks": ["Main Golf Course Road"]
+		},
+		"sector_59_noida": {
+			"name": "Noida Sector 59",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303294913,7290020680.",
+			"gates": {
+				"2": "MAMURA VILLAGE",
+				"1": "U-FLEX"
+			},
+			"landmarks": ["MAMURA VILLAGE", "U-FLEX"]
+		},
+		"sector_61_noida": {
+			"name": "Noida Sector 61",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303294912,.",
+			"gates": {
+				"2": "TOWARDS SEC 71 THANA",
+				"1": "PARK VIEW APARTMENT"
+			},
+			"landmarks": ["TOWARDS SEC 71 THANA", "PARK VIEW APARTMENT"]
+		},
+		"sector_62_noida": {
+			"name": "Noida Sector 62",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303294914,7290020681.",
+			"gates": {
+				"2": "Towards Noida Sec-63",
+				"1": "Towards Fortis Hospital"
+			},
+			"landmarks": ["Towards Noida Sec-63", "Towards Fortis Hospital"]
+		},
+		"seelampur": {
+			"name": "Seelampur",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793105,7290048299",
+			"gates": {
+				"1": "Towards GT Road"
+			},
+			"landmarks": ["Towards GT Road"]
+		},
+		"seva_teerth_earlier_udyog_bhawan": {
+			"name": "Udyog Bhawan",
+			"aliases": [],
+			"description": "The Udyog Bhawan Metro Station is an Underground station located on the Yellow Line of the Delhi Metro network. The stationis Located beside Udyog Bhawan and infront of Vayu Bhawan, some road nearby station Rafi Marg , Maulana Azad Marg& K. Kamraj Marg .The nearby Prominent Places are Nirman Bhawan, Sena bhawan, Urban Development Ministries, External Affairs ministries, Airforce headquarters & DRDO.",
+			"gates": {
+				"4": "K Kamraj Marg",
+				"3": "K Kamraj Marg",
+				"2": "Maulana Azad Road",
+				"1": "Rafi Marg Adjacent To Udyog Bhawan"
+			},
+			"landmarks": ["K Kamraj Marg", "Maulana Azad Road", "Rafi Marg Adjacent To Udyog Bhawan"]
+		},
+		"shadipur": {
+			"name": "Shadipur",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793175,7290052033.",
+			"gates": {
+				"7": "Towards Parking",
+				"6": "Pandav Nagar",
+				"5": "Ranjeet Nagar",
+				"4": "Patel Nagar",
+				"3": "Patel Nagar Police Station",
+				"2": "Baljeet Nagar",
+				"1": "Towards DMS Depot & DTC Bus Depot"
+			},
+			"landmarks": ["Towards Parking", "Pandav Nagar", "Ranjeet Nagar", "Patel Nagar", "Patel Nagar Police Station", "Baljeet Nagar", "Towards DMS Depot & DTC Bus Depot"]
+		},
+		"shahdara": {
+			"name": "Shahdara",
+			"aliases": [],
+			"description": "Shahdara is an Elevated station locatedon the Red line(Line 1) near G.T. road. It is the Ist Metro station of Delhi Metro Rail Corporation.The station provideseamless connectivity to ShahdaraRailway junction where many trains to other parts of the country touch/ originate. It is located near chota Bazar.",
+			"gates": {
+				"1": "West End (Facing GT Road), Parsavnath Mall, Vikas Cinema Mall",
+				"2": "East End (Indian Railways Side)"
+			},
+			"landmarks": ["West End (Facing GT Road), Parsavnath Mall, Vikas Cinema Mall", "East End (Indian Railways Side)"]
+		},
+		"shaheed_nagar": {
+			"name": "Shaheed Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303498341,7290019023.",
+			"gates": {
+				"1": "Opp. Shani Dev Mandir",
+				"2": "Near Shani Dev Mandir"
+			},
+			"landmarks": ["Opp. Shani Dev Mandir", "Near Shani Dev Mandir"]
+		},
+		"shaheed_sthal_new_bus_adda": {
+			"name": "Shaheed Sthal",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303498348,7290018822.",
+			"gates": {
+				"1": "Meerut Mod, Pelican Hotel, Dewan Diagnostics",
+				"2": "Red Mall, GT Road towards Moahan Nagar"
+			},
+			"landmarks": ["Meerut Mod, Pelican Hotel, Dewan Diagnostics", "Red Mall, GT Road towards Moahan Nagar"]
+		},
+		"shakurpur": {
+			"name": "Shakurpur",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448088760,7290012259.",
+			"gates": {
+				"2": "JJ Colony Shakurpur, Shakurpur Village, Shakurpur Crossing & Brittania Chowk",
+				"1": "Indira Gandhi Polyclinic, Wazirpur, Prachin Shiv Mandir, Gurudwara Guru Singh Sabha"
+			},
+			"landmarks": ["JJ Colony Shakurpur, Shakurpur Village, Shakurpur Crossing & Brittania Chowk", "Indira Gandhi Polyclinic, Wazirpur, Prachin Shiv Mandir, Gurudwara Guru Singh Sabha"]
+		},
+		"shalimar_bagh": {
+			"name": "Shalimar Bagh",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448088758,7290012494.",
+			"gates": {
+				"5": "EPFO Office",
+				"4": "Computer Market",
+				"3": "Ashok Vihar",
+				"2": "AG Block Shalimar Bagh",
+				"1": "AG Block Shalimar Bagh"
+			},
+			"landmarks": ["EPFO Office", "Computer Market", "Ashok Vihar", "AG Block Shalimar Bagh"]
+		},
+		"shankar_vihar": {
+			"name": "Shankar Vihar",
+			"aliases": [],
+			"description": "Shankar vihar station is one of the Defence privilege in Magenta line. Which is only one such type of station in delhi metro network.there isLimited Entry/Exit available at the station. Which connects to 35 INF BDE shankar vihar societies, Army public school shankar Vihar,Varuna Naval mess and Canteen.",
+			"gates": {
+				"2": "Army Residential Area",
+				"1": "Army Public School"
+			},
+			"landmarks": ["Army Residential Area", "Army Public School"]
+		},
+		"shastri_nagar": {
+			"name": "Shastri Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793111,7290048055.",
+			"gates": {
+				"1": "Towards Sarai Rohilla Railway Station",
+				"2": "Towards Shastri Nagar Market"
+			},
+			"landmarks": ["Towards Sarai Rohilla Railway Station", "Towards Shastri Nagar Market"]
+		},
+		"shastri_park": {
+			"name": "Shastri Park",
+			"aliases": [],
+			"description": "Shastri park metro station is an at grade station located on line 1 also known as Red line. Shastri park station is located near Delhi metro rail academy, IT Park, and Gandhi nagar market.",
+			"gates": {
+				"1": "Towards Gandhi Nagar market",
+				"2": "Towards IT Park"
+			},
+			"landmarks": ["Towards Gandhi Nagar market", "Towards IT Park"]
+		},
+		"shatabdi_nagar": {
+			"name": "Shatabdi Nagar",
+			"aliases": [],
+			"description": "1. Shatabdi Nagar Station is the fifteenth station from Jangpura Station on Delhi Ghaziabad-Meerut Namo Bharat corridor. This is an elevated Namo Bharat and Meerut Metro station. 2. Shatabdi Nagar station is in the Meerut city on the NH 58 highway. This is close to Dainik Jagran, Shopprix mall. 3. Shatabdi Nagar station is a divyangjan-friendly station.",
+			"gates": {
+				"1": "On road going to Meerut",
+				"2": "On road going to Delhi"
+			},
+			"landmarks": ["On road going to Meerut", "On road going to Delhi"]
+		},
+		"shiv_vihar": {
+			"name": "Shiv Vihar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282944,7290016339.",
+			"gates": {
+				"2": "on Loni Road",
+				"1": "on Loni Road"
+			},
+			"landmarks": ["on Loni Road"]
+		},
+		"shivaji_park": {
+			"name": "Shivaji Park",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793206,7290047155.",
+			"gates": {
+				"2": "Sakur Basti Railway Satation",
+				"1": "Maharaja Agrasen Hospital"
+			},
+			"landmarks": ["Sakur Basti Railway Satation", "Maharaja Agrasen Hospital"]
+		},
+		"shivaji_stadium": {
+			"name": "Shivaji Stadium",
+			"aliases": [],
+			"description": "The Shivaji Stadium Metro Station is an underground station located on theAirport Express Linealso known as “Orange Line” of theDelhi Metro which features City check-in facility and provides VISA Facilitation Service. This station is located near bustling commercial hub, Connaught Place. The station also provides seamless connectivity to the India’s busiest Airport the IGI Terminal 3 & 2 and New Delhi Railway Station.",
+			"gates": {
+				"2": "BABA KHARAK SINGH MARG (Main Road Side) Exit Gate",
+				"1": "BABA KHARAK SINGH MARG (Back side) Entry Gate"
+			},
+			"landmarks": ["BABA KHARAK SINGH MARG (Main Road Side) Exit Gate", "BABA KHARAK SINGH MARG (Back side) Entry Gate"]
+		},
+		"shree_ram_mayur_vihar_mandir_earlier_mayur_vihar_pocket_1": {
+			"name": "Mayur Vihar Pocket I",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448498295,7290020698.",
+			"gates": {
+				"2": "Mayur Vihar Pocket 3&4",
+				"1": "Mayur Vihar Pocket 1&2"
+			},
+			"landmarks": ["Mayur Vihar Pocket 3&4", "Mayur Vihar Pocket 1&2"]
+		},
+		"shyam_park": {
+			"name": "Shyam Park",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 7303498344,7290018557.",
+			"gates": {
+				"1": "Ambey Hospital, Shahibabad Police Station, Lajpat Nagar",
+				"2": "LR College, Shyam Park, Diwakar Model School",
+				"3": "LR COLLEGE, SHYAM PARK, DIWAKAR MODEL SCHOOL"
+			},
+			"landmarks": ["Ambey Hospital, Shahibabad Police Station, Lajpat Nagar", "LR College, Shyam Park, Diwakar Model School", "LR COLLEGE, SHYAM PARK, DIWAKAR MODEL SCHOOL"]
+		},
+		"sikanderpur": {
+			"name": "Sikandarpur",
+			"aliases": [],
+			"description": "Sikandarpur Rapid Metro Station is an intermediate interlocking station located next to Phase-1 station on the Gurgaon Corridor towards Belvedere Towers. The next station from Sikanderpur station towards Moulsari Avenue is Phase 2 and the next station towards Sector 55-56 is Phase 1. The station has two main entrances apart from a foot over bridge connection with the Delhi Metro Sikanderpur station. This is an interchange station offering connectivity with multiple metro lines. Rapid Metro Gurgaon is a world class metro rail owned by HMRTC and operated by DMRC. For more information or queries kindly contact station officer at the following contact number: 01242800001",
+			"gates": {
+				"6 (Rapid Metro)": "EMAAR Bussiness Park Side",
+				"5 (Rapid Metro)": "EMAAR Bussiness Park Side",
+				"4 (Rapid Metro)": "Sikanderpur Main Road",
+				"3 (Rapid Metro)": "Sikanderpur Main Road",
+				"2 (Rapid Metro)": "Sikanderpur Village Side",
+				"2": "DLF City Court",
+				"1": "Sahara Mall,Bristal Hotel"
+			},
+			"landmarks": ["EMAAR Bussiness Park Side", "Sikanderpur Main Road", "Sikanderpur Village Side", "DLF City Court", "Sahara Mall,Bristal Hotel"]
+		},
+		"sir_m_vishweshwaraiah_moti_bagh": {
+			"name": "Sir Vishweshwaraiah Moti Bagh",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as IGL Sir Vishweshwaraiah Moti Bagh.For more information or queries kindly contact station officer at the following contact number: 9667396684,7290031652.",
+			"gates": {
+				"Subway ( 1 )": "Aradhna Enclave",
+				"2": "Sector -3 Shanti Niketan, Charak Palika Hospital",
+				"1": "Sector 12 RK Puram"
+			},
+			"landmarks": ["Aradhna Enclave", "Sector -3 Shanti Niketan, Charak Palika Hospital", "Sector 12 RK Puram"]
+		},
+		"soorghat": {
+			"name": "Soorghat",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"south_extension": {
+			"name": "South Extension",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 9667396689,7290069415.",
+			"gates": {
+				"4": "South Extention 2",
+				"3": "South Extention 2",
+				"2": "South Extention 1",
+				"1": "South Extention 1"
+			},
+			"landmarks": ["South Extention 2", "South Extention 1"]
+		},
+		"subhash_nagar": {
+			"name": "Subhash Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793181,7290052442.",
+			"gates": {
+				"4": "Police Station, Tilak Nagar",
+				"3": "Meenakshi Garden",
+				"2": "Pacific Mall",
+				"1": "SBI, Tilak Nagar"
+			},
+			"landmarks": ["Police Station, Tilak Nagar", "Meenakshi Garden", "Pacific Mall", "SBI, Tilak Nagar"]
+		},
+		"sukhdev_vihar": {
+			"name": "Sukhdev Vihar",
+			"aliases": [],
+			"description": "Sukhdev vihar elevated metro station situated on the magenta line of Delhi Metro in close vicinity of Fortis Escorts Hospital and Fonix institute. It is very near to Ardee school , Don Bosco school and Dev samaj modern school.",
+			"gates": {
+				"4": "DON BOSCO SCHOOL",
+				"3": "ARDEE SCHOOL",
+				"2": "Fortis Escort Hospital OPD",
+				"1": "Fortis Escort Hospital IPD"
+			},
+			"landmarks": ["DON BOSCO SCHOOL", "ARDEE SCHOOL", "Fortis Escort Hospital OPD", "Fortis Escort Hospital IPD"]
+		},
+		"sultanpur": {
+			"name": "Sultanpur",
+			"aliases": [],
+			"description": "The Sultanpur Metro Station is an elevated station located on Line 2 also known as “Yellow Line” of Delhi Metro.\r\nThis station is located on Delhi-Gurugram linked road.\r\nThis station provides seamless connectivity to Sultanpur Metro Depot and a hub of Farm Houses.",
+			"gates": {
+				"2": "Mg Road",
+				"1": "Sultanpur"
+			},
+			"landmarks": ["Mg Road", "Sultanpur"]
+		},
+		"supreme_court_pragati_maidan": {
+			"name": "Supreme Court (Pragati Maidan)",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793167,7290051288.",
+			"gates": {
+				"4": "Skywalk",
+				"3": "Open (08:00 hrs-17:00 hrs) for exit only towards Bharat Mandapam Gate No-10",
+				"2": "Mathura Road",
+				"1": "Supreme Court"
+			},
+			"landmarks": ["Skywalk", "Open (08:00 hrs-17:00 hrs) for exit only towards Bharat Mandapam Gate No-10", "Mathura Road", "Supreme Court"]
+		},
+		"tagore_garden": {
+			"name": "Tagore Garden",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793180,7290052388.",
+			"gates": {
+				"4": "J-Block Rajori Garden,Green Flats",
+				"3": "Cambridge School, Dda Flats",
+				"2": "Guru Govind Singh Hospital",
+				"1": "Kendriya Vidyalaya , Khyala"
+			},
+			"landmarks": ["J-Block Rajori Garden,Green Flats", "Cambridge School, Dda Flats", "Guru Govind Singh Hospital", "Kendriya Vidyalaya , Khyala"]
+		},
+		"terminal_1_igi_airport": {
+			"name": "Terminal 1 IGI Airport",
+			"aliases": [],
+			"description": "Terminal 1 IGI AIRPORT station is one of the Finnest station on Magenta Line. It is the key connectivity to Terminal 1 domestic IGI airport and Airforce Museum. It has also a SCVM for better facilitate to passengers. And also have a better painting, a stainless steel Tree which is the key attraction to the passenger.",
+			"gates": {
+				"3": "DOMESTIC ARRIVALS, DOMESTIC AIRPORT POLICE STATION, G-5 BUILDING",
+				"2": "T-1 PARKING, MEHRAM NAGAR EAST, DOMESTIC DEPARTURES, DR. BHIMRAO AMBEDKAR SCHOOL",
+				"1": "MEHRAM NAGAR WEST , DHAULA KUAN",
+				"5": "T-1 IGI Airport",
+				"4": "T-1 IGI Airport, Feeder Bus available"
+			},
+			"landmarks": ["DOMESTIC ARRIVALS, DOMESTIC AIRPORT POLICE STATION, G-5 BUILDING", "T-1 PARKING, MEHRAM NAGAR EAST, DOMESTIC DEPARTURES, DR. BHIMRAO AMBEDKAR SCHOOL", "MEHRAM NAGAR WEST , DHAULA KUAN", "T-1 IGI Airport", "T-1 IGI Airport, Feeder Bus available"]
+		},
+		"tikri_border": {
+			"name": "Tikri Border",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448788986,7290051081.",
+			"gates": {
+				"2": "Tikri Border Toll Tax",
+				"1": "Govt. Boys Sr. Sec. School"
+			},
+			"landmarks": ["Tikri Border Toll Tax", "Govt. Boys Sr. Sec. School"]
+		},
+		"tikri_kalan": {
+			"name": "Tikri Kalan",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448788985,7290051071.",
+			"gates": {
+				"2": "HP Delhi Terminal and Receiving Station , Azad Hind Gram",
+				"1": "Tikri Kalan Village , Shirdi Sai Temple, Prince Public School"
+			},
+			"landmarks": ["HP Delhi Terminal and Receiving Station , Azad Hind Gram", "Tikri Kalan Village , Shirdi Sai Temple, Prince Public School"]
+		},
+		"tilak_nagar": {
+			"name": "Tilak Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This station is also known as TILAK NAGAR. For more information or queries kindly contact station officer at the following contact number: 8800793182,7290052452.",
+			"gates": {
+				"4": "Prem Nagar, DMRC Authorised Parking",
+				"3": "Ashok Nagar, Fateh Nagar, Jail Road",
+				"2": "Saatmanjila Temple, Central Market",
+				"1": "Central Market"
+			},
+			"landmarks": ["Prem Nagar, DMRC Authorised Parking", "Ashok Nagar, Fateh Nagar, Jail Road", "Saatmanjila Temple, Central Market", "Central Market"]
+		},
+		"tis_hazari": {
+			"name": "Tis Hazari",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800739108,7290048155.",
+			"gates": {
+				"1": "Towards St. Stephen Hospital , Tis Hazari Court, Sadar bazar, Dept. of Animal Husbandary",
+				"2": "Towards Lala Hardev Sahai marg , St. Stephen Hospital , Tis Hazari Court, Sadar bazar",
+				"3": "Towards Metro parking, Lt. Governor Secretariat, Aruna Asaf Ali Hospital, Rajpur Road, Boulevard Road"
+			},
+			"landmarks": ["Towards St. Stephen Hospital , Tis Hazari Court, Sadar bazar, Dept. of Animal Husbandary", "Towards Lala Hardev Sahai marg , St. Stephen Hospital , Tis Hazari Court, Sadar bazar", "Towards Metro parking, Lt. Governor Secretariat, Aruna Asaf Ali Hospital, Rajpur Road, Boulevard Road"]
+		},
+		"trilokpuri_sanjay_lake": {
+			"name": "Trilokpuri Sanjay Lake",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448282930,7290069425.",
+			"gates": {
+				"2": "Chand Cinema & Sanjay Lake",
+				"1": "Chand Cinema & Sanjay Lake"
+			},
+			"landmarks": ["Chand Cinema & Sanjay Lake"]
+		},
+		"tughlakabad_station": {
+			"name": "Tughlakabad",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793231,7290058088.",
+			"gates": {
+				"1": "Tughlakabad Railway Station"
+			},
+			"landmarks": ["Tughlakabad Railway Station"]
+		},
+		"udyog_nagar": {
+			"name": "Udyog Nagar",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793211,7290027379.",
+			"gates": {
+				"2": "Udyog Nagar Industrial Area",
+				"1": "Jwala Puri /Inder Enclave"
+			},
+			"landmarks": ["Udyog Nagar Industrial Area", "Jwala Puri /Inder Enclave"]
+		},
+		"uttam_nagar_east": {
+			"name": "Uttam Nagar East",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793185,7290036056.",
+			"gates": {
+				"3": "Pankha Road",
+				"2": "Pankha Road",
+				"1": "Towards Dtc Bus Terminal"
+			},
+			"landmarks": ["Pankha Road", "Towards Dtc Bus Terminal"]
+		},
+		"uttam_nagar_west": {
+			"name": "Uttam Nagar West",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793186,7290036076.",
+			"gates": {
+				"4": "Aarya Samaj",
+				"3": "Dyalsar Road",
+				"2": "Dal Mil Road",
+				"1": "Dal Mil Road"
+			},
+			"landmarks": ["Aarya Samaj", "Dyalsar Road", "Dal Mil Road"]
+		},
+		"vaishali": {
+			"name": "Vaishali",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8800793236,7290049577.",
+			"gates": {
+				"3": "Todards FOB",
+				"2": "Towards Vaishali Sector 3,4",
+				"1": "Towards Mohan Nagar Anand Vihar Road"
+			},
+			"landmarks": ["Todards FOB", "Towards Vaishali Sector 3,4", "Towards Mohan Nagar Anand Vihar Road"]
+		},
+		"vasant_vihar": {
+			"name": "Vasant Vihar",
+			"aliases": [],
+			"description": "Vasant Viharstation is an underground station at Magenta line. There are four entry/exit which connects to Mizoram House, Jharkhand House, Togo Embassy/Gurudwara, CBI Colony,Priya Cinema and JP Vasant continental Hotel. It is also near to JNU campus and DDA Sports Complex Vasant Kunj.",
+			"gates": {
+				"4": "Jharkhand Bhawan Embassy of EL Salvador",
+				"3": "Embassy of Togo, Vasant lok Market, JP continental Hotel",
+				"2": "Munirka Marg, JP continental Hotel",
+				"1": "Gurudwara, JP continental Hotel"
+			},
+			"landmarks": ["Jharkhand Bhawan Embassy of EL Salvador", "Embassy of Togo, Vasant lok Market, JP continental Hotel", "Munirka Marg, JP continental Hotel", "Gurudwara, JP continental Hotel"]
+		},
+		"vidhan_sabha": {
+			"name": "Vidhan Sabha",
+			"aliases": [],
+			"description": "Vidhan sabha Metro Station is an underground station at yellow line. This station is located near Delhi Vidhan Sabha, Directorate of Education (Delhi). Dr. Ambedkar National Memorial .This station is connected to Maharana Pratap ISBT.",
+			"gates": {
+				"3": "MCD Office",
+				"2": "Police Station , Civil Lines",
+				"1": "DMRC Officer's Quarters"
+			},
+			"landmarks": ["MCD Office", "Police Station , Civil Lines", "DMRC Officer's Quarters"]
+		},
+		"vinobapuri": {
+			"name": "Vinobapuri",
+			"aliases": [],
+			"description": "It is one of the several Underground stations on DMRC's metro network. For more information or queries kindly contact station officer at the following contact number: 8448487765,7290019195.",
+			"gates": {
+				"2": "Sriniwas Puri",
+				"1": "Lajpat Nagar - II"
+			},
+			"landmarks": ["Sriniwas Puri", "Lajpat Nagar - II"]
+		},
+		"vishwavidyalaya": {
+			"name": "Vishwavidyalaya",
+			"aliases": [],
+			"description": "Vishwavidyalaya Metro Station is an underground station at yellow line. This station is located world famous Delhi University north campus, Vallabhbhai Patel Chest Institute & bussious Kamla market. This station is connected to Maharana Pratap ISBT , New Delhi Railway station & AIIMS hospital through DMRC Yellow line network.",
+			"gates": {
+				"4": "Delhi University",
+				"3": "Delhi University",
+				"2": "Timarpur",
+				"1": "Riviera Apartments"
+			},
+			"landmarks": ["Delhi University", "Timarpur", "Riviera Apartments"]
+		},
+		"welcome": {
+			"name": "Welcome",
+			"aliases": [],
+			"description": "It is one of the several Elevated stations on DMRC's metro network.This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793104,7290048366.",
+			"gates": {
+				"1": "Towards GT Road",
+				"2 (Pink Line)": "Towards GT Road"
+			},
+			"landmarks": ["Towards GT Road"]
+		},
+		"yamuna_bank": {
+			"name": "Yamuna Bank",
+			"aliases": [],
+			"description": "It is one of the several at grade stations on DMRC's metro network.This is an interchange station offering connectivity with multiple metro lines For more information or queries kindly contact station officer at the following contact number: 8800793165,7290049449.",
+			"gates": {
+				"1": "Station Approch Road"
+			},
+			"landmarks": ["Station Approch Road"]
+		},
+		"yamuna_vihar": {
+			"name": "Yamuna Vihar",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"1": "NOOR-E-ILAHI",
+				"2": "CHAND BAGH"
+			},
+			"landmarks": ["NOOR-E-ILAHI", "CHAND BAGH"]
+		},
+		"yashobhoomi_dwarka_sector_25": {
+			"name": "Yashobhoomi Dwarka Sector 25",
+			"aliases": [],
+			"description": "",
+			"gates": {
+				"3": "On Dwarka Gurgaon Expressway near Bharthal Village out side of Yashobhoomi",
+				"1": "Long subway gallery to Exhibition hall",
+				"2": "Long subway gallery to Yashobhoomi Arina",
+				"4": "unpaid concourse east side to Yashobhoomi convention centre",
+				"5": "unpaid concourse east side to Yashobhoomi convention centre",
+				"6": "unpaid concourse west side to Yashobhoomi convention centre",
+				"7": "unpaid concourse west side to Yashobhoomi convention centre"
+			},
+			"landmarks": ["On Dwarka Gurgaon Expressway near Bharthal Village out side of Yashobhoomi", "Long subway gallery to Exhibition hall", "Long subway gallery to Yashobhoomi Arina", "unpaid concourse east side to Yashobhoomi convention centre", "unpaid concourse west side to Yashobhoomi convention centre"]
+		}
+	}
+}

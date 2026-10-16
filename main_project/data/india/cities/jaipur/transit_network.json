@@ -1,5 +1,8 @@
 {
-	"defaults": {"stationType": "normal", "layout": "elevated"},
+	"defaults": {
+		"stationType": "normal",
+		"layout": "elevated"
+	},
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
@@ -54,127 +57,125 @@
 			"network": "jaipur_metro",
 			"operator": "Jaipur Metro Rail Corporation (JMRC)",
 			"label": "P",
-			"short_name": {"en": "Pink Line (Phase 1)", "hi": "पिंक लाइन"},
 			"color": "#E91E63",
 			"color_name": "pink",
 			"farePolicy": "jaipur_metro_standard",
 			"style": "solid",
 			"route": {"from": "mansarovar", "to": "badi_chaupar"},
-			"stations": [
-				"mansarovar",
-				"new_aatish_market",
-				"vivek_vihar",
-				"shyam_nagar",
-				"ram_nagar",
-				"civil_lines",
-				"railway_station",
-				"sindhi_camp",
-				"chandpole",
-				"chhoti_chaupar",
-				"badi_chaupar"
-			]
+			"stations": ["mansarovar", "new_aatish_market", "vivek_vihar", "shyam_nagar", "ram_nagar", "civil_lines", "railway_station", "sindhi_camp", "chandpole", "chhoti_chaupar", "badi_chaupar"]
 		}
 	},
 	"transfers": {},
 	"stationData": {
 		"mansarovar": {
 			"id": "mansarovar",
-			"name": {"en": "Mansarovar", "hi": "मानसरोवर"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "new_aatish_market", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.8795679, "lon": 75.7505817}}
+			"location": {
+				"decimal": {"lat": 26.8795679, "lon": 75.7505817}
+			}
 		},
 		"new_aatish_market": {
 			"id": "new_aatish_market",
-			"name": {"en": "New Aatish Market", "hi": "नया आतिश मार्केट"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "mansarovar", "line": "jmrc.pink"}, {"station": "vivek_vihar", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.880275, "lon": 75.764588}}
+			"location": {
+				"decimal": {"lat": 26.880275, "lon": 75.764588}
+			}
 		},
 		"vivek_vihar": {
 			"id": "vivek_vihar",
-			"name": {"en": "Vivek Vihar", "hi": "विवेक विहार"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "new_aatish_market", "line": "jmrc.pink"}, {"station": "shyam_nagar", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.888792, "lon": 75.76854}}
+			"location": {
+				"decimal": {"lat": 26.888792, "lon": 75.76854}
+			}
 		},
 		"shyam_nagar": {
 			"id": "shyam_nagar",
-			"name": {"en": "Shyam Nagar", "hi": "श्याम नगर"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "vivek_vihar", "line": "jmrc.pink"}, {"station": "ram_nagar", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.896477, "lon": 75.77068}}
+			"location": {
+				"decimal": {"lat": 26.896477, "lon": 75.77068}
+			}
 		},
 		"ram_nagar": {
 			"id": "ram_nagar",
-			"name": {"en": "Ram Nagar", "hi": "राम नगर"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "shyam_nagar", "line": "jmrc.pink"}, {"station": "civil_lines", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.9019446, "lon": 75.774671}}
+			"location": {
+				"decimal": {"lat": 26.9019446, "lon": 75.774671}
+			}
 		},
 		"civil_lines": {
 			"id": "civil_lines",
-			"name": {"en": "Civil Lines", "hi": "सिविल लाइन्स"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "ram_nagar", "line": "jmrc.pink"}, {"station": "railway_station", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.9096443, "lon": 75.7812921}}
+			"location": {
+				"decimal": {"lat": 26.9096443, "lon": 75.7812921}
+			}
 		},
 		"railway_station": {
 			"id": "railway_station",
-			"name": {"en": "Railway Station", "hi": "रेलवे स्टेशन"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "civil_lines", "line": "jmrc.pink"}, {"station": "sindhi_camp", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.918157, "lon": 75.7902021}}
+			"location": {
+				"decimal": {"lat": 26.918157, "lon": 75.7902021}
+			}
 		},
 		"sindhi_camp": {
 			"id": "sindhi_camp",
-			"name": {"en": "Sindhi Camp", "hi": "सिन्धी कैंप"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [{"station": "railway_station", "line": "jmrc.pink"}, {"station": "chandpole", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.9233891, "lon": 75.8003196}}
+			"location": {
+				"decimal": {"lat": 26.9233891, "lon": 75.8003196}
+			}
 		},
 		"chandpole": {
 			"id": "chandpole",
-			"name": {"en": "Chandpole", "hi": "चांदपोल"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [{"station": "sindhi_camp", "line": "jmrc.pink"}, {"station": "chhoti_chaupar", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.9263216, "lon": 75.8074324}}
+			"location": {
+				"decimal": {"lat": 26.9263216, "lon": 75.8074324}
+			}
 		},
 		"chhoti_chaupar": {
 			"id": "chhoti_chaupar",
-			"name": {"en": "Chhoti Chaupar", "hi": "छोटी चौपड़"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [{"station": "chandpole", "line": "jmrc.pink"}, {"station": "badi_chaupar", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.924705, "lon": 75.818491}}
+			"location": {
+				"decimal": {"lat": 26.924705, "lon": 75.818491}
+			}
 		},
 		"badi_chaupar": {
 			"id": "badi_chaupar",
-			"name": {"en": "Badi Chaupar", "hi": "बड़ी चौपड़"},
 			"lines": ["jmrc.pink"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [{"station": "chhoti_chaupar", "line": "jmrc.pink"}],
 			"platforms": {},
-			"location": {"decimal": {"lat": 26.922971, "lon": 75.826842}}
+			"location": {
+				"decimal": {"lat": 26.922971, "lon": 75.826842}
+			}
 		}
 	}
 }

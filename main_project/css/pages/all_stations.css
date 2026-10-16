@@ -107,41 +107,87 @@ ALL STATIONS DIRECTORY & CONTROLS LAYOUT (@layer components)
 	/* ---------------------------------------------------------------------------
 	4. METRO LINE DIRECTORY SECTIONS & HEADERS
 	--------------------------------------------------------------------------- */
-	.line-directory-section {
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
-		backdrop-filter: blur(var(--backdrop-blur));
-		-webkit-backdrop-filter: blur(var(--backdrop-blur));
+		.line-directory-section {
+		/* 👈 1. कंटेनर पर हल्का बैकग्राउंड और हल्का ब्लर (4px) */
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+
 		border-radius: var(--radius-lg);
 		border: 1px solid var(--border-color);
-		padding: var(--space-lg) var(--space-xs) var(--space-xl) var(--space-xs);
+		border-left: 6px solid var(--line-color, var(--btn-primary-bg));
 		margin-bottom: var(--space-xl);
 		color: var(--text-primary);
 		box-shadow: var(--shadow-md);
+
+		/* 👈 2. पैडिंग 0 और overflow: hidden ताकि हेडर कोने-कोने तक मर्ज (flush) रहे */
+		overflow: hidden;
+		padding: 0;
+		transition: box-shadow var(--transition-fast);
 	}
 
-	@media (min-width: 768px) {
-		.line-directory-section {
-			padding: var(--space-xl) var(--space-lg) var(--space-2xl) var(--space-lg);
-		}
+	/* Collapsed स्थिति */
+	.line-directory-section.collapsed .train-track-row {
+		display: none;
+	}
+
+	.line-directory-section.collapsed .line-section-header {
+		border-bottom: none;
 	}
 
 	.line-section-header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
-		border-top: 1px solid var(--border-color);
-		border-right: 1px solid var(--border-color);
+
+		/* 👈 3. हेडर पर गाढ़ा फ्रॉस्टेड ग्लास ब्लर (16px) ताकि यह साफ़ अलग दिखे */
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+
+		/* 👈 4. अलग से बॉर्डर/रेडियस/मार्जिन हटाकर सिर्फ नीचे 1px डिवाइडर दिया */
+		border: none;
 		border-bottom: 1px solid var(--border-color);
-		border-left: 6px solid var(--line-color, var(--btn-primary-bg));
+		border-radius: 0;
+		margin: 0;
+
 		padding: var(--space-md) var(--space-xl);
-		border-radius: var(--radius-md);
 		font-family: var(--font-title);
 		font-weight: var(--fw-bold);
 		font-size: var(--fs-lg);
 		color: var(--text-primary);
-		margin-bottom: var(--space-lg);
 		gap: var(--space-md);
+		cursor: pointer;
+		user-select: none;
+		-webkit-user-select: none;
+		transition: background-color var(--transition-fast);
+	}
+
+	.line-section-header:hover {
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-semi-heavy));
+	}
+
+	/* 👈 5. अंदर के स्टेशन ट्रैक को पैडिंग दी गई */
+	.line-directory-section .train-track-row {
+		padding: var(--space-lg) var(--space-sm);
+	}
+
+	/* मुड़ने वाला शेवरॉन एरो */
+	.header-chevron {
+		display: inline-block;
+		width: var(--size-icon-sm);
+		height: var(--size-icon-sm);
+		background-color: currentColor;
+		-webkit-mask: url("../../assets/icons/ui/chevron_down.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/chevron_down.svg") no-repeat center / contain;
+		color: var(--text-secondary);
+		flex-shrink: 0;
+		transition: transform var(--transition-smooth);
+		transform: rotate(0deg);
+	}
+
+	.line-directory-section.collapsed .header-chevron {
+		transform: rotate(-90deg);
 	}
 
 	.line-station-count-badge {
@@ -192,5 +238,61 @@ ALL STATIONS DIRECTORY & CONTROLS LAYOUT (@layer components)
 		font-size: var(--fs-xl);
 		margin-bottom: var(--space-xs);
 		color: var(--text-primary);
+	}
+
+		/* ---------------------------------------------------------------------------
+	   6. ULTRA-COMPACT IPHONE SE TIER (Standard Project Breakpoint: 380px)
+	   --------------------------------------------------------------------------- */
+	@media (max-width: 380px) {
+		main.stations-page-container {
+			padding: 0 var(--space-xs) var(--space-2xl) var(--space-xs);
+			gap: var(--space-md);
+		}
+
+		/* 1. सर्च बॉक्स: पैडिंग और फ़ॉन्ट साइज़ को कॉम्पैक्ट किया */
+		.directory-controls {
+			padding: var(--space-md) var(--space-sm);
+			gap: var(--space-md);
+		}
+
+		.search-box-wrapper {
+			padding: var(--space-xs) var(--space-sm);
+			gap: var(--space-xs);
+		}
+
+		.search-icon {
+			font-size: var(--fs-sm);
+		}
+
+		.search-box-wrapper input {
+			font-size: var(--fs-xs);
+		}
+
+		/* 2. लाइन पिल्स: पैडिंग और फ़ॉन्ट कम किया ताकि 1 लाइन में 2-3 पिल्स साथ आ सकें */
+		.filter-chips-wrapper {
+			gap: var(--space-sm);
+		}
+
+		.network-chips-row {
+			gap: var(--space-2xs) var(--space-xs);
+		}
+
+		.chip-btn {
+			padding: var(--space-2xs) var(--space-sm);
+			font-size: var(--fs-2xs);
+			line-height: 1.3;
+		}
+
+		/* 3. लाइन हेडिंग बार */
+		.line-section-header {
+			padding: var(--space-sm) var(--space-md);
+			font-size: var(--fs-sm);
+			gap: var(--space-xs);
+		}
+
+		.line-station-count-badge {
+			font-size: var(--fs-2xs);
+			padding: var(--space-2xs) var(--space-xs);
+		}
 	}
 }

@@ -6,6 +6,8 @@ import { appStateStore } from "../core/app-state-store.js";
 import i18n, { SUPPORTED_LANGUAGES, LANGUAGE_CATEGORIES } from "../core/i18n.js";
 import { themeEngine } from "../core/ThemeEngine.js";
 import { pwaManager } from "../core/PwaManager.js";
+import { Toast } from "./Toast.js";
+
 
 export class HeaderComponent {
 	static async render(activePage = 'home', targetContainerId = 'app-header') {
@@ -687,6 +689,7 @@ export class HeaderComponent {
 								<!-- ☀️ / 🌙 / 💻 Semantic Radio Mode Switcher Segment -->
 								<li class="dropdown-header-segment-wrapper" role="presentation">
 									<fieldset class="theme-mode-segmented-bar" aria-label="Appearance Mode">
+										<span class="theme-mode-glider" aria-hidden="true"></span>
 										<input type="radio" name="app-appearance-mode" id="mode-opt-light" value="light" class="mode-radio-input" ${(currentMode === 'light') ? 'checked' : ''}>
 										<label for="mode-opt-light" class="mode-pill-label">
 											<span class="mode-icon">☀️</span>

@@ -95,12 +95,12 @@
 		flex-direction: column;
 		max-width: 860px;
 		margin: 0 auto;
-		padding: var(--space-xl) var(--space-lg) var(--space-md);
+		/* 👈 नीचे 72px का गैप दिया ताकि आखिरी कार्ड फ्लोटिंग बार से न दबे */
+		padding: var(--space-xl) var(--space-lg) calc(var(--space-3xl) + var(--space-xl));
 		width: 100%;
 		gap: var(--space-xl);
 		box-sizing: border-box;
 	}
-
 	/* -------------------------------------------------------------------------
 	 3. Hero Card (Glassmorphic)
 	 ------------------------------------------------------------------------- */
@@ -327,64 +327,80 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	 6. Floating Bottom Action Bar
-	 ------------------------------------------------------------------------- */
-		/* -------------------------------------------------------------------------
-	 6. Floating Bottom Action Bar (Compact 2-Line Balanced Layout)
+	 6. Floating Bottom Action Bar (Desktop Premium Dock)
 	 ------------------------------------------------------------------------- */
 	.floating-bottom-bar {
-		position: sticky;
-		bottom: var(--space-lg);
-		z-index: 999;
-		width: 100%;
-		max-width: 460px;
-		margin: 0 auto;
+		position: fixed;
+
+		/* 👈 24px से बढ़ाकर 36px कर दिया (स्क्रीन के नीचे से ऊपर उठा दिया) */
+		bottom: calc(var(--space-2xl) + var(--space-xs));
+
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: var(--z-modal, 1000);
+		width: auto;
+		max-width: min(520px, calc(100vw - var(--space-2xl)));
 		background: var(--card-bg);
-		border: 1px solid var(--border-color);
-		border-radius: var(--radius-full, 9999px);
-		padding: 5px;
-		box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+		border: var(--bw-thin) solid var(--border-color);
+		border-radius: var(--radius-full);
+
+		/* 👈 बार की पैडिंग और बटन्स के बीच का गैप बढ़ा दिया */
+		padding: var(--space-xs) var(--space-md);
+		gap: var(--space-sm);
+
+		box-shadow: 0 14px 38px rgba(0, 0, 0, var(--op-soft));
 		backdrop-filter: blur(16px);
 		-webkit-backdrop-filter: blur(16px);
 		display: flex;
-		gap: 4px;
+		align-items: center;
 	}
 
+	/* 🚀 स्मूथ स्लाइडिंग एक्टिव पिल */
+	.seg-glider {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: var(--radius-full);
+		background: rgb(var(--color-primary-rgb));
+		box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), var(--op-shadow));
+		transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), 
+		            width 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2), 
+		            height 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+		pointer-events: none;
+		z-index: 0;
+	}
 	.floating-bottom-bar .seg-tab-btn {
-		flex: 1;
-		padding: 6px 10px;
-		border-radius: var(--radius-full, 9999px);
+		position: relative;
+		z-index: 1; /* 👈 टेक्स्ट और आइकन ग्लिडर के ऊपर रहेंगे */
+		flex: 1 1 auto;
+		padding: var(--space-sm) var(--space-lg);
+		border-radius: var(--radius-full);
 		border: none;
 		background: transparent;
 		font-family: var(--font-main);
-		font-size: var(--fs-xs);
+		font-size: var(--fs-sm);
 		font-weight: var(--fw-semibold);
 		color: var(--text-secondary);
 		cursor: pointer;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 6px;
-		transition: all var(--transition-fast);
-		white-space: normal;
-		line-height: 1.15;
+		gap: var(--space-sm);
+		transition: color var(--transition-fast);
+		white-space: nowrap;
+		line-height: 1.25;
 		text-align: center;
-		text-wrap: balance;
 		text-decoration: none;
 	}
-
-	.floating-bottom-bar .seg-tab-btn .support-ico {
-		flex-shrink: 0;
-	}
-
 	.floating-bottom-bar .seg-tab-btn:hover {
 		color: var(--text-primary);
 	}
 
+	/* 👈 एक्टिव होने पर बटन का अपना बैकग्राउंड ट्रांसपेरेंट रहेगा क्योंकि स्लाइडर नीचे आ गया है */
 	.floating-bottom-bar .seg-tab-btn.active {
-		background: rgb(var(--color-primary-rgb));
 		color: #ffffff;
-		box-shadow: 0 2px 10px rgba(var(--color-primary-rgb), 0.35);
+		background: transparent;
+		box-shadow: none;
 	}
 
 	/* -------------------------------------------------------------------------
@@ -471,7 +487,7 @@
 	/* -------------------------------------------------------------------------
 	 8. Responsive Breakpoints
 	 ------------------------------------------------------------------------- */
-	@media (max-width: 600px) {
+	@media (max-width: 768px) {
 		.floating-bottom-bar {
 			bottom: var(--space-sm);
 			width: calc(100% - 20px);

@@ -14,14 +14,18 @@
 
 	.telemetry-title {
 		font-family: var(--font-title);
-		font-size: 0.65rem;
+		font-size: var(--fs-3xs);
 		font-weight: var(--fw-bold);
 		color: var(--text-secondary);
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 		line-height: 1.15;
-		max-width: 70px;
-		white-space: normal;
+		
+		/* 👈 3 लाइनों में टूटना बंद, ज्यादा बड़ा होने पर '...' आएगा */
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 68px;
 	}
 
 	/* 🔘 Round (?) Help Button */
@@ -165,8 +169,14 @@
 	gap: 3px;
 	color: var(--text-secondary);
 	font-weight: var(--fw-semibold);
-	font-size: 0.64rem;
+	font-size: var(--fs-3xs);
 	text-align: center;
+	
+	/* 👈 लंबा टेक्स्ट टूटने के बजाय '...' दिखाएगा */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
 }
 
 .telemetry-icon {
@@ -216,4 +226,30 @@
 	background: rgba(var(--color-bg-base-rgb), 0.3);
 	border-color: var(--border-color);
 	color: var(--text-secondary);
+}
+
+
+/* iPhone SE & Small Screens (<= 380px) */
+@media (max-width: 380px) {
+	.telemetry-signal-card {
+		bottom: auto;
+		top: calc(var(--space-3xl) + var(--space-2xs));
+		right: var(--space-sm);
+		width: calc(var(--size-silhouette-w) + var(--space-sm));
+		padding: var(--space-2xs) var(--space-xs);
+		gap: var(--space-2xs);
+	}
+	.telemetry-title {
+		font-size: var(--fs-3xs);
+	}
+	.telemetry-row {
+		padding: var(--space-2xs) 0;
+		font-size: var(--fs-3xs);
+		gap: var(--space-2xs);
+	}
+	.telemetry-badge {
+		font-size: var(--fs-3xs);
+		padding: var(--space-2xs) var(--space-xs);
+	}
+
 }

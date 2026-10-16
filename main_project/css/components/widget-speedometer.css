@@ -136,6 +136,15 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 	.tooltip-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; }
 	.tooltip-label { color: var(--text-secondary); }
 	.tooltip-val { font-weight: var(--fw-bold); color: var(--text-primary); }
+
+	@media (max-width: 380px) {
+		.map-section > .speedometer-widget,
+		#speedometer-widget {
+			/* 👈 100% शुद्ध टोकन calc (136px): टेलीमेट्री से नीचे और ज़ूम कंट्रोल्स के ठीक ऊपर */
+			bottom: calc(var(--space-3xl) * 2 + var(--space-2xl) + var(--space-sm));
+			right: var(--space-sm); /* 👈 ज़ूम कंट्रोल्स के साथ दाएँ से बिल्कुल एक सीध में */
+		}
+	}
 }
 
 

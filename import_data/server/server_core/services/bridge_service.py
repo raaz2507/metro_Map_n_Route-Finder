@@ -193,9 +193,23 @@ class BridgeInspectionService:
 		all_delta_slugs = sorted(list(auto_details_keys | auto_transit_keys))
 		base_stn_data = transit_base.get("stationData", {})
 
+		# Load localized display names from locales (v4.0 Standard)
+		locale_file = PROJECT_ROOT / "main_project" / "locales" / "en" / "india" / f"{city}_station_details_locale.json"
+		localized_names: Dict[str, str] = {}
+		if locale_file.exists():
+			try:
+				with open(locale_file, "r", encoding="utf-8") as lf:
+					loc_data = json.load(lf)
+				for sid, sinfo in loc_data.get("stations", {}).items():
+					if isinstance(sinfo, dict) and "name" in sinfo:
+						localized_names[sid] = sinfo["name"]
+			except Exception:
+				pass
+
 		stations_catalog = [
 			{
 				"slug": slug,
+				"name": localized_names.get(slug, slug.replace("_", " ").title()),
 				"is_new": (slug not in base_stn_data and slug not in details_base),
 				"has_details_delta": slug in auto_details_keys,
 				"has_transit_delta": slug in auto_transit_keys
@@ -237,6 +251,8 @@ class BridgeInspectionService:
 		transit_base_file = city_dir / "transit_network.json"
 
 		merged = False
+		is_new_station = False
+
 		if details_auto_file.exists() and details_base_file.exists():
 			auto_data = json.load(open(details_auto_file, "r", encoding="utf-8"))
 			if station in auto_data:
@@ -245,6 +261,7 @@ class BridgeInspectionService:
 				base_data = json.load(open(details_base_file, "r", encoding="utf-8"))
 				if station not in base_data:
 					base_data[station] = clean_patch
+					is_new_station = True
 				else:
 					base_data[station].update(clean_patch)
 
@@ -263,5 +280,25 @@ class BridgeInspectionService:
 				UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, t_base)
 				UniversalFileSystemManager.save_atomic_tab_json(transit_auto_file, t_auto)
 				merged = True
+
+		# Sync locale skeleton for newly added station
+		if is_new_station:
+			locales_root = PROJECT_ROOT / "main_project" / "locales"
+			for lang in ["en", "hi"]:
+				loc_file = locales_root / lang / "india" / f"{city}_station_details_locale.json"
+				if loc_file.exists():
+					try:
+						loc_content = json.load(open(loc_file, "r", encoding="utf-8"))
+						if station not in loc_content.setdefault("stations", {}):
+							loc_content["stations"][station] = {
+								"name": station.replace("_", " ").title(),
+								"aliases": [],
+								"description": "",
+								"gates": {},
+								"landmarks": []
+							}
+							UniversalFileSystemManager.save_atomic_tab_json(loc_file, loc_content)
+					except Exception:
+						pass
 
 		return {"success": True, "merged": merged, "station": station}

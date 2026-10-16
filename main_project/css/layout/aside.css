@@ -233,4 +233,103 @@
 			display: flex;
 		}
 	}
+	/* iPhone SE (<= 380px) - ड्रॉअर के अंदरूनी टेक्स्ट, पैडिंग और गैप को कॉम्पैक्ट करना */
+	@media (max-width: 380px) {
+		/* 1. ऊपर हेडर से साफ़ गैप */
+		aside {
+			margin-top: var(--space-md);
+		}
+
+		.sidebar-section {
+			gap: var(--space-xs);
+			border-radius: var(--radius-md);
+		}
+
+		/* ड्रॉअर हेडर्स व क्लोज़ बटन */
+		.section-header h2,
+		#recent-searches-heading {
+			font-size: var(--fs-sm);
+		}
+
+		.sidebar-close-btn {
+			--btn-size: 26px;
+		}
+
+		/* 2. Recent Searches: फ़िल्टर बटन्स और लिस्ट की संतुलित पैडिंग */
+		#recent-searches {
+			padding: var(--space-xs);
+		}
+
+		.filter-chips button {
+			padding: 6px var(--space-sm); /* 👈 Recent, Most Used, A-Z की पैडिंग बढ़ाई */
+			font-size: var(--fs-xs);
+		}
+
+		.recent-search-btn {
+			padding: 6px var(--space-md);  /* 👈 लिस्ट की पैडिंग 8px से थोड़ी कम (6px) की */
+			font-size: var(--fs-xs);
+		}
+
+		/* 3. Route Finder: इनपुट बॉक्स और बटन्स */
+		#route-finder {
+			padding: var(--space-xs);
+		}
+
+		.form-group input[type="text"] {
+			padding: var(--space-sm) var(--space-md);
+			font-size: var(--fs-xs);
+		}
+
+		#swapButton {
+			width: 42px;
+			height: 42px;
+		}
+
+		.form-actions button[type="reset"],
+		.form-actions button[type="submit"] {
+			padding: var(--space-sm) var(--space-md);
+			font-size: var(--fs-xs);
+		}
+
+		/* 4. App Settings: टैब्स और अंदरूनी टेक्स्ट का संतुलन */
+		#app-settings {
+			padding: var(--space-xs);
+		}
+
+		/* ऊपर के टैब्स (Alarm, Map, Packs) */
+		.settings-folder-tabs .folder-tab {
+			height: 30px;                     /* 👈 ऊपर-नीचे की अतिरिक्त ऊंचाई कम की */
+			padding: 0 var(--space-sm);       /* 👈 दाएँ-बाएँ की पैडिंग बढ़ाई (साफ़ स्पेस) */
+			font-size: var(--fs-xs);          /* 👈 फ़ॉन्ट साइज़ बढ़ाकर बड़ा और साफ़ किया (12px) */
+			gap: var(--space-2xs);
+		}
+
+		/* अंदरूनी कार्ड और पैडिंग */
+		.settings-fieldset {
+			padding: var(--space-sm);
+			gap: var(--space-sm);
+		}
+
+		.settings-legend {
+			font-size: var(--fs-2xs);
+			padding: 2px var(--space-xs);
+		}
+
+		/* अंदरूनी मुख्य टेक्स्ट (थोड़ा छोटा और संतुलित) */
+		.settings-label {
+			font-size: var(--fs-xs);          /* 👈 टाइटल थोड़ा छोटा और स्लीक किया */
+		}
+
+		/* अंदरूनी विवरण (डिस्क्रिप्शन) टेक्स्ट */
+		.settings-desc {
+			font-size: var(--fs-2xs);         /* 👈 विवरण टेक्स्ट को कॉम्पैक्ट किया */
+			line-height: 1.35;
+		}
+
+		/* 500 Meters ड्रॉपडाउन */
+		.settings-select {
+			padding: var(--space-xs) var(--space-sm);
+			font-size: var(--fs-xs);
+		}
+	}
 }

@@ -2,7 +2,7 @@ import { HeaderComponent } from '../components/Header.js';
 import { FooterComponent } from '../components/Footer.js';
 import { appStateStore } from "../core/app-state-store.js";
 import i18n from "../core/i18n.js";
-import { metroDataStore } from "../core/metro-data-store.js";
+import { centerClass } from "../core/CenterClass.js";
 import { Toast } from "../components/Toast.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -92,13 +92,34 @@ class PassengerSupportController {
 	
 	#bindFloatingNav() {
 		const tabBtns = document.querySelectorAll(".floating-bottom-bar .seg-tab-btn");
+		const glider = document.querySelector(".seg-glider");
+
+		// 🎯 एक्टिव बटन के साइज़ और पोज़ीशन पर स्लाइड कराने का फ़ंक्शन
+		const updateGlider = (activeBtn) => {
+			if (!glider || !activeBtn) return;
+			glider.style.width = `${activeBtn.offsetWidth}px`;
+			glider.style.height = `${activeBtn.offsetHeight}px`;
+			glider.style.transform = `translate3d(${activeBtn.offsetLeft}px, ${activeBtn.offsetTop}px, 0)`;
+		};
 
 		const setActiveBtn = (targetId) => {
 			tabBtns.forEach((b) => {
 				const id = b.getAttribute("data-tab") || b.hash?.replace("#", "");
-				b.classList.toggle("active", id === targetId);
+				const isActive = id === targetId;
+				b.classList.toggle("active", isActive);
+				if (isActive) updateGlider(b);
 			});
 		};
+
+		// पेज लोड और रीसाइज़ पर ग्लिडर की पहली स्थिति
+		requestAnimationFrame(() => {
+			const initialActive = document.querySelector(".floating-bottom-bar .seg-tab-btn.active");
+			if (initialActive) updateGlider(initialActive);
+		});
+		window.addEventListener("resize", () => {
+			const curr = document.querySelector(".floating-bottom-bar .seg-tab-btn.active");
+			if (curr) updateGlider(curr);
+		});
 
 		// 1. Instant Active State + Smooth Scroll
 		tabBtns.forEach((btn) => {
@@ -132,7 +153,7 @@ class PassengerSupportController {
 	}
 
 	async #loadSupportData() {
-		this.#supportData = await metroDataStore.loadPassengerSupport(this.#activeCity);
+		this.#supportData = await centerClass.loadPassengerSupport(this.#activeCity);
 
 		const networks = this.#supportData?.networks || {};
 		const hasActualContent = Object.values(networks).some(net => 

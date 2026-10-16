@@ -29,7 +29,10 @@ export default {
 			"combinedNetworks": "Combined Networks",
 			"singleNetworks":   "Individual Networks"
 		}
-		
+	},
+	"toasts": {
+		"langFallbackTitle": "Language Notice",
+		"langFallbackMsg": "{lang} data is not available for this city. Displaying in English."
 	},
 	"nav-header": {
 		"networks": "Networks",

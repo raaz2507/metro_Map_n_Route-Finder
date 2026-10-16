@@ -46,7 +46,9 @@ class CenterClass {
 
 	constructor() {
 		this.#alarmManager = new AlarmManager();
-		this.#searchEngine = new UniversalSearchEngine();
+		this.#searchEngine = new UniversalSearchEngine({
+			getStationName: (id) => this.getStationName(id)
+		});
 	}
 
 	/**
@@ -120,6 +122,29 @@ class CenterClass {
 				eventBus.emit("ALARM_STATE_CHANGE", alarmState);
 			});
 
+			// 5. 🌐 Centralized Multilingual Orchestration
+			eventBus.on("app:language-changed", async ({ lang }) => {
+				try {
+					console.log(`[CenterClass] Orchestrating language switch to: "${lang}"...`);
+					// A. Reload city locale pack in MetroDataStore
+					await metroDataStore.reloadLocale(lang);
+
+					// B. Re-index Station Search Engine with localized names
+					if (this.#stationSearchEngine) {
+						if (typeof this.#stationSearchEngine.rebuildIndex === "function") {
+							this.#stationSearchEngine.rebuildIndex();
+						} else if (typeof this.#stationSearchEngine.setMetroData === "function") {
+							this.#stationSearchEngine.setMetroData(this.#metroData);
+						}
+					}
+
+					// C. Notify all UI views and components to re-render
+					eventBus.emit("metro:data-updated", { reason: "language_switch", lang });
+				} catch (err) {
+					console.error("[CenterClass] Error orchestrating language switch:", err);
+				}
+			});
+
 			this.#isInitialized = true;
 			console.log("[CenterClass] Core Initialized Successfully!");
 			return this.#metroData;
@@ -134,6 +159,73 @@ class CenterClass {
 	 */
 	getMetroData() {
 		return this.#metroData;
+	}
+	// =========================================================================
+	// 🌐 LOCALIZED TRANSIT HELPERS (Delegated directly to MetroDataStore)
+	// =========================================================================
+	getStationName(stationId) {
+		return metroDataStore.getStationName(stationId);
+	}
+
+	getStationAliases(stationId) {
+		return metroDataStore.getStationAliases(stationId);
+	}
+
+	getStationDescription(stationId) {
+		return metroDataStore.getStationDescription(stationId);
+	}
+
+	getStationLandmarks(stationId) {
+		return metroDataStore.getStationLandmarks(stationId);
+	}
+
+	getGateLandmark(stationId, gateId) {
+		return metroDataStore.getGateLandmark(stationId, gateId);
+	}
+
+	getLineName(lineId) {
+		return metroDataStore.getLineName(lineId);
+	}
+
+	getLineShortName(lineId) {
+		return metroDataStore.getLineShortName(lineId);
+	}
+
+	getNetworkName(networkId) {
+		return metroDataStore.getNetworkName(networkId);
+	}
+
+	/**
+	 * पैसेंजर सपोर्ट डेटा लोड करें
+	 * @param {string} cityKey
+	 */
+	async loadPassengerSupport(cityKey) {
+		return await metroDataStore.loadPassengerSupport(cityKey);
+	}
+
+	/**
+	 * शहर का डेटा लोड करें
+	 * @param {string} [cityKey=null]
+	 * @param {string} [networkKey=null]
+	 */
+	async loadCity(cityKey = null, networkKey = null) {
+		return await this.init(cityKey, networkKey);
+	}
+
+	/**
+	 * स्टेशनों का विस्तृत डेटा (गेट्स, फर्स्ट/लास्ट ट्रेन आदि) लोड करें
+	 * @param {string} [cityKey=null]
+	 */
+	async loadStationsDetail(cityKey = null) {
+		return await metroDataStore.loadStationsDetail(cityKey || this.#currentCity);
+	}
+
+	/**
+	 * भाषा पैक रीलोड करें
+	 * @param {string} langCode
+	 */
+	async reloadLocale(langCode) {
+		return await metroDataStore.reloadLocale(langCode);
 	}
 
 	// =========================================================================
@@ -213,6 +305,39 @@ class CenterClass {
 	// 🧭 ROUTE SEARCH & PRICING ORCHESTRATION
 	// =========================================================================
 
+		/**
+	 * स्टेशन नाम (Hindi / English / ID / Slug) को शुद्ध Canonical Station ID में बदलना
+	 * @param {string} query 
+	 * @returns {string|null}
+	 */
+	resolveStationId(query) {
+		if (!query || typeof query !== "string") return null;
+		const trimmed = query.trim();
+		const normalized = trimmed.toLowerCase();
+
+		// 1. यदि यह पहले से ही सटीक Station ID है
+		if (this.#metroData?.stationData?.[normalized]) {
+			return normalized;
+		}
+
+		// 2. स्लज फॉर्मेट मैच (उदा: "Meerut North" -> "meerut_north")
+		const slugCandidate = normalized.replace(/[\s-]+/g, "_");
+		if (this.#metroData?.stationData?.[slugCandidate]) {
+			return slugCandidate;
+		}
+
+		// 3. CenterClass के अपने StationSearchEngine से मैच निकालें
+		if (this.#stationSearchEngine) {
+			const results = this.#stationSearchEngine.search(trimmed);
+			if (results && results.length > 0) {
+				const best = results[0]?.station || results[0];
+				if (best?.id) return best.id;
+			}
+		}
+
+		return null;
+	}
+
 	/**
 	 * संपूर्ण रूट खोजें (Path + Fare + Map Highlight + History Save)
 	 *
@@ -232,13 +357,22 @@ class CenterClass {
 		const routeType = options.routeType || "leastTransfers";
 		const coachClass = options.coachClass || "standard";
 
-		// 1. रूटिंग इंजन से पाथ और स्टेप्स निकालें
-		const routeData = this.#routeFinder.findRoute(sourceName, destinationName, routeType);
+		// 1. CenterClass केंद्रीय रूप से स्टेशन IDs रीसॉल्व करे
+		const sourceId = this.resolveStationId(sourceName);
+		const destinationId = this.resolveStationId(destinationName);
+
+		if (!sourceId || !destinationId) {
+			console.warn(`[CenterClass] Could not resolve stations: "${sourceName}" -> "${destinationName}"`);
+			return null;
+		}
+
+		// 2. रूटिंग इंजन से पाथ और स्टेप्स निकालें (शुद्ध IDs के साथ)
+		const routeData = this.#routeFinder.findRoute(sourceId, destinationId, routeType);
 		if (!routeData) {
 			return null;
 		}
 
-		// 2. फेयर इंजन से डायनामिक किराया निकालें (रविवार व पीक/ऑफ-पीक सिंक सहित)
+		// 3. फेयर इंजन से डायनामिक किराया निकालें (रविवार व पीक/ऑफ-पीक सिंक सहित)
 		const fareData = this.#fareCalculator.calculateFare({
 			path: routeData.path,
 			totalDistanceMeters: routeData.totalDistanceMeters,
@@ -251,21 +385,21 @@ class CenterClass {
 			customTime: options.customTime || null,
 		});
 
-		// 3. यदि कम से कम ट्रांसफर चुना है, तो तुलना के लिए सबसे छोटी दूरी का डेटा भी लाएं
+		// 4. यदि कम से कम ट्रांसफर चुना है, तो तुलना के लिए सबसे छोटी दूरी का डेटा भी लाएं
 		let alternativeRoute = null;
 		if (routeType === "leastTransfers") {
-			alternativeRoute = this.#routeFinder.findRoute(sourceName, destinationName, "shortestDistance");
+			alternativeRoute = this.#routeFinder.findRoute(sourceId, destinationId, "shortestDistance");
 		}
 
-		// 4. SVG मैप पर रूट हाईलाइट करें
+		// 5. SVG मैप पर रूट हाईलाइट करें
 		this.highlightRoute(routeData.path);
 
-		// 5. हाल की खोजों (Recent Searches) में सहेजें
+		// 6. हाल की खोजों (Recent Searches) में सहेजें (शुद्ध IDs भेजें ताकि नाम में स्पेस होने पर भी 100% सटीक स्टोर हो)
 		if (this.#recentSearchService) {
-			this.#recentSearchService.saveSearch(sourceName, destinationName);
+			this.#recentSearchService.saveSearch(sourceId, destinationId);
 		}
 
-		// 6. कंबाइंड रिस्पॉन्स लौटाएं
+		// 7. कंबाइंड रिस्पॉन्स लौटाएं
 		return {
 			...routeData,
 			fare: fareData,
@@ -412,9 +546,8 @@ class CenterClass {
 	/**
 	 * भाषा के अनुसार स्टेशन का नाम प्राप्त करें (Single Source of Truth)
 	 */
-	getStationName(stationId, lang = "en") {
-		const station = this.getStationDetails(stationId);
-		return getStationName(station, lang);
+	getStationName(stationId) {
+		return metroDataStore.getStationName(stationId);
 	}
 
 	// =========================================================================
@@ -556,4 +689,7 @@ class CenterClass {
 
 // Global Singleton Export
 export const centerClass = new CenterClass();
+if (typeof window !== "undefined") {
+	window.centerClass = centerClass;
+}
 export { CenterClass };

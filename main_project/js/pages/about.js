@@ -5,12 +5,12 @@
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { appStateStore } from "../core/app-state-store.js";
+import { eventBus } from "../core/event-bus.js"; 
 import i18n from "../core/i18n.js";
 
 class AboutController {
 	// Private DOM handles
 	#dom = {};
-	#toastTimer = null;
 	#unsubscribeLang = null;
 
 	/**
@@ -60,7 +60,6 @@ class AboutController {
 			feedbackEmail: document.getElementById("feedbackEmail"),
 			copyFeedbackBtn: document.getElementById("copyFeedbackBtn"),
 			submitFeedbackEmailBtn: document.getElementById("submitFeedbackEmailBtn"),
-			aboutToast: document.getElementById("aboutToast"),
 			openFeedbackBtns: document.querySelectorAll(".open-feedback-btn, .feedback-tile")
 		};
 	}
@@ -213,15 +212,12 @@ class AboutController {
 		}
 	}
 
-	#showToast(msg) {
-		const toast = this.#dom.aboutToast;
-		if (!toast) return;
-		toast.textContent = msg;
-		toast.classList.add("active");
-		if (this.#toastTimer) clearTimeout(this.#toastTimer);
-		this.#toastTimer = setTimeout(() => {
-			toast.classList.remove("active");
-		}, 3200);
+	#showToast(msg, type = "info") {
+		eventBus.emit("SHOW_TOAST", {
+			type: type,
+			message: msg,
+			duration: 3500
+		});
 	}
 }
 

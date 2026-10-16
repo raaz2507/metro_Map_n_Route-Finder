@@ -1,7 +1,3 @@
-/**
- * 🌐 UniversalSearchEngine - Multi-City & Global Landmark Search Engine
- * Extends BaseSearchEngine for O(1) Token Inverted Index and Multi-Category Icons.
- */
 import { BaseSearchEngine } from "./BaseSearchEngine.js";
 import { appStateStore } from "../../core/app-state-store.js";
 
@@ -13,12 +9,14 @@ export class UniversalSearchEngine extends BaseSearchEngine {
 	#isReady = false;
 	#maxResults = 8;
 	#fetchAbort = null;
+	#getStationNameFn = null;
 
 	constructor(options = {}) {
 		super();
 		this.#scope = options.scope || "global";
 		this.#activeCity = options.activeCity || appStateStore.getState("activeCity") || "delhi_ncr";
 		this.#maxResults = options.maxResults || 8;
+		this.#getStationNameFn = options.getStationName || null;
 	}
 
 	async init() {
@@ -57,7 +55,7 @@ export class UniversalSearchEngine extends BaseSearchEngine {
 		const query = rawQuery.trim().toLowerCase();
 		if (query.length === 0) return [];
 
-		const searchWords = query.match(/[\w\u0900-\u097F]+/g) || [];
+		const searchWords = query.match(/[\w\u0900-\u097F\u0980-\u09FF\u0A80-\u0AFF\u0B80-\u0BFF\u0C00-\u0C7F\u0C80-\u0CFF\u0D00-\u0D7F\u0600-\u06FF]+/g) || [];
 		if (searchWords.length === 0) return [];
 
 		const wordCandidateSets = [];
@@ -140,11 +138,24 @@ export class UniversalSearchEngine extends BaseSearchEngine {
 	}
 
 	/**
-	 * 🎨 यूनिवर्सल ड्रॉपडाउन आइटम (श्रेणी आइकन + सिटी टैग)
+	 * 🎨 यूनिवर्सल ड्रॉपडाउन आइटम (श्रेणी आइकन + सिटी टैग - v4.0 Multilingual)
 	 */
 	renderDropdownItem(item, idx) {
 		const icon = item.icon || "📍";
-		const title = this.escapeHTML(item.name);
+		
+		// 🌐 यदि आइटम स्टेशन है, तो सक्रिय लोकेल पैक से उसका नाम लें
+		let titleText = item.name;
+		const stationId = item.stationId || item.id;
+		if (item.type === "Station" && stationId) {
+			const localizedName = typeof this.#getStationNameFn === "function" 
+				? this.#getStationNameFn(stationId) 
+				: (typeof window !== "undefined" && window.centerClass?.getStationName ? window.centerClass.getStationName(stationId) : null);
+			if (localizedName) {
+				titleText = localizedName;
+			}
+		}
+
+		const title = this.escapeHTML(titleText);
 		const subtitle = this.escapeHTML(item.subtitle || item.cityName || "");
 
 		return `

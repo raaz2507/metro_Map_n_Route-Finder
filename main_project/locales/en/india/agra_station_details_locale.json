@@ -1,0 +1,52 @@
+{
+	"networks": {
+		"upmrc_agra": "Uttar Pradesh Metro Rail Corporation (UPMRC)"
+	},
+	"lines": {
+		"upmrc_agra.yellow": {"name": "Yellow Line (Line 1)", "short_name": "Yellow Line (Line 1)"}
+	},
+	"stations": {
+		"agra_fort": {
+			"name": "Agra Fort",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"fatehabad_road": {
+			"name": "Fatehabad Road",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mankameshwar_mandir": {
+			"name": "Mankameshwar Mandir",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shaheed_captain_shubham_gupta": {
+			"name": "Shaheed Captain Shubham Gupta",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"taj_east_gate": {
+			"name": "Taj East Gate",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"taj_mahal": {
+			"name": "Taj Mahal",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

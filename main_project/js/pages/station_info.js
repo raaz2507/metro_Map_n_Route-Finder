@@ -3,7 +3,7 @@
  * Enterprise ES2022 OOP Class with Private Encapsulation (#)
  * Fully compliant with Universal Transit Master Schema (v3.0)
  */
-import { metroDataStore } from "../core/metro-data-store.js";
+import { centerClass } from "../core/CenterClass.js";
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import i18n from "../core/i18n.js";
@@ -42,7 +42,10 @@ export class StationInfoManager {
 	 * Helper for nested i18n translation lookups
 	 */
 	#t(path, vars = {}) {
-		return i18n.t(`station_info.${path}`, vars);
+		const fullKey = `station_info.${path}`;
+		const res = i18n.t(fullKey, vars);
+		// 🛡️ Agar translation nahi mila aur i18n ne wahi fullKey wapas kar di, to null return karein
+		return (typeof res === "string" && res.startsWith("station_info.")) ? null : res;
 	}
 
 	/**
@@ -65,8 +68,8 @@ export class StationInfoManager {
 
 		try {
 			// 1. Asynchronously load transit graph data and detailed facilities
-			this.#metroData = await metroDataStore.loadCity(this.#currentCity);
-			this.#stationsDetailData = await metroDataStore.loadStationsDetail(this.#currentCity);
+			this.#metroData = await centerClass.loadCity(this.#currentCity);
+			this.#stationsDetailData = await centerClass.loadStationsDetail(this.#currentCity);
 
 			this.#metroLines = this.#metroData.lines || {};
 			this.#metroStations = this.#metroData.stationData || {};
@@ -85,8 +88,9 @@ export class StationInfoManager {
 			this.#renderAllSections();
 
 			// 4. Subscribe to language switches for seamless in-place re-render
-			this.#unsubscribeLang = appStateStore.subscribe("currentLang", (newLang) => {
+			this.#unsubscribeLang = appStateStore.subscribe("currentLang", async (newLang) => {
 				this.#lang = newLang || "en";
+				await centerClass.reloadLocale(this.#lang);
 				this.#renderAllSections();
 			});
 		} catch (error) {
@@ -114,8 +118,8 @@ export class StationInfoManager {
 	}
 
 	#renderPageTitle() {
-		const name = this.#stBasicData?.name?.[this.#lang] || this.#stBasicData?.name?.en || this.#stationId.toUpperCase();
-		document.title = this.#t("meta.title", { name });
+		const name = centerClass.getStationName(this.#stationId);
+		document.title = this.#t("meta.title", { name: name || this.#stationId });
 	}
 
 	#findBasicData(id) {
@@ -156,7 +160,7 @@ export class StationInfoManager {
 
 		let prevStackHTML = "";
 		let nextStackHTML = "";
-		const currentName = stBasic?.name?.[this.#lang] || stBasic?.name?.en || this.#stationId.toUpperCase();
+		const currentName = centerClass.getStationName(this.#stationId) || this.#stationId;
 
 		const activeLines = lineKeys.length > 0 ? lineKeys : [neighbors[0]?.line || "default"];
 
@@ -172,12 +176,8 @@ export class StationInfoManager {
 			const prevNeighbor = lineNeighbors[0];
 			const nextNeighbor = lineNeighbors[1];
 
-			const prevStObj = prevNeighbor ? this.#metroStations[prevNeighbor.station] : null;
-			const nextStObj = nextNeighbor ? this.#metroStations[nextNeighbor.station] : null;
-
-			const prevName = prevStObj ? (prevStObj.name?.[this.#lang] || prevStObj.name?.en) : (prevNeighbor ? prevNeighbor.station.toUpperCase() : "Terminal");
-			const nextName = nextStObj ? (nextStObj.name?.[this.#lang] || nextStObj.name?.en) : (nextNeighbor ? nextNeighbor.station.toUpperCase() : "Terminal");
-
+			const prevName = prevNeighbor ? (centerClass.getStationName(prevNeighbor.station) || prevNeighbor.station) : "Terminal";
+			const nextName = nextNeighbor ? (centerClass.getStationName(nextNeighbor.station) || nextNeighbor.station) : "Terminal";
 			prevStackHTML += prevNeighbor 
 				? `<a href="station_info.html?id=${encodeURIComponent(prevNeighbor.station)}&city=${encodeURIComponent(this.#currentCity)}" class="route-capsule prev" style="--line-color:${lineColor};">← ${this.#escapeHTML(prevName)}</a>`
 				: `<span class="route-capsule disabled" style="--line-color:${lineColor};">● ${this.#escapeHTML(prevName)}</span>`;
@@ -212,14 +212,14 @@ export class StationInfoManager {
 			if (!lineInfo) return;
 			const lineColor = lineInfo.color || "#007bff";
 			const label = lineInfo.label ? `Line ${lineInfo.label}` : "Metro";
-			const colorName = lineInfo.name?.[this.#lang] || lineInfo.name?.en || lineId.toUpperCase();
+			const colorName = centerClass.getLineName(lineId) || lineId.toUpperCase();
 			
-			const network = (lineInfo.network || "Transit").toUpperCase();
+			const network = (centerClass.getNetworkName(lineInfo.network) || lineInfo.network || "Transit").toUpperCase();
 			const operator = (lineInfo.operator || "Operator").toUpperCase();
 			const fromId = lineInfo.route?.from;
 			const toId = lineInfo.route?.to;
-			const fromSt = fromId ? (this.#metroStations[fromId]?.name?.[this.#lang] || this.#metroStations[fromId]?.name?.en || fromId.toUpperCase()) : "Origin";
-			const toSt = toId ? (this.#metroStations[toId]?.name?.[this.#lang] || this.#metroStations[toId]?.name?.en || toId.toUpperCase()) : "Destination";
+			const fromSt = fromId ? (centerClass.getStationName(fromId) || fromId.toUpperCase()) : "Origin";
+			const toSt = toId ? (centerClass.getStationName(toId) || toId.toUpperCase()) : "Destination";
 			linesHTML += `
 				<div class="line-strip-row" style="--line-color:${lineColor};">
 					<span class="chip-label">${this.#escapeHTML(label)}</span>
@@ -241,14 +241,12 @@ export class StationInfoManager {
 		const heroContainer = document.getElementById("hero-container");
 		if (!heroContainer) return;
 
-		const stationTitle = stBasic?.name?.[this.#lang] || stBasic?.name?.en || stRich?.id?.toUpperCase() || this.#stationId.toUpperCase();
+		const stationTitle = centerClass.getStationName(this.#stationId) || this.#stationId;
 		const code = (stBasic?.id || stRich?.id || this.#stationId).toUpperCase();
-		const layoutType = stRich?.type || stBasic?.properties?.layout || "Elevated";
+		const rawLayout = (stRich?.type || stBasic?.properties?.layout);
+		const layoutType = this.#t(`hero.layouts.${rawLayout}`) || rawLayout;
 		
-		let descText = "";
-		if (stRich?.description && typeof stRich.description === "object" && !Array.isArray(stRich.description)) {
-			descText = stRich.description[this.#lang] || stRich.description.en || "";
-		}
+		const descText = centerClass.getStationDescription(this.#stationId);
 		const description = descText || this.#t("hero.noDescription");
 
 		// GIS Location Strip
@@ -357,18 +355,15 @@ export class StationInfoManager {
 		platformKeys.forEach(pNum => {
 			const p = platformsObj[pNum];
 			const lineInfo = this.#metroLines[p.line];
-			const lineColor = lineInfo?.color || "#007bff";
-			const lineName = lineInfo?.short_name?.[this.#lang] || lineInfo?.name?.[this.#lang] || lineInfo?.name?.en || p.line?.toUpperCase() || "Metro";
+			const lineColor = lineInfo?.color;
+			const lineName = centerClass.getLineShortName(p.line) || centerClass.getLineName(p.line) || p.line?.toUpperCase() || "Metro";
 			
-			// Destination fallback resolution
-			let destName = "";
+			let destName = "Terminal";
 			if (p.destination) {
-				const destStation = this.#metroStations[p.destination];
-				destName = destStation ? (destStation.name?.[this.#lang] || destStation.name?.en) : p.destination.toUpperCase();
+				destName = centerClass.getStationName(p.destination) || p.destination.toUpperCase();
 			} else if (lineInfo?.route) {
-				const fallbackDestId = pNum === "1" ? (lineInfo.route.to || lineInfo.route.from) : (lineInfo.route.from || lineInfo.route.to);
-				const destStation = fallbackDestId ? this.#metroStations[fallbackDestId] : null;
-				destName = destStation ? (destStation.name?.[this.#lang] || destStation.name?.en) : (fallbackDestId ? fallbackDestId.toUpperCase() : "Terminal");
+				const fallbackDestId = lineInfo.route.to;
+				destName = fallbackDestId ? (centerClass.getStationName(fallbackDestId) || fallbackDestId.toUpperCase()) : "Terminal";
 			} else {
 				destName = "Terminal";
 			}
@@ -415,7 +410,8 @@ export class StationInfoManager {
 			const isOpen = (g.status || "OPEN").toUpperCase() === "OPEN";
 			const status = isOpen ? this.#t("gates.open") : this.#t("gates.closed");
 			const statusClass = isOpen ? "status-active" : "status-maintenance";
-			const landmark = g.landmark?.[this.#lang] || g.landmark?.en || g.landmark?.hi || "Exit Gate Area";
+			const defaultArea = this.#t("gates.defaultArea") || "Exit Gate Area";
+			const landmark = centerClass.getGateLandmark(this.#stationId, gNum) || defaultArea;
 			const gateLabel = this.#t("gates.gateNum", { num: gNum });
 
 			html += `
@@ -458,16 +454,24 @@ export class StationInfoManager {
 			const items = facilitiesObj[cat] || [];
 			if (items.length === 0) return;
 
+			const catTitle = this.#t(`facilities.categories.${cat}`) || cat;
 			html += `
 				<div class="facility-subcategory">
-					<div class="facility-subcategory-title">🔹 ${this.#escapeHTML(cat)} (${items.length})</div>
+					<div class="facility-subcategory-title">🔹 ${this.#escapeHTML(catTitle)} (${items.length})</div>
 					<div class="facility-items-flex">
-						${items.map(item => `
-							<div class="facility-pill">
-								<span class="facility-name">${this.#escapeHTML(item.name || cat)}</span>
-								<span class="facility-loc">📍 ${this.#escapeHTML(item.location || "Concourse")} ${item.purpose ? `| ${this.#escapeHTML(item.purpose)}` : ""}</span>
-							</div>
-						`).join("")}
+						${items.map(item => {
+							const rawItemName = item.name || cat;
+							const itemName = this.#t(`facilities.items.${rawItemName}`) || rawItemName;
+							const rawItemLoc = item.location || "Concourse";
+							const itemLoc = this.#t(`facilities.locations.${rawItemLoc}`) || rawItemLoc;
+
+							return `
+								<div class="facility-pill">
+									<span class="facility-name">${this.#escapeHTML(itemName)}</span>
+									<span class="facility-loc">📍 ${this.#escapeHTML(itemLoc)} ${item.purpose ? `| ${this.#escapeHTML(item.purpose)}` : ""}</span>
+								</div>
+							`;
+						}).join("")}
 					</div>
 				</div>
 			`;
@@ -510,13 +514,20 @@ export class StationInfoManager {
 			`;
 
 			parkingCapacityList.forEach(p => {
+				const providerName = p.provider === "Not Available" 
+					? this.#t("parking.notAvailable") 
+					: (p.provider || this.#t("parking.authorisedParking"));
+				const locName = p.location === "Near Exit Gate" 
+					? this.#t("parking.nearExitGate") 
+					: (p.location || this.#t("parking.nearExitGate"));
+
 				tableHTML += `
 					<tr>
-						<td><strong>${this.#escapeHTML(p.provider || "Authorised Parking")}</strong></td>
+						<td><strong>${this.#escapeHTML(providerName)}</strong></td>
 						<td>${p.capacity_car ?? "--"}</td>
 						<td>${p.capacity_motorcycle ?? "--"}</td>
 						<td>${p.capacity_cycle ?? "--"}</td>
-						<td>${this.#escapeHTML(p.location || "Near Exit Gate")}</td>
+						<td>${this.#escapeHTML(locName)}</td>
 					</tr>
 				`;
 			});
@@ -749,7 +760,8 @@ export class StationInfoManager {
 							<tbody>
 								${liftKeys.map(k => {
 									const item = liftsObj[k];
-									const loc = item.location || item.name || "Concourse Level";
+									const rawLoc = item.location || item.name;
+									const loc = this.#t(`verticalTransit.locations.${rawLoc}`) || rawLoc;
 									const placement = item.placement === "Inside" ? this.#t("verticalTransit.inside") : (item.placement === "Outside" ? this.#t("verticalTransit.outside") : (item.placement || "Concourse"));
 									return `
 										<tr>
@@ -789,7 +801,8 @@ export class StationInfoManager {
 							<tbody>
 								${escKeys.map(k => {
 									const item = escalatorsObj[k];
-									const loc = item.location || item.name || "Concourse Level";
+									const rawLoc = item.location || item.name || "Concourse Level";
+									const loc = this.#t(`verticalTransit.locations.${rawLoc}`) || rawLoc;
 									const placement = item.placement === "Inside" ? this.#t("verticalTransit.inside") : (item.placement === "Outside" ? this.#t("verticalTransit.outside") : (item.placement || "Concourse"));
 									const dirTag = item.direction === "Up" ? this.#t("verticalTransit.up") : (item.direction === "Down" ? this.#t("verticalTransit.down") : (item.direction || "Up"));
 									return `
@@ -896,9 +909,10 @@ export class StationInfoManager {
 			const places = nearbyObj[cat] || [];
 			if (places.length === 0) return;
 
+			const catTitle = this.#t(`nearby.categories.${cat}`) || cat;
 			html += `
 				<div class="nearby-cat-card">
-					<div class="nearby-cat-title">🏛️ ${this.#escapeHTML(cat)}</div>
+					<div class="nearby-cat-title">🏛️ ${this.#escapeHTML(catTitle)}</div>
 					<ul class="nearby-places-list">
 						${places.map(p => `
 							<li class="nearby-place-item">

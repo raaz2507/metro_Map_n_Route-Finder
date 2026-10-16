@@ -2,6 +2,7 @@
 import { createDOMFromMap } from "./dom-builder.js";
 import { eventBus } from "../core/event-bus.js";
 import i18n from "../core/i18n.js";
+import { centerClass } from "../core/CenterClass.js";
 const earthScale = 111320; // Meters per degree
 
 export class MetroMap {
@@ -240,7 +241,7 @@ export class MetroMap {
 					lineInfo.color_name === "yellow" ? "#000000" : "#ffffff";
 
 				const text = document.createElement("span");
-				text.textContent = lineInfo.name?.[lang] || lineInfo.name?.en || lineKey;
+				text.textContent = centerClass.getLineName(lineKey) || lineKey;
 				
 				li.appendChild(circle);
 				li.appendChild(text);
@@ -256,10 +257,10 @@ export class MetroMap {
 			},
 		);
 
-		// 2. स्पेशल स्टेशन टाइप्स रेंडर करें (कस्टम क्लिक इवेंट के साथ)
-		const stationTypes = this.#metroData.station_types || {};
+		// 2. स्पेशल स्टेशन टाइप्स रेंडर करें (i18n map.js से)
+		const registeredStationTypes = ["normal", "interchange", "walkway", "multimodal", "shared_track"];
 
-		Object.entries(stationTypes).forEach(([type, info]) => {
+		registeredStationTypes.forEach((type) => {
 			const li = document.createElement("li");
 			li.className = "legend_item";
 			li.style.cursor = "pointer";
@@ -279,7 +280,7 @@ export class MetroMap {
 			}
 
 			const text = document.createElement("span");
-			text.textContent = info[lang] || info.en;
+			text.textContent = i18n.t(`map.legend.stationTypes.${type}`);
 
 			li.appendChild(icon);
 			li.appendChild(text);
@@ -294,27 +295,15 @@ export class MetroMap {
 			station_type_legend.appendChild(li);
 		});
 
-		// 3. ट्रैक व स्टेशन स्थिति (Operational, Under Construction, Approved)
+		// 3. ट्रैक व स्टेशन स्थिति (i18n map.js से)
 		const { status_legend } = this.#elemts;
 		if (status_legend) {
 			status_legend.innerHTML = "";
 
 			const statusList = [
-				{
-					status: "operational",
-					iconClass: "legend-status-solid",
-					label: { en: "Operational Track", hi: "चालू / सक्रिय ट्रैक", mr: "सुरू / कार्यरत मार्ग" }
-				},
-				{
-					status: "under_construction",
-					iconClass: "legend-status-dashed",
-					label: { en: "Under Construction", hi: "निर्माणाधीन (डैश लाइन)", mr: "बांधकाम सुरू (डॅश मार्ग)" }
-				},
-				{
-					status: "approved",
-					iconClass: "legend-status-dotted",
-					label: { en: "Approved / Planned", hi: "प्रस्तावित / स्वीकृत (डॉटेड)", mr: "मंजूर / नियोजित (डॉटेड)" }
-				}
+				{ status: "operational", iconClass: "legend-status-solid" },
+				{ status: "under_construction", iconClass: "legend-status-dashed" },
+				{ status: "approved", iconClass: "legend-status-dotted" }
 			];
 
 			statusList.forEach((item) => {
@@ -327,7 +316,7 @@ export class MetroMap {
 				bar.className = item.iconClass;
 
 				const text = document.createElement("span");
-				text.textContent = item.label[lang] || item.label.en;
+				text.textContent = i18n.t(`map.legend.trackStatus.${item.status}`);
 
 				li.appendChild(bar);
 				li.appendChild(text);
@@ -366,9 +355,9 @@ export class MetroMap {
 		const elemtMap = {
 			zoomLevel: { type: "output", id: "zoomLevel", cls: "zoom-indicator", oth_att: { for: "zoomInBtn zoomOutBtn resetZoomBtn" }, html_con: `${Math.round(this.zoomScale * 100)}%`, parent: "zoomControls" },
 			zoomControls: { type: "div", id: "zoomControls", cls: "metro-zoom-container", oth_att: {} },
-			zoomInBtn: { type: "button", id: "zoomInBtn", cls: "zoom-btn", oth_att: { title: "Zoom In" }, html_con: "+", parent: "zoomControls" },
-			zoomOutBtn: { type: "button", id: "zoomOutBtn", cls: "zoom-btn", oth_att: { title: "Zoom Out" }, html_con: "-", parent: "zoomControls" },
-			resetZoomBtn: { type: "button", id: "resetZoomBtn", cls: "zoom-btn", oth_att: { title: "Reset Zoom" }, html_con: "=", parent: "zoomControls" },
+			zoomInBtn: { type: "button", id: "zoomInBtn", cls: "zoom-btn", oth_att: { title: i18n.t("map.controls.zoomIn") }, html_con: "+", parent: "zoomControls" },
+			zoomOutBtn: { type: "button", id: "zoomOutBtn", cls: "zoom-btn", oth_att: { title: i18n.t("map.controls.zoomOut") }, html_con: "-", parent: "zoomControls" },
+			resetZoomBtn: { type: "button", id: "resetZoomBtn", cls: "zoom-btn", oth_att: { title: i18n.t("map.controls.resetZoom") }, html_con: "=", parent: "zoomControls" },
 		};
 
 		const zoomControlsElemts = createDOMFromMap(
@@ -1039,7 +1028,7 @@ export class MetroMap {
 				isEven: true
 			};
 
-			const rawName = station.name?.[lang] || station.name?.en || "";
+			const rawName = centerClass.getStationName(station.id) || "";
 			const lines = getWrappedLines(rawName);
 
 			let x = station.xy.x;
@@ -1313,9 +1302,17 @@ export class MetroMap {
 		const unsub = eventBus.on("MAP_SETTINGS_UPDATED", (settings) => {
 			this.updateDisplaySettings(settings);
 		});
+
+		const unsubLang = eventBus.on("metro:data-updated", ({ reason, lang }) => {
+			if (reason === "language_switch") {
+				this.setLanguage = lang;
+			}
+		});
+
 		if (this.#abortController?.signal) {
 			this.#abortController.signal.addEventListener("abort", () => {
 				unsub();
+				unsubLang();
 			});
 		}
 	}
@@ -1423,15 +1420,15 @@ export class MetroMap {
 	/**
 	 * 🎛️ बटन के आइकन, टेक्स्ट और कलर मोड को सिंक करने वाला हेल्पर
 	 */
-	#updateRouteToggleButtonUI(lang = this.#settings.currentLang) {
+	#updateRouteToggleButtonUI() {
 		const btn = this.#elemts.clearRouteBtn;
 		if (!btn) return;
 		// 1. यदि कोई लेजेंड फ़िल्टर (स्टेशन टाइप, लाइन, स्टेटस या स्टेशन) एक्टिव है:
 		if (this.#activeStationType || this.#activeLineId || this.#activeStationId || this.#activeStatus) {
 			btn.classList.remove("hidden");
 			btn.classList.remove("show-mode");
-			const label = lang === "hi" ? "फ़िल्टर साफ़ करें" : "Clear Filter";
-			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearFilter">${label}</span>`;
+			const label = i18n.t("map.actions.clearFilter");
+			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span>${label}</span>`;
 			return;
 		}
 		// 2. यदि कोई रूट ही एक्टिव नहीं है, तो बटन छुपाएं
@@ -1444,13 +1441,13 @@ export class MetroMap {
 		if (this.#isRouteVisible) {
 			// Clear Route State (Red/Rose ✕)
 			btn.classList.remove("show-mode");
-			const label = lang === "hi" ? "रूट साफ़ करें" : "Clear Route";
-			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearRoute">${label}</span>`;
+			const label = i18n.t("map.actions.clearRoute");
+			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span>${label}</span>`;
 		} else {
 			// Show Route State (Blue 👁️)
 			btn.classList.add("show-mode");
-			const label = lang === "hi" ? "रूट दिखाएं" : "Show Route";
-			btn.innerHTML = `<span class="icon" aria-hidden="true">👁️</span><span data-i18n="pages.home.map.showRoute">${label}</span>`;
+			const label = i18n.t("map.actions.showRoute");
+			btn.innerHTML = `<span class="icon" aria-hidden="true">👁️</span><span>${label}</span>`;
 		}
 	}
 

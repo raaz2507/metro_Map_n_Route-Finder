@@ -22,7 +22,7 @@ DEFAULT_REQUEST_TIMEOUT = 10
 # Keys that belong strictly to transit_network.json and must NEVER be leaked
 # into station_details.json / station_details_auto.json
 # -------------------------------------------------------------------------
-EXCLUDED_STATION_DETAILS_KEYS = {"lines", "properties", "neighbors", "location"}
+EXCLUDED_STATION_DETAILS_KEYS = {"name", "description", "lines", "properties", "neighbors", "location"}
 
 # -------------------------------------------------------------------------
 # CANONICAL STATUS TAXONOMY (Strict Schema Authority)

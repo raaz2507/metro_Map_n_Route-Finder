@@ -1,0 +1,694 @@
+{
+	"networks": {
+		"mumbai_metro": "मुंबई मेट्रो",
+		"navi_mumbai_metro": "नवी मुंबई मेट्रो",
+		"mumbai_monorail": "मुंबई मोनोरेल",
+		"mmopl": "मुंबई मेट्रो वन",
+		"mmmocl": "महा मुंबई मेट्रो (MMMOCL)",
+		"mmrcl": "मुंबई मेट्रो रेल कॉर्पोरेशन",
+		"cidco": "सिडको / महा मेट्रो",
+		"mmrda_monorail": "एमएमआरडीए मोनोरेल"
+	},
+	"lines": {
+		"mumbai.blue": {"name": "मेट्रो लाइन १ (ब्लू लाइन)", "short_name": ""},
+		"mumbai.yellow": {"name": "मेट्रो लाइन २A (यलो लाइन)", "short_name": ""},
+		"mumbai.red": {"name": "मेट्रो लाइन ७ (रेड लाइन)", "short_name": ""},
+		"mumbai.aqua": {"name": "मेट्रो लाइन ३ (एक्वा लाइन)", "short_name": ""},
+		"mumbai.navi_mumbai_1": {"name": "नवी मुंबई मेट्रो लाइन १", "short_name": ""},
+		"mumbai.monorail": {"name": "मोनोरेल लाइन १ (ग्रीन लाइन)", "short_name": ""}
+	},
+	"stations": {
+		"aarey_jvlr": {
+			"name": "आरे जे.वी.एल.आर",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"acharya_atre": {
+			"name": "आचार्य अत्रे नगर",
+			"aliases": [],
+			"description": "वडाला पूर्व में आचार्य अत्रे नगर और आवासीय कॉलोनियों को सेवा देने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"acharya_atre_chowk": {
+			"name": "आचार्य अत्रे चौक",
+			"aliases": [],
+			"description": "वर्ली में आचार्य अत्रे चौक और डॉ. एनी बेसेंट रोड के पास स्थित मुंबई मेट्रो लाइन ३ का भूमिगत स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"ambedkar_nagar": {
+			"name": "आंबेडकर नगर",
+			"aliases": [],
+			"description": "परेल के प्रमुख चिकित्सा केंद्र (केईएम अस्पताल, टाटा मेमोरियल अस्पताल) के समीप स्थित स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"antop_hill": {
+			"name": "अंटॉप हिल",
+			"aliases": [],
+			"description": "अंटॉप हिल, सरकारी आवास और कस्टम्स क्वार्टर्स को सेवा प्रदान करने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"bandra_colony": {
+			"name": "वांद्रे कॉलनी",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"bandra_kurla_complex": {
+			"name": "वांद्रे-कुर्ला कॉम्प्लेक्स",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"belapur": {
+			"name": "सी.बी.डी. बेलापूर",
+			"aliases": [],
+			"description": "हार्बर लाइन के सी.बी.डी. बेलापूर रेलवे स्टेशन से सीधे जुड़ा हुआ नवी मुंबई मेट्रो लाइन १ का दक्षिणी टर्मिनल स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"bhakti_park": {
+			"name": "भक्ति पार्क",
+			"aliases": [],
+			"description": "आईमैक्स वडाला सिनेमा और भक्ति पार्क हाई-राइज कॉम्प्लेक्स के निकट स्थित स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"bharat_petroleum": {
+			"name": "भारत पेट्रोलियम",
+			"aliases": [],
+			"description": "भारत पेट्रोलियम (बीपीसीएल) रिफाइनरी कॉम्प्लेक्स और माहुल क्षेत्र के समीप स्थित मोनोरेल स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"centralpark": {
+			"name": "सेंट्रल पार्क (खारघर)",
+			"aliases": [],
+			"description": "एशिया के विशालतम सेंट्रल पार्क और भव्य इस्कॉन मंदिर के सामने स्थित प्रमुख पर्यटन व मनोरंजक स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"chembur": {
+			"name": "चेंबूर",
+			"aliases": [],
+			"description": "हार्बर लाइन के चेंबूर रेलवे स्टेशन से सीधे जुड़ा हुआ मुंबई मोनोरेल का पूर्वी टर्मिनल स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"chhatrapati_shivaji_maharaj_terminus_metro": {
+			"name": "सीएसएमटी मेट्रो",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"churchgate_metro": {
+			"name": "चर्चगेट मेट्रो",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"csmi_airport_t1": {
+			"name": "सी. एस. एम. आय विमानतळ - T1",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"csmi_airport_t2": {
+			"name": "सी. एस. एम. आय विमानतळ - T2",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"cuffe_parade": {
+			"name": "कफ परेड",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dadar_east": {
+			"name": "दादर पूर्व",
+			"aliases": [],
+			"description": "दादर पूर्व में दादासाहेब फाल्के रोड, चित्रा सिनेमा और स्वामी नारायण मंदिर क्षेत्र को सेवा देने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"dadar_metro": {
+			"name": "दादर मेट्रो",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dharavi": {
+			"name": "धारावी",
+			"aliases": [],
+			"description": "धारावी चमड़ा बाजार और सायन-बांद्रा लिंक रोड क्षेत्र को सेवा प्रदान करने वाला मुंबई मेट्रो लाइन ३ का भूमिगत स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"fertiliser": {
+			"name": "फर्टिलाइजर टाउनशिप",
+			"aliases": [],
+			"description": "राष्ट्रीय केमिकल्स एंड फर्टिलाइजर्स (आरसीएफ) आवासीय टाउनशिप को कनेक्टिविटी देने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"girgaon": {
+			"name": "गिरगाव",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"grant_road_metro": {
+			"name": "ग्रँट रोड मेट्रो",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gtb_nagar": {
+			"name": "जी.टी.बी. नगर",
+			"aliases": [],
+			"description": "सायन कोलीवाड़ा और हार्बर लाइन के जी.टी.बी. नगर रेलवे स्टेशन को जोड़ने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"hutatma_chowk": {
+			"name": "हुतात्मा चौक",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jacob_circle": {
+			"name": "संत गाडगे महाराज चौक (जैकब सर्कल)",
+			"aliases": [],
+			"description": "सात रास्ता (जैकब सर्कल) पर स्थित मुंबई मोनोरेल का दक्षिणी टर्मिनल स्टेशन, जो महालक्ष्मी रेलवे स्टेशन और रेसकोर्स को जोड़ता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"jagannath_shankar_sheth_metro": {
+			"name": "जेएसएस मेट्रो",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kalbadevi": {
+			"name": "काळबादेवी",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"lower_parel": {
+			"name": "लोअर परेल",
+			"aliases": [],
+			"description": "हाई स्ट्रीट फीनिक्स मॉल, पैलेडियम और कॉर्पोरेट पार्कों को कनेक्टिविटी प्रदान करने वाला लोअर परेल का प्रमुख स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahalaxmi_metro": {
+			"name": "महालक्ष्मी मेट्रो",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"marol_naka": {
+			"name": "मरोल नाका",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"midc_andheri": {
+			"name": "एम.आय.डी.सी-अंधेरी",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mint_colony": {
+			"name": "मिंट कॉलोनी",
+			"aliases": [],
+			"description": "भारत सरकार मिंट कॉलोनी और सेंट्रल लाइन के करी रोड स्टेशन के निकट स्थित स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_anandnagar": {
+			"name": "Anand Nagar",
+			"aliases": [],
+			"description": "दहिसर पश्चिम में न्यू लिंक रोड पर स्थित एलिवेटेड स्टेशन, जो आनंद नगर आवासीय क्षेत्र और सुधीर फड़के फ्लाईओवर को सेवा देता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_andheriwest": {
+			"name": "Andheri West",
+			"aliases": [],
+			"description": "मेट्रो लाइन २ए का दक्षिणी टर्मिनल स्टेशन, जो १२० मीटर लंबे समर्पित स्काईवॉक के जरिए मेट्रो लाइन १ के डी.एन. नगर स्टेशन से सीधे जुड़ा हुआ है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_bangurnagar": {
+			"name": "Bangur Nagar",
+			"aliases": [],
+			"description": "बांगुर नगर, गोरेगांव पश्चिम के स्पोर्ट्स क्लब और रिहायशी टाउनशिप्स को सेवा देने वाला एलिवेटेड स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_borivaliwest": {
+			"name": "Borivali (West)",
+			"aliases": [],
+			"description": "बोरीवली उपनगरीय रेलवे स्टेशन (पश्चिम) और प्रमुख वाणिज्यिक बाजारों को जोड़ने वाला अत्यंत व्यस्त व प्रमुख मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_dahanukarwadi": {
+			"name": "Dahanukarwadi",
+			"aliases": [],
+			"description": "प्रसिद्ध महावीर नगर फूड स्ट्रीट और डहाणूकरवाड़ी आवासीय परिसर के प्रवेश द्वार पर स्थित स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_dahisareast": {
+			"name": "Dahisar East",
+			"aliases": [],
+			"description": "मेट्रो लाइन ७ (रेड लाइन) और लाइन २ए (यलो लाइन) को क्रॉस-प्लेटफॉर्म पर जोड़ने वाला उत्तरी टर्मिनल इंटरचेंज स्टेशन, जो दहिसर और मीरा रोड यात्रियों को सेवा प्रदान करता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_eksar": {
+			"name": "Eksar",
+			"aliases": [],
+			"description": "डॉन बॉस्को स्कूल और एकसर तलाब के निकट स्थित बोरीवली पश्चिम का एलिवेटेड मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_goregaonwest": {
+			"name": "Goregaon West",
+			"aliases": [],
+			"description": "पाटकर वर्दे कॉलेज और गोरेगांव पश्चिम रेलवे स्टेशन रोड को जोड़ने वाला प्रमुख शैक्षणिक व ट्रांजिट स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_kandarpada": {
+			"name": "Kandarpada",
+			"aliases": [],
+			"description": "दहिसर पश्चिम में न्यू लिंक रोड पर स्थित आधुनिक एलिवेटेड स्टेशन, जो कांदरपाड़ा क्षेत्र को जोड़ता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_kandivaliwest": {
+			"name": "Kandivali West",
+			"aliases": [],
+			"description": "कांदिवली रेलवे स्टेशन (पश्चिम) और शताब्दी अस्पताल को जोड़ने वाला प्रमुख ट्रांजिट स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_lowermalad": {
+			"name": "Lower Malad",
+			"aliases": [],
+			"description": "इनऑर्बिट मॉल और माइंडस्पेस आईटी स्पेशल इकोनॉमिक ज़ोन के सामने स्थित प्रमुख कॉर्पोरेट व कमर्शियल मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_loweroshiwara": {
+			"name": "Lower Oshiwara",
+			"aliases": [],
+			"description": "लोखंडवाला कॉम्प्लेक्स, इन्फिनिटी मॉल अंधेरी (पश्चिम) और फिल्म/टीवी स्टूडियोज को कनेक्टिविटी प्रदान करने वाला प्रमुख लाइफस्टाइल स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_maladwest": {
+			"name": "Malad West",
+			"aliases": [],
+			"description": "मलाड पश्चिम के प्रमुख शॉपिंग मॉल्स और उपनगरीय रेलवे स्टेशन को जोड़ने वाला प्रमुख मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_mandapeshwariccolony": {
+			"name": "Mandapeshwar (IC Colony)",
+			"aliases": [],
+			"description": "८वीं शताब्दी की प्राचीन मंडपेश्वर गुफाओं और जीवंत आई.सी. कॉलोनी के प्रवेश द्वार पर स्थित प्रमुख मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_oshiwara": {
+			"name": "Oshiwara",
+			"aliases": [],
+			"description": "ओशिवरा फर्नीचर मार्केट, मेगा मॉल और आदर्श नगर क्षेत्र को सेवा प्रदान करने वाला मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_shimpoli": {
+			"name": "Shimpoli",
+			"aliases": [],
+			"description": "शिंपोली रोड और चीकूवाड़ी के प्रमुख आवासीय क्षेत्रों को सेवा देने वाला एलिवेटेड स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_valnaimeethchowky": {
+			"name": "Valnai-Meeth Chowky",
+			"aliases": [],
+			"description": "मीठ चौकी जंक्शन पर स्थित मेट्रो स्टेशन, जो मार्वे रोड, अक्सा बीच और ऑर्लेम क्षेत्र को कनेक्टिविटी देता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_aarey": {
+			"name": "Aarey",
+			"aliases": [],
+			"description": "सुंदर आरे फॉरेस्ट कॉलोनी के प्रवेश द्वार पर स्थित और निर्लोन नॉलेज पार्क आईटी हब से सीधे जुड़ा हुआ मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_akurli": {
+			"name": "Akurli",
+			"aliases": [],
+			"description": "आकुर्ली रोड, कांदिवली रेलवे स्टेशन (पूर्व) और लोखंडवाला टाउनशिप को कनेक्टिविटी प्रदान करने वाला प्रमुख मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_devipada": {
+			"name": "Devipada",
+			"aliases": [],
+			"description": "वेस्टर्न एक्सप्रेस हाईवे पर देवीपाड़ा और सुकुरवाड़ी बस टर्मिनल क्षेत्र को जोड़ने वाला एलिवेटेड स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_dindoshi": {
+			"name": "Dindoshi",
+			"aliases": [],
+			"description": "ओबेरॉय मॉल, डिंडोशी सेशन कोर्ट और फिल्म सिटी मार्ग के जंक्शन पर स्थित मेट्रो लाइन ७ का बेहद व्यस्त वाणिज्यिक केंद्र।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_goregaoneast": {
+			"name": "Goregaon East",
+			"aliases": [],
+			"description": "द हब मॉल और नेस्को एग्जिबिशन सेंटर के समीप स्थित गोरेगांव पूर्व का प्रमुख मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_gundavali": {
+			"name": "Gundavali",
+			"aliases": [],
+			"description": "मेट्रो लाइन ७ का दक्षिणी टर्मिनल स्टेशन, जो ९५ मीटर लंबे कवर्ड स्काईवॉक के माध्यम से मेट्रो लाइन १ के वेस्टर्न एक्सप्रेस हाईवे स्टेशन से सीधे जुड़ा है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_jogeshwarieast": {
+			"name": "Jogeshwari East",
+			"aliases": [],
+			"description": "वेस्टर्न एक्सप्रेस हाईवे और जेवीएलआर जंक्शन पर स्थित मेट्रो स्टेशन, जो ऐतिहासिक जोगेश्वरी गुफाओं और मजीस डिपो को जोड़ता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_kurar": {
+			"name": "Kurar",
+			"aliases": [],
+			"description": "मलाड पूर्व में घनी आबादी वाले कुरार गांव और शिवाजी नगर क्षेत्र को सेवा प्रदान करने वाला वेस्टर्न एक्सप्रेस हाईवे का मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_magathane": {
+			"name": "Magathane",
+			"aliases": [],
+			"description": "मागाठाणे बेस्ट बस डिपो और टाटा स्टील क्षेत्र के पास स्थित प्रमुख बस-मेट्रो इंटरचेंज ट्रांजिट स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_mogra": {
+			"name": "Mogra",
+			"aliases": [],
+			"description": "अंधेरी पूर्व में मोगरा गांव, नटवर नगर और पंप हाउस क्षेत्र को सेवा देने वाला एलिवेटेड स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_nationalpark": {
+			"name": "National Park",
+			"aliases": [],
+			"description": "संजय गांधी राष्ट्रीय उद्यान (एसजीएनपी) और कान्हेरी गुफाओं के मुख्य प्रवेश द्वार पर स्थित प्रमुख पर्यटन व ट्रांजिट स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_ovaripada": {
+			"name": "Ovaripada",
+			"aliases": [],
+			"description": "दहिसर पूर्व में वेस्टर्न एक्सप्रेस हाईवे पर स्थित एलिवेटेड स्टेशन, जो ओवरीपाड़ा और स्थानीय आवासीय क्षेत्रों को कनेक्टिविटी देता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_poisar": {
+			"name": "Poisar",
+			"aliases": [],
+			"description": "कांदिवली पूर्व में महिंद्रा एंड महिंद्रा ऑटोमोटिव प्लांट और पोइसर बस डिपो के पास स्थित स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_airportroad": {
+			"name": "Airport Road",
+			"aliases": [],
+			"description": "छत्रपति शिवाजी महाराज अंतरराष्ट्रीय हवाई अड्डे (T2) के मुख्य एप्रोच मार्ग पर स्थित मेट्रो लाइन १ का स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_andheri": {
+			"name": "Andheri",
+			"aliases": [],
+			"description": "मुंबई उपनगरीय पश्चिम रेलवे और हार्बर लाइन से सीधे जुड़ा हुआ मेट्रो लाइन १ का प्रमुख और सबसे व्यस्त मल्टीमॉडल इंटरचेंज स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_asalpha": {
+			"name": "Asalpha",
+			"aliases": [],
+			"description": "घाटकोपर-अंधेरी लिंक रोड पर सुभाष नगर और असल्फा क्षेत्र को कनेक्टिविटी देने वाला एलिवेटेड स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_azadnagar": {
+			"name": "Azad Nagar",
+			"aliases": [],
+			"description": "जे.पी. रोड पर स्थित मेट्रो लाइन १ का एलिवेटेड स्टेशन, जो अंधेरी स्पोर्ट्स कॉम्प्लेक्स और आज़ाद नगर आवासीय क्षेत्र को सेवा देता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_chakala": {
+			"name": "Chakala",
+			"aliases": [],
+			"description": "अंधेरी-कुर्ला रोड पर स्थित स्टेशन, जो जे.बी. नगर और एमआईडीसी औद्योगिक व कॉरपोरेट हब को कनेक्टिविटी देता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_dnnagar": {
+			"name": "DN Nagar",
+			"aliases": [],
+			"description": "मेट्रो लाइन १ और लाइन २ए (यलो लाइन - अंधेरी पश्चिम) को स्काईवॉक के माध्यम से जोड़ने वाला प्रमुख इंटरचेंज स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_ghatkopar": {
+			"name": "Ghatkopar",
+			"aliases": [],
+			"description": "मेट्रो लाइन १ का पूर्वी टर्मिनल स्टेशन, जो घाटकोपर सेंट्रल रेलवे उपनगरीय स्टेशन (सीएसएमटी, ठाणे, कल्याण लोकल) से सीधे एफओबी द्वारा जुड़ा है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_jagrutinagar": {
+			"name": "Jagruti Nagar",
+			"aliases": [],
+			"description": "घाटकोपर टर्मिनल से ठीक पहले, पंत नगर और सर्वोदय अस्पताल क्षेत्र को सेवा प्रदान करने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_sakinaka": {
+			"name": "Saki Naka",
+			"aliases": [],
+			"description": "अंधेरी, पवई और कुर्ला को जोड़ने वाले अत्यंत व्यस्त साकी नाका जंक्शन पर स्थित मेट्रो लाइन १ का स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_versova": {
+			"name": "Versova",
+			"aliases": [],
+			"description": "मुंबई मेट्रो लाइन १ का पश्चिमी टर्मिनल एलिवेटेड स्टेशन, जो सात बंगला और वर्सोवा तटीय क्षेत्र को कनेक्टिविटी प्रदान करता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_westernexpresshighway": {
+			"name": "Western Express Highway",
+			"aliases": [],
+			"description": "वेस्टर्न एक्सप्रेस हाईवे पर स्थित स्टेशन, जो एक विशेष स्काईवॉक के जरिए मेट्रो लाइन ७ (रेड लाइन - गुंदावली) से इंटरचेंज प्रदान करता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"mysore_colony": {
+			"name": "मैसूर कॉलोनी",
+			"aliases": [],
+			"description": "मैसूर कॉलोनी और एचपीसीएल आवासीय क्वार्टर्स को सेवा प्रदान करने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"naigaon": {
+			"name": "नायगांव",
+			"aliases": [],
+			"description": "नायगांव पुलिस मुख्यालय ग्राउंड और स्प्रिंग मिल्स क्षेत्र को सेवा देने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"panchanand": {
+			"name": "पंचानंद",
+			"aliases": [],
+			"description": "उत्तर खारघर और तलोजा एमआईडीसी सीमा पर स्थित पंचानंद मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"pendhar": {
+			"name": "पेंधर",
+			"aliases": [],
+			"description": "नवी मुंबई मेट्रो लाइन १ का उत्तरी टर्मिनल स्टेशन, जो मुख्य तलोजा मेट्रो कार डिपो और तलोजा औद्योगिक कॉरिडोर से जुड़ा है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"pethpada": {
+			"name": "पेठपाड़ा",
+			"aliases": [],
+			"description": "पेठपाड़ा और सरस्वती इंजीनियरिंग कॉलेज कैंपस को सेवा प्रदान करने वाला मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"sahar_road": {
+			"name": "सहार रोड",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"santacruz_metro": {
+			"name": "सांताक्रूझ मेट्रो",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"science_centre": {
+			"name": "साइंस सेंटर",
+			"aliases": [],
+			"description": "नेहरू विज्ञान केंद्र और तारामंडल के समीप स्थित मुंबई मेट्रो लाइन ३ का प्रमुख भूमिगत स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"sciencepark": {
+			"name": "सिडको साइंस पार्क",
+			"aliases": [],
+			"description": "सिडको साइंस पार्क और खारघर सीमा क्षेत्र के पास स्थित प्रमुख शैक्षणिक व पर्यटन मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector11": {
+			"name": "सेक्टर ११ (खारघर)",
+			"aliases": [],
+			"description": "खारघर सेक्टर ११ के मुख्य बाजार और शिल्प चौक क्षेत्र को जोड़ने वाला स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector14": {
+			"name": "सेक्टर १४ (खारघर)",
+			"aliases": [],
+			"description": "केंद्रीय विहार और जलवायु विहार जैसी प्रमुख आवासीय टाउनशिप्स को सेवा देने वाला एलिवेटेड स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector34": {
+			"name": "सेक्टर ३४ (खारघर)",
+			"aliases": [],
+			"description": "वैली शिल्प और स्वप्नपूर्ति आवासीय योजनाओं को सेवा देने वाला खारघर सेक्टर ३४ का स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector7": {
+			"name": "सेक्टर ७ (बेलापूर)",
+			"aliases": [],
+			"description": "बेलापूर के सेक्टर ७ और ८ क्षेत्र, कला भवन और रिहायशी परिसरों को सेवा देने वाला एलिवेटेड स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"seepz": {
+			"name": "सीप्झ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shitala_devi_mandir": {
+			"name": "शीतला देवी मंदिर",
+			"aliases": [],
+			"description": "प्रसिद्ध शीतला देवी मंदिर और माहिम उपनगर को जोड़ने वाला मुंबई मेट्रो लाइन ३ का भूमिगत स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"siddhivinayak": {
+			"name": "सिध्दिविनायक",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"utsavchowk": {
+			"name": "उत्सव चौक (खारघर)",
+			"aliases": [],
+			"description": "खारघर के ऐतिहासिक व प्रसिद्ध उत्सव चौक चौराहे पर स्थित प्रमुख वाणिज्यिक व आवासीय मेट्रो स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"vidhan_bhavan": {
+			"name": "विधान भवन",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vnp_rcmarg": {
+			"name": "वी. एन. पुरव मार्ग",
+			"aliases": [],
+			"description": "वी.एन. पुरव मार्ग और आर.सी. मार्ग जंक्शन पर स्थित स्टेशन, जो टीस (TISS) संस्थान को सेवा देता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"wadala_bridge": {
+			"name": "वडाला ब्रिज",
+			"aliases": [],
+			"description": "वडाला रेलवे ओवरब्रिज पर स्थित स्टेशन, जो हार्बर लाइन के वडाला उपनगरीय स्टेशन को कनेक्टिविटी देता है।",
+			"gates": {},
+			"landmarks": []
+		},
+		"wadala_depot": {
+			"name": "वडाला डिपो",
+			"aliases": [],
+			"description": "मुंबई मोनोरेल का मुख्य परिचालन मुख्यालय, सेंट्रल कार डिपो और वर्कशॉप स्टेशन।",
+			"gates": {},
+			"landmarks": []
+		},
+		"worli": {
+			"name": "वरळी",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

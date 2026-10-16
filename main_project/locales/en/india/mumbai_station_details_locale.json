@@ -1,0 +1,858 @@
+{
+	"networks": {
+		"mumbai_metro": "Mumbai Metro",
+		"navi_mumbai_metro": "Navi Mumbai Metro",
+		"mumbai_monorail": "Mumbai Monorail",
+		"mmopl": "Mumbai Metro One (Reliance/MMRDA)",
+		"mmmocl": "Maha Mumbai Metro (MMMOCL)",
+		"mmrcl": "Mumbai Metro Rail Corporation (MMRCL)",
+		"cidco": "CIDCO / Maha Metro",
+		"mmrda_monorail": "MMRDA Monorail"
+	},
+	"lines": {
+		"mumbai.blue": {"name": "Line 1 (Blue Line)", "short_name": "Line 1 (Blue Line)"},
+		"mumbai.yellow": {"name": "Line 2A (Yellow Line)", "short_name": "Line 2A (Yellow Line)"},
+		"mumbai.red": {"name": "Line 7 (Red Line)", "short_name": "Line 7 (Red Line)"},
+		"mumbai.aqua": {"name": "Line 3 (Aqua Line)", "short_name": "Line 3 (Aqua Line)"},
+		"mumbai.navi_mumbai_1": {"name": "Navi Mumbai Metro Line 1", "short_name": "Navi Mumbai Metro Line 1"},
+		"mumbai.monorail": {"name": "Monorail Line 1 (Green Line)", "short_name": "Monorail Line 1 (Green Line)"}
+	},
+	"stations": {
+		"aarey_jvlr": {
+			"name": "Aarey JVLR",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1/B1": "Powai, Seepz"
+			},
+			"landmarks": ["Powai, Seepz"]
+		},
+		"acharya_atre": {
+			"name": "Acharya Atre Nagar",
+			"aliases": [],
+			"description": "Elevated station in central Wadala serving residential societies around Acharya Atre Nagar and educational institutions.",
+			"gates": {},
+			"landmarks": []
+		},
+		"acharya_atre_chowk": {
+			"name": "Acharya Atre Chowk",
+			"aliases": [],
+			"description": "Underground station on Mumbai Metro Line 3 located in Worli near Acharya Atre Chowk and Dr. Annie Besant Road.",
+			"gates": {
+				"A2": "MCGM Worli Engineering Hub",
+				"B2": "Acharya Atre Chowk",
+				"B3": "Atria Mall, Nehru Planetarium",
+				"B4": "RTO-Regional Transport Office, Worli, Dairy Development Department",
+				"B5": "Consulate General Of The Republic Of Korea [South Korea], Acharya Atre Chowk",
+				"A4": "Mahanagar Palika Yangraha Bus Stop, Ambe International Humane",
+				"A3": "Konark Empress",
+				"B1": "Konark Empress",
+				"A1": "MCGM Engineering Hub, Nehru Science Centre"
+			},
+			"landmarks": ["MCGM Worli Engineering Hub", "Acharya Atre Chowk", "Atria Mall, Nehru Planetarium", "RTO-Regional Transport Office, Worli, Dairy Development Department", "Consulate General Of The Republic Of Korea [South Korea], Acharya Atre Chowk", "Mahanagar Palika Yangraha Bus Stop, Ambe International Humane", "Konark Empress", "MCGM Engineering Hub, Nehru Science Centre"]
+		},
+		"ambedkar_nagar": {
+			"name": "Ambedkar Nagar",
+			"aliases": [],
+			"description": "Positioned near the medical hub of Parel, serving KEM Hospital, Tata Memorial Hospital approach, and Bhoiwada.",
+			"gates": {},
+			"landmarks": []
+		},
+		"antop_hill": {
+			"name": "Antop Hill",
+			"aliases": [],
+			"description": "Station serving the historic Antop Hill, government housing colonies, customs quarters, and local logistics depots.",
+			"gates": {},
+			"landmarks": []
+		},
+		"bandra_colony": {
+			"name": "Bandra Colony",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Government Colony Bandra, I. E. S Junior College",
+				"A2": "University of Mumbai [Kalina University], Ascend International School",
+				"B1": "Western Express Highway, Teacher's Colony",
+				"B2": "University of Mumbai [Kalina University], Uttar Bhartiya Sangh"
+			},
+			"landmarks": ["Government Colony Bandra, I. E. S Junior College", "University of Mumbai [Kalina University], Ascend International School", "Western Express Highway, Teacher's Colony", "University of Mumbai [Kalina University], Uttar Bhartiya Sangh"]
+		},
+		"bandra_kurla_complex": {
+			"name": "Bandra-kurla Complex",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A5": "Bandra-Kurla Complex 'E' Block, Mumbai Metropolitian Region Development Authority[MMRDA]",
+				"A4": "ITO Junction, Family Court",
+				"A3": "ITO Junction, Kala Nagar",
+				"B1": "Sant Dyaneshwar Nagar, Office of District Collector,Mumbai Surburban",
+				"A2": "Bharat Nagar, Asian Heart Institute",
+				"A1": "Bandra-Kurla Complex 'E' Block, National Stock Exchange [NSE]"
+			},
+			"landmarks": ["Bandra-Kurla Complex 'E' Block, Mumbai Metropolitian Region Development Authority[MMRDA]", "ITO Junction, Family Court", "ITO Junction, Kala Nagar", "Sant Dyaneshwar Nagar, Office of District Collector,Mumbai Surburban", "Bharat Nagar, Asian Heart Institute", "Bandra-Kurla Complex 'E' Block, National Stock Exchange [NSE]"]
+		},
+		"belapur": {
+			"name": "CBD Belapur",
+			"aliases": [],
+			"description": "Southern terminal elevated multimodal hub of Navi Mumbai Metro Line 1, directly connected to CBD Belapur Suburban Railway Station on Harbour Line.",
+			"gates": {},
+			"landmarks": []
+		},
+		"bhakti_park": {
+			"name": "Bhakti Park",
+			"aliases": [],
+			"description": "Located near the iconic IMAX Wadala dome cinema and the expansive Bhakti Park residential high-rise complex, connected to Eastern Freeway.",
+			"gates": {},
+			"landmarks": []
+		},
+		"bharat_petroleum": {
+			"name": "Bharat Petroleum",
+			"aliases": [],
+			"description": "Monorail station situated near the Bharat Petroleum Corporation Limited (BPCL) industrial refinery complex and Mahul industrial area.",
+			"gates": {},
+			"landmarks": []
+		},
+		"centralpark": {
+			"name": "Central Park (Kharghar)",
+			"aliases": [],
+			"description": "Premier tourist and recreation gateway situated directly at Navi Mumbai Central Park (one of Asia's largest urban parks) and the grand ISKCON Temple.",
+			"gates": {},
+			"landmarks": []
+		},
+		"chembur": {
+			"name": "Chembur",
+			"aliases": [],
+			"description": "Eastern terminal station of Mumbai Monorail, directly connected to Chembur Suburban Railway Station (Harbour Line) via a dedicated foot overbridge.",
+			"gates": {},
+			"landmarks": []
+		},
+		"chhatrapati_shivaji_maharaj_terminus_metro": {
+			"name": "Chhatrapati Shivaji Maharaj Terminus Metro",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A3": "Court of Small Cases, Bombay Gymkhana",
+				"A4": "Press Club, Azad Maidan",
+				"A1": "Brihanmumbai Muncipal Corporation Head Office, Chief Metropolitian Magistrate Court",
+				"B1": "Cama & Albless Hospital, St. Xavier's College",
+				"B2": "Metro INOX Cinema, Bombay Hospital",
+				"A2": "Chhatrapati Shivaji Maharaj Terminus, Manish Market"
+			},
+			"landmarks": ["Court of Small Cases, Bombay Gymkhana", "Press Club, Azad Maidan", "Brihanmumbai Muncipal Corporation Head Office, Chief Metropolitian Magistrate Court", "Cama & Albless Hospital, St. Xavier's College", "Metro INOX Cinema, Bombay Hospital", "Chhatrapati Shivaji Maharaj Terminus, Manish Market"]
+		},
+		"churchgate_metro": {
+			"name": "Churchgate Metro",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A2": "Air India Building, Life Insurrance Corporation Of India",
+				"A3": "Air India Building, Life Insurrance Corporation Of India",
+				"A4": "Yashodhan, The Cricket Club of India Ltd[CCI]",
+				"B2": "Churchgate Railway Station, Wankhede Stadium",
+				"B1": "Eros Cinema, Cross Maidan",
+				"A5": "Oval Maidan, K.C. College",
+				"A1": "Mantralaya, Petroleum House"
+			},
+			"landmarks": ["Air India Building, Life Insurrance Corporation Of India", "Yashodhan, The Cricket Club of India Ltd[CCI]", "Churchgate Railway Station, Wankhede Stadium", "Eros Cinema, Cross Maidan", "Oval Maidan, K.C. College", "Mantralaya, Petroleum House"]
+		},
+		"csmi_airport_t1": {
+			"name": "CSMI Airport-t1",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Western Express Highway, Chhatrapati Shivaji Maharaj International Airport-T1",
+				"B1": "Milan Flyover, Vile Parle Railway Station"
+			},
+			"landmarks": ["Western Express Highway, Chhatrapati Shivaji Maharaj International Airport-T1", "Milan Flyover, Vile Parle Railway Station"]
+		},
+		"csmi_airport_t2": {
+			"name": "Csmi-airport - T2",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Sahar Cargo, Chhatrapati Shivaji Maharaj International Airport-T2",
+				"A2": "Sahar Cargo, Chhatrapati Shivaji Maharaj International Airport-T2",
+				"B1": "Chhatrapati Shivaji Maharaj International Airport-T2, Yellow Fever Hospital"
+			},
+			"landmarks": ["Sahar Cargo, Chhatrapati Shivaji Maharaj International Airport-T2", "Chhatrapati Shivaji Maharaj International Airport-T2, Yellow Fever Hospital"]
+		},
+		"cuffe_parade": {
+			"name": "Cuffe Parade",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A2": "World Trade Center, Colaba Woods Garden",
+				"B2": "President Hotel, G.D. Somani School",
+				"B1": "Machhimar Nagar, Wodehouse Road",
+				"A1": "Backbay Bus Depot, Navy Nagar"
+			},
+			"landmarks": ["World Trade Center, Colaba Woods Garden", "President Hotel, G.D. Somani School", "Machhimar Nagar, Wodehouse Road", "Backbay Bus Depot, Navy Nagar"]
+		},
+		"dadar_east": {
+			"name": "Dadar East",
+			"aliases": [],
+			"description": "Serving the historic heart of Dadar East, Dadasaheb Phalke Road (cradle of Indian cinema), Chitra Cinema, and Swami Narayan Temple.",
+			"gates": {},
+			"landmarks": []
+		},
+		"dadar_metro": {
+			"name": "Dadar Metro",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A3": "Shushrusha Hospital, Dadar Chowpatty",
+				"A4": "Chatrapati Shivaiji Maharaj Park, Dr.Babasaheb Ambedkar (Smarak) Chaitybhoomi, Institute of Hotel Management(Catering College), Dadar",
+				"B3": "Chatrapati Shivaiji Maharaj Park, Balasaheb Thackeray Rashtriya Smarak",
+				"B1": "Shiv Sena Bhawan, Plaza Cinema",
+				"B2": "Gokhale Road",
+				"A1": "Bhandari Hall, Gokhale Road",
+				"A2": "Ranade Road, Dadar Railway Station"
+			},
+			"landmarks": ["Shushrusha Hospital, Dadar Chowpatty", "Chatrapati Shivaiji Maharaj Park, Dr.Babasaheb Ambedkar (Smarak) Chaitybhoomi, Institute of Hotel Management(Catering College), Dadar", "Chatrapati Shivaiji Maharaj Park, Balasaheb Thackeray Rashtriya Smarak", "Shiv Sena Bhawan, Plaza Cinema", "Gokhale Road", "Bhandari Hall, Gokhale Road", "Ranade Road, Dadar Railway Station"]
+		},
+		"dharavi": {
+			"name": "Dharavi",
+			"aliases": [],
+			"description": "Underground station on Mumbai Metro Line 3 serving the Dharavi leather markets, recycling industries, and Sion-Bandra Link Road.",
+			"gates": {
+				"A2": "Dharavi 60 Feet Road, Khemkar Chowk",
+				"B2": "Leather Goods Market, Dharavi T Junction / Ganpatrao Tapase Chowk",
+				"B1": "Sion Central Suburban Railway Station, Dharavi Bus Depot",
+				"A1": "Dharavi 60 Feet Road, Sion Hospital & Medical College"
+			},
+			"landmarks": ["Dharavi 60 Feet Road, Khemkar Chowk", "Leather Goods Market, Dharavi T Junction / Ganpatrao Tapase Chowk", "Sion Central Suburban Railway Station, Dharavi Bus Depot", "Dharavi 60 Feet Road, Sion Hospital & Medical College"]
+		},
+		"fertiliser": {
+			"name": "Fertiliser Township",
+			"aliases": [],
+			"description": "Elevated monorail station serving the residential township and colonies of Rashtriya Chemicals and Fertilizers (RCF) in Chembur.",
+			"gates": {},
+			"landmarks": []
+		},
+		"girgaon": {
+			"name": "Girgaon",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A2": "Chira Bazar Mini Fire Station, Giragaon Mukya Dakhghar",
+				"B1": "Giragaon Chowpatty, Kranti Nagar",
+				"A1": "Zaoba Shri Ram Mandir, Shri Swami Samarth Math"
+			},
+			"landmarks": ["Chira Bazar Mini Fire Station, Giragaon Mukya Dakhghar", "Giragaon Chowpatty, Kranti Nagar", "Zaoba Shri Ram Mandir, Shri Swami Samarth Math"]
+		},
+		"grant_road_metro": {
+			"name": "Grant Road Metro",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A2": "Shree Babulnath Mandir, August Kranti Maiden",
+				"B1": "Nana Chowk, Hanging Gardens",
+				"A1": "Malabar Hills, BMC D Ward Office"
+			},
+			"landmarks": ["Shree Babulnath Mandir, August Kranti Maiden", "Nana Chowk, Hanging Gardens", "Malabar Hills, BMC D Ward Office"]
+		},
+		"gtb_nagar": {
+			"name": "GTB Nagar",
+			"aliases": [],
+			"description": "Elevated monorail station in Sion Koliwada providing pedestrian connection to the Harbour Line GTB Nagar Suburban Railway Station.",
+			"gates": {},
+			"landmarks": []
+		},
+		"hutatma_chowk": {
+			"name": "Hutatma Chowk",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Hutatma Memorial, Bombay High Court",
+				"A2": "Siddharth College Of Law, Fountain Telecom",
+				"A3": "The J.N. Petit Library & Reading Room, The J.B. Petit High School",
+				"B2": "Jeevan Udyog Building, The Cathedral & John Cannon Middle School",
+				"B1": "RBI Monetary Museum, MCGM A-Ward Office",
+				"A4": "RBI Monetary Museum, MCGM A-Ward Office",
+				"B3": "Navsari Building, Bandhkam Bhavan",
+				"B4": "Chhatrapati Shivaji Maharaj Terminus, Bora Bazar"
+			},
+			"landmarks": ["Hutatma Memorial, Bombay High Court", "Siddharth College Of Law, Fountain Telecom", "The J.N. Petit Library & Reading Room, The J.B. Petit High School", "Jeevan Udyog Building, The Cathedral & John Cannon Middle School", "RBI Monetary Museum, MCGM A-Ward Office", "Navsari Building, Bandhkam Bhavan", "Chhatrapati Shivaji Maharaj Terminus, Bora Bazar"]
+		},
+		"jacob_circle": {
+			"name": "Sant Gadge Maharaj Chowk (Jacob Circle)",
+			"aliases": [],
+			"description": "Southern terminal station of Mumbai Monorail situated at the famous Saat Rasta junction, connecting to Western Railway Mahalaxmi Station and Mahalaxmi Racecourse.",
+			"gates": {},
+			"landmarks": []
+		},
+		"jagannath_shankar_sheth_metro": {
+			"name": "Jagannath Shankar Sheth Metro",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Lamington Road, Nathani Heights",
+				"A2": "Mumbai Central Suburban Railway Station [Western], Bellasis Road",
+				"A4": "Mumbai Central Railway Station, Mumbai Central Suburban Railway Station [Western]",
+				"B2": "Nair Hospital Dental College & Hostel, Nair Hospital",
+				"B3": "Nair Hospital Dental College & Hostel, Nair Hospital",
+				"B4": "Maratha Mandir, Maratha Mandir's Babasaheb Gawde Institute Of Technology",
+				"A5": "MSRTC Intercity Bus Depot, Jehengir Boman Behram Road"
+			},
+			"landmarks": ["Lamington Road, Nathani Heights", "Mumbai Central Suburban Railway Station [Western], Bellasis Road", "Mumbai Central Railway Station, Mumbai Central Suburban Railway Station [Western]", "Nair Hospital Dental College & Hostel, Nair Hospital", "Maratha Mandir, Maratha Mandir's Babasaheb Gawde Institute Of Technology", "MSRTC Intercity Bus Depot, Jehengir Boman Behram Road"]
+		},
+		"kalbadevi": {
+			"name": "Kalbadevi",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Metro INOX Cinema, Manish Market",
+				"B1": "Kalbadevi Temple, Zaveri Bazar",
+				"A2": "C Ward Office, S.K. Patil Garden"
+			},
+			"landmarks": ["Metro INOX Cinema, Manish Market", "Kalbadevi Temple, Zaveri Bazar", "C Ward Office, S.K. Patil Garden"]
+		},
+		"lower_parel": {
+			"name": "Lower Parel",
+			"aliases": [],
+			"description": "Major corporate, luxury lifestyle and financial destination on the monorail, serving High Street Phoenix, Palladium, and Peninsula Corporate Park.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahalaxmi_metro": {
+			"name": "Mahalaxmi Metro",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "RTO Colony, Ghas Gali Road, Belvedere Court",
+				"B2": "Dhobi Ghat, Mahalaxmi Suburban Railway Station[Western]",
+				"B3": "Vivarea Tower A, Bellagio Residency",
+				"B5": "RTO Colony, Ghas Gali Road, Agripada Police Station",
+				"A2": "Agripada Police Station, Kalpatura Heights",
+				"A4": "Vivarea Tower C&D, One Mahalaxmi"
+			},
+			"landmarks": ["RTO Colony, Ghas Gali Road, Belvedere Court", "Dhobi Ghat, Mahalaxmi Suburban Railway Station[Western]", "Vivarea Tower A, Bellagio Residency", "RTO Colony, Ghas Gali Road, Agripada Police Station", "Agripada Police Station, Kalpatura Heights", "Vivarea Tower C&D, One Mahalaxmi"]
+		},
+		"marol_naka": {
+			"name": "Marol Naka",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Metro Blue Line. Marol Station, Andheri - Kurla Road",
+				"A2": "Andheri - Kurla Road, International Airport",
+				"B1": "Metro Blue Line. Marol Station, Pearl Academy",
+				"B2": "Marol Fire Brigade, Marol - Marushil Road"
+			},
+			"landmarks": ["Metro Blue Line. Marol Station, Andheri - Kurla Road", "Andheri - Kurla Road, International Airport", "Metro Blue Line. Marol Station, Pearl Academy", "Marol Fire Brigade, Marol - Marushil Road"]
+		},
+		"midc_andheri": {
+			"name": "Midc-andheri",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Road No.16, Seepz",
+				"A2": "Marol Gaon",
+				"B1": "E. S. I. C, Akurti Center",
+				"B2": "Road No.16, Seepz"
+			},
+			"landmarks": ["Road No.16, Seepz", "Marol Gaon", "E. S. I. C, Akurti Center"]
+		},
+		"mint_colony": {
+			"name": "Mint Colony",
+			"aliases": [],
+			"description": "Station located near the India Government Mint staff quarters and Currey Road Suburban Railway Station (Central Line).",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_anandnagar": {
+			"name": "Anand Nagar",
+			"aliases": [],
+			"description": "Elevated station on Link Road in Dahisar West serving Anand Nagar residential colonies, local commercial complexes, and Sudhir Phadke flyover connector.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_andheriwest": {
+			"name": "Andheri West",
+			"aliases": [],
+			"description": "Southern terminal elevated interchange hub of Line 2A, directly integrated with Mumbai Metro Line 1 (Blue Line - D.N. Nagar station) through a 120-meter dedicated pedestrian skywalk.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_bangurnagar": {
+			"name": "Bangur Nagar",
+			"aliases": [],
+			"description": "Elevated station on Link Road bordering Malad and Goregaon, serving Bangur Nagar Vidya Bhavan, sports clubs, and surrounding high-rises.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_borivaliwest": {
+			"name": "Borivali (west)",
+			"aliases": [],
+			"description": "One of the most bustling commercial and transit hubs in the Western Suburbs, providing seamless feeder connection to Borivali Suburban Railway Station West.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_dahanukarwadi": {
+			"name": "Dahanukarwadi",
+			"aliases": [],
+			"description": "Elevated station situated at the entrance of famous Mahavir Nagar food and lifestyle street, serving dense residential townships of Kandivali West.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_dahisareast": {
+			"name": "Dahisar East",
+			"aliases": [],
+			"description": "Northern terminal cross-platform interchange hub connecting Mumbai Metro Line 7 (Red Line) and Line 2A (Yellow Line), serving Dahisar, Mira Road travelers, and toll naka corridors.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_eksar": {
+			"name": "Eksar",
+			"aliases": [],
+			"description": "Elevated station on Line 2A serving the prominent educational institutions, sports complexes, and historic settlements of Eksar in Borivali West.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_goregaonwest": {
+			"name": "Goregaon West",
+			"aliases": [],
+			"description": "Located on Link Road in Goregaon West, offering swift access to Patkar Varde College campus, Topiwala municipal hospital, and Goregaon railway station.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_kandarpada": {
+			"name": "Kandarpada",
+			"aliases": [],
+			"description": "Located on New Link Road serving the bustling residential neighborhood of Kandarpada in Dahisar West and educational campuses.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_kandivaliwest": {
+			"name": "Kandivali West",
+			"aliases": [],
+			"description": "Major junction on Link Road connecting Kandivali Suburban Railway Station West, commercial colleges, and municipal healthcare facilities.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_lowermalad": {
+			"name": "Lower Malad",
+			"aliases": [],
+			"description": "High-density corporate station located right at Inorbit Mall Malad and Mindspace IT SEZ, serving thousands of tech and BPO professionals daily.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_loweroshiwara": {
+			"name": "Lower Oshiwara",
+			"aliases": [],
+			"description": "Premier lifestyle and entertainment transit station directly serving Lokhandwala Complex, Infiniti Mall Andheri West, and nearby television/film studios.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_maladwest": {
+			"name": "Malad West",
+			"aliases": [],
+			"description": "Busy commercial destination on Link Road serving Malad West's prime shopping malls, wholesale markets, and Malad suburban railway station.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_mandapeshwariccolony": {
+			"name": "Mandapeshwar (ic Colony)",
+			"aliases": [],
+			"description": "Heritage gateway station situated near the historic 8th-century Mandapeshwar Rock-Cut Caves and the sprawling, vibrant I.C. Colony cultural area in Borivali West.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_oshiwara": {
+			"name": "Oshiwara",
+			"aliases": [],
+			"description": "Elevated station serving the bustling commercial and media hubs of Oshiwara, Mega Mall, Adarsh Nagar, and Oshiwara Police Station precinct.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_shimpoli": {
+			"name": "Shimpoli",
+			"aliases": [],
+			"description": "Elevated station on Link Road serving the upscale residential sectors of Shimpoli, Chikuwadi, and surrounding recreational gardens.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_2a_valnaimeethchowky": {
+			"name": "Valnai-meeth Chowky",
+			"aliases": [],
+			"description": "Strategic junction station at Meeth Chowky connecting Marve Road (feeder route to Aksa Beach, Marve Beach, and Madh Island) with Orlem.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_aarey": {
+			"name": "Aarey",
+			"aliases": [],
+			"description": "Elevated station situated at the entrance of scenic Aarey Forest Colony, directly adjoining Nirlon Knowledge Park, a massive corporate IT workplace.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_akurli": {
+			"name": "Akurli",
+			"aliases": [],
+			"description": "High-density transit station on WEH connecting Akurli Road to Kandivali Railway Station East, Lokhandwala Township, and major shopping destinations.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_devipada": {
+			"name": "Devipada",
+			"aliases": [],
+			"description": "Elevated station on Line 7 serving Devipada, Sukurwadi bus terminus corridor, and eastern approaches to Borivali suburban railway terminal.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_dindoshi": {
+			"name": "Dindoshi",
+			"aliases": [],
+			"description": "One of the busiest commercial and shopping hubs on Line 7, situated at Oberoi Mall, Dindoshi Sessions Court, and the Film City Road gateway.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_goregaoneast": {
+			"name": "Goregaon East",
+			"aliases": [],
+			"description": "Located on WEH near The Hub Mall and Nesco Exhibition Center approach, serving Goregaon East's industrial and corporate offices.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_gundavali": {
+			"name": "Gundavali",
+			"aliases": [],
+			"description": "Southern terminal elevated interchange hub of Line 7, integrated directly with Mumbai Metro Line 1 (Blue Line - WEH station) through a 95-meter covered skywalk.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_jogeshwarieast": {
+			"name": "Jogeshwari East",
+			"aliases": [],
+			"description": "Strategic junction station at Western Express Highway and JVLR intersection, providing rapid access to the historic Jogeshwari Caves and Majas Depot.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_kurar": {
+			"name": "Kurar",
+			"aliases": [],
+			"description": "Elevated station on Western Express Highway providing rapid transit access to the densely populated Kurar Village and Shivaji Nagar residential wards in Malad East.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_magathane": {
+			"name": "Magathane",
+			"aliases": [],
+			"description": "Key transit hub adjacent to Magathane BEST Bus Depot, providing multimodal feeder bus transfers and serving Borivali East commercial establishments.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_mogra": {
+			"name": "Mogra",
+			"aliases": [],
+			"description": "Elevated station on Western Express Highway in Andheri East, providing suburban connectivity to Mogra Village, Natwar Nagar, and Pump House.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_nationalpark": {
+			"name": "National Park",
+			"aliases": [],
+			"description": "Premier tourist transit station positioned directly at the main entrance of Sanjay Gandhi National Park (SGNP), Kanheri Caves safari gateway, and Borivali East.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_ovaripada": {
+			"name": "Ovaripada",
+			"aliases": [],
+			"description": "Elevated station on Western Express Highway in Dahisar East serving local residential colonies, municipal gardens, and Dahisar bus feeder routes.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmmocl_7_poisar": {
+			"name": "Poisar",
+			"aliases": [],
+			"description": "Located near Poisar Bus Depot and the major Mahindra & Mahindra automotive manufacturing facility in Kandivali East, serving Thakur Complex residential belt.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_airportroad": {
+			"name": "Airport Road",
+			"aliases": [],
+			"description": "Elevated station on Line 1 positioned near the approach corridor to Chhatrapati Shivaji Maharaj International Airport (CSMI Terminal 2).",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_andheri": {
+			"name": "Andheri",
+			"aliases": [],
+			"description": "Major multimodal transit hub connecting Mumbai Metro Line 1 directly to Andheri Suburban Railway Station (Western Railway & Harbour Line) through a high-capacity foot overbridge.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_asalpha": {
+			"name": "Asalpha",
+			"aliases": [],
+			"description": "Elevated station located along the Ghatkopar-Andheri Link Road serving Subhash Nagar, Asalpha hill residences, and central manufacturing units.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_azadnagar": {
+			"name": "Azad Nagar",
+			"aliases": [],
+			"description": "Elevated station on Line 1 located between D.N. Nagar and Andheri on J.P. Road, providing direct access to the sports complexes and residential colonies of Azad Nagar.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_chakala": {
+			"name": "Chakala",
+			"aliases": [],
+			"description": "Located on Andheri-Kurla Road in the commercial heart of J.B. Nagar, providing connectivity to MIDC, commercial corporate parks, and residential societies.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_dnnagar": {
+			"name": "DN Nagar",
+			"aliases": [],
+			"description": "Key elevated interchange station on Line 1 connecting directly with Mumbai Metro Line 2A (Yellow Line - Andheri West) via a dedicated pedestrian skywalk.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_ghatkopar": {
+			"name": "Ghatkopar",
+			"aliases": [],
+			"description": "Eastern terminal elevated multimodal hub of Line 1, directly integrated with Ghatkopar Central Railway Suburban Station (Fast & Slow locals to CSMT/Thane/Kalyan).",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_jagrutinagar": {
+			"name": "Jagruti Nagar",
+			"aliases": [],
+			"description": "Elevated station located just before Ghatkopar terminal, serving Pant Nagar, Sarvodaya Hospital area, and surrounding Ghatkopar West residential blocks.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_sakinaka": {
+			"name": "Saki Naka",
+			"aliases": [],
+			"description": "Busiest road junction station on Line 1 connecting Andheri, Powai, Kurla, and Ghatkopar, serving heavy industrial, hotel, and commercial traffic.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_versova": {
+			"name": "Versova",
+			"aliases": [],
+			"description": "Western terminal elevated station of Mumbai Metro Line 1 located on J.P. Road in Andheri West, serving Seven Bungalows and Versova coastal areas.",
+			"gates": {},
+			"landmarks": []
+		},
+		"mmopl_1_westernexpresshighway": {
+			"name": "Western Express Highway",
+			"aliases": [],
+			"description": "Elevated station on Western Express Highway in Andheri East, featuring a dedicated pedestrian skywalk directly integrating with Line 7 (Red Line - Gundavali).",
+			"gates": {},
+			"landmarks": []
+		},
+		"mysore_colony": {
+			"name": "Mysore Colony",
+			"aliases": [],
+			"description": "Serving the quiet residential colonies of Mysore Colony and petroleum public sector quarters along the Chembur-Wadala route.",
+			"gates": {},
+			"landmarks": []
+		},
+		"naigaon": {
+			"name": "Naigaon",
+			"aliases": [],
+			"description": "Station serving Naigaon, Mumbai Police headquarters ground, Spring Mills, and local residential communities.",
+			"gates": {},
+			"landmarks": []
+		},
+		"panchanand": {
+			"name": "Panchanand",
+			"aliases": [],
+			"description": "Station located near Panchanand village connecting northern Kharghar with the industrial and logistics belt of Taloja.",
+			"gates": {},
+			"landmarks": []
+		},
+		"pendhar": {
+			"name": "Pendhar",
+			"aliases": [],
+			"description": "Northern terminal elevated station of Line 1, located at Pendhar adjacent to the main Taloja Metro Car Depot and Taloja MIDC industrial corridor.",
+			"gates": {},
+			"landmarks": []
+		},
+		"pethpada": {
+			"name": "Pethpada",
+			"aliases": [],
+			"description": "Elevated station serving Pethpada, educational campuses of Saraswati College of Engineering, and valley view residential townships.",
+			"gates": {},
+			"landmarks": []
+		},
+		"sahar_road": {
+			"name": "Sahar Road",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Western Express Highway, Marol",
+				"A2": "Sahar Village, Sahar Cargo",
+				"A3": "Sahar Village, Sahar Cargo",
+				"A4": "Sahar Village, Chakala [J.B Nagar]",
+				"A5": "Sahar Village, Chakala [J.B Nagar]",
+				"B1": "Sahar Cargo, Chakala [J.B Nagar]"
+			},
+			"landmarks": ["Western Express Highway, Marol", "Sahar Village, Sahar Cargo", "Sahar Village, Chakala [J.B Nagar]", "Sahar Cargo, Chakala [J.B Nagar]"]
+		},
+		"santacruz_metro": {
+			"name": "Santacruz Metro",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "University of Mumbai [Kalina University], Kalina",
+				"A2": "Hanuman Tekdi, Maratha Colony",
+				"B1": "Vakola, Kalina Military Campus",
+				"B2": "Santacruz Railway Station, Sen Nagar"
+			},
+			"landmarks": ["University of Mumbai [Kalina University], Kalina", "Hanuman Tekdi, Maratha Colony", "Vakola, Kalina Military Campus", "Santacruz Railway Station, Sen Nagar"]
+		},
+		"science_centre": {
+			"name": "Science Centre",
+			"aliases": [],
+			"description": "Underground station on Mumbai Metro Line 3 located adjacent to Nehru Science Centre and Planetarium in Worli.",
+			"gates": {
+				"A1": "Mahalaxmi Race Course, Amateur Riders' Club",
+				"B2": "Nehru Science Centre, Nehru Planetarium",
+				"B3": "Four Seasons Hotel, ST Peter's Cemetery",
+				"A3": "Haji Usman Seth Rakhangi Chowk, Namaste Tower",
+				"A4": "Haji Usman Seth Rakhangi Chowk, Mahalaxmi Sports Stadium",
+				"A6": "Anand Niketan General Hospital, Famous Studio"
+			},
+			"landmarks": ["Mahalaxmi Race Course, Amateur Riders' Club", "Nehru Science Centre, Nehru Planetarium", "Four Seasons Hotel, ST Peter's Cemetery", "Haji Usman Seth Rakhangi Chowk, Namaste Tower", "Haji Usman Seth Rakhangi Chowk, Mahalaxmi Sports Stadium", "Anand Niketan General Hospital, Famous Studio"]
+		},
+		"sciencepark": {
+			"name": "CIDCO Science Park",
+			"aliases": [],
+			"description": "Elevated station situated right at the upcoming CIDCO Science Park exhibition centre and green recreation zones on the Belapur-Kharghar border.",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector11": {
+			"name": "Sector 11 (Kharghar)",
+			"aliases": [],
+			"description": "Elevated station on Kharghar spine road serving Sector 11, Shilp Chowk market, and educational institutes.",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector14": {
+			"name": "Sector 14 (Kharghar)",
+			"aliases": [],
+			"description": "Serving major cooperative housing societies including Kendriya Vihar, Jalvayu Vihar, and surrounding schools in Kharghar.",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector34": {
+			"name": "Sector 34 (Kharghar)",
+			"aliases": [],
+			"description": "Serving the newly developed residential clusters of Sector 34, Valley Shilp, and Swapnapurti housing schemes.",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector7": {
+			"name": "Sector 7 (Belapur)",
+			"aliases": [],
+			"description": "Elevated station serving Sector 7 and Sector 8 commercial offices, Kala Bhavan cultural centre, and residential sectors of Belapur.",
+			"gates": {},
+			"landmarks": []
+		},
+		"seepz": {
+			"name": "SEEPZ",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "SEEPZ Gate No.1, To MIDC Andheri",
+				"A2": "SEEPZ Bus Depot, JVLR Road",
+				"B1": "SEEPZ Gate No.3, MIDC Central Road",
+				"B2": "MIDC Central Road, Power System Operation Corporation"
+			},
+			"landmarks": ["SEEPZ Gate No.1, To MIDC Andheri", "SEEPZ Bus Depot, JVLR Road", "SEEPZ Gate No.3, MIDC Central Road", "MIDC Central Road, Power System Operation Corporation"]
+		},
+		"shitala_devi_mandir": {
+			"name": "Shitala Devi Mandir",
+			"aliases": [],
+			"description": "Underground station on Mumbai Metro Line 3 located near the historic Shitala Devi Temple and Mahim Western Suburbs junction.",
+			"gates": {
+				"B2": "Hazrat Makhdoom Shah Baba Dargah, Mahim Fort",
+				"B1": "Hazrat Fakhruddin Shah Baba Dargah, Wanjewadi",
+				"A1": "P.D. Hinduja Hospital, Shree Shitaladevi Temple",
+				"A2": "Paradise E Square, Mahim Railway Station",
+				"B3": "Mahim Railway Station, St.Michal's Church"
+			},
+			"landmarks": ["Hazrat Makhdoom Shah Baba Dargah, Mahim Fort", "Hazrat Fakhruddin Shah Baba Dargah, Wanjewadi", "P.D. Hinduja Hospital, Shree Shitaladevi Temple", "Paradise E Square, Mahim Railway Station", "Mahim Railway Station, St.Michal's Church"]
+		},
+		"siddhivinayak": {
+			"name": "Siddhivinayak",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A2": "Shree Siddhivinayak Mandir, Sane Guruji Vidyalaya",
+				"A3": "Shree Siddhivinayak Mandir, Sane Guruji Vidyalaya",
+				"A4": "Shree Siddhivinayak Mandir, Kakasaheb Gadgil Marg",
+				"B1": "Kakasaheb Gadgil Marg, Convent Girls High School",
+				"A5": "Ravindra Natya Mandir, Sayani Marg",
+				"A1": "Shree Siddhivinayak Mandir, Sane Guruji Vidyalaya",
+				"B2": "Rachna Sansad Academy, Appasaheb Marathe Marg"
+			},
+			"landmarks": ["Shree Siddhivinayak Mandir, Sane Guruji Vidyalaya", "Shree Siddhivinayak Mandir, Kakasaheb Gadgil Marg", "Kakasaheb Gadgil Marg, Convent Girls High School", "Ravindra Natya Mandir, Sayani Marg", "Rachna Sansad Academy, Appasaheb Marathe Marg"]
+		},
+		"utsavchowk": {
+			"name": "Utsav Chowk (Kharghar)",
+			"aliases": [],
+			"description": "Prominent landmark station at the iconic Roman-architectured Utsav Chowk circle, connecting Hiranandani Complex and central Kharghar.",
+			"gates": {},
+			"landmarks": []
+		},
+		"vidhan_bhavan": {
+			"name": "Vidhan Bhavan",
+			"aliases": [],
+			"description": "It is the only At-Grade Station of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Veej Bhavan, Badhwar Park",
+				"A2": "Manora - Navin Amadar Niwas, Nariman Point Fire Station",
+				"B3": "Manora - Navin Amadar Niwas, Free Press Journal Marg",
+				"B4": "Air India Building, National Centre Performing Arts [NCPA]",
+				"B5": "Maharashtra Vidhan Bhavan, Cr2 Mall",
+				"B1": "Mantralaya, New Administrative Build. Govt. of Maharashtra",
+				"B2": "Sachivalaya Gymkhana, Oval Maidan",
+				"A3": "Manora - Navin Amadar Niwas, Nariman Point Fire Station"
+			},
+			"landmarks": ["Veej Bhavan, Badhwar Park", "Manora - Navin Amadar Niwas, Nariman Point Fire Station", "Manora - Navin Amadar Niwas, Free Press Journal Marg", "Air India Building, National Centre Performing Arts [NCPA]", "Maharashtra Vidhan Bhavan, Cr2 Mall", "Mantralaya, New Administrative Build. Govt. of Maharashtra", "Sachivalaya Gymkhana, Oval Maidan"]
+		},
+		"vnp_rcmarg": {
+			"name": "V.N. Purav Marg (RC Marg)",
+			"aliases": [],
+			"description": "Located at the intersection of V.N. Purav Marg and RC Marg, serving dense residential colonies and educational institutions like TISS.",
+			"gates": {},
+			"landmarks": []
+		},
+		"wadala_bridge": {
+			"name": "Wadala Bridge",
+			"aliases": [],
+			"description": "Positioned at the vital Wadala road overbridge, offering close transfer access to Wadala Suburban Railway Station on the Harbour Line.",
+			"gates": {},
+			"landmarks": []
+		},
+		"wadala_depot": {
+			"name": "Wadala Depot",
+			"aliases": [],
+			"description": "The operational nerve-centre and central maintenance car depot of the entire Mumbai Monorail network, serving Pratiksha Nagar.",
+			"gates": {},
+			"landmarks": []
+		},
+		"worli": {
+			"name": "Worli",
+			"aliases": [],
+			"description": "It is one of the several undergound stations of Mumbai Metro Line 3. For more information or queries kindly contact station officer at the following contact number: 01242800011.",
+			"gates": {
+				"A1": "Worli Police Station, Maharashtra State Police Housing & Welfare Corporation Ltd",
+				"B1": "Glaxo Smith Kline",
+				"B3": "Worli Fire Station, Maharastra Riffle Association",
+				"B4": "Aditya Birla Center, BMC Pay & Park",
+				"A2": "Kamala Mills Compound, Lodha World One",
+				"B2": "Dr. Ravindra Kulkarni Chowk Sasmira"
+			},
+			"landmarks": ["Worli Police Station, Maharashtra State Police Housing & Welfare Corporation Ltd", "Glaxo Smith Kline", "Worli Fire Station, Maharastra Riffle Association", "Aditya Birla Center, BMC Pay & Park", "Kamala Mills Compound, Lodha World One", "Dr. Ravindra Kulkarni Chowk Sasmira"]
+		}
+	}
+}

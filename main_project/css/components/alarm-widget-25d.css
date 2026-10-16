@@ -532,11 +532,66 @@
 		transition: opacity var(--transition-smooth), transform var(--transition-smooth), visibility 0s var(--duration-normal);
 	}
 
-	/* Mobile Screen Adaptations */
+	/* 1. Standard Mobile & Tablet (Realme, Samsung, iPhone 14/15 - 390px से 768px) */
 	@media (max-width: 768px) {
 		.alarm-widget-wrapper {
 			bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
 			left: var(--space-md);
+			right: var(--space-md);
+			max-width: 385px; /* Realme आदि में पूरा बड़ा साइज़ रहेगा */
+		}
+	}
+	/* 2. Small Screen Only (iPhone SE, 360px - केवल 380px से नीचे) */
+	@media (max-width: 380px) {
+		.alarm-widget-wrapper {
+			/* 👈 बायाँ और निचला मार्जिन टोकन से बढ़ाया */
+			left: var(--space-sm);
+			bottom: var(--space-lg);
+			right: auto;
+			
+			/* 👈 हार्डकोडेड px हटाकर दाएँ कंट्रोल्स के टोकन्स का शुद्ध calc */
+			max-width: calc(100vw - (var(--space-3xl) + var(--space-2xl) + var(--space-xs)));
+		}
+
+		/* 👈 नॉच के साथ 100% अलाइनमेंट के लिए विंग */
+		.alarm-pod-wing {
+			width: 76px;
+			padding: var(--space-2xs);
+		}
+
+		.alarm-pod-btn {
+			width: 30px;
+			height: 30px;
+		}
+
+		.alarm-body-wing {
+			padding: var(--space-2xs) var(--space-xs);
+			gap: var(--space-2xs);
+		}
+
+		.alarm-station-name {
+			font-size: var(--fs-xs);
+		}
+
+		.alarm-tagline {
+			display: none;
+		}
+
+		.alarm-bottom-bar {
+			gap: var(--space-2xs);
+		}
+
+		/* बटन्स की टोकन पैडिंग ताकि कोई भी बटन ओवरलैप न हो */
+		.btn-alarm-action {
+			padding: 2px var(--space-xs);
+			font-size: var(--fs-2xs);
+			flex-shrink: 0;
+		}
+
+		.alarm-distance-badge {
+			padding: 2px var(--space-xs);
+			font-size: var(--fs-2xs);
+			flex-shrink: 0;
 		}
 	}
 }

@@ -1202,10 +1202,12 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 
 
 	/* ==========================================================================
-	MOBILE-FIRST RESPONSIVE MEDIA QUERIES (INSIDE @layer components)
+	MOBILE & TABLET RESPONSIVE (CLEAN & OPTIMIZED)
 	========================================================================== */
-	@media (max-width: 900px) {
-		.about-bento-grid {
+	@media (max-width: 768px) {
+		/* Grid Adjustments */
+		.about-bento-grid,
+		.feedback-actions-grid {
 			grid-template-columns: 1fr;
 		}
 
@@ -1213,29 +1215,14 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 			grid-column: span 1;
 		}
 
-		.developers-grid {
-			grid-template-columns: 1fr;
-		}
-
 		.tech-badges-grid {
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 		}
 
-		.feedback-actions-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	@media (max-width: 600px) {
+		/* Container & Hero Spacing */
 		main.about-main-container {
 			padding: var(--space-md) var(--space-md) var(--space-2xl);
 			gap: var(--space-lg);
-		}
-
-		#app-footer,
-		footer,
-		.site-footer {
-			display: flex ;
 		}
 
 		.about-hero,
@@ -1247,7 +1234,7 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 			font-size: var(--fs-xl);
 		}
 
-		/* 2x2 Metric Strip on Mobile */
+		/* Metrics Strip */
 		.about-metrics-strip {
 			grid-template-columns: repeat(2, 1fr);
 			gap: var(--space-sm);
@@ -1257,10 +1244,7 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 			font-size: var(--fs-xl);
 		}
 
-		.tech-badges-grid {
-			grid-template-columns: 1fr;
-		}
-
+		/* Developer Card & Actions */
 		.developer-header {
 			flex-direction: row;
 			align-items: center;
@@ -1272,20 +1256,8 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 			height: 52px;
 		}
 
-		.feedback-tile {
-			flex-direction: column;
-		}
-
-		.developer-footer-actions {
-			flex-direction: column;
-			width: 100%;
-		}
-
-		.developer-footer-actions .community-btn {
-			width: 100%;
-			justify-content: center;
-		}
-
+		.feedback-tile,
+		.developer-footer-actions,
 		.community-actions {
 			flex-direction: column;
 			width: 100%;

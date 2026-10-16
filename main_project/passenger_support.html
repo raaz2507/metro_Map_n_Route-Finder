@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 <head>
 	<!-- [METADATA_START] -->
 	<meta charset="UTF-8">
@@ -34,7 +32,6 @@
 	<link rel="stylesheet" href="css/pages/passenger_support.css">
 	<!-- [METADATA_END] -->
 </head>
-<body data-page="passenger_support">
 <body data-page="passenger_support">
 
 	<!-- Global Fixed Header (Mounted by Header.js) -->
@@ -297,9 +294,12 @@
 
 			</div>
 		</section>
-
-		<!-- Fixed Floating Bottom Segmented Bar -->
+	</main>
+	<!-- Fixed Floating Bottom Segmented Bar -->
 	<nav class="floating-bottom-bar" aria-label="Support Category Navigation">
+		<!-- 👈 यह स्लाइडिंग पिल (ग्लिडर) है जो बटन्स के नीचे स्मूथ सरकेगा -->
+		<div class="seg-glider" aria-hidden="true"></div>
+
 		<a href="#tab-safety" class="seg-tab-btn active" data-tab="tab-safety">
 			<span class="support-ico ico-shield ico-xs" aria-hidden="true"></span>
 			<span data-i18n="passengerSupport.nav.safety">Safety</span>
@@ -314,13 +314,10 @@
 		</a>
 	</nav>
 
-	</main>
-
 	<!-- Global Fixed Footer (Mounted by Footer.js) -->
 	<footer id="app-footer" class="site-footer"></footer>
 
 	<!-- Architecture Scripts -->
-	<script type="module" src="js/core/CenterClass.js"></script>
 	<script type="module" src="js/pages/passenger_support.js"></script>
 </body>
 </html>

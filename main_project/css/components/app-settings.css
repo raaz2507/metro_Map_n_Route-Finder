@@ -166,6 +166,24 @@
 		flex-direction: column;
 	}
 
+	/* 🎨 एक्टिव टैब के अनुसार फोल्डर बॉडी का बैकग्राउंड कलर */
+	.settings-folder-content:has(.settings-tab-panel[data-panel="alarm"].active) {
+		background: rgba(var(--tab-alarm-accent-rgb), var(--op-dim, 0.08));
+		border-color: var(--tab-alarm-border);
+	}
+	.settings-folder-content:has(.settings-tab-panel[data-panel="map"].active) {
+		background: rgba(var(--tab-map-accent-rgb), var(--op-dim, 0.08));
+		border-color: var(--tab-map-border);
+	}
+	.settings-folder-content:has(.settings-tab-panel[data-panel="packs"].active) {
+		background: rgba(var(--tab-packs-accent-rgb), var(--op-dim, 0.08));
+		border-color: var(--tab-packs-border);
+	}
+	.settings-folder-content:has(.settings-tab-panel[data-panel="backup"].active) {
+		background: rgba(var(--tab-backup-accent-rgb), var(--op-dim, 0.08));
+		border-color: var(--tab-backup-border);
+	}
+
 	.settings-tab-panel {
 		display: none;
 		flex-direction: column;
@@ -183,12 +201,13 @@
 		max-width: 100%;
 		box-sizing: border-box;
 		padding: clamp(var(--space-sm), 2.5vw, var(--space-md));
-		border: 1px solid var(--panel-border);
+		border: 1px solid var(--border-color);
 		border-radius: var(--radius-lg);
-		background: var(--panel-bg);
+		background: rgba(var(--color-bg-base-rgb), var(--op-glass)); /* 👈 शुद्ध ट्रांसपेरेंट ग्लास कार्ड */
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-md);
+		box-shadow: var(--shadow-sm);
 		transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 	}
 
@@ -560,16 +579,33 @@
 	}
 
 	.theme-skin-card {
-		padding: var(--space-md) clamp(var(--space-sm), 3vw, var(--space-lg));
-		margin-bottom: var(--space-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		padding: var(--space-sm) var(--space-md);
+		margin-bottom: var(--space-sm);
 		border-radius: var(--radius-md);
 		border: 1.5px solid var(--border-color);
 		background: var(--card-bg);
 		box-shadow: var(--shadow-sm);
-		transition:
-			border-color var(--transition-fast),
-			transform var(--transition-fast),
-			box-shadow var(--transition-fast);
+	}
+
+	.theme-skin-card .settings-label-wrapper {
+		width: 100%;
+		flex: 1 1 auto;
+	}
+
+	.theme-skin-card .theme-card-desc {
+		margin: var(--space-2xs) 0 var(--space-xs) 0;
+		max-width: 100%; /* 👈 डिस्क्रिप्शन पूरी चौड़ाई लेगा */
+	}
+
+	/* 🎯 बॉटम रो: पैलेट और बटन दोनों एक सीध में */
+	.theme-skin-card .pack-action-wrapper {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		margin-top: calc(-1 * var(--space-lg)); /* पैलेट के साथ बराबर पंक्ति में सेट */
 	}
 
 	.theme-skin-card:hover {
@@ -606,6 +642,13 @@
 		background: rgba(var(--color-primary-rgb, 59, 130, 246), 0.12);
 		color: rgb(var(--color-primary-rgb, 59, 130, 246));
 		border: 1px solid rgba(var(--color-primary-rgb, 59, 130, 246), 0.3);
+		
+		/* 👈 ये 4 लाइनें जोड़ें: कभी 2 लाइनों में नहीं टूटेगा और ज्यादा लंबा होने पर '...' आएगा */
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 110px;
+		flex-shrink: 0;
 	}
 
 	.theme-card-desc {
@@ -740,4 +783,6 @@
 		font-size: var(--fs-sm);
 		justify-content: center;
 	}
+
+
 }

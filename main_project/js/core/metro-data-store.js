@@ -4,11 +4,15 @@
  * Dynamically loads, filters, and deep-merges transit & auto-delta data for any selected city.
  */
 import { normalizeStationCoordinates, calculateNeighborDistance } from "./data-utils.js";
+import { eventBus } from "./event-bus.js";
+import i18n from "./i18n.js";
 
 class MetroDataStore {
 	// Private State Fields
 	#rawCityData = null;
 	#metroData = null;
+	#localeData = null;
+	#enLocaleData = null; // 🛡️ Persistent English fallback cache
 	#stationsDetailData = null;
 	#stationsDetailAutoData = null;
 	#currentCity = "delhi_ncr";
@@ -16,6 +20,7 @@ class MetroDataStore {
 	#registryData = null;
 	#abortController = null;
 	#detailsAbortController = null;
+	#localeAbortController = null;
 	#defaultCity = "delhi_ncr";
 
 	constructor() {
@@ -71,15 +76,20 @@ class MetroDataStore {
 
 		const dataPath = this.getCityFilePath("transit_network.json", resolvedCity);
 		const autoDataPath = this.getCityFilePath("transit_network_auto.json", resolvedCity);
+		const localePath = this.getCityLocalePath(resolvedCity);
 
 		try {
-			console.log(`[MetroDataStore] Loading transit graph (Base + Auto) for: "${resolvedCity}"...`);
-			const [baseResult, autoResult] = await Promise.allSettled([
+			console.log(`[MetroDataStore] Loading transit graph & locale for: "${resolvedCity}"...`);
+			const [baseResult, autoResult, localeResult] = await Promise.allSettled([
 				fetch(dataPath, { signal }).then(res => {
 					if (!res.ok) throw new Error(`HTTP ${res.status}`);
 					return res.json();
 				}),
 				fetch(autoDataPath, { signal }).then(res => {
+					if (!res.ok) throw new Error(`HTTP ${res.status}`);
+					return res.json();
+				}),
+				fetch(localePath, { signal }).then(res => {
 					if (!res.ok) throw new Error(`HTTP ${res.status}`);
 					return res.json();
 				})
@@ -91,6 +101,33 @@ class MetroDataStore {
 			}
 
 			const rawData = baseResult.value;
+			const activeLang = localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
+			let primaryLocale = localeResult.status === "fulfilled" ? localeResult.value : null;
+
+			// जाँचें कि क्या चुनी हुई भाषा में स्टेशन के नाम भरे हुए हैं या खाली हैं
+			const hasValidNames = primaryLocale && Object.values(primaryLocale.stations || {}).some(st => st.name && st.name.trim() !== "");
+
+			if (!hasValidNames && activeLang !== "en") {
+				console.warn(`[MetroDataStore] ${activeLang.toUpperCase()} locale missing or empty for "${resolvedCity}". Fetching English fallback...`);
+				try {
+					const enPath = this.getCityLocalePath(resolvedCity, "en");
+					const enRes = await fetch(enPath, { signal });
+					if (enRes.ok) {
+						primaryLocale = await enRes.json();
+						this.#enLocaleData = primaryLocale;
+						eventBus.emit("SHOW_TOAST", {
+							type: "warning",
+							title: i18n.t("toasts.langFallbackTitle"),
+							message: i18n.t("toasts.langFallbackMsg", { lang: activeLang.toUpperCase() }),
+							duration: 4500
+						});
+					}
+				} catch (err) {
+					console.error("[MetroDataStore] Failed to load English fallback locale:", err);
+				}
+			}
+
+			this.#localeData = primaryLocale || {};
 
 			// In-memory merge of auto graph delta (stations & lines)
 			if (autoResult.status === "fulfilled" && autoResult.value) {
@@ -444,6 +481,63 @@ class MetroDataStore {
 		return `data/${activeCountry}/cities/${resolvedCity}/${fileName}`;
 	}
 
+	getCityLocalePath(cityKey = null, lang = null) {
+		const resolvedCity = this.#resolveCityKey(cityKey);
+		const activeCountry = localStorage.getItem("active_country") || "india";
+		const activeLang = lang || localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
+		return `locales/${activeLang}/${activeCountry}/${resolvedCity}_station_details_locale.json`;
+	}
+
+	/**
+	 * 🔄 Reloads active city locale pack on language switch (Zero graph reload)
+	 */
+	async reloadLocale(lang) {
+		if (this.#localeAbortController) {
+			this.#localeAbortController.abort();
+		}
+		this.#localeAbortController = new AbortController();
+		const signal = this.#localeAbortController.signal;
+
+		const localePath = this.getCityLocalePath(this.#currentCity, lang);
+		try {
+			console.log(`[MetroDataStore] Reloading locale pack: "${localePath}"...`);
+			const res = await fetch(localePath, { signal });
+			let loadedLocale = res.ok ? await res.json() : null;
+
+			const hasValidNames = loadedLocale && Object.values(loadedLocale.stations || {}).some(st => st.name && st.name.trim() !== "");
+
+			if ((!res.ok || !hasValidNames) && lang !== "en") {
+				console.warn(`[MetroDataStore] ${lang.toUpperCase()} not available for "${this.#currentCity}". Falling back to English...`);
+				
+				// यदि कैश में अंग्रेज़ी नहीं है, तो लाएं
+				if (!this.#enLocaleData) {
+					const enPath = this.getCityLocalePath(this.#currentCity, "en");
+					const enRes = await fetch(enPath, { signal });
+					if (enRes.ok) {
+						this.#enLocaleData = await enRes.json();
+					}
+				}
+
+				this.#localeData = this.#enLocaleData || {};
+				eventBus.emit("SHOW_TOAST", {
+					type: "warning",
+					title: i18n.t("toasts.langFallbackTitle"),
+					message: i18n.t("toasts.langFallbackMsg", { lang: lang.toUpperCase() }),
+					duration: 4500
+				});
+				return this.#localeData;
+			}
+
+			this.#localeData = loadedLocale || {};
+			return this.#localeData;
+		} catch (e) {
+			if (e.name !== "AbortError") {
+				console.warn("[MetroDataStore] Failed to reload locale:", e);
+			}
+		}
+		return this.#localeData;
+	}
+
 	/**
 	 * 🛡️ Centralized Passenger Support Loader
 	 * Loads official city-specific support/helpline directory.
@@ -510,6 +604,74 @@ class MetroDataStore {
 	get isLoaded() {
 		return Boolean(this.#metroData && Object.keys(this.#metroData.lines || {}).length > 0);
 	}
+
+
+	// =========================================================================
+	// 🌐 LOCALIZED TRANSIT RESOLVERS (Strict Single Source of Truth)
+	// =========================================================================
+	getStationName(stationId) {
+		if (!stationId) return "";
+		const stations = this.#localeData?.stations;
+		// 1. Fast-path: Exact key match in active locale
+		const exactName = stations?.[stationId]?.name;
+		if (exactName && exactName.trim() !== "") return exactName;
+
+		// 2. Fallback path for case mismatch
+		const normId = String(stationId).toLowerCase();
+		const normName = stations?.[normId]?.name;
+		if (normName && normName.trim() !== "") return normName;
+
+		// 3. Fallback to English cache if active locale name is empty
+		const enName = this.#enLocaleData?.stations?.[stationId]?.name || this.#enLocaleData?.stations?.[normId]?.name;
+		if (enName && enName.trim() !== "") return enName;
+
+		return stationId;
+	}
+
+	getStationAliases(stationId) {
+		if (!stationId) return [];
+		const stations = this.#localeData?.stations;
+		if (stations?.[stationId]?.aliases) return stations[stationId].aliases;
+		return stations?.[String(stationId).toLowerCase()]?.aliases || [];
+	}
+
+	getStationDescription(stationId) {
+		if (!stationId) return "";
+		const stations = this.#localeData?.stations;
+		if (stations?.[stationId]?.description) return stations[stationId].description;
+		return stations?.[String(stationId).toLowerCase()]?.description || "";
+	}
+
+	getStationLandmarks(stationId) {
+		if (!stationId) return [];
+		const stations = this.#localeData?.stations;
+		if (stations?.[stationId]?.landmarks) return stations[stationId].landmarks;
+		return stations?.[String(stationId).toLowerCase()]?.landmarks || [];
+	}
+
+	getGateLandmark(stationId, gateId) {
+		if (!stationId) return "";
+		const stations = this.#localeData?.stations;
+		const stObj = stations?.[stationId] || stations?.[String(stationId).toLowerCase()];
+		return stObj?.gates?.[gateId] || "";
+	}
+
+	getLineName(lineId) {
+		return this.#localeData?.lines?.[lineId]?.name || lineId || "";
+	}
+
+	getLineShortName(lineId) {
+		return this.#localeData?.lines?.[lineId]?.short_name || lineId || "";
+	}
+
+	getNetworkName(networkId) {
+		return this.#localeData?.networks?.[networkId] || networkId || "";
+	}
+
+	get localeData() {
+		return this.#localeData || {};
+	}
+
 }
 
 export const metroDataStore = new MetroDataStore();

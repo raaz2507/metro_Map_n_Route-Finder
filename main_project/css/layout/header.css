@@ -113,14 +113,50 @@
 	}
 
 	header.main-header .theme-mode-segmented-bar {
+		position: relative;
 		display: flex;
 		align-items: center;
-		background: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+		background: var(--btn-reset-bg);
 		border: 1px solid var(--border-color);
 		border-radius: var(--radius-md);
 		padding: 2px;
 		gap: 2px;
 		margin: 0;
+		isolation: isolate;
+	}
+
+	/* 🎯 Smooth Sliding Glider for Theme Mode (Light / Dark / Auto) */
+	header.main-header .theme-mode-glider {
+		position: absolute;
+		top: 2px;
+		bottom: 2px;
+		left: 2px;
+		width: calc((100% - 8px) / 3);
+		background: var(--btn-primary-bg);
+		border-radius: var(--radius-sm);
+		box-shadow: 0 2px 6px rgba(var(--color-primary-rgb), var(--op-shadow));
+		transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	/* Slider positions based on checked radio input */
+	header.main-header .theme-mode-segmented-bar:has(#mode-opt-light:checked) .theme-mode-glider {
+		transform: translateX(0);
+	}
+
+	header.main-header .theme-mode-segmented-bar:has(#mode-opt-dark:checked) .theme-mode-glider {
+		transform: translateX(calc(100% + 2px));
+	}
+
+	header.main-header .theme-mode-segmented-bar:has(#mode-opt-auto:checked) .theme-mode-glider {
+		transform: translateX(calc(200% + 4px));
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		header.main-header .theme-mode-glider {
+			transition: none;
+		}
 	}
 
 	header.main-header .mode-radio-input {
@@ -133,6 +169,8 @@
 	}
 
 	header.main-header .mode-pill-label {
+		position: relative;
+		z-index: 1;
 		flex: 1;
 		display: inline-flex;
 		align-items: center;
@@ -150,10 +188,7 @@
 		-webkit-tap-highlight-color: transparent;
 		touch-action: manipulation;
 		user-select: none;
-		transition:
-			background-color var(--transition-fast),
-			color var(--transition-fast),
-			box-shadow var(--transition-fast);
+		transition: color var(--transition-fast);
 	}
 
 	header.main-header .mode-pill-label .mode-icon {
@@ -166,15 +201,28 @@
 	}
 
 	header.main-header .mode-radio-input:checked + .mode-pill-label {
-		background: var(--card-bg);
-		color: var(--text-primary);
-		box-shadow: 0 1px 3px rgba(0, 0, 0, var(--op-shadow));
+		color: var(--btn-primary-text);
 		font-weight: var(--fw-bold);
+		background: transparent;
+	}
+
+	header.main-header .mode-radio-input:checked + .mode-pill-label:hover {
+		color: var(--btn-primary-text);
 	}
 
 	header.main-header .mode-radio-input:focus-visible + .mode-pill-label {
-		outline: 2px solid var(--color-primary);
+		outline: 2px solid rgb(var(--color-primary-rgb));
 		outline-offset: 1px;
+	}
+
+	@supports not selector(:has(*)) {
+		header.main-header .theme-mode-glider {
+			display: none;
+		}
+		header.main-header .mode-radio-input:checked + .mode-pill-label {
+			background: var(--btn-primary-bg);
+			box-shadow: 0 2px 6px rgba(var(--color-primary-rgb), var(--op-shadow));
+		}
 	}
 
 	header.main-header .dropdown-divider {
@@ -435,7 +483,7 @@
 	header.main-header .city-dropdown-item.active {
 		font-weight: var(--fw-bold);
 		color: rgb(var(--color-primary-rgb));
-		background-color: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+		background-color: rgba(var(--color-primary-rgb), var(--op-subtle));
 	}
 
 	header.main-header .custom-dropdown-item.active::after,
@@ -796,6 +844,25 @@
 			justify-content: space-evenly;
 			row-gap: var(--space-md); 
 			column-gap: var(--space-xs);
+		}
+	}
+	/* iPhone SE (<= 380px) - केवल अतिरिक्त Padding, Margin और Gap कम किया */
+	@media (max-width: 380px) {
+		header.main-header {
+			margin: var(--space-2xs) auto;          /* ऊपर-नीचे का मार्जिन 4px से घटाकर 2px */
+			padding: var(--space-2xs) var(--space-xs); /* अंदरूनी पैडिंग कम की */
+		}
+
+		header.main-header .header-top-row {
+			gap: var(--space-xs);                   /* टॉप रो का गैप 16px से घटाकर 4px */
+		}
+
+		header.main-header .header-tagline {
+			margin-top: var(--space-2xs);           /* टैगलाइन का ऊपरी मार्जिन 12px से घटाकर 2px */
+		}
+
+		header.main-header .toolbar {
+			row-gap: var(--space-xs);               /* टूलबार का गैप कम किया */
 		}
 	}
 }

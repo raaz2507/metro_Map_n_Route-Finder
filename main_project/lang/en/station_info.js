@@ -12,11 +12,16 @@ export default {
 		stationCode: "Station Code",
 		layout: "Layout",
 		noDescription: "No detailed description available for this station.",
-		openInMaps: "📍 Open in Google Maps",
+		openInMaps: "📍 View on Google Maps",
 		openInMapsAria: "View station location on Google Maps",
 		plusCode: "Plus Code",
 		coordinates: "Coordinates",
-		connectedLines: "🚆 Connected Metro Lines"
+		connectedLines: "🚆 Connected Lines",
+		layouts: {
+			elevated: "Elevated",
+			underground: "Underground",
+			"at-grade": "At-Grade"
+		}
 	},
 	timings: {
 		title: "Operating Timings",
@@ -44,11 +49,44 @@ export default {
 		standardAccess: "🚶 Standard Access",
 		open: "Open",
 		closed: "Closed",
+		defaultArea: "Exit Gate Area",
 		noGates: "No specific gate details available for this station."
 	},
 	facilities: {
 		title: "♿ Station Facilities & Amenities",
-		noFacilities: "No facility records found for this station."
+		noFacilities: "No facility records found for this station.",
+		categories: {
+			"ATM": "ATM",
+			"Toilet": "Toilet",
+			"Food / Restaurant": "Food & Dining",
+			"Medical": "First Aid & Medical",
+			"Medical Needs": "Medical & First Aid",
+			"Drinking Water": "Drinking Water",
+			"Information": "Information Desk",
+			"Facilities for Differently Abled": "Facilities for Differently Abled",
+			"Ticket Facilities": "Ticketing & Smart Card Facilities",
+			"Customer Services": "Customer Care & Assistance",
+			"Basic Facilities": "Basic Commuter Amenities",
+			"Women Facilities": "Women Safety & Facilities"
+		},
+		items: {
+			"First Aid Assistance": "First Aid Assistance",
+			"Reserved Spaces for wheelchair in train": "Reserved Spaces for Wheelchair in Train",
+			"Extra Wide Automatic Flag Gates": "Extra Wide Automatic Flag Gates",
+			"Separate Toilets": "Dedicated Accessible Toilets",
+			"Differently Abled Friendly": "Differently Abled Friendly",
+			"Group Ticketing": "Group Ticketing Counter",
+			"Ticket vending & Card recharge": "Ticket Vending Machine (TVM) & Recharge",
+			"Customer care": "Customer Care Centre",
+			"Drinking water facility": "Drinking Water Facility",
+			"Public Wifi Available": "Free Public Wi-Fi",
+			"Female CISF Staff": "Female Security Staff (CISF)"
+		},
+		locations: {
+			"Concourse": "Concourse",
+			"Platform": "Platform",
+			"Ground": "Ground Level"
+		}
 	},
 	parking: {
 		capacityTitle: "🅿️ Parking Capacity",
@@ -58,6 +96,9 @@ export default {
 		bike: "🏍️ Bike",
 		cycle: "🚲 Cycle",
 		location: "Location",
+		notAvailable: "Not Available",
+		nearExitGate: "Near Exit Gate",
+		authorisedParking: "Authorised Parking",
 		dayCharges: "Day Charges",
 		nightCharges: "Night Surcharge",
 		monthlyPass: "Monthly Pass",
@@ -102,7 +143,15 @@ export default {
 		no: "❌ No",
 		active: "Active",
 		maintenance: "Maintenance",
-		noTransit: "No vertical transit (lift/escalator) records available."
+		noTransit: "No vertical transit (lift/escalator) records available.",
+		locations: {
+			"Concourse to Platform": "Concourse to Platform",
+			"CONCOURSE TO PLATFORM": "Concourse to Platform",
+			"Ground to unpaid concourse": "Ground to Concourse",
+			"GROUND TO UNPAID CONCOURSE": "Ground to Concourse",
+			"Ground to Platform": "Ground to Platform",
+			"GROUND TO PLATFORM": "Ground to Platform"
+		}
 	},
 	feederBus: {
 		title: "🚌 Feeder Bus & Last-Mile Connectivity",
@@ -124,7 +173,30 @@ export default {
 		walking: "🚶 {min} min walk",
 		transit: "🚌 {min} min transit",
 		directFob: "Direct FOB Bridge",
-		noNearby: "No nearby landmarks registered for this station."
+		noNearby: "No nearby landmarks registered for this station.",
+		categories: {
+			"Hospital": "Hospital",
+			"Health": "Health & Medical",
+			"Police Station": "Police Station",
+			"Fire Station": "Fire Station",
+			"Bus Stand": "Bus Stand",
+			"Transportation": "Transportation",
+			"Mall": "Mall & Shopping",
+			"School": "School / College",
+			"Institutional": "Educational & Institutional",
+			"Metro Station": "Metro Station",
+			"Railway Station": "Railway Station",
+			"Park": "Park",
+			"Recreation": "Parks & Recreation",
+			"Hotel": "Hotel",
+			"Government Offices": "Government Offices",
+			"Private Offices": "Corporate & Private Offices",
+			"Industry": "Industries",
+			"Religious": "Religious Places",
+			"Tourist Place": "Tourist Places",
+			"Residental": "Residential Area",
+			"Others": "Other Places"
+		}
 	},
 	notFound: {
 		title: "⚠️ Station Not Found",

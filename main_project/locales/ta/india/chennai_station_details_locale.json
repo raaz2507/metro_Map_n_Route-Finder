@@ -1,0 +1,298 @@
+{
+	"networks": {
+		"cmrl": ""
+	},
+	"lines": {
+		"cmrl.blue": {"name": "நீல வழித்தடம்", "short_name": "நீல வழித்தடம்"},
+		"cmrl.green": {"name": "பச்சை வழித்தடம்", "short_name": "பச்சை வழித்தடம்"}
+	},
+	"stations": {
+		"ag-dms": {
+			"name": "ஏ.ஜி. – டி.எம்.எஸ்.",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"anna-nagar-east": {
+			"name": "அண்ணா நகர் கிழக்கு",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"anna-nagar-tower": {
+			"name": "அண்ணா நகர் கோபுரம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"arignar-anna-alandur-metro": {
+			"name": "அறிஞர் அண்ணா ஆலந்தூர்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"arumbakkam": {
+			"name": "அரும்பாக்கம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ashok-nagar": {
+			"name": "அசோக் நகர்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"chennai-international-airport": {
+			"name": "சென்னை பன்னாட்டு விமான நிலையம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"egmore-metro": {
+			"name": "எழும்பூர்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ekkattuthangal": {
+			"name": "ஈக்காட்டுத்தாங்கல்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"government-estate": {
+			"name": "அரசினர் தோட்டம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"guindy": {
+			"name": "கிண்டி",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"highcourt": {
+			"name": "உயர் நீதிமன்றம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kaladipet-metro": {
+			"name": "காலடிபேட்டை",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kilpauk": {
+			"name": "கீழ்ப்பாக்கம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koyambedu": {
+			"name": "கோயம்பேடு",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"lic": {
+			"name": "எல். ஐ. சி.",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"little-mount": {
+			"name": "சின்னமலை",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mannadi": {
+			"name": "மண்ணடி",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"meenambakkam": {
+			"name": "மீனம்பாக்கம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nandanam": {
+			"name": "நந்தனம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nehru-park": {
+			"name": "நேரு பூங்கா",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"new-washermenpet-metro": {
+			"name": "New Washermenpet Metro",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ota-nanganallur-road": {
+			"name": "நங்கநல்லூர் சாலை",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"pachaiyappas-college": {
+			"name": "பச்சையப்பன் கல்லூரி",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"puratchi-thalaivar-dr-m-g-ramachandran-central-metro": {
+			"name": "புரட்சித் தலைவர் டாக்டர். எம்.ஜி. இராமச்சந்திரன் சென்ட்ரல்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro": {
+			"name": "புரட்சித் தலைவி டாக்டர். ஜெ. ஜெயலலிதா புறநகர் பேருந்து நிலையம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"saidapet-metro": {
+			"name": "சைதாப்பேட்டை",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shenoy-nagar": {
+			"name": "செனாய் நகர்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sir-thiyagaraya-college-metro": {
+			"name": "Sir Thiyagaraya College Metro",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"st-thomas-mount-metro": {
+			"name": "பரங்கிமலை",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"teynampet": {
+			"name": "தேனாம்பேட்டை",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thirumangalam": {
+			"name": "திருமங்கலம்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thiruvotriyur-metro": {
+			"name": "Thiruvotriyur Metro",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thiruvottriyur-theradi-metro": {
+			"name": "Thiruvottriyur Theradi Metro",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thousand-lights": {
+			"name": "ஆயிரம் விளக்கு",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"tollgate-metro": {
+			"name": "சுங்கச்சாவடி",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"tondiarpet-metro": {
+			"name": "தண்டையார்பேட்டை",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vadapalani": {
+			"name": "வடபழனி",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"washermenpet-metro": {
+			"name": "Washermenpet Metro",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"wimco-nagar-depot-metro": {
+			"name": "விம்கோ நகர்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"wimco-nagar-metro": {
+			"name": "விம்கோ நகர்",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

@@ -30,6 +30,10 @@ export default {
 			"singleNetworks":   "व्यक्तिगत नेटवर्क"
 		}
 	},
+	"toasts": {
+		"langFallbackTitle": "भाषा सूचना",
+		"langFallbackMsg": "इस शहर के लिए {lang} डेटा उपलब्ध नहीं है। अंग्रेज़ी में दिखाया जा रहा है।"
+	},
 	"nav-header": {
 		"networks": "नेटवर्क",
 		"home": "होम",

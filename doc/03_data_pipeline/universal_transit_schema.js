@@ -1,12 +1,12 @@
 /**
  * ============================================================================
- * METRO AUDIT HUB - UNIVERSAL TRANSIT MASTER SCHEMA SPECIFICATION (v3.0)
+ * METRO AUDIT HUB - UNIVERSAL TRANSIT MASTER SCHEMA SPECIFICATION (v4.0)
  * ============================================================================
- * File Location : import_data_new/doc/universal_transit_schema.js
- * Architecture  : 2-File Normalized Enterprise Production Standard
+ * Architecture  : 3-Tier Enterprise Decoupled Multilingual Standard (Single City Pack)
  * 
- * Target Destination 1: transit_network.json (Graph Engine, Fares, Topology, Lines)
- * Target Destination 2: station_details.json (Deep Passenger Amenities, Gates, Media)
+ * Target Destination 1: data/<country>/cities/<city>/transit_network.json (Pure Graph, Topology & Fares)
+ * Target Destination 2: data/<country>/cities/<city>/station_details.json (Pure Amenities & Operational Facts)
+ * Target Destination 3: locales/<lang>/<country>/<city>.json (Unified Multilingual City Locale Pack)
  * ============================================================================
  */
 
@@ -137,25 +137,22 @@ export const TransitNetworkMasterSchema = {
 		}
 	},
 
+// ------------------------------------------------------------------------
+	// 3. STATION TYPES TAXONOMY (GLOBAL ENUM REFERENCE)
 	// ------------------------------------------------------------------------
-	// 3. STATION TYPES REGISTRY
-	// ------------------------------------------------------------------------
-	// Standardized taxonomy for station capabilities with localized display strings.
-	station_types: {
-		// MULTIPLE REGISTERED TYPES:
-		// - normal       : Regular single line passenger boarding station
-		// - interchange  : Multi-line interchange within a single station complex
-		// - walkway      : Connected via external skywalk, FOB, or travelators (Foot transfer)
-		// - multimodal   : Integrated mega-hub (Metro + RRTS + Indian Railways + ISBT + Airport)
-		// - shared_track : Multiple lines physically running on the identical railway track
-		// - terminal     : Dead-end route terminus with reversing sidings
-		// - depot        : Maintenance yard / train stabling facility
-		normal:       { en: "Normal Station", hi: "साधारण स्टेशन" },
-		interchange:  { en: "Interchange Station", hi: "इंटरचेंज स्टेशन" },
-		walkway:      { en: "Interchange via walkway / travelators", hi: "वॉकवे द्वारा इंटरचेंज" },
-		multimodal:   { en: "Multimodal Transit Hub", hi: "मल्टीमॉडल ट्रांजिट हब" },
-		shared_track: { en: "Shared Track Station", hi: "साझा ट्रैक स्टेशन" }
-	},
+	// Registered station classification enum:
+	// "normal" | "interchange" | "walkway" | "multimodal" | "shared_track"
+	// NOTE: Decoupled into main_project/lang/<lang>/map.js -> legend.stationTypes.
+	// Core transit_network.json does NOT store display strings for station types.
+	// MULTIPLE REGISTERED TYPES:
+	// - normal       : Regular single line passenger boarding station
+	// - interchange  : Multi-line interchange within a single station complex
+	// - walkway      : Connected via external skywalk, FOB, or travelators (Foot transfer)
+	// - multimodal   : Integrated mega-hub (Metro + RRTS + Indian Railways + ISBT + Airport)
+	// - shared_track : Multiple lines physically running on the identical railway track
+	// - terminal     : Dead-end route terminus with reversing sidings
+	// - depot        : Maintenance yard / train stabling facility
+		
 
 	// ------------------------------------------------------------------------
 	// 4. LINES REGISTRY (TOPOLOGICAL LINE DEFINITIONS)
@@ -166,15 +163,8 @@ export const TransitNetworkMasterSchema = {
 			network: "<string: network_id_ref>",
 			operator: "<string: operator_id_ref>",
 			label: "<string: short_badge>",     // e.g. "1", "2", "Red", "Blue", "Line 1", "M1"
-			short_name: {
-				en: "<string: english_line_name>", // e.g. "Red Line", "Namo Bharat", "Aqua Line"
-				hi: "<string: hindi_line_name>"
-			},
-			// FULL OFFICIAL BILINGUAL LINE NAME (With corridor endpoints & line number)
-			name: {
-				en: "<string: full_english_line_name>", // e.g. "Line 1 - Red Line - Rithala to Shaheed Sthal (New Bus Adda)"
-				hi: "<string: full_hindi_line_name>"    // e.g. "लाइन 1 - रेड लाइन - रिठाला से शहीद स्थल (नया बस अड्डा)"
-			},
+			// NOTE: Line names, short names & badges are strictly decoupled into:
+			// locales/<lang>/<country>/<city>/transit.json -> lines.<line_id_slug>
 
 			color: "<string: hex_color_code>",   // e.g. "#C60C30", "#0066CC"
 			color_name: "<string: color_keyword>",// e.g. "red", "blue", "yellow", "aqua", "green", "violet"
@@ -243,21 +233,10 @@ export const TransitNetworkMasterSchema = {
 			// MULTIPLE VALUES: "<string: 2_to_4_char_agency_code>" (NCRTC: "Z00", Mumbai: "CUP") | omit
 			code: "<string_or_omit: agency_code>",
 
-			// MULTI-LANGUAGE BILINGUAL / MULTILINGUAL TAXONOMY
-			name: {
-				en: "<string: latin_english_name>",              // Mandatory
-				hi: "<string_or_omit: devanagari_hindi_name>",  // Optional (North/Central/National)
-				// Regional script (e.g. Tamil, Kannada, Bengali, Malayalam, Telugu, Gujarati, Marathi)
-				regional: "<string_or_omit: native_regional_script>",
-				regional_lang: "<string_or_omit: iso_code>"     // "ta"|"kn"|"bn"|"ml"|"te"|"gu"|"mr"
-			},
-			
-			// SEARCH SYNONYMS & COLLOQUIAL ALIASES (Optional: for fuzzy search UX)
-			aliases: [
-				"<string: historical_name>",             // e.g. "HUDA City Centre"
-				"<string: adjacent_railway_or_isbt_hub>", // e.g. "Old Delhi Railway Station"
-				"<string: local_neighborhood_synonym>"   // e.g. "CP"
-			],
+		
+			// Station names are 100% decoupled into:
+			// locales/<lang>/<country>/<city>/transit.json -> stations.<station_id_slug>
+			// Zero inline names or fallback objects allowed in transit_network.json.
 
 			// PASSING LINE REFERENCES
 			// MULTIPLE PATTERNS:
@@ -352,12 +331,10 @@ export const StationDetailsMasterSchema = {
 		},
 
 		// --------------------------------------------------------------------
-		// 2. PASSENGER ORIENTATION & STATION OVERVIEW (BILINGUAL)
+		// 2. PASSENGER ORIENTATION & STATION OVERVIEW
 		// --------------------------------------------------------------------
-		description: {
-			en: "<string: english_station_narrative_context>", // e.g. "Elevated station on Red Line near industrial area."
-			hi: "<string_or_empty: hindi_station_narrative_context>" // e.g. "रेड लाइन का एलिवेटेड स्टेशन, औद्योगिक क्षेत्र के पास।"
-		},
+		// NOTE: Human-readable narrative descriptions are 100% decoupled into:
+		// locales/<lang>/<country>/<city>/station_details.json -> <station_id>.description
 
 		// --------------------------------------------------------------------
 		// 3. LOCAL STATION CONTACTS (CONTROL ROOM & LANDLINE)
@@ -392,11 +369,11 @@ export const StationDetailsMasterSchema = {
 					longitude: "<float_or_empty_string: gate_wgs84_lon>"  // e.g. 77.047083 or ""
 				},
 
-				// LOCALIZED WAYFINDING LANDMARKS
-				landmark: {
-					en: "<string: prominent_adjacent_road_or_landmark>",
-					hi: "<string: devanagari_landmark_text>"
-				}
+				
+				// Landmarks and directional texts are 100% decoupled into:
+				// locales/<lang>/<country>/<city>/station_details.json -> <station_id>.gates.<gate_id>.landmark
+				// Only structural facts (code, divyang accessibility, operational status, coordinates) remain here.
+				
 			}
 		},
 
@@ -479,21 +456,24 @@ export const StationDetailsMasterSchema = {
 		},
 
 		// --------------------------------------------------------------------
-		// 7. COMPREHENSIVE CATEGORIZED PASSENGER FACILITIES
+		// 7. COMPREHENSIVE CATEGORIZED PASSENGER FACILITIES (FACTS ONLY)
 		// --------------------------------------------------------------------
-		// Standardized dictionary of amenity categories across Indian Metros (DMRC, NCRTC, Mumbai).
-		// MULTIPLE CATEGORY KEYS ENUM:
-		// - Essentials   : "ATM", "Drinking Water", "Toilet", "Washroom", "First Aid", "Baby Care Room", "Cloak Room", "Locker"
-		// - Retail/Food  : "Food / Restaurant", "Shop/Office", "Kiosk", "Malls & Market"
-		// - Assistance   : "Customer Services", "HelpDesk", "Lost & Found Room", "Travel", "Facilities for Differently Abled", "Women Facilities"
-		// - Financial    : "Bank", "Currency Chest", "Insurance"
-		// - Civic/Leisure: "Police Booth", "Lounge/Party Hall", "Entertainment", "Medical/Health", "Other Public Services"
+		// ARCHITECTURE & LOCALIZATION RULE:
+		// 1. Category keys & common locations are GLOBAL TAXONOMIES.
+		//    Do NOT localize them per station. They are mapped in main_project/lang/<lang>/station_info.js:
+		//    Example:
+		//      facilityCategories: { "Toilet": "शौचालय", "Shop/Office": "दुकान / कार्यालय", "ATM": "एटीएम" }
+		//      locationTerms:      { "Paid concourse": "पेड कॉनकोर्स", "Near Gate no. 1": "गेट नंबर 1 के पास" }
+		// 2. Specific brand/vendor names remain factual proper nouns directly here:
+		//    Example core entry:
+		//      "Toilet": [{ "name": "Sulabh Toilet", "location": "Near Gate no. 1", "purpose": "Sanitation" }]
+		//      "Shop/Office": [{ "name": "Food Track IRCTC", "location": "Paid concourse", "purpose": "Snacks & Drinks" }]
 		facilities: {
 			"<facility_category_key>": [
 				{
-					name: "<string: facility_brand_or_label>", // e.g. "SBI ATM", "Sulabh Toilet", "IRCTC Food Court"
-					location: "<string: concourse_or_gate_location>", // e.g. "Near Gate 1", "Paid Concourse", "Platform 1"
-					purpose: "<string_or_omit: secondary_purpose_note>" // e.g. "Financial Services", "Party Venue"
+					name: "<string: facility_brand_or_label>",          // e.g. "Sulabh Toilet", "PNB ATM", "Food Track IRCTC"
+					location: "<string: concourse_or_gate_location>",   // e.g. "Near Gate no. 1", "Paid concourse", "Platform 1"
+					purpose: "<string_or_omit: secondary_purpose_note>" // e.g. "Coffee, snacks, Eatables"
 				}
 			]
 		},
@@ -501,22 +481,24 @@ export const StationDetailsMasterSchema = {
 		// --------------------------------------------------------------------
 		// 8. NEARBY PLACES WITH PEDESTRIAN & TRANSIT ACCESS METRICS
 		// --------------------------------------------------------------------
-		// Standardized Point of Interest (POI) categories for first/last-mile navigation.
-		// MULTIPLE CATEGORY KEYS ENUM:
-		// - Transit Hubs : "Transport Hub", "Railway Station", "Airport", "Bus Adda", "Bus Stand"
-		// - Civic/Safety : "Hospital", "Police Station", "Fire Station", "Government Offices", "Court", "Fuel Station"
-		// - Education    : "Educational", "School", "University/College", "Exam Center"
-		// - Commercial   : "Commercial", "Market", "Mall", "Hotels", "Restaurant", "Bank", "Locality"
-		// - Leisure/Cult : "Tourist Place", "Heritage", "Religious Place", "Cinema Hall", "Stadium / Sports", "Nature"
+		// ARCHITECTURE & LOCALIZATION RULE:
+		// 1. POI Category keys are GLOBAL TAXONOMIES mapped centrally in main_project/lang/<lang>/station_info.js:
+		//    Example:
+		//      placeCategories: { "Hospital": "अस्पताल", "Police Station": "पुलिस थाना", "Market": "बाजार" }
+		// 2. Institutional place names remain factual ground-truth entities here in core:
+		//    Example core entry:
+		//      "University/College": [{ "name": "Shyam Lal College, Delhi University", "distance_km": 0.8, "walking_min": 6.0 }]
+		//      "Police Station":     [{ "name": "Shahdara Police Station", "distance_km": 0.9, "walking_min": 8.0 }]
+		// 3. Translated prominent destination waypoints for navigation belong in:
+		//    locales/<lang>/<country>/<city>.json -> stations.<id>.landmarks: ["श्याम लाल कॉलेज", "शाहदरा पुलिस स्टेशन"]
 		nearby_places: {
 			"<place_category_key>": [
 				{
-					name: "<string: POI_name>",
-					distance_km: "<float: aerial_or_road_km>", // e.g. 0.3, 1.5, 3.2
-					// MULTIPLE VALUES: true (Direct FOB / Skywalk connection) | false
-					connected: "<boolean>",
-					walking_min: "<integer_or_null: walking_minutes>",     // null if too far to walk
-					pub_transport_min: "<integer_or_null: transit_minutes>" // e.g. bus/auto/rickshaw time
+					name: "<string: POI_name>",                         // e.g. "Shyam Lal College, Delhi University", "GTB Hospital"
+					distance_km: "<float: aerial_or_road_km>",          // e.g. 0.8, 1.3
+					connected: "<boolean>",                             // true (Direct FOB/Skywalk) | false
+					walking_min: "<integer_or_null: walking_minutes>",  // e.g. 6.0
+					pub_transport_min: "<integer_or_null: transit_min>" // e.g. 3.0
 				}
 			]
 		},
@@ -619,6 +601,45 @@ export const StationDetailsMasterSchema = {
 			},
 			banner: "<url_string: hero_header_banner_or_empty>",
 			infoLink: "<url_string: official_agency_station_webpage_or_empty>"
+		}
+	}
+};
+
+
+// ============================================================================
+// FILE 3: LOCALIZED CITY TRANSIT CONTENT SCHEMA (locales/<lang>/<country>/<city>_station_details_locale.json)
+// ============================================================================
+// Primary consumer: i18n & MetroDataStore Name Resolvers.
+// Single consolidated city locale pack: Zero operational bloat, zero duplicate meta.
+// Fully encapsulates city-level networks, lines, and station-specific human narratives.
+export const LocalizedTransitPackSchema = {
+	// Transit network operators display titles
+	networks: {
+		"<network_id_slug>": "<string: translated_agency_name>" // e.g. "dmrc": "दिल्ली मेट्रो"
+	},
+
+	// Line names and badges
+	lines: {
+		"<line_id_slug>": {
+			name: "<string: full_translated_line_name>",       // e.g. "लाइन 2 - येलो लाइन - समयपुर बादली से मिलेनियम सिटी सेंटर"
+			short_name: "<string: short_badge_or_line_name>"   // e.g. "येलो लाइन"
+		}
+	},
+
+	// Station entity encapsulation (Names, aliases, descriptions, gate landmarks & local waypoints)
+	stations: {
+		"<station_id_slug>": {
+			name: "<string: translated_station_name>",         // e.g. "राजीव चौक"
+			aliases: [
+				"<string: localized_alias>"                    // e.g. "कनॉट प्लेस", "सीपी"
+			],
+			description: "<string_or_empty: station_narrative_context>", // e.g. "ब्लू और येलो लाइन का प्रमुख भूमिगत इंटरचेंज स्टेशन।"
+			gates: {
+				"<gate_number_or_code>": "<string: landmark_directional_text>" // e.g. "1": "कनॉट प्लेस ब्लॉक-बी"
+			},
+			landmarks: [
+				"<string: prominent_local_landmark>"           // e.g. "पालिका बाजार", "सेंट्रल पार्क"
+			]
 		}
 	}
 };

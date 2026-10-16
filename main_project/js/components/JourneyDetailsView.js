@@ -354,7 +354,7 @@ export class JourneyDetailsView {
 		const currentCity = localStorage.getItem("active_city") || "delhi_ncr";
 
 		steps.forEach((step, segmentIndex) => {
-			const lineName = step.shortName?.[this.#settings.currentLang] || step.shortName?.en || step.line;
+			const lineName = centerClass.getLineShortName(step.line) || centerClass.getLineName(step.line) || step.line;
 			const lineColor = step.lineColor || "#007bff";
 
 			const segmentEl = document.createElement("div");
@@ -448,7 +448,7 @@ export class JourneyDetailsView {
 				const metroData = centerClass.getMetroData();
 				const nextLineInfo = metroData?.lines?.[nextStep.line];
 				const nextLineColor = nextLineInfo?.color || lineColor;
-				const nextLineName = nextStep.shortName?.[this.#settings.currentLang] || nextStep.shortName?.en || nextStep.line;
+				const nextLineName = centerClass.getLineShortName(nextStep.line) || centerClass.getLineName(nextStep.line) || nextStep.line;
 				const transferMins = Math.ceil((step.nextTransferSeconds || 180) / 60);
 				const transferDistText = step.nextTransferDistanceMeters ? `${step.nextTransferDistanceMeters} m · ` : "";
 
@@ -467,23 +467,23 @@ export class JourneyDetailsView {
 
 				if (mode === "cross_platform") {
 					const label = i18n.t("pages.home.findRoute.transferModes.crossPlatform");
-					modeBadgeHtml = `<span class="transfer-mode-badge badge-cross-platform"><span class="badge-icon">⚡</span> ${label}</span>`;
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-cross-platform"><span class="transfer-mode-icon ico-mode-cross-platform" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "level_change") {
 					const levels = tData.levels || 1;
 					const label = i18n.t("pages.home.findRoute.transferModes.levelChange", { level: levels });
-					modeBadgeHtml = `<span class="transfer-mode-badge badge-level-change"><span class="badge-icon">🛗</span> ${label}</span>`;
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-level-change"><span class="transfer-mode-icon ico-mode-level-change" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "skywalk") {
 					const label = i18n.t("pages.home.findRoute.transferModes.skywalk", { distance: dist || 150 });
-					modeBadgeHtml = `<span class="transfer-mode-badge badge-skywalk"><span class="badge-icon">🌉</span> ${label}</span>`;
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-skywalk"><span class="transfer-mode-icon ico-mode-skywalk" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "corridor") {
 					const label = i18n.t("pages.home.findRoute.transferModes.corridor", { distance: dist || 80 });
-					modeBadgeHtml = `<span class="transfer-mode-badge badge-corridor"><span class="badge-icon">🚶</span> ${label}</span>`;
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-corridor"><span class="transfer-mode-icon ico-mode-corridor" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "free_erickshaw") {
 					const label = i18n.t("pages.home.findRoute.transferModes.freeERickshaw");
-					modeBadgeHtml = `<span class="transfer-mode-badge badge-erickshaw"><span class="badge-icon">🛺</span> ${label}</span>`;
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-erickshaw"><span class="transfer-mode-icon ico-mode-erickshaw" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "security_check") {
 					const label = i18n.t("pages.home.findRoute.transferModes.securityCheck");
-					modeBadgeHtml = `<span class="transfer-mode-badge badge-security"><span class="badge-icon">🛡️</span> ${label}</span>`;
+					modeBadgeHtml = `<span class="transfer-mode-badge badge-security"><span class="transfer-mode-icon ico-mode-security" aria-hidden="true"></span> ${label}</span>`;
 				}
 
 				const interchangeContainer = document.createElement("div");

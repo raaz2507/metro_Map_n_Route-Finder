@@ -175,6 +175,15 @@ class ProductionEmitter:
 						base_net["fareRules"] = auto_fares
 						updated = True
 
+					if auto_stns:
+						for stn_id, stn_graph in auto_stns.items():
+							if stn_id not in base_net.setdefault("stationData", {}):
+								base_net["stationData"][stn_id] = stn_graph
+								updated = True
+							elif "location" in stn_graph:
+								base_net["stationData"][stn_id]["location"] = stn_graph["location"]
+								updated = True
+
 					# यदि किसी लाइन में farePolicy मिसिंग है, तो केवल उसी के नेटवर्क की आधिकारिक पॉलिसी से लिंक करें
 					policies = base_net.get("fareRules", {}).get("policies", {})
 					if policies and "lines" in base_net:
@@ -200,6 +209,37 @@ class ProductionEmitter:
 						UniversalPipelineLogger.log("PROMOTE", f"Updated base transit network with lines/transfers/fares: {transit_base_file.name}")
 			except Exception as ex:
 				UniversalPipelineLogger.log("ERROR", f"Failed handling base transit network: {ex}")
+
+		# --- कंडीशन 3: v4.0 Standard Locales Sync ---
+		new_station_ids = [
+			slug for slug, p in auto_data.items()
+			if slug != "_meta" and isinstance(p, dict) and (is_new_city_details or p.get("_meta", {}).get("is_new"))
+		]
+		if new_station_ids:
+			try:
+				locales_root = target_city_dir.parents[3] / "locales"
+				for lang in ["en", "hi"]:
+					loc_file = locales_root / lang / "india" / f"{city_id}_station_details_locale.json"
+					if loc_file.exists():
+						with open(loc_file, "r", encoding="utf-8") as lf:
+							loc_content = json.load(lf)
+						loc_stns = loc_content.setdefault("stations", {})
+						loc_updated = False
+						for ns_id in new_station_ids:
+							if ns_id not in loc_stns:
+								loc_stns[ns_id] = {
+									"name": ns_id.replace("_", " ").title(),
+									"aliases": [],
+									"description": "",
+									"gates": {},
+									"landmarks": []
+								}
+								loc_updated = True
+						if loc_updated:
+							UniversalFileSystemManager.save_atomic_tab_json(loc_file, loc_content)
+							UniversalPipelineLogger.log("PROMOTE", f"Synchronized {len(new_station_ids)} new station entries into {lang} locale.")
+			except Exception as ex:
+				UniversalPipelineLogger.log("WARN", f"Could not sync locales during promotion: {ex}")
 
 		# --- बफ़र रीसेट: प्रमोशन के बाद _auto.json को क्लीन स्टेट में लाएँ ---
 		reset_buffer = {

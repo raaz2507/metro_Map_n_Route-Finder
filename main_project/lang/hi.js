@@ -14,9 +14,12 @@ import smartCardTicket from "./india/hi/smart_card_ticket.js";
 import other from "./india/hi/other.js";
 import dishaAi from "./india/hi/disha_ai.js";
 import dishaNlu from "./india/hi/disha_nlu.js";
+import map from "./india/hi/map.js";
+
 
 export default {
 	...common,
+	map,
 	pages: {
 		home,
 		networks,

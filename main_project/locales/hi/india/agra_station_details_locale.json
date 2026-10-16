@@ -1,0 +1,52 @@
+{
+	"networks": {
+		"upmrc_agra": ""
+	},
+	"lines": {
+		"upmrc_agra.yellow": {"name": "यलो लाइन", "short_name": "यलो लाइन"}
+	},
+	"stations": {
+		"agra_fort": {
+			"name": "आगरा किला",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"fatehabad_road": {
+			"name": "फ़तेहाबाद रोड",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mankameshwar_mandir": {
+			"name": "मनकामेश्वर मंदिर",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shaheed_captain_shubham_gupta": {
+			"name": "शहीद कैप्टन शुभम गुप्ता",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"taj_east_gate": {
+			"name": "ताज पूर्वी गेट",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"taj_mahal": {
+			"name": "ताज महल",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

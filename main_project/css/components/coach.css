@@ -110,6 +110,20 @@
 		transition: transform 0.1s ease-out, filter 0.25s ease;
 	}
 
+		/* 🛤️ हर कार्ड के पहियों के ठीक नीचे 100% सटीक लॉक रहने वाली पटरी */
+	.real-coach-card::before {
+		content: "";
+		position: absolute;
+		bottom: 1px;
+		left: calc(-1 * var(--space-md));
+		right: calc(-1 * var(--space-md));
+		height: 18px;
+		background-image: url("../../assets/images/metro_track.svg");
+		background-repeat: repeat-x;
+		background-size: 20px 18px;
+		z-index: -1; /* पहियों के पीछे रहेगी */
+		pointer-events: none;
+	}
 	.real-coach-card.resting {
 		transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
 	}
@@ -163,13 +177,10 @@
 		gap: var(--row-gap) var(--space-xs);
 		padding: var(--space-lg) var(--space-2xs);
 		position: relative;
-		background-image: url("../../assets/images/metro_track.svg");
-		background-size: 20px var(--step-h);
-		background-position: 0 0;
-		background-repeat: repeat;
+		/* 👈 यहाँ से background-image, background-size, background-repeat पूरी तरह हटा दिए */
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 769px){
 		.train-track-row {
 			grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
 			gap: var(--row-gap) var(--space-md);

@@ -1,0 +1,425 @@
+{
+	"networks": {
+		"hmrl": "L&T Metro Rail (Hyderabad) Limited / HMRL"
+	},
+	"lines": {
+		"hmrl.red": {
+			"name": "Red Line",
+			"short_name": "Red Line"
+		},
+		"hmrl.blue": {
+			"name": "Blue Line",
+			"short_name": "Blue Line"
+		},
+		"hmrl.green": {
+			"name": "Green Line",
+			"short_name": "Green Line"
+		}
+	},
+	"stations": {
+		"ameerpet": {
+			"name": "Ameerpet",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"assembly": {
+			"name": "Assembly",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"balanagar": {
+			"name": "Balanagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"begumpet": {
+			"name": "Begumpet",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"bharat-nagar": {
+			"name": "Bharat Nagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"chaitanya-puri": {
+			"name": "Chaitanya Puri",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"chikkadpally": {
+			"name": "Chikkadpally",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dilsukhnagar": {
+			"name": "Dilsukhnagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"durgam-cheruvu": {
+			"name": "Durgam Cheruvu",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"erragadda": {
+			"name": "Erragadda",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"esi-hospital": {
+			"name": "ESI Hospital",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gandhi-bhavan": {
+			"name": "Gandhi Bhavan",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gandhi-hospital": {
+			"name": "Gandhi Hospital",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"habsiguda": {
+			"name": "Habsiguda",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hitec-city": {
+			"name": "HITEC City",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"irrum-manzil": {
+			"name": "Irrum Manzil",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jbs-parade-ground": {
+			"name": "JBS Parade Ground",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jntu-college": {
+			"name": "JNTU College",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jubilee-hills-check-post": {
+			"name": "Jubilee Hills Check Post",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"khairtabad": {
+			"name": "Khairtabad",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kphb-colony": {
+			"name": "KPHB Colony",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kukatpally": {
+			"name": "Kukatpally",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"lakdi-ka-pul": {
+			"name": "Lakdi-ka-Pul",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"lb-nagar": {
+			"name": "LB Nagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"madhapur": {
+			"name": "Madhapur",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"madhura-nagar": {
+			"name": "Madhura Nagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"malakpet": {
+			"name": "Malakpet",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mettuguda": {
+			"name": "Mettuguda",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mg-bus-station": {
+			"name": "MG Bus Station",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"miyapur": {
+			"name": "Miyapur",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"moosapet": {
+			"name": "Moosapet",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"musarambagh": {
+			"name": "Musarambagh",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"musheerabad": {
+			"name": "Musheerabad",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nagole": {
+			"name": "Nagole",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nampally": {
+			"name": "Nampally",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"narayanguda": {
+			"name": "Narayanguda",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"new-market": {
+			"name": "New Market",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ngri": {
+			"name": "NGRI",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"osmania-college": {
+			"name": "Osmania College",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"parade-ground": {
+			"name": "Parade Ground",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"paradise": {
+			"name": "Paradise",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"peddamma-gudi": {
+			"name": "Peddamma Gudi",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"prakash-nagar": {
+			"name": "Prakash Nagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"punjagutta": {
+			"name": "Punjagutta",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"raidurg": {
+			"name": "Raidurg",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rasoolpura": {
+			"name": "Rasoolpura",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"road-no-5-jubilee-hills": {
+			"name": "Road No 5 Jubilee Hills",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rtc-x-roads": {
+			"name": "RTC X Roads",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"secunderabad-east": {
+			"name": "Secunderabad East",
+			"aliases": [
+				"Secunderabad Railway Station",
+				"Secunderabad Junction"
+			],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"secunderabad-west": {
+			"name": "Secunderabad West",
+			"aliases": [
+				"Secunderabad Railway Station West"
+			],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sr-nagar": {
+			"name": "SR Nagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"stadium": {
+			"name": "Stadium",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sultan-bazar": {
+			"name": "Sultan Bazar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"tarnaka": {
+			"name": "Tarnaka",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"uppal-bus": {
+			"name": "Uppal",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"victoria-memorial": {
+			"name": "Victoria Memorial",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"yusufguda": {
+			"name": "Yusufguda",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

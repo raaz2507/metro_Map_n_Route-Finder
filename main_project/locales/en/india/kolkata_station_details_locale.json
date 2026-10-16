@@ -1,0 +1,399 @@
+{
+	"networks": {
+		"kolkata_metro": "Metro Railway, Kolkata (Indian Railways)"
+	},
+	"lines": {
+		"kolkata_metro.blue": {"name": "Blue Line (Line 1)", "short_name": "Blue Line (Line 1)"},
+		"kolkata_metro.green": {"name": "Green Line (Line 2)", "short_name": "Green Line (Line 2)"},
+		"kolkata_metro.orange": {"name": "Orange Line (Line 6)", "short_name": "Orange Line (Line 6)"},
+		"kolkata_metro.purple": {"name": "Purple Line (Line 3)", "short_name": "Purple Line (Line 3)"},
+		"kolkata_metro.yellow": {"name": "Yellow Line (Line 4)", "short_name": "Yellow Line (Line 4)"}
+	},
+	"stations": {
+		"baranagar": {
+			"name": "Baranagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"barun_sengupta": {
+			"name": "Barun Sengupta",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"behala_bazar": {
+			"name": "Behala Bazar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"behala_chowrasta": {
+			"name": "Behala Chowrasta",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"behala_sakherbazar": {
+			"name": "Behala Sakherbazar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"beleghata": {
+			"name": "Beleghata",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"belgachhia": {
+			"name": "Belgachhia",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"bengal_chemical": {
+			"name": "Bengal Chemical",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"central": {
+			"name": "Central",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"central_park": {
+			"name": "Central Park",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"chandni_chowk": {
+			"name": "Chandni Chowk",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"city_center": {
+			"name": "City Center",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dakshineswar": {
+			"name": "Dakshineswar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dum_dum": {
+			"name": "Dum Dum",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dum_dum_cantonment": {
+			"name": "Dum Dum Cantonment",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"esplanade": {
+			"name": "Esplanade",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"girish_park": {
+			"name": "Girish Park",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gitanjali": {
+			"name": "Gitanjali",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hemanta_mukhopadhyay": {
+			"name": "Hemanta Mukhopadhyay",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"howrah": {
+			"name": "Howrah",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"howrah_maidan": {
+			"name": "Howrah Maidan",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jai_hind": {
+			"name": "Jai Hind",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jatin_das_park": {
+			"name": "Jatin Das Park",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jessore_road": {
+			"name": "Jessore Road",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"joka": {
+			"name": "Joka",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jyotirindra_nandi": {
+			"name": "Jyotirindra Nandi",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kalighat": {
+			"name": "Kalighat",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"karunamoyee": {
+			"name": "Karunamoyee",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kavi_nazrul": {
+			"name": "Kavi Nazrul",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kavi_subhash": {
+			"name": "Kavi Subhash",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kavi_sukanta": {
+			"name": "Kavi Sukanta",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahakaran": {
+			"name": "Mahakaran",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahanayak_uttam_kumar": {
+			"name": "Mahanayak Uttam Kumar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahatma_gandhi_road": {
+			"name": "Mahatma Gandhi Road",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"maidan": {
+			"name": "Maidan",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"majerhat": {
+			"name": "Majerhat",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"masterda_surya_sen": {
+			"name": "Masterda Surya Sen",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"netaji": {
+			"name": "Netaji",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"netaji_bhavan": {
+			"name": "Netaji Bhavan",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noapara": {
+			"name": "Noapara",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"park_street": {
+			"name": "Park Street",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"phoolbagan": {
+			"name": "Phoolbagan",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rabindra_sadan": {
+			"name": "Rabindra Sadan",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rabindra_sarobar": {
+			"name": "Rabindra Sarobar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ritwik_ghatak": {
+			"name": "Ritwik Ghatak",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"salt_lake_sector_v": {
+			"name": "Salt Lake Sector-V",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"salt_lake_stadium": {
+			"name": "Salt Lake Stadium",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"satyajit_ray": {
+			"name": "Satyajit Ray",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sealdah": {
+			"name": "Sealdah",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shahid_khudiram": {
+			"name": "Shahid Khudiram",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shobhabazar_sutanuti": {
+			"name": "Shobhabazar Sutanuti",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shyambazar": {
+			"name": "Shyambazar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"taratala": {
+			"name": "Taratala",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thakurpukur": {
+			"name": "Thakurpukur",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vip_bazar": {
+			"name": "VIP Bazar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

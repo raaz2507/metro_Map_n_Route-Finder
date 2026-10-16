@@ -28,25 +28,40 @@ export class RecentSearchService {
 		
 		for (const [id, st] of Object.entries(this.#metroData.stationData)) {
 			if (!st) continue;
-			this.#stationNameIndex.set(id.toLowerCase(), st);
+			const idLower = id.toLowerCase();
+			this.#stationNameIndex.set(idLower, st);
+			this.#stationNameIndex.set(idLower.replace(/_/g, " "), st);
+			this.#stationNameIndex.set(idLower.replace(/[^a-z0-9]/g, ""), st);
 			if (st.name?.en) this.#stationNameIndex.set(st.name.en.toLowerCase().trim(), st);
 			if (st.name?.hi) this.#stationNameIndex.set(st.name.hi.toLowerCase().trim(), st);
 		}
 	}
 
 	/**
-	 * ⚡ नाम (Hindi/English/ID) से स्टेशन ढूँढने का O(1) हेल्पर
+	 * ⚡ नाम (Hindi/English/ID/Slug) से स्टेशन ढूँढने का O(1) हेल्पर
 	 */
 	findStationByName(name) {
 		if (!name || !this.#metroData?.stationData) return null;
 		
-		// अगर इंडेक्स अभी तक नहीं बना है, तो सिर्फ पहली बार बनाएँ
+		// 1. डायरेक्ट ID चेक
+		if (this.#metroData.stationData[name]) return this.#metroData.stationData[name];
+
+		const normalized = name.trim().toLowerCase();
+		if (this.#metroData.stationData[normalized]) return this.#metroData.stationData[normalized];
+
+		// 2. स्पेस से अंडरस्कोर (Slug) चेक (उदा: "meerut north" -> "meerut_north")
+		const slug = normalized.replace(/\s+/g, "_");
+		if (this.#metroData.stationData[slug]) return this.#metroData.stationData[slug];
+
+		// 3. इंडेक्स लुकअप
 		if (!this.#stationNameIndex) {
 			this.#buildIndex();
 		}
 		
-		const normalized = name.trim().toLowerCase();
-		return this.#stationNameIndex.get(normalized) || null;
+		return this.#stationNameIndex.get(normalized) || 
+		       this.#stationNameIndex.get(slug) || 
+		       this.#stationNameIndex.get(normalized.replace(/[^a-z0-9]/g, "")) || 
+		       null;
 	}
 
 	/**

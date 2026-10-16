@@ -200,4 +200,30 @@
 		opacity: 0.75;
 		flex-shrink: 0;
 	}
+	@media (max-width: 380px) {
+		/* Legend Panel (Popup) Cut-off Fix */
+		.legend-panel {
+			left: var(--space-xs);
+			right: var(--space-xs);
+			width: calc(100vw - (var(--space-xs) * 2)); /* 👈 स्क्रीन से बाहर कभी नहीं जाएगा */
+			max-width: 100%;
+			padding: var(--space-sm);
+		}
+		.legend-panel h2,
+		.legend-panel .legend-title {
+			font-size: var(--fs-md);
+		}
+		.legend-list-item {
+			font-size: var(--fs-xs);
+			padding: var(--space-2xs) 0;
+		}
+
+		/* Legend Floating Button */
+		.metro-btn-overlay {
+			top: var(--space-sm);
+			right: var(--space-sm);
+			padding: 6px var(--space-md);
+			font-size: var(--fs-xs);
+		}
+	}
 }

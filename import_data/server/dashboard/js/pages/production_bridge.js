@@ -196,7 +196,8 @@ class ProductionBridgeController {
 		let matchedCount = 0;
 		for (const item of this.#stationsCatalog) {
 			const slug = item.slug;
-			if (query && !slug.toLowerCase().includes(query)) {
+			const displayName = item.name ? `${item.name} (${slug})` : slug;
+			if (query && !slug.toLowerCase().includes(query) && !displayName.toLowerCase().includes(query)) {
 				continue;
 			}
 			matchedCount++;
@@ -212,7 +213,7 @@ class ProductionBridgeController {
 			} else if (item.has_transit_delta) {
 				statusTag = ' ⚡ [MODIFIED: Transit]';
 			}
-			opt.textContent = `${slug}${statusTag}`;
+			opt.textContent = `${displayName}${statusTag}`;
 			this.#dom.stationSelectDropdown.appendChild(opt);
 		}
 

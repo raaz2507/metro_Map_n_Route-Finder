@@ -89,4 +89,43 @@
 		word-break: break-word;
 		display: block;
 	}
+
+		/* 1. Realme & Standard Mobile (381px - 768px) - थोड़ा बड़ा और आरामदायक टच */
+	@media (max-width: 768px) {
+		.sidebar-link {
+			width: 62px;              /* 56px से बढ़ाकर 62px */
+			min-height: 54px;         /* 50px से बढ़ाकर 54px */
+			padding: var(--space-xs);
+		}
+		.sidebar-link .icon {
+			width: 26px;              /* आइकॉन थोड़ा बड़ा */
+			height: 26px;
+		}
+		.sidebar-link span:last-child {
+			font-size: var(--fs-xs);  /* 12px साफ़ और बड़ा टेक्स्ट */
+		}
+	}
+
+	/* 2. iPhone SE (<= 380px) - थोड़ा कॉम्पैक्ट ताकि मैप को जगह मिले */
+	@media (max-width: 380px) {
+		.sidebar-nav {
+			padding: var(--space-2xs);
+		}
+		.sidebar-nav-list {
+			gap: var(--space-2xs);
+		}
+		.sidebar-link {
+			width: 48px;              /* 56px से घटाकर 48px */
+			min-height: 44px;         /* 50px से घटाकर 44px */
+			padding: var(--space-2xs);
+			gap: var(--space-2xs);
+		}
+		.sidebar-link .icon {
+			width: 20px;
+			height: 20px;
+		}
+		.sidebar-link span:last-child {
+			font-size: var(--fs-2xs); /* 10px स्पष्ट पठनीय टेक्स्ट */
+		}
+	}
 }

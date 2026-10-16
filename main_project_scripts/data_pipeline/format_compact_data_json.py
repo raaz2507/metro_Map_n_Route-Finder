@@ -113,8 +113,8 @@ def compact_format(obj, indent_level=0, parent_key="", grandparent_key=""):
 		if not obj:
 			return "[]"
 
-		# Compact stations array or amenity badges
-		if parent_key in ["stations", "amenity_badges"]:
+		# Compact stations, amenity badges, aliases, landmarks (Single Line Arrays)
+		if parent_key in ["stations", "amenity_badges", "aliases", "landmarks"]:
 			return json.dumps(obj, ensure_ascii=False)
 
 		# 2D matrix rows or lists of primitives within length limit
@@ -183,20 +183,37 @@ def format_city(city_dir):
 				count += 1
 	return count
 
+def format_locales(locales_dir):
+	"""Formats all localized city pack JSON files in main_project/locales/."""
+	if not os.path.isdir(locales_dir):
+		print(f"⚠️  Locales directory not found: {locales_dir}")
+		return 0
+
+	print("\n🌐 Processing Locales Directory...")
+	count = 0
+	for root, _, files in os.walk(locales_dir):
+		for f in files:
+			if f.endswith(".json"):
+				full_path = os.path.join(root, f)
+				if format_file(full_path):
+					count += 1
+	return count
+
+
+
 def main():
 	# Resolve robust paths relative to script location
 	script_dir = os.path.dirname(os.path.abspath(__file__))
 	project_root = os.path.abspath(os.path.join(script_dir, "..", "..", "main_project"))
 	base_dir = os.path.join(project_root, "data")
+	locales_dir = os.path.join(project_root, "locales")
 	
-	# Support country argument: python format_compact_data_json.py india [city]
 	country_key = "india"
 	cities_dir = os.path.join(base_dir, country_key, "cities")
 
-
 	arg = sys.argv[1] if len(sys.argv) > 1 else "all"
 	print("=" * 70)
-	print("🚇 Master Data Compact JSON Formatter (Zero Key Mutation Guard)")
+	print("🚇 Master Data Compact JSON Formatter (v4.0 Decoupled Standard)")
 	print("=" * 70)
 
 	# Case 1: Specific file directly provided
@@ -205,17 +222,24 @@ def main():
 		print("\n✨ Done!")
 		return
 
-	# Case 2: Specific city or all cities
+	# Case 2: Only Locales flag
+	if arg.lower() == "locales":
+		loc_total = format_locales(locales_dir)
+		print(f"\n✨ Successfully formatted {loc_total} locale files!")
+		return
+
+	# Case 3: All Datasets + All Locales
 	if arg.lower() in ["all", "*"]:
-		if not os.path.exists(cities_dir):
-			print(f"❌ Cities directory not found: {cities_dir}")
-			return
 		total = 0
-		for item in sorted(os.listdir(cities_dir)):
-			full_item = os.path.join(cities_dir, item)
-			if os.path.isdir(full_item):
-				total += format_city(full_item)
-		print(f"\n✨ Successfully formatted {total} datasets across all cities!")
+		if os.path.exists(cities_dir):
+			for item in sorted(os.listdir(cities_dir)):
+				full_item = os.path.join(cities_dir, item)
+				if os.path.isdir(full_item):
+					total += format_city(full_item)
+		
+		# Format all locales
+		loc_total = format_locales(locales_dir)
+		print(f"\n✨ Successfully formatted {total} core datasets and {loc_total} locale files!")
 	else:
 		# Single city
 		city_dir = os.path.join(cities_dir, arg)

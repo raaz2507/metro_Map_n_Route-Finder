@@ -1,0 +1,442 @@
+{
+	"networks": {
+		"gmrc": ""
+	},
+	"lines": {
+		"gmrc.blue": {"name": "બ્લુ લાઇન", "short_name": "બ્લુ લાઇન"},
+		"gmrc.red": {"name": "રેડ લાઇન", "short_name": "રેડ લાઇન"},
+		"gmrc.yellow": {"name": "ગાંધીનગર એક્સટેન્શન (યલો લાઇન)", "short_name": "ગાંધીનગર એક્સટેન્શન (યલો લાઇન)"},
+		"gmrc.violet": {"name": "ગિફ્ટ સિટી બ્રાન્ચ (વાયોલેટ લાઇન)", "short_name": "ગિફ્ટ સિટી બ્રાન્ચ (વાયોલેટ લાઇન)"},
+		"gmrc.airport": {"name": "એરપોર્ટ લાઇન (ફેઝ 2A)", "short_name": "એરપોર્ટ લાઇન (ફેઝ 2A)"},
+		"gmrc.biotech": {"name": "બાયોટેક એક્સટેન્શન (ફેઝ 2B)", "short_name": "બાયોટેક એક્સટેન્શન (ફેઝ 2B)"}
+	},
+	"stations": {
+		"aec": {
+			"name": "એ ઇ સી",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"airport": {
+			"name": "સરદાર વલ્લભભાઈ પટેલ એરપોર્ટ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"akshardham": {
+			"name": "અક્ષરધામ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"amraivadi": {
+			"name": "Amraivadi",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"apmc": {
+			"name": "એ પી એમ સી",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"apparel_park": {
+			"name": "એપેરલ પાર્ક",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ashram_road": {
+			"name": "આશ્રમ રોડ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"commerce_six_road": {
+			"name": "કોમર્સ છ રસ્તા",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dholakuva_circle": {
+			"name": "ધોળાકુવા સર્કલ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"doordarshan_kendra": {
+			"name": "દૂરદર્શન કેન્દ્ર",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gandhigram": {
+			"name": "ગાંધીગ્રામ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gheekanta": {
+			"name": "ઘીકાંટા",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gift_city": {
+			"name": "ગિફ્ટ સિટી",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gift_city_house": {
+			"name": "ગિફ્ટ સિટી હાઉસ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gnlu": {
+			"name": "જી એન એલ યુ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gujarat_biotechnology_university": {
+			"name": "ગુજરાત બાયોટેકનોલોજી યુનિવર્સિટી",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gujarat_university": {
+			"name": "ગુજરાત યુનિવર્સિટી",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gurukul_road": {
+			"name": "ગુરુકુળ રોડ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"infocity": {
+			"name": "ઇન્ફોસિટી",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jivraj_park": {
+			"name": "જીવરાજ પાર્ક",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"juna_koba": {
+			"name": "જૂના કોબા",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"juna_sachivalaya": {
+			"name": "જૂના સચિવાલય",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kalupur": {
+			"name": "કાલુપુર રેલ્વે સ્ટેશન",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kankaria_east": {
+			"name": "કાંકરિયા પૂર્વ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koba_circle": {
+			"name": "કોબા સર્કલ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koba_gam": {
+			"name": "કોબા ગામ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koteshwar_prachin_mandir": {
+			"name": "કોટેશ્વર પ્રાચીન મંદિર",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koteshwar_road": {
+			"name": "કોટેશ્વર રોડ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahatama_mandir": {
+			"name": "Mahatama Mandir",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"motera_stadium": {
+			"name": "મોટેરા સ્ટેડિયમ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"narmada_canal": {
+			"name": "નર્મદા કેનાલ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nirant_cross_road": {
+			"name": "નિરાંત ક્રોસ રોડ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"old_high_court": {
+			"name": "જૂની હાઇ કોર્ટ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"paldi": {
+			"name": "પાલડી",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"pdeu": {
+			"name": "પી ડી ઈ યુ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rabari_colony": {
+			"name": "રબારી કોલોની",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rajivnagar": {
+			"name": "રાજીવ નગર",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"randesan": {
+			"name": "રાંદેસણ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ranip": {
+			"name": "રાણીપ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"raysan": {
+			"name": "રાયસણ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sabarmati": {
+			"name": "સાબરમતી",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sabarmati_railway_station": {
+			"name": "સાબરમતી રેલવે સ્ટેશન",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sabarmati_river": {
+			"name": "સાબરમતી રિવર",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sachivalaya": {
+			"name": "સચિવાલય",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sardarnagar": {
+			"name": "સરદારનગર",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector_1": {
+			"name": "Sector-1",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector_10a": {
+			"name": "Sector 10A",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector_16": {
+			"name": "Sector-16",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector_24": {
+			"name": "Sector-24",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shahpur": {
+			"name": "શાહપુર",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shreyas": {
+			"name": "શ્રેયસ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sp_stadium": {
+			"name": "એસ પી સ્ટેડિયમ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"tapovan_circle": {
+			"name": "તપોવન સર્કલ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thaltej": {
+			"name": "થલતેજ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thaltej_gam": {
+			"name": "થલતેજ ગામ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"usmanpura": {
+			"name": "ઉસ્માનપુરા",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vadaj": {
+			"name": "વાડજ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vastral": {
+			"name": "વસ્ત્રાલ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vastral_gam": {
+			"name": "વસ્ત્રાલ ગામ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vijaynagar": {
+			"name": "વિજય નગર",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vishwakarma_college": {
+			"name": "વિશ્વકર્મા કોલેજ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

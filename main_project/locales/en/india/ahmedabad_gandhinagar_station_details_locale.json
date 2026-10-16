@@ -1,0 +1,442 @@
+{
+	"networks": {
+		"gmrc": "Gujarat Metro Rail Corporation (GMRC)"
+	},
+	"lines": {
+		"gmrc.blue": {"name": "Blue Line", "short_name": "Blue Line"},
+		"gmrc.red": {"name": "Red Line", "short_name": "Red Line"},
+		"gmrc.yellow": {"name": "Gandhinagar Extension (Yellow Line)", "short_name": "Gandhinagar Extension (Yellow Line)"},
+		"gmrc.violet": {"name": "GIFT City Branch (Violet Line)", "short_name": "GIFT City Branch (Violet Line)"},
+		"gmrc.airport": {"name": "Airport Express Line (Phase 2A)", "short_name": "Airport Express Line (Phase 2A)"},
+		"gmrc.biotech": {"name": "Biotech Extension (Phase 2B)", "short_name": "Biotech Extension (Phase 2B)"}
+	},
+	"stations": {
+		"aec": {
+			"name": "AEC",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"airport": {
+			"name": "SVP International Airport",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"akshardham": {
+			"name": "Akshardham",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"amraivadi": {
+			"name": "Amraivadi",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"apmc": {
+			"name": "APMC",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"apparel_park": {
+			"name": "Apparel Park",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ashram_road": {
+			"name": "Ashram Road",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"commerce_six_road": {
+			"name": "Commerce Six Road",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dholakuva_circle": {
+			"name": "Dholakuva Circle",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"doordarshan_kendra": {
+			"name": "Doordarshan Kendra",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gandhigram": {
+			"name": "Gandhigram",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gheekanta": {
+			"name": "Gheekanta",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gift_city": {
+			"name": "Gift City",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gift_city_house": {
+			"name": "GIFT City House",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gnlu": {
+			"name": "GNLU",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gujarat_biotechnology_university": {
+			"name": "Gujarat Biotechnology University",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gujarat_university": {
+			"name": "Gujarat University",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gurukul_road": {
+			"name": "Gurukul Road",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"infocity": {
+			"name": "Infocity",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jivraj_park": {
+			"name": "Jivraj Park",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"juna_koba": {
+			"name": "Juna Koba",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"juna_sachivalaya": {
+			"name": "Juna Sachivalaya",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kalupur": {
+			"name": "Kalupur",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kankaria_east": {
+			"name": "Kankaria East",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koba_circle": {
+			"name": "Koba Circle",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koba_gam": {
+			"name": "Koba Gam",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koteshwar_prachin_mandir": {
+			"name": "Koteshwar Prachin Mandir",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"koteshwar_road": {
+			"name": "Koteshwar Road",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahatama_mandir": {
+			"name": "Mahatama Mandir",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"motera_stadium": {
+			"name": "Motera Stadium",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"narmada_canal": {
+			"name": "Narmada Canal",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nirant_cross_road": {
+			"name": "Nirant Cross Road",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"old_high_court": {
+			"name": "Old High Court",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"paldi": {
+			"name": "Paldi",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"pdeu": {
+			"name": "PDEU",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rabari_colony": {
+			"name": "Rabari Colony",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rajivnagar": {
+			"name": "Rajivnagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"randesan": {
+			"name": "Randesan",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ranip": {
+			"name": "Ranip",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"raysan": {
+			"name": "Raysan",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sabarmati": {
+			"name": "Sabarmati",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sabarmati_railway_station": {
+			"name": "Sabarmati Railway Station",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sabarmati_river": {
+			"name": "Sabarmati River",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sachivalaya": {
+			"name": "Sachivalaya",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sardarnagar": {
+			"name": "Sardarnagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector_1": {
+			"name": "Sector-1",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector_10a": {
+			"name": "Sector 10A",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector_16": {
+			"name": "Sector-16",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sector_24": {
+			"name": "Sector-24",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shahpur": {
+			"name": "Shahpur",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shreyas": {
+			"name": "Shreyas",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sp_stadium": {
+			"name": "SP Stadium",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"tapovan_circle": {
+			"name": "Tapovan Circle",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thaltej": {
+			"name": "Thaltej",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thaltej_gam": {
+			"name": "Thaltej Gam",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"usmanpura": {
+			"name": "Usmanpura",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vadaj": {
+			"name": "Vadaj",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vastral": {
+			"name": "Vastral",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vastral_gam": {
+			"name": "Vastral Gam",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vijaynagar": {
+			"name": "Vijaynagar",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vishwakarma_college": {
+			"name": "Vishwakarma College",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

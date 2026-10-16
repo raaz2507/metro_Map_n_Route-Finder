@@ -3,6 +3,8 @@
  * Enterprise ES2022 Private OOP Singleton
  * Zero-fallback, Strict Error Handling, Single-Pass DOM Mutation
  */
+import { eventBus } from "./event-bus.js";
+
 const DEFAULT_LANGUAGE = "en";
 
 export const LANGUAGE_CATEGORIES = [
@@ -19,7 +21,15 @@ export const LANGUAGE_CATEGORIES = [
 		name: "India (भारत)",
 		flag: "🇮🇳",
 		languages: [
-			{ code: "hi", label: "हिन्दी", nativeName: "Hindi", short: "HI • IN", flag: "🇮🇳" }
+			{ code: "hi", label: "हिन्दी", nativeName: "Hindi", short: "HI • IN", flag: "🇮🇳" },
+			{ code: "mr", label: "मराठी", nativeName: "Marathi", short: "MR • IN", flag: "🇮🇳" },
+			{ code: "kn", label: "ಕನ್ನಡ", nativeName: "Kannada", short: "KN • IN", flag: "🇮🇳" },
+			{ code: "gu", label: "ગુજરાતી", nativeName: "Gujarati", short: "GU • IN", flag: "🇮🇳" },
+			{ code: "ta", label: "தமிழ்", nativeName: "Tamil", short: "TA • IN", flag: "🇮🇳" },
+			{ code: "te", label: "తెలుగు", nativeName: "Telugu", short: "TE • IN", flag: "🇮🇳" },
+			{ code: "bn", label: "বাংলা", nativeName: "Bengali", short: "BN • IN", flag: "🇮🇳" },
+			{ code: "ml", label: "മലയാളം", nativeName: "Malayalam", short: "ML • IN", flag: "🇮🇳" },
+			{ code: "ur", label: "اردو", nativeName: "Urdu", short: "UR • IN", flag: "🇮🇳" }
 		]
 	},
 ];
@@ -50,6 +60,9 @@ class I18n {
 		localStorage.setItem("language", lang);
 		localStorage.setItem("app-lang", lang);
 		this.#applyTranslations();
+		
+		// 🌐 Notify application orchestrator & data stores
+		eventBus.emit("app:language-changed", { lang });
 	}
 
 	/* Current active language code */
@@ -93,16 +106,17 @@ class I18n {
 		}
 
 		try {
-			const module = await import(`../../lang/${lang}.js`);
-			if (!module || !module.default) {
-				throw new Error(`Invalid language module export for '${lang}'`);
-			}
-			const data = module.default;
+			const module = await import(`../../lang/${lang}.js`).catch(async () => {
+				// Agar UI translation file abhi alag se nahi bani, to base 'en' use karein
+				return await import(`../../lang/en.js`);
+			});
+			const data = module?.default || {};
 			this.#languageCache.set(lang, data);
 			return data;
 		} catch (error) {
-			console.error(`[I18n Engine] Fatal error loading language file '${lang}':`, error);
-			throw error; // Strict: No silent default fallback
+			console.error(`[I18n Engine] Error loading language '${lang}', using fallback:`, error);
+			const fallback = await import(`../../lang/en.js`);
+			return fallback.default;
 		}
 	}
 

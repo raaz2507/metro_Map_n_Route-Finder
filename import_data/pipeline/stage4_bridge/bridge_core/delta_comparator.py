@@ -20,6 +20,17 @@ class StationDeltaDiffEngine:
 
 	WHITELIST_FIELDS = {"timings", "gates", "contact", "parkings", "facilities", "platforms"}
 
+	@staticmethod
+	def _strip_gate_landmarks(gates_val: Any) -> Any:
+		"""Strips human descriptive landmark strings from gates to keep fact layer pristine (v4.0 Standard)."""
+		if isinstance(gates_val, dict):
+			return {
+				gk: {k: v for k, v in gv.items() if k != "landmark"}
+				if isinstance(gv, dict) else gv
+				for gk, gv in gates_val.items()
+			}
+		return gates_val
+
 	@classmethod
 	def compute_station_delta(
 		cls,
@@ -58,6 +69,8 @@ class StationDeltaDiffEngine:
 					k: v for k, v in cand_stn.items()
 					if k not in EXCLUDED_STATION_DETAILS_KEYS
 				}
+				if "gates" in clean_details:
+					clean_details["gates"] = cls._strip_gate_landmarks(clean_details["gates"])
 				clean_details["_meta"] = {
 					"is_new": True,
 					"last_updated": iso_timestamp
@@ -76,7 +89,6 @@ class StationDeltaDiffEngine:
 
 				station_graph: Dict[str, Any] = {
 					"id": slug,
-					"name": cand_stn.get("name", {"en": slug.replace("_", " ").title()}),
 					"lines": cand_stn.get("lines", []),
 					"properties": {
 						"layout": layout,
@@ -117,7 +129,10 @@ class StationDeltaDiffEngine:
 					continue
 
 				if cls._is_field_modified(base_val, cand_val, field_name=field):
-					station_patch[field] = cand_val
+					if field == "gates":
+						station_patch[field] = cls._strip_gate_landmarks(cand_val)
+					else:
+						station_patch[field] = cand_val
 					changed_keys.append(field)
 
 			# Case B.2: Geo-source Strategy Handling (Strictly for transit_network graph)
@@ -201,6 +216,12 @@ class StationDeltaDiffEngine:
 			# If timings, normalize seconds vs HH:MM
 			if field_name == "timings":
 				return {k: str(v).strip()[:5] for k, v in sorted(val.items()) if v}
+			# 🛡️ v4.0 Standard: gates में से 'landmark' मानवीय विवरण है, जो locales में रहता है
+			if field_name == "gates":
+				return {
+					k: {gk: gv for gk, gv in v.items() if gk != "landmark"}
+					for k, v in sorted(val.items()) if isinstance(v, dict)
+				}
 			return {k: cls._normalize_field(v, field_name) for k, v in sorted(val.items())}
 		elif isinstance(val, list):
 			# Sort lists of dicts by code or name if present for order-agnostic diff

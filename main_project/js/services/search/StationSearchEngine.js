@@ -6,6 +6,7 @@ import { BaseSearchEngine } from "./BaseSearchEngine.js";
 import { appStateStore } from "../../core/app-state-store.js";
 import { centerClass } from "../../core/CenterClass.js";
 
+
 export class StationSearchEngine extends BaseSearchEngine {
 	// Private State Fields
 	#metroData = null;
@@ -31,8 +32,15 @@ export class StationSearchEngine extends BaseSearchEngine {
 	}
 
 
+		/**
+	 * 🔄 Public Rebuild Index Method (Called on Language Switch)
+	 */
+	rebuildIndex() {
+		this.#buildIndex();
+	}
+
 	/**
-	 * 🏗️ इन-मेमोरी इनवर्टेड इंडेक्स का निर्माण ($O(1) लुकअप के लिए)
+	 * 🏗️ इन-मेमोरी इनवर्टेड इंडेक्स का निर्माण ($O(1) लुकअप के लिए - v4.0 Decoupled Standard)
 	 */
 	#buildIndex() {
 		const metroData = this.#getMetroData();
@@ -45,28 +53,43 @@ export class StationSearchEngine extends BaseSearchEngine {
 		const tokenMap = new Map();
 		const metadataList = [];
 		const stations = Object.values(metroData.stationData);
+
 		for (const st of stations) {
-			if (!st) continue;
-			const enName = (typeof st.name === "object" ? st.name?.en : st.name) || st.id || "";
-			const hiName = (typeof st.name === "object" ? st.name?.hi : "") || "";
-			const stId = (st.id || "").toLowerCase();
-			const enLower = enName.toLowerCase().trim();
-			const hiLower = hiName.toLowerCase().trim();
-			const words = enLower.split(/[\s-]+/).filter(Boolean);
-			const acronym = this.generateAcronym(enName);
-			metadataList.push({ station: st, enLower, hiLower, stId, words, acronym });
-			// Exact Name & ID Map
-			if (enLower) {
-				if (!exactMap.has(enLower)) exactMap.set(enLower, []);
-				exactMap.get(enLower).push(st);
+			if (!st?.id) continue;
+			const stId = st.id.toLowerCase();
+
+			// 🌐 Always resolve display name & aliases via centerClass facade
+			const primaryName = (typeof centerClass?.getStationName === "function" 
+				? centerClass.getStationName(stId) 
+				: st.name?.en || st.name?.hi || stId) || stId;
+
+			const aliases = typeof centerClass?.getStationAliases === "function"
+				? centerClass.getStationAliases(stId)
+				: (st.aliases || []);
+
+			const nameLower = primaryName.toLowerCase().trim();
+			const words = nameLower.split(/[\s-]+/).filter(Boolean);
+			const acronym = this.generateAcronym(primaryName);
+
+			metadataList.push({ station: st, nameLower, stId, words, acronym, aliases });
+
+			// 1. Primary Name Mapping
+			if (nameLower) {
+				if (!exactMap.has(nameLower)) exactMap.set(nameLower, []);
+				exactMap.get(nameLower).push(st);
 			}
-			if (hiLower) {
-				if (!exactMap.has(hiLower)) exactMap.set(hiLower, []);
-				exactMap.get(hiLower).push(st);
-			}
-			if (stId) {
-				if (!exactMap.has(stId)) exactMap.set(stId, []);
-				exactMap.get(stId).push(st);
+
+			// 2. ID Mapping
+			if (!exactMap.has(stId)) exactMap.set(stId, []);
+			exactMap.get(stId).push(st);
+
+			// 3. Aliases Mapping (e.g. "CP", "HUDA City Centre")
+			for (const alias of aliases) {
+				const aliasLower = alias.toLowerCase().trim();
+				if (aliasLower) {
+					if (!exactMap.has(aliasLower)) exactMap.set(aliasLower, []);
+					exactMap.get(aliasLower).push(st);
+				}
 			}
 			// Acronym Map
 			if (acronym) {
@@ -128,7 +151,8 @@ export class StationSearchEngine extends BaseSearchEngine {
 		// Tier 4: Substring Match (50)
 		if (scoredMap.size < this.#maxResults) {
 			for (const meta of metadataList) {
-				if (meta.enLower.includes(q) || meta.hiLower.includes(q) || meta.stId.includes(q)) {
+				const hasAliasMatch = Array.isArray(meta.aliases) && meta.aliases.some(a => a.toLowerCase().includes(q));
+				if (meta.nameLower?.includes(q) || meta.stId?.includes(q) || hasAliasMatch) {
 					addResult(meta.station, 50);
 				}
 			}
@@ -136,7 +160,7 @@ export class StationSearchEngine extends BaseSearchEngine {
 		// Tier 5: Levenshtein Typo Fallback (40)
 		if (scoredMap.size === 0 && q.length >= 2) {
 			for (const meta of metadataList) {
-				if (this.hasTypoMatch(q, meta.enLower, meta.words)) {
+				if (this.hasTypoMatch(q, meta.nameLower || "", meta.words || [])) {
 					addResult(meta.station, 40);
 				}
 			}
@@ -151,9 +175,8 @@ export class StationSearchEngine extends BaseSearchEngine {
 	 * 🎨 रूट फाइंडर ड्रॉपडाउन आइटम (लाइन कलर डॉट्स + इंटरचेंज बैज)
 	 */
 	renderDropdownItem(st, idx) {
-		const currentLang = appStateStore.getState("currentLang") || "en";
-		const rawName = typeof st.name === "object" ? (st.name?.[currentLang] || st.name?.en) : st.name;
-		const displayName = this.escapeHTML(rawName || st.id);
+		const rawName = (typeof centerClass?.getStationName === "function" ? centerClass.getStationName(st.id) : null) || st.id;
+		const displayName = this.escapeHTML(rawName);
 		const metroData = this.#getMetroData();
 		const lines = metroData?.lines || {};
 

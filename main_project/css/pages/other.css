@@ -264,4 +264,42 @@
 			transition: none !important;
 		}
 	}
+
+		/* -------------------------------------------------------------------------
+	   IPHONE SE (380px): सिर्फ कार्ड की चौड़ाई और गैप कम करके साइड-बाय-साइड किया
+	   ------------------------------------------------------------------------- */
+	@media (max-width: 380px) {
+		.cards-gallery-grid {
+			/* 👈 24px का बड़ा गैप घटाकर 8px किया */
+			gap: var(--space-sm);
+		}
+
+		.transit-action-card {
+			/* 👈 दोनों कार्ड्स को 50-50 चौड़ाई दी ताकि एक ही लाइन में आ जाएं */
+			width: calc(50% - var(--space-sm));
+			padding: var(--space-md);
+		}
+
+		/* छोटी स्क्रीन पर फिट रहने के लिए एलिमेंट्स का साइज़ */
+		.card-icon-bubble {
+			width: calc(var(--size-icon-lg) * 2);
+			height: calc(var(--size-icon-lg) * 2);
+			background-size: var(--size-icon-lg) var(--size-icon-lg);
+		}
+
+		.card-title {
+			font-size: var(--fs-sm);
+		}
+
+		.action-badge {
+			font-size: var(--fs-3xs);
+			padding: var(--space-2xs) var(--space-xs);
+		}
+
+		.action-arrow {
+			width: calc(var(--size-icon-lg) + var(--space-xs));
+			height: calc(var(--size-icon-lg) + var(--space-xs));
+			background-size: var(--size-icon-sm) var(--size-icon-sm);
+		}
+	}
 }

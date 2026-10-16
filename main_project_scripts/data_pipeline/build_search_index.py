@@ -6,24 +6,26 @@
     main_project_scripts/data_pipeline/build_search_index.py
 
 🎯 Overview & Purpose:
-    Scans entire multi-city transit datasets across all configured cities in India (or any
-    given country). Pre-computes a high-performance, O(1) in-memory Inverted Index (Search Engine)
-    and dumps it as a compact JSON cache for client-side instant searches.
+    Scans entire multi-city transit datasets and Decoupled v4.0 Locale Packs across all configured
+    cities in India (or any given country). Pre-computes a high-performance, O(1) in-memory Inverted
+    Index (Search Engine) and dumps it as a compact JSON cache for client-side instant searches.
 
-⚙️ Core Architectural Design (Inverted Index Data Structure):
+⚙️ Core Architectural Design (Inverted Index Data Structure - v4.0 Decoupled Standard):
     1. `tokens`   : Inverted word token map -> { token_string: [item_id_1, item_id_2, ...] }
-                   Enables instant O(1) prefix/word matching for multi-language queries.
+                   Enables instant O(1) prefix/word matching for multi-language queries across:
+                   English, Devanagari (Hindi/Marathi), Gujarati, Tamil, Telugu, Kannada,
+                   Malayalam, Bengali, and Urdu.
     2. `cities`   : City scope map -> { cityKey: [item_id_1, item_id_2, ...] }
                    Allows zero-latency filtering when a user searches within a selected city.
     3. `items`    : Central dictionary -> { item_id: { ...metadata... } }
-                   Stores compact metadata payload (title, Hindi name, mode, icon, line, etc.).
+                   Stores compact metadata payload (title, Hindi/local name, mode, icon, line, etc.).
 
 🌐 Multi-City & Entity Coverage:
-    - ✅ Works universally across ALL cities located in: main_project/data/<country>/cities/
+    - ✅ Resolves station human narratives, aliases, and line names directly from `locales/` packs!
     - 🌐 Transit Networks (DMRC, Mumbai Metro, Namma Metro, RRTS, etc. from registry)
-    - 🚇 Stations (Names in English & Hindi, Line affiliations, Interchange flags)
+    - 🚇 Stations (Names in English, Hindi, and regional scripts, Aliases, Line affiliations)
     - 📍 Nearby Places (Hospitals, Malls, Universities, Tourist Spots, etc. with distance in km)
-    - 🚪 Station Gates & Landmarks (Gate numbers and nearby prominent exit landmarks)
+    - 🚪 Station Gates & Landmarks (Decoupled gate landmarks from v4.0 locale packs)
 
 📦 Target Output:
     main_project/data/<country>/search_cache/transit_search_index.json
@@ -41,7 +43,7 @@ import os
 import json
 import re
 import sys
-import shutil
+from pathlib import Path
 
 # Configure UTF-8 for console output on Windows terminals
 if hasattr(sys.stdout, "reconfigure"):
@@ -76,33 +78,40 @@ CATEGORY_ICONS = {
 	"Gate Landmark": "🚪"
 }
 
+# Comprehensive regex matching English, Devanagari, Bengali, Gujarati, Tamil, Telugu, Kannada, Malayalam, Urdu
+MULTI_LANG_WORD_REGEX = re.compile(
+	r"[\w\u0900-\u097F\u0980-\u09FF\u0A80-\u0AFF\u0B80-\u0BFF\u0C00-\u0C7F\u0C80-\u0CFF\u0D00-\u0D7F\u0600-\u06FF]+",
+	re.UNICODE
+)
+
 def tokenize(text):
 	"""
-	Extracts normalized search tokens from text.
-	Supports both English alphanumeric and Devanagari Hindi unicode characters.
+	Extracts normalized search tokens from text across all supported Indian transit scripts.
 	Enforces minimum 2-character word length to ignore single-letter noise.
 	"""
 	if not text:
 		return []
-	words = re.findall(r"[\w\u0900-\u097F]+", str(text).lower())
+	words = MULTI_LANG_WORD_REGEX.findall(str(text).lower())
 	return [w for w in words if len(w) >= 2]
 
 def build_search_index(country_key="india"):
 	# Resolve robust paths relative to script location
-	script_dir = os.path.dirname(os.path.abspath(__file__))
-	project_root = os.path.abspath(os.path.join(script_dir, "..", "..", "main_project"))
-	base_dir = os.path.join(project_root, "data")
+	script_dir = Path(__file__).resolve().parent
+	project_root = script_dir.parent.parent / "main_project"
+	base_dir = project_root / "data"
 
-	country_dir = os.path.join(base_dir, country_key)
-	registry_path = os.path.join(country_dir, f"{country_key}_transit_registry.json")
-	cities_dir = os.path.join(country_dir, "cities")
-	cache_dir = os.path.join(country_dir, "search_cache")
-	cache_output_path = os.path.join(cache_dir, "transit_search_index.json")
+	country_dir = base_dir / country_key
+	registry_path = country_dir / f"{country_key}_transit_registry.json"
+	cities_dir = country_dir / "cities"
+	locales_base_dir = project_root / "locales"
+	cache_dir = country_dir / "search_cache"
+	cache_output_path = cache_dir / "transit_search_index.json"
 
-	os.makedirs(cache_dir, exist_ok=True)
+	cache_dir.mkdir(parents=True, exist_ok=True)
 
-	print(f"🚀 [SEARCH ENGINE] Starting Inverted Index Pre-computation for '{country_key}'...")
+	print(f"🚀 [SEARCH ENGINE] Starting Inverted Index Pre-computation for '{country_key}' (v4.0 Standard)...")
 	print(f"📂 Scanning datasets from: {cities_dir}")
+	print(f"🌐 Sourcing decoupled names from: {locales_base_dir}")
 
 	items = {}
 	tokens_index = {}
@@ -124,7 +133,7 @@ def build_search_index(country_key="india"):
 		current_id += 1
 
 	# 1. Index All Networks from Registry
-	if os.path.exists(registry_path):
+	if registry_path.exists():
 		with open(registry_path, "r", encoding="utf-8") as f:
 			registry = json.load(f)
 
@@ -155,23 +164,21 @@ def build_search_index(country_key="india"):
 				}, corpus)
 
 	# 2. Scan All Cities in data/cities/
-	if os.path.exists(cities_dir):
-		for c_folder in os.listdir(cities_dir):
-			c_path = os.path.join(cities_dir, c_folder)
-			if not os.path.isdir(c_path):
+	if cities_dir.exists():
+		for c_folder in sorted(os.listdir(cities_dir)):
+			c_path = cities_dir / c_folder
+			if not c_path.is_dir():
 				continue
 
 			c_key = c_folder
 			c_name = c_folder.replace("_", " ").title()
 
 			# Load Base + Auto Graph
-			graph_path = os.path.join(c_path, "transit_network.json")
-			graph_auto_path = os.path.join(c_path, "transit_network_auto.json")
-			if not os.path.exists(graph_path):
-				graph_path = os.path.join(c_path, "data.json")
+			graph_path = c_path / "transit_network.json"
+			graph_auto_path = c_path / "transit_network_auto.json"
 
-			graph_data = json.load(open(graph_path, "r", encoding="utf-8")) if os.path.exists(graph_path) else {}
-			if os.path.exists(graph_auto_path):
+			graph_data = json.load(open(graph_path, "r", encoding="utf-8")) if graph_path.exists() else {}
+			if graph_auto_path.exists():
 				try:
 					auto_graph = json.load(open(graph_auto_path, "r", encoding="utf-8"))
 					for st_id, st_val in auto_graph.get("stations", {}).items():
@@ -182,13 +189,11 @@ def build_search_index(country_key="india"):
 					print(f"  ⚠️ Warning reading {graph_auto_path}: {e}")
 
 			# Load Base + Auto Station Details
-			rich_path = os.path.join(c_path, "station_details.json")
-			rich_auto_path = os.path.join(c_path, "station_details_auto.json")
-			if not os.path.exists(rich_path):
-				rich_path = os.path.join(c_path, "stations_data.json")
+			rich_path = c_path / "station_details.json"
+			rich_auto_path = c_path / "station_details_auto.json"
 
-			rich_data = json.load(open(rich_path, "r", encoding="utf-8")) if os.path.exists(rich_path) else {}
-			if os.path.exists(rich_auto_path):
+			rich_data = json.load(open(rich_path, "r", encoding="utf-8")) if rich_path.exists() else {}
+			if rich_auto_path.exists():
 				try:
 					auto_rich = json.load(open(rich_auto_path, "r", encoding="utf-8"))
 					for st_id, st_val in auto_rich.items():
@@ -200,18 +205,74 @@ def build_search_index(country_key="india"):
 				except Exception as e:
 					print(f"  ⚠️ Warning reading {rich_auto_path}: {e}")
 
+			# 🌐 Load v4.0 Decoupled Locales for this city (EN + HI + All Regional Packs)
+			city_locales = {}
+			locale_file_pattern = f"{c_key}_station_details_locale.json"
+			for loc_path in locales_base_dir.glob(f"*/{country_key}/{locale_file_pattern}"):
+				lang = loc_path.parent.parent.name
+				try:
+					with open(loc_path, "r", encoding="utf-8") as lf:
+						city_locales[lang] = json.load(lf)
+				except Exception as e:
+					print(f"  ⚠️ Could not read locale {loc_path}: {e}")
+
+			en_locale = city_locales.get("en", {})
+			hi_locale = city_locales.get("hi", {})
+
 			stations = graph_data.get("stationData", {})
 			lines = graph_data.get("lines", {})
 
-			# A. Index All Stations
+			# A. Index All Stations (Decoupled Name Resolution)
 			for st_id, st_obj in stations.items():
-				n_en = st_obj.get("name", {}).get("en", st_id) if isinstance(st_obj.get("name"), dict) else st_id
-				n_hi = st_obj.get("name", {}).get("hi", "") if isinstance(st_obj.get("name"), dict) else ""
+				# 1. Resolve English Display Name from English Locale Pack
+				en_st_record = en_locale.get("stations", {}).get(st_id, {})
+				n_en = en_st_record.get("name") or st_id.replace("_", " ").title()
+
+				# 2. Resolve Hindi Display Name
+				hi_st_record = hi_locale.get("stations", {}).get(st_id, {})
+				n_hi = hi_st_record.get("name") or ""
+
+				# 3. Collect all multilingual names & aliases across all available locales
+				regional_names = []
+				all_aliases = []
+				for lang_k, l_pack in city_locales.items():
+					s_rec = l_pack.get("stations", {}).get(st_id, {})
+					reg_n = s_rec.get("name", "")
+					if reg_n and reg_n.strip():
+						regional_names.append(reg_n.strip())
+					for al in s_rec.get("aliases", []):
+						if al and al.strip():
+							all_aliases.append(al.strip())
+
+				# 4. Resolve Line Names
 				l_keys = st_obj.get("lines", [])
-				l_names = ", ".join([lines.get(lk, {}).get("short_name", {}).get("en", lk) if isinstance(lines.get(lk, {}).get("short_name"), dict) else lk for lk in l_keys])
+				l_name_list = []
+				for lk in l_keys:
+					en_line_name = en_locale.get("lines", {}).get(lk, {}).get("short_name") or en_locale.get("lines", {}).get(lk, {}).get("name")
+					if not en_line_name:
+						raw_line = lines.get(lk, {})
+						en_line_name = raw_line.get("short_name", {}).get("en") if isinstance(raw_line.get("short_name"), dict) else lk
+					l_name_list.append(en_line_name)
+				l_names = ", ".join(l_name_list)
 				net_key = l_keys[0].split(".")[0] if l_keys else "metro"
 
-				corpus = f"{n_en} {n_hi} {st_id} {c_name} {l_names} metro station namo bharat rrts"
+				# Construct Rich Multi-Language Search Corpus
+				corpus_parts = [
+					n_en,
+					n_hi,
+					st_id,
+					c_name,
+					l_names,
+					"metro",
+					"station",
+					"namo",
+					"bharat",
+					"rrts"
+				]
+				corpus_parts.extend(regional_names)
+				corpus_parts.extend(all_aliases)
+				corpus = " ".join(corpus_parts)
+
 				add_entry({
 					"name": f"{n_en} Metro Station",
 					"nameHi": n_hi,
@@ -229,8 +290,8 @@ def build_search_index(country_key="india"):
 			for st_id, rich_obj in rich_data.items():
 				if not isinstance(rich_obj, dict):
 					continue
-				st_basic = stations.get(st_id, {})
-				st_name_en = st_basic.get("name", {}).get("en", st_id) if isinstance(st_basic.get("name"), dict) else st_id
+				en_st_record = en_locale.get("stations", {}).get(st_id, {})
+				st_name_en = en_st_record.get("name") or st_id.replace("_", " ").title()
 				nearby = rich_obj.get("nearby_places", {})
 
 				if isinstance(nearby, dict):
@@ -261,31 +322,42 @@ def build_search_index(country_key="india"):
 								"isStation": False
 							}, corpus)
 
-				# C. Index Gate Landmarks
-				gates = rich_obj.get("gates", {})
-				if isinstance(gates, dict):
-					for g_no, g_obj in gates.items():
-						if isinstance(g_obj, dict):
-							lm_en = g_obj.get("landmark", {}).get("en", "") if isinstance(g_obj.get("landmark"), dict) else str(g_obj.get("landmark", ""))
-							lm_hi = g_obj.get("landmark", {}).get("hi", "") if isinstance(g_obj.get("landmark"), dict) else ""
-							if lm_en and lm_en.strip():
-								corpus = f"{lm_en} {lm_hi} Gate {g_no} {st_name_en} {c_name}"
-								add_entry({
-									"name": lm_en,
-									"nameHi": lm_hi,
-									"type": "Gate Landmark",
-									"icon": "🚪",
-									"subtitle": f"Gate No. {g_no}, {st_name_en} Station • {c_name}",
-									"cityKey": c_key,
-									"cityName": c_name,
-									"stationId": st_id,
-									"nearestStation": st_name_en,
-									"gateNo": g_no,
-									"isStation": False
-								}, corpus)
+				# C. Index Gate Landmarks (Decoupled from v4.0 Locale Packs)
+				# 1. Check English Gate Landmarks
+				en_gates = en_locale.get("stations", {}).get(st_id, {}).get("gates", {})
+				hi_gates = hi_locale.get("stations", {}).get(st_id, {}).get("gates", {})
+				all_gate_keys = set(en_gates.keys()) | set(hi_gates.keys())
+
+				for g_no in sorted(all_gate_keys, key=lambda x: str(x)):
+					lm_en = en_gates.get(g_no, "").strip()
+					lm_hi = hi_gates.get(g_no, "").strip()
+
+					# Fallback to rich_obj if locale gate had empty string
+					if not lm_en:
+						raw_g = rich_obj.get("gates", {}).get(g_no, {})
+						if isinstance(raw_g, dict):
+							raw_lm = raw_g.get("landmark")
+							lm_en = raw_lm if isinstance(raw_lm, str) else ""
+
+					if lm_en or lm_hi:
+						disp_name = lm_en or lm_hi
+						corpus = f"{lm_en} {lm_hi} Gate {g_no} {st_name_en} {c_name}"
+						add_entry({
+							"name": disp_name,
+							"nameHi": lm_hi,
+							"type": "Gate Landmark",
+							"icon": "🚪",
+							"subtitle": f"Gate No. {g_no}, {st_name_en} Station • {c_name}",
+							"cityKey": c_key,
+							"cityName": c_name,
+							"stationId": st_id,
+							"nearestStation": st_name_en,
+							"gateNo": g_no,
+							"isStation": False
+						}, corpus)
 
 	output_dict = {
-		"version": 1,
+		"version": 2,
 		"totalItems": len(items),
 		"tokens": tokens_index,
 		"cities": city_items,
@@ -293,13 +365,12 @@ def build_search_index(country_key="india"):
 	}
 
 	# Save to search_cache
-	os.makedirs(os.path.dirname(cache_output_path), exist_ok=True)
 	with open(cache_output_path, "w", encoding="utf-8") as f:
 		json.dump(output_dict, f, ensure_ascii=False, separators=(",", ":"))
 
 	size_kb = os.path.getsize(cache_output_path) / 1024
 	print("=" * 70)
-	print(f"✅ [SUCCESS] Inverted Search Index generated successfully!")
+	print(f"✅ [SUCCESS] Inverted Search Index generated successfully (v4.0 Standard)!")
 	print(f"📦 Output Target  : {cache_output_path}")
 	print(f"📊 Total Searchable Items : {len(items)}")
 	print(f"🔑 Unique Inverted Tokens : {len(tokens_index)}")

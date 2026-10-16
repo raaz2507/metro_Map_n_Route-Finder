@@ -1,0 +1,889 @@
+{
+	"networks": {
+		"namma_metro": "ನಮ್ಮ ಮೆಟ್ರೋ (BMRCL)"
+	},
+	"lines": {
+		"bmrcl.purple": {"name": "ನೇರಳೆ ಮಾರ್ಗ", "short_name": "ನೇರಳೆ ಮಾರ್ಗ"},
+		"bmrcl.green": {"name": "ಹಸಿರು ಮಾರ್ಗ", "short_name": "ಹಸಿರು ಮಾರ್ಗ"},
+		"bmrcl.yellow": {"name": "ಹಳದಿ ಮಾರ್ಗ", "short_name": "ಹಳದಿ ಮಾರ್ಗ"},
+		"bmrcl.pink": {"name": "ಗುಲಾಬಿ ಮಾರ್ಗ", "short_name": "ಗುಲಾಬಿ ಮಾರ್ಗ"},
+		"bmrcl.blue": {"name": "ನೀಲಿ ಮಾರ್ಗ", "short_name": "ನೀಲಿ ಮಾರ್ಗ"}
+	},
+	"stations": {
+		"agara": {
+			"name": "ಅಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"airport_city": {
+			"name": "ವಿಮಾನ ನಿಲ್ದಾಣ ನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"attiguppe": {
+			"name": "ಅತ್ತಿಗುಪ್ಪೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"bagalur_cross": {
+			"name": "ಬಾಗಲೂರು ಕ್ರಾಸ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"baiyappanahalli": {
+			"name": "ಬೈಯ್ಯಪ್ಪನಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"banashankari": {
+			"name": "ಬನಶಂಕರಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"bellandur": {
+			"name": "ಪ್ರೆಸ್ಟೀಜ್ ಬೆಳ್ಳಂದೂರು",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"benniganahalli": {
+			"name": "ಬೆನ್ನಿಗಾನಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"beratena_agrahara": {
+			"name": "ಬೆರಟೇನ ಅಗ್ರಹಾರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"biocon_hebbagodi": {
+			"name": "ಬಯೋಕಾನ್ ಹೆಬ್ಬಗೋಡಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"bommanahalli": {
+			"name": "ಬೊಮ್ಮನಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"btm_layout": {
+			"name": "ಬಿ ಟಿ ಎಂ ಬಡಾವಣೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"cantonment_railway_station": {
+			"name": "ದಂಡು ರೈಲ್ವೇ ನಿಲ್ದಾಣ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"central_silk_board": {
+			"name": "ಕೇಂದ್ರ ರೇಷ್ಮೆ ಮಂಡಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"challaghatta": {
+			"name": "ಚಲ್ಲಘಟ್ಟ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"chickpete": {
+			"name": "ಚಿಕ್ಕಪೇಟೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"chikkabidarakallu": {
+			"name": "ಚಿಕ್ಕಬಿದರಕಲ್ಲು",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"cubbon_park": {
+			"name": "ಕಬ್ಬನ್ ಪಾರ್ಕ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dairy_circle": {
+			"name": "ಡೈರಿ ವೃತ್ತ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dasarahalli": {
+			"name": "ದಾಸರಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"deepanjali_nagar": {
+			"name": "ದೀಪಾಂಜಲಿ ನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"delta_electronics_bommasandra": {
+			"name": "ಡೆಲ್ಟಾ ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಬೊಮ್ಮಸಂದ್ರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"doddajala": {
+			"name": "ದೊಡ್ಡಜಾಲ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"doddakallasandra": {
+			"name": "ದೊಡ್ಡಕಲ್ಲಸಂದ್ರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"doddanekundi": {
+			"name": "ದೊಡ್ಡನೆಕ್ಕುಂದಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dr_b_r_ambedkar_station_vidhana_soudha": {
+			"name": "ಡಾ. ಬಿ. ಆರ್. ಅಂಬೇಡ್ಕರ್ ನಿಲ್ದಾಣ, ವಿಧಾನ ಸೌಧ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"drdo_sports_complex": {
+			"name": "ಬಾಗ್ಮನೆ ಡೆವಲಪರ್ಸ್ - ರ.ಸಂ.ಅ.ಸಂ. ಕ್ರೀಡಾ ಸಂಕೀರ್ಣ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"electronic_city": {
+			"name": "ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಸಿಟಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"garudacharpalya": {
+			"name": "ಗರುಡಾಚಾರ್‍‍ಪಾಳ್ಯ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"goraguntepalya": {
+			"name": "ಗೊರಗುಂಟೆಪಾಳ್ಯ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"halasuru": {
+			"name": "ಹಲಸೂರು",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hbr_layout": {
+			"name": "ಎಚ್‌ ಬಿ ಆರ್ ಬಡಾವಣೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hebbala": {
+			"name": "ಹೆಬ್ಬಾಳ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hongasandra": {
+			"name": "ಹೊಂಗಸಂದ್ರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hoodi": {
+			"name": "ಹೂಡಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hopefarm_channasandra": {
+			"name": "ಹೋಪ್ ಫಾರ್ಮ್ ಚನ್ನಸಂದ್ರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"horamavu": {
+			"name": "ಹೊರಮಾವು",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hosa_road": {
+			"name": "ಹೊಸ ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hosahalli": {
+			"name": "ಶ್ರೀ ಬಾಲಗಂಗಾಧರನಾಥ ಸ್ವಾಮೀಜಿ ನಿಲ್ದಾಣ, ಹೊಸಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hrbr_layout": {
+			"name": "ಎಚ್‌ ಆರ್‌ ಬಿ ಆರ್ ಬಡಾವಣೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hsr_layout": {
+			"name": "ಎಚ್‌ ಎಸ್‌ ಆರ್ ಬಡಾವಣೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hulimavu": {
+			"name": "ಹುಳಿಮಾವು",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"huskur_road": {
+			"name": "ಹುಸ್ಕೂರು ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ibbaluru": {
+			"name": "ಇಬ್ಬಲೂರು",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"iimb": {
+			"name": "ಐ ಐ ಎಂ ಬಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"indira_nagar": {
+			"name": "ಇಂದಿರಾ ನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"infosys_foundation_konappana_agrahara": {
+			"name": "ಇನ್ಫೋಸಿಸ್ ಫೌಂಡೇಷನ್ ಕೋನಪ್ಪನ ಅಗ್ರಹಾರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"isro": {
+			"name": "ಇಸ್ರೋ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jakkur_cross": {
+			"name": "ಜಕ್ಕೂರು ಕ್ರಾಸ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jalahalli": {
+			"name": "ಜಾಲಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jaya_prakash_nagar": {
+			"name": "ಜಯಪ್ರಕಾಶ ನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jayadeva_hospital": {
+			"name": "ಜಯದೇವ ಆಸ್ಪತ್ರೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jayanagar": {
+			"name": "ಜಯನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jnanabharathi": {
+			"name": "ಜ್ಞಾನಭಾರತಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jp_nagar_4th_phase": {
+			"name": "ಜೆಪಿ ನಗರ 4ನೇ ಹಂತ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kadubeesanahalli": {
+			"name": "ಎಂಬೆಸ್ಸಿ ಟೆಕ್ ವಿಲೇಜ್ ದೇವರಬೀಸನಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kadugodi_tree_park": {
+			"name": "ಕಾಡುಗೋಡಿ ಟ್ರೀ ಪಾರ್ಕ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kadugundanahalli": {
+			"name": "ಕಾಡುಗುಂಡನಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kalena_agrahara": {
+			"name": "ಕಾಳೇನ ಅಗ್ರಹಾರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kalyan_nagar": {
+			"name": "ಕಲ್ಯಾಣ ನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kasturinagara": {
+			"name": "ಕಸ್ತೂರಿ ನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kempapura": {
+			"name": "ಕೆಂಪಾಪುರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kengeri": {
+			"name": "ಕೆಂಗೇರಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kengeri_bus_terminal": {
+			"name": "ಕೆಂಗೇರಿ ಬಸ್ ಟರ್ಮಿನಲ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kial_terminals": {
+			"name": "ಕೆಂಪೇಗೌಡ ಅಂತಾರಾಷ್ಟ್ರೀಯ ವಿಮಾನ ನಿಲ್ದಾಣ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kodibeesanahalli": {
+			"name": "ಕೋಡಿಬೀಸನಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kodigehalli": {
+			"name": "ಕೊಡಿಗೇಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"konanakunte_cross": {
+			"name": "ಕೋಣನಕುಂಟೆ ಕ್ರಾಸ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"krantivira_sangolli_rayanna_railway_station": {
+			"name": "ಕ್ರಾಂತಿವೀರ ಸಂಗೊಳ್ಳಿ ರಾಯಣ್ಣ ರೈಲು ನಿಲ್ದಾಣ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"krishna_rajendra_market": {
+			"name": "ಕೃಷ್ಣ ರಾಜೇಂದ್ರ ಮಾರುಕಟ್ಟೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"krishnarajapura": {
+			"name": "ಕೃಷ್ಣರಾಜಪುರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kudlu_gate": {
+			"name": "ಕೂಡ್ಲು ಗೇಟ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kundalahalli": {
+			"name": "ಕುಂದಲಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"lakkasandra": {
+			"name": "ಲಕ್ಕಸಂದ್ರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"lalbagh": {
+			"name": "ಲಾಲ್ ಬಾಗ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"langford_town": {
+			"name": "ಲ್ಯಾಂಗ್ಫೋರ್ಡ್ ಟೌನ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"madavara": {
+			"name": "ಮಾದಾವರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"magadi_road": {
+			"name": "ಮಾಗಡಿ ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahakavi_kuvempu_road": {
+			"name": "ಮಹಾಕವಿ ಕುವೆಂಪು ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahalakshmi": {
+			"name": "ಮಹಾಲಕ್ಷ್ಮೀ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahatma_gandhi_road": {
+			"name": "ಮಹಾತ್ಮಾ ಗಾಂಧಿ ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"manjunathanagara": {
+			"name": "ಮಂಜುನಾಥನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mantri_square_sampige_road": {
+			"name": "ಮಂತ್ರಿ ಸ್ಕ್ವೇರ್, ಸಂಪಿಗೆ ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"marathahalli": {
+			"name": "ಮಾರತಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mysuru_road": {
+			"name": "ಮೈಸೂರು ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nadaprabhu_kempegowda_station_majestic": {
+			"name": "ನಾಡಪ್ರಭು ಕೆಂಪೇಗೌಡ ನಿಲ್ದಾಣ, ಮೆಜೆಸ್ಟಿಕ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nagasandra": {
+			"name": "ನಾಗಸಂದ್ರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nagawara": {
+			"name": "ನಾಗವಾರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"nallurhalli": {
+			"name": "ನಲ್ಲೂರುಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"national_college": {
+			"name": "ನ್ಯಾಷನಲ್ ಕಾಲೇಜ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"national_military_school": {
+			"name": "ರಾಷ್ಟ್ರೀಯ ಸೈನಿಕ ಶಾಲೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"pantharapalyanayandahalli": {
+			"name": "ಪಂತರಪಾಳ್ಯ - ನಾಯಂಡಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"pattanagere": {
+			"name": "ಪಟ್ಟಣಗೆರೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"pattandur_agrahara": {
+			"name": "ಪಟ್ಟಂದೂರು ಅಗ್ರಹಾರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"peenya": {
+			"name": "ಪೀಣ್ಯ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"peenya_industry": {
+			"name": "ಪೀಣ್ಯ ಇಂಡಸ್ಟ್ರಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"pottery_town": {
+			"name": "ಪಾಟರಿ ಟೌನ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ragigudda": {
+			"name": "ರಾಗಿಗುಡ್ಡ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rajajinagar": {
+			"name": "ರಾಜಾಜಿನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rajarajeshwari_nagar": {
+			"name": "ರಾಜರಾಜೇಶ್ವರಿ ನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rashtreeya_vidyalaya_road": {
+			"name": "ರಾಷ್ಟ್ರೀಯ ವಿದ್ಯಾಲಯ ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sandal_soap_factory": {
+			"name": "ಸ್ಯಾಂಡಲ್ ಸೋಪ್ ಫ್ಯಾಕ್ಟರಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sarasvathi_nagara": {
+			"name": "ಸರಸ್ವತಿ ನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"seetharamapalya": {
+			"name": "ಸೀತಾರಾಮಪಾಳ್ಯ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shivaji_nagar": {
+			"name": "ಶಿವಾಜಿನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"silk_institute": {
+			"name": "ರೇಷ್ಮೆ ಸಂಸ್ಥೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"singasandra": {
+			"name": "ಸಿಂಗಸಂದ್ರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"singayyanapalya": {
+			"name": "ಸಿಂಗಯ್ಯನಪಾಳ್ಯ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sir_m_visveshwaraya_station_central_college": {
+			"name": "ಸರ್ ಎಂ.ವಿಶ್ವೇಶ್ವರಯ್ಯ ನಿಲ್ದಾಣ, ಸೆಂಟ್ರಲ್ ಕಾಲೇಜು",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"southend_circle": {
+			"name": "ಸೌತ್ ಎಂಡ್ ಸರ್ಕಲ್",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sri_sathya_sai_hospital": {
+			"name": "ಶ್ರೀ ಸತ್ಯ ಸಾಯಿ ಆಸ್ಪತ್ರೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"srirampura": {
+			"name": "ಶ್ರೀರಾಮ್‍ಪುರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"swami_vivekananda_road": {
+			"name": "ಸ್ವಾಮಿ ವಿವೇಕಾನಂದ ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"tannery_road": {
+			"name": "ಟ್ಯಾನರಿ ರಸ್ತೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"tavarekere": {
+			"name": "ತಾವರೆಕೆರೆ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thalaghattapura": {
+			"name": "ತಲಘಟ್ಟಪುರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"trinity": {
+			"name": "ಟ್ರಿನಿಟಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vajarahalli": {
+			"name": "ವಾಜರಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"veerannapalya": {
+			"name": "ವೀರಣ್ಣಪಾಳ್ಯ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"venkateshpura": {
+			"name": "ವೆಂಕಟೇಶಪುರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vijayanagar": {
+			"name": "ವಿಜಯನಗರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"whitefield_kadugodi": {
+			"name": "ವೈಟ್ ಫೀಲ್ಡ್ (ಕಾಡುಗೋಡಿ)",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"yelachenahalli": {
+			"name": "ಯಲಚೇನಹಳ್ಳಿ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"yelahanka": {
+			"name": "ಯಲಹಂಕ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"yeshwanthpur": {
+			"name": "ಯಶವಂತಪುರ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

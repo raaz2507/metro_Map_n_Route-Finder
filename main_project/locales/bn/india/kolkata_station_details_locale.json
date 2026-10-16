@@ -1,0 +1,399 @@
+{
+	"networks": {
+		"kolkata_metro": ""
+	},
+	"lines": {
+		"kolkata_metro.blue": {"name": "ব্লু লাইন (লাইন ১)", "short_name": "ব্লু লাইন (লাইন ১)"},
+		"kolkata_metro.green": {"name": "গ্রিন লাইন (লাইন ২)", "short_name": "গ্রিন লাইন (লাইন ২)"},
+		"kolkata_metro.orange": {"name": "অরেঞ্জ লাইন (লাইন ৬)", "short_name": "অরেঞ্জ লাইন (লাইন ৬)"},
+		"kolkata_metro.purple": {"name": "পার্পল লাইন (লাইন ৩)", "short_name": "পার্পল লাইন (লাইন ৩)"},
+		"kolkata_metro.yellow": {"name": "ইয়েলো লাইন (লাইন ৪)", "short_name": "ইয়েলো লাইন (লাইন ৪)"}
+	},
+	"stations": {
+		"baranagar": {
+			"name": "বরাহনগর",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"barun_sengupta": {
+			"name": "বরুণ সেনগুপ্ত",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"behala_bazar": {
+			"name": "বেহালা বাজার",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"behala_chowrasta": {
+			"name": "বেহালা চৌরাস্তা",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"behala_sakherbazar": {
+			"name": "সখেরবাজার",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"beleghata": {
+			"name": "বেলেঘাটা",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"belgachhia": {
+			"name": "বেলগাছিয়া",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"bengal_chemical": {
+			"name": "বেঙ্গল কেমিক্যাল",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"central": {
+			"name": "সেন্ট্রাল",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"central_park": {
+			"name": "সেন্ট্রাল পার্ক",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"chandni_chowk": {
+			"name": "চাঁদনি চক",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"city_center": {
+			"name": "সিটি সেন্টার",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dakshineswar": {
+			"name": "দক্ষিণেশ্বর",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dum_dum": {
+			"name": "দমদম",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"dum_dum_cantonment": {
+			"name": "দমদম ক্যান্টনমেন্ট",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"esplanade": {
+			"name": "এসপ্ল্যানেড",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"girish_park": {
+			"name": "গিরীশ পার্ক",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"gitanjali": {
+			"name": "গীতাঞ্জলি",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"hemanta_mukhopadhyay": {
+			"name": "হেমন্ত মুখোপাধ্যায়",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"howrah": {
+			"name": "হাওড়া",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"howrah_maidan": {
+			"name": "হাওড়া ময়দান",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jai_hind": {
+			"name": "জয় হিন্দ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jatin_das_park": {
+			"name": "যতীন দাস পার্ক",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jessore_road": {
+			"name": "যশোহর রোড",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"joka": {
+			"name": "জোকা",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"jyotirindra_nandi": {
+			"name": "জ্যোতিরিন্দ্র নন্দী",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kalighat": {
+			"name": "কালীঘাট",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"karunamoyee": {
+			"name": "করুণাময়ী",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kavi_nazrul": {
+			"name": "কবি নজরুল",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kavi_subhash": {
+			"name": "কবি সুভাষ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"kavi_sukanta": {
+			"name": "কবি সুকান্ত",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahakaran": {
+			"name": "মহাকরণ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahanayak_uttam_kumar": {
+			"name": "মহানায়ক উত্তম কুমার",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"mahatma_gandhi_road": {
+			"name": "মহাত্মা গান্ধী রোড",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"maidan": {
+			"name": "ময়দান",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"majerhat": {
+			"name": "মাঝেরহাট",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"masterda_surya_sen": {
+			"name": "মাস্টারদা সূর্য সেন",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"netaji": {
+			"name": "নেতাজি",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"netaji_bhavan": {
+			"name": "নেতাজি ভবন",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"noapara": {
+			"name": "নোয়াপাড়া",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"park_street": {
+			"name": "পার্ক স্ট্রীট",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"phoolbagan": {
+			"name": "ফুলবাগান",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rabindra_sadan": {
+			"name": "রবীন্দ্র সদন",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"rabindra_sarobar": {
+			"name": "রবীন্দ্র সরোবর",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"ritwik_ghatak": {
+			"name": "ঋত্বিক ঘটক",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"salt_lake_sector_v": {
+			"name": "সল্টলেক সেক্টর V",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"salt_lake_stadium": {
+			"name": "সল্টলেক স্টেডিয়াম",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"satyajit_ray": {
+			"name": "সত্যজিৎ রায়",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"sealdah": {
+			"name": "শিয়ালদহ",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shahid_khudiram": {
+			"name": "শহীদ ক্ষুদিরাম",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shobhabazar_sutanuti": {
+			"name": "শোভাবাজার সুতানুটি",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"shyambazar": {
+			"name": "শ্যামবাজার",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"taratala": {
+			"name": "তারাতলা",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"thakurpukur": {
+			"name": "ঠাকুরপুকুর",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"vip_bazar": {
+			"name": "ভিআইপি বাজার",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		}
+	}
+}

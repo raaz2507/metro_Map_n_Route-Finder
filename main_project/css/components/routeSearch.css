@@ -1045,11 +1045,13 @@
 		display: none;
 	}
 
-	.station-info {
+		.station-info {
 		flex: 1;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		gap: var(--space-xs); /* 👈 स्टेशन नाम और दूरी के बीच सुरक्षित गैप, कभी नहीं चिपकेंगे */
+		min-width: 0;
 		margin-top: 2px;
 	}
 
@@ -1082,6 +1084,7 @@
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
+		min-width: 0; /* 👈 लंबे नाम को सलीके से संभालेगा */
 		transition: transform var(--transition-fast), color var(--transition-fast);
 		transform-origin: left center;
 	}
@@ -1097,23 +1100,31 @@
 		color: rgb(var(--color-primary-rgb));
 		transform: translateX(3px);
 	}
+
+	/* 🚪 शुद्ध टोकन-बेस्ड हॉरिजॉन्टल पिल (कभी 2 लाइनों में नहीं टूटेगा) */
 	.badge-gate {
 		background-color: rgba(var(--color-warning-rgb), var(--op-subtle));
 		color: rgb(var(--color-warning-rgb));
 		border: 1px solid rgba(var(--color-warning-rgb), var(--op-muted));
-		font-size: var(--badge-font-size);
+		font-size: var(--fs-2xs); /* 👈 सही बेस टोकन (10px) */
 		font-weight: var(--fw-bold);
-		padding: var(--badge-padding);
-		border-radius: var(--badge-radius);
-		display: flex;
+		padding: 1px var(--space-xs); /* 👈 सही बेस टोकन */
+		border-radius: var(--radius-full); /* 👈 स्मूथ कैप्सूल पिल */
+		display: inline-flex;
 		align-items: center;
 		gap: 2px;
+		white-space: nowrap; /* 👈 🚪 और GATE हमेशा एक सीधी लाइन में रहेंगे */
+		flex-shrink: 0;
+		line-height: 1.4;
 	}
 
+	/* ⏱️ दूरी और समय भी हमेशा सिंगल लाइन में रहेगा */
 	.station-time-cumulative {
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
 		color: var(--text-secondary);
+		white-space: nowrap;
+		flex-shrink: 0;
 	}
 
 	.interchange-track {
@@ -1148,35 +1159,31 @@
 		padding-left: var(--space-xl);
 	}
 
-	.interchange-card {
+		.interchange-card {
 		flex: 1;
 		background: rgba(var(--color-primary-rgb), var(--op-subtle));
 		border: 1.5px dashed rgba(var(--color-primary-rgb), var(--op-shadow));
 		border-radius: var(--radius-md);
-		padding: var(--space-sm) var(--space-md);
-		display: flex;
-		justify-content: space-between;
+		padding: var(--space-xs) var(--space-sm);
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		grid-template-rows: auto auto;
+		column-gap: var(--space-xs);
+		row-gap: 2px;
 		align-items: center;
-		gap: var(--space-sm);
 		box-shadow: var(--shadow-sm);
 	}
 
 	.interchange-content {
-		display: flex;
-		align-items: center;
-		gap: var(--space-sm);
-		font-size: var(--fs-xs);
-		font-weight: var(--fw-medium);
-		color: var(--text-primary);
-		opacity: 1;
-		transform: scale(1);
-		line-height: 1.4;
+		display: contents;
 	}
 
 	.interchange-icon-walk {
-		width: 24px;
-		height: 24px;
-		flex-shrink: 0;
+		grid-column: 1;
+		grid-row: 1 / -1;
+		width: 20px;
+		height: 20px;
+		align-self: center;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1188,41 +1195,81 @@
 		object-fit: contain;
 	}
 
-	.interchange-time-badge {
+	.interchange-details-col {
+		display: contents;
+	}
+
+	/* 👈 पंक्ति 1: "Change to dmrc.yellow" सिंगल लाइन में */
+	.interchange-details-col > span {
+		grid-column: 2;
+		grid-row: 1;
 		font-size: var(--fs-xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-primary);
+		line-height: 1.2;
+		white-space: nowrap;
+	}
+
+	/* 👈 पंक्ति 1 दायाँ कोना: टाइम बैज */
+	.interchange-time-badge {
+		grid-column: 3;
+		grid-row: 1;
+		font-size: var(--fs-2xs);
 		font-weight: var(--fw-bold);
 		color: var(--text-secondary);
 		background: var(--btn-reset-bg);
-		padding: 2px var(--space-sm);
+		padding: 1px var(--space-xs);
 		border-radius: var(--radius-full);
 		white-space: nowrap;
-		flex-shrink: 0;
+		justify-self: end;
 	}
 
-	/* 🏷️ Dynamic Transfer & Walkway Badges */
-	.interchange-details-col {
-		display: flex;
-		flex-direction: column;
-		gap: 3px;
-	}
+	/* 👈 पंक्ति 2: कॉरिडोर बैज खाली जगह का पूरा इस्तेमाल करते हुए नीचे आएगा */
 	.interchange-badges-row {
+		grid-column: 2 / -1;
+		grid-row: 2;
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
-		gap: 4px;
+		gap: var(--space-2xs);
 		margin-top: 2px;
 	}
-	.transfer-pill-badge {
-		font-size: var(--fs-xxs, 10px);
-		font-weight: var(--fw-bold, 700);
-		padding: 1px 6px;
-		border-radius: var(--radius-full, 9999px);
+
+	/* 👈 बैज की पिल स्टाइल ताकि (110m) कभी अलग लाइन में न टूटे */
+	.transfer-pill-badge,
+	.transfer-mode-badge {
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		padding: 1px var(--space-xs);
+		border-radius: var(--radius-full);
 		display: inline-flex;
 		align-items: center;
 		gap: 3px;
 		white-space: nowrap;
 		line-height: 1.4;
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		color: var(--text-primary);
+		border: 1px solid rgba(var(--color-primary-rgb), var(--op-shadow));
 	}
+
+	/* 🎯 Universal Mask Icons for Transfer Modes (Zero inline SVG, 100% Theme Matched) */
+	.transfer-mode-icon {
+		display: inline-block;
+		width: 12px;
+		height: 12px;
+		background-color: currentColor;
+		-webkit-mask: var(--mode-ico-url) no-repeat center / contain;
+		mask: var(--mode-ico-url) no-repeat center / contain;
+		flex-shrink: 0;
+		vertical-align: middle;
+	}
+
+	.ico-mode-corridor       { --mode-ico-url: url("../../assets/icons/ui/walk.svg"); }
+	.ico-mode-cross-platform { --mode-ico-url: url("../../assets/icons/ui/lightning.svg"); }
+	.ico-mode-level-change   { --mode-ico-url: url("../../assets/icons/ui/elevator.svg"); }
+	.ico-mode-skywalk        { --mode-ico-url: url("../../assets/icons/ui/skywalk.svg"); }
+	.ico-mode-erickshaw      { --mode-ico-url: url("../../assets/icons/ui/erickshaw.svg"); }
+	.ico-mode-security       { --mode-ico-url: url("../../assets/icons/ui/shield.svg"); }
 
 	.transfer-pill-station-type {
 		background: rgba(var(--color-primary-rgb), var(--op-subtle));
@@ -1549,6 +1596,45 @@
 		padding: var(--space-sm) var(--radius-xs);
 		background: var(--btn-reset-bg);
 		border-radius: var(--radius-xs);
+	}
+
+	/* =========================================================================
+	 📱 RESPONSIVE ADJUSTMENTS FOR JOURNEY DETAILS (Standard Mobile & iPhone SE)
+	 ========================================================================= */
+	
+	/* 1. 📱 Standard Mobile (<= 768px) */
+	@media (max-width: 768px) {
+		
+	}
+
+	/* 2. 📱 iPhone SE / Small Screens (<= 380px) */
+	@media (max-width: 380px) {
+		/* 👈 लेफ्ट पैडिंग वापस सही करने के लिए var(--space-sm) */
+		#journeyDetails.active {
+			padding: var(--space-sm);
+		}
+		/* 👈 कार्ड के अंदर भी साइड पैडिंग सही रखी */
+		.journey-metrics-card {
+			padding: var(--space-sm);
+		}
+		.journey-metrics-card .metric-val {
+			font-size: var(--fs-lg);
+		}
+		/* 👈 टाइम बार का टेक्स्ट थोड़ा छोटा ताकि बिना टूटे आराम से आए */
+		.timing-subrow {
+			font-size: var(--fs-2xs);
+			gap: var(--space-xs);
+		}
+		/* फेयर कार्ड्स का हल्का सा कॉम्पैक्ट साइज़ */
+		.fare-selectable-card {
+			padding: var(--space-xs) 2px;
+		}
+		.fare-selectable-card .metric-val {
+			font-size: var(--fs-sm);
+		}
+		.fare-selectable-card .metric-lbl {
+			font-size: var(--fs-3xs);
+		}
 	}
 }
 
