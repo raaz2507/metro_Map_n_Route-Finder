@@ -1,19 +1,30 @@
 {
 	"city": "jaipur",
 	"city_name": "Jaipur",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
 		"women_safety": "1090",
-		"ambulance": "102"
+		"ambulance": "108"
 	},
 	"networks": {
 		"jaipur_metro": {
-			"network_name": "Jaipur Metro",
-			"operator": "JMRC",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"network_name": "Jaipur Metro (JMRC)",
+			"operator": "Jaipur Metro Rail Corporation (JMRC)",
+			"helplines": {
+				"toll_free": "1800-202-4116",
+				"central_passenger_helpline": "0141-2822157",
+				"lost_and_found_helpline": "0141-2822148",
+				"women_safety": "1090",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://transport.rajasthan.gov.in/jmrc"
+			},
+			"facilities": {
+				"central_lost_found_office": "Admin Building, Metro Train Depot, Bhrigu Path, Mansarovar, Jaipur - 302020",
+				"operating_hours": "06:20 AM - 10:00 PM (All Days)"
+			}
 		}
 	}
 }

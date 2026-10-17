@@ -3,18 +3,9 @@
 		"hmrl": ""
 	},
 	"lines": {
-		"hmrl.red": {
-			"name": "",
-			"short_name": ""
-		},
-		"hmrl.blue": {
-			"name": "",
-			"short_name": ""
-		},
-		"hmrl.green": {
-			"name": "",
-			"short_name": ""
-		}
+		"hmrl.red": {"name": "", "short_name": ""},
+		"hmrl.blue": {"name": "", "short_name": ""},
+		"hmrl.green": {"name": "", "short_name": ""}
 	},
 	"stations": {
 		"ameerpet": {
@@ -355,19 +346,14 @@
 		},
 		"secunderabad-east": {
 			"name": "سکندرآباد ایسٹ",
-			"aliases": [
-				"Secunderabad Railway Station",
-				"Secunderabad Junction"
-			],
+			"aliases": ["Secunderabad Railway Station", "Secunderabad Junction"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"secunderabad-west": {
 			"name": "سکندرآباد ویسٹ",
-			"aliases": [
-				"Secunderabad Railway Station West"
-			],
+			"aliases": ["Secunderabad Railway Station West"],
 			"description": "",
 			"gates": {},
 			"landmarks": []

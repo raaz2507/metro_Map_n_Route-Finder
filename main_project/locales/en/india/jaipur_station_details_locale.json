@@ -1,6 +1,10 @@
 {
 	"networks": {
+		"jaipur_metro": "Jaipur Metro (JMRC)",
 		"jmrc": "Jaipur Metro Rail Corporation (JMRC)"
+	},
+	"policies": {
+		"jaipur_metro_standard": "Jaipur Metro (JMRC)"
 	},
 	"lines": {
 		"jmrc.pink": {"name": "Pink Line (Phase 1)", "short_name": "Pink Line (Phase 1)"}

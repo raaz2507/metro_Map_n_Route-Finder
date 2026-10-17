@@ -1,6 +1,11 @@
 {
 	"networks": {
-		"mpmrcl_indore": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)"
+		"indore_metro": "Indore Metro (MPMRCL)",
+		"mpmrcl_indore": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"mpmrcl": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)"
+	},
+	"policies": {
+		"indore_metro_standard": "Indore Metro (MPMRCL)"
 	},
 	"lines": {
 		"mpmrcl.yellow": {"name": "Yellow Line", "short_name": "Yellow Line"}

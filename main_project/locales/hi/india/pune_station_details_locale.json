@@ -1,203 +1,207 @@
 {
 	"networks": {
-		"mahametro_pune": ""
+		"mahametro_pune": "महा मेट्रो (पुणे मेट्रो)",
+		"pune_metro": "पुणे मेट्रो (महा मेट्रो)"
+	},
+	"policies": {
+		"pune_metro_standard": "पुणे मेट्रो (महा मेट्रो)"
 	},
 	"lines": {
-		"mahametro_pune.purple": {"name": "", "short_name": ""},
-		"mahametro_pune.aqua": {"name": "", "short_name": ""}
+		"mahametro_pune.purple": {"name": "पर्पल लाइन", "short_name": "पर्पल लाइन"},
+		"mahametro_pune.aqua": {"name": "एक्वा लाइन", "short_name": "एक्वा लाइन"}
 	},
 	"stations": {
 		"anand_nagar": {
-			"name": "",
+			"name": "आनंद नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bopodi": {
-			"name": "",
+			"name": "बोपोडी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bund_garden": {
-			"name": "",
+			"name": "बंड गार्डन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chhatrapati_sambhaji_udyan": {
-			"name": "",
-			"aliases": [],
+			"name": "छत्रपति संभाजी उद्यान",
+			"aliases": ["संभाजी उद्यान"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dapodi": {
-			"name": "",
+			"name": "दापोडी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"deccan_gymkhana": {
-			"name": "",
-			"aliases": [],
+			"name": "डेक्कन जिमखाना",
+			"aliases": ["डेक्कन"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"district_court": {
-			"name": "",
-			"aliases": [],
+			"name": "डिस्ट्रिक्ट कोर्ट (जिला न्यायालय)",
+			"aliases": ["डिस्ट्रिक्ट कोर्ट", "जिला न्यायालय", "सिविल कोर्ट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"garware_college": {
-			"name": "",
+			"name": "गरवारे कॉलेज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kalyani_nagar": {
-			"name": "",
+			"name": "कल्याणी नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kasarwadi": {
-			"name": "",
+			"name": "कासारवाडी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kasba_peth": {
-			"name": "",
+			"name": "कसबा पेठ",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"khadki": {
-			"name": "",
+			"name": "खड़की",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mahatma_phule_mandai": {
-			"name": "",
-			"aliases": [],
+			"name": "महात्मा फुले मंडई",
+			"aliases": ["मंडई"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nashik_phata_bhosari": {
-			"name": "",
-			"aliases": [],
+			"name": "नाशिक फाटा (भोसरी)",
+			"aliases": ["भोसरी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"paud_phata": {
-			"name": "",
+			"name": "पौड फाटा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"pcmc": {
-			"name": "",
-			"aliases": [],
+			"name": "पीसीएमसी (पिंपरी चिंचवड)",
+			"aliases": ["पीसीएमसी", "पिंपरी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"phugewadi": {
-			"name": "",
+			"name": "फुगेवाडी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"pmc": {
-			"name": "",
-			"aliases": [],
+			"name": "पीएमसी (पुणे महानगरपालिका)",
+			"aliases": ["पीएमसी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"pune_railway_station": {
-			"name": "",
-			"aliases": [],
+			"name": "पुणे रेलवे स्टेशन",
+			"aliases": ["पुणे स्टेशन"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ramwadi": {
-			"name": "",
+			"name": "रामवाडी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rto_pune": {
-			"name": "",
-			"aliases": [],
+			"name": "आरटीओ पुणे",
+			"aliases": ["आरटीओ"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ruby_hall_clinic": {
-			"name": "",
+			"name": "रूबी हॉल क्लीनिक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sant_tukaram_nagar": {
-			"name": "",
+			"name": "संत तुकाराम नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shivaji_nagar": {
-			"name": "",
+			"name": "शिवाजी नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sndt_college": {
-			"name": "",
+			"name": "एस.एन.डी.टी. कॉलेज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"swargate": {
-			"name": "",
+			"name": "स्वारगेट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vanaz": {
-			"name": "",
+			"name": "वनाझ",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"yerwada": {
-			"name": "",
+			"name": "येरवडा",
 			"aliases": [],
 			"description": "",
 			"gates": {},

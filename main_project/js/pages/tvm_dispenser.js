@@ -7,8 +7,9 @@
 import { HeaderComponent } from '../components/Header.js';
 import { FooterComponent } from '../components/Footer.js';
 import { SvgTicketController } from '../components/svg_ticket_controller.js';
-import i18n from '../core/i18n.js';
+
 import { appStateStore } from '../core/app-state-store.js';
+import { centerClass } from '../core/CenterClass.js';
 
 class TvmKioskApp {
 	/** @type {SvgTicketController|null} */
@@ -169,7 +170,7 @@ class TvmKioskApp {
 							this.#activeQrUrl = activeRecord.cleanQrDataUrl;
 							this.#dom.btnTvmGateMode?.classList.remove('hidden');
 						}
-						setTimeout(() => this.#triggerDispense(), 800);
+						setTimeout(() => this.#triggerDispense(false), 800);
 						return;
 					}
 				}
@@ -206,21 +207,21 @@ class TvmKioskApp {
 		});
 		
 		const customTicketNum = d.inputTicketNum?.value?.trim();
-		const defaultNetwork = i18n.t('tvmDispenser.ticket.footerLeft') || 'BHARTIYE METRO';
+		const defaultNetwork = centerClass.t('tvmDispenser.ticket.footerLeft');
 		if (customTicketNum) {
 			this.#ticketCtrl.setTicketNumber(customTicketNum);
 		} else {
 			this.#ticketCtrl.setFooterLeft(defaultNetwork);
 		}
 
-		this.#ticketCtrl.setFooterClass(i18n.t('tvmDispenser.ticket.footerClass') || 'ECONOMY CLASS');
+		this.#ticketCtrl.setFooterClass(centerClass.t('tvmDispenser.ticket.footerClass'));
 		this.#ticketCtrl.setLiveDateTime(parseInt(d.inputDuration?.value, 10) || 90);
 		this.#ticketCtrl.setTicketStatus(d.inputStatus?.value || 'valid');
 		
 		// Bilingual ticket header & QR instructions
-		this.#ticketCtrl.setHeaderTitle(i18n.t('tvmDispenser.ticket.headerTitle') || 'VIRTUAL METRO PASS');
-		this.#ticketCtrl.setQrInstruction(i18n.t('tvmDispenser.ticket.qrInstruction') || 'SCAN AT AFC GATES FOR ENTRY & EXIT');
-		this.#ticketCtrl.setQrValidity(i18n.t('tvmDispenser.ticket.qrValidity') || '• VALID FOR SINGLE JOURNEY •');
+		this.#ticketCtrl.setHeaderTitle(centerClass.t('tvmDispenser.ticket.headerTitle'));
+		this.#ticketCtrl.setQrInstruction(centerClass.t('tvmDispenser.ticket.qrInstruction'));
+		this.#ticketCtrl.setQrValidity(centerClass.t('tvmDispenser.ticket.qrValidity'));
 	}
 
 	/* -------------------------------------------------------------------------
@@ -325,11 +326,13 @@ class TvmKioskApp {
 		const dist = Math.round(tray.getBoundingClientRect().top - paper.getBoundingClientRect().top + 8);
 		paper.style.setProperty('--ticket-drop-distance', `${Math.min(72, Math.max(18, dist))}px`);
 	}
-	#triggerDispense() {
+	#triggerDispense(playSound = true) {
 		const d = this.#dom;
 		if (!d.btnPrint || !d.dispenseBay || !d.dispenserLed) return;
 		d.btnPrint.disabled = true;
-		this.#playPrinterSound();
+		if (playSound) {
+			this.#playPrinterSound();
+		}
 		
 		d.dispenseBay.className = 'ticket-dispense-bay state-idle';
 		d.dispenserLed.className = 'dispenser-led active';
@@ -356,7 +359,9 @@ class TvmKioskApp {
 				if (AudioClass) this.#audioCtx = new AudioClass();
 			}
 			if (!this.#audioCtx) return;
-			if (this.#audioCtx.state === 'suspended') this.#audioCtx.resume();
+			if (this.#audioCtx.state === 'suspended') {
+				this.#audioCtx.resume().catch(() => {});
+			}
 			const ctx = this.#audioCtx;
 			const now = ctx.currentTime;
 			const playNoise = (start, dur, vol, freq) => {

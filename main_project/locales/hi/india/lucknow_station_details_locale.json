@@ -1,6 +1,10 @@
 {
 	"networks": {
-		"upmrc_lucknow": ""
+		"lucknow_metro": "लखनऊ मेट्रो (UPMRC)",
+		"upmrc_lucknow": "उत्तर प्रदेश मेट्रो रेल कॉर्पोरेशन (UPMRC)"
+	},
+	"policies": {
+		"lucknow_metro_standard": "लखनऊ मेट्रो (UPMRC)"
 	},
 	"lines": {
 		"upmrc.red": {"name": "रेड लाइन", "short_name": "रेड लाइन"}

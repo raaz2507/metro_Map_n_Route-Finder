@@ -3,7 +3,7 @@
  * Phase 1: Semantic UI, State Transitions, and Interactive Placeholders
  * Strict adherence to base.css tokens and Zero-Inline CSS architecture
  */
-import i18n from "../core/i18n.js";
+
 import { dishaAiEngine } from "../services/ai/DishaAiEngine.js";
 import { centerClass } from "../core/CenterClass.js";
 import { DishaAiChatStorage } from "../services/ai/DishaAiChatStorage.js";
@@ -43,7 +43,7 @@ export class DishaAiView {
 	#isTyping = false;
 
 	constructor(options = {}) {
-		this.#currentLang = options.lang || i18n.getLanguage || appStateStore.getState("currentLang") || "en";
+		this.#currentLang = options.lang || centerClass.currentLanguage || appStateStore.getState("currentLang") || "en";
 		this.#abortController = new AbortController();
 		this.#cacheDOMElements();
 		this.#bindEvents();
@@ -57,7 +57,7 @@ export class DishaAiView {
 	}
 
 	#getCurrentLang() {
-		return (typeof i18n?.getLanguage === "string" ? i18n.getLanguage : null)
+		return centerClass.currentLanguage
 			|| appStateStore.getState("currentLang")
 			|| this.#currentLang
 			|| document.documentElement.lang
@@ -67,7 +67,7 @@ export class DishaAiView {
 	setLanguage(newLang) {
 		this.#currentLang = newLang;
 		if (this.#messageInput) {
-			this.#messageInput.placeholder = i18n.t("ai.inputPlaceholder");
+			this.#messageInput.placeholder = centerClass.t("ai.inputPlaceholder");
 		}
 		if (this.#historyDrawer && !this.#historyDrawer.hidden) {
 			this.#renderHistoryDrawer();
@@ -296,12 +296,12 @@ export class DishaAiView {
 		} catch (err) {
 			console.error("[DishaAiView] Failed to process query:", err);
 			this.#hideTyping();
-			const botErrorText = i18n.t("ai.errorMessage");
+			const botErrorText = centerClass.t("ai.errorMessage");
 			const botMsgIndex = this.#currentChatMessages.length;
 			this.renderBotMessage({
 				text: botErrorText,
 				actions: [],
-				suggestions: [i18n.t("ai.tryAgain")],
+				suggestions: [centerClass.t("ai.tryAgain")],
 				msgIndex: botMsgIndex,
 				feedback: null
 			});
@@ -466,15 +466,15 @@ export class DishaAiView {
 		const upBtn = document.createElement("button");
 		upBtn.type = "button";
 		upBtn.className = "ai-feedback-btn" + (feedback === "up" ? " active-up" : "");
-		upBtn.title = i18n.t("ai.helpful");
-		upBtn.setAttribute("aria-label", i18n.t("ai.helpful"));
+		upBtn.title = centerClass.t("ai.helpful");
+		upBtn.setAttribute("aria-label", centerClass.t("ai.helpful"));
 		upBtn.innerHTML = '<span aria-hidden="true">👍</span>';
 
 		const downBtn = document.createElement("button");
 		downBtn.type = "button";
 		downBtn.className = "ai-feedback-btn" + (feedback === "down" ? " active-down" : "");
-		downBtn.title = i18n.t("ai.notHelpful");
-		downBtn.setAttribute("aria-label", i18n.t("ai.notHelpful"));
+		downBtn.title = centerClass.t("ai.notHelpful");
+		downBtn.setAttribute("aria-label", centerClass.t("ai.notHelpful"));
 		downBtn.innerHTML = '<span aria-hidden="true">👎</span>';
 
 		const currentMsgIdx = typeof msgIndex === "number" ? msgIndex : (this.#currentChatMessages.length - 1);
@@ -498,7 +498,7 @@ export class DishaAiView {
 			});
 			this.#persistCurrentSession();
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("ai.feedbackThanks"),
+				message: centerClass.t("ai.feedbackThanks"),
 				type: "success"
 			});
 		});
@@ -522,7 +522,7 @@ export class DishaAiView {
 			});
 			this.#persistCurrentSession();
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("ai.feedbackThanks"),
+				message: centerClass.t("ai.feedbackThanks"),
 				type: "info"
 			});
 		});
@@ -578,7 +578,7 @@ export class DishaAiView {
 		return `
 			<div class="ai-result-card" role="region" aria-label="Route summary">
 				<div class="ai-result-header">
-					<span class="ai-result-badge">${lineName || i18n.t("ai.directRoute")}</span>
+					<span class="ai-result-badge">${lineName || centerClass.t("ai.directRoute")}</span>
 					<div class="ai-result-stations">
 						<span>${fromName}</span>
 						<span class="ai-result-arrow">➔</span>
@@ -587,26 +587,26 @@ export class DishaAiView {
 				</div>
 				<div class="ai-result-metrics">
 					<div class="ai-metric-item">
-						<span class="metric-label">${i18n.t("ai.time")}</span>
+						<span class="metric-label">${centerClass.t("ai.time")}</span>
 						<span class="metric-value">${durationMin} min</span>
 					</div>
 					<div class="ai-metric-item">
-						<span class="metric-label">${i18n.t("ai.dist")}</span>
+						<span class="metric-label">${centerClass.t("ai.dist")}</span>
 						<span class="metric-value">${distanceKm} km</span>
 					</div>
 					<div class="ai-metric-item">
-						<span class="metric-label">${i18n.t("ai.fare")}</span>
+						<span class="metric-label">${centerClass.t("ai.fare")}</span>
 						<span class="metric-value">₹${fareRs}</span>
 					</div>
 				</div>
 				<div class="ai-result-actions">
 					<button type="button" class="ai-btn-result" data-action="find-route" data-from="${fromName}" data-to="${toName}">
 						<span>🧭</span>
-						<span>${i18n.t("ai.findRoute")}</span>
+						<span>${centerClass.t("ai.findRoute")}</span>
 					</button>
 					<button type="button" class="ai-btn-result" data-action="view-map">
 						<span>🗺️</span>
-						<span>${i18n.t("ai.showOnMap")}</span>
+						<span>${centerClass.t("ai.showOnMap")}</span>
 					</button>
 				</div>
 			</div>
@@ -647,7 +647,7 @@ export class DishaAiView {
 		if (!this.#currentChatId || this.#currentChatMessages.length === 0) return;
 		DishaAiChatStorage.saveChat({
 			id: this.#currentChatId,
-			title: this.#currentChatTitle || i18n.t("ai.newChat"),
+			title: this.#currentChatTitle || centerClass.t("ai.newChat"),
 			messages: this.#currentChatMessages,
 			context: dishaAiEngine.exportState ? dishaAiEngine.exportState() : null
 		});
@@ -749,7 +749,7 @@ export class DishaAiView {
 
 			const titleSpan = document.createElement("span");
 			titleSpan.className = "ai-history-item-title";
-			titleSpan.textContent = chat.title || i18n.t("ai.newChat");
+			titleSpan.textContent = chat.title || centerClass.t("ai.newChat");
 
 			const dateSpan = document.createElement("span");
 			dateSpan.className = "ai-history-item-date";
@@ -810,13 +810,13 @@ export class DishaAiView {
 		const pinBtn = document.createElement("button");
 		pinBtn.type = "button";
 		pinBtn.className = "ai-history-popover-item";
-		pinBtn.innerHTML = `<span>${chat.isPinned ? "📍" : "📌"}</span> <span>${chat.isPinned ? i18n.t("ai.unpin") : i18n.t("ai.pin")}</span>`;
+		pinBtn.innerHTML = `<span>${chat.isPinned ? "📍" : "📌"}</span> <span>${chat.isPinned ? centerClass.t("ai.unpin") : centerClass.t("ai.pin")}</span>`;
 		pinBtn.addEventListener("click", (e) => {
 			e.stopPropagation();
 			popover.remove();
 			const result = DishaAiChatStorage.togglePin(chat.id);
 			if (!result.success && result.reason === "MAX_PIN_REACHED") {
-				alert(i18n.t("ai.maxPinNotice"));
+				alert(centerClass.t("ai.maxPinNotice"));
 			}
 			this.#renderHistoryDrawer();
 		});
@@ -825,11 +825,11 @@ export class DishaAiView {
 		const renameBtn = document.createElement("button");
 		renameBtn.type = "button";
 		renameBtn.className = "ai-history-popover-item";
-		renameBtn.innerHTML = `<span>✏️</span> <span>${i18n.t("ai.rename")}</span>`;
+		renameBtn.innerHTML = `<span>✏️</span> <span>${centerClass.t("ai.rename")}</span>`;
 		renameBtn.addEventListener("click", (e) => {
 			e.stopPropagation();
 			popover.remove();
-			const promptMsg = i18n.t("ai.enterNewChatName");
+			const promptMsg = centerClass.t("ai.enterNewChatName");
 			const newName = prompt(promptMsg, chat.title);
 			if (newName && newName.trim()) {
 				DishaAiChatStorage.renameChat(chat.id, newName.trim());
@@ -844,7 +844,7 @@ export class DishaAiView {
 		const deleteBtn = document.createElement("button");
 		deleteBtn.type = "button";
 		deleteBtn.className = "ai-history-popover-item is-danger";
-		deleteBtn.innerHTML = `<span>🗑️</span> <span>${i18n.t("ai.delete")}</span>`;
+		deleteBtn.innerHTML = `<span>🗑️</span> <span>${centerClass.t("ai.delete")}</span>`;
 		deleteBtn.addEventListener("click", (e) => {
 			e.stopPropagation();
 			popover.remove();
@@ -907,7 +907,7 @@ export class DishaAiView {
 	 * Handle Clear All Chats
 	 */
 	#handleClearAllChats() {
-		const confirmMsg = i18n.t("ai.confirmClear");
+		const confirmMsg = centerClass.t("ai.confirmClear");
 		if (!confirm(confirmMsg)) return;
 
 		DishaAiChatStorage.clearAllChats(false);
@@ -932,13 +932,13 @@ export class DishaAiView {
 
 		const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 		if (isToday) {
-			return `${i18n.t("ai.today")}, ${timeStr}`;
+			return `${centerClass.t("ai.today")}, ${timeStr}`;
 		}
 
 		const yesterday = new Date(now);
 		yesterday.setDate(now.getDate() - 1);
 		if (date.toDateString() === yesterday.toDateString()) {
-			return `${i18n.t("ai.yesterday")}, ${timeStr}`;
+			return `${centerClass.t("ai.yesterday")}, ${timeStr}`;
 		}
 
 		return date.toLocaleDateString([], { day: 'numeric', month: 'short' }) + `, ${timeStr}`;

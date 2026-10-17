@@ -432,8 +432,8 @@
 	}
 
 	header.main-header .city-dropdown-menu {
-		min-width: 190px;
-		max-width: min(260px, calc(100vw - var(--space-xl)));
+		min-width: 240px;
+		max-width: min(320px, calc(100vw - var(--space-xl)));
 		max-height: 60vh;
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -511,6 +511,40 @@
 		margin: 1px var(--space-xs);
 		border-radius: var(--radius-xs);
 		gap: var(--space-sm);
+	}
+
+	header.main-header .city-dropdown-item.network-sub-item {
+		padding-left: var(--space-md);
+		font-size: var(--fs-xs);
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		color: var(--text-secondary);
+	}
+
+	header.main-header .city-dropdown-item.network-sub-item .sub-network-bullet {
+		color: var(--text-muted);
+		font-size: var(--fs-xs);
+		flex-shrink: 0;
+	}
+
+	header.main-header .city-dropdown-item.network-sub-item .sub-network-name {
+		flex: 1 1 auto;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	header.main-header .city-dropdown-item.network-sub-item .sub-network-mode-pill {
+		font-size: var(--fs-3xs);
+		padding: 1px var(--space-xs);
+		border-radius: var(--radius-xs);
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		color: rgb(var(--color-primary-rgb));
+		margin-left: auto;
+		text-transform: uppercase;
+		font-weight: var(--fw-bold);
+		flex-shrink: 0;
 	}
 
 	header.main-header .app-utility-menu .custom-dropdown-item {

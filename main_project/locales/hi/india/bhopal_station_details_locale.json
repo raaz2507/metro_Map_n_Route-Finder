@@ -1,6 +1,11 @@
 {
 	"networks": {
-		"mpmrcl_bhopal": ""
+		"bhopal_metro": "भोपाल मेट्रो (MPMRCL)",
+		"mpmrcl_bhopal": "मध्य प्रदेश मेट्रो रेल कॉर्पोरेशन लिमिटेड (MPMRCL)",
+		"mpmrcl": "मध्य प्रदेश मेट्रो रेल कॉर्पोरेशन लिमिटेड (MPMRCL)"
+	},
+	"policies": {
+		"bhopal_metro_standard": "भोपाल मेट्रो (MPMRCL)"
 	},
 	"lines": {
 		"mpmrcl.orange": {"name": "ऑरेंज लाइन", "short_name": "ऑरेंज लाइन"},
@@ -8,196 +13,196 @@
 	},
 	"stations": {
 		"aiims": {
-			"name": "",
+			"name": "एम्स (AIIMS)",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"aishbagh": {
-			"name": "",
+			"name": "ऐशबाग",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"alkapuri": {
-			"name": "",
+			"name": "अलकापुरी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bhadbhada_chauraha": {
-			"name": "",
+			"name": "भदभदा चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"board_office_chauraha": {
-			"name": "",
+			"name": "बोर्ड ऑफिस चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dig_bungalow": {
-			"name": "",
+			"name": "डीआईजी बंगला",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"drm_office": {
-			"name": "",
+			"name": "डीआरएम ऑफिस",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"govindpura": {
-			"name": "",
+			"name": "गोविंदपुरा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"govindpura_industrial_area": {
-			"name": "",
+			"name": "गोविंदपुरा इंडस्ट्रियल एरिया",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"indrapuri": {
-			"name": "",
+			"name": "इंद्रपुरी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jawahar_chowk": {
-			"name": "",
+			"name": "जवाहर चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jk_road": {
-			"name": "",
+			"name": "जेके रोड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"karond_chauraha": {
-			"name": "",
+			"name": "करोंद चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kendriya_vidalaya": {
-			"name": "",
+			"name": "केन्द्रीय विद्यालय",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"krishi_upaj_mandi": {
-			"name": "",
+			"name": "कृषि उपज मंडी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kushabhau_thakre_hall": {
-			"name": "",
+			"name": "कुशाभाऊ ठाकरे हॉल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mp_nagar": {
-			"name": "",
+			"name": "एमपी नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nadra_bus_stand": {
-			"name": "",
+			"name": "नादरा बस स्टैंड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"parade_ground": {
-			"name": "",
+			"name": "परेड ग्राउंड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"piplani": {
-			"name": "",
+			"name": "पिपलानी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"prabhat_chauraha": {
-			"name": "",
+			"name": "प्रभात चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"pul_bogda": {
-			"name": "",
+			"name": "पुल बोगदा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"railway_station": {
-			"name": "",
+			"name": "रेलवे स्टेशन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rani_kamlapati_railway_station": {
-			"name": "",
+			"name": "रानी कमलापति रेलवे स्टेशन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ratnagiri_tiraha": {
-			"name": "",
+			"name": "रत्नागिरी तिराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"roshanpura_chauraha": {
-			"name": "",
+			"name": "रोशनपुरा चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sindhi_colony": {
-			"name": "",
+			"name": "सिंधी कॉलोनी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"subhash_nagar": {
-			"name": "",
+			"name": "सुभाष नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},

@@ -9,49 +9,69 @@
 	},
 	"networks": {
 		"mumbai_metro": {
-			"network_name": "Mumbai Metro (MMRCL / MMMOCL / MMOPL)",
+			"network_name": "Mumbai Metro (MMMOCL / MMRC / MMOPL)",
 			"operator": "MMRDA / MMRC / MMOPL",
 			"helplines": {
 				"customer_care": "1800-889-0505",
+				"metro_one_helpline": "022-30310900",
+				"aqua_line_helpline": "022-26384600",
 				"security_cisf": "022-30310900",
 				"women_safety": "103",
 				"police_emergency": "100"
 			},
 			"portals": {
-				"official_website": "https://mmrcl.com/",
-				"contact_us": "https://mmrcl.com/en/contact-us",
-				"vigilance_portal": "https://mmrcl.com/",
+				"official_website": "https://www.mmmocl.co.in/",
+				"mmopl_website": "https://www.reliancemumbaimetro.com/",
+				"aqua_line_website": "https://mmrcl.com/",
 				"lost_and_found": "https://www.reliancemumbaimetro.com/lost-found",
-				"women_safety": "https://www.mmmocl.co.in/station_facilities",
-				"differently_abled": "https://www.mmmocl.co.in/station_facilities",
-				"travel_advisory": "https://www.mmmocl.co.in/",
-				"parking_facilities": "https://www.mmmocl.co.in/station_facilities"
+				"station_facilities": "https://www.mmmocl.co.in/station_facilities"
 			},
 			"facilities": {
 				"central_lost_found_office": "Andheri Metro Station (Line 1) & Gundavali Station (Line 7)",
 				"lost_found_operating_hours": "07:00 AM - 09:00 PM (All Days)"
 			}
 		},
+		"navi_mumbai_metro": {
+			"network_name": "Navi Mumbai Metro (CIDCO Line 1)",
+			"operator": "CIDCO / Maha Metro",
+			"helplines": {
+				"customer_care": "022-67918100",
+				"emergency": "112",
+				"women_safety": "103"
+			},
+			"portals": {
+				"official_website": "https://cidco.maharashtra.gov.in/"
+			},
+			"facilities": {
+				"operating_hours": "06:00 AM - 10:00 PM",
+				"central_lost_found_office": "Belapur Metro Station (Station Control Room)"
+			}
+		},
 		"mumbai_monorail": {
 			"network_name": "Mumbai Monorail",
 			"operator": "MMRDA",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"status": "suspended",
+			"helplines": {
+				"customer_care": "022-26594000"
+			},
+			"portals": {
+				"official_website": "https://mmrda.maharashtra.gov.in/"
+			},
+			"facilities": {
+				"advisory": "Operations currently suspended for system upgrade."
+			}
 		},
 		"thane_metro": {
 			"network_name": "Thane Metro",
 			"operator": "MMRDA",
+			"status": "under_construction",
 			"helplines": {},
-			"portals": {},
-			"facilities": {}
-		},
-		"navi_mumbai_metro": {
-			"network_name": "Navi Mumbai Metro",
-			"operator": "CIDCO",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"portals": {
+				"official_website": "https://mmrda.maharashtra.gov.in/"
+			},
+			"facilities": {
+				"advisory": "Under construction - Project overseen by MMRDA."
+			}
 		}
 	}
 }

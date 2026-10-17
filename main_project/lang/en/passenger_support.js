@@ -1,6 +1,10 @@
 // lang/en/passenger_support.js
 export default {
-	pageTitle: "Passenger Support & Legal Directory | YatraMarg Metro",
+	pageTitle: "Passenger Support & Legal Directory | YatraMarg",
+	meta: {
+		title: "Passenger Support & Legal Directory | YatraMarg",
+		desc: "Statutory compliance portals, station accessibility assistance, authorized baggage limitations, and immediate control room contacts."
+	},
 	hero: {
 		badge: "Official Regulatory Directory",
 		title: "Passenger Support & Legal Redirection",

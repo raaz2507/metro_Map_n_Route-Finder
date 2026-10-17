@@ -1,5 +1,6 @@
 // lang/pages/about.en.js
 export default {
+	pageTitle: "About YatraMarg | Independent Urban Transit Platform",
 	meta: {
 		title: "About YatraMarg | Independent Urban Transit Platform",
 		desc: "Learn about YatraMarg: an independent, privacy-first, offline-ready transit navigation and route finding initiative for Indian metro networks."

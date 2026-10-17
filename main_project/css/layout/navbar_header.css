@@ -8,11 +8,65 @@
 		padding: var(--space-xs) var(--space-sm);
 	}
 
+	.nav-bogie-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-md);
+		width: 100%;
+	}
+
+	/* Desktop Continuous Bogie Chain (>= 769px) */
+	@media (min-width: 769px) {
+		.nav-expandable-tray,
+		.nav-tray-inner {
+			display: contents;
+		}
+
+		.header-nav-expand-bar {
+			display: none;
+		}
+
+		/* 🖥️ Desktop Pure Canonical Order:
+		   Desktop navigation MUST ALWAYS display in standard left-to-right order:
+		   Group A (Networks, Home, Stations, Ticket) first,
+		   Group B (Passenger Support, Other, Help, About) second.
+		   If rows were flipped for mobile, restore canonical sequence via flex order. */
+		.nav-bogie-container[data-group-flipped="true"] .nav-primary-group {
+			order: 2;
+		}
+
+		.nav-bogie-container[data-group-flipped="true"] .nav-secondary-group {
+			order: 1;
+		}
+
+		/* Coupler connection fix when flipped on desktop:
+		   Group A (nav-secondary-group) is visually first, so its last item (4th: Recharge) connects to Group B.
+		   Group B (nav-primary-group) is visually last, so its last item (8th: About) has no trailing coupler. */
+		.nav-bogie-container[data-group-flipped="true"] .nav-secondary-group .header-nav-item:last-child::after {
+			content: '';
+			position: absolute;
+			right: -10px;
+			top: 50%;
+			width: 10px;
+			height: 3px;
+			background: var(--border-color);
+			border-top: 1px solid rgba(var(--color-primary-rgb), var(--op-translucent));
+			border-bottom: 1px solid rgba(0, 0, 0, var(--op-shadow));
+			border-radius: var(--radius-xs);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, var(--op-shadow));
+			z-index: 2;
+		}
+
+		.nav-bogie-container[data-group-flipped="true"] .nav-primary-group .header-nav-item:last-child::after {
+			display: none !important;
+		}
+	}
+
 	.header-nav-list {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		flex-wrap: wrap;
 		gap: var(--space-md);
 		list-style: none;
 		margin: 0;
@@ -150,7 +204,8 @@
 	.header-nav-item .nav-link::after { right: calc(-1 * var(--space-xs)); border-right-color: transparent; }
 
 	/* 2.5D Sleek Metallic Coupler Link Bar connecting bogies */
-	.header-nav-item:not(:last-child)::after {
+	.header-nav-item:not(:last-child)::after,
+	.nav-primary-group .header-nav-item:last-child::after {
 		content: '';
 		position: absolute;
 		right: -10px;
@@ -369,40 +424,222 @@
 		outline-offset: 3px;
 	}
 
-	/* 1. Standard Mobile (Realme / बड़े फोन पर आरामदायक टच साइज़) */
+	/* 1. Standard Mobile (Realme / Android / iPhone) - 2.5D Hybrid Expandable Bogie */
 	@media (max-width: 768px) {
 		.header-nav {
 			width: 100%;
 			overflow: visible;
 			padding: var(--space-xs);
 		}
-		.header-nav-list {
+
+		/* 2.5D Frosted Glass Bogie Card Container on Mobile */
+		.nav-bogie-container {
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			padding: 0;
-			gap: var(--space-sm);
+			flex-direction: column;
+			gap: 0;
 			width: 100%;
-		}
-		.header-nav-item:not(:last-child)::after {
-			display: none;
-		}
-	}
-	/* iPhone SE (<= 380px) - केवल बटन्स का Gap और Padding कम किया (फ़ॉन्ट वही रहेगा) */
-	@media (max-width: 380px) {
-		.header-nav {
-			padding: 0;
-			margin-top: var(--space-sm);
+			box-sizing: border-box;
+			border-radius: var(--radius-md);
+			background: rgba(var(--color-bg-base-rgb), var(--op-glass));
+			backdrop-filter: blur(var(--backdrop-blur));
+			-webkit-backdrop-filter: blur(var(--backdrop-blur));
+			border: 1px solid var(--border-color);
+			border-top: 1.5px solid rgba(255, 255, 255, var(--op-glass));
+			border-bottom: 2.5px solid var(--border-color);
+			box-shadow: var(--shadow-sm);
+			overflow: hidden;
+			transition: all var(--transition-smooth);
 		}
 
-		.header-nav-list {
-			gap: var(--space-xs); /* बटन्स के बीच का गैप 8px से घटाकर 4px */
+		/* Row 1: Primary Group (4 Buttons Grid) */
+		.header-nav-list.nav-primary-group {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: var(--space-2xs);
+			padding: var(--space-xs) var(--space-2xs);
+			width: 100%;
+			box-sizing: border-box;
+			margin: 0;
+			list-style: none;
+		}
+
+		/* Smooth Expandable Tray for Row 2 */
+		.nav-expandable-tray {
+			display: grid;
+			grid-template-rows: 0fr;
+			transition: grid-template-rows 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+			width: 100%;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+		}
+
+		.nav-bogie-container.expanded .nav-expandable-tray {
+			grid-template-rows: 1fr;
+		}
+
+		.nav-tray-inner {
+			display: block;
+			min-height: 0;
+			overflow: hidden;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0.35s, opacity 0.25s ease;
+		}
+
+		.nav-bogie-container.expanded .nav-tray-inner {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		/* Row 2: Secondary Group (4 Buttons Grid) */
+		.header-nav-list.nav-secondary-group {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: var(--space-2xs);
+			padding: var(--space-2xs) var(--space-2xs) var(--space-xs);
+			border-top: 1px solid var(--border-color);
+			background: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+			width: 100%;
+			box-sizing: border-box;
+			margin: 0;
+			list-style: none;
+		}
+
+		/* Stacked 4-Column Bogie Button */
+		.header-nav-item {
+			display: flex;
+			width: 100%;
 		}
 
 		.header-nav-item .nav-link {
-			padding: var(--space-xs) var(--space-sm); /* बटन की पैडिंग 8x12px से घटाकर 4x8px */
-			gap: var(--space-xs);                     /* आइकॉन और टेक्स्ट के बीच का गैप 4px */
+			width: 100%;
+			box-sizing: border-box;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 5px 2px;
+			gap: 3px;
+			font-size: var(--fs-3xs);
+			text-align: center;
+			border-radius: var(--radius-xs);
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.header-nav-item .nav-label {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 100%;
+			display: block;
+			line-height: 1.2;
+		}
+
+		/* Coupler sockets and metallic bar hidden on compact mobile */
+		.header-nav-item .nav-link::before,
+		.header-nav-item .nav-link::after,
+		.header-nav-item:not(:last-child)::after,
+		.nav-primary-group .header-nav-item:last-child::after {
+			display: none;
+		}
+
+		/* Right-Aligned Solid 2.5D Expand Handle Bar */
+		.header-nav-expand-bar {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			padding: 4px var(--space-sm);
+			border-top: 1px dashed var(--border-color);
+			background: rgba(var(--color-bg-base-rgb), var(--op-subtle));
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		.nav-expand-btn-right {
+			display: inline-flex;
+			align-items: center;
+			gap: var(--space-xs);
+			background: var(--card-bg);
+			border: 1px solid var(--border-color);
+			border-top: 1.5px solid rgba(255, 255, 255, var(--op-glass));
+			border-bottom: 2.5px solid var(--border-color);
+			border-radius: var(--radius-sm);
+			padding: 3px 8px;
+			font-family: var(--font-main);
+			font-size: var(--fs-2xs);
+			font-weight: var(--fw-bold);
+			color: rgb(var(--color-primary-rgb));
+			cursor: pointer;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, var(--op-shadow));
+			transition: all var(--transition-fast);
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+			touch-action: manipulation;
+		}
+
+		.nav-expand-btn-right:hover {
+			background: rgba(var(--color-primary-rgb), var(--op-subtle));
+			border-color: rgba(var(--color-primary-rgb), 0.4);
+			transform: translateY(-1px);
+			box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), 0.2);
+		}
+
+		.nav-expand-btn-right:active {
+			transform: scale(0.96);
+			border-bottom-width: 1px;
+		}
+
+		.nav-btn-badge {
+			background: rgba(var(--color-primary-rgb), 0.12);
+			color: rgb(var(--color-primary-rgb));
+			border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+			border-radius: var(--radius-full);
+			padding: 1px 6px;
+			font-size: var(--fs-3xs);
+			font-weight: var(--fw-black);
+		}
+
+		.nav-bogie-container.expanded .nav-btn-badge {
+			display: none;
+		}
+
+		.nav-chevron-icon {
+			transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+			display: inline-block;
+			font-size: 9px;
+			color: rgb(var(--color-primary-rgb));
+			line-height: 1;
+		}
+
+		.nav-bogie-container.expanded .nav-chevron-icon {
+			transform: rotate(180deg);
+		}
+	}
+
+	/* 2. iPhone SE (<= 380px) Ultra-compact adjustments */
+	@media (max-width: 380px) {
+		.header-nav {
+			padding: 0;
+			margin-top: var(--space-xs);
+		}
+
+		.header-nav-list.nav-primary-group {
+			gap: 2px;
+			padding: var(--space-2xs) 2px;
+		}
+
+		.header-nav-list.nav-secondary-group {
+			gap: 2px;
+			padding: 2px 2px var(--space-2xs);
+		}
+
+		.header-nav-item .nav-link {
+			padding: 4px 1px;
+			gap: 2px;
 		}
 	}
 }

@@ -5,7 +5,7 @@
  */
 import { centerClass } from "../core/CenterClass.js";
 import { APP_CONFIG } from "../core/app-config.js";
-import i18n from "../core/i18n.js";
+
 
 export class ShareModalComponent {
 	#elements = {};
@@ -163,7 +163,7 @@ export class ShareModalComponent {
 			copyShareUrlBtn.onclick = async () => {
 				try {
 					await navigator.clipboard.writeText(shareUrl);
-					this.#showToast(i18n.t("pages.home.toast.share.copiedLink"));
+					this.#showToast(centerClass.t("pages.home.toast.share.copiedLink"));
 				} catch (e) {
 					console.error("Clipboard copy failed:", e);
 				}
@@ -173,7 +173,7 @@ export class ShareModalComponent {
 			copyShareTextBtn.onclick = async () => {
 				try {
 					await navigator.clipboard.writeText(shareText);
-					this.#showToast(i18n.t("pages.home.toast.share.copiedDetails"));
+					this.#showToast(centerClass.t("pages.home.toast.share.copiedDetails"));
 				} catch (e) {
 					console.error("Clipboard copy failed:", e);
 				}

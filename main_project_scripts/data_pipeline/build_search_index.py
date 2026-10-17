@@ -173,37 +173,34 @@ def build_search_index(country_key="india"):
 			c_key = c_folder
 			c_name = c_folder.replace("_", " ").title()
 
-			# Load Base + Auto Graph
+			# Load Base Graph
 			graph_path = c_path / "transit_network.json"
-			graph_auto_path = c_path / "transit_network_auto.json"
-
 			graph_data = json.load(open(graph_path, "r", encoding="utf-8")) if graph_path.exists() else {}
-			if graph_auto_path.exists():
-				try:
-					auto_graph = json.load(open(graph_auto_path, "r", encoding="utf-8"))
-					for st_id, st_val in auto_graph.get("stations", {}).items():
-						graph_data.setdefault("stationData", {})[st_id] = st_val
-					for l_id, l_val in auto_graph.get("lines", {}).items():
-						graph_data.setdefault("lines", {})[l_id] = l_val
-				except Exception as e:
-					print(f"  ⚠️ Warning reading {graph_auto_path}: {e}")
 
-			# Load Base + Auto Station Details
+			# Load Base Station Details
 			rich_path = c_path / "station_details.json"
-			rich_auto_path = c_path / "station_details_auto.json"
-
 			rich_data = json.load(open(rich_path, "r", encoding="utf-8")) if rich_path.exists() else {}
-			if rich_auto_path.exists():
+
+			# Load Unpromoted Staging Buffer (if any exists)
+			staging_path = c_path / "staging_buffer.json"
+			if staging_path.exists():
 				try:
-					auto_rich = json.load(open(rich_auto_path, "r", encoding="utf-8"))
-					for st_id, st_val in auto_rich.items():
+					stg_obj = json.load(open(staging_path, "r", encoding="utf-8"))
+					stg_transit = stg_obj.get("transit_network", {})
+					for st_id, st_val in stg_transit.get("stations", {}).items():
+						graph_data.setdefault("stationData", {})[st_id] = st_val
+					for l_id, l_val in stg_transit.get("lines", {}).items():
+						graph_data.setdefault("lines", {})[l_id] = l_val
+
+					stg_details = stg_obj.get("station_details", {})
+					for st_id, st_val in stg_details.items():
 						if st_id != "_meta" and isinstance(st_val, dict):
 							if st_id in rich_data:
 								rich_data[st_id].update(st_val)
 							else:
 								rich_data[st_id] = st_val
 				except Exception as e:
-					print(f"  ⚠️ Warning reading {rich_auto_path}: {e}")
+					print(f"  ⚠️ Warning reading {staging_path}: {e}")
 
 			# 🌐 Load v4.0 Decoupled Locales for this city (EN + HI + All Regional Packs)
 			city_locales = {}

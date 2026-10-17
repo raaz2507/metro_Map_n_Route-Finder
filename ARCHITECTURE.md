@@ -26,6 +26,7 @@
 ┌───────────────────────────▼────────────────────────────┐
 │              2. ORCHESTRATION LAYER (CORE)             │
 │   • CenterClass.js: Facade coordinating UI & Services  │
+│     (Single Point of Contact for t(), getStationName)  │
 │   • MetroDataStore.js: Singleton Data Store & Filter   │
 │   • event-bus.js: Decoupled pub/sub event bus          │
 └───────────────────────────┬────────────────────────────┘
@@ -97,7 +98,7 @@ d:\projects\metro_Map_n_Route Finder\
         │   ├── search/              # Universal Search Engines (Fuzzy station search)
         │   └── sensors/             # Telemetry & GPS Tracking
         ├── components/
-        │   ├── JourneyDetailsView.js# Step-by-step route timeline & dynamic fare selector
+        │   ├── JourneyDetailsView.js# Step-by-step route timeline, collapsible text summary (TTS & Copy) & dynamic fare selector
         │   ├── Toast.js             # Sleek auto-dismissing notifications (No browser alerts)
         │   ├── Header.js & Footer.js# Universal responsive layouts
         │   └── metro-map.js         # Interactive SVG Map Controller

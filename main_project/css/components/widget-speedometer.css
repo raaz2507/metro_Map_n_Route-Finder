@@ -137,12 +137,32 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 	.tooltip-label { color: var(--text-secondary); }
 	.tooltip-val { font-weight: var(--fw-bold); color: var(--text-primary); }
 
+	/* 📱 Realme / Android (<= 768px): पूर्ण आकार (80x66px) और ज़ूम कंट्रोल्स के साथ दाएँ से सीध */
+	@media (max-width: 768px) {
+		.map-section > .speedometer-widget,
+		#speedometer-widget {
+			right: var(--space-sm);
+		}
+	}
+
+	/* 📱 iPhone SE (<= 380px): कॉम्पैक्ट पिल आकार व थोड़ा ऊपर (156px) ताकि ज़ूम कंट्रोल्स से कभी ओवरलैप न हो */
 	@media (max-width: 380px) {
 		.map-section > .speedometer-widget,
 		#speedometer-widget {
-			/* 👈 100% शुद्ध टोकन calc (136px): टेलीमेट्री से नीचे और ज़ूम कंट्रोल्स के ठीक ऊपर */
-			bottom: calc(var(--space-3xl) * 2 + var(--space-2xl) + var(--space-sm));
-			right: var(--space-sm); /* 👈 ज़ूम कंट्रोल्स के साथ दाएँ से बिल्कुल एक सीध में */
+			bottom: calc(var(--space-3xl) * 3 + var(--space-md));
+			right: var(--space-xs);
+			width: 62px;
+			height: 52px;
+		}
+
+		.speedometer-widget .speed-number {
+			font-size: 0.95rem;
+			letter-spacing: -0.5px;
+		}
+
+		.speedometer-widget .speed-unit {
+			font-size: 0.5rem;
+			margin-top: 1px;
 		}
 	}
 }

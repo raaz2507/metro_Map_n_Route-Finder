@@ -1,6 +1,10 @@
 {
 	"networks": {
-		"mahametro_pune": "Maharashtra Metro Rail Corporation Limited (MahaMetro)"
+		"mahametro_pune": "Maha Metro (Pune Metro)",
+		"pune_metro": "Pune Metro (Maha Metro)"
+	},
+	"policies": {
+		"pune_metro_standard": "Pune Metro (Maha Metro)"
 	},
 	"lines": {
 		"mahametro_pune.purple": {"name": "Purple Line", "short_name": "Purple Line"},

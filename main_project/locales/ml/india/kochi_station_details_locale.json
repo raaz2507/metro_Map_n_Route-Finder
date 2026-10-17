@@ -1,10 +1,15 @@
 {
 	"networks": {
-		"kmrl": "",
-		"kwml": ""
+		"kochi_metro": "കൊച്ചി മെട്രോ (KMRL)",
+		"kmrl": "കൊച്ചി മെട്രോ റെയിൽ ലിമിറ്റഡ് (KMRL)",
+		"kwml": "കൊച്ചി വാട്ടർ മെട്രോ ലിമിറ്റഡ് (KWML)"
+	},
+	"policies": {
+		"kmrl_standard": "കൊച്ചി മെട്രോ (KMRL)",
+		"kwml_water_standard": "കൊച്ചി വാട്ടർ മെട്രോ (KWML)"
 	},
 	"lines": {
-		"kmrl.blue": {"name": "നീല ലൈൻ", "short_name": "നീല ലൈൻ"}
+		"kmrl.blue": {"name": "നീല ലൈൻ (ലൈൻ 1)", "short_name": "നീല ലൈൻ"}
 	},
 	"stations": {
 		"aluva": {

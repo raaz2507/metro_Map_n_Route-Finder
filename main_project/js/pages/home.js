@@ -8,7 +8,7 @@ import { SettingsView } from "../components/SettingsView.js";
 import { centerClass } from "../core/CenterClass.js";
 import { appStateStore } from "../core/app-state-store.js";
 import { eventBus } from "../core/event-bus.js";
-import i18n from "../core/i18n.js";
+
 import { Toast } from "../components/Toast.js";
 
 import { ShareModalComponent } from "../components/share-modal.js";
@@ -218,33 +218,40 @@ class HomePageController {
 			this.#stationCalloutView.resetDraft();
 			centerClass.clearRoutePins();
 		});
-		this.#unsubscribeStore = appStateStore.subscribe("currentLang", (newLang) => {
-			this.#settings.currentLang = newLang;
-			if (this.#mapObj) this.#mapObj.setLanguage = newLang;
-			if (this.#recentSearchesView) this.#recentSearchesView.render(newLang);
-			if (this.#stationCalloutView) this.#stationCalloutView.setLanguage(newLang);
-			if (this.#dishaAiView) this.#dishaAiView.setLanguage(newLang);
+		const syncInputsAndDetails = (lang) => {
+			const targetLang = lang || this.#settings.currentLang || "en";
 			if (this.#currentRouteInfo && this.#journeyDetailsView) {
-				this.#journeyDetailsView.render(this.#currentRouteInfo, newLang);
+				this.#journeyDetailsView.render(this.#currentRouteInfo, targetLang);
 			}
 
-			// 🌐 इनपुट फील्ड में लिखे स्टेशन के नाम को नई भाषा में बदलें
-			const syncInputLang = (inputEl) => {
+			const syncInput = (inputEl) => {
 				if (!inputEl) return;
 				let stId = inputEl.dataset.stationId;
-				// अगर dataset में id नहीं है (उदा: हाथ से टाइप किया था), तो नाम से id ढूंढें
 				if (!stId && inputEl.value.trim()) {
 					const found = centerClass.getStationSearchEngine()?.search(inputEl.value.trim())?.[0]?.station;
 					if (found) stId = found.id;
 				}
 				if (stId) {
 					inputEl.dataset.stationId = stId;
-					inputEl.value = centerClass.getStationName(stId, newLang);
+					inputEl.value = centerClass.getStationName(stId, targetLang);
 				}
 			};
 
-			syncInputLang(this.#elemts.startStation);
-			syncInputLang(this.#elemts.endStation);
+			syncInput(this.#elemts.startStation);
+			syncInput(this.#elemts.endStation);
+		};
+
+		eventBus.on("metro:data-updated", ({ reason, lang }) => {
+			syncInputsAndDetails(lang);
+		});
+
+		this.#unsubscribeStore = appStateStore.subscribe("currentLang", (newLang) => {
+			this.#settings.currentLang = newLang;
+			if (this.#mapObj) this.#mapObj.setLanguage = newLang;
+			if (this.#recentSearchesView) this.#recentSearchesView.render(newLang);
+			if (this.#stationCalloutView) this.#stationCalloutView.setLanguage(newLang);
+			if (this.#dishaAiView) this.#dishaAiView.setLanguage(newLang);
+			syncInputsAndDetails(newLang);
 		});
 	}
 	#initSwapButton(signal) {
@@ -267,7 +274,7 @@ class HomePageController {
 		const routeInfo = centerClass.searchRoute(startVal, endVal, { routeType });
 		if (!routeInfo) {
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.toast.route.noRoute"),
+				message: centerClass.t("pages.home.toast.route.noRoute"),
 				type: "error"
 			});
 			return;
@@ -287,7 +294,7 @@ class HomePageController {
 			const endVal = this.#elemts.endStation?.value?.trim();
 			if (!startVal || !endVal) {
 				eventBus.emit("SHOW_TOAST", {
-					message: i18n.t("pages.home.routeFinder.enterBothStations"),
+					message: centerClass.t("pages.home.routeFinder.enterBothStations"),
 					type: "warning"
 				});
 				return;
@@ -314,7 +321,7 @@ class HomePageController {
 	#handleShareRoute() {
 		if (!this.#currentRouteInfo?.path?.length) {
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.toast.alarm.noRoute"),
+				message: centerClass.t("pages.home.toast.alarm.noRoute"),
 				type: "warning"
 			});
 			return;

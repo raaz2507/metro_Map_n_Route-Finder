@@ -1,6 +1,10 @@
 {
 	"networks": {
+		"lucknow_metro": "Lucknow Metro (UPMRC)",
 		"upmrc_lucknow": "Uttar Pradesh Metro Rail Corporation (UPMRC)"
+	},
+	"policies": {
+		"lucknow_metro_standard": "Lucknow Metro (UPMRC)"
 	},
 	"lines": {
 		"upmrc.red": {"name": "Red Line", "short_name": "Red Line"}

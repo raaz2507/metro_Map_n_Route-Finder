@@ -1,13 +1,16 @@
 {
 	"networks": {
-		"kolkata_metro": "Metro Railway, Kolkata (Indian Railways)"
+		"kolkata_metro": "Kolkata Metro (Metro Railway)"
+	},
+	"policies": {
+		"kolkata_metro_standard": "Kolkata Metro"
 	},
 	"lines": {
-		"kolkata_metro.blue": {"name": "Blue Line (Line 1)", "short_name": "Blue Line (Line 1)"},
-		"kolkata_metro.green": {"name": "Green Line (Line 2)", "short_name": "Green Line (Line 2)"},
-		"kolkata_metro.orange": {"name": "Orange Line (Line 6)", "short_name": "Orange Line (Line 6)"},
-		"kolkata_metro.purple": {"name": "Purple Line (Line 3)", "short_name": "Purple Line (Line 3)"},
-		"kolkata_metro.yellow": {"name": "Yellow Line (Line 4)", "short_name": "Yellow Line (Line 4)"}
+		"kolkata_metro.blue": {"name": "Blue Line (Line 1)", "short_name": "Blue Line"},
+		"kolkata_metro.green": {"name": "Green Line (Line 2)", "short_name": "Green Line"},
+		"kolkata_metro.orange": {"name": "Orange Line (Line 6)", "short_name": "Orange Line"},
+		"kolkata_metro.purple": {"name": "Purple Line (Line 3)", "short_name": "Purple Line"},
+		"kolkata_metro.yellow": {"name": "Yellow Line (Line 4)", "short_name": "Yellow Line"}
 	},
 	"stations": {
 		"baranagar": {

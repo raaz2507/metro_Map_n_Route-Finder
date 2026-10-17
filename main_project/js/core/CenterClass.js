@@ -26,6 +26,7 @@ import { StationSearchEngine } from "../services/search/StationSearchEngine.js";
 import { UniversalSearchEngine } from "../services/search/UniversalSearchEngine.js";
 import { getStationName } from "./data-utils.js";
 import { telemetryService } from "../services/sensors/TelemetryService.js";
+import i18n, { LANGUAGE_CATEGORIES, SUPPORTED_LANGUAGES } from "./i18n.js";
 
 class CenterClass {
 	// Private Subsystem Instances
@@ -67,8 +68,8 @@ class CenterClass {
 			// ⚠️ यदि कोई अधूरा शहर लोड हुआ और फ़ॉलबैक हुआ, तो ग्लोबल Toast दिखाएं
 			if (this.#metroData?._fallback) {
 				const { requestedCity, fallbackCity } = this.#metroData._fallback;
-				const formattedReq = requestedCity.replace(/_/g, " ").toUpperCase();
-				const formattedFallback = fallbackCity.replace(/_/g, " ").toUpperCase();
+				const formattedReq = this.getCityDisplayName(requestedCity);
+				const formattedFallback = this.getCityDisplayName(fallbackCity);
 				eventBus.emit("SHOW_TOAST", {
 					title: "City Under Construction",
 					message: `Transit data for "${formattedReq}" is not yet available. Showing ${formattedFallback} map.`,
@@ -193,6 +194,64 @@ class CenterClass {
 
 	getNetworkName(networkId) {
 		return metroDataStore.getNetworkName(networkId);
+	}
+
+	getPolicyName(policyId) {
+		return metroDataStore.getPolicyName(policyId);
+	}
+
+	getCityDisplayName(cityKey = null) {
+		return metroDataStore.getCityDisplayName(cityKey);
+	}
+
+	// =========================================================================
+	// 🌐 UNIVERSAL TRANSLATION & LOCALIZATION FACADE
+	// =========================================================================
+
+	/**
+	 * 🌐 सेंट्रल ट्रांसलेशन हेल्पर (UI डिक्शनरी से टेक्स्ट प्राप्त करें)
+	 * @param {string} key - e.g. "pages.home.findRoute.title", "routeSummary.copyBtn"
+	 * @param {Object} [variables={}] - e.g. { count: 5, fare: 30 }
+	 * @returns {string}
+	 */
+	t(key, variables = {}) {
+		return i18n.t(key, variables);
+	}
+
+	/**
+	 * 🌐 DOM के सभी data-i18n एलिमेंट्स पर सक्रिय भाषा लागू करें
+	 */
+	applyTranslations() {
+		return i18n.applyTranslations();
+	}
+
+	/**
+	 * 🌐 वर्तमान में सक्रिय भाषा कोड प्राप्त करें ('hi', 'en', आदि)
+	 */
+	get currentLanguage() {
+		return i18n.getLanguage;
+	}
+
+	/**
+	 * 🌐 सक्रिय या विशिष्ट भाषा का NLU प्रोफ़ाइल प्राप्त करें
+	 * @param {string} [lang=null]
+	 */
+	getNluConfig(lang = null) {
+		return i18n.getNluConfig(lang);
+	}
+
+	/**
+	 * 🌐 सभी भाषा श्रेणियां प्राप्त करें (Categories & Languages)
+	 */
+	get languageCategories() {
+		return LANGUAGE_CATEGORIES;
+	}
+
+	/**
+	 * 🌐 समर्थित भाषाओं की फ्लैट लिस्ट प्राप्त करें
+	 */
+	get supportedLanguages() {
+		return SUPPORTED_LANGUAGES;
 	}
 
 	/**

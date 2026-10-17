@@ -6,7 +6,7 @@
  */
 
 import { centerClass } from "../../../core/CenterClass.js";
-import i18n from "../../../core/i18n.js";
+
 import { TransitNetworkHelper } from "../TransitNetworkHelper.js";
 import { TextNormalizer } from "./TextNormalizer.js";
 
@@ -72,7 +72,7 @@ export class StationEntityResolver {
 	 * Directional pattern parsing driven dynamically by language NLU route markers
 	 */
 	static #extractDirectionalStations(text, rawText, lang) {
-		const nluConfig = i18n.getNluConfig(lang) || i18n.getNluConfig("en") || {};
+		const nluConfig = centerClass.getNluConfig(lang) || centerClass.getNluConfig("en") || {};
 		const markers = nluConfig.routeMarkers || {};
 		const betweenPairs = markers.betweenPairs || [{ from: "from", to: "to" }];
 
@@ -177,7 +177,7 @@ export class StationEntityResolver {
 	 * Get stopwords set for active language
 	 */
 	static #getStopwords(lang) {
-		const nluConfig = i18n.getNluConfig(lang) || i18n.getNluConfig("en") || {};
+		const nluConfig = centerClass.getNluConfig(lang) || centerClass.getNluConfig("en") || {};
 		const words = nluConfig.stopwords || [
 			"metro", "train", "station", "route", "fare", "time", "please"
 		];
@@ -316,7 +316,7 @@ export class StationEntityResolver {
 		if (!tokens || tokens.length === 0) return [];
 
 		const stopwords = this.#getStopwords(lang);
-		const nluConfig = i18n.getNluConfig(lang) || i18n.getNluConfig("en") || {};
+		const nluConfig = centerClass.getNluConfig(lang) || centerClass.getNluConfig("en") || {};
 		const markers = nluConfig.routeMarkers || {};
 		const sourcePre = new Set((markers.sourcePre || markers.sourcePrefixes || ["from"]).map(s => s.toLowerCase()));
 		const sourcePost = new Set((markers.sourcePost || []).map(s => s.toLowerCase()));

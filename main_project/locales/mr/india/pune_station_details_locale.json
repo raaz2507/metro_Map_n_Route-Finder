@@ -1,6 +1,10 @@
 {
 	"networks": {
-		"mahametro_pune": ""
+		"mahametro_pune": "महा मेट्रो (पुणे मेट्रो)",
+		"pune_metro": "पुणे मेट्रो (महा मेट्रो)"
+	},
+	"policies": {
+		"pune_metro_standard": "पुणे मेट्रो (महा मेट्रो)"
 	},
 	"lines": {
 		"mahametro_pune.purple": {"name": "पर्पल लाइन", "short_name": "पर्पल लाइन"},
@@ -50,8 +54,8 @@
 			"landmarks": []
 		},
 		"district_court": {
-			"name": "District Court",
-			"aliases": [],
+			"name": "जिल्हा न्यायालय (डिस्ट्रिक्ट कोर्ट)",
+			"aliases": ["जिल्हा न्यायालय", "सिव्हिल कोर्ट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
@@ -99,8 +103,8 @@
 			"landmarks": []
 		},
 		"nashik_phata_bhosari": {
-			"name": "Nashik Phata (Bhosari)",
-			"aliases": [],
+			"name": "नाशिक फाटा (भोसरी)",
+			"aliases": ["भोसरी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
@@ -113,8 +117,8 @@
 			"landmarks": []
 		},
 		"pcmc": {
-			"name": "PCMC",
-			"aliases": [],
+			"name": "पिंपरी चिंचवड (PCMC)",
+			"aliases": ["पीसीएमसी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
@@ -127,8 +131,8 @@
 			"landmarks": []
 		},
 		"pmc": {
-			"name": "PMC",
-			"aliases": [],
+			"name": "पुणे महानगरपालिका (PMC)",
+			"aliases": ["पीएमसी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
@@ -148,7 +152,7 @@
 			"landmarks": []
 		},
 		"rto_pune": {
-			"name": "R.T.O Pune",
+			"name": "आरटीओ पुणे",
 			"aliases": [],
 			"description": "",
 			"gates": {},

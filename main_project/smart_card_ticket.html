@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- [METADATA_START] -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="description" content="Quickly top up and recharge your metro smart card. Copy card ID and access official recharge portals directly.">
+	<link rel="canonical" href="https://raaz2507.github.io/metro_Map_n_Route-Finder/smart_card_ticket.html">
 
 	<!-- Open Graph / Social Sharing -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/smart_card_ticket.html">
 	<meta property="og:title" content="Smart Card Quick Top-Up | YatraMarg">
-	<meta property="og:description" content="Quick metro smart card recharge helper and official portal gateway.">
-	<meta property="og:image" content="assets/images/share_image_com.png">
+	<meta property="og:description" content="Quickly top up and recharge your metro smart card. Copy card ID and access official recharge portals directly.">
+	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
 
+	<!-- Twitter / X Cards -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/smart_card_ticket.html">
+	<meta name="twitter:title" content="Smart Card Quick Top-Up | YatraMarg">
+	<meta name="twitter:description" content="Quickly top up and recharge your metro smart card. Copy card ID and access official recharge portals directly.">
+	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
+
+	<!-- Favicon & PWA App Standards -->
 	<link rel="icon" type="image/svg+xml" href="assets/images/site_icon.svg">
 	<link rel="manifest" href="manifest.webmanifest">
 	<meta name="theme-color" content="#0f172a">
+	<meta name="color-scheme" content="light dark">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<title data-i18n="smartCardTicket.pageTitle">Smart Card Quick Top-Up | YatraMarg</title>
+	<title data-i18n="smartCardTicket.meta.title" data-i18n-title-tag="smartCardTicket.meta.title">Smart Card Quick Top-Up | YatraMarg</title>
 
-	<!-- Page Stylesheet -->
+	<!-- 🎯 Single CSS Entry Point Architecture -->
 	<link rel="stylesheet" href="css/pages/smart_card_ticket.css">
+	<!-- [METADATA_END] -->
 </head>
 <body>
 	<!-- GLOBAL DYNAMIC HEADER -->
 	<div id="app-header"></div>
 
-	<!-- MAIN WORKSPACE -->
 	<main class="smartcard-page-container">
-		<!-- 📦 Multi-Card Grid (380px Cards, Scalable for Future Cards) -->
-		<div class="smartcard-cards-grid">
+		<!-- ========================================================================= -->
+		<!-- 💳 SECTION 1: TOP-UP & DIGITAL PASS TILES                                 -->
+		<!-- ========================================================================= -->
+		<section class="smartcard-portal-container" id="smartcard-portal-section">
+			<div class="smartcard-cards-grid">
 			
 			<!-- CARD 1: SMART CARD TOP-UP (380px Compact Transit Card) -->
 			<article class="smartcard-unit-card">
@@ -121,8 +138,57 @@
 					</a>
 				</footer>
 			</article>
-
 		</div>
+	</section>
+
+		<!-- ========================================================================= -->
+		<!-- 📊 SECTION 2: OFFICIAL FARE MATRIX & SLAB RULES (DYNAMIC) -->
+		<!-- ========================================================================= -->
+		<section id="fare-matrix-section" class="fare-matrix-container" aria-labelledby="fareMatrixTitle">
+			<header class="fare-section-header">
+				<div class="header-text-group">
+					<div class="section-badge-row">
+						<span class="badge-icon">📊</span>
+						<span id="activeCityBadge" class="active-city-badge">Delhi NCR</span>
+					</div>
+					<h2 id="fareMatrixTitle" class="fare-section-title" data-i18n="smartCardTicket.fareChartTitle">Official Transit Fare Matrix &amp; Slab Rules</h2>
+					<p class="fare-section-subtitle" data-i18n="smartCardTicket.fareChartSubtitle">Real-time slab rules, multi-class pricing, and official concessions directly derived from transit network data.</p>
+				</div>
+			</header>
+
+			<!-- Network Filter Tabs (Auto-Generated based on active city's policies) -->
+			<nav class="fare-network-tabs" id="fareNetworkTabs" aria-label="Transit Network Selector">
+				<!-- Dynamically injected buttons: DMRC, Airport Express, RRTS, etc. -->
+			</nav>
+
+			<!-- Dynamic Table & Controls Container -->
+			<div class="fare-table-card" id="fareTableCard">
+				<div id="fareTableContainer" class="fare-table-wrapper">
+					<!-- Dynamically injected table / matrix -->
+				</div>
+			</div>
+		</section>
+
+		<!-- ========================================================================= -->
+		<!-- 🎫 SECTION 3: PASSES, CARDS & TICKETING GUIDELINES HUB -->
+		<!-- ========================================================================= -->
+		<section id="passes-guidelines-section" class="passes-guidelines-container" aria-labelledby="passesTitle">
+			<header class="fare-section-header">
+				<div class="header-text-group">
+					<div class="section-badge-row">
+						<span class="badge-icon">🎫</span>
+						<span class="active-city-badge" data-i18n="smartCardTicket.interoperableTag">National Mobility</span>
+					</div>
+					<h2 id="passesTitle" class="fare-section-title" data-i18n="smartCardTicket.passesSectionTitle">Transit Passes, Cards &amp; Ticketing Guidelines</h2>
+					<p class="fare-section-subtitle" data-i18n="smartCardTicket.passesSectionSubtitle">Complete fare rules, minimum balances, refund policies, and official validity standards.</p>
+				</div>
+			</header>
+
+			<!-- Cards & Passes Grid (Smart Card, Tourist Pass, QR Ticket, NCMC) -->
+			<div class="passes-cards-grid" id="passesCardsGrid">
+				<!-- Dynamically populated from active city's fareRules.policies products -->
+			</div>
+		</section>
 	</main>
 
 	<!-- GLOBAL DYNAMIC FOOTER -->

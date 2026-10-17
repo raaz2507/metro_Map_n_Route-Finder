@@ -8,7 +8,7 @@ import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { UniversalSearchEngine } from "../services/search/UniversalSearchEngine.js";
 
-import i18n from "../core/i18n.js";
+
 import { appStateStore } from "../core/app-state-store.js";
 
 export class AllStationsDirectory {
@@ -64,7 +64,7 @@ export class AllStationsDirectory {
 		await HeaderComponent.render("stations");
 
 		if (this.#dom.searchInput) {
-			this.#dom.searchInput.placeholder = i18n.t("pages.all_stations.controls.searchPlaceholder") || "Search station by name or code...";
+			this.#dom.searchInput.placeholder = centerClass.t("pages.all_stations.controls.searchPlaceholder");
 		}
 
 		try {
@@ -98,7 +98,7 @@ export class AllStationsDirectory {
 				this.#lang = newLang || "en";
 				await centerClass.reloadLocale(this.#lang);
 				if (this.#dom.searchInput) {
-					this.#dom.searchInput.placeholder = i18n.t("pages.all_stations.controls.searchPlaceholder");
+					this.#dom.searchInput.placeholder = centerClass.t("pages.all_stations.controls.searchPlaceholder");
 				}
 				this.#renderFilterChips();
 				this.#render();
@@ -298,7 +298,7 @@ export class AllStationsDirectory {
 		Object.values(this.#lines).forEach(line => {
 			const netKey = line.network || line.operator || "metro";
 			if (!networkGroups[netKey]) {
-				const formattedTitle = netKey.replace(/_/g, " ").toUpperCase();
+				const formattedTitle = centerClass.getNetworkName(netKey);
 				networkGroups[netKey] = {
 					title: `🚇 ${formattedTitle}`,
 					lines: []
@@ -307,7 +307,7 @@ export class AllStationsDirectory {
 			networkGroups[netKey].lines.push(line);
 		});
 
-		const allLinesLabel = i18n.t("pages.all_stations.controls.allLines") || "All Lines";
+		const allLinesLabel = centerClass.t("pages.all_stations.controls.allLines");
 
 		let html = `
 			<div class="network-chips-row">
@@ -381,8 +381,8 @@ export class AllStationsDirectory {
 			const lineColor = line.color;
 			const count = filteredStationIds.length;
 			const stationCountText = count === 1 
-				? (i18n.t("pages.all_stations.results.singleStationCount") || "1 Station")
-				: i18n.t("pages.all_stations.results.stationCount", { count });
+				? centerClass.t("pages.all_stations.results.singleStationCount")
+				: centerClass.t("pages.all_stations.results.stationCount", { count });
 
 			html += `
 				<!-- 👈 --line-color पूरे कंटेनर (section) पर दिया ताकि पट्टी पूरे बॉक्स पर आए -->
@@ -404,8 +404,8 @@ export class AllStationsDirectory {
 
 		// Render Empty State if no stations match query
 		if (matchedLineCount === 0) {
-			const noMatchMsg = i18n.t("pages.all_stations.results.noStationQueryMsg", { query: this.#searchQuery });
-			const noFoundTitle = i18n.t("pages.all_stations.results.noStationsFound") || "🔍 No stations found";
+			const noMatchMsg = centerClass.t("pages.all_stations.results.noStationQueryMsg", { query: this.#searchQuery });
+			const noFoundTitle = centerClass.t("pages.all_stations.results.noStationsFound");
 
 			html = `
 				<div class="directory-empty-state">
@@ -442,24 +442,24 @@ export class AllStationsDirectory {
 
 		// Layout badge resolution from i18n dictionary
 		const layoutType = (st.properties?.layout || "elevated").toLowerCase();
-		let layoutText = i18n.t("pages.all_stations.badges.elevated");
+		let layoutText = centerClass.t("pages.all_stations.badges.elevated");
 		let layoutClass = "badge-elevated";
 		let layoutIcon = "icon_elevated.svg";
 
 		if (layoutType === "underground") {
-			layoutText = i18n.t("pages.all_stations.badges.underground");
+			layoutText = centerClass.t("pages.all_stations.badges.underground");
 			layoutClass = "badge-underground";
 			layoutIcon = "icon_underground.svg";
 		} else if (layoutType === "at_grade" || layoutType === "at-grade" || layoutType === "ground") {
-			layoutText = i18n.t("pages.all_stations.badges.atGrade");
+			layoutText = centerClass.t("pages.all_stations.badges.atGrade");
 			layoutClass = "badge-at-grade";
 			layoutIcon = "icon_at_grade.svg";
 		}
 
 		// Interchange badge resolution from i18n dictionary
 		const isInterchange = st.properties?.station_type === "interchange";
-		const interchangeText = i18n.t("pages.all_stations.badges.interchange");
-		const cardAria = i18n.t("pages.all_stations.badges.coachAria", { name: stationTitle });
+		const interchangeText = centerClass.t("pages.all_stations.badges.interchange");
+		const cardAria = centerClass.t("pages.all_stations.badges.coachAria", { name: stationTitle });
 
 		return `
 			<a href="station_info.html?id=${encodeURIComponent(st.id || stationId)}&city=${encodeURIComponent(this.#currentCity)}" class="real-coach-card" style="--line-color: ${lineColor};" aria-label="${this.#escapeHTML(cardAria)}">

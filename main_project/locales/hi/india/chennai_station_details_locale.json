@@ -1,293 +1,311 @@
 {
 	"networks": {
-		"cmrl": ""
+		"cmrl": "चेन्नई मेट्रो रेल लिमिटेड (CMRL)",
+		"chennai_metro": "चेन्नई मेट्रो (CMRL)"
+	},
+	"policies": {
+		"cmrl_standard": "चेन्नई मेट्रो (CMRL)"
 	},
 	"lines": {
-		"cmrl.blue": {"name": "", "short_name": ""},
-		"cmrl.green": {"name": "", "short_name": ""}
+		"cmrl.blue": {"name": "ब्लू लाइन (कॉरिडोर 1)", "short_name": "ब्लू लाइन"},
+		"cmrl.green": {"name": "ग्रीन लाइन (कॉरिडोर 2)", "short_name": "ग्रीन लाइन"}
 	},
 	"stations": {
 		"ag-dms": {
-			"name": "",
+			"name": "ए.जी. – डी.एम.एस.",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"anna-nagar-east": {
-			"name": "",
+			"name": "अन्ना नगर ईस्ट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"anna-nagar-tower": {
-			"name": "",
+			"name": "अन्ना नगर टॉवर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"arignar-anna-alandur-metro": {
-			"name": "",
-			"aliases": [],
+			"name": "अरिग्नार अन्ना आलंदूर मेट्रो",
+			"aliases": ["आलंदूर"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"arumbakkam": {
-			"name": "",
+			"name": "अरुम्बाक्कम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ashok-nagar": {
-			"name": "",
+			"name": "अशोक नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chennai-international-airport": {
-			"name": "",
-			"aliases": [],
+			"name": "चेन्नई अंतर्राष्ट्रीय हवाई अड्डा",
+			"aliases": ["हवाई अड्डा मेट्रो"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"egmore-metro": {
-			"name": "",
-			"aliases": [],
+			"name": "एग्मोर मेट्रो",
+			"aliases": ["एग्मोर"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ekkattuthangal": {
-			"name": "",
+			"name": "इक्काट्टुथांगल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"government-estate": {
-			"name": "",
+			"name": "गवर्नमेंट एस्टेट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"guindy": {
-			"name": "",
+			"name": "गिंडी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"highcourt": {
-			"name": "",
-			"aliases": [],
+			"name": "हाई कोर्ट",
+			"aliases": ["मद्रास हाई कोर्ट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kaladipet-metro": {
-			"name": "",
+			"name": "कालाडीपेट मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kilpauk": {
-			"name": "",
+			"name": "कीलपौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"koyambedu": {
-			"name": "",
+			"name": "कोयम्बेडु",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"lic": {
-			"name": "",
+			"name": "एल.आई.सी.",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"little-mount": {
-			"name": "",
+			"name": "लिटिल माउंट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mannadi": {
-			"name": "",
+			"name": "मन्नाडी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"meenambakkam": {
-			"name": "",
+			"name": "मीनाम्बाक्कम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nandanam": {
-			"name": "",
+			"name": "नंदनम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nehru-park": {
-			"name": "",
+			"name": "नेहरू पार्क",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"new-washermenpet-metro": {
-			"name": "",
+			"name": "न्यू वाशरमेनपेट मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ota-nanganallur-road": {
-			"name": "",
-			"aliases": [],
+			"name": "ओ.टी.ए. – नंगानल्लूर रोड",
+			"aliases": ["नंगानल्लूर रोड"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"pachaiyappas-college": {
-			"name": "",
+			"name": "पचयप्पा कॉलेज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"puratchi-thalaivar-dr-m-g-ramachandran-central-metro": {
-			"name": "",
-			"aliases": [],
+			"name": "पुरैत्ची तलैवर डॉ. एम.जी. रामचंद्रन सेंट्रल मेट्रो",
+			"aliases": ["चेन्नई सेंट्रल"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"puratchi-thalaivi-dr-j-jayalalithaa-cmbt-metro": {
-			"name": "",
-			"aliases": [],
+			"name": "पुरैत्ची तलैवी डॉ. जे. जयललिता सीएमबीटी मेट्रो",
+			"aliases": ["सीएमबीटी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"saidapet-metro": {
-			"name": "",
-			"aliases": [],
+			"name": "सैदापेट मेट्रो",
+			"aliases": ["सैदापेट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shenoy-nagar": {
-			"name": "",
+			"name": "शेनॉय नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sir-thiyagaraya-college-metro": {
-			"name": "",
+			"name": "सर त्यागराया कॉलेज मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"st-thomas-mount-metro": {
-			"name": "",
-			"aliases": [],
+			"name": "सेंट थॉमस माउंट मेट्रो",
+			"aliases": ["सेंट थॉमस माउंट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"teynampet": {
-			"name": "",
+			"name": "तेनाम्पेट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"thirumangalam": {
-			"name": "",
+			"name": "तिरुमंगलगम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"thiruvotriyur-metro": {
-			"name": "",
+			"name": "तिरुवोट्टियूर मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"thiruvottriyur-theradi-metro": {
-			"name": "",
+			"name": "तिरुवोट्टियूर तेरडी मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"thousand-lights": {
-			"name": "",
+			"name": "थाउजेंड लाइट्स",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"tollgate-metro": {
-			"name": "",
+			"name": "टोलगेट मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"tondiarpet-metro": {
-			"name": "",
+			"name": "टोंडियारपेट मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vadapalani": {
-			"name": "",
+			"name": "वडापलानी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"washermenpet-metro": {
-			"name": "",
+			"name": "वाशरमेनपेट मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"wimco-nagar-depot-metro": {
-			"name": "",
+			"name": "विमको नगर डिपो मेट्रो",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"wimco-nagar-metro": {
+			"name": "विमको नगर मेट्रो",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2": {
+			"name": "",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"arignar-anna-alandur-metro-2": {
 			"name": "",
 			"aliases": [],
 			"description": "",

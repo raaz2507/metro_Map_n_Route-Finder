@@ -5,7 +5,7 @@
 
 import { centerClass } from "../core/CenterClass.js";
 import { eventBus } from "../core/event-bus.js";
-import i18n from "../core/i18n.js";
+
 
 export class TelemetryWidget {
 	#elements = {};
@@ -49,7 +49,7 @@ export class TelemetryWidget {
 			if (data.gps && el.gpsPercentBadge) {
 				const text = data.gps.status === "ACTIVE" 
 					? `${data.gps.percentage}%` 
-					: (i18n.t(STATUS_TEXT_MAP[data.gps.status]) || data.gps.status);
+					: (centerClass.t(STATUS_TEXT_MAP[data.gps.status]) || data.gps.status);
 				this.#renderBadge(el.gpsPercentBadge, text, data.gps.badgeType);
 				if (el.gpsAccuracyBadge) {
 					el.gpsAccuracyBadge.textContent = data.gps.precisionText;
@@ -78,12 +78,12 @@ export class TelemetryWidget {
 				(err) => {
 					if (err?.code === 1) {
 						eventBus.emit("SHOW_TOAST", {
-							message: i18n.t("pages.home.gps.permissionDenied") || "📍 लोकेशन अनुमति ब्लॉक है। कृपया ब्राउज़र सेटिंग्स में Allow करें।",
+							message: centerClass.t("pages.home.gps.permissionDenied"),
 							type: "error"
 						});
 					} else if (err?.code === 2) {
 						eventBus.emit("SHOW_TOAST", {
-							message: i18n.t("pages.home.gps.unavailable") || "📍 फ़ोन का GPS बंद है। कृपया डिवाइस लोकेशन ऑन करें।",
+							message: centerClass.t("pages.home.gps.unavailable"),
 							type: "warning"
 						});
 					}

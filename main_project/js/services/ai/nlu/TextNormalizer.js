@@ -3,7 +3,7 @@
  * Language-agnostic, offline-first.
  */
 
-import i18n from "../../../core/i18n.js";
+import { centerClass } from "../../../core/CenterClass.js";
 
 export class TextNormalizer {
 	/**
@@ -55,7 +55,7 @@ export class TextNormalizer {
 	 */
 	static stripTransitFillers(text, lang = "en") {
 		if (!text) return "";
-		const nluConfig = i18n.getNluConfig(lang) || i18n.getNluConfig("en") || {};
+		const nluConfig = centerClass.getNluConfig(lang) || centerClass.getNluConfig("en") || {};
 		const patterns = nluConfig.fillerPatterns || [];
 
 		let cleaned = text;

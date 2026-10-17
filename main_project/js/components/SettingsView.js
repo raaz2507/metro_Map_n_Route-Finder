@@ -10,7 +10,7 @@
 import { AudioPlayer } from "../services/alarm/AudioPlayer.js";
 import { centerClass } from "../core/CenterClass.js";
 import { eventBus } from "../core/event-bus.js";
-import i18n from "../core/i18n.js";
+
 
 // =============================================================================
 // 1. 🔔 ALARM SETTINGS SUB-CONTROLLER
@@ -200,17 +200,17 @@ class AlarmSettingsController {
 
 			if (result.success) {
 				eventBus.emit("SHOW_TOAST", {
-					message: i18n.t("pages.home.toast.settings.vibeSuccess"),
+					message: centerClass.t("pages.home.toast.settings.vibeSuccess"),
 					type: "info"
 				});
 			} else if (result.reason === "BLOCKED_BY_DEVICE") {
 				eventBus.emit("SHOW_TOAST", {
-					message: i18n.t("pages.home.toast.settings.vibeBlocked"),
+					message: centerClass.t("pages.home.toast.settings.vibeBlocked"),
 					type: "warning"
 				});
 			} else {
 				eventBus.emit("SHOW_TOAST", {
-					message: i18n.t("pages.home.toast.settings.vibeUnsupported"),
+					message: centerClass.t("pages.home.toast.settings.vibeUnsupported"),
 					type: "warning"
 				});
 			}
@@ -604,7 +604,7 @@ class BackupSettingsController {
 			} catch (err) {
 				console.error("[Backup] Download to Documents failed:", err);
 				eventBus.emit("SHOW_TOAST", { 
-					message: i18n.t("pages.home.toast.settings.saveFailed"), 
+					message: centerClass.t("pages.home.toast.settings.saveFailed"), 
 					type: "error" 
 				});
 				return;
@@ -645,7 +645,7 @@ class BackupSettingsController {
 				}
 				console.error("[Backup] Share failed:", err);
 				eventBus.emit("SHOW_TOAST", { 
-					message: i18n.t("pages.home.toast.settings.shareFailed"), 
+					message: centerClass.t("pages.home.toast.settings.shareFailed"), 
 					type: "error" 
 				});
 				return;
@@ -680,7 +680,7 @@ class BackupSettingsController {
 		document.body.removeChild(a);
 		URL.revokeObjectURL(url);
 		eventBus.emit("SHOW_TOAST", { 
-			message: i18n.t("pages.home.toast.settings.backupSuccess"), 
+			message: centerClass.t("pages.home.toast.settings.backupSuccess"), 
 			type: "success" 
 		});
 
@@ -744,7 +744,7 @@ class BackupSettingsController {
 
 		if (file.size > 1024 * 1024) {
 			eventBus.emit("SHOW_TOAST", { 
-				message: i18n.t("pages.home.toast.settings.restoreSizeLimit"), 
+				message: centerClass.t("pages.home.toast.settings.restoreSizeLimit"), 
 				type: "error" 
 			});
 			event.target.value = "";
@@ -801,14 +801,14 @@ class BackupSettingsController {
 			}
 
 						eventBus.emit("SHOW_TOAST", { 
-				message: i18n.t("pages.home.toast.settings.restoreSuccess"), 
+				message: centerClass.t("pages.home.toast.settings.restoreSuccess"), 
 				type: "success" 
 			});
 			setTimeout(() => window.location.reload(), 1500);
 
 		} catch (error) {
 			eventBus.emit("SHOW_TOAST", { 
-				message: i18n.t("pages.home.toast.settings.restoreInvalid"), 
+				message: centerClass.t("pages.home.toast.settings.restoreInvalid"), 
 				type: "error" 
 			});
 		} finally {
@@ -878,8 +878,8 @@ class PacksSettingsController {
 		const container = this.#elements.langContainer;
 		if (!container) return;
 
-		// i18n के LANGUAGE_CATEGORIES से सभी भाषाएं उठाएं (Zero Hardcoding!)
-		const categories = i18n.LANGUAGE_CATEGORIES || [];
+		// centerClass के languageCategories से सभी भाषाएं उठाएं (Zero Hardcoding!)
+		const categories = centerClass.languageCategories || [];
 		const isNativeOrPwa = centerClass.isNativePlatform() || centerClass.isPwaMode();
 
 		let html = "";
@@ -895,20 +895,20 @@ class PacksSettingsController {
 						<div class="settings-label-wrapper">
 							<span class="settings-label">${lang.flag} ${lang.nativeName} (${lang.label})</span>
 							<span class="pack-meta-text">
-								${isCore ? i18n.t("pages.home.settings.packs.coreBuiltin") : `${category.name} • ${i18n.t("pages.home.settings.packs.sizeApprox", { size: approxSize })}`}
+								${isCore ? centerClass.t("pages.home.settings.packs.coreBuiltin") : `${category.name} • ${centerClass.t("pages.home.settings.packs.sizeApprox", { size: approxSize })}`}
 							</span>
 						</div>
 						<div class="pack-action-wrapper">
 							${isCore ? `
-								<span class="pack-status-badge is-installed" data-i18n="pages.home.settings.packs.installed">${i18n.t("pages.home.settings.packs.installed")}</span>
+								<span class="pack-status-badge is-installed" data-i18n="pages.home.settings.packs.installed">${centerClass.t("pages.home.settings.packs.installed")}</span>
 							` : `
 								<button type="button" class="btn-settings-action btn-pack-download ${isInstalled ? "is-hidden" : ""}" data-action="download" data-lang="${lang.code}">
 									<img src="./assets/icons/download.svg" width="14" height="14" alt="" aria-hidden="true" />
-									<span data-i18n="pages.home.settings.packs.downloadBtn">${i18n.t("pages.home.settings.packs.downloadBtn")}</span>
+									<span data-i18n="pages.home.settings.packs.downloadBtn">${centerClass.t("pages.home.settings.packs.downloadBtn")}</span>
 								</button>
 								<button type="button" class="btn-settings-action btn-pack-uninstall ${!isInstalled ? "is-hidden" : ""}" data-action="uninstall" data-lang="${lang.code}">
 									<img src="./assets/icons/trash-can-solid-full.svg" width="14" height="14" alt="" aria-hidden="true" />
-									<span data-i18n="pages.home.settings.packs.uninstallBtn">${i18n.t("pages.home.settings.packs.uninstallBtn")}</span>
+									<span data-i18n="pages.home.settings.packs.uninstallBtn">${centerClass.t("pages.home.settings.packs.uninstallBtn")}</span>
 								</button>
 							`}
 						</div>
@@ -995,19 +995,19 @@ class PacksSettingsController {
 			if (action === "download") {
 				btn.disabled = true;
 				const originalText = btn.querySelector("span").textContent;
-				btn.querySelector("span").textContent = i18n.t("pages.home.settings.packs.downloading");
+				btn.querySelector("span").textContent = centerClass.t("pages.home.settings.packs.downloading");
 
 				try {
 					await centerClass.downloadLanguagePack(langCode);
 					eventBus.emit("SHOW_TOAST", {
-						message: i18n.t("pages.home.toast.settings.packDownloaded", { name: langCode.toUpperCase() }),
+						message: centerClass.t("pages.home.toast.settings.packDownloaded", { name: langCode.toUpperCase() }),
 						type: "success"
 					});
 					this.#toggleButtonVisibility(row, true);
 				} catch (err) {
 					console.error("[Packs] Download failed:", err);
 					eventBus.emit("SHOW_TOAST", {
-						message: i18n.t("pages.home.toast.settings.packDownloadError"),
+						message: centerClass.t("pages.home.toast.settings.packDownloadError"),
 						type: "error"
 					});
 				} finally {
@@ -1015,14 +1015,14 @@ class PacksSettingsController {
 					btn.querySelector("span").textContent = originalText;
 				}
 			} else if (action === "uninstall") {
-				const confirmMsg = i18n.t("pages.home.settings.packs.confirmUninstallLang", { langName: langCode.toUpperCase() });
+				const confirmMsg = centerClass.t("pages.home.settings.packs.confirmUninstallLang", { langName: langCode.toUpperCase() });
 				if (!window.confirm(confirmMsg)) return;
 
 				btn.disabled = true;
 				try {
 					await centerClass.uninstallLanguagePack(langCode);
 					eventBus.emit("SHOW_TOAST", {
-						message: i18n.t("pages.home.toast.settings.packRemoved", { name: langCode.toUpperCase() }),
+						message: centerClass.t("pages.home.toast.settings.packRemoved", { name: langCode.toUpperCase() }),
 						type: "info"
 					});
 					this.#toggleButtonVisibility(row, false);

@@ -1,5 +1,10 @@
 // /lang/india/hi/home.js
 export default {
+	pageTitle: "मेट्रो मैप और रूट फाइंडर | यात्रा मार्ग",
+	meta: {
+		title: "मेट्रो मैप और रूट फाइंडर | यात्रा मार्ग",
+		desc: "इंटरैक्टिव पारगमन मानचित्रों के साथ मेट्रो मार्ग, टिकट किराया, यात्रा समय और मध्यवर्ती स्टेशनों की जानकारी आसानी से प्राप्त करें।"
+	},
 	// 1. Navigation Bars (Exclusive to Home)
 	navSidebar: {
 		route: "मार्ग खोजें",
@@ -49,6 +54,7 @@ export default {
 			firstTrain: "पहली ट्रेन",
 			lastTrain: "अंतिम ट्रेन",
 			directionText: "{terminal} की ओर · प्लेटफॉर्म {platform}",
+			changeTo: "{line} में बदलें",
 			splitFareTitle: "किराया विवरण (Split Fare)",
 			splitFareSubtitle: "{count} अलग-अलग लाइन सेगमेंट के किराए देखने के लिए टैप करें",
 			smartCardSavings: "स्मार्ट कार्ड से ₹{amount} की बचत!"

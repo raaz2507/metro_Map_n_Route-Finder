@@ -1,19 +1,29 @@
 {
 	"city": "ahmedabad_gandhinagar",
 	"city_name": "Ahmedabad - Gandhinagar",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
-		"women_safety": "1090",
-		"ambulance": "102"
+		"women_safety": "1091",
+		"ambulance": "108"
 	},
 	"networks": {
 		"ahmedabad_metro": {
-			"network_name": "Ahmedabad Metro",
-			"operator": "GMRC",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"network_name": "Ahmedabad Metro (GMRC)",
+			"operator": "Gujarat Metro Rail Corporation (GMRC)",
+			"helplines": {
+				"central_passenger_helpline": "+91-79-22960123",
+				"general_enquiry": "+91-79-23248572",
+				"women_safety": "1091",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://www.gujaratmetrorail.com/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Old High Court Metro Station (Interchange Station Customer Care & Station Control Room)",
+				"operating_hours": "06:20 AM - 10:00 PM (All Days)"
+			}
 		}
 	}
 }

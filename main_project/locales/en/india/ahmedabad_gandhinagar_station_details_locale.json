@@ -1,14 +1,18 @@
 {
 	"networks": {
-		"gmrc": "Gujarat Metro Rail Corporation (GMRC)"
+		"gmrc": "Gujarat Metro Rail Corporation (GMRC)",
+		"ahmedabad_metro": "Ahmedabad Metro (GMRC)"
+	},
+	"policies": {
+		"gmrc_standard": "Ahmedabad Metro (GMRC)"
 	},
 	"lines": {
 		"gmrc.blue": {"name": "Blue Line", "short_name": "Blue Line"},
 		"gmrc.red": {"name": "Red Line", "short_name": "Red Line"},
-		"gmrc.yellow": {"name": "Gandhinagar Extension (Yellow Line)", "short_name": "Gandhinagar Extension (Yellow Line)"},
-		"gmrc.violet": {"name": "GIFT City Branch (Violet Line)", "short_name": "GIFT City Branch (Violet Line)"},
-		"gmrc.airport": {"name": "Airport Express Line (Phase 2A)", "short_name": "Airport Express Line (Phase 2A)"},
-		"gmrc.biotech": {"name": "Biotech Extension (Phase 2B)", "short_name": "Biotech Extension (Phase 2B)"}
+		"gmrc.yellow": {"name": "Gandhinagar Extension (Yellow Line)", "short_name": "Yellow Line"},
+		"gmrc.violet": {"name": "GIFT City Branch (Violet Line)", "short_name": "Violet Line"},
+		"gmrc.airport": {"name": "Airport Express Line", "short_name": "Airport Line"},
+		"gmrc.biotech": {"name": "Biotech Extension", "short_name": "Biotech Line"}
 	},
 	"stations": {
 		"aec": {

@@ -75,6 +75,9 @@ export const TransitNetworkMasterSchema = {
 					rounding: "nearest"
 				},
 
+				// DEDICATED ONLINE SMART CARD TOP-UP PORTAL (Keep blank "" if agency only recharges via counters/apps)
+				rechargeUrl: "<url_string_or_empty_string: official_agency_smart_card_topup_portal>",
+
 				// TARIFF TABLES (Applicable for "distance_based" and "station_count_based")
 				// Multiple tariff tables support weekday vs holiday vs peak pricing
 				fareTables: {
@@ -101,19 +104,109 @@ export const TransitNetworkMasterSchema = {
 					[30, 10, 0]  // Row 2 (origin: station_id_n -> all destinations)
 				],
 
-				// TICKETING PRODUCTS & DISCOUNTS
+				// Official recharge portal URL for this specific policy / network
+				rechargeUrl: "<url_string_or_null: official_agency_smart_card_topup_portal>", // e.g. "https://dmrcsmartcard.com/"
+
+				// --------------------------------------------------------------------
+				// TICKETING PRODUCTS & PASSES SCHEMA SPECIFICATION
+				// --------------------------------------------------------------------
+				// 100% Lean & Language-Neutral: Strictly numbers, enums, rules, and IDs.
+				// Human-readable titles, UI bullets and descriptions decouple into i18n / City Locale Packs.
 				products: {
-					"<product_id_slug>": {      // e.g. "token", "smart_card", "qr_ticket", "ncmc_card"
-						// MULTIPLE VALUES: "base" | "discount" | "pass" | "concession"
+					// 1. भौतिक टोकन (Physical Contactless Single Journey Token)
+					token: {
+						// MULTIPLE VALUES: "base" | "discount" | "flat_pass" | "digital" | "interoperable"
+						type: "base",
+						validityMinutes: "<integer: entry_validity_post_purchase_minutes>" // e.g. 20 (purchase to AFC gate tap-in)
+					},
+
+					// 2. मेट्रो स्मार्ट कार्ड (Stored Value Contactless Smart Card)
+					smart_card: {
 						type: "discount",
-						baseProduct: "<string_or_null: parent_product_id>",
-						discountPercent: "<number: percentage_off>", // e.g. 10 for 10% discount
-						// MULTIPLE VALUES: null | "off_peak" | "peak" | "sunday"
-						timeRule: "off_peak",
-						label: {
-							en: "<string>",
-							hi: "<string>"
-						}
+						baseProduct: "token",                                             // Parent product reference
+						discountPercent: "<number: base_discount_percentage>",            // e.g. 10
+						weekendDiscountPercent: "<number_or_null: weekend_holiday_discount_percent>", // e.g. 25
+						minRecharge: "<integer: min_topup_amount_currency_units>",        // e.g. 100
+						maxRecharge: "<integer: max_balance_cap_currency_units>",         // e.g. 2000
+						minBalance: "<integer: min_required_balance_to_tap_in>",          // e.g. 50
+						refundableDeposit: "<integer: security_deposit_amount>",          // e.g. 50
+						validityYears: "<integer: validity_years_from_last_recharge>",    // e.g. 10
+						rechargeUrl: "<url_string: official_agency_smart_card_topup_portal>", // e.g. "https://dmrcsmartcard.com/"
+						maxTravelTimeMinutes: {
+							sameStation: "<integer: max_minutes_if_exiting_same_station>", // e.g. 20
+							otherStation: "<integer: max_minutes_to_complete_journey>"     // e.g. 180
+						},
+						overstayPenaltyPerHour: "<integer_or_null: penalty_per_hour_overstayed>", // e.g. 10
+						maxOverstayPenalty: "<integer_or_null: max_penalty_cap>"                  // e.g. 50
+					},
+
+					// 3. ऑफ-पीक स्मार्ट कार्ड (Off-Peak Hours Extra Discount)
+					off_peak_smart_card: {
+						type: "discount",
+						baseProduct: "smart_card",
+						discountPercent: "<number: additional_off_peak_discount_percentage>", // e.g. 10
+						timeRule: "off_peak"                                                  // Mapped to timeRules.off_peak window
+					},
+
+					// 4. 1-दिवसीय टूरिस्ट कार्ड (1-Day Unlimited Transit Pass)
+					tourist_card_1day: {
+						type: "flat_pass",
+						cost: "<integer: upfront_purchase_price>",                            // e.g. 200
+						travelValue: "<integer: actual_travel_value_loaded>",                 // e.g. 150
+						refundableDeposit: "<integer: deposit_refunded_on_card_return>",      // e.g. 50
+						validityDays: "<integer: active_calendar_duration_days>",             // e.g. 1
+						maxRides: "<integer_or_null: max_rides_cap_null_means_unlimited>",    // null = Unlimited
+						excludedLines: [                                                      // Disallowed line_id_slugs
+							"<string: line_id_slug>"                                          // e.g. "airport_express"
+						]
+					},
+
+					// 5. 3-दिवसीय टूरिस्ट कार्ड (3-Day Unlimited Transit Pass)
+					tourist_card_3day: {
+						type: "flat_pass",
+						cost: "<integer: upfront_purchase_price>",                            // e.g. 500
+						travelValue: "<integer: usable_travel_credit>",                       // e.g. 450
+						refundableDeposit: "<integer: security_deposit>",                     // e.g. 50
+						validityDays: "<integer: duration_days>",                             // e.g. 3
+						maxRides: "<integer_or_null: max_rides_cap_null_means_unlimited>",    // null = Unlimited
+						excludedLines: [
+							"<string: line_id_slug>"
+						]
+					},
+
+					// 6. ट्रिप / मासिक पास (Trip / Monthly Commuter Pass e.g. MMOPL Mumbai 45-Trips)
+					trip_pass_45: {
+						type: "trip_pass",
+						trips: "<integer: total_trips_allowed>",                              // e.g. 45
+						validityDays: "<integer: duration_validity_days>",                    // e.g. 30
+						discountPercent: "<number_or_null: percentage_discount>"              // e.g. 20
+					},
+
+					// 7. विशेष रियायती पास (Concession Pass: Students, Senior Citizens, Divyangjan)
+					concessions: {
+						type: "concession",
+						discountPercent: "<number: concession_discount_percentage>",          // e.g. 25
+						categories: [                                                         // Eligible passenger categories
+							"<string: category_key>"                                          // "student", "senior_citizen", "divyangjan"
+						]
+					},
+
+					// 8. डिजिटल क्यूआर टिकट (Paperless QR Ticket via Mobile App / WhatsApp)
+					qr_ticket: {
+						type: "digital",
+						validityMinutes: "<integer: gate_entry_validity_window_minutes>",     // e.g. 60
+						discountPercent: "<number: percentage_discount_vs_token>",            // e.g. 0 or 20
+						channels: [                                                           // Supported purchase channels
+							"<string: channel_slug>"                                          // e.g. "official_app", "whatsapp", "paytm", "amazon_pay"
+						]
+					},
+
+					// 9. नेशनल कॉमन मोबिलिटी कार्ड (RuPay NCMC Interoperable Standard)
+					ncmc_card: {
+						type: "interoperable",
+						discountPercent: "<number: ncmc_discount_percentage>",                // e.g. 10
+						weekendDiscountPercent: "<number_or_null: weekend_discount_percent>", // e.g. 25
+						minBalance: "<integer: min_bank_account_wallet_balance>"              // e.g. 50
 					}
 				},
 
@@ -616,6 +709,11 @@ export const LocalizedTransitPackSchema = {
 	// Transit network operators display titles
 	networks: {
 		"<network_id_slug>": "<string: translated_agency_name>" // e.g. "dmrc": "दिल्ली मेट्रो"
+	},
+
+	// Fare Policy Tabs display titles (e.g. Line 1, Airport Express, Namo Bharat)
+	policies: {
+		"<policy_id_slug>": "<string: translated_policy_title>" // e.g. "dmrc_standard": "दिल्ली मेट्रो (DMRC)", "mmopl_line1": "लाइन 1 (वर्सोवा - घाटकोपर)"
 	},
 
 	// Line names and badges

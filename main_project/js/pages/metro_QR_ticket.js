@@ -10,7 +10,8 @@ import { FooterComponent } from "../components/Footer.js";
 import { Toast } from "../components/Toast.js";
 import { eventBus } from "../core/event-bus.js";
 import { appStateStore } from "../core/app-state-store.js";
-import i18n from "../core/i18n.js";
+import { centerClass } from "../core/CenterClass.js";
+
 
 // DOM Ready initialization
 document.addEventListener('DOMContentLoaded', () => {
@@ -93,7 +94,7 @@ class TicketWalletApp {
 			if (this.#state.activeTicketId) {
 				const activeRecord = this.#state.history.find(t => t.id === this.#state.activeTicketId);
 				if (activeRecord && activeRecord.expiresAt <= Date.now()) {
-					this.#dom.passCountdown.textContent = i18n.t('metroTicket.cards.history.statusExpired');
+					this.#dom.passCountdown.textContent = centerClass.t('metroTicket.cards.history.statusExpired');
 				}
 			}
 		});
@@ -167,7 +168,7 @@ class TicketWalletApp {
 	async #handleClipboardPaste() {
 		try {
 			if (!navigator.clipboard?.read) {
-				this.#showToast(i18n.t('metroTicket.toast.selectImage'));
+				this.#showToast(centerClass.t('metroTicket.toast.selectImage'));
 				this.#dom.fileInput.click();
 				return;
 			}
@@ -186,10 +187,10 @@ class TicketWalletApp {
 			}
 
 			if (!foundImage) {
-				this.#showToast(i18n.t('metroTicket.toast.noClipboard'));
+				this.#showToast(centerClass.t('metroTicket.toast.noClipboard'));
 			}
 		} catch (err) {
-			this.#showToast(i18n.t('metroTicket.toast.selectingFile'));
+			this.#showToast(centerClass.t('metroTicket.toast.selectingFile'));
 			this.#dom.fileInput.click();
 		}
 	}
@@ -265,7 +266,7 @@ class TicketWalletApp {
 
 	async #openLiveCameraModal() {
 		if (!navigator.mediaDevices?.getUserMedia) {
-			this.#showToast(i18n.t('metroTicket.toast.cameraError'), 'error');
+			this.#showToast(centerClass.t('metroTicket.toast.cameraError'), 'error');
 			this.#dom.fileInput.click();
 			return;
 		}
@@ -296,7 +297,7 @@ class TicketWalletApp {
 		} catch (err) {
 			console.error('Camera stream error:', err);
 			this.#closeCameraModal();
-			this.#showToast(i18n.t('metroTicket.toast.cameraPermissionDenied'), 'error');
+			this.#showToast(centerClass.t('metroTicket.toast.cameraPermissionDenied'), 'error');
 		}
 	}
 
@@ -396,7 +397,7 @@ class TicketWalletApp {
 
 
 	async #processImageFile(fileOrBlob) {
-		this.#showToast(i18n.t('metroTicket.toast.scanning'));
+		this.#showToast(centerClass.t('metroTicket.toast.scanning'));
 		const img = new Image();
 		const objectUrl = URL.createObjectURL(fileOrBlob);
 
@@ -409,18 +410,18 @@ class TicketWalletApp {
 		};
 		img.onerror = () => {
 			URL.revokeObjectURL(objectUrl);
-			this.#showToast(i18n.t('metroTicket.toast.errorLoading'), 'error');
+			this.#showToast(centerClass.t('metroTicket.toast.errorLoading'), 'error');
 		};
 		img.src = objectUrl;
 	}
 	
 	async #processNativeImage(webPath) {
-		this.#showToast(i18n.t('metroTicket.toast.scanning'));
+		this.#showToast(centerClass.t('metroTicket.toast.scanning'));
 		const img = new Image();
 		img.onload = async () => {
 			await this.#downscaleAndScan(img);
 		};
-		img.onerror = () => this.#showToast(i18n.t('metroTicket.toast.errorLoading'), 'error');
+		img.onerror = () => this.#showToast(centerClass.t('metroTicket.toast.errorLoading'), 'error');
 		img.src = webPath;
 	}
 
@@ -686,7 +687,7 @@ class TicketWalletApp {
 		};
 
 		this.#addNewTicketToWallet(newTicket);
-		this.#showToast(i18n.t('metroTicket.toast.qrGenerated', { engine: engineName }));
+		this.#showToast(centerClass.t('metroTicket.toast.qrGenerated', { engine: engineName }));
 	}
 
 	#finalizeRawImagePass(originalDataUrl) {
@@ -707,7 +708,7 @@ class TicketWalletApp {
 		};
 
 		this.#addNewTicketToWallet(newTicket);
-		this.#showToast(i18n.t('metroTicket.toast.qrNotDetected'), 'warning');
+		this.#showToast(centerClass.t('metroTicket.toast.qrNotDetected'), 'warning');
 	}
 
 	#addNewTicketToWallet(newTicket) {
@@ -762,7 +763,7 @@ class TicketWalletApp {
 		if (this.#dom.ingestionCard) this.#dom.ingestionCard.hidden = true;
 
 		if (ticket.type === 'VECTOR_QR' && ticket.tokenText) {
-			this.#dom.passQrSubtitle.textContent = i18n.t('metroTicket.cards.pass.turnstileSubtitle');
+			this.#dom.passQrSubtitle.textContent = centerClass.t('metroTicket.cards.pass.turnstileSubtitle');
 			this.#renderVectorQrToCanvas(this.#dom.qrDisplayCanvas, ticket.tokenText);
 			// स्क्रीन पर रेंडर हुआ QR कोड सीधे TVM के लिए सेव करें
 			ticket.cleanQrDataUrl = this.#dom.qrDisplayCanvas.toDataURL('image/png');
@@ -833,7 +834,7 @@ class TicketWalletApp {
 		const updateTimer = () => {
 			const remainingMs = expiresAt - Date.now();
 			if (remainingMs <= 0) {
-				this.#dom.passCountdown.textContent = i18n.t('metroTicket.cards.history.statusExpired');
+				this.#dom.passCountdown.textContent = centerClass.t('metroTicket.cards.history.statusExpired');
 				this.#dom.passCountdown.classList.add('expired');
 				clearInterval(this.#state.timerIntervalId);
 				this.#state.timerIntervalId = null;
@@ -862,7 +863,7 @@ class TicketWalletApp {
 		if (total === 0) {
 			this.#dom.historyListContainer.innerHTML = `
 				<div class="history-empty-state" data-i18n="metroTicket.cards.history.empty">
-					${i18n.t('metroTicket.cards.history.empty')}
+					${centerClass.t('metroTicket.cards.history.empty')}
 				</div>
 			`;
 			return;
@@ -875,11 +876,11 @@ class TicketWalletApp {
 
 			let statusPill = '';
 			if (isActive) {
-				statusPill = `<span class="history-status-pill active">● ${i18n.t('metroTicket.cards.history.statusActive')}</span>`;
+				statusPill = `<span class="history-status-pill active">● ${centerClass.t('metroTicket.cards.history.statusActive')}</span>`;
 			} else if (isExpired) {
-				statusPill = `<span class="history-status-pill expired">${i18n.t('metroTicket.cards.history.statusExpired')}</span>`;
+				statusPill = `<span class="history-status-pill expired">${centerClass.t('metroTicket.cards.history.statusExpired')}</span>`;
 			} else {
-				statusPill = `<span class="history-status-pill archived">${i18n.t('metroTicket.cards.history.statusArchived')}</span>`;
+				statusPill = `<span class="history-status-pill archived">${centerClass.t('metroTicket.cards.history.statusArchived')}</span>`;
 			}
 
 			return `
@@ -897,10 +898,10 @@ class TicketWalletApp {
 					<div class="history-item-actions">
 						${!isActive ? `
 							<button type="button" class="btn-restore-ticket" data-restore-id="${item.id}">
-								${i18n.t('metroTicket.cards.history.btnRestore')}
+								${centerClass.t('metroTicket.cards.history.btnRestore')}
 							</button>
 						` : ''}
-						<button type="button" class="btn-delete-history-item" data-delete-id="${item.id}" title="${i18n.t('metroTicket.cards.history.btnDelete')}" aria-label="${i18n.t('metroTicket.cards.history.btnDelete')}">🗑️</button>
+						<button type="button" class="btn-delete-history-item" data-delete-id="${item.id}" title="${centerClass.t('metroTicket.cards.history.btnDelete')}" aria-label="${centerClass.t('metroTicket.cards.history.btnDelete')}">🗑️</button>
 					</div>
 				</div>
 			`;
@@ -932,7 +933,7 @@ class TicketWalletApp {
 		this.#renderHistoryList();
 
 		this.#dom.passCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-		this.#showToast(i18n.t('metroTicket.toast.restoredToGatePass'));
+		this.#showToast(centerClass.t('metroTicket.toast.restoredToGatePass'));
 	}
 
 	#deleteTicketFromHistory(ticketId) {
@@ -943,7 +944,7 @@ class TicketWalletApp {
 		this.#persistStore();
 		this.#renderActivePassCard();
 		this.#renderHistoryList();
-		this.#showToast(i18n.t('metroTicket.toast.deletedFromHistory'));
+		this.#showToast(centerClass.t('metroTicket.toast.deletedFromHistory'));
 	}
 
 	#archiveActiveTicket() {
@@ -952,20 +953,20 @@ class TicketWalletApp {
 		this.#persistStore();
 		this.#renderActivePassCard();
 		this.#renderHistoryList();
-		this.#showToast(i18n.t('metroTicket.toast.movedToHistory'));
+		this.#showToast(centerClass.t('metroTicket.toast.movedToHistory'));
 	}
 
 	#promptClearAllHistory() {
 		this.#openConfirmModal(
-			i18n.t('metroTicket.modals.confirm.title'),
-			i18n.t('metroTicket.modals.confirm.clearAllDesc'),
+			centerClass.t('metroTicket.modals.confirm.title'),
+			centerClass.t('metroTicket.modals.confirm.clearAllDesc'),
 			() => {
 				this.#state.history = [];
 				this.#state.activeTicketId = null;
 				this.#persistStore();
 				this.#renderActivePassCard();
 				this.#renderHistoryList();
-				this.#showToast(i18n.t('metroTicket.toast.allCleared'));
+				this.#showToast(centerClass.t('metroTicket.toast.allCleared'));
 			}
 		);
 	}
@@ -994,7 +995,7 @@ class TicketWalletApp {
 		if (!this.#state.activeTicketId) return;
 		const active = this.#state.history.find(t => t.id === this.#state.activeTicketId);
 		if (!active?.originalImage) {
-			this.#showToast(i18n.t('metroTicket.toast.noOriginalImage'));
+			this.#showToast(centerClass.t('metroTicket.toast.noOriginalImage'));
 			return;
 		}
 

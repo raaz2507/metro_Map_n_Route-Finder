@@ -5,8 +5,9 @@
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { appStateStore } from "../core/app-state-store.js";
-import { eventBus } from "../core/event-bus.js"; 
-import i18n from "../core/i18n.js";
+import { eventBus } from "../core/event-bus.js";
+import { centerClass } from "../core/CenterClass.js"; 
+
 
 class AboutController {
 	// Private DOM handles
@@ -119,21 +120,21 @@ class AboutController {
 		copyFeedbackBtn?.addEventListener("click", async () => {
 			const details = feedbackDetails?.value?.trim();
 			if (!details) {
-				this.#showToast(i18n.t("about.feedbackModal.requireDetails"));
+				this.#showToast(centerClass.t("about.feedbackModal.requireDetails"));
 				feedbackDetails?.focus();
 				return;
 			}
 
 			const reportPayload = this.#generateReportText();
 			await this.#copyToClipboard(reportPayload);
-			this.#showToast(i18n.t("about.feedbackModal.copiedToast"));
+			this.#showToast(centerClass.t("about.feedbackModal.copiedToast"));
 		});
 
 		submitFeedbackEmailBtn?.addEventListener("click", (e) => {
 			e.preventDefault();
 			const details = feedbackDetails?.value?.trim();
 			if (!details) {
-				this.#showToast(i18n.t("about.feedbackModal.requireDetails"));
+				this.#showToast(centerClass.t("about.feedbackModal.requireDetails"));
 				feedbackDetails?.focus();
 				return;
 			}
@@ -143,7 +144,7 @@ class AboutController {
 			const body = encodeURIComponent(this.#generateReportText());
 			const mailtoUrl = `mailto:support@yatramarg.in?subject=${subject}&body=${body}`;
 
-			this.#showToast(i18n.t("about.feedbackModal.sendingToast"));
+			this.#showToast(centerClass.t("about.feedbackModal.sendingToast"));
 			setTimeout(() => {
 				window.location.href = mailtoUrl;
 			}, 400);

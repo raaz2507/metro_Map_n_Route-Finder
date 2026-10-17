@@ -1,14 +1,18 @@
 {
 	"networks": {
-		"gmrc": ""
+		"gmrc": "ગુજરાત મેટ્રો રેલ કોર્પોરેશન (GMRC)",
+		"ahmedabad_metro": "અમદાવાદ મેટ્રો (GMRC)"
+	},
+	"policies": {
+		"gmrc_standard": "અમદાવાદ મેટ્રો (GMRC)"
 	},
 	"lines": {
 		"gmrc.blue": {"name": "બ્લુ લાઇન", "short_name": "બ્લુ લાઇન"},
 		"gmrc.red": {"name": "રેડ લાઇન", "short_name": "રેડ લાઇન"},
-		"gmrc.yellow": {"name": "ગાંધીનગર એક્સટેન્શન (યલો લાઇન)", "short_name": "ગાંધીનગર એક્સટેન્શન (યલો લાઇન)"},
-		"gmrc.violet": {"name": "ગિફ્ટ સિટી બ્રાન્ચ (વાયોલેટ લાઇન)", "short_name": "ગિફ્ટ સિટી બ્રાન્ચ (વાયોલેટ લાઇન)"},
-		"gmrc.airport": {"name": "એરપોર્ટ લાઇન (ફેઝ 2A)", "short_name": "એરપોર્ટ લાઇન (ફેઝ 2A)"},
-		"gmrc.biotech": {"name": "બાયોટેક એક્સટેન્શન (ફેઝ 2B)", "short_name": "બાયોટેક એક્સટેન્શન (ફેઝ 2B)"}
+		"gmrc.yellow": {"name": "ગાંધીનગર એક્સટેન્શન (યલો લાઇન)", "short_name": "યલો લાઇન"},
+		"gmrc.violet": {"name": "ગિફ્ટ સિટી બ્રાન્ચ (વાયોલેટ લાઇન)", "short_name": "વાયોલેટ લાઇન"},
+		"gmrc.airport": {"name": "એરપોર્ટ લાઇન", "short_name": "એરપોર્ટ લાઇન"},
+		"gmrc.biotech": {"name": "બાયોટેક એક્સટેન્શન", "short_name": "બાયોટેક લાઇન"}
 	},
 	"stations": {
 		"aec": {
@@ -33,7 +37,7 @@
 			"landmarks": []
 		},
 		"amraivadi": {
-			"name": "Amraivadi",
+			"name": "અમરાઈવાડી",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -208,7 +212,7 @@
 			"landmarks": []
 		},
 		"mahatama_mandir": {
-			"name": "Mahatama Mandir",
+			"name": "મહાત્મા મંદિર",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -327,28 +331,28 @@
 			"landmarks": []
 		},
 		"sector_1": {
-			"name": "Sector-1",
+			"name": "સેક્ટર 1",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sector_10a": {
-			"name": "Sector 10A",
+			"name": "સેક્ટર 10A",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sector_16": {
-			"name": "Sector-16",
+			"name": "સેક્ટર 16",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sector_24": {
-			"name": "Sector-24",
+			"name": "સેક્ટર 24",
 			"aliases": [],
 			"description": "",
 			"gates": {},

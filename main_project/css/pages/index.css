@@ -77,33 +77,18 @@
 			#speedometer-widget,
 			#zoomControls,
 			#telemetrySignalCard,
-			.metro-btn-overlay
+			.metro-btn-overlay,
+			.clear-route-highlight-btn,
+			.map-top-right-controls
 		) {
 			opacity: 0;
 			visibility: hidden;
 			pointer-events: none;
-			transform: translateY(16px);
+			transform: translateY(var(--space-lg));
 			transition: 
 				opacity var(--transition-smooth), 
 				transform var(--transition-smooth), 
 				visibility 0s var(--duration-normal);
-		}
-
-		/* 📱 मोबाइल पर बिना !important के 100% ओवरराइड होने वाला स्टाइल */
-		.speedometer-widget {
-			bottom: 220px;
-			right: 5px;
-			width: 62px;
-			height: 52px;
-			border-radius: var(--radius-full); /* 👈 स्मूथ पिल कैप्सूल शेप */
-		}
-		.speedometer-widget .speed-number {
-			font-size: 0.95rem;
-			letter-spacing: -0.5px;
-		}
-		.speedometer-widget .speed-unit {
-			font-size: 0.5rem;
-			margin-top: 1px;
 		}
 	}
 }
@@ -119,7 +104,8 @@
 		.alarm-widget-wrapper,
 		#telemetrySignalCard,
 		#speedometer-widget,
-		#zoomControls
+		#zoomControls,
+		.clear-route-highlight-btn
 	),
 	body:has(.legend-panel.active) :is(
 		#sidebar-nav,
@@ -127,12 +113,13 @@
 		.alarm-widget-wrapper,
 		#telemetrySignalCard,
 		#speedometer-widget,
-		#zoomControls
+		#zoomControls,
+		.clear-route-highlight-btn
 	) {
 		opacity: 0;
 		visibility: hidden;
 		pointer-events: none;
-		transform: translateY(16px);
+		transform: translateY(var(--space-lg));
 		transition: 
 			opacity var(--transition-smooth), 
 			transform var(--transition-smooth), 

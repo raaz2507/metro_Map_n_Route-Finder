@@ -1,5 +1,10 @@
 // /lang/en/home.js
 export default {
+	pageTitle: "Metro Map & Route Finder | YatraMarg",
+	meta: {
+		title: "Metro Map & Route Finder | YatraMarg",
+		desc: "Find the best metro routes, ticket fares, travel time, and intermediate stations easily with interactive transit maps."
+	},
 	// 1. Navigation Bars (Exclusive to Home)
 	navSidebar: {
 		route: "Find Route",
@@ -49,6 +54,7 @@ export default {
 			firstTrain: "First Train",
 			lastTrain: "Last Train",
 			directionText: "Towards {terminal} · Platform {platform}",
+			changeTo: "Change to {line}",
 			splitFareTitle: "Split Fare & Ticket Breakdown",
 			splitFareSubtitle: "Tap to view fares for {count} individual line segments",
 			smartCardSavings: "Save ₹{amount} using Smart Card!"

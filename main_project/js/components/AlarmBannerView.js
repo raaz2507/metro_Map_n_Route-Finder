@@ -6,7 +6,7 @@
 import { centerClass } from "../core/CenterClass.js";
 import { eventBus } from "../core/event-bus.js";
 import { appStateStore } from "../core/app-state-store.js";
-import i18n from "../core/i18n.js";
+
 
 export class AlarmBannerView {
 	#elements = {};
@@ -50,7 +50,7 @@ export class AlarmBannerView {
 		el.btnDismiss?.addEventListener("click", () => {
 			centerClass.dismissAlarm();
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.alarmBanner.dismissToast") || "🔔 अगला अलर्ट: गंतव्य स्टेशन",
+				message: centerClass.t("pages.home.alarmBanner.dismissToast"),
 				type: "success"
 			});
 		}, { signal });
@@ -59,7 +59,7 @@ export class AlarmBannerView {
 		el.btnSnooze?.addEventListener("click", () => {
 			centerClass.snoozeAlarm(2);
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.alarmBanner.snoozeToast") || "⏱️ अलार्म 2 मिनट के लिए स्नूज़ किया गया",
+				message: centerClass.t("pages.home.alarmBanner.snoozeToast"),
 				type: "warning"
 			});
 		}, { signal });
@@ -130,7 +130,7 @@ export class AlarmBannerView {
 					? "pages.home.gps.unavailable" 
 					: "pages.home.gps.gpsFallbackWarning");
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t(fallbackKey) || "⚠️ GPS unavailable. Using estimated travel time.",
+				message: centerClass.t(fallbackKey),
 				type: "warning"
 			});
 		}
@@ -187,7 +187,7 @@ export class AlarmBannerView {
 				this.#resetStationNameDisplay();
 			}
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.alarmBanner.stoppedToast") || "🛑 लाइव अलार्म बंद किया गया",
+				message: centerClass.t("pages.home.alarmBanner.stoppedToast"),
 				type: "info"
 			});
 			return;
@@ -212,7 +212,7 @@ export class AlarmBannerView {
 
 		if (!activeRoute) {
 			eventBus.emit("SHOW_TOAST", {
-				message: i18n.t("pages.home.toast.alarm.noRoute") || "⚠️ अलार्म सक्रिय करने के लिए पहले रूट खोजें",
+				message: centerClass.t("pages.home.toast.alarm.noRoute"),
 				type: "warning"
 			});
 			return;
@@ -236,7 +236,7 @@ export class AlarmBannerView {
 		this.#populateTargetInfoFromRoute(activeRoute);
 
 		eventBus.emit("SHOW_TOAST", {
-			message: i18n.t("pages.home.alarmBanner.enabledToast") || "🔔 लाइव यात्रा अलार्म सक्रिय है",
+			message: centerClass.t("pages.home.alarmBanner.enabledToast"),
 			type: "success"
 		});
 	}
@@ -284,20 +284,14 @@ export class AlarmBannerView {
 		const el = this.#elements.stationName;
 		if (!el) return;
 		el.setAttribute("data-i18n", "pages.home.alarmBanner.noAlarmSet");
-		el.textContent = i18n.t("pages.home.alarmBanner.noAlarmSet") || "No Alarm Set";
+		el.textContent = centerClass.t("pages.home.alarmBanner.noAlarmSet");
 	}
 
 	/**
 	 * 🌐 सुरक्षित भाषा कोड एक्सट्रैक्टर (Getter vs Method Type-Safe)
 	 */
 	#getCurrentLang() {
-		if (typeof i18n.getLanguage === "function") {
-			return i18n.getLanguage();
-		}
-		if (typeof i18n.getLanguage === "string") {
-			return i18n.getLanguage;
-		}
-		return appStateStore.getState("currentLang") || "en";
+		return centerClass.currentLanguage || appStateStore.getState("currentLang") || "en";
 	}
 
 	/**
@@ -327,7 +321,7 @@ export class AlarmBannerView {
 
 		if (el.statusLabel) {
 			const statusKey = isArmed ? "pages.home.alarmBanner.statusRunning" : "pages.home.alarmBanner.statusStandby";
-			el.statusLabel.textContent = i18n.t(statusKey) || (isArmed ? "RUNNING" : "STANDBY");
+			el.statusLabel.textContent = centerClass.t(statusKey) || (isArmed ? "RUNNING" : "STANDBY");
 		}
 
 		if (!isArmed && el.liveDistance) {

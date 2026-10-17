@@ -1,19 +1,31 @@
 {
 	"city": "nagpur",
 	"city_name": "Nagpur",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
-		"women_safety": "1090",
-		"ambulance": "102"
+		"women_safety": "1091",
+		"ambulance": "108"
 	},
 	"networks": {
 		"nagpur_metro": {
-			"network_name": "Nagpur Metro",
-			"operator": "Maha Metro",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"network_name": "Nagpur Metro (Maha Metro)",
+			"operator": "Maharashtra Metro Rail Corporation Limited (MahaMetro)",
+			"helplines": {
+				"toll_free": "1800 2700 557",
+				"central_passenger_helpline": "741 000 4333",
+				"whatsapp_support": "86248 88568",
+				"head_office": "0712-2554217",
+				"women_safety": "1091",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://www.metrorailnagpur.com/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Lost & Found Cell, Concourse Level, Jhansi Rani Square Metro Station, Nagpur",
+				"operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
 		}
 	}
 }

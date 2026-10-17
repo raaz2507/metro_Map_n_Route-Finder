@@ -1,20 +1,14 @@
 {
 	"networks": {
-		"hmrl": "L&T Metro Rail (Hyderabad) Limited / HMRL"
+		"hmrl": "Hyderabad Metro (HMRL)"
+	},
+	"policies": {
+		"hmrl_standard": "Hyderabad Metro (HMRL)"
 	},
 	"lines": {
-		"hmrl.red": {
-			"name": "Red Line",
-			"short_name": "Red Line"
-		},
-		"hmrl.blue": {
-			"name": "Blue Line",
-			"short_name": "Blue Line"
-		},
-		"hmrl.green": {
-			"name": "Green Line",
-			"short_name": "Green Line"
-		}
+		"hmrl.red": {"name": "Red Line", "short_name": "Red Line"},
+		"hmrl.blue": {"name": "Blue Line", "short_name": "Blue Line"},
+		"hmrl.green": {"name": "Green Line", "short_name": "Green Line"}
 	},
 	"stations": {
 		"ameerpet": {
@@ -355,19 +349,14 @@
 		},
 		"secunderabad-east": {
 			"name": "Secunderabad East",
-			"aliases": [
-				"Secunderabad Railway Station",
-				"Secunderabad Junction"
-			],
+			"aliases": ["Secunderabad Railway Station", "Secunderabad Junction"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"secunderabad-west": {
 			"name": "Secunderabad West",
-			"aliases": [
-				"Secunderabad Railway Station West"
-			],
+			"aliases": ["Secunderabad Railway Station West"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
@@ -416,6 +405,20 @@
 		},
 		"yusufguda": {
 			"name": "Yusufguda",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"secunderabad-railway-station": {
+			"name": "Secunderabad-Railway-Station",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"m-g-bus-station": {
+			"name": "M-G-Bus-Station",
 			"aliases": [],
 			"description": "",
 			"gates": {},

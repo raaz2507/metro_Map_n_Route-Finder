@@ -8,7 +8,8 @@ import { FooterComponent } from "../components/Footer.js";
 import { BaseSearchEngine } from "../services/search/BaseSearchEngine.js";
 import { LivePreviewService } from "../services/LivePreviewService.js";
 import { appStateStore } from "../core/app-state-store.js";
-import i18n from "../core/i18n.js";
+import { centerClass } from "../core/CenterClass.js";
+
 
 class HelpController extends BaseSearchEngine {
 	// Private State Fields
@@ -53,14 +54,14 @@ class HelpController extends BaseSearchEngine {
 		// 8. Subscribe to Dynamic Language Switch
 		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
 			if (this.#dom.searchInput) {
-				this.#dom.searchInput.placeholder = i18n.t("help.hero.searchPlaceholder");
+				this.#dom.searchInput.placeholder = centerClass.t("help.hero.searchPlaceholder");
 			}
 			const mobileIndexLabel = document.querySelector("#mobileIndexBtn .mobile-bar-label");
-			if (mobileIndexLabel) mobileIndexLabel.textContent = i18n.t("help.mobileBar.index");
+			if (mobileIndexLabel) mobileIndexLabel.textContent = centerClass.t("help.mobileBar.index");
 			const mobileSearchLabel = document.querySelector("#mobileSearchBtn .mobile-bar-label");
-			if (mobileSearchLabel) mobileSearchLabel.textContent = i18n.t("help.mobileBar.search");
+			if (mobileSearchLabel) mobileSearchLabel.textContent = centerClass.t("help.mobileBar.search");
 			const quickIndexLabel = document.querySelector(".sidebar-heading-badge [data-i18n]");
-			if (quickIndexLabel) quickIndexLabel.textContent = i18n.t("help.sidebar.quickIndex");
+			if (quickIndexLabel) quickIndexLabel.textContent = centerClass.t("help.sidebar.quickIndex");
 
 			// Re-translate live UI component previews
 			LivePreviewService.mountAll();
@@ -248,13 +249,13 @@ class HelpController extends BaseSearchEngine {
 				searchStats?.classList.add("hidden");
 				if (emptyStateDesc) {
 					const sanitizedQuery = this.escapeHTML(query);
-					emptyStateDesc.textContent = i18n.t("help.emptyState.desc", { query: sanitizedQuery });
+					emptyStateDesc.textContent = centerClass.t("help.emptyState.desc", { query: sanitizedQuery });
 				}
 			} else {
 				emptyState?.classList.add("hidden");
 				searchStats?.classList.remove("hidden");
 				if (searchStats) {
-					searchStats.textContent = i18n.t("help.hero.searchStats", { count });
+					searchStats.textContent = centerClass.t("help.hero.searchStats", { count });
 				}
 			}
 		} else {
@@ -310,7 +311,7 @@ class HelpController extends BaseSearchEngine {
 						? btn.getAttribute("data-less-key") 
 						: btn.getAttribute("data-more-key");
 					if (targetKey) {
-						labelSpan.textContent = i18n.t(targetKey);
+						labelSpan.textContent = centerClass.t(targetKey);
 						labelSpan.setAttribute("data-i18n", targetKey);
 					}
 				}

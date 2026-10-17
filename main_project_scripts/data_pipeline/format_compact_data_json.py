@@ -62,7 +62,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 TARGET_FILES = [
 	"transit_network.json",
-	"transit_network_auto.json",
+	"staging_buffer.json",
 	"station_details.json",
 	"passenger_support.json"
 ]

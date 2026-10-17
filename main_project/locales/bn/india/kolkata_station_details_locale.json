@@ -1,13 +1,16 @@
 {
 	"networks": {
-		"kolkata_metro": ""
+		"kolkata_metro": "কলকাতা মেট্রো"
+	},
+	"policies": {
+		"kolkata_metro_standard": "কলকাতা মেট্রো"
 	},
 	"lines": {
-		"kolkata_metro.blue": {"name": "ব্লু লাইন (লাইন ১)", "short_name": "ব্লু লাইন (লাইন ১)"},
-		"kolkata_metro.green": {"name": "গ্রিন লাইন (লাইন ২)", "short_name": "গ্রিন লাইন (লাইন ২)"},
-		"kolkata_metro.orange": {"name": "অরেঞ্জ লাইন (লাইন ৬)", "short_name": "অরেঞ্জ লাইন (লাইন ৬)"},
-		"kolkata_metro.purple": {"name": "পার্পল লাইন (লাইন ৩)", "short_name": "পার্পল লাইন (লাইন ৩)"},
-		"kolkata_metro.yellow": {"name": "ইয়েলো লাইন (লাইন ৪)", "short_name": "ইয়েলো লাইন (লাইন ৪)"}
+		"kolkata_metro.blue": {"name": "ব্লু লাইন (লাইন ১)", "short_name": "ব্লু লাইন"},
+		"kolkata_metro.green": {"name": "গ্রিন লাইন (লাইন ২)", "short_name": "গ্রিন লাইন"},
+		"kolkata_metro.orange": {"name": "অরেঞ্জ লাইন (লাইন ৬)", "short_name": "অরেঞ্জ লাইন"},
+		"kolkata_metro.purple": {"name": "পার্পল লাইন (লাইন ৩)", "short_name": "পার্পল লাইন"},
+		"kolkata_metro.yellow": {"name": "ইয়েলো লাইন (লাইন ৪)", "short_name": "ইয়েলো লাইন"}
 	},
 	"stations": {
 		"baranagar": {

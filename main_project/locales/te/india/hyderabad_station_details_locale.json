@@ -1,20 +1,14 @@
 {
 	"networks": {
-		"hmrl": ""
+		"hmrl": "హైదరాబాద్ మెట్రో (HMRL)"
+	},
+	"policies": {
+		"hmrl_standard": "హైదరాబాద్ మెట్రో (HMRL)"
 	},
 	"lines": {
-		"hmrl.red": {
-			"name": "రెడ్ లైన్",
-			"short_name": "రెడ్ లైన్"
-		},
-		"hmrl.blue": {
-			"name": "బ్లూ లైన్",
-			"short_name": "బ్లూ లైన్"
-		},
-		"hmrl.green": {
-			"name": "గ్రీన్ లైన్",
-			"short_name": "గ్రీన్ లైన్"
-		}
+		"hmrl.red": {"name": "రెడ్ లైన్", "short_name": "రెడ్ లైన్"},
+		"hmrl.blue": {"name": "బ్లూ లైన్", "short_name": "బ్లూ లైన్"},
+		"hmrl.green": {"name": "గ్రీన్ లైన్", "short_name": "గ్రీన్ లైన్"}
 	},
 	"stations": {
 		"ameerpet": {
@@ -355,19 +349,14 @@
 		},
 		"secunderabad-east": {
 			"name": "సికింద్రాబాద్ తూర్పు",
-			"aliases": [
-				"Secunderabad Railway Station",
-				"Secunderabad Junction"
-			],
+			"aliases": ["Secunderabad Railway Station", "Secunderabad Junction"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"secunderabad-west": {
 			"name": "సికింద్రాబాద్ వెస్ట్",
-			"aliases": [
-				"Secunderabad Railway Station West"
-			],
+			"aliases": ["Secunderabad Railway Station West"],
 			"description": "",
 			"gates": {},
 			"landmarks": []

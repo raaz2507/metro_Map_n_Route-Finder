@@ -8,7 +8,7 @@
  * - Preserves conversation context for seamless session resumption
  */
 
-import i18n from "../../core/i18n.js";
+import { centerClass } from "../../core/CenterClass.js";
 
 const STORAGE_KEY = "disha_chat_sessions";
 const MAX_TOTAL_CHATS = 25;
@@ -200,7 +200,7 @@ export class DishaAiChatStorage {
 	 * Smart title generator from first query text
 	 */
 	static generateSmartTitle(text) {
-		if (!text) return i18n.t("ai.newChat");
+		if (!text) return centerClass.t("ai.newChat");
 		const cleaned = text.trim();
 		if (cleaned.length <= 40) return cleaned;
 		return cleaned.slice(0, 37) + "...";

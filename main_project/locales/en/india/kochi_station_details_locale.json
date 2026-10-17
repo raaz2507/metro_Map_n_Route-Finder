@@ -1,10 +1,15 @@
 {
 	"networks": {
+		"kochi_metro": "Kochi Metro (KMRL)",
 		"kmrl": "Kochi Metro Rail Limited (KMRL)",
 		"kwml": "Kochi Water Metro Limited (KWML)"
 	},
+	"policies": {
+		"kmrl_standard": "Kochi Metro (KMRL)",
+		"kwml_water_standard": "Kochi Water Metro (KWML)"
+	},
 	"lines": {
-		"kmrl.blue": {"name": "Blue Line (Line 1)", "short_name": "Blue Line (Line 1)"}
+		"kmrl.blue": {"name": "Blue Line (Line 1)", "short_name": "Blue Line"}
 	},
 	"stations": {
 		"aluva": {

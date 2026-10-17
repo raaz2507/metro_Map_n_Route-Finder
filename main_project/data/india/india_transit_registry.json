@@ -178,6 +178,7 @@
 				"hi": "पश्चिम बंगाल"
 			},
 			"hasData": true,
+			"dataPath": "data/cities/kolkata",
 			"networks": {
 				"kolkata_metro": {
 					"name": {
@@ -189,7 +190,7 @@
 					"operator": "Metro Railway Kolkata / Indian Railways",
 					"website": "https://mtp.indianrailways.gov.in",
 					"hasData": true,
-					"dataPath": "kolkata_metro_data",
+					"dataPath": "data/cities/kolkata",
 					"icon": "assets/icons/networks/kolkata_metro.svg"
 				}
 			},
@@ -205,6 +206,7 @@
 				"hi": "कर्नाटक"
 			},
 			"hasData": true,
+			"dataPath": "data/cities/bengaluru",
 			"networks": {
 				"namma_metro": {
 					"name": {
@@ -216,7 +218,7 @@
 					"operator": "BMRCL",
 					"website": "https://english.bmrc.co.in",
 					"hasData": true,
-					"dataPath": "bengaluru_metro_data",
+					"dataPath": "data/cities/bengaluru",
 					"icon": "assets/icons/networks/Namma_metro.svg"
 				}
 			},
@@ -232,8 +234,9 @@
 				"hi": "तेलंगाना"
 			},
 			"hasData": true,
+			"dataPath": "data/cities/hyderabad",
 			"networks": {
-				"hyderabad_metro": {
+				"hmrl": {
 					"name": {
 						"en": "Hyderabad Metro",
 						"hi": "हैदराबाद मेट्रो"
@@ -241,9 +244,9 @@
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "L&T Metro Rail / HMRL",
-					"website": "https://www.ltmetro.com",
+					"website": "https://ltmetro.com",
 					"hasData": true,
-					"dataPath": "hyderabad_metro_data",
+					"dataPath": "data/cities/hyderabad",
 					"icon": "assets/icons/networks/hyderabad_metro.svg"
 				}
 			},
@@ -327,6 +330,7 @@
 				"hi": "गुजरात"
 			},
 			"hasData": true,
+			"dataPath": "data/cities/ahmedabad_gandhinagar",
 			"networks": {
 				"ahmedabad_metro": {
 					"name": {
@@ -338,7 +342,7 @@
 					"operator": "GMRC",
 					"hasData": true,
 					"website": "https://www.gujaratmetrorail.com",
-					"dataPath": "ahmedabad_metro_data"
+					"dataPath": "data/cities/ahmedabad_gandhinagar"
 				}
 			},
 			"themeColor": "#F59E0B"
@@ -366,7 +370,7 @@
 					"website": "https://www.mahametro.org",
 					"hasData": true,
 					"dataPath": "data/cities/nagpur",
-					"icon": "assets/icons/networks/nagpur_metro.png"
+					"icon": "assets/icons/networks/nagpur_metro.svg"
 				}
 			},
 			"themeColor": "#D97706"
@@ -381,6 +385,7 @@
 				"hi": "महाराष्ट्र"
 			},
 			"hasData": true,
+			"dataPath": "data/cities/pune",
 			"networks": {
 				"pune_metro": {
 					"name": {
@@ -390,9 +395,10 @@
 					"mode": "Metro",
 					"status": "operational",
 					"operator": "Maha Metro / PMRDA",
-					"website": "https://www.mahametro.org",
-					"dataPath": "pune_metro_data",
-					"hasData": true
+					"website": "https://www.punemetrorail.org",
+					"dataPath": "data/cities/pune",
+					"hasData": true,
+					"icon": "assets/icons/networks/pune_metro.svg"
 				}
 			},
 			"themeColor": "#D97706"
@@ -407,6 +413,7 @@
 				"hi": "राजस्थान"
 			},
 			"hasData": true,
+			"dataPath": "data/cities/jaipur",
 			"networks": {
 				"jaipur_metro": {
 					"name": {
@@ -418,7 +425,7 @@
 					"operator": "JMRC",
 					"hasData": true,
 					"website": "https://transport.rajasthan.gov.in/jmrc",
-					"dataPath": "jaipur_metro_data"
+					"dataPath": "data/cities/jaipur"
 				}
 			},
 			"themeColor": "#E11D48"
@@ -489,6 +496,7 @@
 				"hi": "उत्तर प्रदेश"
 			},
 			"hasData": true,
+			"dataPath": "data/cities/agra",
 			"networks": {
 				"agra_metro": {
 					"name": {
@@ -500,7 +508,7 @@
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
 					"hasData": true,
-					"dataPath": "agra_metro_data",
+					"dataPath": "data/cities/agra",
 					"icon": "assets/icons/networks/up_metro.svg"
 				}
 			},

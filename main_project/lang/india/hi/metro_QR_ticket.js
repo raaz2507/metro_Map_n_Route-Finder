@@ -1,5 +1,6 @@
 // /lang/hi/metro_QR_ticket.js
 export default {
+	pageTitle: "मेट्रो पास वॉलेट | YatraMarg",
 	meta: {
 		title: "मेट्रो पास वॉलेट | YatraMarg",
 		desc: "ऑफ़लाइन डिजिटल मेट्रो QR पास वॉलेट। कागज़ी टिकट स्कैन करें या स्क्रीनशॉट पेस्ट करके हाई-कंट्रास्ट गेट पास बनाएं।"

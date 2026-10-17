@@ -2,6 +2,9 @@
 	"networks": {
 		"namma_metro": "ನಮ್ಮ ಮೆಟ್ರೋ (BMRCL)"
 	},
+	"policies": {
+		"bmrcl_standard": "ನಮ್ಮ ಮೆಟ್ರೋ (BMRCL)"
+	},
 	"lines": {
 		"bmrcl.purple": {"name": "ನೇರಳೆ ಮಾರ್ಗ", "short_name": "ನೇರಳೆ ಮಾರ್ಗ"},
 		"bmrcl.green": {"name": "ಹಸಿರು ಮಾರ್ಗ", "short_name": "ಹಸಿರು ಮಾರ್ಗ"},

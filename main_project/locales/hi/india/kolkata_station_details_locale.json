@@ -1,395 +1,398 @@
 {
 	"networks": {
-		"kolkata_metro": ""
+		"kolkata_metro": "कोलकाता मेट्रो"
+	},
+	"policies": {
+		"kolkata_metro_standard": "कोलकाता मेट्रो"
 	},
 	"lines": {
-		"kolkata_metro.blue": {"name": "", "short_name": ""},
-		"kolkata_metro.green": {"name": "", "short_name": ""},
-		"kolkata_metro.orange": {"name": "", "short_name": ""},
-		"kolkata_metro.purple": {"name": "", "short_name": ""},
-		"kolkata_metro.yellow": {"name": "", "short_name": ""}
+		"kolkata_metro.blue": {"name": "ब्लू लाइन (लाइन 1)", "short_name": "ब्लू लाइन"},
+		"kolkata_metro.green": {"name": "ग्रीन लाइन (लाइन 2)", "short_name": "ग्रीन लाइन"},
+		"kolkata_metro.orange": {"name": "ऑरेंज लाइन (लाइन 6)", "short_name": "ऑरेंज लाइन"},
+		"kolkata_metro.purple": {"name": "पर्पल लाइन (लाइन 3)", "short_name": "पर्पल लाइन"},
+		"kolkata_metro.yellow": {"name": "येलो लाइन (लाइन 4)", "short_name": "येलो लाइन"}
 	},
 	"stations": {
 		"baranagar": {
-			"name": "",
+			"name": "बरानगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"barun_sengupta": {
-			"name": "",
+			"name": "बरुण सेनगुप्त",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"behala_bazar": {
-			"name": "",
+			"name": "बेहाला बाजार",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"behala_chowrasta": {
-			"name": "",
+			"name": "बेहाला चौरास्ता",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"behala_sakherbazar": {
-			"name": "",
-			"aliases": [],
+			"name": "बेहाला सखेरबाजार",
+			"aliases": ["सखेरबाजार"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"beleghata": {
-			"name": "",
+			"name": "बेलेघाटा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"belgachhia": {
-			"name": "",
+			"name": "बेलगाछिया",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bengal_chemical": {
-			"name": "",
+			"name": "बंगाल केमिकल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"central": {
-			"name": "",
+			"name": "सेंट्रल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"central_park": {
-			"name": "",
+			"name": "सेंट्रल पार्क",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chandni_chowk": {
-			"name": "",
+			"name": "चांदनी चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"city_center": {
-			"name": "",
+			"name": "सिटी सेंटर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dakshineswar": {
-			"name": "",
-			"aliases": [],
+			"name": "दक्षिणेश्वर",
+			"aliases": ["दक्षिणेश्वर काली मंदिर"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dum_dum": {
-			"name": "",
-			"aliases": [],
+			"name": "दमदम",
+			"aliases": ["दमदम जंक्शन"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dum_dum_cantonment": {
-			"name": "",
-			"aliases": [],
+			"name": "दमदम छावनी",
+			"aliases": ["दमदम कैंट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"esplanade": {
-			"name": "",
-			"aliases": [],
+			"name": "एस्प्लेनेड",
+			"aliases": ["धर्मतल्ला"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"girish_park": {
-			"name": "",
+			"name": "गिरीश पार्क",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gitanjali": {
-			"name": "",
-			"aliases": [],
+			"name": "गीतांजलि (नाक्तला)",
+			"aliases": ["नाक्तला"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"hemanta_mukhopadhyay": {
-			"name": "",
-			"aliases": [],
+			"name": "हेमंत मुखोपाध्याय (रूबी)",
+			"aliases": ["रूबी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"howrah": {
-			"name": "",
-			"aliases": [],
+			"name": "हावड़ा",
+			"aliases": ["हावड़ा रेलवे स्टेशन"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"howrah_maidan": {
-			"name": "",
+			"name": "हावड़ा मैदान",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jai_hind": {
-			"name": "",
-			"aliases": [],
+			"name": "जय हिंद (विमानक्षेत्र)",
+			"aliases": ["कोलकाता एयरपोर्ट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jatin_das_park": {
-			"name": "",
-			"aliases": [],
+			"name": "जतिन दास पार्क",
+			"aliases": ["हजरा"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jessore_road": {
-			"name": "",
+			"name": "जेसोर रोड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"joka": {
-			"name": "",
+			"name": "जोका",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jyotirindra_nandi": {
-			"name": "",
+			"name": "ज्योतिरिंद्र नंदी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kalighat": {
-			"name": "",
-			"aliases": [],
+			"name": "कालीघाट",
+			"aliases": ["कालीघाट मंदिर"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"karunamoyee": {
-			"name": "",
+			"name": "करुणामयी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kavi_nazrul": {
-			"name": "",
-			"aliases": [],
+			"name": "कवि नजरुल (गड़िया बाजार)",
+			"aliases": ["गड़िया बाजार"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kavi_subhash": {
-			"name": "",
-			"aliases": [],
+			"name": "कवि सुभाष (न्यू गड़िया)",
+			"aliases": ["न्यू गड़िया"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kavi_sukanta": {
-			"name": "",
+			"name": "कवि सुकांत",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mahakaran": {
-			"name": "",
-			"aliases": [],
+			"name": "महाकरण",
+			"aliases": ["राइटर्स बिल्डिंग"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mahanayak_uttam_kumar": {
-			"name": "",
-			"aliases": [],
+			"name": "महानायक उत्तम कुमार (टोलीगंज)",
+			"aliases": ["टोलीगंज"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mahatma_gandhi_road": {
-			"name": "",
-			"aliases": [],
+			"name": "महात्मा गांधी रोड",
+			"aliases": ["एमजी रोड"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"maidan": {
-			"name": "",
+			"name": "मैदान",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"majerhat": {
-			"name": "",
+			"name": "माझेरहाट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"masterda_surya_sen": {
-			"name": "",
-			"aliases": [],
+			"name": "मास्टरदा सूर्य सेन (बांसद्रोणी)",
+			"aliases": ["बांसद्रोणी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"netaji": {
-			"name": "",
-			"aliases": [],
+			"name": "नेताजी (कुदघाट)",
+			"aliases": ["कुदघाट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"netaji_bhavan": {
-			"name": "",
-			"aliases": [],
+			"name": "नेताजी भवन",
+			"aliases": ["भवानीपुर"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"noapara": {
-			"name": "",
+			"name": "नोआपारा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"park_street": {
-			"name": "",
+			"name": "पार्क स्ट्रीट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"phoolbagan": {
-			"name": "",
+			"name": "फूलबागान",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rabindra_sadan": {
-			"name": "",
+			"name": "रवींद्र सदन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rabindra_sarobar": {
-			"name": "",
+			"name": "रवींद्र सरोवर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ritwik_ghatak": {
-			"name": "",
+			"name": "ऋत्विक घटक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"salt_lake_sector_v": {
-			"name": "",
-			"aliases": [],
+			"name": "सॉल्ट लेक सेक्टर-5",
+			"aliases": ["सेक्टर 5"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"salt_lake_stadium": {
-			"name": "",
-			"aliases": [],
+			"name": "सॉल्ट लेक स्टेडियम",
+			"aliases": ["युवा भारती क्रीड़ांगन"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"satyajit_ray": {
-			"name": "",
+			"name": "सत्यजीत रे",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sealdah": {
-			"name": "",
-			"aliases": [],
+			"name": "सियालदह",
+			"aliases": ["सियालदह रेलवे स्टेशन"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shahid_khudiram": {
-			"name": "",
-			"aliases": [],
+			"name": "शहीद खुदीराम (ब्रीजी)",
+			"aliases": ["ब्रीजी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shobhabazar_sutanuti": {
-			"name": "",
-			"aliases": [],
+			"name": "शोभाबाजार सुतानुती",
+			"aliases": ["शोभाबाजार"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shyambazar": {
-			"name": "",
+			"name": "श्यामबाजार",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"taratala": {
-			"name": "",
+			"name": "तारातला",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"thakurpukur": {
-			"name": "",
+			"name": "ठाकुरपुकुर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vip_bazar": {
-			"name": "",
+			"name": "वीआईपी बाजार",
 			"aliases": [],
 			"description": "",
 			"gates": {},

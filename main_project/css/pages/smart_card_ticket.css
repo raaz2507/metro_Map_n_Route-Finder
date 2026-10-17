@@ -6,6 +6,7 @@
 @import url("../layout/footer.css");
 @import url("../layout/navbar-main.css");
 @import url("../components/toast.css");
+@import url("../components/fare-matrix.css");
 
 @layer components {
 	/* 1. Page Workspace Wrapper */
@@ -16,17 +17,18 @@
 		justify-content: center;
 		flex: 1 0 auto;
 		width: 100%;
-		max-width: 1150px;
+		max-width: 1240px;
 		margin: 0 auto;
 		padding: var(--space-md) var(--space-md) var(--space-2xl) var(--space-md);
 		box-sizing: border-box;
 	}
 
-	/* 2. Multi-Card Auto-Grid (Ready for Future Cards) */
+	/* 2. Multi-Card Auto-Grid: Side-by-side on desktop */
 	.smartcard-cards-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(340px, 380px));
+		display: flex;
+		flex-direction: row;
 		justify-content: center;
+		align-items: stretch;
 		gap: var(--space-xl);
 		width: 100%;
 	}
@@ -34,7 +36,8 @@
 	/* 3. 💳 True 3.5-Inch Compact Metro Smart Card */
 	.smartcard-unit-card {
 		width: 100%;
-		max-width: 380px;
+		max-width: 440px;
+		flex: 1 1 360px;
 		background: var(--card-bg);
 		border: 1px solid var(--border-color);
 		border-top: 2px solid rgba(255, 255, 255, var(--op-glass));
@@ -176,7 +179,7 @@
 	.card-action-btn {
 		width: 100%;
 		background-color: rgb(var(--color-primary-rgb));
-		color: #ffffff !important;
+		color: var(--btn-primary-text) !important;
 		border: none;
 		border-radius: var(--radius-sm);
 		padding: 8px var(--space-sm);
@@ -195,7 +198,7 @@
 	}
 
 	.card-action-btn span {
-		color: #ffffff !important;
+		color: var(--btn-primary-text) !important;
 	}
 
 	.card-action-btn:hover {
@@ -250,5 +253,16 @@
 		font-size: var(--fs-2xs);
 		color: var(--text-secondary);
 		line-height: 1.25;
+	}
+
+	@media (max-width: 768px) {
+		.smartcard-cards-grid {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.smartcard-unit-card {
+			max-width: 100%;
+		}
 	}
 }

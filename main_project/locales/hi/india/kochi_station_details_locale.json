@@ -1,10 +1,15 @@
 {
 	"networks": {
-		"kmrl": "",
-		"kwml": ""
+		"kochi_metro": "कोच्चि मेट्रो (KMRL)",
+		"kmrl": "कोच्चि मेट्रो रेल लिमिटेड (KMRL)",
+		"kwml": "कोच्चि वाटर मेट्रो लिमिटेड (KWML)"
+	},
+	"policies": {
+		"kmrl_standard": "कोच्चि मेट्रो (KMRL)",
+		"kwml_water_standard": "कोच्चि वाटर मेट्रो (KWML)"
 	},
 	"lines": {
-		"kmrl.blue": {"name": "", "short_name": ""}
+		"kmrl.blue": {"name": "ब्लू लाइन (लाइन 1)", "short_name": "ब्लू लाइन"}
 	},
 	"stations": {
 		"aluva": {

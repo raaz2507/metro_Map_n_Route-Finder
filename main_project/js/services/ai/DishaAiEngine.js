@@ -5,7 +5,7 @@
  */
 
 import { centerClass } from "../../core/CenterClass.js";
-import i18n from "../../core/i18n.js";
+
 import { TransitNetworkHelper } from "./TransitNetworkHelper.js";
 import { TextNormalizer } from "./nlu/TextNormalizer.js";
 import { StationEntityResolver } from "./nlu/StationEntityResolver.js";
@@ -47,7 +47,7 @@ export class DishaAiEngine {
 	 * @returns {Promise<Object>} { text, cardData, actions, suggestions, resultCardHtml }
 	 */
 	async processMessage(userQuery, options = {}) {
-		const lang = options.lang || i18n.getLanguage || "en";
+		const lang = options.lang || centerClass.currentLanguage || "en";
 		const actionPayload = options.actionPayload || null;
 		const starterAction = options.starterAction || null;
 
@@ -98,7 +98,7 @@ export class DishaAiEngine {
 					rawDst: entities.rawDst,
 					dstCandidates: entities.dstCandidates
 				});
-				const text = i18n.t("ai.selectStartStationInArea", { area: entities.rawSrc });
+				const text = centerClass.t("ai.selectStartStationInArea", { area: entities.rawSrc });
 				return {
 					text,
 					actions: entities.srcCandidates.map(st => ({
@@ -118,8 +118,8 @@ export class DishaAiEngine {
 					candidates: entities.candidates
 				});
 				const srcName = centerClass.getStationName(entities.source.id, lang);
-				const dstQ = entities.ambiguousQuery || i18n.t("ai.destination");
-				const text = i18n.t("ai.selectDestStationPrompt", { src: srcName, dst: dstQ });
+				const dstQ = entities.ambiguousQuery || centerClass.t("ai.destination");
+				const text = centerClass.t("ai.selectDestStationPrompt", { src: srcName, dst: dstQ });
 				return {
 					text,
 					actions: entities.candidates.map(st => ({
@@ -136,8 +136,8 @@ export class DishaAiEngine {
 					candidates: entities.candidates
 				});
 				const dstName = centerClass.getStationName(entities.destination.id, lang);
-				const srcQ = entities.ambiguousQuery || i18n.t("ai.origin");
-				const text = i18n.t("ai.selectStartStationPrompt", { dst: dstName, src: srcQ });
+				const srcQ = entities.ambiguousQuery || centerClass.t("ai.origin");
+				const text = centerClass.t("ai.selectStartStationPrompt", { dst: dstName, src: srcQ });
 				return {
 					text,
 					actions: entities.candidates.map(st => ({
@@ -220,7 +220,7 @@ export class DishaAiEngine {
 			this.#context.setPendingClarification({ type: "NEED_ROUTE_STATIONS" });
 			const suggestions = TransitNetworkHelper.getStarterRouteSuggestions(lang);
 			return {
-				text: i18n.t("ai.starterRoutePrompt"),
+				text: centerClass.t("ai.starterRoutePrompt"),
 				actions: [],
 				suggestions
 			};
@@ -233,9 +233,9 @@ export class DishaAiEngine {
 				? `Fare from ${centerClass.getStationName(hubs[0].id, lang)} to ${centerClass.getStationName(hubs[1].id, lang)}`
 				: null;
 			return {
-				text: i18n.t("ai.starterFarePrompt"),
+				text: centerClass.t("ai.starterFarePrompt"),
 				actions: [],
-				suggestions: [fareEx, i18n.t("ai.sugSmartCardBenefits")].filter(Boolean)
+				suggestions: [fareEx, centerClass.t("ai.sugSmartCardBenefits")].filter(Boolean)
 			};
 		}
 
@@ -244,7 +244,7 @@ export class DishaAiEngine {
 			const chips = TransitNetworkHelper.getStarterActionChips(lang);
 			const hubs = TransitNetworkHelper.getTopNetworkHubs(2);
 			return {
-				text: i18n.t("ai.starterStationPrompt"),
+				text: centerClass.t("ai.starterStationPrompt"),
 				actions: chips,
 				suggestions: hubs.map(h => centerClass.getStationName(h.id, lang))
 			};
@@ -254,7 +254,7 @@ export class DishaAiEngine {
 			this.#context.setPendingClarification({ type: "NEED_STATION_FOR_LINE" });
 			const hubs = TransitNetworkHelper.getTopNetworkHubs(2);
 			return {
-				text: i18n.t("ai.starterLinePrompt"),
+				text: centerClass.t("ai.starterLinePrompt"),
 				actions: [],
 				suggestions: hubs.map(h => centerClass.getStationName(h.id, lang))
 			};
@@ -309,9 +309,9 @@ export class DishaAiEngine {
 			const sName = centerClass.getStationName(source.id, lang);
 			const dName = centerClass.getStationName(destination.id, lang);
 			return {
-				text: i18n.t("ai.noRouteFound", { source: sName, dest: dName }),
+				text: centerClass.t("ai.noRouteFound", { source: sName, dest: dName }),
 				actions: [],
-				suggestions: [i18n.t("ai.tryOtherStations")]
+				suggestions: [centerClass.t("ai.tryOtherStations")]
 			};
 		}
 
@@ -345,7 +345,7 @@ export class DishaAiEngine {
 
 		const sampleRoute = TransitNetworkHelper.getStarterRouteSuggestions(lang)[0] || null;
 		return {
-			text: i18n.t("ai.needStationsForFare"),
+			text: centerClass.t("ai.needStationsForFare"),
 			actions: [],
 			suggestions: [sampleRoute].filter(Boolean)
 		};
@@ -367,7 +367,7 @@ export class DishaAiEngine {
 
 		const sampleRoute = TransitNetworkHelper.getStarterRouteSuggestions(lang)[0] || null;
 		return {
-			text: i18n.t("ai.needStationsForTime"),
+			text: centerClass.t("ai.needStationsForTime"),
 			actions: [],
 			suggestions: [sampleRoute].filter(Boolean)
 		};
@@ -381,7 +381,7 @@ export class DishaAiEngine {
 		if (!swapped) {
 			const sampleRoute = TransitNetworkHelper.getStarterRouteSuggestions(lang)[0] || null;
 			return {
-				text: i18n.t("ai.searchInitialRouteFirst"),
+				text: centerClass.t("ai.searchInitialRouteFirst"),
 				actions: [],
 				suggestions: [sampleRoute].filter(Boolean)
 			};
@@ -407,7 +407,7 @@ export class DishaAiEngine {
 
 		const topHub = TransitNetworkHelper.getTopNetworkHubs(1)[0];
 		return {
-			text: i18n.t("ai.starterStationPrompt"),
+			text: centerClass.t("ai.starterStationPrompt"),
 			actions: [],
 			suggestions: [topHub ? centerClass.getStationName(topHub.id, lang) : null].filter(Boolean)
 		};
@@ -424,7 +424,7 @@ export class DishaAiEngine {
 
 		const topHub = TransitNetworkHelper.getTopNetworkHubs(1)[0];
 		return {
-			text: i18n.t("ai.starterLinePrompt"),
+			text: centerClass.t("ai.starterLinePrompt"),
 			actions: [],
 			suggestions: [topHub ? centerClass.getStationName(topHub.id, lang) : null].filter(Boolean)
 		};
@@ -436,11 +436,11 @@ export class DishaAiEngine {
 	#handleNearbyStations(lang) {
 		const chips = TransitNetworkHelper.getStarterActionChips(lang);
 		return {
-			text: i18n.t("ai.nearbyPrompt"),
+			text: centerClass.t("ai.nearbyPrompt"),
 			actions: chips,
 			suggestions: [
 				chips[0]?.label || null,
-				i18n.t("ai.sugWhatIsFare")
+				centerClass.t("ai.sugWhatIsFare")
 			].filter(Boolean)
 		};
 	}
@@ -560,8 +560,8 @@ export class DishaAiEngine {
 					candidates: pending.dstCandidates
 				});
 				const srcName = centerClass.getStationName(source.id, lang);
-				const dstQ = pending.rawDst || i18n.t("ai.destination");
-				const text = i18n.t("ai.selectDestStationPrompt", { src: srcName, dst: dstQ });
+				const dstQ = pending.rawDst || centerClass.t("ai.destination");
+				const text = centerClass.t("ai.selectDestStationPrompt", { src: srcName, dst: dstQ });
 				return {
 					text,
 					actions: pending.dstCandidates.map(st => ({

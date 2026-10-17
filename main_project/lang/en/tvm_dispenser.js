@@ -1,5 +1,6 @@
 // /lang/en/tvm_dispenser.js
 export default {
+	pageTitle: "Metro TVM • Automatic Ticket Dispenser | YatraMarg",
 	meta: {
 		title: "Metro TVM • Automatic Ticket Dispenser | YatraMarg",
 		desc: "Simulate a metro Automatic Ticket Vending Machine. Fill passenger details and dispense a live SVG thermal ticket."

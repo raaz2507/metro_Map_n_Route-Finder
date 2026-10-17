@@ -1,202 +1,207 @@
 {
 	"networks": {
-		"mpmrcl_indore": ""
+		"indore_metro": "इंदौर मेट्रो (MPMRCL)",
+		"mpmrcl_indore": "मध्य प्रदेश मेट्रो रेल कॉर्पोरेशन लिमिटेड (MPMRCL)",
+		"mpmrcl": "मध्य प्रदेश मेट्रो रेल कॉर्पोरेशन लिमिटेड (MPMRCL)"
+	},
+	"policies": {
+		"indore_metro_standard": "इंदौर मेट्रो (MPMRCL)"
 	},
 	"lines": {
-		"mpmrcl.yellow": {"name": "", "short_name": ""}
+		"mpmrcl.yellow": {"name": "येलो लाइन", "short_name": "येलो लाइन"}
 	},
 	"stations": {
 		"airport": {
-			"name": "",
+			"name": "एयरपोर्ट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bada_ganpati": {
-			"name": "",
+			"name": "बड़ा गणपति",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bapat_chauraha": {
-			"name": "",
+			"name": "बापट चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bengali_chauraha": {
-			"name": "",
+			"name": "बंगाली चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bhawarsala_chauraha": {
-			"name": "",
+			"name": "भंवरसला चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bsf_kalani_nagar": {
-			"name": "",
+			"name": "बीएसएफ - कलानी नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chandragupta_chauraha": {
-			"name": "",
+			"name": "चंद्रगुप्त चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chhota_ganpati": {
-			"name": "",
+			"name": "छोटा गणपति",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gandhi_nagar": {
-			"name": "",
+			"name": "गांधी नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"hira_nagar": {
-			"name": "",
+			"name": "हीरा नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"isbt": {
-			"name": "",
+			"name": "आईएसबीटी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"khajrana_chauraha": {
-			"name": "",
+			"name": "खजराना चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"malviya_nagar_chauraha": {
-			"name": "",
+			"name": "मालवीय नगर चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"meghdoot_garden": {
-			"name": "",
+			"name": "मेघदूत गार्डन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mr_road": {
-			"name": "",
+			"name": "एमआर रोड (एमआर 10)",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"palasia_chauraha": {
-			"name": "",
+			"name": "पलासिया चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"patrakar_colony": {
-			"name": "",
+			"name": "पत्रकार कॉलोनी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"railway_station": {
-			"name": "",
+			"name": "रेलवे स्टेशन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rajwada": {
-			"name": "",
+			"name": "राजवाड़ा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ramchandra_nagar": {
-			"name": "",
+			"name": "रामचंद्र नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shaheed_baghicha": {
-			"name": "",
+			"name": "शहीद बगीचा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"super_corridor": {
-			"name": "",
+			"name": "सुपर कॉरिडोर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"super_corridor(1)": {
-			"name": "",
+			"name": "सुपर कॉरिडोर 1",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"super_corridor(2)": {
-			"name": "",
+			"name": "सुपर कॉरिडोर 2",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"super_corridor(3)": {
-			"name": "",
+			"name": "सुपर कॉरिडोर 3",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"super_corridor(4)": {
-			"name": "",
+			"name": "सुपर कॉरिडोर 4",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"super_corridor(5)": {
-			"name": "",
+			"name": "सुपर कॉरिडोर 5",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vijay_nagar_chauraha": {
-			"name": "",
+			"name": "विजय नगर चौराहा",
 			"aliases": [],
 			"description": "",
 			"gates": {},

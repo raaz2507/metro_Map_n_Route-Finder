@@ -1,26 +1,30 @@
 {
 	"city": "chennai",
 	"city_name": "Chennai",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
-		"women_safety": "1090",
-		"ambulance": "102"
+		"women_safety": "1091",
+		"ambulance": "108"
 	},
 	"networks": {
 		"chennai_metro": {
-			"network_name": "Chennai Metro",
-			"operator": "CMRL",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
-		},
-		"chennai_light_rail": {
-			"network_name": "Chennai Light Rail",
-			"operator": "CMRL",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"network_name": "Chennai Metro (CMRL)",
+			"operator": "Chennai Metro Rail Limited (CMRL)",
+			"helplines": {
+				"toll_free": "1860-425-1515",
+				"helpline": "044-24378000",
+				"whatsapp_ticketing": "+91 83000 86000",
+				"women_safety": "1091",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://chennaimetrorail.org/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Puratchi Thalaivar Dr. M.G. Ramachandran Central Metro Station (Customer Care Centre, Concourse Level)",
+				"operating_hours": "05:00 AM - 11:00 PM (Mon-Sat), 07:00 AM - 10:00 PM (Sundays & Public Holidays)"
+			}
 		}
 	}
 }

@@ -1,6 +1,10 @@
 {
 	"networks": {
-		"upmrc_agra": ""
+		"agra_metro": "आगरा मेट्रो (UPMRC)",
+		"upmrc_agra": "उत्तर प्रदेश मेट्रो रेल कॉर्पोरेशन (UPMRC)"
+	},
+	"policies": {
+		"agra_metro_standard": "आगरा मेट्रो (UPMRC)"
 	},
 	"lines": {
 		"upmrc_agra.yellow": {"name": "यलो लाइन", "short_name": "यलो लाइन"}

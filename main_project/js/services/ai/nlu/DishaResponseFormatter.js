@@ -5,7 +5,6 @@
  */
 
 import { centerClass } from "../../../core/CenterClass.js";
-import i18n from "../../../core/i18n.js";
 import { TransitNetworkHelper } from "../TransitNetworkHelper.js";
 
 export class DishaResponseFormatter {
@@ -21,12 +20,12 @@ export class DishaResponseFormatter {
 		const interchangesCount = Array.isArray(routeData.interchanges) ? routeData.interchanges.length : 0;
 
 		// Extract primary line safely as string
-		let lineName = i18n.t("ai.directRoute");
+		let lineName = centerClass.t("ai.directRoute");
 		if (Array.isArray(routeData.steps) && routeData.steps.length > 0) {
 			const firstStep = routeData.steps[0];
 			const rawLine = firstStep.lineName || firstStep.line || "Direct";
 			if (typeof rawLine === "object" && rawLine !== null) {
-				lineName = (lang === "hi" ? rawLine.hi : rawLine.en) || rawLine.en || rawLine.hi || i18n.t("ai.directRoute");
+				lineName = (lang === "hi" ? rawLine.hi : rawLine.en) || rawLine.en || rawLine.hi || centerClass.t("ai.directRoute");
 			} else if (rawLine) {
 				lineName = String(rawLine);
 			}
@@ -34,8 +33,8 @@ export class DishaResponseFormatter {
 
 		// Textual Summary
 		const text = interchangesCount > 0
-			? i18n.t("ai.routeSummaryInterchange", { source: sourceName, dest: destName, duration: durationMin, dist: distKm, interchanges: interchangesCount })
-			: i18n.t("ai.routeSummaryDirect", { source: sourceName, dest: destName, duration: durationMin, dist: distKm });
+			? centerClass.t("ai.routeSummaryInterchange", { source: sourceName, dest: destName, duration: durationMin, dist: distKm, interchanges: interchangesCount })
+			: centerClass.t("ai.routeSummaryDirect", { source: sourceName, dest: destName, duration: durationMin, dist: distKm });
 
 		// Card summary payload
 		const cardData = {
@@ -52,15 +51,15 @@ export class DishaResponseFormatter {
 			cardData,
 			actions: [
 				{
-					label: i18n.t("ai.actionReturnRoute"),
+					label: centerClass.t("ai.actionReturnRoute"),
 					action: "return_route",
 					payload: { sourceId: routeData.destination.id, destId: routeData.source.id }
 				}
 			],
 			suggestions: [
-				i18n.t("ai.sugWhatIsFare"),
-				i18n.t("ai.sugWhereIsInterchange"),
-				i18n.t("ai.sugTrainTimings")
+				centerClass.t("ai.sugWhatIsFare"),
+				centerClass.t("ai.sugWhereIsInterchange"),
+				centerClass.t("ai.sugTrainTimings")
 			]
 		};
 	}
@@ -74,21 +73,21 @@ export class DishaResponseFormatter {
 		const fare = routeData.fare?.totalFare || 0;
 		const smartCardFare = fare > 10 ? Math.round(fare * 0.9) : fare; // 10% smart card discount
 
-		const text = i18n.t("ai.fareSummary", { source: sourceName, dest: destName, fare, smartCardFare });
+		const text = centerClass.t("ai.fareSummary", { source: sourceName, dest: destName, fare, smartCardFare });
 
 		return {
 			text,
 			actions: [
 				{
-					label: i18n.t("ai.actionViewRoute"),
+					label: centerClass.t("ai.actionViewRoute"),
 					action: "view_route",
 					payload: { sourceId: routeData.source.id, destId: routeData.destination.id }
 				}
 			],
 			suggestions: [
-				i18n.t("ai.sugHowLongTake"),
-				i18n.t("ai.sugReturnFare"),
-				i18n.t("ai.sugShowOnMap")
+				centerClass.t("ai.sugHowLongTake"),
+				centerClass.t("ai.sugReturnFare"),
+				centerClass.t("ai.sugShowOnMap")
 			]
 		};
 	}
@@ -103,20 +102,20 @@ export class DishaResponseFormatter {
 		const distKm = ((routeData.totalDistanceMeters || 0) / 1000).toFixed(1);
 		const stationCount = routeData.path ? routeData.path.length : 0;
 
-		const text = i18n.t("ai.timeDistanceSummary", { source: sourceName, dest: destName, dist: distKm, duration: durationMin, stations: stationCount });
+		const text = centerClass.t("ai.timeDistanceSummary", { source: sourceName, dest: destName, dist: distKm, duration: durationMin, stations: stationCount });
 
 		return {
 			text,
 			actions: [
 				{
-					label: i18n.t("ai.actionCheckFare"),
+					label: centerClass.t("ai.actionCheckFare"),
 					action: "check_fare",
 					payload: { sourceId: routeData.source.id, destId: routeData.destination.id }
 				}
 			],
 			suggestions: [
-				i18n.t("ai.sugWhatIsFare"),
-				i18n.t("ai.sugReturnRoute")
+				centerClass.t("ai.sugWhatIsFare"),
+				centerClass.t("ai.sugReturnRoute")
 			]
 		};
 	}
@@ -135,12 +134,12 @@ export class DishaResponseFormatter {
 		let gatesInfo = "";
 		if (gates) {
 			const count = typeof gates === "object" ? Object.keys(gates).length : gates;
-			gatesInfo = i18n.t("ai.gatesAvailable", { count });
+			gatesInfo = centerClass.t("ai.gatesAvailable", { count });
 		}
 
 		const linesText = lines.join(", ") || "Main Line";
 		const templateKey = isInterchange ? "ai.stationInfoInterchange" : "ai.stationInfoSingle";
-		const text = i18n.t(templateKey, { station: stationName, lines: linesText, gatesInfo });
+		const text = centerClass.t(templateKey, { station: stationName, lines: linesText, gatesInfo });
 
 		const topHub = TransitNetworkHelper.getTopNetworkHubs(1)[0];
 
@@ -148,20 +147,20 @@ export class DishaResponseFormatter {
 			text,
 			actions: [
 				{
-					label: i18n.t("ai.actionStartHere"),
+					label: centerClass.t("ai.actionStartHere"),
 					action: "set_source",
 					payload: { stationId: station.id }
 				},
 				{
-					label: i18n.t("ai.actionGoHere"),
+					label: centerClass.t("ai.actionGoHere"),
 					action: "set_dest",
 					payload: { stationId: station.id }
 				}
 			],
 			suggestions: [
-				i18n.t("ai.sugTrainTimings"),
+				centerClass.t("ai.sugTrainTimings"),
 				topHub && topHub.id !== station.id ? centerClass.getStationName(topHub.id, lang) : null,
-				i18n.t("ai.sugNearbyStations")
+				centerClass.t("ai.sugNearbyStations")
 			].filter(Boolean)
 		};
 	}
@@ -173,15 +172,15 @@ export class DishaResponseFormatter {
 		const stationName = centerClass.getStationName(station.id, lang);
 		const details = centerClass.getStationDetails(station.id) || station;
 		const lines = details.lines || [details.line].filter(Boolean);
-		const interchangeNote = details.is_interchange ? i18n.t("ai.lineInterchangeNote") : "";
-		const text = i18n.t("ai.lineInfo", { station: stationName, lines: lines.join(" & "), interchangeNote });
+		const interchangeNote = details.is_interchange ? centerClass.t("ai.lineInterchangeNote") : "";
+		const text = centerClass.t("ai.lineInfo", { station: stationName, lines: lines.join(" & "), interchangeNote });
 
 		return {
 			text,
 			actions: [],
 			suggestions: [
-				i18n.t("ai.sugStationDetails"),
-				i18n.t("ai.sugWhatIsFare")
+				centerClass.t("ai.sugStationDetails"),
+				centerClass.t("ai.sugWhatIsFare")
 			]
 		};
 	}
@@ -190,7 +189,7 @@ export class DishaResponseFormatter {
 	 * Format Greeting
 	 */
 	static formatGreeting(lang = "en") {
-		const text = i18n.t("ai.greeting");
+		const text = centerClass.t("ai.greeting");
 		const sampleRoute = TransitNetworkHelper.getStarterRouteSuggestions(lang)[0] || null;
 
 		return {
@@ -198,8 +197,8 @@ export class DishaResponseFormatter {
 			actions: [],
 			suggestions: [
 				sampleRoute,
-				i18n.t("ai.sugWhatIsFare"),
-				i18n.t("ai.sugNearbyStations")
+				centerClass.t("ai.sugWhatIsFare"),
+				centerClass.t("ai.sugNearbyStations")
 			].filter(Boolean)
 		};
 	}
@@ -208,7 +207,7 @@ export class DishaResponseFormatter {
 	 * Format Help
 	 */
 	static formatHelp(lang = "en") {
-		const text = i18n.t("ai.help");
+		const text = centerClass.t("ai.help");
 		const sampleRoute = TransitNetworkHelper.getStarterRouteSuggestions(lang)[0] || null;
 
 		return {
@@ -216,8 +215,8 @@ export class DishaResponseFormatter {
 			actions: [],
 			suggestions: [
 				sampleRoute,
-				i18n.t("ai.sugNearbyStations"),
-				i18n.t("ai.sugWhatIsFare")
+				centerClass.t("ai.sugNearbyStations"),
+				centerClass.t("ai.sugWhatIsFare")
 			].filter(Boolean)
 		};
 	}
@@ -226,7 +225,7 @@ export class DishaResponseFormatter {
 	 * Format Fallback response
 	 */
 	static formatFallback(query, lang = "en") {
-		const text = i18n.t("ai.fallback");
+		const text = centerClass.t("ai.fallback");
 		const sampleRoute = TransitNetworkHelper.getStarterRouteSuggestions(lang)[0] || null;
 
 		return {
@@ -234,8 +233,8 @@ export class DishaResponseFormatter {
 			actions: [],
 			suggestions: [
 				sampleRoute,
-				i18n.t("ai.sugWhatIsFare"),
-				i18n.t("ai.sugHelpMe")
+				centerClass.t("ai.sugWhatIsFare"),
+				centerClass.t("ai.sugHelpMe")
 			].filter(Boolean)
 		};
 	}

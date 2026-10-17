@@ -5,7 +5,7 @@
  * and synchronizes translations and theme states reactively.
  */
 import { HELP_PREVIEW_REGISTRY } from "../config/help-previews.config.js";
-import i18n from "../core/i18n.js";
+import { centerClass } from "../core/CenterClass.js";
 
 export class LivePreviewService {
 	// In-memory document cache to prevent redundant HTTP network requests
@@ -127,8 +127,8 @@ export class LivePreviewService {
 
 		// 5. Render into container & apply active i18n translation
 		container.replaceChildren(frame);
-		if (typeof i18n?.translateDOM === "function") {
-			i18n.translateDOM(container);
+		if (typeof centerClass?.applyTranslations === "function") {
+			centerClass.applyTranslations();
 		}
 	}
 

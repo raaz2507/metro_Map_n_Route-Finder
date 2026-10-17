@@ -5,6 +5,14 @@
 		"rapid_metro_gurugram": "Rapid Metro Gurugram",
 		"ncrtc": "Namo Bharat (RRTS)"
 	},
+	"policies": {
+		"dmrc_standard": "Delhi Metro (DMRC)",
+		"airport_express": "Airport Express Line",
+		"nmrc_standard": "Noida Metro (NMRC)",
+		"rapid_metro_standard": "Rapid Metro Gurugram",
+		"ncrtc_standard": "Namo Bharat (RRTS)",
+		"ncrtc_premium": "Namo Bharat (Premium Class)"
+	},
 	"lines": {
 		"dmrc.red": {"name": "Line 1 - Red Line - Rithala to Shaheed Sthal (New Bus Adda)", "short_name": "Red Line"},
 		"dmrc.yellow": {"name": "Line 2 - Yellow Line - Samaypur Badli to Millennium City center Gurugram", "short_name": "Yellow Line"},

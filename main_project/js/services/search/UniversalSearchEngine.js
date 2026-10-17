@@ -26,7 +26,7 @@ export class UniversalSearchEngine extends BaseSearchEngine {
 		this.#fetchAbort = new AbortController();
 
 		try {
-			const activeCountry = appStateStore?.getState("activeCountry") || "india";
+			const activeCountry = appStateStore?.getState("activeCountry") || localStorage.getItem("active_country") || "india";
 			const response = await fetch(`data/${activeCountry}/search_cache/transit_search_index.json`, {
 				signal: this.#fetchAbort.signal
 			});
@@ -39,7 +39,7 @@ export class UniversalSearchEngine extends BaseSearchEngine {
 			this.#isReady = true;
 			console.log(`[UniversalSearchEngine] Ready: ${Object.keys(this.#tokens).length} tokens & ${Object.keys(this.#items).length} items loaded.`);
 		} catch (error) {
-			if (error.name === "AbortError") return;
+			if (error.name === "AbortError" || this.#fetchAbort?.signal?.aborted) return;
 			console.warn("[UniversalSearchEngine] Failed to load index cache:", error);
 		}
 	}

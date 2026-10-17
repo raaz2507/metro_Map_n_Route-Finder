@@ -1,266 +1,270 @@
 {
 	"networks": {
-		"mahametro_nagpur": ""
+		"nagpur_metro": "नागपुर मेट्रो (महा मेट्रो)",
+		"mahametro_nagpur": "महाराष्ट्र मेट्रो रेल कॉर्पोरेशन लिमिटेड (महामेट्रो)"
+	},
+	"policies": {
+		"nagpur_metro_standard": "नागपुर मेट्रो (महा मेट्रो)"
 	},
 	"lines": {
-		"mahametro_nagpur.orange": {"name": "", "short_name": ""},
-		"mahametro_nagpur.aqua": {"name": "", "short_name": ""}
+		"mahametro_nagpur.orange": {"name": "ऑरेंज लाइन", "short_name": "ऑरेंज लाइन"},
+		"mahametro_nagpur.aqua": {"name": "एक्वा लाइन", "short_name": "एक्वा लाइन"}
 	},
 	"stations": {
 		"agrasen_square": {
-			"name": "",
+			"name": "अग्रसेन चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"airport": {
-			"name": "",
+			"name": "एयरपोर्ट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ajni_square": {
-			"name": "",
+			"name": "अजनी चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ambedkar_square": {
-			"name": "",
+			"name": "आंबेडकर चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"automotive_square": {
-			"name": "",
+			"name": "ऑटोमोटिव चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bansi_nagar": {
-			"name": "",
+			"name": "बंसी नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chhatrapati_square": {
-			"name": "",
+			"name": "छत्रपति चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chitar_oli_square": {
-			"name": "",
+			"name": "चितार ओली चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"congress_nagar": {
-			"name": "",
+			"name": "कांग्रेस नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"cotton_market": {
-			"name": "",
+			"name": "कॉटन मार्केट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dharampeth_college": {
-			"name": "",
+			"name": "धरमपेठ कॉलेज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dosar_vaisya_square": {
-			"name": "",
+			"name": "दोसर वैश्य चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gaddi_godam_square": {
-			"name": "",
+			"name": "गड्डीगोदाम चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"indora_square": {
-			"name": "",
+			"name": "इंदोरा चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"institution_of_engineers": {
-			"name": "",
+			"name": "इंस्टीट्यूशन ऑफ इंजीनियर्स",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jaiprakash_nagar": {
-			"name": "",
+			"name": "जयप्रकाश नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jhansi_rani_square": {
-			"name": "",
+			"name": "झांसी रानी चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kadbi_square": {
-			"name": "",
+			"name": "कड़बी चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kasturchand_park": {
-			"name": "",
+			"name": "कस्तूरचंद पार्क",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"khapri": {
-			"name": "",
+			"name": "खापरी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"lad_square": {
-			"name": "",
+			"name": "एलएडी चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"lokmanya_nagar_open": {
-			"name": "",
+			"name": "लोकमान्य नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nagpur_railway": {
-			"name": "",
+			"name": "नागपुर रेलवे स्टेशन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nari_road": {
-			"name": "",
+			"name": "नारी रोड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"new_airport": {
-			"name": "",
+			"name": "न्यू एयरपोर्ट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"prajapati_nagar": {
-			"name": "",
+			"name": "प्रजापति नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rachana_ring_road_junction": {
-			"name": "",
+			"name": "रचना रिंग रोड जंक्शन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rahate_colony": {
-			"name": "",
+			"name": "रहाटे कॉलोनी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shankar_nagar": {
-			"name": "",
+			"name": "शंकर नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sitabuldi": {
-			"name": "",
+			"name": "सीताबर्डी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"south_airport": {
-			"name": "",
+			"name": "साउथ एयरपोर्ट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"subhash_nagar": {
-			"name": "",
+			"name": "सुभाष नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"telephone_exchange": {
-			"name": "",
+			"name": "टेलीफोन एक्सचेंज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ujwal_nagar": {
-			"name": "",
+			"name": "उज्ज्वल नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vaishno_devi_chowk": {
-			"name": "",
+			"name": "वैष्णो देवी चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vasudev_nagar": {
-			"name": "",
+			"name": "वासुदेव नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"zero_mile_freedom_park": {
-			"name": "",
+			"name": "ज़ीरो माइल फ्रीडम पार्क",
 			"aliases": [],
 			"description": "",
 			"gates": {},

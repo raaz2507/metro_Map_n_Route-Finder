@@ -4,16 +4,18 @@
  */
 import { centerClass } from "../core/CenterClass.js";
 import { formatTime12h } from "../core/data-utils.js";
-import i18n from "../core/i18n.js";
 
+ 
 export class JourneyDetailsView {
 	#container = null;
 	#settings = { currentLang: "en" };
 	#mapObj = null;
+	#routeTextSummaryView = null;
 
 	constructor(containerSelector = "#journeyDetails .route-overview", mapObj = null) {
 		this.#container = document.querySelector(containerSelector);
 		this.#mapObj = mapObj;
+		this.#routeTextSummaryView = new RouteTextSummaryView();
 	}
 
 	setMapEngine(mapObj) {
@@ -35,6 +37,9 @@ export class JourneyDetailsView {
 		this.#renderJourneyHeader(this.#container, startName, endName);
 		this.#renderMetricsCard(this.#container, routeInfo, path.length);
 		this.#renderTimelineCard(this.#container, routeInfo);
+		
+		// 🎯 नया टेक्स्ट समरी कार्ड: Timeline Card के ठीक ऊपर इंसर्ट होगा
+		this.#routeTextSummaryView.render(this.#container, routeInfo, this.#settings.currentLang);
 
 		const journeyDetails = document.getElementById("journeyDetails");
 		if (journeyDetails) journeyDetails.classList.add("active");
@@ -90,12 +95,12 @@ export class JourneyDetailsView {
 		// 🎯 Multi-Fare: Interactive Selectable Cards
 		return entries.map(([key, prod]) => {
 			const isSelected = key === selectedKey;
-			const labelName = prod.label?.[this.#settings.currentLang] || prod.label?.en || "Fare";
+			const labelName = centerClass.t(`smartCardTicket.products.${key}`);
 			const badgeHtml = prod.isDiscounted && prod.discountPercent > 0 
 				? `<span class="fare-badge badge-blue">(${prod.discountPercent}% Off)</span>` : "";
 			
 			const timeHtml = Array.isArray(prod.timeSlots) && prod.timeSlots.length > 0 ? `<div class="fare-time-slot">${this.#formatTimeSlots(prod.timeSlots)}</div>` : "";
-			const activeNowLabel = i18n.t("pages.home.findRoute.timeline.activeNow") || "Active Now";
+			const activeNowLabel = centerClass.t("pages.home.findRoute.timeline.activeNow");
 			const activeBadgeHtml = (prod.timeRule && prod.isCurrentSlotActive) 
 			? `<span class="fare-active-badge">● ${activeNowLabel}</span>` : "";
 			return `
@@ -127,10 +132,10 @@ export class JourneyDetailsView {
 		const metricsCard = document.createElement("div");
 		metricsCard.className = "journey-metrics-card";
 
-		const timeLabel = i18n.t("pages.home.findRoute.routeSummary.travelTime", { minutes: "" }).trim() || "Min";
-		const changeLabel = i18n.t("pages.home.findRoute.routeSummary.interchange", { count: "" }).trim() || "Line Change";
-		const stationsLabel = i18n.t("pages.home.findRoute.routeSummary.stations", { count: "" }).trim() || "Stations";
-		const distanceLabel = i18n.t("pages.home.findRoute.routeSummary.distance", { distance: "" }).trim() || "Distance";
+		const timeLabel = centerClass.t("pages.home.findRoute.routeSummary.travelTime", { minutes: "" }).trim();
+		const changeLabel = centerClass.t("pages.home.findRoute.routeSummary.interchange", { count: "" }).trim();
+		const stationsLabel = centerClass.t("pages.home.findRoute.routeSummary.stations", { count: "" }).trim();
+		const distanceLabel = centerClass.t("pages.home.findRoute.routeSummary.distance", { distance: "" }).trim();
 		
 		const distNum = ((routeInfo.totalDistanceMeters || 0) / 1000).toFixed(1);
 		const totalMin = Math.round((routeInfo.totalTravelTimeSeconds || 0) / 60);
@@ -183,7 +188,7 @@ export class JourneyDetailsView {
 				const lName = leg.lineName?.[this.#settings.currentLang] || leg.lineName?.en || leg.lineName;
 				
 				const alertsHtml = (leg.alerts || []).map(a => {
-					const alertText = i18n.t(a.i18nKey, a.params || {}) || a.defaultText;
+					const alertText = centerClass.t(a.i18nKey, a.params || {}) || a.defaultText;
 					return `<div class="leg-alert-pill ${a.type}"><span>${a.icon}</span> <span>${alertText}</span></div>`;
 				}).join("");
 
@@ -219,11 +224,11 @@ export class JourneyDetailsView {
 		const firstTrainDisplay = schedule?.first_train ? formatTime12h(schedule.first_train) : "N/A";
 		const lastTrainDisplay = schedule?.last_train ? formatTime12h(schedule.last_train) : "N/A";
 
-		// 🎯 Added these missing variables back!
-		const firstText = i18n.t("pages.home.findRoute.timeline.firstTrain");
-		const lastText = i18n.t("pages.home.findRoute.timeline.lastTrain");
-		const totalFareText = i18n.t("pages.home.findRoute.routeSummary.fare", { fare: "" }).trim() || "Fare";
-
+		// 🛠️ BUG FIX: सही i18n पाथ (pages.home.findRoute.timeline.*)
+		const firstText = centerClass.t("pages.home.findRoute.timeline.firstTrain");
+		const lastText = centerClass.t("pages.home.findRoute.timeline.lastTrain");
+		const totalFareText = centerClass.t("pages.home.findRoute.routeSummary.fare", { fare: "" }).trim();
+		
 		metricsCard.innerHTML = `
 			<div class="metrics-row">
 				<div class="metric-col">
@@ -261,8 +266,8 @@ export class JourneyDetailsView {
 				<div class="fare-breakdown-toggle-box">
 					<button type="button" class="fare-breakdown-btn" id="fareBreakdownBtn">
 						<div class="btn-text-col">
-									<span class="btn-primary-label">${i18n.t("pages.home.findRoute.timeline.splitFareTitle")}</span>
-									<span class="btn-sub-label">${i18n.t("pages.home.findRoute.timeline.splitFareSubtitle", { count: routeInfo.fare.legs?.length || 2 })}</span>
+									<span class="btn-primary-label">${centerClass.t("pages.home.findRoute.timeline.splitFareTitle")}</span>
+									<span class="btn-sub-label">${centerClass.t("pages.home.findRoute.timeline.splitFareSubtitle", { count: routeInfo.fare.legs?.length || 2 })}</span>
 						</div>
 						<div class="round-chevron-btn">
 							<span class="chevron" id="fareBreakdownArrow">▼</span>
@@ -360,8 +365,10 @@ export class JourneyDetailsView {
 			const segmentEl = document.createElement("div");
 			segmentEl.className = "timeline-segment";
 
-			const toName = centerClass.getStationName(step.toStation, this.#settings.currentLang);
-			const terminalName = step.terminalName?.[this.#settings.currentLang] || step.terminalName?.en || toName;
+			const toName = centerClass.getStationName(step.toStation);
+			// 🛠️ BUG FIX: टर्मिनल आईडी को स्थानीय भाषा के नाम में बदलें
+			const terminalId = step.terminalStationId || step.terminalName?.en || toName;
+			const terminalName = centerClass.getStationName(terminalId) || toName;
 			const platformNo = step.platformNo || 1;
 
 			const isYellowLike = lineColor.toLowerCase() === "#ffd514" || lineColor.toLowerCase() === "#ffff00";
@@ -371,7 +378,7 @@ export class JourneyDetailsView {
 			segHeader.className = "segment-header";
 			segHeader.style.setProperty("--delay", `${animationRowCounter * 120}ms`);
 
-			const directionStr = i18n.t("pages.home.findRoute.timeline.directionText", { 
+			const directionStr = centerClass.t("pages.home.findRoute.timeline.directionText", { 
 				terminal: terminalName, 
 				platform: platformNo 
 			});
@@ -394,7 +401,8 @@ export class JourneyDetailsView {
 
 				let gateBadgeHtml = "";
 				if (isFirstOverall || isLastOverall) {
-					gateBadgeHtml = `<span class="badge-gate">🚪 Gate</span>`;
+					const gateLabel = centerClass.t("pages.home.findRoute.timeline.gate") || "Gate";
+					gateBadgeHtml = `<span class="badge-gate">🚪 ${gateLabel}</span>`;
 				}
 
 				const hopText = st.hopDistanceKm ? `${st.hopDistanceKm} km · ` : "";
@@ -466,23 +474,23 @@ export class JourneyDetailsView {
 					: "";
 
 				if (mode === "cross_platform") {
-					const label = i18n.t("pages.home.findRoute.transferModes.crossPlatform");
+					const label = centerClass.t("pages.home.findRoute.transferModes.crossPlatform");
 					modeBadgeHtml = `<span class="transfer-mode-badge badge-cross-platform"><span class="transfer-mode-icon ico-mode-cross-platform" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "level_change") {
 					const levels = tData.levels || 1;
-					const label = i18n.t("pages.home.findRoute.transferModes.levelChange", { level: levels });
+					const label = centerClass.t("pages.home.findRoute.transferModes.levelChange", { level: levels });
 					modeBadgeHtml = `<span class="transfer-mode-badge badge-level-change"><span class="transfer-mode-icon ico-mode-level-change" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "skywalk") {
-					const label = i18n.t("pages.home.findRoute.transferModes.skywalk", { distance: dist || 150 });
+					const label = centerClass.t("pages.home.findRoute.transferModes.skywalk", { distance: dist || 150 });
 					modeBadgeHtml = `<span class="transfer-mode-badge badge-skywalk"><span class="transfer-mode-icon ico-mode-skywalk" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "corridor") {
-					const label = i18n.t("pages.home.findRoute.transferModes.corridor", { distance: dist || 80 });
+					const label = centerClass.t("pages.home.findRoute.transferModes.corridor", { distance: dist || 80 });
 					modeBadgeHtml = `<span class="transfer-mode-badge badge-corridor"><span class="transfer-mode-icon ico-mode-corridor" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "free_erickshaw") {
-					const label = i18n.t("pages.home.findRoute.transferModes.freeERickshaw");
+					const label = centerClass.t("pages.home.findRoute.transferModes.freeERickshaw");
 					modeBadgeHtml = `<span class="transfer-mode-badge badge-erickshaw"><span class="transfer-mode-icon ico-mode-erickshaw" aria-hidden="true"></span> ${label}</span>`;
 				} else if (mode === "security_check") {
-					const label = i18n.t("pages.home.findRoute.transferModes.securityCheck");
+					const label = centerClass.t("pages.home.findRoute.transferModes.securityCheck");
 					modeBadgeHtml = `<span class="transfer-mode-badge badge-security"><span class="transfer-mode-icon ico-mode-security" aria-hidden="true"></span> ${label}</span>`;
 				}
 
@@ -500,7 +508,7 @@ export class JourneyDetailsView {
 							</span>
 							<div class="interchange-details-col">
 								<span>
-									Change to <strong>${nextLineName}</strong>
+									${centerClass.t("pages.home.findRoute.timeline.changeTo", { line: `<strong>${nextLineName}</strong>` }) || `Change to <strong>${nextLineName}</strong>`}
 								</span>
 								<div class="interchange-badges-row">
 									${typeBadgeHtml}
@@ -525,3 +533,342 @@ export class JourneyDetailsView {
 		// Warning banner placeholder
 	}
 }
+
+/**
+ * 📝 RouteTextSummaryView - Concept 1: Modern Transit Passport (Collapsible + TTS + Copy)
+ * Strict ES2022 OOP Class with Private Fields (#)
+ */
+class RouteTextSummaryView {
+	#cardEl = null;
+	#currentLang = "en";
+	#isSpeaking = false;
+	#speechUtterance = null;
+
+	/**
+	 * 📝 इंटरचेंजेस और लाइन्स की पठनीय सूची बनाना (HTML Pills & Plain Text)
+	 */
+	#getInterchangeData(steps) {
+		if (!Array.isArray(steps) || steps.length <= 1) {
+			return { htmlList: "", plainList: "" };
+		}
+		const htmlParts = [];
+		const plainParts = [];
+
+		for (let i = 0; i < steps.length - 1; i++) {
+			const currentStep = steps[i];
+			const nextStep = steps[i + 1];
+			const stationName = centerClass.getStationName(currentStep.toStation);
+			const fromLineName = centerClass.getLineShortName(currentStep.line) || currentStep.line;
+			const toLineName = centerClass.getLineShortName(nextStep.line) || nextStep.line;
+
+			const fromColor = currentStep.lineColor || "#ec4899";
+			const toColor = nextStep.lineColor || "#eab308";
+
+			htmlParts.push(`<strong>${stationName}</strong> (<span class="summary-line-pill" style="--line-c:${fromColor}">${fromLineName}</span> ➔ <span class="summary-line-pill" style="--line-c:${toColor}">${toLineName}</span>)`);
+			plainParts.push(`${stationName} (${fromLineName} ➔ ${toLineName})`);
+		}
+
+		return {
+			htmlList: htmlParts.join(", "),
+			plainList: plainParts.join(", ")
+		};
+	}
+
+	/**
+	 * 📋 मुख्य रेंडर मेथड (Concept 1: Modern Transit Passport, Inserts strictly before .timeline-card)
+	 */
+	async render(parent, routeInfo, currentLang = "en") {
+		if (!parent || !routeInfo) return;
+		this.#currentLang = currentLang;
+
+		// अगर पहले से कोई आवाज़ बज रही हो, तो बंद करें
+		this.#stopSpeaking();
+
+		// अगर पुराना समरी कार्ड मौजूद है, तो उसका एक्सपैंडेड स्टेटस याद रखकर हटाएँ
+		const existingCard = parent.querySelector(".route-text-summary-card");
+		const wasExpanded = existingCard ? !existingCard.classList.contains("is-collapsed") : false;
+		if (existingCard) existingCard.remove();
+
+		const path = routeInfo.path || [];
+		const startId = path[0];
+		const endId = path[path.length - 1];
+
+		const startName = centerClass.getStationName(startId, this.#currentLang);
+		const endName = centerClass.getStationName(endId, this.#currentLang);
+
+		const totalMin = Math.round((routeInfo.totalTravelTimeSeconds || 0) / 60);
+		const distKm = ((routeInfo.totalDistanceMeters || 0) / 1000).toFixed(1);
+		const fare = routeInfo.fare?.totalFare || 0;
+		const interchangeCount = routeInfo.interchangesCount || 0;
+
+		// 1. इंटरचेंज डेटा (HTML व Plain Text दोनों)
+		const { htmlList, plainList } = this.#getInterchangeData(routeInfo.steps);
+		let interchangeHtml = "";
+		let interchangePlain = "";
+
+		if (interchangeCount > 0) {
+			interchangeHtml = centerClass.t("routeSummary.interchangeRoute", {
+				count: `<strong class="val-interchange">${interchangeCount}</strong>`,
+				list: htmlList
+			});
+			interchangePlain = centerClass.t("routeSummary.interchangeRoute", {
+				count: `${interchangeCount}`,
+				list: plainList
+			});
+		} else {
+			interchangeHtml = centerClass.t("routeSummary.directRoute");
+			interchangePlain = interchangeHtml;
+		}
+
+		// 2. पहली और अंतिम ट्रेन का समय (प्रारंभिक स्टेशन)
+		const startStationObj = centerClass.getStationDetails(startId);
+		const schedule = startStationObj?.train_schedule;
+		let scheduleHtml = "";
+		let schedulePlain = "";
+
+		if (schedule?.first_train && schedule?.last_train) {
+			const firstTime = formatTime12h(schedule.first_train);
+			const lastTime = formatTime12h(schedule.last_train);
+			scheduleHtml = centerClass.t("routeSummary.schedule", {
+				station: `<span class="val-station">${startName}</span>`,
+				first: `<span class="val-time">${firstTime}</span>`,
+				last: `<span class="val-time">${lastTime}</span>`
+			});
+			schedulePlain = centerClass.t("routeSummary.schedule", {
+				station: startName,
+				first: firstTime,
+				last: lastTime
+			});
+		}
+
+		// 3. पार्किंग डिटेल्स (Pre-fetch before DOM paint)
+		let parkingHtml = "";
+		let parkingPlain = "";
+		try {
+			const detailsMap = await centerClass.loadStationsDetail();
+			const startHasParking = Array.isArray(detailsMap?.[startId]?.parkings) && detailsMap[startId].parkings.length > 0;
+			const endHasParking = Array.isArray(detailsMap?.[endId]?.parkings) && detailsMap[endId].parkings.length > 0;
+
+			if (startHasParking && endHasParking) {
+				parkingPlain = centerClass.t("routeSummary.parkingBoth");
+			} else if (startHasParking) {
+				parkingPlain = centerClass.t("routeSummary.parkingStartOnly", { station: startName });
+			} else if (endHasParking) {
+				parkingPlain = centerClass.t("routeSummary.parkingEndOnly", { station: endName });
+			}
+			if (parkingPlain) {
+				parkingHtml = `<span class="val-parking">🅿️ ${parkingPlain}</span>`;
+			}
+		} catch (e) {
+			console.warn("[RouteTextSummaryView] Parking load warning:", e);
+		}
+
+		// 4. स्टेशन यूनिट व समय
+		const stationsText = centerClass.t(
+			path.length === 1 ? "pages.home.findRoute.routeSummary.station" : "pages.home.findRoute.routeSummary.stations",
+			{ count: path.length }
+		);
+		const timeText = centerClass.t("pages.home.findRoute.routeSummary.travelTime", { minutes: totalMin });
+
+		// 5. Rich HTML और Plain Text दोनों स्ट्रिंग्स का निर्माण
+		const fullSummaryHtml = centerClass.t("routeSummary.summaryTemplate", {
+			start: `<span class="val-station">${startName}</span>`,
+			end: `<span class="val-station">${endName}</span>`,
+			stations: `<strong class="val-stops">${stationsText}</strong>`,
+			interchangeText: interchangeHtml,
+			distance: `<span class="val-distance">${distKm}</span>`,
+			time: `<span class="val-duration">${timeText}</span>`,
+			fare: `<span class="val-fare">₹${fare}</span>`,
+			scheduleText: scheduleHtml,
+			parkingText: parkingHtml
+		}).trim();
+
+		const fullSummaryPlain = centerClass.t("routeSummary.summaryTemplate", {
+			start: startName,
+			end: endName,
+			stations: stationsText,
+			interchangeText: interchangePlain,
+			distance: `${distKm}`,
+			time: timeText,
+			fare: fare,
+			scheduleText: schedulePlain,
+			parkingText: parkingPlain
+		}).trim().replace(/\s+/g, " ");
+
+		// 6. DOM Element निर्माण (Concept 1: Modern Transit Passport)
+		const title = centerClass.t("routeSummary.title");
+		const copyLabel = centerClass.t("routeSummary.copyBtn");
+		const listenLabel = centerClass.t("routeSummary.listenBtn");
+
+		this.#cardEl = document.createElement("div");
+		this.#cardEl.className = `route-text-summary-card ${wasExpanded ? "" : "is-collapsed"}`;
+		this.#cardEl.innerHTML = `
+			<div class="summary-card-header" role="button" tabindex="0" aria-expanded="${wasExpanded ? "true" : "false"}">
+				<div class="summary-card-title">
+					<span class="summary-icon" aria-hidden="true">📝</span>
+					<h3>${title}</h3>
+					<span class="summary-toggle-arrow" aria-hidden="true">▼</span>
+				</div>
+				<div class="summary-actions">
+					<button type="button" class="btn-summary-action btn-speak-summary" aria-label="${listenLabel}" title="${listenLabel}">
+						<span class="speak-icon" aria-hidden="true">🔊</span>
+						<span class="btn-action-text">${listenLabel}</span>
+					</button>
+					<button type="button" class="btn-summary-action btn-copy-summary" aria-label="${copyLabel}" title="${copyLabel}">
+						<img src="./assets/icons/ui/copy.svg" alt="" class="copy-icon" width="14" height="14" aria-hidden="true" />
+						<span class="btn-action-text">${copyLabel}</span>
+					</button>
+				</div>
+			</div>
+			<div class="summary-card-body" ${wasExpanded ? "" : "hidden"}>
+				<p class="summary-text">${fullSummaryHtml}</p>
+			</div>
+		`;
+
+		// 🎯 100% GUARANTEED PLACEMENT: Insert strictly before .timeline-card
+		const timelineCard = parent.querySelector(".timeline-card");
+		if (timelineCard) {
+			parent.insertBefore(this.#cardEl, timelineCard);
+		} else {
+			parent.appendChild(this.#cardEl);
+		}
+
+		// 7. इवेंट्स बाइंड करें
+		this.#bindAccordionToggle();
+		this.#bindCopyEvent(copyLabel, fullSummaryPlain);
+		this.#bindSpeechEvent(fullSummaryPlain);
+	}
+
+	#bindAccordionToggle() {
+		const header = this.#cardEl?.querySelector(".summary-card-header");
+		const body = this.#cardEl?.querySelector(".summary-card-body");
+		if (!header || !body) return;
+
+		const toggle = (e) => {
+			if (e.target.closest(".summary-actions")) return;
+
+			const isCurrentlyCollapsed = this.#cardEl.classList.contains("is-collapsed");
+			if (isCurrentlyCollapsed) {
+				this.#cardEl.classList.remove("is-collapsed");
+				body.hidden = false;
+				header.setAttribute("aria-expanded", "true");
+			} else {
+				this.#cardEl.classList.add("is-collapsed");
+				body.hidden = true;
+				header.setAttribute("aria-expanded", "false");
+			}
+		};
+
+		header.addEventListener("click", toggle);
+		header.addEventListener("keydown", (e) => {
+			if (e.key === "Enter" || e.key === " ") {
+				e.preventDefault();
+				toggle(e);
+			}
+		});
+	}
+
+	#bindCopyEvent(copyLabel, textToCopy) {
+		const copyBtn = this.#cardEl?.querySelector(".btn-copy-summary");
+		if (!copyBtn) return;
+
+		copyBtn.addEventListener("click", async (e) => {
+			e.stopPropagation();
+			if (!textToCopy) return;
+
+			try {
+				await navigator.clipboard.writeText(textToCopy);
+				const btnText = copyBtn.querySelector(".btn-action-text");
+				const origText = btnText ? btnText.textContent : copyLabel;
+				if (btnText) btnText.textContent = centerClass.t("routeSummary.copied");
+				copyBtn.classList.add("copied");
+
+				eventBus.emit("SHOW_TOAST", {
+					message: centerClass.t("routeSummary.copiedToast"),
+					type: "success",
+					duration: 3000
+				});
+
+				setTimeout(() => {
+					if (btnText) btnText.textContent = origText;
+					copyBtn.classList.remove("copied");
+				}, 2500);
+			} catch (err) {
+				console.error("[RouteTextSummaryView] Copy failed:", err);
+			}
+		});
+	}
+
+	#bindSpeechEvent(textToSpeak) {
+		const speakBtn = this.#cardEl?.querySelector(".btn-speak-summary");
+		if (!speakBtn) return;
+
+		if (!("speechSynthesis" in window)) {
+			speakBtn.style.display = "none";
+			return;
+		}
+
+		speakBtn.addEventListener("click", (e) => {
+			e.stopPropagation();
+
+			if (this.#isSpeaking) {
+				this.#stopSpeaking();
+				return;
+			}
+
+			this.#speak(textToSpeak, speakBtn);
+		});
+	}
+
+	#speak(text, buttonEl) {
+		window.speechSynthesis.cancel();
+
+		const cleanText = text.replace(/➔/g, "से").replace(/~[0-9]+m/g, "");
+		this.#speechUtterance = new SpeechSynthesisUtterance(cleanText);
+		this.#speechUtterance.lang = this.#currentLang === "hi" ? "hi-IN" : "en-IN";
+		this.#speechUtterance.rate = 0.95;
+
+		const iconEl = buttonEl.querySelector(".speak-icon");
+		const textEl = buttonEl.querySelector(".btn-action-text");
+		const listenLabel = centerClass.t("routeSummary.listenBtn");
+		const stopLabel = centerClass.t("routeSummary.speakingBtn");
+
+		this.#speechUtterance.onstart = () => {
+			this.#isSpeaking = true;
+			buttonEl.classList.add("is-speaking");
+			if (iconEl) iconEl.textContent = "⏹️";
+			if (textEl) textEl.textContent = stopLabel;
+		};
+
+		this.#speechUtterance.onend = () => {
+			this.#resetSpeechUI(buttonEl, iconEl, textEl, listenLabel);
+		};
+
+		this.#speechUtterance.onerror = () => {
+			this.#resetSpeechUI(buttonEl, iconEl, textEl, listenLabel);
+		};
+
+		window.speechSynthesis.speak(this.#speechUtterance);
+	}
+
+	#stopSpeaking() {
+		if ("speechSynthesis" in window) {
+			window.speechSynthesis.cancel();
+		}
+		this.#isSpeaking = false;
+		const speakBtn = this.#cardEl?.querySelector(".btn-speak-summary");
+		if (speakBtn) {
+			const iconEl = speakBtn.querySelector(".speak-icon");
+			const textEl = speakBtn.querySelector(".btn-action-text");
+			this.#resetSpeechUI(speakBtn, iconEl, textEl, centerClass.t("routeSummary.listenBtn"));
+		}
+	}
+
+	#resetSpeechUI(buttonEl, iconEl, textEl, label) {
+		this.#isSpeaking = false;
+		buttonEl.classList.remove("is-speaking");
+		if (iconEl) iconEl.textContent = "🔊";
+		if (textEl) textEl.textContent = label;
+	}
+}
+

@@ -1,10 +1,14 @@
 {
 	"networks": {
-		"cmrl": ""
+		"cmrl": "சென்னை மெட்ரோ ரயில் நிறுவனம் (CMRL)",
+		"chennai_metro": "சென்னை மெட்ரோ (CMRL)"
+	},
+	"policies": {
+		"cmrl_standard": "சென்னை மெட்ரோ (CMRL)"
 	},
 	"lines": {
-		"cmrl.blue": {"name": "நீல வழித்தடம்", "short_name": "நீல வழித்தடம்"},
-		"cmrl.green": {"name": "பச்சை வழித்தடம்", "short_name": "பச்சை வழித்தடம்"}
+		"cmrl.blue": {"name": "நீல வழித்தடம் (தடம் 1)", "short_name": "நீல வழித்தடம்"},
+		"cmrl.green": {"name": "பச்சை வழித்தடம் (தடம் 2)", "short_name": "பச்சை வழித்தடம்"}
 	},
 	"stations": {
 		"ag-dms": {
@@ -155,7 +159,7 @@
 			"landmarks": []
 		},
 		"new-washermenpet-metro": {
-			"name": "New Washermenpet Metro",
+			"name": "புது வண்ணாரப்பேட்டை",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -204,7 +208,7 @@
 			"landmarks": []
 		},
 		"sir-thiyagaraya-college-metro": {
-			"name": "Sir Thiyagaraya College Metro",
+			"name": "சர் தியாகராயா கல்லூரி",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -232,14 +236,14 @@
 			"landmarks": []
 		},
 		"thiruvotriyur-metro": {
-			"name": "Thiruvotriyur Metro",
+			"name": "திருவொற்றியூர்",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"thiruvottriyur-theradi-metro": {
-			"name": "Thiruvottriyur Theradi Metro",
+			"name": "திருவொற்றியூர் தேரடி",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -274,14 +278,14 @@
 			"landmarks": []
 		},
 		"washermenpet-metro": {
-			"name": "Washermenpet Metro",
+			"name": "வண்ணாரப்பேட்டை",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"wimco-nagar-depot-metro": {
-			"name": "விம்கோ நகர்",
+			"name": "விம்கோ நகர் பணிமனை",
 			"aliases": [],
 			"description": "",
 			"gates": {},

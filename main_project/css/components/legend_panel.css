@@ -60,9 +60,9 @@
 		/* Legend बटन की ग्लासमोर्फिक स्टाइल और SVG आइकॉन लेआउट */
 	/* Legend बटन की ग्लासमोर्फिक स्टाइल और CSS मास्क द्वारा थीम-रिस्पॉन्सिव SVG आइकन */
 	.metro-btn-overlay {
-		position: absolute;
-		top: 16px;
-		right: 16px;
+		position: relative;
+		top: auto;
+		right: auto;
 		z-index: var(--z-sidebar);
 		
 		background: rgba(var(--color-bg-base-rgb), 0.85);
@@ -70,7 +70,7 @@
 		-webkit-backdrop-filter: blur(var(--backdrop-blur));
 		color: var(--text-primary);
 		border: 1px solid var(--border-color);
-		padding: 6px 14px;
+		padding: var(--space-xs) var(--space-md);
 		border-radius: var(--radius-full);
 		font-family: var(--font-title);
 		font-size: var(--fs-xs);
@@ -80,7 +80,8 @@
 		
 		display: flex;
 		align-items: center;
-		gap: 6px;
+		gap: var(--space-xs);
+		white-space: nowrap;
 		transition: all var(--transition-fast);
 	}
 
@@ -220,10 +221,10 @@
 
 		/* Legend Floating Button */
 		.metro-btn-overlay {
-			top: var(--space-sm);
-			right: var(--space-sm);
-			padding: 6px var(--space-md);
-			font-size: var(--fs-xs);
+			top: auto;
+			right: auto;
+			padding: var(--space-2xs) var(--space-xs);
+			font-size: var(--fs-2xs);
 		}
 	}
 }

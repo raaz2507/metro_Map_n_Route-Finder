@@ -2,6 +2,9 @@
 	"networks": {
 		"namma_metro": "Namma Metro (BMRCL)"
 	},
+	"policies": {
+		"bmrcl_standard": "Namma Metro (BMRCL)"
+	},
 	"lines": {
 		"bmrcl.purple": {"name": "Purple Line", "short_name": "Purple Line"},
 		"bmrcl.green": {"name": "Green Line", "short_name": "Green Line"},

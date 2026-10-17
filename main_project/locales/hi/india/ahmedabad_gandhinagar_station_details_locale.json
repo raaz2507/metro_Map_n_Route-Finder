@@ -1,438 +1,442 @@
 {
 	"networks": {
-		"gmrc": ""
+		"gmrc": "गुजरात मेट्रो रेल कॉर्पोरेशन (GMRC)",
+		"ahmedabad_metro": "अहमदाबाद मेट्रो (GMRC)"
+	},
+	"policies": {
+		"gmrc_standard": "अहमदाबाद मेट्रो (GMRC)"
 	},
 	"lines": {
-		"gmrc.blue": {"name": "", "short_name": ""},
-		"gmrc.red": {"name": "", "short_name": ""},
-		"gmrc.yellow": {"name": "", "short_name": ""},
-		"gmrc.violet": {"name": "", "short_name": ""},
-		"gmrc.airport": {"name": "", "short_name": ""},
-		"gmrc.biotech": {"name": "", "short_name": ""}
+		"gmrc.blue": {"name": "ब्लू लाइन", "short_name": "ब्लू लाइन"},
+		"gmrc.red": {"name": "रेड लाइन", "short_name": "रेड लाइन"},
+		"gmrc.yellow": {"name": "गांधीनगर एक्सटेंशन (येलो लाइन)", "short_name": "येलो लाइन"},
+		"gmrc.violet": {"name": "गिफ्ट सिटी ब्रांच (वायलेट लाइन)", "short_name": "वायलेट लाइन"},
+		"gmrc.airport": {"name": "एयरपोर्ट एक्सप्रेस लाइन", "short_name": "एयरपोर्ट लाइन"},
+		"gmrc.biotech": {"name": "बायोटेक एक्सटेंशन", "short_name": "बायोटेक लाइन"}
 	},
 	"stations": {
 		"aec": {
-			"name": "",
+			"name": "एईसी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"airport": {
-			"name": "",
-			"aliases": [],
+			"name": "सरदार वल्लभभाई पटेल अंतर्राष्ट्रीय हवाई अड्डा",
+			"aliases": ["अहमदाबाद एयरपोर्ट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"akshardham": {
-			"name": "",
-			"aliases": [],
+			"name": "अक्षरधाम",
+			"aliases": ["गांधीनगर अक्षरधाम"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"amraivadi": {
-			"name": "",
+			"name": "अमराईवाड़ी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"apmc": {
-			"name": "",
-			"aliases": [],
+			"name": "एपीएमसी",
+			"aliases": ["कृषि उपज मंडी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"apparel_park": {
-			"name": "",
+			"name": "अपैरल पार्क",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ashram_road": {
-			"name": "",
+			"name": "आश्रम रोड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"commerce_six_road": {
-			"name": "",
-			"aliases": [],
+			"name": "कॉमर्स सिक्स रोड (छह रास्ता)",
+			"aliases": ["कॉमर्स छह रास्ता"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dholakuva_circle": {
-			"name": "",
+			"name": "धोलाकुवा सर्कल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"doordarshan_kendra": {
-			"name": "",
+			"name": "दूरदर्शन केंद्र",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gandhigram": {
-			"name": "",
+			"name": "गांधीग्राम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gheekanta": {
-			"name": "",
+			"name": "घीकांटा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gift_city": {
-			"name": "",
+			"name": "गिफ्ट सिटी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gift_city_house": {
-			"name": "",
+			"name": "गिफ्ट सिटी हाउस",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gnlu": {
-			"name": "",
-			"aliases": [],
+			"name": "जीएनएलयू",
+			"aliases": ["गुजरात नेशनल लॉ यूनिवर्सिटी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gujarat_biotechnology_university": {
-			"name": "",
+			"name": "गुजरात बायोटेक्नोलॉजी यूनिवर्सिटी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gujarat_university": {
-			"name": "",
+			"name": "गुजरात यूनिवर्सिटी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gurukul_road": {
-			"name": "",
+			"name": "गुरुकुल रोड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"infocity": {
-			"name": "",
+			"name": "इन्फोसिटी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jivraj_park": {
-			"name": "",
+			"name": "जीवराज पार्क",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"juna_koba": {
-			"name": "",
+			"name": "जूना कोबा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"juna_sachivalaya": {
-			"name": "",
-			"aliases": [],
+			"name": "जूना सचिवालय",
+			"aliases": ["पुराना सचिवालय"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kalupur": {
-			"name": "",
-			"aliases": [],
+			"name": "कालूपुर रेलवे स्टेशन",
+			"aliases": ["अहमदाबाद रेलवे स्टेशन", "कालूपुर"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kankaria_east": {
-			"name": "",
-			"aliases": [],
+			"name": "कांकरिया ईस्ट",
+			"aliases": ["कांकरिया झील"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"koba_circle": {
-			"name": "",
+			"name": "कोबा सर्कल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"koba_gam": {
-			"name": "",
+			"name": "कोबा गाम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"koteshwar_prachin_mandir": {
-			"name": "",
+			"name": "कोटेश्वर प्राचीन मंदिर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"koteshwar_road": {
-			"name": "",
+			"name": "कोटेश्वर रोड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mahatama_mandir": {
-			"name": "",
+			"name": "महात्मा मंदिर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"motera_stadium": {
-			"name": "",
-			"aliases": [],
+			"name": "मोटेरा स्टेडियम (नरेंद्र मोदी स्टेडियम)",
+			"aliases": ["नरेंद्र मोदी स्टेडियम", "मोटेरा"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"narmada_canal": {
-			"name": "",
+			"name": "नर्मदा कैनाल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nirant_cross_road": {
-			"name": "",
+			"name": "निरांत क्रॉस रोड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"old_high_court": {
-			"name": "",
-			"aliases": [],
+			"name": "ओल्ड हाई कोर्ट",
+			"aliases": ["इंटरचेंज"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"paldi": {
-			"name": "",
+			"name": "पालड़ी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"pdeu": {
-			"name": "",
-			"aliases": [],
+			"name": "पीडीईयू",
+			"aliases": ["पंडित दीनदयाल एनर्जी यूनिवर्सिटी"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rabari_colony": {
-			"name": "",
+			"name": "रबारी कॉलोनी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rajivnagar": {
-			"name": "",
+			"name": "राजीव नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"randesan": {
-			"name": "",
+			"name": "रांदेसण",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ranip": {
-			"name": "",
+			"name": "राणिप",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"raysan": {
-			"name": "",
+			"name": "रायसण",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sabarmati": {
-			"name": "",
+			"name": "साबरमती",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sabarmati_railway_station": {
-			"name": "",
+			"name": "साबरमती रेलवे स्टेशन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sabarmati_river": {
-			"name": "",
-			"aliases": [],
+			"name": "साबरमती रिवर",
+			"aliases": ["साबरमती रिवरफ्रंट"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sachivalaya": {
-			"name": "",
-			"aliases": [],
+			"name": "सचिवालय",
+			"aliases": ["गांधीनगर सचिवालय"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sardarnagar": {
-			"name": "",
+			"name": "सरदारनगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sector_1": {
-			"name": "",
+			"name": "सेक्टर 1",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sector_10a": {
-			"name": "",
+			"name": "सेक्टर 10A",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sector_16": {
-			"name": "",
+			"name": "सेक्टर 16",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sector_24": {
-			"name": "",
+			"name": "सेक्टर 24",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shahpur": {
-			"name": "",
+			"name": "शाहपुर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"shreyas": {
-			"name": "",
+			"name": "श्रेयस",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sp_stadium": {
-			"name": "",
-			"aliases": [],
+			"name": "एसपी स्टेडियम",
+			"aliases": ["सरदार पटेल स्टेडियम"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"tapovan_circle": {
-			"name": "",
+			"name": "तपोवन सर्कल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"thaltej": {
-			"name": "",
+			"name": "थलतेज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"thaltej_gam": {
-			"name": "",
+			"name": "थलतेज गाम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"usmanpura": {
-			"name": "",
+			"name": "उस्मानपुरा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vadaj": {
-			"name": "",
+			"name": "वाडज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vastral": {
-			"name": "",
+			"name": "वस्त्राल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vastral_gam": {
-			"name": "",
+			"name": "वस्त्राल गाम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vijaynagar": {
-			"name": "",
+			"name": "विजय नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vishwakarma_college": {
-			"name": "",
+			"name": "विश्वकर्मा कॉलेज",
 			"aliases": [],
 			"description": "",
 			"gates": {},

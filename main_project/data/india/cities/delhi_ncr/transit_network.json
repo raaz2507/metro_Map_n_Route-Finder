@@ -38,27 +38,50 @@
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Token", "hi": "टोकन"}
-					},
+					"token": {"type": "base", "validityMinutes": 20},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
-						"label": {"en": "Smart Card", "hi": "स्मार्ट कार्ड"}
+						"minRecharge": 100,
+						"maxRecharge": 2000,
+						"minBalance": 20,
+						"securityDeposit": 50,
+						"validityYears": 10,
+						"rechargeUrl": "https://dmrcsmartcard.com/",
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 180},
+						"overstayPenaltyPerHour": 10
 					},
-					"off_peak_smart_card": {
-						"type": "discount",
-						"baseProduct": "smart_card",
-						"discountPercent": 10,
-						"timeRule": "off_peak",
-						"label": {"en": "Off Peak Smart Card", "hi": "ऑफ पीक स्मार्ट कार्ड"}
-					}
+					"off_peak_smart_card": {"type": "discount", "baseProduct": "smart_card", "discountPercent": 10, "timeRule": "off_peak"},
+					"tourist_card_1day": {
+						"type": "flat_pass",
+						"cost": 200,
+						"travelValue": 150,
+						"refundableDeposit": 50,
+						"validityDays": 1,
+						"maxRides": null,
+						"excludedLines": ["airport_express"]
+					},
+					"tourist_card_3day": {
+						"type": "flat_pass",
+						"cost": 500,
+						"travelValue": 450,
+						"refundableDeposit": 50,
+						"validityDays": 3,
+						"maxRides": null,
+						"excludedLines": ["airport_express"]
+					},
+					"qr_ticket": {
+						"type": "digital",
+						"validityMinutes": 60,
+						"channels": ["dmrc_travel_app", "whatsapp", "paytm", "amazon_pay"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 10, "minBalance": 20}
 				},
 				"timeRules": {
 					"off_peak": [{"start": "00:00", "end": "08:00"}, {"start": "12:00", "end": "17:00"}, {"start": "21:00", "end": "23:59"}]
-				}
+				},
+				"rechargeUrl": "https://dmrcsmartcard.com/"
 			},
 			"airport_express": {
 				"network": "dmrc",
@@ -76,11 +99,9 @@
 					[75, 75, 64, 43, 32, 21, 11]
 				],
 				"products": {
-					"single_journey": {
-						"type": "base",
-						"label": {"en": "Single Journey", "hi": "एकल यात्रा"}
-					}
-				}
+					"single_journey": {"type": "base"}
+				},
+				"rechargeUrl": ""
 			},
 			"nmrc_standard": {
 				"network": "nmrc",
@@ -97,17 +118,10 @@
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "QR Ticket", "hi": "क्यूआर टिकट"}
-					},
-					"smart_card": {
-						"type": "discount",
-						"baseProduct": "token",
-						"discountPercent": 10,
-						"label": {"en": "CITY1 Smart Card", "hi": "सिटी1 स्मार्ट कार्ड"}
-					}
-				}
+					"token": {"type": "base"},
+					"smart_card": {"type": "discount", "baseProduct": "token", "discountPercent": 10, "rechargeUrl": ""}
+				},
+				"rechargeUrl": ""
 			},
 			"rapid_metro_standard": {
 				"network": "rapid_metro_gurugram",
@@ -117,17 +131,10 @@
 					"weekday": [{"minKm": 0, "maxKm": null, "fare": 20}]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Token", "hi": "टोकन"}
-					},
-					"smart_card": {
-						"type": "discount",
-						"baseProduct": "token",
-						"discountPercent": 10,
-						"label": {"en": "Smart Card", "hi": "स्मार्ट कार्ड"}
-					}
-				}
+					"token": {"type": "base"},
+					"smart_card": {"type": "discount", "baseProduct": "token", "discountPercent": 10, "rechargeUrl": ""}
+				},
+				"rechargeUrl": ""
 			},
 			"ncrtc_standard": {
 				"network": "delhi_meerut_rrts",
@@ -161,17 +168,10 @@
 					[210, 200, 180, 160, 150, 140, 120, 130, 110, 90, 80, 60, 50, 50, 50, 50, 40, 30, 30, 30, 20, 20, 0]
 				],
 				"products": {
-					"standard_qr": {
-						"type": "base",
-						"label": {"en": "Standard Class Ticket", "hi": "स्टैंडर्ड क्लास टिकट"}
-					},
-					"premium_coach": {
-						"type": "concession",
-						"baseProduct": "standard_qr",
-						"multiplier": 1.2,
-						"label": {"en": "Premium Lounge & Coach", "hi": "प्रीमियम लाउंज एवं कोच"}
-					}
-				}
+					"standard_qr": {"type": "base"},
+					"premium_coach": {"type": "concession", "baseProduct": "standard_qr", "multiplier": 1.2}
+				},
+				"rechargeUrl": ""
 			},
 			"ncrtc_premium": {
 				"network": "delhi_meerut_rrts",
@@ -205,11 +205,9 @@
 					[250, 240, 215, 190, 180, 170, 145, 155, 130, 110, 95, 70, 60, 60, 60, 55, 45, 35, 35, 55, 45, 45, 0]
 				],
 				"products": {
-					"premium_qr": {
-						"type": "base",
-						"label": {"en": "Premium Class Ticket", "hi": "प्रीमियम क्लास टिकट"}
-					}
-				}
+					"premium_qr": {"type": "base"}
+				},
+				"rechargeUrl": ""
 			}
 		}
 	},
@@ -1957,8 +1955,8 @@
 			"platforms": {
 				"1": {"line": "dmrc.blue_main", "destination": "sector_55_56"},
 				"2": {"line": "dmrc.blue_main", "destination": "dlf_phase_3"},
-				"4": {"destination": "majlis_park", "destination_second": "yamuna_vihar"},
-				"3": {"destination": "shiv_vihar"}
+				"3": {"destination": "shiv_vihar"},
+				"4": {"destination": "majlis_park", "destination_second": "yamuna_vihar"}
 			},
 			"neighbors": [
 				{"station": "akshardham", "line": "dmrc.blue_main", "distance": 2144},
@@ -3722,8 +3720,8 @@
 			"lines": ["dmrc.yellow"],
 			"properties": {"layout": "underground", "status": "operational"},
 			"platforms": {
-				"2": {"destination": "samaypur_badli_dipo"},
-				"1": {"destination": "millennium_city_centre_gurugram"}
+				"1": {"destination": "millennium_city_centre_gurugram"},
+				"2": {"destination": "samaypur_badli_dipo"}
 			},
 			"neighbors": [
 				{"station": "model_town", "line": "dmrc.yellow", "distance": 1434},

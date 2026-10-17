@@ -1,8 +1,9 @@
 """
 Production Emitter and Promotion Engine for Production Bridge (Stage 4).
 Location: import_data/bridge_core/production_emitter.py
-Role: Handles atomic writes of staging buffer and production delta files.
-      Handles supervised promotion. Existing base files are strictly protected.
+Role: Handles atomic writes of unified staging buffer (staging_buffer.json).
+      Handles supervised 3-way promotion (transit_network.json, station_details.json, locales).
+      Existing base files are strictly protected against automated overwrites.
 """
 import datetime
 import json
@@ -17,9 +18,9 @@ class ProductionEmitter:
 	Atomic Emitter and Supervised Promotion Engine.
 	Enforces Zero Blast Radius:
 	  - Only writes to .staging_temp/ in stage_temp mode
-	  - Only writes to *_auto.json in port_production mode
-	  - Base files (transit_network.json, station_details.json) are NEVER directly touched
-	    unless explicitly requested in promote mode with strict backup.
+	  - Only writes to staging_buffer.json in port_production mode
+	  - Base files (transit_network.json, station_details.json, locales) are NEVER directly touched
+	    unless explicitly requested in promote mode.
 	"""
 
 	@staticmethod
@@ -33,7 +34,7 @@ class ProductionEmitter:
 		aggregated_support: Dict[str, Any],
 		audit_summary: Dict[str, Any]
 	) -> bool:
-		"""Writes files to staging temp or production target directory."""
+		"""Writes unified staging buffer and passenger support files."""
 		if mode in ["stage_temp", "prepare_temp"]:
 			dest_dir = staging_base_dir / ".staging_temp" / city_id
 			dest_dir.mkdir(parents=True, exist_ok=True)
@@ -41,24 +42,95 @@ class ProductionEmitter:
 		else:
 			dest_dir = target_city_dir
 			dest_dir.mkdir(parents=True, exist_ok=True)
-			UniversalPipelineLogger.log("WRITE", f"Writing production delta files to: {dest_dir}")
+			UniversalPipelineLogger.log("WRITE", f"Writing unified staging buffer to: {dest_dir}")
 
-		# 1. Save station_details_auto.json
-		details_target = dest_dir / "station_details_auto.json"
-		UniversalFileSystemManager.save_atomic_tab_json(details_target, details_delta)
-		UniversalPipelineLogger.log("SUCCESS", f"Emitted: {details_target.name} ({len(details_delta)} entries)")
+		# 1. Build draft locales delta for newly discovered stations
+		new_station_ids = [
+			slug for slug, p in details_delta.items()
+			if slug != "_meta" and isinstance(p, dict) and p.get("_meta", {}).get("is_new")
+		]
+		locales_delta: Dict[str, Any] = {
+			"en": {"stations": {}},
+			"hi": {"stations": {}}
+		}
+		for s_id in new_station_ids:
+			locales_delta["en"]["stations"][s_id] = {
+				"name": s_id.replace("_", " ").title(),
+				"aliases": [],
+				"description": "",
+				"gates": {},
+				"landmarks": []
+			}
+			locales_delta["hi"]["stations"][s_id] = {
+				"name": "",
+				"aliases": [],
+				"description": "",
+				"gates": {},
+				"landmarks": []
+			}
 
-		# 2. Save transit_network_auto.json
-		transit_target = dest_dir / "transit_network_auto.json"
-		UniversalFileSystemManager.save_atomic_tab_json(transit_target, transit_network_delta)
-		UniversalPipelineLogger.log("SUCCESS", f"Emitted: {transit_target.name}")
+		# 2. Save unified staging_buffer.json
+		delta_stations_count = len([k for k in details_delta.keys() if k != "_meta"])
+		new_graph_stns = transit_network_delta.get("stations", {})
+		new_lines = transit_network_delta.get("lines", {})
+		new_transfers = transit_network_delta.get("transfers", {})
+		new_fare_rules = transit_network_delta.get("fareRules", {})
 
-		# 3. Save passenger_support.json
+		staging_buffer = {
+			"_meta": {
+				"city": city_id,
+				"generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat() + "Z",
+				"status": "pending_developer_review",
+				"summary": {
+					"total_delta_stations": delta_stations_count,
+					"new_graph_stations": len(new_graph_stns),
+					"new_lines": len(new_lines),
+					"has_new_transfers": bool(new_transfers),
+					"has_new_fare_rules": bool(new_fare_rules)
+				}
+			},
+			"transit_network": {
+				"stations": new_graph_stns,
+				"lines": new_lines,
+				"transfers": new_transfers,
+				"fareRules": new_fare_rules
+			},
+			"station_details": {k: v for k, v in details_delta.items() if k != "_meta"},
+			"locales": locales_delta
+		}
+
+		staging_target = dest_dir / "staging_buffer.json"
+		UniversalFileSystemManager.save_atomic_tab_json(staging_target, staging_buffer)
+		UniversalPipelineLogger.log("SUCCESS", f"Emitted: {staging_target.name} (Delta stations: {delta_stations_count})")
+
+		# 3. Save passenger_support.json (Protected against empty overwrite)
 		support_target = dest_dir / "passenger_support.json"
-		UniversalFileSystemManager.save_atomic_tab_json(support_target, aggregated_support)
-		UniversalPipelineLogger.log("SUCCESS", f"Emitted: {support_target.name}")
+		should_write_support = True
+		if support_target.exists():
+			try:
+				with open(support_target, "r", encoding="utf-8") as exf:
+					existing_supp = json.load(exf)
+				has_existing_helplines = any(
+					bool(n.get("helplines") or n.get("portals"))
+					for n in existing_supp.get("networks", {}).values()
+					if isinstance(n, dict)
+				)
+				has_new_helplines = any(
+					bool(n.get("helplines") or n.get("portals"))
+					for n in aggregated_support.get("networks", {}).values()
+					if isinstance(n, dict)
+				)
+				if has_existing_helplines and not has_new_helplines:
+					should_write_support = False
+					UniversalPipelineLogger.log("SUPPORT", f"Protected existing verified passenger_support.json for {city_id} (Skipping empty overwrite)")
+			except Exception:
+				pass
 
-		# 4. Save audit summary report strictly inside import_data/.staging_temp
+		if should_write_support:
+			UniversalFileSystemManager.save_atomic_tab_json(support_target, aggregated_support)
+			UniversalPipelineLogger.log("SUCCESS", f"Emitted: {support_target.name}")
+
+		# 4. Save audit summary report inside import_data/.staging_temp
 		audit_dir = staging_base_dir / ".staging_temp" / city_id
 		audit_dir.mkdir(parents=True, exist_ok=True)
 		audit_target = audit_dir / "overlay_audit_report.json"
@@ -70,198 +142,194 @@ class ProductionEmitter:
 	@staticmethod
 	def promote_buffer_to_base(city_id: str, target_city_dir: Path) -> bool:
 		"""
-		नियम और लॉजिक (Promotion & Base Creation Logic):
+		Supervised 3-Way Promotion Engine (Zero Blast Radius):
 		-------------------------------------------------------------------------
-		1. यदि बेस फ़ाइलें (station_details.json और transit_network.json) पहले से मौजूद नहीं हैं (यानी नया शहर):
-		   - तो यह इंजन सीधे बेस फ़ाइलें बना देगा (Base Initialization)।
-		   - station_details_auto.json से station_details.json बनेगा।
-		   - transit_network_auto.json से transit_network.json बनेगा।
+		Reads staging_buffer.json and atomically promotes:
+		  1. station_details -> station_details.json (merges amenities, timings, gates, etc.)
+		  2. transit_network -> transit_network.json (merges stations, lines, transfers, fares)
+		  3. locales -> <city>_station_details_locale.json (merges EN, HI, regional names)
 		
-		2. यदि बेस फ़ाइलें पहले से मौजूद हैं (Existing City):
-		   - तो बेस फ़ाइलों को कभी भी सीधे ओवरराइट नहीं किया जाएगा (Zero Blast Radius)।
-		   - केवल station_details_auto.json का सत्यापित डेल्टा मौजूदा बेस में सुरक्षित रूप से मर्ज (Update) होगा।
-		
-		3. प्रमोशन के बाद:
-		   - दोनों *_auto.json बफ़र फ़ाइलों को क्लीन/रीसेट कर दिया जाएगा।
+		After promotion, resets staging_buffer.json to a clean 0-delta buffer.
 		-------------------------------------------------------------------------
 		"""
-		details_auto_file = target_city_dir / "station_details_auto.json"
+		staging_file = target_city_dir / "staging_buffer.json"
 		details_base_file = target_city_dir / "station_details.json"
-		transit_auto_file = target_city_dir / "transit_network_auto.json"
 		transit_base_file = target_city_dir / "transit_network.json"
 
-		if not details_auto_file.exists():
-			UniversalPipelineLogger.log("WARN", f"No staging buffer found to promote at: {details_auto_file}")
+		if not staging_file.exists():
+			UniversalPipelineLogger.log("WARN", f"No staging_buffer.json found to promote at: {staging_file}")
 			return False
 
 		try:
-			with open(details_auto_file, "r", encoding="utf-8") as f:
-				auto_data = json.load(f)
+			with open(staging_file, "r", encoding="utf-8") as f:
+				staging_data = json.load(f)
 		except Exception as ex:
-			UniversalPipelineLogger.log("ERROR", f"Failed reading auto buffer: {ex}")
+			UniversalPipelineLogger.log("ERROR", f"Failed reading staging_buffer.json: {ex}")
 			return False
 
-		# --- कंडीशन 1: station_details.json की हैंडलिंग ---
-		base_data: Dict[str, Any] = {}
-		is_new_city_details = not details_base_file.exists()
+		transit_delta = staging_data.get("transit_network", {})
+		details_delta = staging_data.get("station_details", {})
+		locales_delta = staging_data.get("locales", {})
 
-		if not is_new_city_details:
-			# बेस फ़ाइल पहले से मौजूद है - इसे लोड करके सिर्फ नया/अपडेटेड डेल्टा मर्ज करेंगे
+		# --- 1. Promote station_details ---
+		base_details: Dict[str, Any] = {}
+		is_new_details = not details_base_file.exists()
+
+		if not is_new_details:
 			try:
 				with open(details_base_file, "r", encoding="utf-8") as f:
-					base_data = json.load(f)
+					base_details = json.load(f)
 			except Exception as ex:
-				UniversalPipelineLogger.log("ERROR", f"Failed reading base file: {ex}")
+				UniversalPipelineLogger.log("ERROR", f"Failed reading base station_details.json: {ex}")
 				return False
 		else:
-			UniversalPipelineLogger.log("INFO", f"Base station_details.json not found for [{city_id}]. Initializing as new city base.")
+			UniversalPipelineLogger.log("INFO", f"Base station_details.json not found for [{city_id}]. Initializing as new.")
 
-		promoted_count = 0
-		for slug, patch in auto_data.items():
+		promoted_details_count = 0
+		for slug, patch in details_delta.items():
 			if slug == "_meta" or not isinstance(patch, dict):
 				continue
 
 			clean_patch = {k: v for k, v in patch.items() if k != "_meta"}
-			if slug not in base_data:
-				base_data[slug] = clean_patch
+			if slug not in base_details:
+				base_details[slug] = clean_patch
 			else:
-				base_data[slug].update(clean_patch)
-			promoted_count += 1
+				base_details[slug].update(clean_patch)
+			promoted_details_count += 1
 
-		# बेस फ़ाइल को सुरक्षित रूप से सेव करें
-		UniversalFileSystemManager.save_atomic_tab_json(details_base_file, base_data, compact=True)
-		action_label = "Initialized new base with" if is_new_city_details else "Successfully baked"
-		UniversalPipelineLogger.log("PROMOTE", f"{action_label} {promoted_count} stations into: {details_base_file.name}")
+		UniversalFileSystemManager.save_atomic_tab_json(details_base_file, base_details, compact=True)
+		label_details = "Initialized new base with" if is_new_details else "Successfully baked"
+		UniversalPipelineLogger.log("PROMOTE", f"{label_details} {promoted_details_count} stations into: {details_base_file.name}")
 
-		# --- कंडीशन 2: transit_network.json की हैंडलिंग ---
-		# अगर बेस transit_network.json मौजूद नहीं है, तो auto बफ़र से बेस नेटवर्क तैयार करें
-		if transit_auto_file.exists():
-			try:
-				with open(transit_auto_file, "r", encoding="utf-8") as f:
-					transit_auto_data = json.load(f)
-				
-				auto_lines = transit_auto_data.get("lines", {})
-				auto_transfers = transit_auto_data.get("transfers", {})
-				auto_stns = transit_auto_data.get("stations", {})
-				auto_fares = transit_auto_data.get("fareRules", {})
+		# --- 2. Promote transit_network ---
+		auto_lines = transit_delta.get("lines", {})
+		auto_transfers = transit_delta.get("transfers", {})
+		auto_stns = transit_delta.get("stations", {})
+		auto_fares = transit_delta.get("fareRules", {})
 
-				if not transit_base_file.exists():
-					base_network = {
-						"defaults": {"stationType": "normal", "layout": "elevated"},
-						"fareRules": auto_fares,
-						"lines": auto_lines,
-						"transfers": auto_transfers,
-						"stationData": auto_stns
-					}
-					UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_network, compact=True)
-					UniversalPipelineLogger.log("PROMOTE", f"Initialized new base transit network: {transit_base_file.name}")
-				else:
-					# यदि बेस फ़ाइल है लेकिन लाइन्स, ट्रांसफ़र या फेयर रूल्स अपडेट करने हैं
-					with open(transit_base_file, "r", encoding="utf-8") as bf:
-						base_net = json.load(bf)
-					updated = False
-					if not base_net.get("lines") and auto_lines:
-						base_net["lines"] = auto_lines
-						updated = True
-					elif auto_lines:
-						for al_id, al_val in auto_lines.items():
-							if al_id not in base_net.setdefault("lines", {}):
-								base_net["lines"][al_id] = al_val
-								updated = True
-					if not base_net.get("transfers") and auto_transfers:
-						base_net["transfers"] = auto_transfers
-						updated = True
-					if not base_net.get("fareRules") and auto_fares:
-						base_net["fareRules"] = auto_fares
-						updated = True
+		try:
+			if not transit_base_file.exists():
+				base_network = {
+					"defaults": {"stationType": "normal", "layout": "elevated"},
+					"fareRules": auto_fares,
+					"lines": auto_lines,
+					"transfers": auto_transfers,
+					"stationData": auto_stns
+				}
+				UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_network, compact=True)
+				UniversalPipelineLogger.log("PROMOTE", f"Initialized new base transit network: {transit_base_file.name}")
+			else:
+				with open(transit_base_file, "r", encoding="utf-8") as bf:
+					base_net = json.load(bf)
+				updated = False
 
-					if auto_stns:
-						for stn_id, stn_graph in auto_stns.items():
-							if stn_id not in base_net.setdefault("stationData", {}):
-								base_net["stationData"][stn_id] = stn_graph
-								updated = True
-							elif "location" in stn_graph:
-								base_net["stationData"][stn_id]["location"] = stn_graph["location"]
-								updated = True
+				if not base_net.get("lines") and auto_lines:
+					base_net["lines"] = auto_lines
+					updated = True
+				elif auto_lines:
+					for al_id, al_val in auto_lines.items():
+						if al_id not in base_net.setdefault("lines", {}):
+							base_net["lines"][al_id] = al_val
+							updated = True
 
-					# यदि किसी लाइन में farePolicy मिसिंग है, तो केवल उसी के नेटवर्क की आधिकारिक पॉलिसी से लिंक करें
-					policies = base_net.get("fareRules", {}).get("policies", {})
-					if policies and "lines" in base_net:
-						for l_obj in base_net["lines"].values():
-							if not l_obj.get("farePolicy"):
-								l_net = l_obj.get("network")
-								matched = None
-								for pol_id, pol_obj in policies.items():
-									if isinstance(pol_obj, dict) and pol_obj.get("network") == l_net:
+				if not base_net.get("transfers") and auto_transfers:
+					base_net["transfers"] = auto_transfers
+					updated = True
+
+				if not base_net.get("fareRules") and auto_fares:
+					base_net["fareRules"] = auto_fares
+					updated = True
+
+				if auto_stns:
+					for stn_id, stn_graph in auto_stns.items():
+						if stn_id not in base_net.setdefault("stationData", {}):
+							base_net["stationData"][stn_id] = stn_graph
+							updated = True
+						elif "location" in stn_graph:
+							base_net["stationData"][stn_id]["location"] = stn_graph["location"]
+							updated = True
+
+				# Auto-link missing line farePolicy to declared authentic network policy
+				policies = base_net.get("fareRules", {}).get("policies", {})
+				if policies and "lines" in base_net:
+					for l_obj in base_net["lines"].values():
+						if not l_obj.get("farePolicy"):
+							l_net = l_obj.get("network")
+							matched = None
+							for pol_id, pol_obj in policies.items():
+								if isinstance(pol_obj, dict) and pol_obj.get("network") == l_net:
+									matched = pol_id
+									break
+							if not matched and l_net:
+								for pol_id in policies:
+									if l_net in pol_id or pol_id in l_net:
 										matched = pol_id
 										break
-								if not matched and l_net:
-									for pol_id in policies:
-										if l_net in pol_id or pol_id in l_net:
-											matched = pol_id
-											break
-								if matched:
-									l_obj["farePolicy"] = matched
-									updated = True
+							if matched:
+								l_obj["farePolicy"] = matched
+								updated = True
 
-					if updated:
-						UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_net, compact=True)
-						UniversalPipelineLogger.log("PROMOTE", f"Updated base transit network with lines/transfers/fares: {transit_base_file.name}")
-			except Exception as ex:
-				UniversalPipelineLogger.log("ERROR", f"Failed handling base transit network: {ex}")
+				if updated:
+					UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, base_net, compact=True)
+					UniversalPipelineLogger.log("PROMOTE", f"Updated base transit network with lines/transfers/fares: {transit_base_file.name}")
+		except Exception as ex:
+			UniversalPipelineLogger.log("ERROR", f"Failed handling base transit network: {ex}")
 
-		# --- कंडीशन 3: v4.0 Standard Locales Sync ---
-		new_station_ids = [
-			slug for slug, p in auto_data.items()
-			if slug != "_meta" and isinstance(p, dict) and (is_new_city_details or p.get("_meta", {}).get("is_new"))
-		]
-		if new_station_ids:
+		# --- 3. Promote locales ---
+		if locales_delta:
 			try:
 				locales_root = target_city_dir.parents[3] / "locales"
-				for lang in ["en", "hi"]:
+				for lang, lang_dict in locales_delta.items():
+					stations_map = lang_dict.get("stations", {}) if isinstance(lang_dict, dict) else {}
+					if not stations_map:
+						continue
+
 					loc_file = locales_root / lang / "india" / f"{city_id}_station_details_locale.json"
 					if loc_file.exists():
 						with open(loc_file, "r", encoding="utf-8") as lf:
 							loc_content = json.load(lf)
 						loc_stns = loc_content.setdefault("stations", {})
 						loc_updated = False
-						for ns_id in new_station_ids:
+						for ns_id, ns_payload in stations_map.items():
 							if ns_id not in loc_stns:
-								loc_stns[ns_id] = {
-									"name": ns_id.replace("_", " ").title(),
-									"aliases": [],
-									"description": "",
-									"gates": {},
-									"landmarks": []
-								}
+								loc_stns[ns_id] = ns_payload
 								loc_updated = True
+							elif ns_payload.get("name") and not loc_stns[ns_id].get("name"):
+								loc_stns[ns_id]["name"] = ns_payload["name"]
+								loc_updated = True
+
 						if loc_updated:
 							UniversalFileSystemManager.save_atomic_tab_json(loc_file, loc_content)
-							UniversalPipelineLogger.log("PROMOTE", f"Synchronized {len(new_station_ids)} new station entries into {lang} locale.")
+							UniversalPipelineLogger.log("PROMOTE", f"Synchronized {len(stations_map)} station entries into {lang} locale: {loc_file.name}")
 			except Exception as ex:
 				UniversalPipelineLogger.log("WARN", f"Could not sync locales during promotion: {ex}")
 
-		# --- बफ़र रीसेट: प्रमोशन के बाद _auto.json को क्लीन स्टेट में लाएँ ---
+		# --- 4. Reset staging_buffer.json to clean 0-delta buffer ---
 		reset_buffer = {
 			"_meta": {
+				"city": city_id,
 				"generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat() + "Z",
-				"total_delta_stations": 0,
-				"status": "buffer_promoted_and_reset"
+				"status": "buffer_promoted_and_reset",
+				"summary": {
+					"total_delta_stations": 0,
+					"new_graph_stations": 0,
+					"new_lines": 0,
+					"has_new_transfers": False,
+					"has_new_fare_rules": False
+				}
+			},
+			"transit_network": {
+				"stations": {},
+				"lines": {},
+				"transfers": {},
+				"fareRules": {}
+			},
+			"station_details": {},
+			"locales": {
+				"en": {"stations": {}},
+				"hi": {"stations": {}}
 			}
 		}
-		UniversalFileSystemManager.save_atomic_tab_json(details_auto_file, reset_buffer)
-
-		if transit_auto_file.exists():
-			reset_transit = {
-				"_meta": {
-					"generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat() + "Z",
-					"total_new_stations": 0,
-					"status": "buffer_promoted_and_reset"
-				},
-				"stations": {},
-				"lines": {}
-			}
-			UniversalFileSystemManager.save_atomic_tab_json(transit_auto_file, reset_transit)
-
-		UniversalPipelineLogger.log("DONE", "All staging buffers reset to clean state.")
+		UniversalFileSystemManager.save_atomic_tab_json(staging_file, reset_buffer)
+		UniversalPipelineLogger.log("DONE", f"Staging buffer {staging_file.name} reset to clean state.")
 		return True

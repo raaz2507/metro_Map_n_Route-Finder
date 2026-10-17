@@ -15,6 +15,7 @@ import other from "./en/other.js";
 import dishaAi from "./en/disha_ai.js";
 import dishaNlu from "./en/disha_nlu.js";
 import map from "./en/map.js";
+import routeSummary from "./en/route_summary.js";
 
 export default {
 	...common,
@@ -33,6 +34,7 @@ export default {
 	help,
 	about,
 	smartCardTicket,
+	routeSummary,
 	other,
 	ai: dishaAi,
 	aiNlu: dishaNlu

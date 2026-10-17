@@ -8,7 +8,8 @@ import { FooterComponent } from "../components/Footer.js";
 import { UniversalSearchEngine } from "../services/search/UniversalSearchEngine.js";
 import { Toast } from "../components/Toast.js";
 import { appStateStore } from "../core/app-state-store.js";
-import i18n from "../core/i18n.js";
+import { centerClass } from "../core/CenterClass.js";
+
 
 export class TransitNetworkSelector {
 	// Private State Fields
@@ -69,7 +70,7 @@ export class TransitNetworkSelector {
 		// Subscribe to dynamic language toggle for instant in-place re-render
 		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
 			if (this.#dom.searchInput) {
-				this.#dom.searchInput.placeholder = i18n.t("pages.networks.search.placeholder");
+				this.#dom.searchInput.placeholder = centerClass.t("pages.networks.search.placeholder");
 			}
 			this.#render();
 		});
@@ -285,7 +286,7 @@ export class TransitNetworkSelector {
 	#getLocalized(val) {
 		if (!val) return "";
 		if (typeof val === "object") {
-			const currentLang = i18n.getLanguage || "en";
+			const currentLang = centerClass.currentLanguage || "en";
 			return val[currentLang] || val.en || Object.values(val)[0] || "";
 		}
 		return String(val);
@@ -356,8 +357,8 @@ export class TransitNetworkSelector {
 					
 					if (searchMatches && (this.#activeStatusFilter === "all" || this.#activeStatusFilter === "operational")) {
 						const availableIcons = Object.values(networks).map(n => n.icon).filter(Boolean);
-						const allNetSuffix = i18n.t("pages.networks.card.allNetworksSuffix") || "(All Networks)";
-						const combinedSubtitle = i18n.t("pages.networks.card.combinedSubtitle") || "Combined City Data";
+						const allNetSuffix = centerClass.t("pages.networks.card.allNetworksSuffix");
+						const combinedSubtitle = centerClass.t("pages.networks.card.combinedSubtitle");
 
 						groupNetworks.push({
 							isGroupCard: true,
@@ -432,11 +433,11 @@ export class TransitNetworkSelector {
 		const { totalNetworks, groupNetworks, individualNetworks } = this.#getFilteredData();
 
 		if (groupNetworks.length === 0 && individualNetworks.length === 0) {
-			const noMatchMsg = i18n.t("pages.networks.stats.noNetworksQuery", { query: this.#searchQuery }) || `No networks match "${this.#escapeHTML(this.#searchQuery)}".`;
+			const noMatchMsg = centerClass.t("pages.networks.stats.noNetworksQuery", { query: this.#searchQuery });
 			this.#dom.container.innerHTML = `
 				<div class="empty-state">
 					<span class="empty-state-icon">🔍</span>
-					<h3>${this.#escapeHTML(i18n.t("pages.networks.stats.noNetworksFound") || "No transit networks found")}</h3>
+					<h3>${this.#escapeHTML(centerClass.t("pages.networks.stats.noNetworksFound"))}</h3>
 					<p>${noMatchMsg}</p>
 				</div>
 			`;
@@ -450,13 +451,13 @@ export class TransitNetworkSelector {
 		const countryName = this.#registryData.country || "India";
 		const countryFlag = countryName.toLowerCase() === "india" ? "🇮🇳" : "🌐";
 		const totalCardsCount = individualNetworks.length;
-		const networksCountText = i18n.t("pages.networks.stats.networksAvailable", { count: totalCardsCount }) || `${totalCardsCount} Transit Networks Available`;
+		const networksCountText = centerClass.t("pages.networks.stats.networksAvailable", { count: totalCardsCount });
 
 		let subDecksHtml = "";
 
 		// 🏙️ Sub-Section 2.1: City-wide Combined Networks (Integrated Regional Hubs)
 		if (groupNetworks.length > 0) {
-			const groupTitle = i18n.t("pages.networks.sections.combined") || "City-wide Combined Networks";
+			const groupTitle = centerClass.t("pages.networks.sections.combined");
 			subDecksHtml += `
 				<section class="sub-network-deck">
 					<div class="sub-deck-header">
@@ -472,7 +473,7 @@ export class TransitNetworkSelector {
 
 		// 🚆 Sub-Section 2.2: Individual Transit Lines (Standalone Operator Corridors)
 		if (individualNetworks.length > 0) {
-			const indTitle = i18n.t("pages.networks.sections.individual") || "Individual Transit Lines";
+			const indTitle = centerClass.t("pages.networks.sections.individual");
 			subDecksHtml += `
 				<section class="sub-network-deck">
 					<div class="sub-deck-header">
@@ -550,7 +551,7 @@ export class TransitNetworkSelector {
 
 		// Mode label dynamic translation (e.g. Metro -> मेट्रो)
 		const modeKey = (mode || "metro").toLowerCase();
-		const modeLabel = i18n.t("pages.networks.card.modes." + modeKey) || mode;
+		const modeLabel = centerClass.t("pages.networks.card.modes." + modeKey) || mode;
 
 		// 1. Top-right Header: Solo Brand Logo ya Group Multi-Avatar Cluster
 		let headRightContent = "";
@@ -583,8 +584,8 @@ export class TransitNetworkSelector {
 		if (item.isGroupCard) {
 			const linesCount = item.icons ? item.icons.length : 3;
 			const linkedText = linesCount === 1
-				? (i18n.t("pages.networks.card.singleLineLinked") || "● 1 Line Linked")
-				: (i18n.t("pages.networks.card.linesLinked", { count: linesCount }) || `● ${linesCount} Lines Linked`);
+				? centerClass.t("pages.networks.card.singleLineLinked")
+				: centerClass.t("pages.networks.card.linesLinked", { count: linesCount });
 			footLeftContent = `<span class="linked-lines-badge">${linkedText}</span>`;
 			footRightContent = `
 				<div class="action-group">
@@ -599,7 +600,7 @@ export class TransitNetworkSelector {
 					<span class="status-tag ${statusMeta.cssClass}"><span class="live-status-dot"></span> ${statusMeta.label}</span>
 				</div>
 			`;
-			const websiteTitle = i18n.t("pages.networks.card.officialWebsite") || "Official Website";
+			const websiteTitle = centerClass.t("pages.networks.card.officialWebsite");
 			// Globe Link:
 			footRightContent = `
 				<div class="action-group">
@@ -609,7 +610,7 @@ export class TransitNetworkSelector {
 			`;
 		}
 
-		const regionSuffix = item.isGroupCard ? (i18n.t("pages.networks.card.regionSuffix") || " Region") : "";
+		const regionSuffix = item.isGroupCard ? centerClass.t("pages.networks.card.regionSuffix") : "";
 
 		return `
 			<article class="network-card-compact" style="--card-city-accent: ${cityColor};" data-city="${cityKey}" data-network="${netKey}" data-status="${this.#escapeHTML(status)}" data-name="${netName}" tabindex="0" role="button" aria-label="Open ${netName} map">
@@ -651,8 +652,8 @@ export class TransitNetworkSelector {
 
 		const blocker = STATUS_BLOCKERS[status];
 		if (blocker) {
-			const title = i18n.t(`pages.networks.toast.${blocker.key}Title`);
-			const message = i18n.t(`pages.networks.toast.${blocker.key}Msg`, { name: displayName });
+			const title = centerClass.t(`pages.networks.toast.${blocker.key}Title`);
+			const message = centerClass.t(`pages.networks.toast.${blocker.key}Msg`, { name: displayName });
 			Toast[blocker.type](message, { title });
 			return;
 		}
@@ -660,8 +661,8 @@ export class TransitNetworkSelector {
 		// 2. Data Availability Check (City & Network Level)
 		const cityData = this.#registryData?.cities?.[cityKey];
 		if (!cityData?.hasData) {
-			const title = i18n.t("pages.networks.toast.dataPendingTitle") || "🛠️ Data Integration Pending";
-			const message = i18n.t("pages.networks.toast.dataPendingMsg", { name: displayName });
+			const title = centerClass.t("pages.networks.toast.dataPendingTitle");
+			const message = centerClass.t("pages.networks.toast.dataPendingMsg", { name: displayName });
 			Toast.info(message, { title });
 			return;
 		}
@@ -669,8 +670,8 @@ export class TransitNetworkSelector {
 		if (networkKey && networkKey !== "all") {
 			const networkData = cityData?.networks?.[networkKey];
 			if (!networkData?.hasData) {
-				const title = i18n.t("pages.networks.toast.dataPendingTitle") || "🛠️ Data Integration Pending";
-				const message = i18n.t("pages.networks.toast.dataPendingMsg", { name: displayName });
+				const title = centerClass.t("pages.networks.toast.dataPendingTitle");
+				const message = centerClass.t("pages.networks.toast.dataPendingMsg", { name: displayName });
 				Toast.info(message, { title });
 				return;
 			}
@@ -699,7 +700,7 @@ export class TransitNetworkSelector {
 
 		const meta = STATUS_MAP[status] || STATUS_MAP.proposed;
 		return {
-			label: i18n.t(`pages.networks.card.status.${meta.key}`) || meta.fallback,
+			label: centerClass.t(`pages.networks.card.status.${meta.key}`) || meta.fallback,
 			cssClass: meta.css
 		};
 	}

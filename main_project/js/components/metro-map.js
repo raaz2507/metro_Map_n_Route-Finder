@@ -1,7 +1,7 @@
 
 import { createDOMFromMap } from "./dom-builder.js";
 import { eventBus } from "../core/event-bus.js";
-import i18n from "../core/i18n.js";
+
 import { centerClass } from "../core/CenterClass.js";
 const earthScale = 111320; // Meters per degree
 
@@ -142,11 +142,11 @@ export class MetroMap {
 		// prettier-ignore
 		if (!this.#elemts.track_line_legend) {
 			const legendPanelElemtMap = {
-				// 0. Legend Toggle Button with data-i18n
-				legendToggleBtn: { 
-					type: "button", 
-					cls: "metro-btn-overlay", 
-					html_con: `<span data-i18n="pages.home.map.legend">${i18n.t("pages.home.map.legend")}</span>` 
+				// 0. Top-Right Floating Controls Hub (Flex Container for Clear Route + Legend)
+				topRightControls: {
+					type: "div",
+					id: "mapTopRightControls",
+					cls: "map-top-right-controls"
 				},
 
 				// 0.1 Clear Route Highlight Overlay Button
@@ -154,12 +154,17 @@ export class MetroMap {
 					type: "button", 
 					id: "clearRouteHighlightBtn", 
 					cls: "clear-route-highlight-btn hidden", 
-					clearRouteBtn: { 
-						type: "button", 
-						id: "clearRouteHighlightBtn", 
-						cls: "clear-route-highlight-btn hidden", 
-						html_con: `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearRoute">${i18n.t("pages.home.map.clearRoute")}</span>` 
-					},
+					html_con: `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearRoute">${centerClass.t("pages.home.map.clearRoute")}</span>`,
+					parent: "topRightControls"
+				},
+
+				// 0.2 Legend Toggle Button with data-i18n
+				legendToggleBtn: { 
+					type: "button", 
+					id: "legendToggleBtn",
+					cls: "metro-btn-overlay", 
+					html_con: `<span data-i18n="pages.home.map.legend">${centerClass.t("pages.home.map.legend")}</span>`,
+					parent: "topRightControls"
 				},
 
 				// क्लोज़ बटन "X"
@@ -170,7 +175,7 @@ export class MetroMap {
 				// Main Header
 				mainHeader: { 
 					type: "h2", 
-					html_con: `<span data-i18n="pages.home.map.legend">${i18n.t("pages.home.map.legend")}</span>`, 
+					html_con: `<span data-i18n="pages.home.map.legend">${centerClass.t("pages.home.map.legend")}</span>`, 
 					parent: "legendPanel" 
 				},
 				// 2. Section: Metro Track Lines
@@ -280,7 +285,7 @@ export class MetroMap {
 			}
 
 			const text = document.createElement("span");
-			text.textContent = i18n.t(`map.legend.stationTypes.${type}`);
+			text.textContent = centerClass.t(`map.legend.stationTypes.${type}`);
 
 			li.appendChild(icon);
 			li.appendChild(text);
@@ -316,7 +321,7 @@ export class MetroMap {
 				bar.className = item.iconClass;
 
 				const text = document.createElement("span");
-				text.textContent = i18n.t(`map.legend.trackStatus.${item.status}`);
+				text.textContent = centerClass.t(`map.legend.trackStatus.${item.status}`);
 
 				li.appendChild(bar);
 				li.appendChild(text);
@@ -355,9 +360,9 @@ export class MetroMap {
 		const elemtMap = {
 			zoomLevel: { type: "output", id: "zoomLevel", cls: "zoom-indicator", oth_att: { for: "zoomInBtn zoomOutBtn resetZoomBtn" }, html_con: `${Math.round(this.zoomScale * 100)}%`, parent: "zoomControls" },
 			zoomControls: { type: "div", id: "zoomControls", cls: "metro-zoom-container", oth_att: {} },
-			zoomInBtn: { type: "button", id: "zoomInBtn", cls: "zoom-btn", oth_att: { title: i18n.t("map.controls.zoomIn") }, html_con: "+", parent: "zoomControls" },
-			zoomOutBtn: { type: "button", id: "zoomOutBtn", cls: "zoom-btn", oth_att: { title: i18n.t("map.controls.zoomOut") }, html_con: "-", parent: "zoomControls" },
-			resetZoomBtn: { type: "button", id: "resetZoomBtn", cls: "zoom-btn", oth_att: { title: i18n.t("map.controls.resetZoom") }, html_con: "=", parent: "zoomControls" },
+			zoomInBtn: { type: "button", id: "zoomInBtn", cls: "zoom-btn", oth_att: { title: centerClass.t("map.controls.zoomIn") }, html_con: "+", parent: "zoomControls" },
+			zoomOutBtn: { type: "button", id: "zoomOutBtn", cls: "zoom-btn", oth_att: { title: centerClass.t("map.controls.zoomOut") }, html_con: "-", parent: "zoomControls" },
+			resetZoomBtn: { type: "button", id: "resetZoomBtn", cls: "zoom-btn", oth_att: { title: centerClass.t("map.controls.resetZoom") }, html_con: "=", parent: "zoomControls" },
 		};
 
 		const zoomControlsElemts = createDOMFromMap(
@@ -1427,7 +1432,7 @@ export class MetroMap {
 		if (this.#activeStationType || this.#activeLineId || this.#activeStationId || this.#activeStatus) {
 			btn.classList.remove("hidden");
 			btn.classList.remove("show-mode");
-			const label = i18n.t("map.actions.clearFilter");
+			const label = centerClass.t("map.actions.clearFilter");
 			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span>${label}</span>`;
 			return;
 		}
@@ -1441,12 +1446,12 @@ export class MetroMap {
 		if (this.#isRouteVisible) {
 			// Clear Route State (Red/Rose ✕)
 			btn.classList.remove("show-mode");
-			const label = i18n.t("map.actions.clearRoute");
+			const label = centerClass.t("map.actions.clearRoute");
 			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span>${label}</span>`;
 		} else {
 			// Show Route State (Blue 👁️)
 			btn.classList.add("show-mode");
-			const label = i18n.t("map.actions.showRoute");
+			const label = centerClass.t("map.actions.showRoute");
 			btn.innerHTML = `<span class="icon" aria-hidden="true">👁️</span><span>${label}</span>`;
 		}
 	}

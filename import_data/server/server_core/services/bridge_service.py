@@ -66,10 +66,9 @@ class BridgeInspectionService:
 			support_p = cdir / "passenger_support.json"
 
 			
-			t_auto = cdir / "transit_network_auto.json"
-			d_auto = cdir / "station_details_auto.json"
-			stg_t = staging_dir / cid / "transit_network_auto.json"
-			stg_d = staging_dir / cid / "station_details_auto.json"
+			staging_f = cdir / "staging_buffer.json"
+			stg_staging_f = staging_dir / cid / "staging_buffer.json"
+			target_f = staging_f if staging_f.exists() else (stg_staging_f if stg_staging_f.exists() else None)
 
 			t_count = 0
 			if transit_p.exists():
@@ -93,14 +92,17 @@ class BridgeInspectionService:
 					pass
 
 			delta_count = 0
-			for f in [t_auto, d_auto, stg_t, stg_d]:
-				if f.exists():
-					try:
-						content = json.load(open(f, "r", encoding="utf-8"))
-						st_items = content.get("stations", content)
-						delta_count = max(delta_count, len([k for k in st_items.keys() if k != "_meta"]))
-					except Exception:
-						pass
+			has_delta = False
+			if target_f:
+				try:
+					content = json.load(open(target_f, "r", encoding="utf-8"))
+					st_items = content.get("station_details", {})
+					delta_count = len([k for k in st_items.keys() if k != "_meta"])
+					new_stns_count = len(content.get("transit_network", {}).get("stations", {}))
+					has_delta = delta_count > 0 or new_stns_count > 0
+					delta_count = max(delta_count, new_stns_count)
+				except Exception:
+					pass
 
 			matrix_data.append({
 				"id": cid,
@@ -109,7 +111,7 @@ class BridgeInspectionService:
 				"transit_network": {"exists": transit_p.exists(), "count": t_count},
 				"station_details": {"exists": details_p.exists(), "count": d_count},
 				"passenger_support": {"exists": support_p.exists(), "count": s_count},
-				"has_delta": (t_auto.exists() or d_auto.exists() or stg_t.exists() or stg_d.exists()),
+				"has_delta": has_delta,
 				"delta_count": delta_count
 			})
 
@@ -117,60 +119,49 @@ class BridgeInspectionService:
 
 	@classmethod
 	def get_bridge_status(cls, city: str = "delhi_ncr") -> Dict[str, Any]:
-		"""Checks buffer presence in both production *_auto and .staging_temp."""
+		"""Checks buffer presence in production staging_buffer.json or .staging_temp."""
 		city_dir = PROJECT_ROOT / "main_project" / "data" / "india" / "cities" / city
 		staging_dir = DATA_DIR / ".staging_temp" / city
 
-		target_t = city_dir / "transit_network_auto.json" if (city_dir / "transit_network_auto.json").exists() else (staging_dir / "transit_network_auto.json")
-		target_d = city_dir / "station_details_auto.json" if (city_dir / "station_details_auto.json").exists() else (staging_dir / "station_details_auto.json")
+		target_file = city_dir / "staging_buffer.json" if (city_dir / "staging_buffer.json").exists() else (staging_dir / "staging_buffer.json")
 
 		t_count = 0
 		d_count = 0
-		if target_t.exists():
+		if target_file.exists():
 			try:
-				t_count = len(json.load(open(target_t, "r", encoding="utf-8")).get("stations", {}))
-			except Exception:
-				pass
-		if target_d.exists():
-			try:
-				d_count = len([k for k in json.load(open(target_d, "r", encoding="utf-8")).keys() if k != "_meta"])
+				buf = json.load(open(target_file, "r", encoding="utf-8"))
+				t_count = len(buf.get("transit_network", {}).get("stations", {}))
+				d_count = len([k for k in buf.get("station_details", {}).keys() if k != "_meta"])
 			except Exception:
 				pass
 
 		return {
 			"city": city,
-			"transit_auto_exists": target_t.exists(),
-			"details_auto_exists": target_d.exists(),
+			"staging_buffer_exists": target_file.exists(),
 			"transit_stations": t_count,
 			"details_stations": d_count
 		}
 
 	@classmethod
 	def inspect_bridge_delta(cls, city: str = "delhi_ncr", station: Optional[str] = None) -> Dict[str, Any]:
-		"""Returns side-by-side sparse delta diffs adhering strictly to production_bridge.js contract."""
+		"""Returns side-by-side sparse delta diffs from staging_buffer.json adhering to contract."""
 		city_dir = PROJECT_ROOT / "main_project" / "data" / "india" / "cities" / city
 		staging_dir = DATA_DIR / ".staging_temp" / city
 
-		details_auto_file = next((f for f in [staging_dir / "station_details_auto.json", city_dir / "station_details_auto.json"] if f and f.exists()), None)
-		transit_auto_file = next((f for f in [staging_dir / "transit_network_auto.json", city_dir / "transit_network_auto.json"] if f and f.exists()), None)
+		staging_file = next((f for f in [staging_dir / "staging_buffer.json", city_dir / "staging_buffer.json"] if f and f.exists()), None)
 		details_base_file = city_dir / "station_details.json"
 		transit_base_file = city_dir / "transit_network.json"
 
-		details_auto = {}
-		if details_auto_file and details_auto_file.exists():
+		staging_data = {}
+		if staging_file and staging_file.exists():
 			try:
-				with open(details_auto_file, "r", encoding="utf-8") as f:
-					details_auto = json.load(f)
+				with open(staging_file, "r", encoding="utf-8") as f:
+					staging_data = json.load(f)
 			except Exception:
 				pass
 
-		transit_auto = {}
-		if transit_auto_file and transit_auto_file.exists():
-			try:
-				with open(transit_auto_file, "r", encoding="utf-8") as f:
-					transit_auto = json.load(f)
-			except Exception:
-				pass
+		details_auto = staging_data.get("station_details", {})
+		transit_auto = staging_data.get("transit_network", {})
 
 		details_base = {}
 		if details_base_file.exists():
@@ -245,18 +236,20 @@ class BridgeInspectionService:
 	def merge_station(cls, city: str, station: str) -> Dict[str, Any]:
 		"""Individually promotes a single verified station from staging buffer into base."""
 		city_dir = PROJECT_ROOT / "main_project" / "data" / "india" / "cities" / city
-		details_auto_file = city_dir / "station_details_auto.json"
+		staging_file = city_dir / "staging_buffer.json"
 		details_base_file = city_dir / "station_details.json"
-		transit_auto_file = city_dir / "transit_network_auto.json"
 		transit_base_file = city_dir / "transit_network.json"
 
 		merged = False
 		is_new_station = False
 
-		if details_auto_file.exists() and details_base_file.exists():
-			auto_data = json.load(open(details_auto_file, "r", encoding="utf-8"))
-			if station in auto_data:
-				patch = auto_data.pop(station)
+		if staging_file.exists():
+			staging_data = json.load(open(staging_file, "r", encoding="utf-8"))
+			details_buf = staging_data.get("station_details", {})
+			transit_buf = staging_data.get("transit_network", {})
+
+			if station in details_buf and details_base_file.exists():
+				patch = details_buf.pop(station)
 				clean_patch = {k: v for k, v in patch.items() if k != "_meta"}
 				base_data = json.load(open(details_base_file, "r", encoding="utf-8"))
 				if station not in base_data:
@@ -264,22 +257,21 @@ class BridgeInspectionService:
 					is_new_station = True
 				else:
 					base_data[station].update(clean_patch)
-
-				auto_data.setdefault("_meta", {})["total_delta_stations"] = len([k for k in auto_data.keys() if k != "_meta"])
 				UniversalFileSystemManager.save_atomic_tab_json(details_base_file, base_data)
-				UniversalFileSystemManager.save_atomic_tab_json(details_auto_file, auto_data)
 				merged = True
 
-		if transit_auto_file.exists() and transit_base_file.exists():
-			t_auto = json.load(open(transit_auto_file, "r", encoding="utf-8"))
-			if station in t_auto.get("stations", {}):
-				stn_graph = t_auto["stations"].pop(station)
+			stns_buf = transit_buf.get("stations", {})
+			if station in stns_buf and transit_base_file.exists():
+				stn_graph = stns_buf.pop(station)
 				t_base = json.load(open(transit_base_file, "r", encoding="utf-8"))
 				t_base.setdefault("stationData", {})[station] = stn_graph
-				t_auto.setdefault("_meta", {})["total_new_stations"] = len(t_auto["stations"])
 				UniversalFileSystemManager.save_atomic_tab_json(transit_base_file, t_base)
-				UniversalFileSystemManager.save_atomic_tab_json(transit_auto_file, t_auto)
 				merged = True
+
+			if merged:
+				staging_data.setdefault("_meta", {}).setdefault("summary", {})["total_delta_stations"] = len([k for k in details_buf.keys() if k != "_meta"])
+				staging_data["_meta"]["summary"]["new_graph_stations"] = len(stns_buf)
+				UniversalFileSystemManager.save_atomic_tab_json(staging_file, staging_data)
 
 		# Sync locale skeleton for newly added station
 		if is_new_station:

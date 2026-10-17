@@ -1,19 +1,29 @@
 {
 	"city": "pune",
 	"city_name": "Pune",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
-		"women_safety": "1090",
-		"ambulance": "102"
+		"women_safety": "1091",
+		"ambulance": "108"
 	},
 	"networks": {
 		"pune_metro": {
-			"network_name": "Pune Metro",
-			"operator": "Maha Metro / PMRDA",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"network_name": "Pune Metro (Maha Metro)",
+			"operator": "Maharashtra Metro Rail Corporation Limited (MahaMetro)",
+			"helplines": {
+				"toll_free": "1800-270-5501",
+				"whatsapp_ticketing": "+91 94201 01990",
+				"women_safety": "1091",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://www.punemetrorail.org/"
+			},
+			"facilities": {
+				"central_lost_found_office": "District Court Metro Station (Customer Care Centre, Concourse Level)",
+				"operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
 		}
 	}
 }

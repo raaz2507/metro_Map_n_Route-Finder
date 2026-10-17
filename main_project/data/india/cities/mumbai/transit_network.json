@@ -37,17 +37,25 @@
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Token / QR Ticket", "hi": "टोकन / क्यूआर टिकट", "mr": "टोकन / क्यूआर तिकीट"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
-						"label": {"en": "Metro Smart Card (10% Off)", "hi": "स्मार्ट कार्ड (10% छूट)", "mr": "स्मार्ट कार्ड (१०% सवलत)"}
-					}
-				}
+						"minBalance": 50,
+						"refundableDeposit": 50,
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 120},
+						"rechargeUrl": ""
+					},
+					"trip_pass_45": {"type": "trip_pass", "trips": 45, "validityDays": 30},
+					"qr_ticket": {
+						"type": "digital",
+						"validityMinutes": 60,
+						"channels": ["WhatsApp (+91 96191 11188)", "Mumbai Metro One App", "Paytm"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 10, "minBalance": 50}
+				},
+				"rechargeUrl": ""
 			},
 			"mmmocl_standard": {
 				"network": "mumbai_metro",
@@ -66,17 +74,30 @@
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Paper QR Ticket", "hi": "पेपर क्यूआर टिकट", "mr": "पेपर क्यूआर तिकीट"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
-						"label": {"en": "Mumbai 1 / NCMC Card (10% Off)", "hi": "मुंबई 1 / एनसीएमसी कार्ड (10% छूट)", "mr": "मुंबई १ / NCMC कार्ड (१०% सवलत)"}
-					}
-				}
+						"weekendDiscountPercent": 25,
+						"minBalance": 50,
+						"refundableDeposit": 100,
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 180},
+						"rechargeUrl": ""
+					},
+					"concessions": {
+						"type": "concession",
+						"discountPercent": 25,
+						"categories": ["student", "senior_citizen", "divyangjan"]
+					},
+					"qr_ticket": {
+						"type": "digital",
+						"validityMinutes": 60,
+						"channels": ["Mumbai 1 App", "WhatsApp (+91 86526 35500)", "Ticket Vending Machine"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 10, "weekendDiscountPercent": 25, "minBalance": 50}
+				},
+				"rechargeUrl": ""
 			},
 			"mmrcl_line3": {
 				"network": "mumbai_metro",
@@ -95,17 +116,30 @@
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Metro QR Ticket", "hi": "मेट्रो क्यूआर टिकट", "mr": "मेट्रो क्यूआर तिकीट"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
-						"label": {"en": "NCMC Smart Card (10% Off)", "hi": "एनसीएमसी स्मार्ट कार्ड (10% छूट)", "mr": "NCMC स्मार्ट कार्ड (१०% सवलत)"}
-					}
-				}
+						"weekendDiscountPercent": 25,
+						"minBalance": 50,
+						"refundableDeposit": 100,
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 120},
+						"rechargeUrl": ""
+					},
+					"concessions": {
+						"type": "concession",
+						"discountPercent": 25,
+						"categories": ["student", "senior_citizen", "divyangjan"]
+					},
+					"qr_ticket": {
+						"type": "digital",
+						"validityMinutes": 60,
+						"channels": ["MetroConnect3 App", "WhatsApp Ticketing", "Station Counter"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 10, "weekendDiscountPercent": 25, "minBalance": 50}
+				},
+				"rechargeUrl": ""
 			},
 			"cidco_navi_mumbai": {
 				"network": "navi_mumbai_metro",
@@ -116,17 +150,24 @@
 					"standard": [{"minKm": 0, "maxKm": 4, "fare": 10}, {"minKm": 4, "maxKm": 8, "fare": 20}, {"minKm": 8, "maxKm": null, "fare": 30}]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Standard QR Ticket", "hi": "स्टैंडर्ड क्यूआर टिकट", "mr": "स्टँडर्ड क्यूआर तिकीट"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
-						"label": {"en": "Mumbai 1 / NCMC Card (10% Off)", "hi": "मुंबई 1 / NCMC कार्ड (10% छूट)", "mr": "मुंबई १ / NCMC कार्ड (१०% सवलत)"}
-					}
-				}
+						"minBalance": 50,
+						"refundableDeposit": 50,
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 120},
+						"rechargeUrl": ""
+					},
+					"qr_ticket": {
+						"type": "digital",
+						"validityMinutes": 60,
+						"channels": ["Navi Mumbai Metro App", "Station Counter"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 10, "minBalance": 50}
+				},
+				"rechargeUrl": ""
 			},
 			"mmrda_monorail_standard": {
 				"network": "mumbai_monorail",
@@ -144,11 +185,9 @@
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Single Journey Token", "hi": "सिंगल जर्नी टोकन", "mr": "सिंगल जर्नी टोकन"}
-					}
-				}
+					"token": {"type": "base"}
+				},
+				"rechargeUrl": ""
 			}
 		}
 	},

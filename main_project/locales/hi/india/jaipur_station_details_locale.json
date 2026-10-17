@@ -1,6 +1,10 @@
 {
 	"networks": {
-		"jmrc": ""
+		"jaipur_metro": "जयपुर मेट्रो (JMRC)",
+		"jmrc": "जयपुर मेट्रो रेल कॉर्पोरेशन (JMRC)"
+	},
+	"policies": {
+		"jaipur_metro_standard": "जयपुर मेट्रो (JMRC)"
 	},
 	"lines": {
 		"jmrc.pink": {"name": "पिंक लाइन", "short_name": "पिंक लाइन"}

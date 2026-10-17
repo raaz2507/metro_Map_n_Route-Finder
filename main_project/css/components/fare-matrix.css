@@ -1,0 +1,1011 @@
+@layer components {
+	/* ========================================================================= */
+	/* 📊 1. ALL SECTION WRAPPERS (TRANSLUCENT FROSTED GLASS BACKGROUND)         */
+	/* ========================================================================= */
+	.smartcard-portal-container,
+	.fare-matrix-container,
+	.passes-guidelines-container {
+		width: 100%;
+		max-width: 1240px;
+		margin: var(--space-lg) auto 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+
+		/* 🧊 Translucent Frosted Glass Surface (Matches theme) */
+		background: rgba(var(--color-bg-base-rgb), var(--op-section-glass));
+		backdrop-filter: blur(var(--backdrop-blur-subtle));
+		-webkit-backdrop-filter: blur(var(--backdrop-blur-subtle));
+		border: var(--bw-thin) solid var(--border-color);
+		border-top: var(--bw-md) solid rgba(255, 255, 255, var(--op-glass));
+		border-radius: var(--radius-xl);
+		padding: var(--space-lg) var(--space-xl);
+		box-shadow: 0 12px 28px -4px rgba(0, 0, 0, var(--op-shadow));
+		box-sizing: border-box;
+	}
+
+	.smartcard-portal-container {
+		margin-top: 0;
+	}
+
+	/* Top Cards Grid: Side-by-side on desktop in a single row */
+	.smartcard-cards-grid {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: stretch;
+		gap: var(--space-xl);
+		width: 100%;
+	}
+
+	/* Section Header */
+	.fare-section-header {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.header-text-group {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--space-xs);
+	}
+
+	.section-badge-row {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-xs);
+		align-self: flex-start;
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		border: var(--bw-thin) solid var(--border-color);
+		padding: var(--space-2xs) var(--space-sm);
+		border-radius: var(--radius-full);
+		margin-bottom: var(--space-2xs);
+	}
+
+	.badge-icon {
+		font-size: var(--fs-xs);
+	}
+
+	.active-city-badge {
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-primary-rgb));
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.fare-section-title {
+		font-family: var(--font-main);
+		font-size: var(--fs-xl);
+		font-weight: var(--fw-extrabold);
+		color: var(--text-primary);
+		margin: 0;
+		line-height: 1.35;
+	}
+
+	.fare-section-subtitle {
+		font-family: var(--font-main);
+		font-size: var(--fs-sm);
+		color: var(--text-secondary);
+		margin: 0;
+		line-height: 1.55;
+	}
+
+	/* ========================================================================= */
+	/* 🚇 2. HIGH-CONTRAST NETWORK FILTER TABS                                   */
+	/* ========================================================================= */
+	.fare-network-tabs {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--space-xs);
+		background: rgba(var(--color-bg-base-rgb), var(--op-glass));
+		border: var(--bw-thin) solid var(--border-color);
+		border-radius: var(--radius-full);
+		padding: var(--space-2xs);
+		align-self: flex-start;
+	}
+
+	.fare-network-tab-btn {
+		background: transparent;
+		border: var(--bw-thin) solid transparent;
+		color: var(--text-secondary);
+		padding: var(--space-xs) var(--space-md);
+		border-radius: var(--radius-full);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-2xs);
+		white-space: nowrap;
+		position: relative;
+		overflow: hidden;
+		transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+		user-select: none;
+	}
+
+	.fare-network-tab-btn:hover {
+		color: var(--text-primary);
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+	}
+
+	.fare-network-tab-btn:active {
+		transform: scale(0.93);
+	}
+
+	/* Active Tab: Standout Solid Pill with Spring Pop & Beam Sweep */
+	.fare-network-tab-btn.active {
+		background: rgb(var(--color-primary-rgb));
+		border-color: rgb(var(--color-primary-rgb));
+		color: var(--btn-primary-text);
+		font-weight: var(--fw-bold);
+		box-shadow: 0 4px 12px -2px rgba(var(--color-primary-rgb), var(--op-translucent));
+		animation: pillElasticPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), pillGlowPulse 0.45s ease-out;
+	}
+
+	.fare-network-tab-btn::after {
+		content: "";
+		position: absolute;
+		top: -30%;
+		left: 0;
+		width: 45%;
+		height: 160%;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+		pointer-events: none;
+		opacity: 0;
+	}
+
+	.fare-network-tab-btn.active::after {
+		animation: pillBeamSweep 0.5s ease forwards;
+	}
+
+	/* ========================================================================= */
+	/* 📊 3. STRUCTURED FARE TABLE (HIGH READABILITY & COMPACT)                 */
+	/* ========================================================================= */
+	.fare-table-card {
+		background: var(--card-bg);
+		border: var(--bw-thin) solid var(--border-color);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-sm);
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.fare-table-wrapper {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.unified-fare-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-family: var(--font-main);
+		font-size: var(--fs-sm);
+		text-align: left;
+	}
+
+	/* Table Header */
+	.unified-fare-table thead th {
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		color: var(--text-primary);
+		font-weight: var(--fw-bold);
+		font-size: var(--fs-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		padding: var(--space-sm) var(--space-md);
+		border-bottom: var(--bw-md) solid var(--border-color);
+		white-space: nowrap;
+	}
+
+	/* Table Rows & Cells */
+	.unified-fare-table tbody tr {
+		transition: background-color var(--transition-fast);
+	}
+
+	/* Alternate Row (Zebra Striping for Readability) */
+	.unified-fare-table tbody tr:nth-child(even) {
+		background: rgba(var(--color-primary-rgb), 0.02);
+	}
+
+	.unified-fare-table tbody tr:hover {
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+	}
+
+	.unified-fare-table tbody td {
+		padding: var(--space-sm) var(--space-md);
+		border-bottom: var(--bw-thin) solid var(--border-color);
+		color: var(--text-primary);
+		vertical-align: middle;
+	}
+
+	/* Slab Column */
+	.unified-fare-table td:first-child {
+		font-weight: var(--fw-semibold);
+		color: var(--text-primary);
+	}
+
+	/* Distinct Numeric Values */
+	.unified-fare-table td.fare-cell-price {
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.unified-fare-table td.fare-cell-discount {
+		font-weight: var(--fw-extrabold);
+		color: rgb(var(--color-success-rgb));
+		font-variant-numeric: tabular-nums;
+	}
+
+	.unified-fare-table td.fare-cell-holiday {
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-warning-rgb));
+		font-variant-numeric: tabular-nums;
+	}
+
+	/* ========================================================================= */
+	/* ⚡ 4. FLAT FARE SHOWCASE CARD (GURUGRAM RAPID METRO & FIXED FARE NETWORKS) */
+	/* ========================================================================= */
+	.flat-fare-container {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		padding: var(--space-xl);
+		background: var(--card-bg);
+		border-radius: var(--radius-lg);
+		border: var(--bw-thin) solid var(--border-color);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.flat-fare-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.flat-fare-icon {
+		font-size: var(--fs-2xl);
+		line-height: 1;
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		padding: var(--space-sm);
+		border-radius: var(--radius-md);
+		border: var(--bw-thin) solid var(--border-color);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.flat-fare-title-group {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.flat-fare-title {
+		font-family: var(--font-main);
+		font-size: var(--fs-md);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	.flat-fare-desc {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	.flat-fare-pricing-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: var(--space-md);
+		width: 100%;
+	}
+
+	.flat-fare-price-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-md) var(--space-lg);
+		background: rgba(var(--color-bg-base-rgb), var(--op-glass));
+		border: var(--bw-thin) solid var(--border-color);
+		border-radius: var(--radius-md);
+		gap: var(--space-2xs);
+		text-align: center;
+		transition: transform var(--transition-fast), border-color var(--transition-fast);
+	}
+
+	.flat-fare-price-box:hover {
+		transform: translateY(-2px);
+		border-color: rgb(var(--color-primary-rgb));
+	}
+
+	.flat-fare-price-box.highlight-discount {
+		background: rgba(var(--color-success-rgb), var(--op-glow));
+		border-color: rgba(var(--color-success-rgb), var(--op-translucent));
+	}
+
+	.flat-fare-lbl {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		color: var(--text-secondary);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	.flat-fare-val {
+		font-family: var(--font-main);
+		font-size: var(--fs-2xl);
+		font-weight: var(--fw-extrabold);
+		color: var(--text-primary);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.flat-fare-price-box.highlight-discount .flat-fare-val {
+		color: rgb(var(--color-success-rgb));
+	}
+
+	/* ========================================================================= */
+	/* 🚄 5. RRTS DUAL-CLASS SWITCHER BAR                                        */
+	/* ========================================================================= */
+	.class-switch-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--space-sm) var(--space-md);
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		border-bottom: var(--bw-thin) solid var(--border-color);
+		gap: var(--space-sm);
+		flex-wrap: wrap;
+	}
+
+	.class-switch-info {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-xs);
+		flex-wrap: wrap;
+	}
+
+	.matrix-instruction-hint {
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-medium);
+		color: var(--text-secondary);
+		background: rgba(var(--color-bg-base-rgb), var(--op-glass));
+		border: var(--bw-thin) solid var(--border-color);
+		padding: var(--space-2xs) var(--space-xs);
+		border-radius: var(--radius-xs);
+	}
+
+	.class-switch-pills {
+		display: inline-flex;
+		gap: var(--space-2xs);
+		background: var(--card-bg);
+		padding: var(--space-2xs);
+		border-radius: var(--radius-full);
+		border: var(--bw-thin) solid var(--border-color);
+	}
+
+	.class-pill-btn {
+		border: none;
+		background: transparent;
+		color: var(--text-secondary);
+		padding: var(--space-2xs) var(--space-sm);
+		border-radius: var(--radius-full);
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+		transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+		user-select: none;
+	}
+
+	.class-pill-btn:hover {
+		color: var(--text-primary);
+	}
+
+	.class-pill-btn:active {
+		transform: scale(0.92);
+	}
+
+	.class-pill-btn.active {
+		background: rgb(var(--color-primary-rgb));
+		color: var(--btn-primary-text);
+		font-weight: var(--fw-bold);
+		box-shadow: 0 2px 8px -1px rgba(var(--color-primary-rgb), var(--op-translucent));
+		animation: pillElasticPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), pillGlowPulse 0.45s ease-out;
+	}
+
+	.class-pill-btn::after {
+		content: "";
+		position: absolute;
+		top: -30%;
+		left: 0;
+		width: 45%;
+		height: 160%;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+		pointer-events: none;
+		opacity: 0;
+	}
+
+	.class-pill-btn.active::after {
+		animation: pillBeamSweep 0.5s ease forwards;
+	}
+
+	/* ========================================================================= */
+	/* 🗺️ 6. 2D STATION-TO-STATION FARE MATRIX (SMART SCROLLABLE GRID)           */
+	/* ========================================================================= */
+	.matrix-scroll-wrapper {
+		width: 100%;
+		max-height: 560px;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		background: var(--card-bg);
+		border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+		cursor: grab;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	.matrix-scroll-wrapper.is-dragging {
+		cursor: grabbing;
+		user-select: none;
+		-webkit-user-select: none;
+		scroll-behavior: auto;
+	}
+
+	.matrix-2d-table {
+		width: max-content;
+		min-width: 100%;
+		border-collapse: separate;
+		border-spacing: 0;
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		text-align: center;
+		background: var(--card-bg);
+	}
+
+	/* Top-Left Corner Cell: Sticky in both X & Y */
+	.matrix-corner-cell {
+		position: sticky;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		background: var(--card-bg);
+		color: var(--text-primary);
+		font-weight: var(--fw-bold);
+		font-size: var(--fs-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		padding: var(--space-xs) var(--space-sm);
+		border-right: var(--bw-md) solid var(--border-color);
+		border-bottom: var(--bw-md) solid var(--border-color);
+		white-space: nowrap;
+		box-shadow: 2px 2px 4px rgba(0, 0, 0, var(--op-glow));
+	}
+
+	/* Top Column Headers (Destination Stations): Sticky along Y */
+	.matrix-header-dest {
+		position: sticky;
+		top: 0;
+		z-index: 5;
+		background: var(--card-bg);
+		color: var(--text-primary);
+		font-weight: var(--fw-bold);
+		font-size: var(--fs-xs);
+		padding: var(--space-xs) var(--space-sm);
+		min-width: 85px;
+		max-width: 135px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		border-right: var(--bw-thin) solid var(--border-color);
+		border-bottom: var(--bw-md) solid var(--border-color);
+		transition: background-color var(--transition-fast), color var(--transition-fast);
+	}
+
+	/* Left Row Headers (Origin Stations): Sticky along X */
+	.matrix-header-origin {
+		position: sticky;
+		left: 0;
+		z-index: 4;
+		background: var(--card-bg);
+		color: var(--text-primary);
+		font-weight: var(--fw-bold);
+		font-size: var(--fs-xs);
+		text-align: left;
+		padding: var(--space-xs) var(--space-sm);
+		min-width: 140px;
+		max-width: 190px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		border-right: var(--bw-md) solid var(--border-color);
+		border-bottom: var(--bw-thin) solid var(--border-color);
+		box-shadow: 2px 0 4px rgba(0, 0, 0, var(--op-glow));
+		transition: background-color var(--transition-fast), color var(--transition-fast);
+	}
+
+	/* Fare Matrix Data Cells */
+	.matrix-cell {
+		padding: var(--space-xs) var(--space-sm);
+		font-variant-numeric: tabular-nums;
+		font-weight: var(--fw-semibold);
+		font-size: var(--fs-xs);
+		color: var(--text-primary);
+		border-right: var(--bw-thin) solid var(--border-color);
+		border-bottom: var(--bw-thin) solid var(--border-color);
+		min-width: 58px;
+		background: var(--card-bg);
+		transition: background-color var(--transition-fast), color var(--transition-fast);
+	}
+
+	.matrix-cell:hover:not(.matrix-cell-diagonal) {
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-bold);
+		cursor: grab;
+	}
+
+	/* Diagonal (Origin == Destination) */
+	.matrix-cell-diagonal {
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		color: var(--text-muted);
+		font-weight: var(--fw-normal);
+	}
+
+	/* 🎯 Smart L-Ray Crosshair Highlighting (Bounded from hovered cell UP to Dest and LEFT to Origin) */
+	.matrix-header-origin.matrix-hl-header,
+	.matrix-header-dest.matrix-hl-header {
+		background: rgba(var(--color-accent-rgb), var(--op-subtle)) !important;
+		color: rgb(var(--color-accent-rgb)) !important;
+		font-weight: var(--fw-black) !important;
+		border-color: rgba(var(--color-accent-rgb), var(--op-translucent)) !important;
+	}
+
+	.matrix-cell.matrix-hl-ray {
+		background: rgba(var(--color-accent-rgb), var(--op-glow)) !important;
+	}
+
+	.matrix-cell.matrix-hl-active {
+		background: rgba(var(--color-accent-rgb), var(--op-soft)) !important;
+		color: rgb(var(--color-accent-rgb)) !important;
+		font-weight: var(--fw-black) !important;
+		box-shadow: inset 0 0 0 var(--bw-md) rgb(var(--color-accent-rgb)) !important;
+	}
+
+	/* ========================================================================= */
+	/* 🎫 5. PASSES & CARDS GRID                                                */
+	/* ========================================================================= */
+	.passes-cards-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: var(--space-md);
+		width: 100%;
+	}
+
+	.pass-item-card {
+		background: var(--card-bg);
+		border: var(--bw-thin) solid var(--border-color);
+		border-top: var(--bw-md) solid rgba(255, 255, 255, var(--op-glass));
+		border-radius: var(--radius-lg);
+		padding: var(--space-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		box-shadow: var(--shadow-sm);
+		transition: transform var(--transition-fast), border-color var(--transition-fast);
+	}
+
+	.pass-item-card:hover {
+		transform: translateY(-2px);
+		border-color: rgb(var(--color-primary-rgb));
+	}
+
+	.pass-card-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: var(--space-xs);
+		border-bottom: var(--bw-thin) solid var(--border-color);
+	}
+
+	.pass-card-title-group {
+		display: flex;
+		align-items: center;
+		gap: var(--space-2xs);
+	}
+
+	.pass-card-icon {
+		font-size: var(--fs-md);
+	}
+
+	.pass-card-title {
+		font-family: var(--font-main);
+		font-size: var(--fs-sm);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		margin: 0;
+	}
+
+	.pass-tag-badge {
+		font-family: var(--font-main);
+		font-size: var(--fs-3xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-primary-rgb));
+		background: rgba(var(--color-primary-rgb), var(--op-glow));
+		border: var(--bw-thin) solid var(--border-color);
+		padding: var(--badge-padding);
+		border-radius: var(--radius-full);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	.pass-bullets-list {
+		list-style: none;
+		margin: 0;
+		padding: var(--space-xs) 0 0 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.pass-bullets-list li {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--text-secondary);
+		line-height: 1.4;
+		position: relative;
+		padding-left: var(--space-md);
+	}
+
+	.pass-bullets-list li::before {
+		content: "•";
+		position: absolute;
+		left: var(--space-2xs);
+		color: rgb(var(--color-primary-rgb));
+		font-weight: var(--fw-extrabold);
+	}
+
+	.pass-bullets-list li strong {
+		color: var(--text-primary);
+	}
+
+	/* ========================================================================= */
+	/* 📱 6. STANDARD MOBILE & TABLET TIER (768px)                               */
+	/* ========================================================================= */
+	@media (max-width: 768px) {
+		.smartcard-portal-container,
+		.fare-matrix-container,
+		.passes-guidelines-container {
+			padding: var(--space-md);
+			border-radius: var(--radius-lg);
+			margin-top: var(--space-md);
+		}
+
+		.fare-section-title {
+			font-size: var(--fs-lg);
+		}
+
+		.fare-section-subtitle {
+			font-size: var(--fs-xs);
+		}
+
+		.unified-fare-table th,
+		.unified-fare-table td {
+			padding: var(--space-xs) var(--space-sm);
+			font-size: var(--fs-xs);
+		}
+
+		.flat-fare-container {
+			padding: var(--space-md);
+		}
+
+		.matrix-scroll-wrapper {
+			max-height: 400px;
+		}
+
+		.matrix-corner-cell {
+			font-size: var(--fs-xs);
+			padding: var(--space-xs) var(--space-sm);
+		}
+
+		.matrix-header-origin {
+			min-width: 120px;
+			max-width: 160px;
+			padding: var(--space-xs) var(--space-sm);
+			font-size: var(--fs-xs);
+		}
+
+		.matrix-header-dest {
+			min-width: 80px;
+			max-width: 110px;
+			padding: var(--space-xs) var(--space-sm);
+			font-size: var(--fs-xs);
+		}
+
+		.matrix-cell {
+			padding: var(--space-xs) var(--space-sm);
+			font-size: var(--fs-xs);
+			min-width: 58px;
+		}
+
+		.smartcard-cards-grid {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.passes-cards-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* ========================================================================= */
+	/* 📱 7. ULTRA-COMPACT IPHONE SE TIER (380px)                                */
+	/* ========================================================================= */
+	@media (max-width: 380px) {
+		.smartcard-portal-container,
+		.fare-matrix-container,
+		.passes-guidelines-container {
+			padding: var(--space-sm) var(--space-xs);
+			border-radius: var(--radius-md);
+			gap: var(--space-sm);
+		}
+
+		.fare-section-title {
+			font-size: var(--fs-md);
+		}
+
+		.fare-network-tabs {
+			width: 100%;
+			border-radius: var(--radius-sm);
+		}
+
+		.fare-network-tab-btn {
+			padding: var(--space-2xs) var(--space-xs);
+			font-size: var(--fs-2xs);
+			flex: 1 1 auto;
+			justify-content: center;
+		}
+
+		.unified-fare-table th,
+		.unified-fare-table td {
+			padding: var(--space-2xs) var(--space-xs);
+			font-size: var(--fs-2xs);
+		}
+
+		.flat-fare-container {
+			padding: var(--space-sm);
+		}
+
+		.flat-fare-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--space-xs);
+		}
+
+		.flat-fare-pricing-grid {
+			grid-template-columns: 1fr;
+			gap: var(--space-xs);
+		}
+
+		.matrix-scroll-wrapper {
+			max-height: 320px;
+		}
+
+		.matrix-corner-cell {
+			font-size: var(--fs-2xs);
+			padding: var(--space-2xs) var(--space-xs);
+		}
+
+		.matrix-header-origin {
+			min-width: 100px;
+			max-width: 125px;
+			font-size: var(--fs-2xs);
+			padding: var(--space-2xs) var(--space-xs);
+		}
+
+		.matrix-header-dest {
+			min-width: 65px;
+			font-size: var(--fs-2xs);
+			padding: var(--space-2xs) var(--space-xs);
+		}
+
+		.matrix-cell {
+			font-size: var(--fs-2xs);
+			min-width: 48px;
+			padding: var(--space-2xs);
+		}
+
+		.class-switch-bar {
+			padding: var(--space-xs);
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.pass-item-card {
+			padding: var(--space-sm);
+		}
+	}
+
+	/* ========================================================================= */
+	/* 💫 7. TAB & PILL SWITCHING KEYFRAME ANIMATIONS                           */
+	/* ========================================================================= */
+	@keyframes pillElasticPop {
+		0% {
+			transform: scale(0.88);
+		}
+		50% {
+			transform: scale(1.07);
+		}
+		75% {
+			transform: scale(0.97);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes pillGlowPulse {
+		0% {
+			box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), var(--op-translucent));
+		}
+		70% {
+			box-shadow: 0 0 0 var(--space-sm) rgba(var(--color-primary-rgb), 0);
+		}
+		100% {
+			box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb), 0);
+		}
+	}
+
+	@keyframes pillBeamSweep {
+		0% {
+			transform: translateX(-120%) skewX(-25deg);
+			opacity: 0;
+		}
+		30% {
+			opacity: 1;
+		}
+		100% {
+			transform: translateX(260%) skewX(-25deg);
+			opacity: 0;
+		}
+	}
+
+	/* ========================================================================= */
+	/* 🌪️ 8. THANOS SNAP DUST DISINTEGRATION & RE-ASSEMBLY ANIMATIONS           */
+	/* ========================================================================= */
+	.fare-val-dust {
+		display: inline-block;
+		transition: opacity var(--transition-fast);
+		will-change: transform, filter, opacity;
+	}
+
+	/* Phase 1: Disintegration / Dissolve into Ember Dust */
+	.fare-val-dust.thanos-dust-out {
+		animation: thanosDustDissolve 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+		animation-delay: calc((var(--row, 0) * 8ms) + (var(--col, 0) * 6ms));
+		pointer-events: none;
+	}
+
+	@keyframes thanosDustDissolve {
+		0% {
+			opacity: 1;
+			filter: blur(0px) contrast(100%);
+			transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+			text-shadow: none;
+		}
+		25% {
+			opacity: 0.85;
+			filter: blur(0.8px) contrast(140%);
+			transform: translate3d(2px, -3px, 0) scale(1.04) rotate(1deg);
+			text-shadow: 
+				2px -2px 3px rgba(var(--color-accent-rgb), 0.8),
+				-2px -3px 4px rgba(var(--color-warning-rgb), 0.7);
+		}
+		60% {
+			opacity: 0.45;
+			filter: blur(2.5px) contrast(180%);
+			transform: translate3d(7px, -9px, 0) scale(1.15) rotate(4deg);
+			text-shadow: 
+				6px -8px 6px rgba(var(--color-accent-rgb), 0.7),
+				-7px -7px 7px rgba(var(--color-warning-rgb), 0.6),
+				10px -12px 10px rgba(var(--color-accent-rgb), 0.4),
+				-11px -13px 12px rgba(var(--color-warning-rgb), 0.3);
+		}
+		100% {
+			opacity: 0;
+			filter: blur(6px) brightness(1.8);
+			transform: translate3d(16px, -18px, 0) scale(1.25) rotate(7deg);
+			text-shadow: 
+				14px -20px 12px rgba(var(--color-accent-rgb), 0),
+				-16px -18px 14px rgba(var(--color-warning-rgb), 0);
+		}
+	}
+
+	/* Phase 2: Cosmic Reformation / Reassembly from Dust into Solid Text */
+	.fare-val-dust.thanos-dust-in {
+		animation: thanosDustReform 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		animation-delay: calc((var(--row, 0) * 8ms) + (var(--col, 0) * 6ms));
+	}
+
+	@keyframes thanosDustReform {
+		0% {
+			opacity: 0;
+			filter: blur(6px) brightness(2.2);
+			transform: translate3d(-14px, 14px, 0) scale(0.75) rotate(-5deg);
+			text-shadow: 
+				-10px 10px 8px rgba(var(--color-accent-rgb), 0.8),
+				8px 8px 6px rgba(var(--color-warning-rgb), 0.7),
+				-5px -6px 6px rgba(var(--color-accent-rgb), 0.5);
+		}
+		45% {
+			opacity: 0.75;
+			filter: blur(2px) contrast(140%);
+			transform: translate3d(-3px, 3px, 0) scale(0.94) rotate(-2deg);
+			text-shadow: 
+				-3px 3px 4px rgba(var(--color-accent-rgb), 0.6),
+				3px 3px 4px rgba(var(--color-warning-rgb), 0.5);
+		}
+		80% {
+			opacity: 0.95;
+			filter: blur(0.4px);
+			transform: translate3d(1px, -1px, 0) scale(1.05) rotate(0deg);
+			text-shadow: 0 0 5px rgba(var(--color-accent-rgb), 0.4);
+		}
+		100% {
+			opacity: 1;
+			filter: blur(0px);
+			transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+			text-shadow: none;
+		}
+	}
+
+	/* Network Tab Switching: Full Table Container Thanos Snap Wipe */
+	.fare-table-snap-out {
+		animation: thanosTableSnapOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+		pointer-events: none;
+	}
+
+	@keyframes thanosTableSnapOut {
+		0% {
+			opacity: 1;
+			filter: blur(0px);
+			transform: scale(1) translateY(0);
+		}
+		100% {
+			opacity: 0;
+			filter: blur(5px) brightness(1.4);
+			transform: scale(0.98) translateY(-6px);
+		}
+	}
+
+	.fare-table-snap-in {
+		animation: thanosTableSnapIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	@keyframes thanosTableSnapIn {
+		0% {
+			opacity: 0;
+			filter: blur(5px) brightness(1.6);
+			transform: scale(0.98) translateY(6px);
+		}
+		100% {
+			opacity: 1;
+			filter: blur(0px) brightness(1);
+			transform: scale(1) translateY(0);
+		}
+	}
+}

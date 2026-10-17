@@ -14,7 +14,7 @@ class MetroDataStore {
 	#localeData = null;
 	#enLocaleData = null; // 🛡️ Persistent English fallback cache
 	#stationsDetailData = null;
-	#stationsDetailAutoData = null;
+	#stagingBuffer = null;
 	#currentCity = "delhi_ncr";
 	#currentNetwork = null;
 	#registryData = null;
@@ -75,17 +75,17 @@ class MetroDataStore {
 		const signal = this.#abortController.signal;
 
 		const dataPath = this.getCityFilePath("transit_network.json", resolvedCity);
-		const autoDataPath = this.getCityFilePath("transit_network_auto.json", resolvedCity);
+		const bufferPath = this.getCityFilePath("staging_buffer.json", resolvedCity);
 		const localePath = this.getCityLocalePath(resolvedCity);
 
 		try {
-			console.log(`[MetroDataStore] Loading transit graph & locale for: "${resolvedCity}"...`);
-			const [baseResult, autoResult, localeResult] = await Promise.allSettled([
+			console.log(`[MetroDataStore] Loading transit graph & staging buffer for: "${resolvedCity}"...`);
+			const [baseResult, bufferResult, localeResult] = await Promise.allSettled([
 				fetch(dataPath, { signal }).then(res => {
 					if (!res.ok) throw new Error(`HTTP ${res.status}`);
 					return res.json();
 				}),
-				fetch(autoDataPath, { signal }).then(res => {
+				fetch(bufferPath, { signal }).then(res => {
 					if (!res.ok) throw new Error(`HTTP ${res.status}`);
 					return res.json();
 				}),
@@ -103,6 +103,70 @@ class MetroDataStore {
 			const rawData = baseResult.value;
 			const activeLang = localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
 			let primaryLocale = localeResult.status === "fulfilled" ? localeResult.value : null;
+
+			// Store staging buffer in memory for both graph and station details overlays
+			this.#stagingBuffer = bufferResult.status === "fulfilled" && bufferResult.value ? bufferResult.value : null;
+
+			// In-memory overlay of unpromoted staging buffer (Zero loss unattended mode)
+			if (this.#stagingBuffer) {
+				const bufTransit = this.#stagingBuffer.transit_network;
+				if (bufTransit) {
+					// 1. Overlay Buffer Stations
+					if (bufTransit.stations && typeof bufTransit.stations === "object") {
+						rawData.stationData = rawData.stationData || {};
+						for (const [stSlug, stObj] of Object.entries(bufTransit.stations)) {
+							if (rawData.stationData[stSlug]) {
+								rawData.stationData[stSlug] = { ...rawData.stationData[stSlug], ...stObj };
+							} else {
+								rawData.stationData[stSlug] = { ...stObj };
+							}
+						}
+					}
+					// 2. Overlay Buffer Lines
+					if (bufTransit.lines && typeof bufTransit.lines === "object") {
+						rawData.lines = rawData.lines || {};
+						for (const [lineId, lineObj] of Object.entries(bufTransit.lines)) {
+							if (rawData.lines[lineId]) {
+								rawData.lines[lineId] = { ...rawData.lines[lineId], ...lineObj };
+							} else {
+								rawData.lines[lineId] = { ...lineObj };
+							}
+						}
+					}
+					// 3. Overlay Buffer Transfers
+					if (bufTransit.transfers && typeof bufTransit.transfers === "object") {
+						rawData.transfers = rawData.transfers || {};
+						for (const [tId, tObj] of Object.entries(bufTransit.transfers)) {
+							rawData.transfers[tId] = tObj;
+						}
+					}
+					// 4. Overlay Buffer Fare Rules
+					if (bufTransit.fareRules && typeof bufTransit.fareRules === "object") {
+						if (bufTransit.fareRules.policies) {
+							rawData.fareRules = rawData.fareRules || {};
+							rawData.fareRules.policies = { ...(rawData.fareRules.policies || {}), ...bufTransit.fareRules.policies };
+						}
+						if (bufTransit.fareRules.fareTables) {
+							rawData.fareRules = rawData.fareRules || {};
+							rawData.fareRules.fareTables = { ...(rawData.fareRules.fareTables || {}), ...bufTransit.fareRules.fareTables };
+						}
+					}
+				}
+
+				// Overlay Buffer Locales for newly added stations
+				const bufLocales = this.#stagingBuffer.locales;
+				if (bufLocales && typeof bufLocales === "object") {
+					const langLoc = bufLocales[activeLang] || bufLocales["en"];
+					if (langLoc?.stations && primaryLocale) {
+						primaryLocale.stations = primaryLocale.stations || {};
+						for (const [sid, sobj] of Object.entries(langLoc.stations)) {
+							if (!primaryLocale.stations[sid] || !primaryLocale.stations[sid].name) {
+								primaryLocale.stations[sid] = { ...(primaryLocale.stations[sid] || {}), ...sobj };
+							}
+						}
+					}
+				}
+			}
 
 			// जाँचें कि क्या चुनी हुई भाषा में स्टेशन के नाम भरे हुए हैं या खाली हैं
 			const hasValidNames = primaryLocale && Object.values(primaryLocale.stations || {}).some(st => st.name && st.name.trim() !== "");
@@ -128,39 +192,6 @@ class MetroDataStore {
 			}
 
 			this.#localeData = primaryLocale || {};
-
-			// In-memory merge of auto graph delta (stations & lines)
-			if (autoResult.status === "fulfilled" && autoResult.value) {
-				const autoGraph = autoResult.value;
-				const autoStations = autoGraph.stations || {};
-				const autoLines = autoGraph.lines || {};
-
-				// 1. Merge Auto Stations
-				rawData.stationData = rawData.stationData || {};
-				for (const [stSlug, stObj] of Object.entries(autoStations)) {
-					if (rawData.stationData[stSlug]) {
-						rawData.stationData[stSlug] = {
-							...rawData.stationData[stSlug],
-							...stObj
-						};
-					} else {
-						rawData.stationData[stSlug] = { ...stObj };
-					}
-				}
-
-				// 2. Merge Auto Lines
-				rawData.lines = rawData.lines || {};
-				for (const [lineId, lineObj] of Object.entries(autoLines)) {
-					if (rawData.lines[lineId]) {
-						rawData.lines[lineId] = {
-							...rawData.lines[lineId],
-							...lineObj
-						};
-					} else {
-						rawData.lines[lineId] = { ...lineObj };
-					}
-				}
-			}
 
 			this.#rawCityData = calculateNeighborDistance(normalizeStationCoordinates(rawData));
 			this.#currentCity = resolvedCity;
@@ -319,100 +350,62 @@ class MetroDataStore {
 		const signal = this.#detailsAbortController.signal;
 
 		const basePath = this.getCityFilePath("station_details.json", resolvedCity);
-		const autoPath = this.getCityFilePath("station_details_auto.json", resolvedCity);
 		
 		try {
-			console.log(`[MetroDataStore] Fetching station details (Base + Auto) for "${resolvedCity}"...`);
-			
-			// Parallel non-blocking execution across Base and Auto stores
-			const [baseResult, autoResult] = await Promise.allSettled([
-				fetch(basePath, { signal }).then(res => {
-					if (!res.ok) throw new Error(`HTTP ${res.status}`);
-					return res.json();
-				}),
-				fetch(autoPath, { signal }).then(res => {
-					if (!res.ok) throw new Error(`HTTP ${res.status}`);
-					return res.json();
-				})
-			]);
-
-			// 1. Base File Handling (Mandatory with graceful fallback)
-			if (baseResult.status !== "fulfilled") {
+			console.log(`[MetroDataStore] Fetching station details for "${resolvedCity}"...`);
+			const res = await fetch(basePath, { signal });
+			if (!res.ok) {
 				if (signal.aborted) return this.#stationsDetailData;
-				console.warn(`[MetroDataStore] Base station details not found for "${resolvedCity}":`, baseResult.reason);
+				console.warn(`[MetroDataStore] Station details not found for "${resolvedCity}" (HTTP ${res.status})`);
 				if (resolvedCity !== this.#defaultCity) {
 					return await this.loadStationsDetail(this.#defaultCity);
 				}
 				return {};
 			}
 
-			const baseData = baseResult.value || {};
+			const baseData = await res.json();
 
-			// 2. Auto File Handling (Soft Fallback - Silent ignore on 404/failure)
-			let autoData = null;
-			if (autoResult.status === "fulfilled" && autoResult.value && typeof autoResult.value === "object") {
-				autoData = autoResult.value;
-				this.#stationsDetailAutoData = autoData;
-				console.log(`[MetroDataStore] Live auto delta detected (${Object.keys(autoData).length} entries) for "${resolvedCity}".`);
-			} else {
-				this.#stationsDetailAutoData = null;
+			// If staging buffer has unpromoted station_details, overlay them cleanly
+			const bufferDetails = this.#stagingBuffer?.station_details;
+			if (bufferDetails && typeof bufferDetails === "object") {
+				for (const [stSlug, patch] of Object.entries(bufferDetails)) {
+					if (stSlug === "_meta" || !patch || typeof patch !== "object") continue;
+					if (!baseData[stSlug]) {
+						const cleanPatch = { ...patch };
+						delete cleanPatch._meta;
+						baseData[stSlug] = cleanPatch;
+					} else {
+						const stRef = baseData[stSlug];
+						for (const [field, candVal] of Object.entries(patch)) {
+							if (field === "_meta" || candVal === null || candVal === undefined) continue;
+							if (typeof candVal === "object" && !Array.isArray(candVal) && stRef[field] && typeof stRef[field] === "object" && !Array.isArray(stRef[field])) {
+								if (field === "gates") {
+									stRef.gates = stRef.gates || {};
+									for (const [gKey, gObj] of Object.entries(candVal)) {
+										stRef.gates[gKey] = { ...(stRef.gates[gKey] || {}), ...gObj };
+									}
+								} else {
+									stRef[field] = { ...stRef[field], ...candVal };
+								}
+							} else {
+								stRef[field] = candVal;
+							}
+						}
+					}
+				}
 			}
 
-			// 3. In-Memory Deep Merge (Base + Live Delta)
-			this.#stationsDetailData = this.#deepMergeStationDetails(baseData, autoData);
+			this.#stationsDetailData = baseData;
 			return this.#stationsDetailData;
 
 		} catch (error) {
 			if (error.name === "AbortError") return this.#stationsDetailData;
 			console.error(`[MetroDataStore] Critical error loading station details for "${resolvedCity}":`, error);
+			if (resolvedCity !== this.#defaultCity) {
+				return await this.loadStationsDetail(this.#defaultCity);
+			}
 			return {};
 		}
-	}
-
-		/**
-	 * 🚀 Optimized In-Memory Deep Merge Algorithm using native structuredClone
-	 */
-	#deepMergeStationDetails(baseData, autoData) {
-		if (!autoData || typeof autoData !== "object" || Object.keys(autoData).length === 0) {
-			// Native C++ level deep copy (Fast & Memory Safe)
-			return typeof structuredClone === "function" ? structuredClone(baseData) : JSON.parse(JSON.stringify(baseData));
-		}
-
-		// 1. Create a complete, safe deep clone of the base data
-		const merged = typeof structuredClone === "function" ? structuredClone(baseData) : JSON.parse(JSON.stringify(baseData));
-
-		// 2. Overlay the Auto Delta changes
-		for (const [slug, patch] of Object.entries(autoData)) {
-			if (slug === "_meta" || !patch || typeof patch !== "object") continue;
-
-			if (!merged[slug]) {
-				const cleanPatch = { ...patch };
-				delete cleanPatch._meta;
-				merged[slug] = cleanPatch;
-				continue;
-			}
-
-			const stationRef = merged[slug];
-
-			for (const [field, candVal] of Object.entries(patch)) {
-				if (field === "_meta" || candVal === null || candVal === undefined) continue;
-
-				if (typeof candVal === "object" && !Array.isArray(candVal) && stationRef[field] && typeof stationRef[field] === "object" && !Array.isArray(stationRef[field])) {
-					if (field === "gates") {
-						stationRef.gates = stationRef.gates || {};
-						for (const [gKey, gObj] of Object.entries(candVal)) {
-							stationRef.gates[gKey] = { ...(stationRef.gates[gKey] || {}), ...gObj };
-						}
-					} else {
-						stationRef[field] = { ...stationRef[field], ...candVal };
-					}
-				} else {
-					stationRef[field] = candVal;
-				}
-			}
-		}
-
-		return merged;
 	}
 
 	/**
@@ -593,12 +586,16 @@ class MetroDataStore {
 		return this.#stationsDetailData || {};
 	}
 
-	get stationsDetailAuto() {
-		return this.#stationsDetailAutoData || {};
+	get stagingBuffer() {
+		return this.#stagingBuffer || {};
 	}
 
-	get hasLiveAutoDelta() {
-		return Boolean(this.#stationsDetailAutoData && Object.keys(this.#stationsDetailAutoData).length > 1);
+	get hasPendingStagingBuffer() {
+		const summary = this.#stagingBuffer?._meta?.summary;
+		if (summary) {
+			return Boolean(summary.total_delta_stations > 0 || summary.new_graph_stations > 0 || summary.new_lines > 0);
+		}
+		return false;
 	}
 
 	get isLoaded() {
@@ -666,6 +663,30 @@ class MetroDataStore {
 
 	getNetworkName(networkId) {
 		return this.#localeData?.networks?.[networkId] || networkId || "";
+	}
+
+	getPolicyName(policyId) {
+		if (!policyId) return "";
+		return this.#localeData?.policies?.[policyId] || this.#enLocaleData?.policies?.[policyId] || "";
+	}
+
+	/**
+	 * 🏙️ शहर का शुद्ध प्रदर्शन नाम (100% Dynamic from Registry - Zero Hardcoding)
+	 * @param {string} [cityKey=null]
+	 * @param {string} [lang=null]
+	 */
+	getCityDisplayName(cityKey = null, lang = null) {
+		const key = cityKey || this.#currentCity || "delhi_ncr";
+		const activeLang = lang || localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
+
+		// 1. यदि रजिस्ट्री मेमोरी में है, तो आधिकारिक बहुभाषी नाम लौटाएं
+		const cityObj = this.#registryData?.cities?.[key];
+		if (cityObj?.name) {
+			return cityObj.name[activeLang] || cityObj.name.en || key;
+		}
+
+		// 2. फ़ॉलबैक: सादा की लौटाएं (Zero Hardcoded Dictionaries)
+		return key;
 	}
 
 	get localeData() {

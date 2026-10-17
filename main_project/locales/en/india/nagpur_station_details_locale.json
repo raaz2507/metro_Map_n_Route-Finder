@@ -1,6 +1,10 @@
 {
 	"networks": {
+		"nagpur_metro": "Nagpur Metro (Maha Metro)",
 		"mahametro_nagpur": "Maharashtra Metro Rail Corporation Limited (MahaMetro)"
+	},
+	"policies": {
+		"nagpur_metro_standard": "Nagpur Metro (Maha Metro)"
 	},
 	"lines": {
 		"mahametro_nagpur.orange": {"name": "Orange Line", "short_name": "Orange Line"},

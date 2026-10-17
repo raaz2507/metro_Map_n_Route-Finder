@@ -48,8 +48,8 @@ class ProductionBridgeEngine:
 		Main execution pipeline for any city or network.
 		Modes:
 		  - 'stage_temp'       : Writes temporary staging buffer for Dashboard preview
-		  - 'port_production'  : Writes atomic *_auto.json directly into production
-		  - 'promote'          : Merges verified _auto.json into base files & resets buffer
+		  - 'port_production'  : Writes atomic staging_buffer.json directly into production
+		  - 'promote'          : Merges verified staging_buffer.json into base files & resets buffer
 		"""
 		city_id, city_name, networks = self.resolver.resolve_city_info(city_or_network)
 		target_city_dir = self.cities_dir / city_id
@@ -128,9 +128,9 @@ class ProductionBridgeEngine:
 			base_stations, combined_master, reconciler=reconciler, geo_source=geo_source, google_coords=google_coords
 		)
 
-		# 6. Aggregate Multi-Agency Passenger Support
-		UniversalPipelineLogger.log("SUPPORT", "Aggregating multi-operator passenger helplines...")
-		aggregated_support = PassengerSupportAggregator.aggregate(city_id, city_name, networks)
+		# 6. Aggregate Multi-Agency Passenger Support (Prioritizes authentic production base)
+		UniversalPipelineLogger.log("SUPPORT", "Resolving multi-operator passenger helplines from authentic base...")
+		aggregated_support = PassengerSupportAggregator.aggregate(city_id, city_name, networks, target_city_dir=target_city_dir)
 
 		# 7. Construct Transit Network Delta (Sparse Delta: only missing/modified lines, transfers & fareRules)
 		iso_today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")

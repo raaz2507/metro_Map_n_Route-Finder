@@ -6,7 +6,7 @@
 import { centerClass } from "../core/CenterClass.js";
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
-import i18n from "../core/i18n.js";
+
 import { appStateStore } from "../core/app-state-store.js";
 
 export class StationInfoManager {
@@ -43,7 +43,7 @@ export class StationInfoManager {
 	 */
 	#t(path, vars = {}) {
 		const fullKey = `station_info.${path}`;
-		const res = i18n.t(fullKey, vars);
+		const res = centerClass.t(fullKey, vars);
 		// 🛡️ Agar translation nahi mila aur i18n ne wahi fullKey wapas kar di, to null return karein
 		return (typeof res === "string" && res.startsWith("station_info.")) ? null : res;
 	}
@@ -590,7 +590,7 @@ export class StationInfoManager {
 					else if (key === "full_24_7") label = this.#t("parking.passes.full247");
 					else if (key === "tariff_a") label = this.#t("parking.passes.tariffA");
 					else if (key === "tariff_b") label = this.#t("parking.passes.tariffB");
-					else label = key.replace(/_/g, " ").toUpperCase();
+					else label = key;
 
 					const timing = p.timing ? ` (${p.timing})` : "";
 					return `<span><strong>${this.#escapeHTML(label)}${this.#escapeHTML(timing)}:</strong> ${sym}${p.fare}</span>`;

@@ -1,5 +1,6 @@
 // /lang/en/networks.js
 export default {
+	pageTitle: "Transit Network & City Selector | YatraMarg",
 	meta: {
 		title: "Transit Network & City Selector | YatraMarg",
 		desc: "Select transit networks across Delhi NCR, Mumbai, Pune, Kolkata, Bengaluru and explore route maps, lines, and fares."

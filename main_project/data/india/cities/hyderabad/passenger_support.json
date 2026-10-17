@@ -1,19 +1,29 @@
 {
 	"city": "hyderabad",
 	"city_name": "Hyderabad",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
-		"women_safety": "1090",
-		"ambulance": "102"
+		"women_safety": "1091",
+		"ambulance": "108"
 	},
 	"networks": {
-		"hyderabad_metro": {
-			"network_name": "Hyderabad Metro",
+		"hmrl": {
+			"network_name": "Hyderabad Metro (HMRL)",
 			"operator": "L&T Metro Rail / HMRL",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"helplines": {
+				"customer_care": "040-23332555",
+				"whatsapp_ticketing": "+91 83411 46468",
+				"women_safety": "1091",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://ltmetro.com/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Ameerpet Metro Station (Customer Care Centre, Concourse Level)",
+				"operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
 		}
 	}
 }

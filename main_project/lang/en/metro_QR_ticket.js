@@ -1,5 +1,6 @@
 // /lang/en/metro_QR_ticket.js
 export default {
+	pageTitle: "Metro Pass Wallet | YatraMarg",
 	meta: {
 		title: "Metro Pass Wallet | YatraMarg",
 		desc: "Offline digital metro QR pass wallet. Scan paper tickets or paste WhatsApp screenshots to generate high-contrast gate passes."

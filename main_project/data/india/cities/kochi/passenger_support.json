@@ -1,19 +1,30 @@
 {
 	"city": "kochi",
 	"city_name": "Kochi",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
-		"women_safety": "1090",
-		"ambulance": "102"
+		"women_safety": "1091",
+		"ambulance": "108"
 	},
 	"networks": {
 		"kochi_metro": {
-			"network_name": "Kochi Metro",
-			"operator": "KMRL",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"network_name": "Kochi Metro (KMRL)",
+			"operator": "Kochi Metro Rail Limited (KMRL)",
+			"helplines": {
+				"toll_free": "1800 425 0355",
+				"whatsapp_support": "+91 91889 57488",
+				"office_contact": "0484-2846700",
+				"women_safety": "1091",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://kochimetro.org/"
+			},
+			"facilities": {
+				"central_lost_found_office": "CUSAT Metro Station (Lost & Found Cell / Station Control Room)",
+				"operating_hours": "06:00 AM - 10:00 PM (Monday to Saturday), 08:00 AM - 10:00 PM (Sundays)"
+			}
 		}
 	}
 }

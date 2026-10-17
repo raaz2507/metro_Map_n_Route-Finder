@@ -7,7 +7,8 @@ import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { Toast } from "../components/Toast.js";
 import { appStateStore } from "../core/app-state-store.js";
-import i18n from "../core/i18n.js";
+import { centerClass } from "../core/CenterClass.js";
+
 
 export class CountrySelector {
 	// Private State Fields
@@ -50,7 +51,7 @@ export class CountrySelector {
 		// Subscribe to dynamic language toggle for instant in-place re-render
 		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
 			if (this.#dom.searchInput) {
-				this.#dom.searchInput.placeholder = i18n.t("pages.countrySelector.search.placeholder") || "Search country or code (e.g. India, Japan, UK)...";
+				this.#dom.searchInput.placeholder = centerClass.t("pages.countrySelector.search.placeholder");
 			}
 			this.#render();
 		});
@@ -138,7 +139,7 @@ export class CountrySelector {
 
 	#handleCountrySelect(countryKey, status, countryName) {
 		if (status !== "active") {
-			const upcomingMsg = i18n.t("pages.countrySelector.card.underMapping") || "Transit data for this country is currently being mapped. Stay tuned!";
+			const upcomingMsg = centerClass.t("pages.countrySelector.card.underMapping");
 			Toast.show(upcomingMsg, {
 				title: `${countryName || "Region"} Upcoming`,
 				type: "info",
@@ -286,8 +287,7 @@ export class CountrySelector {
 	#getLocalized(val) {
 		if (!val) return "";
 		if (typeof val === "object") {
-			// i18n.getLanguage is a getter property, NOT a function!
-			const currentLang = i18n.getLanguage || appStateStore.getState("currentLang") || "en";
+			const currentLang = centerClass.currentLanguage || appStateStore.getState("currentLang") || "en";
 			return val[currentLang] || val.en || Object.values(val)[0] || "";
 		}
 		return String(val);

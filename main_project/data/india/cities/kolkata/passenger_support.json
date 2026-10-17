@@ -1,19 +1,31 @@
 {
 	"city": "kolkata",
 	"city_name": "Kolkata",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
-		"women_safety": "1090",
-		"ambulance": "102"
+		"women_safety": "1091",
+		"ambulance": "108"
 	},
 	"networks": {
 		"kolkata_metro": {
 			"network_name": "Kolkata Metro",
-			"operator": "Metro Railway Kolkata / Indian Railways",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"operator": "Metro Railway Kolkata (Indian Railways)",
+			"helplines": {
+				"rail_madad_toll_free": "139",
+				"customer_care_1": "033-22264817",
+				"customer_care_2": "033-22553200",
+				"women_safety": "90070 41908",
+				"security_helpline": "139",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://mtp.indianrailways.gov.in/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Park Street / Esplanade Metro Station (Customer Care Counter & Station Control Room)",
+				"operating_hours": "06:50 AM - 10:45 PM (Monday to Saturday), 09:00 AM - 10:45 PM (Sundays)"
+			}
 		}
 	}
 }

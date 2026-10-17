@@ -9,6 +9,13 @@
 		"cidco": "CIDCO / Maha Metro",
 		"mmrda_monorail": "MMRDA Monorail"
 	},
+	"policies": {
+		"mmopl_line1": "Line 1 (Versova - Ghatkopar)",
+		"mmmocl_standard": "Lines 2A & 7 (Maha Mumbai Metro)",
+		"mmrcl_line3": "Line 3 (Aqua Line - Underground)",
+		"cidco_navi_mumbai": "Navi Mumbai Metro (CIDCO)",
+		"mmrda_monorail_standard": "Mumbai Monorail"
+	},
 	"lines": {
 		"mumbai.blue": {"name": "Line 1 (Blue Line)", "short_name": "Line 1 (Blue Line)"},
 		"mumbai.yellow": {"name": "Line 2A (Yellow Line)", "short_name": "Line 2A (Yellow Line)"},

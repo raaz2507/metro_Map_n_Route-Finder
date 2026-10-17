@@ -1,425 +1,428 @@
 {
 	"networks": {
-		"hmrl": ""
+		"hmrl": "हैदराबाद मेट्रो (HMRL)"
 	},
 	"lines": {
-		"hmrl.red": {
-			"name": "",
-			"short_name": ""
-		},
-		"hmrl.blue": {
-			"name": "",
-			"short_name": ""
-		},
-		"hmrl.green": {
-			"name": "",
-			"short_name": ""
-		}
+		"hmrl.red": {"name": "रेड लाइन", "short_name": "रेड लाइन"},
+		"hmrl.blue": {"name": "ब्लू लाइन", "short_name": "ब्लू लाइन"},
+		"hmrl.green": {"name": "ग्रीन लाइन", "short_name": "ग्रीन लाइन"}
 	},
 	"stations": {
 		"ameerpet": {
-			"name": "",
+			"name": "अमीरपेट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"assembly": {
-			"name": "",
+			"name": "असेंबली",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"balanagar": {
-			"name": "",
+			"name": "बालानगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"begumpet": {
-			"name": "",
+			"name": "बेगमपेट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"bharat-nagar": {
-			"name": "",
+			"name": "भारत नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chaitanya-puri": {
-			"name": "",
+			"name": "चैतन्य पुरी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"chikkadpally": {
-			"name": "",
+			"name": "चिक्कड़पल्ली",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"dilsukhnagar": {
-			"name": "",
+			"name": "दिलसुखनगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"durgam-cheruvu": {
-			"name": "",
+			"name": "दुर्गम चेरुवु",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"erragadda": {
-			"name": "",
+			"name": "एर्रागड्डा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"esi-hospital": {
-			"name": "",
+			"name": "ईएसआई हॉस्पिटल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gandhi-bhavan": {
-			"name": "",
+			"name": "गांधी भवन",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"gandhi-hospital": {
-			"name": "",
+			"name": "गांधी हॉस्पिटल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"habsiguda": {
-			"name": "",
+			"name": "हब्सीगुडा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"hitec-city": {
-			"name": "",
+			"name": "हाइटेक सिटी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"irrum-manzil": {
-			"name": "",
+			"name": "इर्रम मंज़िल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jbs-parade-ground": {
-			"name": "",
+			"name": "जेबीएस परेड ग्राउंड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jntu-college": {
-			"name": "",
+			"name": "जेएनटीयू कॉलेज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"jubilee-hills-check-post": {
-			"name": "",
+			"name": "जुबली हिल्स चेक पोस्ट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"khairtabad": {
-			"name": "",
+			"name": "खैरताबाद",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kphb-colony": {
-			"name": "",
+			"name": "केपीएचबी कॉलोनी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"kukatpally": {
-			"name": "",
+			"name": "कूकटपल्ली",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"lakdi-ka-pul": {
-			"name": "",
+			"name": "लकड़ी-का-पुल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"lb-nagar": {
-			"name": "",
+			"name": "एल.बी. नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"madhapur": {
-			"name": "",
+			"name": "माधापुर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"madhura-nagar": {
-			"name": "",
+			"name": "मधुरा नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"malakpet": {
-			"name": "",
+			"name": "मलकपेट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mettuguda": {
-			"name": "",
+			"name": "मेट्टुगुडा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"mg-bus-station": {
-			"name": "",
+			"name": "एमजी बस स्टेशन (MGBS)",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"miyapur": {
-			"name": "",
+			"name": "मियापुर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"moosapet": {
-			"name": "",
+			"name": "मूसापेट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"musarambagh": {
-			"name": "",
+			"name": "मुसारामबाग",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"musheerabad": {
-			"name": "",
+			"name": "मुशीराबाद",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nagole": {
-			"name": "",
+			"name": "नागोले",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nampally": {
-			"name": "",
+			"name": "नामपल्ली",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"narayanguda": {
-			"name": "",
+			"name": "नारायणगुडा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"new-market": {
-			"name": "",
+			"name": "न्यू मार्केट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"ngri": {
-			"name": "",
+			"name": "एनएनजीआरआई (NGRI)",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"osmania-college": {
-			"name": "",
+			"name": "उस्मानिया मेडिकल कॉलेज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"parade-ground": {
-			"name": "",
+			"name": "परेड ग्राउंड",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"paradise": {
-			"name": "",
+			"name": "पैराडाइज",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"peddamma-gudi": {
-			"name": "",
+			"name": "पेद्दम्मा गुड़ी",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"prakash-nagar": {
-			"name": "",
+			"name": "प्रकाश नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"punjagutta": {
-			"name": "",
+			"name": "पंजागुट्टा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"raidurg": {
-			"name": "",
+			"name": "रायदुर्ग",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rasoolpura": {
-			"name": "",
+			"name": "रसूलपुरा",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"road-no-5-jubilee-hills": {
-			"name": "",
+			"name": "रोड नं 5 जुबली हिल्स",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"rtc-x-roads": {
-			"name": "",
+			"name": "आरटीसी एक्स रोड्स",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"secunderabad-east": {
-			"name": "",
-			"aliases": [
-				"Secunderabad Railway Station",
-				"Secunderabad Junction"
-			],
+			"name": "सिकंदराबाद पूर्व",
+			"aliases": ["Secunderabad Railway Station", "Secunderabad Junction"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"secunderabad-west": {
-			"name": "",
-			"aliases": [
-				"Secunderabad Railway Station West"
-			],
+			"name": "सिकंदराबाद पश्चिम",
+			"aliases": ["Secunderabad Railway Station West"],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sr-nagar": {
-			"name": "",
+			"name": "एस.आर. नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"stadium": {
-			"name": "",
+			"name": "स्टेडियम",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"sultan-bazar": {
-			"name": "",
+			"name": "सुल्तान बाज़ार",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"tarnaka": {
-			"name": "",
+			"name": "तारनाका",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"uppal-bus": {
-			"name": "",
+			"name": "उप्पल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"victoria-memorial": {
-			"name": "",
+			"name": "विक्टोरिया मेमोरियल",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"yusufguda": {
+			"name": "यूसुफगुडा",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"secunderabad-railway-station": {
+			"name": "",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"m-g-bus-station": {
 			"name": "",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		}
+	},
+	"policies": {
+		"hmrl_standard": "हैदराबाद मेट्रो (HMRL)"
 	}
 }

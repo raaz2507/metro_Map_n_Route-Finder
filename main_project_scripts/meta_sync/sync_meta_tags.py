@@ -51,8 +51,15 @@ $ python main_project_scripts/meta_sync/sync_meta_tags.py
 """
 
 import os
+import sys
 import json
 import re
+
+if sys.stdout.encoding != 'utf-8':
+	try:
+		sys.stdout.reconfigure(encoding='utf-8')
+	except Exception:
+		pass
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(SCRIPT_DIR, "pages_meta_config.json")
@@ -71,12 +78,14 @@ def build_head_snippet(page_file, page_config, global_config):
 	page_url = f"{base_url}{page_file}"
 	og_image_url = f"{base_url}{global_config.get('og_image', '')}"
 	
-	title_attr = f' data-i18n="{title_key}"' if title_key else ""
+	title_attr = f' data-i18n="{title_key}" data-i18n-title-tag="{title_key}"' if title_key else ""
 	
 	lines = [
 		START_MARKER,
 		'\t<meta charset="UTF-8">',
 		'\t<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">',
+		f'\t<meta name="description" content="{desc}">',
+		f'\t<link rel="canonical" href="{page_url}">',
 		'',
 		'\t<!-- Open Graph / Social Sharing -->',
 		'\t<meta property="og:type" content="website">',
@@ -96,6 +105,7 @@ def build_head_snippet(page_file, page_config, global_config):
 		f'\t<link rel="icon" type="image/svg+xml" href="{global_config.get("favicon", "assets/images/site_icon.svg")}">',
 		f'\t<link rel="manifest" href="{global_config.get("manifest", "manifest.webmanifest")}">',
 		f'\t<meta name="theme-color" content="{global_config.get("theme_color", "#0f172a")}">',
+		'\t<meta name="color-scheme" content="light dark">',
 		'\t<meta name="apple-mobile-web-app-capable" content="yes">',
 		'\t<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">',
 		'',

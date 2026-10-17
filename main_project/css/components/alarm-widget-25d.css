@@ -30,6 +30,8 @@
 	.alarm-widget-wrapper.is-inactive {
 		filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22))
 		        drop-shadow(0 2.5px 7px rgba(234, 88, 12, 0.35));
+		max-width: 220px;
+		right: auto;
 	}
 
 	/* 2. The Card Body with Radial Cutout Mask */
@@ -56,7 +58,12 @@
 	}
 
 	.alarm-widget-card.is-inactive {
+		max-width: 220px;
 		border-bottom-color: #ea580c;
+	}
+
+	.alarm-widget-card.is-inactive .alarm-bottom-actions {
+		display: none;
 	}
 
 	/* 3. Decorative Notch Rim Borders (Follow the cutout curve) */
@@ -536,21 +543,65 @@
 	@media (max-width: 768px) {
 		.alarm-widget-wrapper {
 			bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
-			left: var(--space-md);
-			right: var(--space-md);
-			max-width: 385px; /* Realme आदि में पूरा बड़ा साइज़ रहेगा */
+			left: var(--space-xs);
+			right: auto;
+			max-width: 275px; /* Realme आदि में ज़ूम विजेट से सुरक्षित दूरी */
+		}
+
+		.alarm-widget-card {
+			max-width: 275px;
+		}
+
+		.alarm-widget-wrapper.is-inactive {
+			max-width: 220px;
+			right: auto;
+		}
+
+		.alarm-widget-card.is-inactive {
+			max-width: 220px;
+		}
+
+		.alarm-body-wing {
+			padding: var(--space-2xs) var(--space-xs);
+			gap: var(--space-2xs);
+		}
+
+		/* 👈 मोबाइल पर 'STATION ALERT' छिपाएं ताकि बटन दायें ज़ूम कंट्रोल्स पर न चढ़ें */
+		.alarm-tagline {
+			display: none;
+		}
+
+		.btn-alarm-action {
+			padding: 2.5px var(--space-xs);
+			font-size: var(--fs-2xs);
+			flex-shrink: 0;
+		}
+
+		.alarm-distance-badge {
+			padding: 2.5px var(--space-xs);
+			font-size: var(--fs-2xs);
+			flex-shrink: 0;
 		}
 	}
 	/* 2. Small Screen Only (iPhone SE, 360px - केवल 380px से नीचे) */
 	@media (max-width: 380px) {
 		.alarm-widget-wrapper {
-			/* 👈 बायाँ और निचला मार्जिन टोकन से बढ़ाया */
-			left: var(--space-sm);
+			left: var(--space-xs);
 			bottom: var(--space-lg);
 			right: auto;
-			
-			/* 👈 हार्डकोडेड px हटाकर दाएँ कंट्रोल्स के टोकन्स का शुद्ध calc */
-			max-width: calc(100vw - (var(--space-3xl) + var(--space-2xl) + var(--space-xs)));
+			max-width: 250px;
+		}
+
+		.alarm-widget-card {
+			max-width: 250px;
+		}
+
+		.alarm-widget-wrapper.is-inactive {
+			max-width: 200px;
+		}
+
+		.alarm-widget-card.is-inactive {
+			max-width: 200px;
 		}
 
 		/* 👈 नॉच के साथ 100% अलाइनमेंट के लिए विंग */

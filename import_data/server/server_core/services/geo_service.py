@@ -2,6 +2,7 @@
 Geo-Coordinate Audit & Selective Synchronization Service (OOP)
 Location: import_data/server_core/services/geo_service.py
 """
+import datetime
 import json
 from pathlib import Path
 from typing import Dict, Any, List, Set, Optional
@@ -15,7 +16,7 @@ from pipeline.core.file_manager import UniversalFileSystemManager
 class GeoAuditService:
 	"""
 	Enterprise OOP Service for Geo Auditing and Selective Staging Application.
-	Enforces zero blast radius: buffers URLs into station_details_auto.json.
+	Enforces zero blast radius: buffers URLs into staging_buffer.json.
 	"""
 
 	@classmethod
@@ -190,7 +191,7 @@ class GeoAuditService:
 	def apply_coordinates(cls, city: str, selected_slugs: Set[str], source_target: str = "google") -> int:
 		"""
 		Selectively applies verified coordinates to transit_network.json,
-		and buffers generated_google_maps_url strictly into station_details_auto.json.
+		and buffers generated_google_maps_url strictly into staging_buffer.json.
 		"""
 		cfg = next((c for c in CITY_MAPPINGS if c["key"] == city), None)
 		if not cfg:
@@ -265,23 +266,24 @@ class GeoAuditService:
 
 		UniversalFileSystemManager.save_atomic_tab_json(main_file, main_data, compact=True)
 
-		# Buffer generated_google_maps_url into station_details_auto.json (Staging Buffer)
-		auto_details_file = city_folder / "station_details_auto.json"
-		auto_data = {}
-		if auto_details_file.exists():
+		# Buffer generated_google_maps_url into staging_buffer.json (Staging Buffer)
+		staging_file = city_folder / "staging_buffer.json"
+		staging_data = {}
+		if staging_file.exists():
 			try:
-				with open(auto_details_file, "r", encoding="utf-8") as f:
-					auto_data = json.load(f)
+				with open(staging_file, "r", encoding="utf-8") as f:
+					staging_data = json.load(f)
 			except Exception:
-				auto_data = {}
+				staging_data = {}
 
+		auto_details = staging_data.setdefault("station_details", {})
 		d_updated = False
 		for s_id in selected_slugs:
 			resolved_s_id = reconciler.resolve(s_id)
 			target_key = resolved_s_id if resolved_s_id in stn_data else s_id
 			c_val = coords_map.get(resolved_s_id) or coords_map.get(s_id)
 			if c_val and c_val.get("url"):
-				entry = auto_data.setdefault(target_key, {})
+				entry = auto_details.setdefault(target_key, {})
 				entry["generated_google_maps_url"] = c_val["url"]
 				entry["_meta"] = {
 					"is_new": False,
@@ -290,6 +292,8 @@ class GeoAuditService:
 				d_updated = True
 
 		if d_updated:
-			UniversalFileSystemManager.save_atomic_tab_json(auto_details_file, auto_data, compact=True)
+			staging_data.setdefault("_meta", {})["generated_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat() + "Z"
+			staging_data["_meta"]["status"] = "pending_developer_review"
+			UniversalFileSystemManager.save_atomic_tab_json(staging_file, staging_data, compact=True)
 
 		return updated_count

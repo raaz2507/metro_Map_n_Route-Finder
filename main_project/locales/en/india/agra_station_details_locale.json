@@ -1,6 +1,10 @@
 {
 	"networks": {
+		"agra_metro": "Agra Metro (UPMRC)",
 		"upmrc_agra": "Uttar Pradesh Metro Rail Corporation (UPMRC)"
+	},
+	"policies": {
+		"agra_metro_standard": "Agra Metro (UPMRC)"
 	},
 	"lines": {
 		"upmrc_agra.yellow": {"name": "Yellow Line (Line 1)", "short_name": "Yellow Line (Line 1)"}

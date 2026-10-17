@@ -6,38 +6,44 @@
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
+			"ahmedabad_metro": {"operator": "Gujarat Metro Rail Corporation (GMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
 			"gmrc": {"operator": "Gujarat Metro Rail Corporation (GMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"gmrc_standard": {
-				"network": "gmrc",
+				"network": "ahmedabad_metro",
 				"effectiveFrom": "2022-09-30",
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"rechargeUrl": "",
 				"fareTables": {
-					"weekday": [
+					"standard": [
 						{"minKm": 0, "maxKm": 2.5, "fare": 5},
 						{"minKm": 2.5, "maxKm": 7.5, "fare": 10},
 						{"minKm": 7.5, "maxKm": 12.5, "fare": 15},
 						{"minKm": 12.5, "maxKm": 17.5, "fare": 20},
 						{"minKm": 17.5, "maxKm": 22.5, "fare": 25},
-						{"minKm": 22.5, "maxKm": 99, "fare": 30}
+						{"minKm": 22.5, "maxKm": null, "fare": 30}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
-						"timeRule": null,
-						"label": {"en": "GMRC Smart Card / NCMC (10% Off)", "hi": "जीएमआरसी स्मार्ट कार्ड / एनसीएमसी (10% छूट)"}
-					}
+						"minBalance": 50,
+						"refundableDeposit": 50,
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 120},
+						"rechargeUrl": ""
+					},
+					"qr_ticket": {
+						"type": "digital",
+						"validityMinutes": 120,
+						"channels": ["GMRC Mobile App"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 10, "minBalance": 50}
 				},
-				"timeRules": null,
 				"stationStayRules": {
 					"sameStationExitFare": 5,
 					"sameStationTimeLimitMinutes": 20,

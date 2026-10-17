@@ -4,7 +4,7 @@
  */
 
 import { centerClass } from "../core/CenterClass.js";
-import i18n from "../core/i18n.js";
+
 
 export class SpeedometerWidget {
 	#elements = {};
@@ -89,7 +89,7 @@ export class SpeedometerWidget {
 				if (motionState === "DEPARTING") statusKey = "pages.home.speedometer.statusDeparting";
 				else if (motionState === "CRUISING") statusKey = "pages.home.speedometer.statusCruising";
 
-				el.statusValue.textContent = i18n.t(statusKey);
+				el.statusValue.textContent = centerClass.t(statusKey);
 			}
 		});
 	}

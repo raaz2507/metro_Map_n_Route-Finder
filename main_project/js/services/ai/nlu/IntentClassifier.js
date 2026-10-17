@@ -4,7 +4,7 @@
  * 100% Language-Agnostic: Zero Hardcoded Regex or Multilingual Keywords in Engine.
  */
 
-import i18n from "../../../core/i18n.js";
+import { centerClass } from "../../../core/CenterClass.js";
 
 export class IntentClassifier {
 	static INTENTS = {
@@ -49,7 +49,7 @@ export class IntentClassifier {
 		};
 
 		// 1. Fetch language NLU grammar patterns from active language pack
-		const nluConfig = i18n.getNluConfig(lang) || i18n.getNluConfig("en") || {};
+		const nluConfig = centerClass.getNluConfig(lang) || centerClass.getNluConfig("en") || {};
 		const patterns = nluConfig.intentPatterns || {};
 
 		// Helper to test regex pattern against normalized text or raw text

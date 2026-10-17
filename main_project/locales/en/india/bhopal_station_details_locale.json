@@ -1,6 +1,11 @@
 {
 	"networks": {
-		"mpmrcl_bhopal": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)"
+		"bhopal_metro": "Bhopal Metro (MPMRCL)",
+		"mpmrcl_bhopal": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+		"mpmrcl": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)"
+	},
+	"policies": {
+		"bhopal_metro_standard": "Bhopal Metro (MPMRCL)"
 	},
 	"lines": {
 		"mpmrcl.orange": {"name": "Orange Line", "short_name": "Orange Line"},

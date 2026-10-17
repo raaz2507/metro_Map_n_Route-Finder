@@ -1,6 +1,10 @@
 {
 	"networks": {
-		"mahametro_nagpur": ""
+		"nagpur_metro": "नागपूर मेट्रो (महा मेट्रो)",
+		"mahametro_nagpur": "महाराष्ट्र मेट्रो रेल कॉर्पोरेशन लिमिटेड (महामेट्रो)"
+	},
+	"policies": {
+		"nagpur_metro_standard": "नागपूर मेट्रो (महा मेट्रो)"
 	},
 	"lines": {
 		"mahametro_nagpur.orange": {"name": "ऑरेंज लाइन", "short_name": "ऑरेंज लाइन"},
@@ -57,7 +61,7 @@
 			"landmarks": []
 		},
 		"chitar_oli_square": {
-			"name": "Chitar Oli Square",
+			"name": "चितार ओली चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -85,7 +89,7 @@
 			"landmarks": []
 		},
 		"dosar_vaisya_square": {
-			"name": "Dosar Vaisya Square",
+			"name": "दोसर वैश्य चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -127,7 +131,7 @@
 			"landmarks": []
 		},
 		"kadbi_square": {
-			"name": "Kadbi Square",
+			"name": "कडबी चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -155,14 +159,14 @@
 			"landmarks": []
 		},
 		"lokmanya_nagar_open": {
-			"name": "Lokmanya Nagar (Open)",
+			"name": "लोकमान्य नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"nagpur_railway": {
-			"name": "Nagpur Railway",
+			"name": "नागपूर रेल्वे स्थानक",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -204,7 +208,7 @@
 			"landmarks": []
 		},
 		"shankar_nagar": {
-			"name": "Shankar Nagar",
+			"name": "शंकर नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -218,7 +222,7 @@
 			"landmarks": []
 		},
 		"south_airport": {
-			"name": "South Airport",
+			"name": "साउथ एअरपोर्ट",
 			"aliases": [],
 			"description": "",
 			"gates": {},
@@ -239,14 +243,14 @@
 			"landmarks": []
 		},
 		"ujwal_nagar": {
-			"name": "Ujwal Nagar",
+			"name": "उज्ज्वल नगर",
 			"aliases": [],
 			"description": "",
 			"gates": {},
 			"landmarks": []
 		},
 		"vaishno_devi_chowk": {
-			"name": "Vaishno Devi Chowk",
+			"name": "वैष्णो देवी चौक",
 			"aliases": [],
 			"description": "",
 			"gates": {},

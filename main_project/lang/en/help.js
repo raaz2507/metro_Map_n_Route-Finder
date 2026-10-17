@@ -1,5 +1,6 @@
 // lang/pages/help.en.js
 export default {
+	pageTitle: "Help & User Guide | YatraMarg",
 	meta: {
 		title: "Help & User Guide | YatraMarg",
 		desc: "Comprehensive user guide, route finding tutorials, destination alarm setup, fare rules, and troubleshooting for YatraMarg transit app."

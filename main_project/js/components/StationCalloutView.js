@@ -9,7 +9,7 @@
  */
 
 import { centerClass } from "../core/CenterClass.js";
-import i18n from "../core/i18n.js";
+
 
 export class StationCalloutView {
 	#container = null;
@@ -77,7 +77,7 @@ export class StationCalloutView {
 	#renderInitialCard(stationId, x, y) {
 		const stationName = centerClass.getStationName(stationId, this.#currentLang) || stationId;
 		const currentCity = localStorage.getItem("active_city") || "delhi_ncr";
-		const btnText = i18n.t("pages.home.map.viewStationInfo") || "View Station Details";
+		const btnText = centerClass.t("pages.home.map.viewStationInfo");
 
 		const stationObj = centerClass.getStationDetails(stationId);
 		const status = stationObj?.properties?.status || "operational";

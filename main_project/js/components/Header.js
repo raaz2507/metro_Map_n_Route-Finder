@@ -88,6 +88,9 @@ export class HeaderComponent {
 		// PWA & App Utility Hub Setup
 		pwaManager.bindHeaderUI();
 
+		// Mobile 2.5D Header Navigation Expand Toggle
+		this.#setupHeaderNavToggle();
+
 		// Auto-realign any active open dropdown on window resize / orientation change
 		window.addEventListener('resize', () => {
 			const openMenu = document.querySelector('.custom-dropdown-menu.show, .font-scale-panel.show, .city-dropdown-menu.show');
@@ -95,6 +98,32 @@ export class HeaderComponent {
 				HeaderComponent.#adjustDropdownPosition(openMenu);
 			}
 		});
+	}
+
+	/**
+	 * Mobile Header Navigation 2.5D Expand/Collapse Handler
+	 */
+	static #setupHeaderNavToggle() {
+		const toggleBtn = document.getElementById('header-nav-toggle-btn');
+		const bogieContainer = document.getElementById('nav-bogie-container');
+		const badge = document.getElementById('header-nav-badge-val');
+		const expandBar = bogieContainer?.querySelector('.header-nav-expand-bar');
+		if (!toggleBtn || !bogieContainer) return;
+
+		const handleToggle = (e) => {
+			if (e) e.stopPropagation();
+			const isExpanded = bogieContainer.classList.toggle('expanded');
+			toggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+		};
+
+		toggleBtn.addEventListener('click', handleToggle);
+		if (expandBar) {
+			expandBar.addEventListener('click', (e) => {
+				if (e.target !== toggleBtn && !toggleBtn.contains(e.target)) {
+					handleToggle(e);
+				}
+			});
+		}
 	}
 
 
@@ -194,9 +223,11 @@ export class HeaderComponent {
 
 		if (!btn || !menu) return;
 
-		// Resolve active city
+		// Resolve active city & active network
 		const urlParams   = new URLSearchParams(window.location.search);
 		const activeCity  = urlParams.get('city') || localStorage.getItem('active_city') || 'delhi_ncr';
+		let activeNetwork = urlParams.get('network') || urlParams.get('net') || localStorage.getItem('active_network') || '';
+		if (activeNetwork === 'all') activeNetwork = '';
 		const activeLang  = localStorage.getItem('app-lang') || 'en';
 
 		// --- Fetch countries manifest + india registry in parallel ---
@@ -212,18 +243,26 @@ export class HeaderComponent {
 			if (irRes.status === 'fulfilled')  indiaRegistry     = irRes.value;
 		} catch (_) { /* silent — pill will show fallback */ }
 
-		// --- Build pill label from registry ---
-		const buildPillLabel = (cityKey) => {
+		// --- Build pill label from registry (City or specific Network) ---
+		const buildPillLabel = (cityKey, netKey) => {
 			if (!indiaRegistry?.cities) return { flag: '🏙', name: cityKey };
 			const cityData = indiaRegistry.cities[cityKey];
 			if (!cityData) return { flag: '🏙', name: cityKey };
+			const flag = countriesManifest?.countries?.india?.flag || '🇮🇳';
+
+			if (netKey && cityData.networks?.[netKey]) {
+				const netData = cityData.networks[netKey];
+				const netName = netData.name?.[activeLang] || netData.name?.en || netKey;
+				return { flag, name: netName };
+			}
+
 			return {
-				flag: countriesManifest?.countries?.india?.flag || '🇮🇳',
+				flag,
 				name: (cityData.name?.[activeLang] || cityData.name?.en || cityKey)
 			};
 		};
 
-		const { flag, name } = buildPillLabel(activeCity);
+		const { flag, name } = buildPillLabel(activeCity, activeNetwork);
 		if (flagEl) flagEl.textContent = flag;
 		if (nameEl) nameEl.textContent = name;
 
@@ -267,10 +306,57 @@ export class HeaderComponent {
 						return (val && val !== key) ? val : fallback;
 					};
 
-					const combinedLabel = getI18nLabel('header.citySelector.combinedNetworks', 'Combined Networks');
-					const singleLabel   = getI18nLabel('header.citySelector.singleNetworks', 'Individual Networks');
+					const combinedLabel = getI18nLabel('header.citySelector.combinedNetworks', 'Combined Regional Hubs');
+					const singleLabel   = getI18nLabel('header.citySelector.singleNetworks', 'Standalone Transit Networks');
+					const allNetSuffix  = getI18nLabel('pages.networks.card.allNetworksSuffix', 'All Networks');
 
-					const renderCityItems = (citiesList) => {
+					// Render multi-network groups with their independent network sub-items
+					const renderCombinedCityGroups = (citiesList) => {
+						let itemsHtml = '';
+						for (const [cityKey, cityMeta] of citiesList) {
+							const cityName = cityMeta.name?.[activeLang] || cityMeta.name?.en || cityKey;
+							const isCitySelected = cityKey === activeCity;
+							const isAllSelected = isCitySelected && (!activeNetwork || activeNetwork === 'all');
+							const safeCityKey = cityKey.replace(/[^a-z0-9_-]/gi, '');
+							
+							// 1. Regional Hub / All Networks Option
+							itemsHtml += `<li class="city-dropdown-item group-hub-item ${isAllSelected ? 'active' : ''}"
+								role="option"
+								aria-selected="${isAllSelected}"
+								data-city="${safeCityKey}"
+								data-network="all"
+								tabindex="0">
+								<span>${countryFlag} ${cityName} <small class="text-muted">(${allNetSuffix})</small></span>
+							</li>`;
+
+							// 2. Individual Operational Transit Networks under this City
+							const networks = cityMeta.networks || {};
+							for (const [netKey, netMeta] of Object.entries(networks)) {
+								// Only operational or data-ready networks
+								if (netMeta.hasData !== true && netMeta.status !== 'operational' && netMeta.status !== 'operational_partial') {
+									continue;
+								}
+								const netName = netMeta.name?.[activeLang] || netMeta.name?.en || netKey;
+								const isNetSelected = isCitySelected && activeNetwork === netKey;
+								const safeNetKey = netKey.replace(/[^a-z0-9_-]/gi, '');
+								const mode = netMeta.mode || 'Metro';
+
+								itemsHtml += `<li class="city-dropdown-item network-sub-item ${isNetSelected ? 'active' : ''}"
+									role="option"
+									aria-selected="${isNetSelected}"
+									data-city="${safeCityKey}"
+									data-network="${safeNetKey}"
+									tabindex="0">
+									<span class="sub-network-bullet">↳</span>
+									<span class="sub-network-name">${netName}</span>
+									<span class="sub-network-mode-pill">${mode}</span>
+								</li>`;
+							}
+						}
+						return itemsHtml;
+					};
+
+					const renderSingleCityItems = (citiesList) => {
 						let itemsHtml = '';
 						for (const [cityKey, cityMeta] of citiesList) {
 							const cityName = cityMeta.name?.[activeLang] || cityMeta.name?.en || cityKey;
@@ -280,8 +366,9 @@ export class HeaderComponent {
 								role="option"
 								aria-selected="${isSelected}"
 								data-city="${safeCityKey}"
+								data-network=""
 								tabindex="0">
-								${countryFlag} ${cityName}
+								<span>${countryFlag} ${cityName}</span>
 							</li>`;
 						}
 						return itemsHtml;
@@ -291,14 +378,14 @@ export class HeaderComponent {
 						html += `<li class="dropdown-sub-category-header" role="presentation">
 							<span data-i18n="header.citySelector.combinedNetworks">${combinedLabel}</span>
 						</li>`;
-						html += renderCityItems(combinedCities);
+						html += renderCombinedCityGroups(combinedCities);
 					}
 
 					if (singleCities.length > 0) {
 						html += `<li class="dropdown-sub-category-header" role="presentation">
 							<span data-i18n="header.citySelector.singleNetworks">${singleLabel}</span>
 						</li>`;
-						html += renderCityItems(singleCities);
+						html += renderSingleCityItems(singleCities);
 					}
 				} else if (!isActive) {
 					// Upcoming country — no city list, just the header badge
@@ -316,18 +403,35 @@ export class HeaderComponent {
 			item.addEventListener('click', (e) => {
 				e.stopPropagation();
 				const selectedCity = item.getAttribute('data-city');
-				if (!selectedCity || selectedCity === activeCity) { 
+				const selectedNetwork = item.getAttribute('data-network') || '';
+
+				if (!selectedCity) { 
 					closeMenu(); 
 					return; 
 				}
 
-				localStorage.setItem('active_city', selectedCity);
-				localStorage.removeItem('active_network');
+				const currNet = activeNetwork || 'all';
+				const targetNet = selectedNetwork || 'all';
+				if (selectedCity === activeCity && targetNet === currNet) {
+					closeMenu();
+					return;
+				}
 
-				// Navigate: Preserve current page pathname and other params, update only city
+				localStorage.setItem('active_city', selectedCity);
+				if (selectedNetwork && selectedNetwork !== 'all') {
+					localStorage.setItem('active_network', selectedNetwork);
+				} else {
+					localStorage.removeItem('active_network');
+				}
+
+				// Navigate: Preserve current page pathname and other params, update city & network
 				const newParams = new URLSearchParams(window.location.search);
 				newParams.set('city', selectedCity);
-				newParams.delete('network');
+				if (selectedNetwork && selectedNetwork !== 'all') {
+					newParams.set('network', selectedNetwork);
+				} else {
+					newParams.delete('network');
+				}
 				newParams.delete('net');
 				
 				const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -764,59 +868,112 @@ export class HeaderComponent {
 				<p class="header-tagline" data-i18n="header.tagLine">Maps • Routes • Fares • Journey Assistance</p>
 			</header>
 
-			<!-- Retro Ticket Stub Navigation Bar with Blueprint Stroke Draw -->
-			<nav class="header-nav" id="header-nav" aria-label="Header Navigation">
-				<ul class="header-nav-list">
-					<li class="header-nav-item">
-						<a href="TransitNetworkSelector.html" class="nav-link ${activePage === 'networks' ? 'active' : ''}" data-target="networks">
-							<span class="nav-icon"><svg><use href="#icon-networks"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.networks">Networks</span>
+			${(() => {
+				const navItemsDef = [
+					{
+						target: 'networks',
+						active: activePage === 'networks',
+						href: 'TransitNetworkSelector.html',
+						icon: 'icon-networks',
+						i18n: 'nav-header.networks',
+						label: 'Networks'
+					},
+					{
+						target: 'home',
+						active: activePage === 'home',
+						href: `index.html${cityParam}`,
+						icon: 'icon-home',
+						i18n: 'nav-header.home',
+						label: 'Home'
+					},
+					{
+						target: 'stations',
+						active: activePage === 'stations',
+						href: `all_stations.html${cityParam}`,
+						icon: 'icon-stations',
+						i18n: 'nav-header.stations',
+						label: 'Stations'
+					},
+					{
+						target: 'recharge',
+						active: activePage === 'recharge',
+						href: `smart_card_ticket.html${cityParam}`,
+						icon: 'icon-recharge',
+						i18n: 'nav-header.recharge',
+						label: 'Smart Card/ Tokken'
+					},
+					{
+						target: 'support',
+						active: activePage === 'passenger_support' || activePage === 'support',
+						href: `passenger_support.html${cityParam}`,
+						icon: 'icon-support',
+						i18n: 'nav-header.passengerSupport',
+						label: 'Passenger Support'
+					},
+					{
+						target: 'other',
+						active: activePage === 'other',
+						href: `other.html${cityParam}`,
+						icon: 'icon-other',
+						i18n: 'nav-header.other',
+						label: 'Other'
+					},
+					{
+						target: 'help',
+						active: activePage === 'help',
+						href: 'help.html',
+						icon: 'icon-help',
+						i18n: 'nav-header.help',
+						label: 'Help'
+					},
+					{
+						target: 'about',
+						active: activePage === 'about',
+						href: 'about.html',
+						icon: 'icon-about',
+						i18n: 'nav-header.about',
+						label: 'About'
+					}
+				];
+
+				// 💡 Smart Row Flip: Active Page's row always appears in Row 1 on mobile
+				const isGroupBActive = navItemsDef.slice(4).some(item => item.active);
+				const primaryItems = isGroupBActive ? navItemsDef.slice(4) : navItemsDef.slice(0, 4);
+				const secondaryItems = isGroupBActive ? navItemsDef.slice(0, 4) : navItemsDef.slice(4);
+
+				const renderNavItem = (item) => `
+					<li class="header-nav-item" data-target="${item.target}">
+						<a href="${item.href}" class="nav-link ${item.active ? 'active' : ''}" data-target="${item.target}">
+							<span class="nav-icon"><svg><use href="#${item.icon}"></use></svg></span>
+							<span class="nav-label" data-i18n="${item.i18n}">${item.label}</span>
 						</a>
 					</li>
-					<li class="header-nav-item">
-						<a href="index.html${cityParam}" class="nav-link ${activePage === 'home' ? 'active' : ''}" data-target="home">
-							<span class="nav-icon"><svg><use href="#icon-home"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.home">Home</span>
-						</a>
-					</li>
-					<li class="header-nav-item">
-						<a href="all_stations.html${cityParam}" class="nav-link ${activePage === 'stations' ? 'active' : ''}" data-target="stations">
-							<span class="nav-icon"><svg><use href="#icon-stations"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.stations">Stations</span>
-						</a>
-					</li>
-					<li class="header-nav-item">
-						<a href="smart_card_ticket.html${cityParam}" class="nav-link ${activePage === 'recharge' ? 'active' : ''}" data-target="recharge">
-							<span class="nav-icon"><svg><use href="#icon-recharge"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.recharge">Smart Card/ Tokken</span>
-						</a>
-					</li>
-					<li class="header-nav-item">
-						<a href="passenger_support.html${cityParam}" class="nav-link ${activePage === 'passenger_support' ? 'active' : ''}" data-target="support">
-							<span class="nav-icon"><svg><use href="#icon-support"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.passengerSupport">Passenger Support</span>
-						</a>
-					</li>
-					<li class="header-nav-item">
-						<a href="other.html${cityParam}" class="nav-link ${activePage === 'other' ? 'active' : ''}" data-target="other">
-							<span class="nav-icon"><svg><use href="#icon-other"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.other">Other</span>
-						</a>
-					</li>
-					<li class="header-nav-item">
-						<a href="help.html" class="nav-link ${activePage === 'help' ? 'active' : ''}" data-target="help">
-							<span class="nav-icon"><svg><use href="#icon-help"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.help">Help</span>
-						</a>
-					</li>
-					<li class="header-nav-item">
-						<a href="about.html" class="nav-link ${activePage === 'about' ? 'active' : ''}" data-target="about">
-							<span class="nav-icon"><svg><use href="#icon-about"></use></svg></span>
-							<span class="nav-label" data-i18n="nav-header.about">About</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
+				`;
+
+				return `
+					<!-- Retro Ticket Stub Navigation Bar with Blueprint Stroke Draw -->
+					<nav class="header-nav" id="header-nav" aria-label="Header Navigation">
+						<div class="nav-bogie-container" id="nav-bogie-container"${isGroupBActive ? ' data-group-flipped="true"' : ''}>
+							<ul class="header-nav-list nav-primary-group">
+								${primaryItems.map(renderNavItem).join('')}
+							</ul>
+							<div class="nav-expandable-tray">
+								<div class="nav-tray-inner">
+									<ul class="header-nav-list nav-secondary-group">
+										${secondaryItems.map(renderNavItem).join('')}
+									</ul>
+								</div>
+							</div>
+							<div class="header-nav-expand-bar">
+								<button type="button" class="nav-expand-btn-right" id="header-nav-toggle-btn" aria-label="Toggle all navigation links" aria-expanded="false">
+									<span class="nav-btn-badge" id="header-nav-badge-val">+4</span>
+									<span class="nav-chevron-icon" id="header-nav-chevron">▼</span>
+								</button>
+							</div>
+						</div>
+					</nav>
+				`;
+			})()}
 		`;
 	}
 }

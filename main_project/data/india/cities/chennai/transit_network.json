@@ -6,37 +6,44 @@
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
-			"cmrl": {"operator": "Chennai Metro Rail Limited (CMRL)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
+			"chennai_metro": {"operator": "Chennai Metro Rail Limited (CMRL)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"cmrl_standard": {
-				"network": "cmrl",
+				"network": "chennai_metro",
 				"effectiveFrom": "2021-02-22",
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"rechargeUrl": "",
 				"fareTables": {
-					"weekday": [
+					"standard": [
 						{"minKm": 0, "maxKm": 2, "fare": 10},
 						{"minKm": 2, "maxKm": 5, "fare": 20},
 						{"minKm": 5, "maxKm": 12, "fare": 30},
 						{"minKm": 12, "maxKm": 21, "fare": 40},
-						{"minKm": 21, "maxKm": 99, "fare": 50}
+						{"minKm": 21, "maxKm": null, "fare": 50}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 20,
-						"timeRule": null,
-						"label": {"en": "CMRL Smart Card / WhatsApp QR (20% Off)", "hi": "स्मार्ट कार्ड / वॉट्सऐप क्यूआर (20% छूट)"}
-					}
+						"minBalance": 50,
+						"refundableDeposit": 50,
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 120},
+						"rechargeUrl": ""
+					},
+					"tourist_card_1day": {"type": "flat_pass", "cost": 150, "travelValue": 100, "refundableDeposit": 50, "validityDays": 1, "unlimitedRides": true},
+					"qr_ticket": {
+						"type": "digital",
+						"discountPercent": 20,
+						"validityMinutes": 120,
+						"channels": ["WhatsApp (+91 83000 86000)", "CMRL Mobile App"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 20, "minBalance": 50}
 				},
-				"timeRules": null,
 				"stationStayRules": {
 					"sameStationExitFare": 10,
 					"sameStationTimeLimitMinutes": 20,
@@ -524,6 +531,33 @@
 			"platforms": {},
 			"location": {
 				"decimal": {"lat": 12.9948433, "lon": 80.197446}
+			}
+		},
+		"puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2": {
+			"id": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2",
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "underground", "status": "operational", "station_type": "normal"},
+			"neighbors": [
+				{"station": "egmore-metro", "line": "cmrl.green"},
+				{"station": "puratchi-thalaivar-dr-m-g-ramachandran-central-metro", "line": "cmrl.blue"}
+			],
+			"platforms": {},
+			"location": {
+				"decimal": {"lat": 13.080650909851306, "lon": 80.27259356057777}
+			}
+		},
+		"arignar-anna-alandur-metro-2": {
+			"id": "arignar-anna-alandur-metro-2",
+			"lines": ["cmrl.green"],
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+			"neighbors": [
+				{"station": "ekkattuthangal", "line": "cmrl.green"},
+				{"station": "st-thomas-mount-metro", "line": "cmrl.green"},
+				{"station": "arignar-anna-alandur-metro", "line": "cmrl.blue"}
+			],
+			"platforms": {},
+			"location": {
+				"decimal": {"lat": 13.003989704098222, "lon": 80.20064840110591}
 			}
 		}
 	}

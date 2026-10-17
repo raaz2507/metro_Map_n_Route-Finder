@@ -1,19 +1,29 @@
 {
 	"city": "indore",
 	"city_name": "Indore",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
 		"women_safety": "1090",
-		"ambulance": "102"
+		"ambulance": "108"
 	},
 	"networks": {
 		"indore_metro": {
-			"network_name": "Indore Metro",
-			"operator": "MPMRCL",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"network_name": "Indore Metro (MPMRCL)",
+			"operator": "Madhya Pradesh Metro Rail Corporation Limited (MPMRCL)",
+			"helplines": {
+				"central_passenger_helpline": "0755-2475605",
+				"corporate_office": "0755-2475608",
+				"women_safety": "1090",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://www.mpmetrorail.com/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Customer Care Center at Gandhi Nagar Metro Station, Super Corridor, Indore",
+				"operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
 		}
 	}
 }

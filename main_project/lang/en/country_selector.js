@@ -1,4 +1,5 @@
 export default {
+	pageTitle: "Select Country & Region | YatraMarg",
 	meta: {
 		title: "Select Country & Region | YatraMarg",
 		desc: "Select transit regions and countries across India, Japan, UK, and explore world-class route maps."

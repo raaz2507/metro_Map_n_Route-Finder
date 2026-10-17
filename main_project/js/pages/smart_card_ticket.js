@@ -1,16 +1,28 @@
 import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { Toast } from "../components/Toast.js";
-import i18n from "../core/i18n.js";
+import { centerClass } from "../core/CenterClass.js";
+import { appStateStore } from "../core/app-state-store.js";
+import { TransitFareMatrixView } from "../components/TransitFareMatrixView.js";
+
 
 class SmartCardPageController {
 	static #STORAGE_KEY_CARD = "metro_recharge_card_id";
 	static #STORAGE_KEY_AMOUNT = "metro_recharge_amount";
 
+	// Recharge elements
 	#cardInput = null;
 	#amountInput = null;
 	#submitBtn = null;
 	#chipBtns = [];
+
+	// Modular Fare Matrix & Passes Component
+	#fareMatrixView = null;
+	#activeCity = "delhi_ncr";
+	#activeNetwork = null;
+	#activeLang = "en";
+	#metroData = null;
+	#unsubscribeLang = null;
 
 	static async init() {
 		try {
@@ -18,17 +30,56 @@ class SmartCardPageController {
 			FooterComponent.render();
 			await HeaderComponent.render('recharge');
 
-			// 2. Centrally Initialize Global i18n & Translate Page
-			await i18n.initI18n();
-
-			// 3. Initialize Controller
+			// 2. Initialize Controller
 			const page = new SmartCardPageController();
-			page.#bindElements();
-			page.#loadSavedData();
-			page.#bindEvents();
+			await page.#initAsync();
 		} catch (err) {
 			console.error("[SmartCardPage] Init error:", err);
 		}
+	}
+
+	async #initAsync() {
+		this.#bindElements();
+		this.#loadSavedData();
+		this.#bindEvents();
+
+		// Initialize modular component
+		this.#fareMatrixView = new TransitFareMatrixView({
+			fareSelector: "#fare-matrix-section",
+			passesSelector: "#passes-guidelines-section"
+		});
+
+		// Resolve City & Network
+		const urlParams = new URLSearchParams(window.location.search);
+		this.#activeCity = urlParams.get('city') || localStorage.getItem('active_city') || 'delhi_ncr';
+		this.#activeNetwork = urlParams.get('network') || urlParams.get('net') || localStorage.getItem('active_network') || null;
+		this.#activeLang = appStateStore.getState("currentLang") || "en";
+
+		// Load Transit Data via Facade (CenterClass)
+		try {
+			this.#metroData = await centerClass.loadCity(this.#activeCity);
+			await centerClass.reloadLocale(this.#activeLang);
+			this.#fareMatrixView.render({
+				metroData: this.#metroData,
+				cityKey: this.#activeCity,
+				networkKey: this.#activeNetwork,
+				lang: this.#activeLang
+			});
+		} catch (e) {
+			console.warn("[SmartCardPage] Failed to load transit data:", e);
+		}
+
+		// Subscribe to language changes
+		this.#unsubscribeLang = appStateStore.subscribe("currentLang", async (newLang) => {
+			this.#activeLang = newLang || "en";
+			await centerClass.reloadLocale(this.#activeLang);
+			this.#fareMatrixView?.render({
+				metroData: this.#metroData,
+				cityKey: this.#activeCity,
+				networkKey: this.#activeNetwork,
+				lang: this.#activeLang
+			});
+		});
 	}
 
 	#bindElements() {
@@ -98,8 +149,7 @@ class SmartCardPageController {
 		const sanitizedCardId = rawCardId.replace(/[^0-9]/g, "");
 
 		if (!sanitizedCardId || sanitizedCardId.length < 8 || sanitizedCardId.length > 11) {
-			const invalidMsg = i18n.t("smartCardTicket.toastInvalid") || "Please enter a valid 8 to 11 digit Metro Card ID.";
-			Toast.show(invalidMsg, "error");
+			Toast.show(centerClass.t("smartCardTicket.toastInvalid"), "error");
 			if (this.#cardInput) this.#cardInput.focus();
 			return;
 		}
@@ -115,14 +165,38 @@ class SmartCardPageController {
 			// Clipboard write fallback
 		}
 
-		let successMsg = i18n.t("smartCardTicket.toastSuccess") || "Card ID {cardId} copied! Opening DMRC Portal...";
-		successMsg = successMsg.replace("{cardId}", sanitizedCardId);
-		Toast.show(successMsg, "success");
+		const portalUrl = this.#getRechargePortalUrl();
+		if (portalUrl) {
+			const successMsg = centerClass.t("smartCardTicket.toastSuccess", { cardId: sanitizedCardId });
+			Toast.show(successMsg, "success");
+			setTimeout(() => {
+				window.open(portalUrl, "_blank", "noopener,noreferrer");
+			}, 800);
+		} else {
+			const successMsg = centerClass.t("smartCardTicket.toastCopiedOnly", { cardId: sanitizedCardId });
+			Toast.show(successMsg, "success");
+		}
+	}
 
-		// Open DMRC Portal in new tab
-		setTimeout(() => {
-			window.open("https://dmrcsmartcard.com/", "_blank", "noopener,noreferrer");
-		}, 800);
+	#getRechargePortalUrl() {
+		const policies = this.#metroData?.fareRules?.policies || {};
+		const activeKey = this.#fareMatrixView?.activePolicyKey;
+
+		// 1. Check actively viewed policy tab first (e.g. DMRC smart card)
+		if (activeKey && policies[activeKey]?.products?.smart_card?.rechargeUrl) {
+			return policies[activeKey].products.smart_card.rechargeUrl;
+		}
+		if (activeKey && policies[activeKey]?.rechargeUrl) {
+			return policies[activeKey].rechargeUrl;
+		}
+
+		// 2. Direct from any matching policy smart_card product
+		for (const policy of Object.values(policies)) {
+			const scUrl = policy.products?.smart_card?.rechargeUrl || policy.rechargeUrl;
+			if (scUrl) return scUrl;
+		}
+
+		return null;
 	}
 }
 

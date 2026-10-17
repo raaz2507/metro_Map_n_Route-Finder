@@ -166,39 +166,41 @@
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
+			"kanpur_metro": {"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
 			"upmrc_kanpur": {"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"kanpur_metro_standard": {
-				"network": "upmrc_kanpur",
+				"network": "kanpur_metro",
 				"effectiveFrom": "2021-12-28",
 				"fareModel": "station_count_based",
 				"calculation": {"distanceUnit": "stations", "rounding": "exact"},
+				"rechargeUrl": "",
 				"fareTables": {
-					"weekday": [
+					"standard": [
 						{"minStations": 1, "maxStations": 1, "fare": 10},
 						{"minStations": 2, "maxStations": 2, "fare": 15},
 						{"minStations": 3, "maxStations": 6, "fare": 20},
 						{"minStations": 7, "maxStations": 9, "fare": 30},
 						{"minStations": 10, "maxStations": 13, "fare": 40},
 						{"minStations": 14, "maxStations": 17, "fare": 50},
-						{"minStations": 18, "maxStations": 99, "fare": 60}
+						{"minStations": 18, "maxStations": null, "fare": 60}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
-						"timeRule": null,
-						"label": {"en": "GoSmart / NCMC Card (10% Off)", "hi": "गो-स्मार्ट / एनसीएमसी कार्ड (10% छूट)"}
-					}
+						"minBalance": 100,
+						"refundableDeposit": 100,
+						"rechargeUrl": ""
+					},
+					"tourist_card_1day": {"type": "flat_pass", "cost": 200, "travelValue": 100, "refundableDeposit": 100, "validityDays": 1, "unlimitedRides": true},
+					"tourist_card_3day": {"type": "flat_pass", "cost": 350, "travelValue": 250, "refundableDeposit": 100, "validityDays": 3, "unlimitedRides": true},
+					"qr_ticket": {"type": "digital", "validityMinutes": 60}
 				},
-				"timeRules": null,
 				"stationStayRules": {
 					"sameStationExitFare": 10,
 					"sameStationTimeLimitMinutes": 20,

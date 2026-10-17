@@ -1,19 +1,29 @@
 {
 	"city": "kanpur",
 	"city_name": "Kanpur",
-	"last_updated": "2026-10-05",
+	"last_updated": "2026-10-17",
 	"emergency": {
 		"police_emergency": "112",
 		"women_safety": "1090",
-		"ambulance": "102"
+		"ambulance": "108"
 	},
 	"networks": {
 		"kanpur_metro": {
-			"network_name": "Kanpur Metro",
-			"operator": "UPMRCL",
-			"helplines": {},
-			"portals": {},
-			"facilities": {}
+			"network_name": "Kanpur Metro (UPMRC)",
+			"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
+			"helplines": {
+				"central_passenger_helpline": "0512-2246200",
+				"corporate_office": "0522-2304014",
+				"women_safety": "1090",
+				"police_emergency": "112"
+			},
+			"portals": {
+				"official_website": "https://www.upmetrorail.com/"
+			},
+			"facilities": {
+				"central_lost_found_office": "Customer Care Center at Motijheel Metro Station & IIT Kanpur Metro Station",
+				"operating_hours": "06:00 AM - 10:00 PM (All Days)"
+			}
 		}
 	}
 }

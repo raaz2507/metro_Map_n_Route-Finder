@@ -5,53 +5,69 @@
 	},
 	"fareRules": {
 		"currency": "INR",
+		"last_updated": "2026-09-20",
 		"networks": {
 			"namma_metro": {"operator": "Bangalore Metro Rail Corporation Limited (BMRCL)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"bmrcl_standard": {
 				"network": "namma_metro",
-				"effectiveFrom": "2026-02-09",
-				"fareModel": "station_count_based",
-				"calculation": {"distanceUnit": "stations", "rounding": "exact"},
+				"effectiveFrom": "2024-01-01",
+				"fareModel": "distance_based",
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"rechargeUrl": "",
 				"fareTables": {
-					"weekday": [
-						{"minStations": 1, "maxStations": 3, "fare": 11},
-						{"minStations": 4, "maxStations": 5, "fare": 21},
-						{"minStations": 6, "maxStations": 7, "fare": 32},
-						{"minStations": 8, "maxStations": 9, "fare": 42},
-						{"minStations": 10, "maxStations": 11, "fare": 53},
-						{"minStations": 12, "maxStations": 16, "fare": 63},
-						{"minStations": 17, "maxStations": 21, "fare": 74},
-						{"minStations": 22, "maxStations": 26, "fare": 84},
-						{"minStations": 27, "maxStations": 99, "fare": 95}
+					"standard": [
+						{"minKm": 0, "maxKm": 2, "fare": 10},
+						{"minKm": 2, "maxKm": 4, "fare": 20},
+						{"minKm": 4, "maxKm": 6, "fare": 30},
+						{"minKm": 6, "maxKm": 8, "fare": 40},
+						{"minKm": 8, "maxKm": 10, "fare": 50},
+						{"minKm": 10, "maxKm": 15, "fare": 60},
+						{"minKm": 15, "maxKm": 20, "fare": 70},
+						{"minKm": 20, "maxKm": 25, "fare": 80},
+						{"minKm": 25, "maxKm": null, "fare": 90}
+					],
+					"holiday": [
+						{"minKm": 0, "maxKm": 2, "fare": 9},
+						{"minKm": 2, "maxKm": 4, "fare": 18},
+						{"minKm": 4, "maxKm": 6, "fare": 27},
+						{"minKm": 6, "maxKm": 8, "fare": 36},
+						{"minKm": 8, "maxKm": 10, "fare": 45},
+						{"minKm": 10, "maxKm": 15, "fare": 54},
+						{"minKm": 15, "maxKm": 20, "fare": 63},
+						{"minKm": 20, "maxKm": 25, "fare": 72},
+						{"minKm": 25, "maxKm": null, "fare": 81}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर", "kn": "ಏಕಮುಖ ಪ್ರಯಾಣ ಟೋಕನ್ / ಪೇಪರ್ ಕ್ಯೂಆರ್"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 5,
-						"timeRule": null,
-						"label": {"en": "Varshik Smart Card / NCMC (5% Off)", "hi": "वार्षिक स्मार्ट कार्ड / एनसीएमसी (5% छूट)", "kn": "ವಾರ್ಷಿಕ ಸ್ಮಾರ್ಟ್ ಕಾರ್ಡ್ / NCMC (5% ರಿಯಾಯಿತಿ)"}
+						"weekendDiscountPercent": 10,
+						"minBalance": 50,
+						"refundableDeposit": 50,
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 120},
+						"rechargeUrl": ""
 					},
-					"smart_card_off_peak": {
-						"type": "discount",
-						"baseProduct": "token",
-						"discountPercent": 10,
-						"timeRule": "off_peak",
-						"label": {"en": "Smart Card Off-Peak Discount (10% Off)", "hi": "स्मार्ट कार्ड ऑफ-पीक छूट (10% छूट)", "kn": "ಸ್ಮಾರ್ಟ್ ಕಾರ್ಡ್ ಆಫ್-ಪೀಕ್ ರಿಯಾಯಿತಿ (10% ರಿಯಾಯಿತಿ)"}
-					}
+					"off_peak_smart_card": {"type": "discount", "baseProduct": "smart_card", "discountPercent": 10, "timeRule": "off_peak"},
+					"tourist_card_1day": {"type": "flat_pass", "cost": 200, "travelValue": 150, "refundableDeposit": 50, "validityDays": 1, "unlimitedRides": true},
+					"tourist_card_3day": {"type": "flat_pass", "cost": 400, "travelValue": 350, "refundableDeposit": 50, "validityDays": 3, "unlimitedRides": true},
+					"qr_ticket": {
+						"type": "digital",
+						"validityMinutes": 120,
+						"discountPercent": 5,
+						"channels": ["Namma Metro App", "WhatsApp (+91 81055 56677)", "Paytm"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 5, "weekendDiscountPercent": 10, "minBalance": 50}
 				},
 				"timeRules": {
 					"off_peak": [{"start": "00:00", "end": "08:00"}, {"start": "12:00", "end": "16:00"}, {"start": "21:00", "end": "23:59"}]
 				},
 				"stationStayRules": {
-					"sameStationExitFare": 11,
+					"sameStationExitFare": 10,
 					"sameStationTimeLimitMinutes": 20,
 					"differentStationTimeLimitMinutes": 120,
 					"overstayPenaltyPerHour": 50,

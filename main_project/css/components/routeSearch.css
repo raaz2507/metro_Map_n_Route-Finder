@@ -770,6 +770,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
+		flex-wrap: wrap;
 		gap: var(--space-xs);
 		font-family: var(--font-title);
 		font-size: var(--fs-lg);
@@ -780,6 +781,8 @@
 		text-transform: uppercase;
 		margin: var(--space-xs) 0;
 		letter-spacing: -0.01em;
+		line-height: 1.35;
+		word-break: break-word;
 	}
 
 	.journey-title-header .arrow {
@@ -1635,6 +1638,210 @@
 		.fare-selectable-card .metric-lbl {
 			font-size: var(--fs-3xs);
 		}
+	}
+}
+
+
+/* =========================================================================
+   📝 CONCEPT 1: MODERN TRANSIT PASSPORT SUMMARY CARD
+   ========================================================================= */
+@layer components {
+	.route-text-summary-card {
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-lg);
+		padding: var(--space-md) var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		box-shadow: var(--shadow-sm);
+		margin-top: var(--space-sm);
+		margin-bottom: var(--space-md);
+		position: relative;
+		overflow: hidden;
+		transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+	}
+
+	/* 🌟 Left Neon Accent Line */
+	.route-text-summary-card::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 4px;
+		background: linear-gradient(180deg, #38bdf8 0%, #818cf8 100%);
+	}
+
+	.summary-card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+		user-select: none;
+		gap: var(--space-sm);
+	}
+
+	.summary-card-title {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		flex: 1;
+	}
+
+	.summary-card-title h3 {
+		font-family: var(--font-title);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin: 0;
+	}
+
+	.summary-icon {
+		font-size: var(--fs-sm);
+		line-height: 1;
+	}
+
+	/* Arrow Indicator */
+	.summary-toggle-arrow {
+		font-size: 10px;
+		color: var(--text-secondary);
+		transition: transform var(--duration-fast) var(--ease-out);
+		display: inline-block;
+		margin-left: 4px;
+	}
+
+	.route-text-summary-card.is-collapsed .summary-toggle-arrow {
+		transform: rotate(-90deg);
+	}
+
+	.route-text-summary-card:not(.is-collapsed) .summary-toggle-arrow {
+		transform: rotate(0deg);
+	}
+
+	/* Header Action Buttons */
+	.summary-actions {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-xs);
+	}
+
+	.btn-summary-action {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: 4px 10px;
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		color: var(--text-primary);
+		cursor: pointer;
+		transition: background-color var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast);
+	}
+
+	.btn-summary-action:hover {
+		background: rgba(56, 189, 248, 0.15);
+		border-color: #38bdf8;
+		color: #38bdf8;
+	}
+
+	.btn-speak-summary.is-speaking {
+		background: rgba(239, 68, 68, 0.2);
+		border-color: #ef4444;
+		color: #ef4444;
+		animation: pulse 1.5s infinite;
+	}
+
+	.btn-copy-summary.copied {
+		background: rgba(16, 185, 129, 0.2);
+		border-color: #10b981;
+		color: #10b981;
+	}
+
+	/* Card Content Body */
+	.summary-card-body {
+		padding-top: var(--space-md);
+		margin-top: var(--space-xs);
+		border-top: 1px dashed var(--border-color);
+		animation: fadeIn var(--duration-normal) var(--ease-out);
+	}
+
+	.route-text-summary-card.is-collapsed .summary-card-body {
+		display: none;
+	}
+
+	.summary-text {
+		font-family: var(--font-sans);
+		font-size: var(--fs-sm);
+		line-height: 1.7;
+		color: var(--text-primary);
+		margin: 0;
+		text-align: start;
+		word-break: normal;
+	}
+
+		/* 🎨 INLINE DATA HIGHLIGHTING (Clean & High Contrast for both Light & Dark Mode) */
+	.val-station {
+		color: var(--color-info, #2563eb);
+		font-weight: var(--fw-bold);
+	}
+
+	.val-stops {
+		color: var(--text-primary);
+		font-weight: var(--fw-extrabold);
+	}
+
+	.val-interchange {
+		color: var(--color-accent, #9333ea);
+		font-weight: var(--fw-bold);
+	}
+
+	.val-distance {
+		color: var(--color-success, #16a34a);
+		font-weight: var(--fw-bold);
+	}
+
+	.val-duration {
+		color: #4f46e5;
+		font-weight: var(--fw-bold);
+	}
+
+	.val-fare {
+		color: #b45309;
+		background: rgba(245, 158, 11, 0.15);
+		border: 1px solid rgba(245, 158, 11, 0.35);
+		padding: 1px 7px;
+		border-radius: var(--radius-xs);
+		font-weight: var(--fw-extrabold);
+		display: inline-block;
+	}
+
+	.val-time {
+		color: #6366f1;
+		font-weight: var(--fw-semibold);
+	}
+
+	.val-parking {
+		display: inline-block;
+		color: var(--color-success, #16a34a);
+		font-weight: var(--fw-semibold);
+		margin-top: var(--space-2xs);
+	}
+
+	.summary-line-pill {
+		display: inline-flex;
+		align-items: center;
+		padding: 1px 7px;
+		border-radius: var(--radius-xs);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		background-color: color-mix(in srgb, var(--line-c, #3b82f6) 15%, transparent);
+		color: var(--line-c, #3b82f6);
+		border: 1px solid color-mix(in srgb, var(--line-c, #3b82f6) 30%, transparent);
+		vertical-align: baseline;
 	}
 }
 

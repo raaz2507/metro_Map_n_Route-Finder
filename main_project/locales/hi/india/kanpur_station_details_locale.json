@@ -1,6 +1,10 @@
 {
 	"networks": {
-		"upmrc_kanpur": ""
+		"kanpur_metro": "कानपुर मेट्रो (UPMRC)",
+		"upmrc_kanpur": "उत्तर प्रदेश मेट्रो रेल कॉर्पोरेशन (UPMRC)"
+	},
+	"policies": {
+		"kanpur_metro_standard": "कानपुर मेट्रो (UPMRC)"
 	},
 	"lines": {
 		"upmrc_kanpur.orange": {"name": "ऑरेंज लाइन", "short_name": "ऑरेंज लाइन"}

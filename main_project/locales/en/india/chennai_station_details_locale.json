@@ -1,10 +1,14 @@
 {
 	"networks": {
-		"cmrl": "Chennai Metro Rail Limited (CMRL)"
+		"cmrl": "Chennai Metro Rail Limited (CMRL)",
+		"chennai_metro": "Chennai Metro (CMRL)"
+	},
+	"policies": {
+		"cmrl_standard": "Chennai Metro (CMRL)"
 	},
 	"lines": {
-		"cmrl.blue": {"name": "Blue Line (Corridor 1)", "short_name": "Blue Line (Corridor 1)"},
-		"cmrl.green": {"name": "Green Line (Corridor 2)", "short_name": "Green Line (Corridor 2)"}
+		"cmrl.blue": {"name": "Blue Line (Corridor 1)", "short_name": "Blue Line"},
+		"cmrl.green": {"name": "Green Line (Corridor 2)", "short_name": "Green Line"}
 	},
 	"stations": {
 		"ag-dms": {
@@ -289,6 +293,20 @@
 		},
 		"wimco-nagar-metro": {
 			"name": "Wimco Nagar Metro",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"puratchi-thalaivar-dr-m-g-ramachandran-central-metro-2": {
+			"name": "Puratchi-Thalaivar-Dr-M-G-Ramachandran-Central-Metro-2",
+			"aliases": [],
+			"description": "",
+			"gates": {},
+			"landmarks": []
+		},
+		"arignar-anna-alandur-metro-2": {
+			"name": "Arignar-Anna-Alandur-Metro-2",
 			"aliases": [],
 			"description": "",
 			"gates": {},

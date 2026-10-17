@@ -11,41 +11,47 @@
 		"policies": {
 			"hmrl_standard": {
 				"network": "hmrl",
-				"effectiveFrom": "2025-05-24",
+				"effectiveFrom": "2024-01-01",
 				"fareModel": "distance_based",
 				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
+				"rechargeUrl": "",
 				"fareTables": {
-					"weekday": [
-						{"minKm": 0, "maxKm": 2, "fare": 12},
-						{"minKm": 2, "maxKm": 4, "fare": 18},
-						{"minKm": 4, "maxKm": 6, "fare": 30},
-						{"minKm": 6, "maxKm": 9, "fare": 40},
-						{"minKm": 9, "maxKm": 12, "fare": 50},
-						{"minKm": 12, "maxKm": 15, "fare": 55},
-						{"minKm": 15, "maxKm": 18, "fare": 60},
-						{"minKm": 18, "maxKm": 21, "fare": 66},
-						{"minKm": 21, "maxKm": 24, "fare": 70},
-						{"minKm": 24, "maxKm": 99, "fare": 75}
+					"standard": [
+						{"minKm": 0, "maxKm": 2, "fare": 11},
+						{"minKm": 2, "maxKm": 4, "fare": 17},
+						{"minKm": 4, "maxKm": 6, "fare": 28},
+						{"minKm": 6, "maxKm": 9, "fare": 37},
+						{"minKm": 9, "maxKm": 12, "fare": 47},
+						{"minKm": 12, "maxKm": 15, "fare": 51},
+						{"minKm": 15, "maxKm": 18, "fare": 56},
+						{"minKm": 18, "maxKm": 21, "fare": 61},
+						{"minKm": 21, "maxKm": 24, "fare": 65},
+						{"minKm": 24, "maxKm": null, "fare": 69}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base",
-						"label": {"en": "Single Journey Token / Paper QR", "hi": "सिंगल जर्नी टोकन / पेपर क्यूआर"}
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
-						"timeRule": null,
-						"label": {"en": "Nebula Smart Card / TSavaari QR (10% Off)", "hi": "स्मार्ट कार्ड / टीसवारी क्यूआर (10% छूट)"}
-					}
+						"minBalance": 50,
+						"refundableDeposit": 100,
+						"maxTravelTimeMinutes": {"sameStation": 30, "otherStation": 120},
+						"rechargeUrl": ""
+					},
+					"super_saver_holiday_card": {"type": "flat_pass", "cost": 59, "travelValue": 59, "refundableDeposit": 0, "validityDays": 1, "unlimitedRides": true},
+					"qr_ticket": {
+						"type": "digital",
+						"validityMinutes": 120,
+						"channels": ["WhatsApp (+91 83411 46468)", "TSavaari App", "Paytm"]
+					},
+					"ncmc_card": {"type": "interoperable", "discountPercent": 10, "minBalance": 50}
 				},
-				"timeRules": null,
 				"stationStayRules": {
-					"sameStationExitFare": 12,
+					"sameStationExitFare": 11,
 					"sameStationTimeLimitMinutes": 30,
-					"differentStationTimeLimitMinutes": 90,
+					"differentStationTimeLimitMinutes": 120,
 					"overstayPenaltyPerHour": 10,
 					"maxOverstayPenalty": 50
 				}
@@ -696,6 +702,23 @@
 			"platforms": {},
 			"location": {
 				"decimal": {"lat": 17.3844362, "lon": 78.4841699}
+			}
+		},
+		"secunderabad-railway-station": {
+			"id": "secunderabad-railway-station",
+			"lines": [],
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+			"neighbors": [],
+			"platforms": {}
+		},
+		"m-g-bus-station": {
+			"id": "m-g-bus-station",
+			"lines": [],
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
+			"neighbors": [],
+			"platforms": {},
+			"location": {
+				"decimal": {"lat": 17.378055, "lon": 78.480005}
 			}
 		}
 	}

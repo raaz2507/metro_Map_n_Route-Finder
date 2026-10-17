@@ -162,6 +162,7 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		--------------------------------------------------------- */
 		--op-header-bg: var(--op-glass);
 		--op-aside-bg: var(--op-translucent);
+		--op-section-glass: var(--op-soft);
 		--op-focus-shadow: var(--op-subtle);
 		--op-warning-bg: var(--op-solid);
 		--op-interchange-bg: var(--op-solid);
@@ -174,6 +175,16 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		--badge-radius: var(--radius-xs);
 		--badge-padding: 2px var(--space-xs);
 		--logo-size-md: 36px;
+
+		/* ---------------------------------------------------------
+		BLUR FILTER SCALE SYSTEM
+		--------------------------------------------------------- */
+		--blur-none: 0px;
+		--blur-xs: 2px;
+		--blur-sm: 4px;
+		--blur-md: 8px;
+		--blur-lg: 16px;
+		--blur-xl: 24px;
 	}
 
 	/* =========================================================================
@@ -183,6 +194,8 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		/* --bg-filter: blur(8px) brightness(1.05) contrast(0.95) saturate(0.9); */
 		--bg-filter: none;
 		--backdrop-blur: 16px;
+		--backdrop-blur-sm: var(--blur-sm);
+		--backdrop-blur-subtle: var(--blur-sm);
 		
 		
 		/* RGB Base Components */
@@ -246,6 +259,8 @@ Contract. Bypassing tokens with arbitrary raw values is an ARCHITECTURAL VIOLATI
 		--bg-filter: none;
 		--map-font: 'Montserrat', -apple-system, sans-serif;
 		--backdrop-blur: 16px;
+		--backdrop-blur-sm: var(--blur-sm);
+		--backdrop-blur-subtle: var(--blur-sm);
 
 		/* RGB Base Components */
 		--color-bg-base-rgb: 15, 23, 42;
