@@ -33,7 +33,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		align-items: stretch;
+		align-items: start;
 		gap: var(--space-xl);
 		width: 100%;
 	}
@@ -42,7 +42,8 @@
 	.fare-section-header {
 		display: flex;
 		flex-direction: column;
-		gap: var(--space-sm);
+		gap: var(--space-xs);
+		margin-bottom: var(--space-xs);
 	}
 
 	.header-text-group {
@@ -73,8 +74,8 @@
 		font-size: var(--fs-2xs);
 		font-weight: var(--fw-bold);
 		color: rgb(var(--color-primary-rgb));
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		text-transform: none;
+		letter-spacing: 0.04em;
 	}
 
 	.fare-section-title {
@@ -184,6 +185,7 @@
 
 	.unified-fare-table {
 		width: 100%;
+		table-layout: fixed;
 		border-collapse: collapse;
 		font-family: var(--font-main);
 		font-size: var(--fs-sm);
@@ -200,7 +202,11 @@
 		letter-spacing: 0.04em;
 		padding: var(--space-sm) var(--space-md);
 		border-bottom: var(--bw-md) solid var(--border-color);
-		white-space: nowrap;
+		white-space: normal;
+		word-break: normal;
+		overflow-wrap: break-word;
+		line-height: 1.35;
+		vertical-align: middle;
 	}
 
 	/* Table Rows & Cells */
@@ -484,6 +490,9 @@
 		left: 0;
 		z-index: 10;
 		background: var(--card-bg);
+		background-color: var(--card-bg);
+		background-clip: padding-box;
+		opacity: 1;
 		color: var(--text-primary);
 		font-weight: var(--fw-bold);
 		font-size: var(--fs-xs);
@@ -502,6 +511,9 @@
 		top: 0;
 		z-index: 5;
 		background: var(--card-bg);
+		background-color: var(--card-bg);
+		background-clip: padding-box;
+		opacity: 1;
 		color: var(--text-primary);
 		font-weight: var(--fw-bold);
 		font-size: var(--fs-xs);
@@ -522,6 +534,9 @@
 		left: 0;
 		z-index: 4;
 		background: var(--card-bg);
+		background-color: var(--card-bg);
+		background-clip: padding-box;
+		opacity: 1;
 		color: var(--text-primary);
 		font-weight: var(--fw-bold);
 		font-size: var(--fs-xs);
@@ -569,7 +584,8 @@
 	/* 🎯 Smart L-Ray Crosshair Highlighting (Bounded from hovered cell UP to Dest and LEFT to Origin) */
 	.matrix-header-origin.matrix-hl-header,
 	.matrix-header-dest.matrix-hl-header {
-		background: rgba(var(--color-accent-rgb), var(--op-subtle)) !important;
+		background: color-mix(in srgb, rgb(var(--color-accent-rgb)) 18%, var(--card-bg)) !important;
+		background-color: color-mix(in srgb, rgb(var(--color-accent-rgb)) 18%, var(--card-bg)) !important;
 		color: rgb(var(--color-accent-rgb)) !important;
 		font-weight: var(--fw-black) !important;
 		border-color: rgba(var(--color-accent-rgb), var(--op-translucent)) !important;
@@ -745,6 +761,13 @@
 		.smartcard-cards-grid {
 			flex-direction: column;
 			align-items: center;
+			gap: var(--space-md);
+		}
+
+		.smartcard-unit-card {
+			max-width: 100%;
+			flex: 0 1 auto;
+			height: auto;
 		}
 
 		.passes-cards-grid {
@@ -759,9 +782,9 @@
 		.smartcard-portal-container,
 		.fare-matrix-container,
 		.passes-guidelines-container {
-			padding: var(--space-sm) var(--space-xs);
-			border-radius: var(--radius-md);
-			gap: var(--space-sm);
+			padding: var(--space-lg) var(--space-md);
+			border-radius: var(--radius-lg);
+			gap: var(--space-md);
 		}
 
 		.fare-section-title {
@@ -770,20 +793,25 @@
 
 		.fare-network-tabs {
 			width: 100%;
-			border-radius: var(--radius-sm);
-		}
-
-		.fare-network-tab-btn {
-			padding: var(--space-2xs) var(--space-xs);
-			font-size: var(--fs-2xs);
-			flex: 1 1 auto;
+			border-radius: var(--radius-md);
 			justify-content: center;
 		}
 
-		.unified-fare-table th,
-		.unified-fare-table td {
-			padding: var(--space-2xs) var(--space-xs);
-			font-size: var(--fs-2xs);
+		.fare-network-tab-btn {
+			flex: 1 1 auto;
+			justify-content: center;
+			text-align: center;
+			padding: var(--space-xs) var(--space-sm);
+			font-size: var(--fs-xs);
+		}
+
+		.unified-fare-table thead th {
+			font-size: 0.6875rem; /* ~11px - slightly smaller heading for iPhone SE */
+			letter-spacing: 0.02em;
+		}
+
+		.unified-fare-table tbody td {
+			font-size: var(--fs-xs);
 		}
 
 		.flat-fare-container {
@@ -802,31 +830,32 @@
 		}
 
 		.matrix-scroll-wrapper {
-			max-height: 320px;
+			max-height: 360px;
 		}
 
 		.matrix-corner-cell {
-			font-size: var(--fs-2xs);
-			padding: var(--space-2xs) var(--space-xs);
+			font-size: var(--fs-xs);
+			padding: var(--space-xs) var(--space-sm);
 		}
 
 		.matrix-header-origin {
-			min-width: 100px;
-			max-width: 125px;
-			font-size: var(--fs-2xs);
-			padding: var(--space-2xs) var(--space-xs);
+			min-width: 120px;
+			max-width: 160px;
+			font-size: var(--fs-xs);
+			padding: var(--space-xs) var(--space-sm);
 		}
 
 		.matrix-header-dest {
-			min-width: 65px;
-			font-size: var(--fs-2xs);
-			padding: var(--space-2xs) var(--space-xs);
+			min-width: 80px;
+			max-width: 110px;
+			font-size: var(--fs-xs);
+			padding: var(--space-xs) var(--space-sm);
 		}
 
 		.matrix-cell {
-			font-size: var(--fs-2xs);
-			min-width: 48px;
-			padding: var(--space-2xs);
+			font-size: var(--fs-xs);
+			min-width: 58px;
+			padding: var(--space-xs) var(--space-sm);
 		}
 
 		.class-switch-bar {

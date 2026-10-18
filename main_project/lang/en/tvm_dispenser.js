@@ -7,7 +7,7 @@ export default {
 	},
 	headerTips: {
 		title: "TVM Simulation (Fun Mode):",
-		desc: "This 3D machine is for playful simulation and entertainment only—the printed ticket is not official! REAL USE CASE: If you generated a valid ticket in the Wallet, use the \"Gate Mode (🔆)\" button to scan your genuine QR at the metro turnstiles."
+		desc: "This 3D machine is for playful simulation and entertainment only—the printed ticket is not official! REAL USE CASE: If you generated a valid ticket in the Wallet, use the \"Gate Mode\" button to scan your genuine QR at the metro turnstiles."
 	},
 	kiosk: {
 		deviceId: "TVM TERMINAL #204",

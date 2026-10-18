@@ -100,11 +100,11 @@ class TvmKioskApp {
 		d.btnTvmSettings?.addEventListener('click', () => this.#openTvmSettings());
 		d.btnTvmGateMode?.addEventListener('click', () => this.#openGateModal());
 		d.soundToggleBtn?.addEventListener('click', (e) => {
-			const span = e.currentTarget.querySelector('span');
-			if (span) {
-				const isMuted = span.innerText === '🔇';
-				span.innerText = isMuted ? '🔊' : '🔇';
-				span.style.opacity = isMuted ? '1' : '0.5';
+			const isMuted = e.currentTarget.classList.toggle('muted');
+			const icon = e.currentTarget.querySelector('.svg-icon');
+			if (icon) {
+				icon.classList.toggle('icon-volume-x', isMuted);
+				icon.classList.toggle('icon-volume', !isMuted);
 			}
 		});
 		d.btnCloseSettings?.addEventListener('click', () => this.#closeTvmSettings());
@@ -350,8 +350,7 @@ class TvmKioskApp {
 		}, 2900);
 	}
 	#playPrinterSound() {
-		const span = this.#dom.soundToggleBtn?.querySelector('span');
-		if (span && span.innerText === '🔇') return;
+		if (this.#dom.soundToggleBtn?.classList.contains('muted')) return;
 		
 		try {
 			if (!this.#audioCtx) {

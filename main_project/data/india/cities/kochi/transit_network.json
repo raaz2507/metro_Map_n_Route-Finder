@@ -12,8 +12,37 @@
 			"color": "#005BA6",
 			"color_name": "blue",
 			"style": "solid",
-			"route": {"from": "aluva", "to": "tripunithura"},
-			"stations": ["aluva", "pulinchodu", "companypady", "ambattukavu", "muttom", "kalamassery", "cochin_university", "pathadipalam", "edapally", "changampuzha_park", "palarivattom", "jln_stadium", "kaloor", "town_hall", "mg_road", "maharajas_college", "ernakulam_south", "kadavanthra", "elamkulam", "vyttila", "thykoodam", "pettah", "vadakkekotta", "sn_junction", "tripunithura"],
+			"route": {
+				"from": "aluva",
+				"to": "tripunithura"
+			},
+			"stations": [
+				"aluva",
+				"pulinchodu",
+				"companypady",
+				"ambattukavu",
+				"muttom",
+				"kalamassery",
+				"cochin_university",
+				"pathadipalam",
+				"edapally",
+				"changampuzha_park",
+				"palarivattom",
+				"jln_stadium",
+				"kaloor",
+				"town_hall",
+				"mg_road",
+				"maharajas_college",
+				"ernakulam_south",
+				"kadavanthra",
+				"elamkulam",
+				"vyttila",
+				"thykoodam",
+				"pettah",
+				"vadakkekotta",
+				"sn_junction",
+				"tripunithura"
+			],
 			"farePolicy": "kmrl_standard"
 		}
 	},
@@ -22,293 +51,706 @@
 		"aluva": {
 			"id": "aluva",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "pulinchodu", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "pulinchodu",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.1099872, "lon": 76.3495149}
+				"decimal": {
+					"lat": 10.1099872,
+					"lon": 76.3495149
+				}
 			}
 		},
 		"pulinchodu": {
 			"id": "pulinchodu",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "aluva", "line": "kmrl.blue"}, {"station": "companypady", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "aluva",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "companypady",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0951, "lon": 76.3466}
+				"decimal": {
+					"lat": 10.0951,
+					"lon": 76.3466
+				}
 			}
 		},
 		"companypady": {
 			"id": "companypady",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "pulinchodu", "line": "kmrl.blue"}, {"station": "ambattukavu", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "pulinchodu",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "ambattukavu",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0873, "lon": 76.3428}
+				"decimal": {
+					"lat": 10.0873,
+					"lon": 76.3428
+				}
 			}
 		},
 		"ambattukavu": {
 			"id": "ambattukavu",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "companypady", "line": "kmrl.blue"}, {"station": "muttom", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "companypady",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "muttom",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0793, "lon": 76.3389}
+				"decimal": {
+					"lat": 10.0793,
+					"lon": 76.3389
+				}
 			}
 		},
 		"muttom": {
 			"id": "muttom",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "ambattukavu", "line": "kmrl.blue"}, {"station": "kalamassery", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "ambattukavu",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "kalamassery",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0727011, "lon": 76.33375}
+				"decimal": {
+					"lat": 10.0727011,
+					"lon": 76.33375
+				}
 			}
 		},
 		"kalamassery": {
 			"id": "kalamassery",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "muttom", "line": "kmrl.blue"}, {"station": "cochin_university", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "muttom",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "cochin_university",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0608704, "lon": 76.3249832}
+				"decimal": {
+					"lat": 10.0608704,
+					"lon": 76.3249832
+				}
 			}
 		},
 		"cochin_university": {
 			"id": "cochin_university",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "kalamassery", "line": "kmrl.blue"}, {"station": "pathadipalam", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "kalamassery",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "pathadipalam",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0467, "lon": 76.3182}
+				"decimal": {
+					"lat": 10.0467,
+					"lon": 76.3182
+				}
 			}
 		},
 		"pathadipalam": {
 			"id": "pathadipalam",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "cochin_university", "line": "kmrl.blue"}, {"station": "edapally", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "cochin_university",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "edapally",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0361, "lon": 76.3144}
+				"decimal": {
+					"lat": 10.0361,
+					"lon": 76.3144
+				}
 			}
 		},
 		"edapally": {
 			"id": "edapally",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "pathadipalam", "line": "kmrl.blue"}, {"station": "changampuzha_park", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "pathadipalam",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "changampuzha_park",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.025263, "lon": 76.3083641}
+				"decimal": {
+					"lat": 10.025263,
+					"lon": 76.3083641
+				}
 			}
 		},
 		"changampuzha_park": {
 			"id": "changampuzha_park",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "edapally", "line": "kmrl.blue"}, {"station": "palarivattom", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "edapally",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "palarivattom",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0152041, "lon": 76.3023872}
+				"decimal": {
+					"lat": 10.0152041,
+					"lon": 76.3023872
+				}
 			}
 		},
 		"palarivattom": {
 			"id": "palarivattom",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "changampuzha_park", "line": "kmrl.blue"}, {"station": "jln_stadium", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "changampuzha_park",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "jln_stadium",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0046166, "lon": 76.3056675}
+				"decimal": {
+					"lat": 10.0046166,
+					"lon": 76.3056675
+				}
 			}
 		},
 		"jln_stadium": {
 			"id": "jln_stadium",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "palarivattom", "line": "kmrl.blue"}, {"station": "kaloor", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "palarivattom",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "kaloor",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 10.0001828, "lon": 76.2989028}
+				"decimal": {
+					"lat": 10.0001828,
+					"lon": 76.2989028
+				}
 			}
 		},
 		"kaloor": {
 			"id": "kaloor",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "jln_stadium", "line": "kmrl.blue"}, {"station": "town_hall", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "jln_stadium",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "town_hall",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.9943, "lon": 76.2914}
+				"decimal": {
+					"lat": 9.9943,
+					"lon": 76.2914
+				}
 			}
 		},
 		"town_hall": {
 			"id": "town_hall",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "kaloor", "line": "kmrl.blue"}, {"station": "mg_road", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "kaloor",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "mg_road",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.9914, "lon": 76.2884}
+				"decimal": {
+					"lat": 9.9914,
+					"lon": 76.2884
+				}
 			}
 		},
 		"mg_road": {
 			"id": "mg_road",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "town_hall", "line": "kmrl.blue"}, {"station": "maharajas_college", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "town_hall",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "maharajas_college",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.9834345, "lon": 76.2823115}
+				"decimal": {
+					"lat": 9.9834345,
+					"lon": 76.2823115
+				}
 			}
 		},
 		"maharajas_college": {
 			"id": "maharajas_college",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "mg_road", "line": "kmrl.blue"}, {"station": "ernakulam_south", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "mg_road",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "ernakulam_south",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.9732357, "lon": 76.2850733}
+				"decimal": {
+					"lat": 9.9732357,
+					"lon": 76.2850733
+				}
 			}
 		},
 		"ernakulam_south": {
 			"id": "ernakulam_south",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "maharajas_college", "line": "kmrl.blue"}, {"station": "kadavanthra", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "maharajas_college",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "kadavanthra",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.9685747, "lon": 76.2892179}
+				"decimal": {
+					"lat": 9.9685747,
+					"lon": 76.2892179
+				}
 			}
 		},
 		"kadavanthra": {
 			"id": "kadavanthra",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "ernakulam_south", "line": "kmrl.blue"}, {"station": "elamkulam", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "ernakulam_south",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "elamkulam",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.966593, "lon": 76.298074}
+				"decimal": {
+					"lat": 9.966593,
+					"lon": 76.298074
+				}
 			}
 		},
 		"elamkulam": {
 			"id": "elamkulam",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "kadavanthra", "line": "kmrl.blue"}, {"station": "vyttila", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "kadavanthra",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "vyttila",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.9671648, "lon": 76.3084999}
+				"decimal": {
+					"lat": 9.9671648,
+					"lon": 76.3084999
+				}
 			}
 		},
 		"vyttila": {
 			"id": "vyttila",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "elamkulam", "line": "kmrl.blue"}, {"station": "thykoodam", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "elamkulam",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "thykoodam",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.9673869, "lon": 76.3204107}
+				"decimal": {
+					"lat": 9.9673869,
+					"lon": 76.3204107
+				}
 			}
 		},
 		"thykoodam": {
 			"id": "thykoodam",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "vyttila", "line": "kmrl.blue"}, {"station": "pettah", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "vyttila",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "pettah",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.960079, "lon": 76.323483}
+				"decimal": {
+					"lat": 9.960079,
+					"lon": 76.323483
+				}
 			}
 		},
 		"pettah": {
 			"id": "pettah",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "thykoodam", "line": "kmrl.blue"}, {"station": "vadakkekotta", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "thykoodam",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "vadakkekotta",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.952572, "lon": 76.330041}
+				"decimal": {
+					"lat": 9.952572,
+					"lon": 76.330041
+				}
 			}
 		},
 		"vadakkekotta": {
 			"id": "vadakkekotta",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "pettah", "line": "kmrl.blue"}, {"station": "sn_junction", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "pettah",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "sn_junction",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.952771, "lon": 76.339277}
+				"decimal": {
+					"lat": 9.952771,
+					"lon": 76.339277
+				}
 			}
 		},
 		"sn_junction": {
 			"id": "sn_junction",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "vadakkekotta", "line": "kmrl.blue"}, {"station": "tripunithura", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "vadakkekotta",
+					"line": "kmrl.blue"
+				},
+				{
+					"station": "tripunithura",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.954662, "lon": 76.345919}
+				"decimal": {
+					"lat": 9.954662,
+					"lon": 76.345919
+				}
 			}
 		},
 		"tripunithura": {
 			"id": "tripunithura",
 			"lines": ["kmrl.blue"],
-			"properties": {"layout": "elevated", "status": "operational"},
-			"neighbors": [{"station": "sn_junction", "line": "kmrl.blue"}],
+			"properties": {
+				"layout": "elevated",
+				"status": "operational"
+			},
+			"neighbors": [
+				{
+					"station": "sn_junction",
+					"line": "kmrl.blue"
+				}
+			],
 			"platforms": {},
 			"location": {
-				"decimal": {"lat": 9.9498248, "lon": 76.3527548}
+				"decimal": {
+					"lat": 9.9498248,
+					"lon": 76.3527548
+				}
 			}
 		}
 	},
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
-			"kochi_metro": {"operator": "Kochi Metro Rail Limited (KMRL)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
-			"kmrl": {"operator": "Kochi Metro Rail Limited (KMRL)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
-			"kwml": {"operator": "Kochi Water Metro Limited (KWML)", "avgSpeedMetersPerMin": 250, "stationHaltMinutes": 1}
+			"kochi_metro": {
+				"operator": "Kochi Metro Rail Limited (KMRL)",
+				"avgSpeedMetersPerMin": 550,
+				"stationHaltMinutes": 0.5
+			},
+			"kmrl": {
+				"operator": "Kochi Metro Rail Limited (KMRL)",
+				"avgSpeedMetersPerMin": 550,
+				"stationHaltMinutes": 0.5
+			},
+			"kwml": {
+				"operator": "Kochi Water Metro Limited (KWML)",
+				"avgSpeedMetersPerMin": 250,
+				"stationHaltMinutes": 1
+			}
 		},
 		"policies": {
 			"kmrl_standard": {
 				"network": "kochi_metro",
 				"effectiveFrom": "2017-06-19",
 				"fareModel": "distance_based",
-				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
-				"rechargeUrl": "",
+				"calculation": {
+					"distanceUnit": "km",
+					"rounding": "nearest"
+				},
 				"fareTables": {
 					"standard": [
-						{"minKm": 0, "maxKm": 2, "fare": 10},
-						{"minKm": 2, "maxKm": 5, "fare": 20},
-						{"minKm": 5, "maxKm": 10, "fare": 30},
-						{"minKm": 10, "maxKm": 15, "fare": 40},
-						{"minKm": 15, "maxKm": 20, "fare": 50},
-						{"minKm": 20, "maxKm": null, "fare": 60}
+						{
+							"minKm": 0,
+							"maxKm": 2,
+							"fare": 10
+						},
+						{
+							"minKm": 2,
+							"maxKm": 5,
+							"fare": 20
+						},
+						{
+							"minKm": 5,
+							"maxKm": 10,
+							"fare": 30
+						},
+						{
+							"minKm": 10,
+							"maxKm": 15,
+							"fare": 40
+						},
+						{
+							"minKm": 15,
+							"maxKm": 20,
+							"fare": 50
+						},
+						{
+							"minKm": 20,
+							"maxKm": null,
+							"fare": 60
+						}
 					]
 				},
 				"products": {
-					"token": {"type": "base"},
+					"token": {
+						"type": "base"
+					},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 20,
 						"minBalance": 50,
 						"refundableDeposit": 150,
-						"maxTravelTimeMinutes": {"sameStation": 30, "otherStation": 120},
+						"maxTravelTimeMinutes": {
+							"sameStation": 30,
+							"otherStation": 120
+						},
 						"rechargeUrl": ""
 					},
 					"qr_ticket": {
 						"type": "digital",
 						"validityMinutes": 120,
-						"channels": ["Kochi1 App", "WhatsApp (+91 91889 57488)"]
+						"channels": ["Kochi1 App", "WhatsApp (+91 91889 57488)"],
+						"whatsappUrl": "https://wa.me/919188957488?text=Hi",
+						"bookingUrl": "",
+						"appUrl": ""
 					}
 				},
 				"stationStayRules": {
@@ -323,22 +765,59 @@
 				"network": "kwml",
 				"effectiveFrom": "2023-04-25",
 				"fareModel": "distance_based",
-				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
-				"rechargeUrl": "",
+				"calculation": {
+					"distanceUnit": "km",
+					"rounding": "nearest"
+				},
 				"fareTables": {
 					"standard": [
-						{"minKm": 0, "maxKm": 3, "fare": 20},
-						{"minKm": 3, "maxKm": 6, "fare": 30},
-						{"minKm": 6, "maxKm": 9, "fare": 35},
-						{"minKm": 9, "maxKm": null, "fare": 40}
+						{
+							"minKm": 0,
+							"maxKm": 3,
+							"fare": 20
+						},
+						{
+							"minKm": 3,
+							"maxKm": 6,
+							"fare": 30
+						},
+						{
+							"minKm": 6,
+							"maxKm": 9,
+							"fare": 35
+						},
+						{
+							"minKm": 9,
+							"maxKm": null,
+							"fare": 40
+						}
 					]
 				},
 				"products": {
-					"token": {"type": "base"},
-					"smart_card": {"type": "discount", "baseProduct": "token", "discountPercent": 10, "rechargeUrl": ""},
-					"weekly_pass": {"type": "pass", "price": 180, "trips": 12},
-					"monthly_pass": {"type": "pass", "price": 600, "trips": 50},
-					"quarterly_pass": {"type": "pass", "price": 1500, "trips": 150}
+					"token": {
+						"type": "base"
+					},
+					"smart_card": {
+						"type": "discount",
+						"baseProduct": "token",
+						"discountPercent": 10,
+						"rechargeUrl": ""
+					},
+					"weekly_pass": {
+						"type": "pass",
+						"price": 180,
+						"trips": 12
+					},
+					"monthly_pass": {
+						"type": "pass",
+						"price": 600,
+						"trips": 50
+					},
+					"quarterly_pass": {
+						"type": "pass",
+						"price": 1500,
+						"trips": 150
+					}
 				},
 				"stationStayRules": {
 					"sameStationExitFare": 20,

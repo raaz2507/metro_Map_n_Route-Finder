@@ -58,14 +58,92 @@ METRO PASS WALLET & QR TICKET COMPONENT STYLES
 		font-size: var(--fs-md);
 		font-weight: var(--fw-semibold);
 		color: var(--text-primary);
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+	}
+	.card-title .svg-icon {
+		width: var(--size-icon-md, 18px);
+		height: var(--size-icon-md, 18px);
+		color: var(--color-primary);
 	}
 	.card-desc {
 		font-size: var(--fs-xs);
 		color: var(--text-secondary);
 	}
 
+	/* 1.1 Universal SVG Mask System (External Vector Icons) */
+	.svg-icon {
+		display: inline-block;
+		width: var(--size-icon-md, 18px);
+		height: var(--size-icon-md, 18px);
+		background-color: currentColor;
+		flex-shrink: 0;
+		vertical-align: middle;
+	}
+
+	.icon-ticket {
+		-webkit-mask: url("../../assets/icons/ui/ticket.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/ticket.svg") no-repeat center / contain;
+	}
+	.icon-camera {
+		-webkit-mask: url("../../assets/icons/ui/camera.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/camera.svg") no-repeat center / contain;
+	}
+	.icon-folder {
+		-webkit-mask: url("../../assets/icons/ui/folder.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/folder.svg") no-repeat center / contain;
+	}
+	.icon-clipboard {
+		-webkit-mask: url("../../assets/icons/ui/clipboard.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/clipboard.svg") no-repeat center / contain;
+	}
+	.icon-sun {
+		-webkit-mask: url("../../assets/icons/ui/sun.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/sun.svg") no-repeat center / contain;
+	}
+	.icon-image {
+		-webkit-mask: url("../../assets/icons/ui/image.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/image.svg") no-repeat center / contain;
+	}
+	.icon-archive {
+		-webkit-mask: url("../../assets/icons/ui/archive.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/archive.svg") no-repeat center / contain;
+	}
+	.icon-history {
+		-webkit-mask: url("../../assets/icons/ui/history.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/history.svg") no-repeat center / contain;
+	}
+	.icon-lightbulb {
+		-webkit-mask: url("../../assets/icons/ui/lightbulb.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/lightbulb.svg") no-repeat center / contain;
+	}
+	.icon-star {
+		-webkit-mask: url("../../assets/icons/ui/star.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/star.svg") no-repeat center / contain;
+	}
+	.icon-phone {
+		-webkit-mask: url("../../assets/icons/ui/phone.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/phone.svg") no-repeat center / contain;
+	}
+	.icon-rain {
+		-webkit-mask: url("../../assets/icons/ui/cloud_rain.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/cloud_rain.svg") no-repeat center / contain;
+	}
+	.icon-wifi {
+		-webkit-mask: url("../../assets/icons/ui/wifi.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/wifi.svg") no-repeat center / contain;
+	}
+	.icon-lightning {
+		-webkit-mask: url("../../assets/icons/ui/lightning.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/lightning.svg") no-repeat center / contain;
+	}
+	.icon-refresh {
+		-webkit-mask: url("../../assets/icons/ui/refresh.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/refresh.svg") no-repeat center / contain;
+	}
+
 	/* 2. Universal Action Buttons (DRY Shared Styles) */
-	.btn-whatsapp-launcher,
 	.btn-paste-action,
 	.btn-camera-action,
 	.btn-browse-action,
@@ -89,16 +167,6 @@ METRO PASS WALLET & QR TICKET COMPONENT STYLES
 		transition: all var(--transition-fast);
 	}
 
-	.btn-whatsapp-launcher {
-		background: #25d366;
-		color: var(--card-bg);
-		border: none;
-		padding: var(--space-md) var(--space-lg);
-	}
-	.btn-whatsapp-launcher:hover {
-		opacity: 0.92;
-		transform: scale(0.99);
-	}
 	.btn-paste-action {
 		background: var(--btn-primary-bg);
 		color: var(--btn-primary-text);
@@ -158,8 +226,14 @@ METRO PASS WALLET & QR TICKET COMPONENT STYLES
 		background: rgba(var(--color-primary-rgb), var(--op-subtle));
 	}
 	.ingestion-icon {
-		font-size: 2rem;
-		line-height: 1;
+		width: 44px;
+		height: 44px;
+		background-color: var(--color-primary);
+		transition: transform var(--transition-fast);
+	}
+	.ingestion-zone:hover .ingestion-icon,
+	.ingestion-zone.dragover .ingestion-icon {
+		transform: scale(1.1);
 	}
 	.ingestion-title {
 		font-weight: var(--fw-semibold);
@@ -321,6 +395,11 @@ METRO PASS WALLET & QR TICKET COMPONENT STYLES
 		align-items: center;
 		gap: var(--space-xs);
 	}
+	.history-title-wrap .svg-icon {
+		width: var(--size-icon-md, 18px);
+		height: var(--size-icon-md, 18px);
+		color: var(--color-primary);
+	}
 	.history-title {
 		font-size: var(--fs-md);
 		font-weight: var(--fw-bold);
@@ -437,35 +516,97 @@ METRO PASS WALLET & QR TICKET COMPONENT STYLES
 		display: flex;
 		align-items: center;
 		gap: var(--space-xs);
+		flex-shrink: 0;
 	}
 	.btn-restore-ticket {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		background: var(--btn-primary-bg);
 		color: var(--btn-primary-text);
 		border: none;
-		border-radius: var(--radius-sm);
-		padding: var(--space-2xs, 4px) var(--space-sm);
+		border-radius: var(--radius-full);
+		padding: var(--space-xs) var(--space-md);
+		min-height: 32px;
 		font-size: var(--fs-xs);
 		font-weight: var(--fw-semibold);
+		line-height: var(--lh-tight, 1.25);
 		cursor: pointer;
-		transition: filter var(--transition-fast);
+		box-shadow: var(--shadow-sm);
+		transition: filter var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 	}
 	.btn-restore-ticket:hover {
 		filter: brightness(1.1);
+		transform: translateY(-1px);
+		box-shadow: var(--shadow-md);
+	}
+	.btn-restore-ticket:active {
+		transform: translateY(0);
 	}
 	.btn-delete-history-item {
-		background: transparent;
-		border: 1px solid var(--border-color);
-		color: var(--text-secondary);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		min-width: 32px;
+		min-height: 32px;
+		padding: 0;
+		background: rgba(var(--color-danger-rgb), 0.12);
+		border: 1px solid rgba(var(--color-danger-rgb), 0.35);
+		color: rgb(var(--color-danger-rgb));
 		border-radius: var(--radius-sm);
-		padding: var(--space-2xs, 4px) var(--space-xs);
-		font-size: var(--fs-xs);
 		cursor: pointer;
-		transition: all var(--transition-fast);
+		transition: background var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+	}
+	.btn-delete-history-item::before {
+		content: "";
+		display: block;
+		width: 16px;
+		height: 16px;
+		background-color: currentColor;
+		-webkit-mask: url("../../assets/icons/ui/trash.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/trash.svg") no-repeat center / contain;
+		transition: transform var(--transition-fast);
+		pointer-events: none;
 	}
 	.btn-delete-history-item:hover {
+		background: rgba(var(--color-danger-rgb), 0.22);
+		border-color: rgba(var(--color-danger-rgb), 0.7);
 		color: rgb(var(--color-danger-rgb));
-		border-color: rgba(var(--color-danger-rgb), 0.4);
-		background: rgba(var(--color-danger-rgb), var(--op-glow));
+		box-shadow: 0 0 10px rgba(var(--color-danger-rgb), 0.35);
+	}
+	.btn-delete-history-item:hover::before {
+		animation: trash-wiggle 0.45s ease-in-out;
+		transform: scale(1.1);
+	}
+	.btn-delete-history-item:active {
+		transform: scale(0.92);
+	}
+
+	@keyframes trash-wiggle {
+		0%, 100% {
+			transform: rotate(0deg) scale(1);
+		}
+		20% {
+			transform: rotate(-12deg) scale(1.12);
+		}
+		40% {
+			transform: rotate(12deg) scale(1.12);
+		}
+		60% {
+			transform: rotate(-6deg) scale(1.08);
+		}
+		80% {
+			transform: rotate(6deg) scale(1.04);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.btn-delete-history-item:hover {
+			animation: none;
+			transform: none;
+		}
 	}
 	.history-empty-state {
 		text-align: center;
@@ -482,6 +623,11 @@ METRO PASS WALLET & QR TICKET COMPONENT STYLES
 		align-items: center;
 		gap: var(--space-xs);
 		color: var(--text-primary);
+	}
+	.info-guide-title .svg-icon {
+		width: var(--size-icon-lg, 20px);
+		height: var(--size-icon-lg, 20px);
+		color: var(--color-primary);
 	}
 	.guide-steps-grid,
 	.benefits-list {
@@ -501,12 +647,21 @@ METRO PASS WALLET & QR TICKET COMPONENT STYLES
 	}
 	.guide-step-icon,
 	.benefit-icon {
-		font-size: 1.3rem;
-		line-height: 1;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		min-width: 36px;
 		background: rgba(var(--color-primary-rgb), var(--op-glow));
-		padding: var(--space-sm);
 		border-radius: var(--radius-md);
-		color: var(--btn-primary-bg);
+		color: var(--color-primary);
+		flex-shrink: 0;
+	}
+	.guide-step-icon .svg-icon,
+	.benefit-icon .svg-icon {
+		width: var(--size-icon-lg, 20px);
+		height: var(--size-icon-lg, 20px);
 	}
 	.guide-step-content h3,
 	.benefit-text h4 {
@@ -609,6 +764,16 @@ METRO PASS WALLET & QR TICKET COMPONENT STYLES
 		font-size: var(--fs-lg);
 		font-weight: var(--fw-bold);
 		color: var(--text-primary);
+	}
+	.original-modal-title {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+	}
+	.original-modal-title .svg-icon {
+		width: var(--size-icon-md, 18px);
+		height: var(--size-icon-md, 18px);
+		color: var(--color-primary);
 	}
 	.modal-desc {
 		font-size: var(--fs-sm);

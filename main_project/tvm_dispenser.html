@@ -31,7 +31,7 @@
 
 	<title data-i18n="tvmDispenser.meta.title" data-i18n-title-tag="tvmDispenser.meta.title">Interactive Ticket Vending Machine (TVM) | YatraMarg</title>
 
-	<!-- 🎯 Single CSS Entry Point Architecture -->
+	<!-- Single CSS Entry Point Architecture -->
 	<link rel="stylesheet" href="css/pages/tvm_dispenser.css">
 	<!-- [METADATA_END] -->
 </head>
@@ -39,14 +39,17 @@
 	<!-- GLOBAL DYNAMIC HEADER -->
 	<div id="app-header"></div>
 
-	<!-- 🎯 Modal Background Overlay -->
+	<!-- Modal Background Overlay -->
 	<div id="tvm-settings-overlay" class="tvm-modal-overlay"></div>
 
-	<!-- 💡 Disclaimer / Guide Header -->
+	<!-- Disclaimer / Guide Header -->
 	<div class="tvm-header-tips">
 		<div class="quick-tips">
-			<strong>💡 <span data-i18n="tvmDispenser.headerTips.title">TVM Simulation (Fun Mode):</span></strong>
-			<span data-i18n="tvmDispenser.headerTips.desc">This 3D machine is for playful simulation and entertainment only—the printed ticket is not official! REAL USE CASE: If you generated a valid ticket in the Wallet, use the "Gate Mode (🔆)" button to scan your genuine QR at the metro turnstiles.</span>
+			<strong>
+				<span class="svg-icon icon-lightbulb" aria-hidden="true"></span>
+				<span data-i18n="tvmDispenser.headerTips.title">TVM Simulation (Fun Mode):</span>
+			</strong>
+			<span data-i18n="tvmDispenser.headerTips.desc">This 3D machine is for playful simulation and entertainment only—the printed ticket is not official! REAL USE CASE: If you generated a valid ticket in the Wallet, use the "Gate Mode" button to scan your genuine QR at the metro turnstiles.</span>
 		</div>
 	</div>
 
@@ -64,31 +67,31 @@
 					</div>
 				</div>
 
-				<!-- 🎯 Action Buttons & Sound Toggle -->
+				<!-- Action Buttons & Sound Toggle -->
 				<div class="tvm-hood-actions">
 					
-					<!-- 🔊 Sound Toggle Button -->
+					<!-- Sound Toggle Button -->
 					<div class="sound-toggle-wrapper" data-i18n-title="tvmDispenser.aria.soundToggle" title="Toggle Printer Sound">
 						<button type="button" id="sound-toggle-btn" class="tvm-round-btn" data-i18n-aria-label="tvmDispenser.aria.soundToggle" aria-label="Toggle Printer Sound">
-							<span>🔊</span>
+							<span class="svg-icon icon-volume" aria-hidden="true"></span>
 						</button>
 					</div>
 
 					<div class="hood-buttons-group">
 						<!-- Settings Button -->
 						<button type="button" class="tvm-round-btn hood-settings-btn" id="btn-tvm-settings" data-i18n-aria-label="tvmDispenser.aria.settings" data-i18n-title="tvmDispenser.aria.settings" aria-label="Machine Settings" title="Machine Settings">
-							<img src="./assets/icons/setting.svg" alt="Settings" />
+							<span class="svg-icon icon-settings" aria-hidden="true"></span>
 						</button>
 
 						<!-- Gate Mode Button -->
 						<button type="button" class="tvm-action-btn hood-gate-btn hidden" id="btn-tvm-gate-mode">
-							<span class="print-icon-emoji">🔆</span>
+							<span class="svg-icon icon-sun" aria-hidden="true"></span>
 							<span class="print-btn-text" data-i18n="tvmDispenser.kiosk.btnGateMode">GATE MODE</span>
 						</button>
 						
 						<!-- Print Button -->
 						<button type="button" class="tvm-action-btn hood-print-btn" id="btn-print">
-							<span class="print-icon-emoji">🖨️</span>
+							<span class="svg-icon icon-printer" aria-hidden="true"></span>
 							<span class="print-btn-text" data-i18n="tvmDispenser.kiosk.btnPrint">PRINT</span>
 						</button>
 					</div>
@@ -139,10 +142,12 @@
 			<section class="kiosk-control-panel">
 				<div class="panel-header">
 					<h2 class="panel-title">
-						<span>⚙️</span>
+						<span class="svg-icon icon-settings" aria-hidden="true"></span>
 						<span data-i18n="tvmDispenser.settingsModal.title">TICKET ISSUANCE PANEL</span>
 					</h2>
-					<button type="button" id="btn-close-settings" class="btn-close-modal" data-i18n-aria-label="tvmDispenser.aria.close" aria-label="Close">✖</button>
+					<button type="button" id="btn-close-settings" class="btn-close-modal" data-i18n-aria-label="tvmDispenser.aria.close" aria-label="Close">
+						<span class="svg-icon icon-x" aria-hidden="true"></span>
+					</button>
 				</div>
 
 				<form id="ticket-form">
@@ -193,11 +198,11 @@
 
 					<div class="action-row form-actions">
 						<button type="button" class="btn-secondary" id="btn-cancel-settings">
-							<span>✖</span>
+							<span class="svg-icon icon-x" aria-hidden="true"></span>
 							<span data-i18n="tvmDispenser.settingsModal.btnCancel">Cancel</span>
 						</button>
 						<button type="button" class="btn-primary" id="btn-save-settings">
-							<span>✔</span>
+							<span class="svg-icon icon-check" aria-hidden="true"></span>
 							<span data-i18n="tvmDispenser.settingsModal.btnSave">Save Settings</span>
 						</button>
 					</div>

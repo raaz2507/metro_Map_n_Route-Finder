@@ -43,101 +43,159 @@
 		<!-- ========================================================================= -->
 		<!-- 💳 SECTION 1: TOP-UP & DIGITAL PASS TILES                                 -->
 		<!-- ========================================================================= -->
-		<section class="smartcard-portal-container" id="smartcard-portal-section">
+		<section class="smartcard-portal-container" id="smartcard-portal-section" aria-labelledby="topupSectionTitle">
+			<header class="fare-section-header">
+				<div class="header-text-group">
+					<div class="section-badge-row">
+						<span class="badge-icon">⚡</span>
+						<span class="active-city-badge" data-i18n="smartCardTicket.section1Badge">Quick Top-Up &amp; Passes</span>
+					</div>
+					<h2 id="topupSectionTitle" class="fare-section-title" data-i18n="smartCardTicket.section1Title">Smart Card Top-Up &amp; Digital Pass Portal</h2>
+					<p class="fare-section-subtitle" data-i18n="smartCardTicket.section1Subtitle">Direct official top-up gateway and instant digital transit gate passes.</p>
+				</div>
+			</header>
+
 			<div class="smartcard-cards-grid">
 			
-			<!-- CARD 1: SMART CARD TOP-UP (380px Compact Transit Card) -->
-			<article class="smartcard-unit-card">
-				<header class="card-top-bar">
-					<div class="card-brand">
-						<span class="chip-icon">💳</span>
-						<span class="card-brand-title" data-i18n="smartCardTicket.title">Smart Card Quick Top-Up</span>
+			<!-- CARD 1: SMART CARD TOP-UP (Tactile 2.5D Pocket Card) -->
+			<div class="transit-action-card card-theme-smartcard" id="card-smartcard-topup">
+				<div class="card-header">
+					<div class="card-icon-bubble icon-bubble-smartcard" aria-hidden="true">💳</div>
+					<div class="card-header-text">
+						<h2 class="card-title" data-i18n="smartCardTicket.title">Smart Card Quick Top-Up</h2>
+						<span class="card-subtitle" id="smartcardSubtitle" data-i18n="smartCardTicket.smartcardSubtitle">Instant Metro Recharge</span>
 					</div>
-					<span class="contactless-symbol" aria-hidden="true">🛜</span>
-				</header>
+				</div>
 
-				<div class="card-content-area">
-					<div class="recharge-info-banner">
-						<span>ℹ️</span>
-						<span data-i18n="smartCardTicket.infoBanner">Direct Recharge Helper: Card ID will be copied and DMRC's official top-up portal will open in 1 click.</span>
-					</div>
-
-					<div class="card-fields-row">
-						<!-- Field 1: Card ID -->
-						<div class="card-form-field">
-							<label for="rechargeCardId" data-i18n="smartCardTicket.cardIdLabel">Smart Card ID (Engraved No.)</label>
-							<input type="text" id="rechargeCardId" class="card-text-input" data-i18n-placeholder="smartCardTicket.cardIdPlaceholder" placeholder="e.g. 12345678" maxlength="11" autocomplete="off" />
+				<div class="card-body-scrollable smartcard-body">
+					<!-- Active Portal Form Content (Hidden if network has no online top-up portal) -->
+					<div class="smartcard-portal-content" id="smartcardPortalContent">
+						<div class="smartcard-info-tip" id="smartcardInfoTip">
+							<span class="info-tip-icon" id="smartcardInfoTipIcon" aria-hidden="true">⚡</span>
+							<span class="info-tip-text" id="smartcardInfoTipText" data-i18n="smartCardTicket.infoTip">Card ID will be auto-copied &amp; official portal opens in 1 click.</span>
 						</div>
 
-						<!-- Field 2: Amount & Chips -->
-						<div class="card-form-field">
-							<label for="rechargeAmount" data-i18n="smartCardTicket.amountLabel">Recharge Amount (₹)</label>
-							<input type="number" id="rechargeAmount" class="card-text-input" data-i18n-placeholder="smartCardTicket.amountPlaceholder" placeholder="Amount (min ₹100)" min="100" max="2000" step="50" />
-							<div class="recharge-amount-chips">
-								<button type="button" class="recharge-chip-btn" data-val="100">₹100</button>
-								<button type="button" class="recharge-chip-btn active" data-val="200">₹200</button>
-								<button type="button" class="recharge-chip-btn" data-val="500">₹500</button>
+						<div class="card-fields-row" id="smartcardFieldsRow">
+							<!-- Field 1: Card ID -->
+							<div class="card-form-field">
+								<label for="rechargeCardId" data-i18n="smartCardTicket.cardIdLabel">Smart Card ID (Engraved No.)</label>
+								<input type="text" id="rechargeCardId" class="card-text-input" data-i18n-placeholder="smartCardTicket.cardIdPlaceholder" placeholder="e.g. 12345678" maxlength="11" autocomplete="off" />
+							</div>
+
+							<!-- Field 2: Amount & Chips -->
+							<div class="card-form-field">
+								<label for="rechargeAmount" data-i18n="smartCardTicket.amountLabel">Recharge Amount (₹)</label>
+								<input type="number" id="rechargeAmount" class="card-text-input" data-i18n-placeholder="smartCardTicket.amountPlaceholder" placeholder="Amount (min ₹100)" min="100" max="2000" step="50" />
+								<div class="recharge-amount-chips">
+									<button type="button" class="recharge-chip-btn" data-val="100">₹100</button>
+									<button type="button" class="recharge-chip-btn active" data-val="200">₹200</button>
+									<button type="button" class="recharge-chip-btn" data-val="500">₹500</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Offline / Counter-Only Notice Content (Visible if network has no online top-up portal) -->
+					<div class="smartcard-counter-content" id="smartcardCounterContent">
+						<div class="counter-notice-tip">
+							<span class="info-tip-icon" aria-hidden="true">ℹ️</span>
+							<span class="info-tip-text" data-i18n="smartCardTicket.unavailableTip">Online top-up portal is not available for this transit network. Please recharge your card at station ticket counters or TVMs.</span>
+						</div>
+
+						<div class="counter-desc-group">
+							<div class="counter-desc-item">
+								<span class="counter-item-icon" aria-hidden="true">🏢</span>
+								<div class="counter-item-text">
+									<strong data-i18n="smartCardTicket.counterGuide1Title">Station Ticket Counters</strong>
+									<span data-i18n="smartCardTicket.counterGuide1Desc">Instant cash, UPI or card recharge at any customer care counter.</span>
+								</div>
+							</div>
+							<div class="counter-desc-item">
+								<span class="counter-item-icon" aria-hidden="true">🏧</span>
+								<div class="counter-item-text">
+									<strong data-i18n="smartCardTicket.counterGuide2Title">Automated TVM Dispenser</strong>
+									<span data-i18n="smartCardTicket.counterGuide2Desc">Tap smart card on reader and top up with UPI or cash 24x7.</span>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<footer class="card-bottom-bar">
-					<button type="button" id="rechargeSubmitBtn" class="card-action-btn">
-						<span class="btn-flash-icon">⚡</span>
-						<span data-i18n="smartCardTicket.submitBtn">Copy Card ID &amp; Open DMRC Portal</span>
+				<div class="smartcard-card-footer" id="smartcardFooter">
+					<button type="button" id="rechargeSubmitBtn" class="btn-micro-action btn-action-smartcard smartcard-submit-btn">
+						<span id="rechargeSubmitIcon">⚡</span>
+						<span id="rechargeSubmitText" data-i18n="smartCardTicket.submitBtn">Copy ID &amp; Open Portal</span>
 					</button>
-				</footer>
-			</article>
+				</div>
+			</div>
 
-			<!-- CARD 2: METRO QR TICKET & PASS (380px Compact Transit Card) -->
-			<article class="smartcard-unit-card qr-ticket-card">
-				<header class="card-top-bar">
-					<div class="card-brand">
-						<span class="chip-icon">🎟️</span>
-						<span class="card-brand-title" data-i18n="smartCardTicket.qrCardTitle">Digital Metro QR Ticket</span>
+			<!-- CARD 2: DIGITAL METRO QR TICKET (Tactile 2.5D Pocket Card) -->
+			<div class="transit-action-card card-theme-qr" id="card-qr-ticket">
+				<!-- Header Section: Icon + Title + Dynamic Subtitle -->
+				<div class="card-header">
+					<div class="card-icon-bubble icon-bubble-qr" aria-hidden="true">🎟️</div>
+					<div class="card-header-text">
+						<h2 class="card-title" data-i18n="smartCardTicket.qrCardTitle">Digital Metro QR Ticket</h2>
+						<span class="card-subtitle" id="qr-card-subtitle" data-i18n="smartCardTicket.qrCardSubtitle">Instant Mobile Pass</span>
 					</div>
-					<span class="contactless-symbol" aria-hidden="true">📱</span>
-				</header>
+				</div>
 
-				<div class="card-content-area">
-					<div class="recharge-info-banner">
-						<span>ℹ️</span>
-						<span data-i18n="smartCardTicket.qrInfoBanner">Digital Transit Pass: Instant QR ticketing via WhatsApp or generate, scan &amp; store your gate pass.</span>
+				<!-- Body Section: Scrollable Dynamic Action Buttons -->
+				<div class="card-body-scrollable" id="qr-actions-list">
+					<!-- Dynamically populated by smart_card_ticket.js -->
+				</div>
+			</div>
+
+			<!-- CARD 3: METRO PASS WALLET & GATE SCANNER (Offline Gate Pass) -->
+			<div class="transit-action-card card-theme-wallet" id="card-gate-wallet">
+				<div class="card-header">
+					<div class="card-icon-bubble icon-bubble-wallet" aria-hidden="true">🎫</div>
+					<div class="card-header-text">
+						<h2 class="card-title" data-i18n="smartCardTicket.walletCardTitle">Metro Pass Wallet</h2>
+						<span class="card-subtitle" data-i18n="smartCardTicket.walletCardSubtitle">Offline Gate Pass &amp; Scanner</span>
 					</div>
+				</div>
 
-					<div class="card-fields-row qr-features-box">
-						<div class="qr-feature-item">
-							<span class="qr-feature-icon">💬</span>
-							<div class="qr-feature-text">
-								<strong data-i18n="smartCardTicket.qrFeature1Title">DMRC WhatsApp Booking</strong>
-								<span data-i18n="smartCardTicket.qrFeature1Desc">Book official tickets instantly</span>
+				<div class="card-body-scrollable wallet-body">
+					<div class="wallet-desc-group">
+						<div class="wallet-desc-item">
+							<span class="wallet-item-icon" aria-hidden="true">📸</span>
+							<div class="wallet-item-text">
+								<strong data-i18n="smartCardTicket.walletItem1Title">Camera &amp; WhatsApp</strong>
+								<span data-i18n="smartCardTicket.walletItem1Desc">Snap paper ticket or 1-tap paste WhatsApp screenshot.</span>
 							</div>
 						</div>
-						<div class="qr-feature-item">
-							<span class="qr-feature-icon">📸</span>
-							<div class="qr-feature-text">
-								<strong data-i18n="smartCardTicket.qrFeature2Title">Save &amp; Scan Gate Pass</strong>
-								<span data-i18n="smartCardTicket.qrFeature2Desc">Upload ticket screenshot or camera photo</span>
+						<div class="wallet-desc-item">
+							<span class="wallet-item-icon" aria-hidden="true">📶</span>
+							<div class="wallet-item-text">
+								<strong data-i18n="smartCardTicket.walletItem2Title">100% Offline Ready</strong>
+								<span data-i18n="smartCardTicket.walletItem2Desc">Works instantly at underground gates with zero signal.</span>
 							</div>
 						</div>
-						<div class="qr-feature-item">
-							<span class="qr-feature-icon">⚡</span>
-							<div class="qr-feature-text">
-								<strong data-i18n="smartCardTicket.qrFeature3Title">Fast Gate Entry</strong>
-								<span data-i18n="smartCardTicket.qrFeature3Desc">Encrypted pass with quick brightness boost</span>
+						<div class="wallet-desc-item">
+							<span class="wallet-item-icon" aria-hidden="true">⚡</span>
+							<div class="wallet-item-text">
+								<strong data-i18n="smartCardTicket.walletItem3Title">1-Tap Fast Gate Entry</strong>
+								<span data-i18n="smartCardTicket.walletItem3Desc">High-contrast bright vector pass gates read in 1 second.</span>
+							</div>
+						</div>
+						<div class="wallet-desc-item">
+							<span class="wallet-item-icon" aria-hidden="true">🛡️</span>
+							<div class="wallet-item-text">
+								<strong data-i18n="smartCardTicket.walletItem4Title">Safe Digital Backup</strong>
+								<span data-i18n="smartCardTicket.walletItem4Desc">No fear of paper tearing, getting wet or losing tickets.</span>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<footer class="card-bottom-bar">
-					<a href="metro_QR_ticket.html" id="qrTicketNavBtn" class="card-action-btn">
-						<span class="btn-flash-icon">🎟️</span>
-						<span data-i18n="smartCardTicket.qrTicketBtn">Ticket</span>
+				<div class="wallet-card-footer">
+					<a href="metro_QR_ticket.html" id="walletGatePassBtn" class="btn-micro-action btn-action-pass wallet-action-btn">
+						<span>🎟️</span>
+						<span data-i18n="smartCardTicket.btnGatePass">Save &amp; Scan Gate Pass</span>
 					</a>
-				</footer>
-			</article>
+				</div>
+			</div>
 		</div>
 	</section>
 

@@ -10,6 +10,51 @@
 @layer layout {
 
 	/* =========================================================================
+	0. UNIVERSAL SVG MASK SYSTEM (EXTERNAL VECTOR ICONS)
+	========================================================================= */
+	.svg-icon {
+		display: inline-block;
+		width: var(--size-icon-md, 18px);
+		height: var(--size-icon-md, 18px);
+		background-color: currentColor;
+		flex-shrink: 0;
+		vertical-align: middle;
+	}
+
+	.icon-lightbulb {
+		-webkit-mask: url("../../assets/icons/ui/lightbulb.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/lightbulb.svg") no-repeat center / contain;
+	}
+	.icon-sun {
+		-webkit-mask: url("../../assets/icons/ui/sun.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/sun.svg") no-repeat center / contain;
+	}
+	.icon-printer {
+		-webkit-mask: url("../../assets/icons/ui/printer.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/printer.svg") no-repeat center / contain;
+	}
+	.icon-settings {
+		-webkit-mask: url("../../assets/icons/ui/settings.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/settings.svg") no-repeat center / contain;
+	}
+	.icon-volume {
+		-webkit-mask: url("../../assets/icons/ui/volume.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/volume.svg") no-repeat center / contain;
+	}
+	.icon-volume-x {
+		-webkit-mask: url("../../assets/icons/ui/volume-x.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/volume-x.svg") no-repeat center / contain;
+	}
+	.icon-x {
+		-webkit-mask: url("../../assets/icons/ui/x.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/x.svg") no-repeat center / contain;
+	}
+	.icon-check {
+		-webkit-mask: url("../../assets/icons/ui/check.svg") no-repeat center / contain;
+		mask: url("../../assets/icons/ui/check.svg") no-repeat center / contain;
+	}
+
+	/* =========================================================================
 	1. MAIN PAGE LAYOUT & TVM HEADER TIPS
 	========================================================================= */
 	.kiosk-workspace {
@@ -39,6 +84,19 @@
 		font-weight: var(--fw-semibold); 
 		line-height: 1.6;
 		box-shadow: var(--shadow-md);
+	}
+
+	.tvm-header-tips .quick-tips strong {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		margin-bottom: var(--space-2xs, 4px);
+	}
+
+	.tvm-header-tips .quick-tips .svg-icon {
+		width: var(--size-icon-md, 18px);
+		height: var(--size-icon-md, 18px);
+		color: var(--color-primary);
 	}
 
 	/* =========================================================================
@@ -158,14 +216,15 @@
 		position: relative;
 	}
 
-	.tvm-round-btn span {
-		font-size: var(--fs-xl);
+	.tvm-round-btn .svg-icon {
+		width: var(--size-icon-lg, 20px);
+		height: var(--size-icon-lg, 20px);
+		color: currentColor;
 		transition: opacity var(--transition-fast);
 	}
 
-	.tvm-round-btn img {
-		width: var(--space-xl);
-		height: var(--space-xl);
+	.tvm-round-btn.muted .svg-icon {
+		opacity: 0.45;
 	}
 
 	.tvm-action-btn {
@@ -181,6 +240,12 @@
 		font-weight: var(--fw-bold);
 		cursor: pointer;
 		position: relative;
+	}
+
+	.tvm-action-btn .svg-icon {
+		width: var(--size-icon-md, 18px);
+		height: var(--size-icon-md, 18px);
+		color: currentColor;
 	}
 
 	.hood-gate-btn {
@@ -365,18 +430,33 @@
 		gap: var(--space-sm);
 	}
 
+	.panel-title .svg-icon {
+		width: var(--size-icon-lg, 20px);
+		height: var(--size-icon-lg, 20px);
+		color: var(--color-primary);
+	}
+
 	.btn-close-modal {
 		background: transparent;
 		border: none;
-		font-size: 18px;
 		color: var(--text-secondary);
 		cursor: pointer;
-		padding: 5px;
-		transition: color 0.2s;
+		padding: var(--space-xs);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: var(--radius-sm);
+		transition: color var(--transition-fast), background var(--transition-fast);
+	}
+
+	.btn-close-modal .svg-icon {
+		width: var(--size-icon-md, 18px);
+		height: var(--size-icon-md, 18px);
 	}
 
 	.btn-close-modal:hover {
-		color: rgb(var(--color-danger-rgb, 239, 68, 68));
+		color: rgb(var(--color-danger-rgb));
+		background: rgba(var(--color-danger-rgb), 0.1);
 	}
 
 	.form-grid {
@@ -469,6 +549,13 @@
 
 	.btn-secondary:hover {
 		background: var(--btn-reset-hover);
+	}
+
+	.btn-primary .svg-icon,
+	.btn-secondary .svg-icon {
+		width: 16px;
+		height: 16px;
+		color: currentColor;
 	}
 
 	/* =========================================================================

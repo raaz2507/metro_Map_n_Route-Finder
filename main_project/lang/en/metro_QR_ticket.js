@@ -6,13 +6,8 @@ export default {
 		desc: "Offline digital metro QR pass wallet. Scan paper tickets or paste WhatsApp screenshots to generate high-contrast gate passes."
 	},
 	cards: {
-		whatsapp: {
-			title: "1. Get Real DMRC Ticket",
-			desc: "Book official QR ticket via DMRC WhatsApp Bot",
-			btn: "Open DMRC WhatsApp Bot"
-		},
 		ingestion: {
-			title: "2. Save Gate Ticket",
+			title: "Save Gate Ticket",
 			desc: "Drop paper ticket photo or WhatsApp screenshot here",
 			dropTitle: "Drop Paper Ticket or Screenshot",
 			dropHint: "Multi-Engine Fallback: BarcodeDetector -> jsQR -> ZXing",

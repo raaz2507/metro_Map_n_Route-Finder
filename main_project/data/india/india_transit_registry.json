@@ -33,7 +33,12 @@
 					"website": "https://www.delhimetrorail.com",
 					"hasData": true,
 					"dataPath": "data/cities/delhi_ncr",
-					"icon": "assets/icons/networks/dmrc.svg"
+					"icon": "assets/icons/networks/dmrc.svg",
+					"map": {
+						"official_url": "https://delhimetrorail.com/map",
+						"official_pdf_url": "https://delhimetrorail.com/static/media/DMRC-NMRC-and-NCRTC-MAP-10.09.2026.165037e4.pdf",
+						"local_pdf": "delhi_ncr/DMRC-NMRC-NCRTC-MAP.pdf"
+					}
 				},
 				"nmrc": {
 					"name": {
@@ -46,7 +51,12 @@
 					"website": "https://www.nmrcnoida.com",
 					"hasData": true,
 					"dataPath": "data/cities/delhi_ncr",
-					"icon": "assets/icons/networks/nmrc.svg"
+					"icon": "assets/icons/networks/nmrc.svg",
+					"map": {
+						"official_url": "https://www.nmrcnoida.com/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				},
 				"rapid_metro_gurugram": {
 					"name": {
@@ -59,7 +69,12 @@
 					"website": "https://hmrtc.org.in",
 					"hasData": true,
 					"dataPath": "data/cities/delhi_ncr",
-					"icon": "assets/icons/networks/rapid_metro.svg"
+					"icon": "assets/icons/networks/rapid_metro.svg",
+					"map": {
+						"official_url": "https://delhimetrorail.com/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				},
 				"delhi_meerut_rrts": {
 					"name": {
@@ -72,7 +87,12 @@
 					"website": "https://www.ncrtc.in",
 					"hasData": true,
 					"dataPath": "data/cities/delhi_ncr",
-					"icon": "assets/icons/networks/ncrtc.svg"
+					"icon": "assets/icons/networks/ncrtc.svg",
+					"map": {
+						"official_url": "https://ncrtc.in/interactive-map/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				},
 				"delhi_alwar_rrts": {
 					"name": {
@@ -85,7 +105,12 @@
 					"website": "https://www.ncrtc.in",
 					"hasData": true,
 					"dataPath": "data/cities/delhi_ncr",
-					"icon": "assets/icons/networks/ncrtc.svg"
+					"icon": "assets/icons/networks/ncrtc.svg",
+					"map": {
+						"official_url": "https://www.ncrtc.in",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				},
 				"delhi_panipat_rrts": {
 					"name": {
@@ -98,7 +123,12 @@
 					"website": "https://www.ncrtc.in",
 					"hasData": true,
 					"dataPath": "data/cities/delhi_ncr",
-					"icon": "assets/icons/networks/ncrtc.svg"
+					"icon": "assets/icons/networks/ncrtc.svg",
+					"map": {
+						"official_url": "https://www.ncrtc.in",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#1E40AF"
@@ -126,7 +156,12 @@
 					"website": "https://mmrcl.com",
 					"hasData": true,
 					"dataPath": "data/cities/mumbai",
-					"icon": "assets/icons/networks/mumbai_metro.svg"
+					"icon": "assets/icons/networks/mumbai_metro.svg",
+					"map": {
+						"official_url": "https://mmrda.maharashtra.gov.in/en/divisions/transport-communications/overview",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				},
 				"mumbai_monorail": {
 					"name": {
@@ -139,7 +174,12 @@
 					"website": "https://mmrda.maharashtra.gov.in",
 					"hasData": true,
 					"dataPath": "data/cities/mumbai",
-					"icon": "assets/icons/networks/mmrda-logo.svg"
+					"icon": "assets/icons/networks/mmrda-logo.svg",
+					"map": {
+						"official_url": "https://mmrda.maharashtra.gov.in",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				},
 				"thane_metro": {
 					"name": {
@@ -150,7 +190,12 @@
 					"status": "under_construction",
 					"operator": "MMRDA",
 					"website": "https://mmrda.maharashtra.gov.in",
-					"dataPath": "thane_metro_data"
+					"dataPath": "thane_metro_data",
+					"map": {
+						"official_url": "https://mmrda.maharashtra.gov.in",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				},
 				"navi_mumbai_metro": {
 					"name": {
@@ -163,7 +208,12 @@
 					"website": "https://cidco.maharashtra.gov.in",
 					"hasData": true,
 					"dataPath": "data/cities/mumbai",
-					"icon": "assets/icons/networks/cidco-logo.svg"
+					"icon": "assets/icons/networks/cidco-logo.svg",
+					"map": {
+						"official_url": "https://cidco.maharashtra.gov.in/Page?Token=92BA1874285",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#0284C7"
@@ -191,7 +241,12 @@
 					"website": "https://mtp.indianrailways.gov.in",
 					"hasData": true,
 					"dataPath": "data/cities/kolkata",
-					"icon": "assets/icons/networks/kolkata_metro.svg"
+					"icon": "assets/icons/networks/kolkata_metro.svg",
+					"map": {
+						"official_url": "https://mtp.indianrailways.gov.in/view_section.jsp?backgroundColor=LIGHTSTEELBLUE&fontColor=black&id=0%2C2%2C630%2C659&lang=0",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#BE123C"
@@ -219,7 +274,12 @@
 					"website": "https://english.bmrc.co.in",
 					"hasData": true,
 					"dataPath": "data/cities/bengaluru",
-					"icon": "assets/icons/networks/Namma_metro.svg"
+					"icon": "assets/icons/networks/Namma_metro.svg",
+					"map": {
+						"official_url": "https://english.bmrc.co.in/schematic-route-map/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#059669"
@@ -247,7 +307,12 @@
 					"website": "https://ltmetro.com",
 					"hasData": true,
 					"dataPath": "data/cities/hyderabad",
-					"icon": "assets/icons/networks/hyderabad_metro.svg"
+					"icon": "assets/icons/networks/hyderabad_metro.svg",
+					"map": {
+						"official_url": "https://hmrl.co.in/services/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#7C3AED"
@@ -275,7 +340,12 @@
 					"website": "https://chennaimetrorail.org",
 					"hasData": true,
 					"dataPath": "data/cities/chennai",
-					"icon": "assets/icons/networks/chennai_metro.svg"
+					"icon": "assets/icons/networks/chennai_metro.svg",
+					"map": {
+						"official_url": "https://chennaimetrorail.org/metro-line-map/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				},
 				"chennai_light_rail": {
 					"name": {
@@ -287,7 +357,12 @@
 					"operator": "CMRL",
 					"hasData": false,
 					"website": "https://chennaimetrorail.org",
-					"dataPath": "chennai_light_rail_data"
+					"dataPath": "chennai_light_rail_data",
+					"map": {
+						"official_url": null,
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#B45309"
@@ -315,7 +390,12 @@
 					"website": "https://kochimetro.org",
 					"hasData": true,
 					"dataPath": "data/cities/kochi",
-					"icon": "assets/icons/networks/kochi_metro.svg"
+					"icon": "assets/icons/networks/kochi_metro.svg",
+					"map": {
+						"official_url": "https://kochimetro.org/open-data/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#0D9488"
@@ -342,7 +422,12 @@
 					"operator": "GMRC",
 					"hasData": true,
 					"website": "https://www.gujaratmetrorail.com",
-					"dataPath": "data/cities/ahmedabad_gandhinagar"
+					"dataPath": "data/cities/ahmedabad_gandhinagar",
+					"map": {
+						"official_url": "https://www.gujaratmetrorail.com/",
+						"official_pdf_url": "https://www.gujaratmetrorail.com/wp-content/uploads/Reports/Phase-II-Map-Final.pdf",
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#F59E0B"
@@ -370,7 +455,12 @@
 					"website": "https://www.mahametro.org",
 					"hasData": true,
 					"dataPath": "data/cities/nagpur",
-					"icon": "assets/icons/networks/nagpur_metro.svg"
+					"icon": "assets/icons/networks/nagpur_metro.svg",
+					"map": {
+						"official_url": "https://www.metrorailnagpur.com/nagpur-metro-public-info/downloads",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#D97706"
@@ -398,7 +488,12 @@
 					"website": "https://www.punemetrorail.org",
 					"dataPath": "data/cities/pune",
 					"hasData": true,
-					"icon": "assets/icons/networks/pune_metro.svg"
+					"icon": "assets/icons/networks/pune_metro.svg",
+					"map": {
+						"official_url": "https://punemetrorail.org/route-map.aspx",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#D97706"
@@ -425,7 +520,12 @@
 					"operator": "JMRC",
 					"hasData": true,
 					"website": "https://transport.rajasthan.gov.in/jmrc",
-					"dataPath": "data/cities/jaipur"
+					"dataPath": "data/cities/jaipur",
+					"map": {
+						"official_url": "https://transport.rajasthan.gov.in/",
+						"official_pdf_url": "https://transport.rajasthan.gov.in/content/dam/transport/metro/Project/DPR%20Phase%20II/DPR%20Phase%20II.pdf",
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#E11D48"
@@ -453,7 +553,12 @@
 					"website": "https://www.upmetrorail.com",
 					"hasData": true,
 					"dataPath": "data/cities/lucknow",
-					"icon": "assets/icons/networks/up_metro.svg"
+					"icon": "assets/icons/networks/up_metro.svg",
+					"map": {
+						"official_url": "https://portal.upmetrorail.com/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#C2410C"
@@ -481,7 +586,12 @@
 					"website": "https://www.upmetrorail.com",
 					"hasData": true,
 					"dataPath": "data/cities/kanpur",
-					"icon": "assets/icons/networks/up_metro.svg"
+					"icon": "assets/icons/networks/up_metro.svg",
+					"map": {
+						"official_url": "https://portal.upmetrorail.com/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#C2410C"
@@ -509,7 +619,12 @@
 					"website": "https://www.upmetrorail.com",
 					"hasData": true,
 					"dataPath": "data/cities/agra",
-					"icon": "assets/icons/networks/up_metro.svg"
+					"icon": "assets/icons/networks/up_metro.svg",
+					"map": {
+						"official_url": "https://portal.upmetrorail.com/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#C2410C"
@@ -536,7 +651,12 @@
 					"operator": "MPMRCL",
 					"website": "https://mpmetrorail.com",
 					"hasData": true,
-					"dataPath": "data/cities/indore"
+					"dataPath": "data/cities/indore",
+					"map": {
+						"official_url": "https://www.mpmetrorail.com/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#0891B2"
@@ -563,7 +683,12 @@
 					"operator": "MPMRCL",
 					"website": "https://mpmetrorail.com",
 					"hasData": true,
-					"dataPath": "data/cities/bhopal"
+					"dataPath": "data/cities/bhopal",
+					"map": {
+						"official_url": "https://www.mpmetrorail.com/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#0891B2"
@@ -589,7 +714,12 @@
 					"operator": "PMRC",
 					"website": "https://pmrc.bihar.gov.in",
 					"hasData": false,
-					"dataPath": "patna_metro_data"
+					"dataPath": "patna_metro_data",
+					"map": {
+						"official_url": "https://www.patnametro.co.in/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#9333EA"
@@ -615,7 +745,12 @@
 					"operator": "GMRC",
 					"hasData": false,
 					"website": "https://www.gujaratmetrorail.com",
-					"dataPath": "surat_metro_data"
+					"dataPath": "surat_metro_data",
+					"map": {
+						"official_url": "https://www.gujaratmetrorail.com/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#F59E0B"
@@ -641,7 +776,12 @@
 					"operator": "NCRTC",
 					"website": "https://www.ncrtc.in",
 					"hasData": false,
-					"dataPath": "meerut_metro_data"
+					"dataPath": "meerut_metro_data",
+					"map": {
+						"official_url": "https://ncrtc.in/interactive-map/",
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#C2410C"
@@ -667,7 +807,12 @@
 					"operator": "UPMRCL",
 					"website": "https://www.upmetrorail.com",
 					"hasData": false,
-					"dataPath": "gorakhpur_metrolite_data"
+					"dataPath": "gorakhpur_metrolite_data",
+					"map": {
+						"official_url": null,
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#C2410C"
@@ -693,7 +838,12 @@
 					"operator": "Government of J&K / JKMRTC",
 					"website": "https://jkmrtc.co.in",
 					"hasData": false,
-					"dataPath": "jammu_metrolite_data"
+					"dataPath": "jammu_metrolite_data",
+					"map": {
+						"official_url": null,
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#2563EB"
@@ -719,7 +869,12 @@
 					"operator": "Government of J&K / JKMRTC",
 					"hasData": false,
 					"website": "https://jkmrtc.co.in",
-					"dataPath": "srinagar_metrolite_data"
+					"dataPath": "srinagar_metrolite_data",
+					"map": {
+						"official_url": null,
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#2563EB"
@@ -745,7 +900,12 @@
 					"operator": "UKMRC",
 					"website": null,
 					"hasData": false,
-					"dataPath": "dehradun_metroneo_data"
+					"dataPath": "dehradun_metroneo_data",
+					"map": {
+						"official_url": null,
+						"official_pdf_url": null,
+						"local_pdf": null
+					}
 				}
 			},
 			"themeColor": "#047857"

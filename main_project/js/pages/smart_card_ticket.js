@@ -11,10 +11,21 @@ class SmartCardPageController {
 	static #STORAGE_KEY_AMOUNT = "metro_recharge_amount";
 
 	// Recharge elements
+	#cardTopupCard = null;
+	#smartcardSubtitle = null;
+	#smartcardInfoTip = null;
+	#smartcardInfoTipIcon = null;
+	#smartcardInfoTipText = null;
 	#cardInput = null;
 	#amountInput = null;
 	#submitBtn = null;
+	#submitBtnIcon = null;
+	#submitBtnText = null;
 	#chipBtns = [];
+
+	// QR Ticket Action Elements
+	#qrActionsContainer = null;
+	#qrCardSubtitle = null;
 
 	// Modular Fare Matrix & Passes Component
 	#fareMatrixView = null;
@@ -46,7 +57,8 @@ class SmartCardPageController {
 		// Initialize modular component
 		this.#fareMatrixView = new TransitFareMatrixView({
 			fareSelector: "#fare-matrix-section",
-			passesSelector: "#passes-guidelines-section"
+			passesSelector: "#passes-guidelines-section",
+			onPolicyChange: () => this.#updateSmartCardAvailability()
 		});
 
 		// Resolve City & Network
@@ -59,12 +71,14 @@ class SmartCardPageController {
 		try {
 			this.#metroData = await centerClass.loadCity(this.#activeCity);
 			await centerClass.reloadLocale(this.#activeLang);
+			this.#renderQrActions();
 			this.#fareMatrixView.render({
 				metroData: this.#metroData,
 				cityKey: this.#activeCity,
 				networkKey: this.#activeNetwork,
 				lang: this.#activeLang
 			});
+			this.#updateSmartCardAvailability();
 		} catch (e) {
 			console.warn("[SmartCardPage] Failed to load transit data:", e);
 		}
@@ -73,30 +87,31 @@ class SmartCardPageController {
 		this.#unsubscribeLang = appStateStore.subscribe("currentLang", async (newLang) => {
 			this.#activeLang = newLang || "en";
 			await centerClass.reloadLocale(this.#activeLang);
+			this.#renderQrActions();
 			this.#fareMatrixView?.render({
 				metroData: this.#metroData,
 				cityKey: this.#activeCity,
 				networkKey: this.#activeNetwork,
 				lang: this.#activeLang
 			});
+			this.#updateSmartCardAvailability();
 		});
 	}
 
 	#bindElements() {
+		this.#cardTopupCard = document.getElementById("card-smartcard-topup");
+		this.#smartcardSubtitle = document.getElementById("smartcardSubtitle");
+		this.#smartcardInfoTip = document.getElementById("smartcardInfoTip");
+		this.#smartcardInfoTipIcon = document.getElementById("smartcardInfoTipIcon");
+		this.#smartcardInfoTipText = document.getElementById("smartcardInfoTipText");
 		this.#cardInput = document.getElementById("rechargeCardId");
 		this.#amountInput = document.getElementById("rechargeAmount");
 		this.#submitBtn = document.getElementById("rechargeSubmitBtn");
+		this.#submitBtnIcon = document.getElementById("rechargeSubmitIcon");
+		this.#submitBtnText = document.getElementById("rechargeSubmitText");
 		this.#chipBtns = Array.from(document.querySelectorAll(".recharge-chip-btn"));
-
-		// Preserve city param on QR ticket link if active
-		const qrBtn = document.getElementById("qrTicketNavBtn");
-		if (qrBtn) {
-			const urlParams = new URLSearchParams(window.location.search);
-			const currentCity = urlParams.get('city') || localStorage.getItem('active_city') || '';
-			if (currentCity) {
-				qrBtn.href = `metro_QR_ticket.html?city=${encodeURIComponent(currentCity)}`;
-			}
-		}
+		this.#qrActionsContainer = document.getElementById("qr-actions-list");
+		this.#qrCardSubtitle = document.getElementById("qr-card-subtitle");
 	}
 
 	#loadSavedData() {
@@ -145,6 +160,12 @@ class SmartCardPageController {
 	}
 
 	async #handleRechargeSubmit() {
+		const portalUrl = this.#getRechargePortalUrl();
+		if (!portalUrl) {
+			Toast.show(centerClass.t("smartCardTicket.toastNoPortal"), "warning");
+			return;
+		}
+
 		const rawCardId = this.#cardInput ? this.#cardInput.value.trim() : "";
 		const sanitizedCardId = rawCardId.replace(/[^0-9]/g, "");
 
@@ -165,38 +186,220 @@ class SmartCardPageController {
 			// Clipboard write fallback
 		}
 
-		const portalUrl = this.#getRechargePortalUrl();
-		if (portalUrl) {
-			const successMsg = centerClass.t("smartCardTicket.toastSuccess", { cardId: sanitizedCardId });
-			Toast.show(successMsg, "success");
-			setTimeout(() => {
-				window.open(portalUrl, "_blank", "noopener,noreferrer");
-			}, 800);
-		} else {
-			const successMsg = centerClass.t("smartCardTicket.toastCopiedOnly", { cardId: sanitizedCardId });
-			Toast.show(successMsg, "success");
-		}
+		const successMsg = centerClass.t("smartCardTicket.toastSuccess", { cardId: sanitizedCardId });
+		Toast.show(successMsg, "success");
+		setTimeout(() => {
+			window.open(portalUrl, "_blank", "noopener,noreferrer");
+		}, 800);
 	}
 
 	#getRechargePortalUrl() {
 		const policies = this.#metroData?.fareRules?.policies || {};
 		const activeKey = this.#fareMatrixView?.activePolicyKey;
+		const isValidUrl = (url) => typeof url === "string" && url.trim().length > 0;
 
 		// 1. Check actively viewed policy tab first (e.g. DMRC smart card)
-		if (activeKey && policies[activeKey]?.products?.smart_card?.rechargeUrl) {
-			return policies[activeKey].products.smart_card.rechargeUrl;
+		if (activeKey && isValidUrl(policies[activeKey]?.products?.smart_card?.rechargeUrl)) {
+			return policies[activeKey].products.smart_card.rechargeUrl.trim();
 		}
-		if (activeKey && policies[activeKey]?.rechargeUrl) {
-			return policies[activeKey].rechargeUrl;
+		if (activeKey && isValidUrl(policies[activeKey]?.rechargeUrl)) {
+			return policies[activeKey].rechargeUrl.trim();
 		}
 
 		// 2. Direct from any matching policy smart_card product
 		for (const policy of Object.values(policies)) {
 			const scUrl = policy.products?.smart_card?.rechargeUrl || policy.rechargeUrl;
-			if (scUrl) return scUrl;
+			if (isValidUrl(scUrl)) return scUrl.trim();
 		}
 
 		return null;
+	}
+
+	#updateSmartCardAvailability() {
+		const portalUrl = this.#getRechargePortalUrl();
+		const isAvailable = Boolean(portalUrl && portalUrl.trim().length > 0);
+
+		if (this.#cardTopupCard) {
+			this.#cardTopupCard.classList.toggle("state-counter-only", !isAvailable);
+		}
+
+		if (this.#cardInput) {
+			this.#cardInput.disabled = !isAvailable;
+		}
+
+		if (this.#amountInput) {
+			this.#amountInput.disabled = !isAvailable;
+		}
+
+		this.#chipBtns.forEach(btn => {
+			btn.disabled = !isAvailable;
+		});
+
+		if (this.#submitBtn) {
+			this.#submitBtn.disabled = !isAvailable;
+			this.#submitBtn.setAttribute("aria-disabled", String(!isAvailable));
+		}
+
+		if (this.#smartcardSubtitle) {
+			const subKey = isAvailable ? "smartCardTicket.smartcardSubtitle" : "smartCardTicket.subtitleUnavailable";
+			this.#smartcardSubtitle.setAttribute("data-i18n", subKey);
+			this.#smartcardSubtitle.textContent = centerClass.t(subKey);
+		}
+
+		if (this.#smartcardInfoTipText) {
+			const tipKey = isAvailable ? "smartCardTicket.infoTip" : "smartCardTicket.unavailableTip";
+			this.#smartcardInfoTipText.setAttribute("data-i18n", tipKey);
+			this.#smartcardInfoTipText.textContent = centerClass.t(tipKey);
+		}
+
+		if (this.#smartcardInfoTipIcon) {
+			this.#smartcardInfoTipIcon.textContent = isAvailable ? "⚡" : "ℹ️";
+		}
+
+		if (this.#submitBtnText) {
+			const btnKey = isAvailable ? "smartCardTicket.submitBtn" : "smartCardTicket.btnUnavailable";
+			this.#submitBtnText.setAttribute("data-i18n", btnKey);
+			this.#submitBtnText.textContent = centerClass.t(btnKey);
+		}
+
+		if (this.#submitBtnIcon) {
+			this.#submitBtnIcon.textContent = isAvailable ? "⚡" : "🏢";
+		}
+	}
+
+	#renderQrActions() {
+		if (!this.#qrActionsContainer) return;
+
+		const policies = this.#metroData?.fareRules?.policies || {};
+		const policyKeys = Object.keys(policies);
+		const seenNetworks = new Set();
+		const qrNetworks = [];
+
+		policyKeys.forEach(pKey => {
+			const pObj = policies[pKey];
+			if (!pObj) return;
+
+			// Group companion or auxiliary policies by network
+			const netKey = pObj.network || pKey;
+			if (seenNetworks.has(netKey)) return;
+
+			// Find QR product in this policy
+			let qrProduct = null;
+			if (pObj.products) {
+				qrProduct = pObj.products.qr_ticket || 
+				            pObj.products.standard_qr || 
+				            pObj.products.premium_qr || 
+				            Object.values(pObj.products).find(p => p.type === "digital");
+			}
+
+			if (!qrProduct) return;
+
+			const hasBookingChannel = Boolean(
+				(qrProduct.whatsappUrl && qrProduct.whatsappUrl.trim()) ||
+				(qrProduct.bookingUrl && qrProduct.bookingUrl.trim()) ||
+				(qrProduct.appUrl && qrProduct.appUrl.trim())
+			);
+
+			if (hasBookingChannel) {
+				seenNetworks.add(netKey);
+				qrNetworks.push({
+					policyKey: pKey,
+					networkKey: netKey,
+					policyObj: pObj,
+					qr: qrProduct
+				});
+			}
+		});
+
+		if (this.#qrCardSubtitle) {
+			const cityDisplayName = centerClass.getCityDisplayName(this.#activeCity);
+			const count = qrNetworks.length;
+			this.#qrCardSubtitle.textContent = count > 1 
+				? `${cityDisplayName} (${count} Networks)` 
+				: cityDisplayName;
+		}
+
+		// Sync Gate Pass Wallet card link with active city
+		const walletBtn = document.getElementById("walletGatePassBtn");
+		if (walletBtn) {
+			walletBtn.href = `metro_QR_ticket.html?city=${encodeURIComponent(this.#activeCity)}`;
+		}
+
+		if (qrNetworks.length === 0) {
+			const noQrLabel = centerClass.t("smartCardTicket.noQrTickets") || "No online booking channels available for this city.";
+			this.#qrActionsContainer.innerHTML = `
+				<div class="network-item-row">
+					<span class="network-name">${this.#escapeHTML(noQrLabel)}</span>
+				</div>
+			`;
+			return;
+		}
+
+		const waLabel = centerClass.t("smartCardTicket.btnWhatsApp") || "WhatsApp";
+		const webLabel = centerClass.t("smartCardTicket.btnWeb") || "Online";
+		const appLabel = centerClass.t("smartCardTicket.btnApp") || "App";
+
+		let html = "";
+		qrNetworks.forEach(item => {
+			const netDisplayName = centerClass.getPolicyName(item.policyKey) || 
+			                       centerClass.getNetworkName(item.networkKey) || 
+			                       this.#formatNetworkName(item.networkKey);
+			const qr = item.qr;
+
+			let btnHtml = "";
+			if (qr.whatsappUrl && qr.whatsappUrl.trim()) {
+				btnHtml += `
+					<a href="${this.#escapeHTML(qr.whatsappUrl.trim())}" target="_blank" rel="noopener noreferrer" class="btn-micro-action btn-action-whatsapp" title="WhatsApp Booking">
+						<span>💬</span>
+						<span>${this.#escapeHTML(waLabel)}</span>
+					</a>
+				`;
+			}
+			if (qr.bookingUrl && qr.bookingUrl.trim()) {
+				btnHtml += `
+					<a href="${this.#escapeHTML(qr.bookingUrl.trim())}" target="_blank" rel="noopener noreferrer" class="btn-micro-action btn-action-web" title="Official Web Booking">
+						<span>🌐</span>
+						<span>${this.#escapeHTML(webLabel)}</span>
+					</a>
+				`;
+			}
+			if (qr.appUrl && qr.appUrl.trim()) {
+				btnHtml += `
+					<a href="${this.#escapeHTML(qr.appUrl.trim())}" target="_blank" rel="noopener noreferrer" class="btn-micro-action btn-action-app" title="Official Mobile App">
+						<span>📱</span>
+						<span>${this.#escapeHTML(appLabel)}</span>
+					</a>
+				`;
+			}
+
+			html += `
+				<div class="network-item-row">
+					<span class="network-name">${this.#escapeHTML(netDisplayName)}</span>
+					<div class="network-btn-group">
+						${btnHtml}
+					</div>
+				</div>
+			`;
+		});
+
+		this.#qrActionsContainer.innerHTML = html;
+	}
+
+	#formatNetworkName(key) {
+		if (!key) return "Metro";
+		return key
+			.replace(/[_-]/g, " ")
+			.replace(/\b\w/g, l => l.toUpperCase());
+	}
+
+	#escapeHTML(str) {
+		if (!str) return "";
+		return String(str)
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/"/g, "&quot;")
+			.replace(/'/g, "&#039;");
 	}
 }
 

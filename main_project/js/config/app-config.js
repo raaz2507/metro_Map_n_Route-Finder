@@ -1,10 +1,17 @@
 /**
  * 🌐 Global Application Configuration & Canonical URL Hub
- * Single Source of Truth for Domain & App Endpoints
+ * Single Source of Truth for Domain, Endpoints & Media Channels
  */
 export const APP_CONFIG = Object.freeze({
-	// 🎯 Jab naya domain mile, to sirf yahan change karein:
+	// 🎯 Base Canonical URL
 	CANONICAL_BASE_URL: "https://raaz2507.github.io/metro_Map_n_Route-Finder/",
+
+	// 📺 Official Social & Media Channels
+	YOUTUBE: {
+		HANDLE: "@YatraMarg_app",
+		CHANNEL_URL: "https://www.youtube.com/@YatraMarg_app",
+		SHORTS_URL: "https://www.youtube.com/@YatraMarg_app/shorts"
+	},
 
 	/**
 	 * Web, Localhost aur Native App me hamesha sahi shareable base URL return karega
@@ -23,3 +30,5 @@ export const APP_CONFIG = Object.freeze({
 		return path ? `${cleanBase}${path.replace(/^\//, "")}` : cleanBase;
 	}
 });
+
+export default APP_CONFIG;

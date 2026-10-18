@@ -4,7 +4,7 @@
  * Social Media share links (WhatsApp, Telegram, SMS), Clipboard copy, and Toast notifications.
  */
 import { centerClass } from "../core/CenterClass.js";
-import { APP_CONFIG } from "../core/app-config.js";
+import { APP_CONFIG } from "../config/app-config.js";
 
 
 export class ShareModalComponent {

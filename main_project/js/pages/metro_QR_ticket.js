@@ -557,10 +557,10 @@ class TicketWalletApp {
 
 		// Final Decision & Notification
 		if (tokenResult && tokenResult.text) {
-			this.#showToast(`✅ QR Found (${tokenResult.engine})`, 'success');
+			this.#showToast(`QR Found (${tokenResult.engine})`, 'success');
 			this.#finalizeGeneratedTicket(tokenResult.text, tokenResult.engine, originalDataUrl);
 		} else {
-			this.#showToast(`⚠️ QR Not Detected on ${canvas.width}x${canvas.height}px image`, 'warning');
+			this.#showToast(`QR Not Detected on ${canvas.width}x${canvas.height}px image`, 'warning');
 			this.#finalizeRawImagePass(originalDataUrl);
 		}
 	}
@@ -901,7 +901,7 @@ class TicketWalletApp {
 								${centerClass.t('metroTicket.cards.history.btnRestore')}
 							</button>
 						` : ''}
-						<button type="button" class="btn-delete-history-item" data-delete-id="${item.id}" title="${centerClass.t('metroTicket.cards.history.btnDelete')}" aria-label="${centerClass.t('metroTicket.cards.history.btnDelete')}">🗑️</button>
+						<button type="button" class="btn-delete-history-item" data-delete-id="${item.id}" title="${centerClass.t('metroTicket.cards.history.btnDelete')}" aria-label="${centerClass.t('metroTicket.cards.history.btnDelete')}"></button>
 					</div>
 				</div>
 			`;

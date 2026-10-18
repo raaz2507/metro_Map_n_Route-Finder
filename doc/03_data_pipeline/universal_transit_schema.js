@@ -104,9 +104,6 @@ export const TransitNetworkMasterSchema = {
 					[30, 10, 0]  // Row 2 (origin: station_id_n -> all destinations)
 				],
 
-				// Official recharge portal URL for this specific policy / network
-				rechargeUrl: "<url_string_or_null: official_agency_smart_card_topup_portal>", // e.g. "https://dmrcsmartcard.com/"
-
 				// --------------------------------------------------------------------
 				// TICKETING PRODUCTS & PASSES SCHEMA SPECIFICATION
 				// --------------------------------------------------------------------
@@ -191,14 +188,18 @@ export const TransitNetworkMasterSchema = {
 						]
 					},
 
-					// 8. डिजिटल क्यूआर टिकट (Paperless QR Ticket via Mobile App / WhatsApp)
+					// 8. डिजिटल क्यूआर टिकट (Paperless QR Ticket via Mobile App / WhatsApp / Web)
 					qr_ticket: {
 						type: "digital",
 						validityMinutes: "<integer: gate_entry_validity_window_minutes>",     // e.g. 60
 						discountPercent: "<number: percentage_discount_vs_token>",            // e.g. 0 or 20
 						channels: [                                                           // Supported purchase channels
 							"<string: channel_slug>"                                          // e.g. "official_app", "whatsapp", "paytm", "amazon_pay"
-						]
+						],
+						// Direct Booking & Ingestion Channels (v4.1 Multi-Channel Integration)
+						whatsappUrl: "<url_string_or_empty_string: official_agency_whatsapp_bot_url>", // e.g. "https://wa.me/919650855800?text=Hi"
+						bookingUrl: "<url_string_or_empty_string: official_agency_web_qr_booking_portal>", // e.g. "https://dmrc.easymetro.in/"
+						appUrl: "<url_string_or_empty_string: official_agency_mobile_app_download_url>"    // e.g. "https://play.google.com/store/apps/details?id=com.dmrc.travel"
 					},
 
 					// 9. नेशनल कॉमन मोबिलिटी कार्ड (RuPay NCMC Interoperable Standard)

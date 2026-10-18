@@ -1,0 +1,305 @@
+@layer components {
+	/* =========================================================================
+	   CARDS GALLERY GRID (Shared Multi-Pocket Card Container)
+	   ========================================================================= */
+	.cards-gallery-grid {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: clamp(var(--space-xl), 3.5vw, var(--space-2xl));
+		width: 100%;
+	}
+
+	/* =========================================================================
+	   TACTILE 2.5D ACTION CARDS (100% Design Tokens Compliant, Zero !important)
+	   ========================================================================= */
+	.transit-action-card {
+		width: clamp(210px, 44vw, 260px);
+		aspect-ratio: 4 / 5.2;
+		border-radius: var(--radius-xl);
+		background: linear-gradient(180deg, var(--card-bg) 0%, var(--bg-app) 100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 0;
+		text-decoration: none;
+		color: var(--text-primary);
+		box-sizing: border-box;
+		position: relative;
+		overflow: hidden;
+		border: var(--bw-thin) solid var(--border-color);
+		border-top: var(--bw-md) solid rgba(var(--color-bg-base-rgb), var(--op-heavy));
+		user-select: none;
+		-webkit-user-select: none;
+		transition: 
+			transform var(--transition-fast),
+			box-shadow var(--transition-fast),
+			border-color var(--transition-fast);
+	}
+
+	/* -------------------------------------------------------------------------
+	   SHARED 2.5D CARD HEADER (Edge-to-Edge Top Bar)
+	   ------------------------------------------------------------------------- */
+	.transit-action-card .card-header {
+		display: flex;
+		align-items: center;
+		gap: var(--space-sm);
+		width: 100%;
+		position: relative;
+		z-index: 1;
+		flex-shrink: 0;
+		padding: var(--space-sm) var(--space-md);
+		background: rgba(var(--color-bg-base-rgb), var(--op-header-bg));
+		border-bottom: var(--bw-thin) solid var(--border-color);
+		box-sizing: border-box;
+	}
+
+	.transit-action-card .card-header-text {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		gap: var(--space-2xs);
+	}
+
+	.transit-action-card .card-title {
+		font-family: var(--font-title);
+		font-size: clamp(var(--fs-sm), 3.5vw, var(--fs-md));
+		font-weight: var(--fw-extrabold);
+		color: var(--text-primary);
+		margin: 0;
+		line-height: 1.25;
+		letter-spacing: -0.01em;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
+
+	.transit-action-card .card-subtitle {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		color: var(--text-primary);
+		margin: 0;
+		line-height: 1.2;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
+
+	.transit-action-card .card-icon-bubble {
+		width: 42px;
+		height: 42px;
+		border-radius: var(--radius-md);
+		flex-shrink: 0;
+		box-shadow: var(--shadow-sm);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: var(--fs-xl);
+		line-height: 1;
+		transition: transform var(--transition-fast);
+	}
+
+	.transit-action-card:hover .card-icon-bubble {
+		transform: scale(1.05);
+	}
+
+	/* -------------------------------------------------------------------------
+	   SCROLLABLE CARD BODY (Custom Fluid Scrollbar)
+	   ------------------------------------------------------------------------- */
+	.transit-action-card .card-body-scrollable {
+		flex: 1 1 auto;
+		overflow-y: auto;
+		overflow-x: hidden;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		padding: var(--space-sm) var(--space-md);
+		position: relative;
+		z-index: 1;
+		min-height: 0;
+		scrollbar-width: thin;
+		scrollbar-color: rgba(var(--color-bg-base-rgb), var(--op-subtle)) transparent;
+		box-sizing: border-box;
+	}
+
+	.transit-action-card .card-body-scrollable::-webkit-scrollbar {
+		width: var(--space-xs);
+	}
+
+	.transit-action-card .card-body-scrollable::-webkit-scrollbar-thumb {
+		background: rgba(var(--color-bg-base-rgb), var(--op-muted));
+		border-radius: var(--radius-full);
+	}
+
+	/* -------------------------------------------------------------------------
+	   NETWORK ITEM ROW & BUTTON GROUP (Sub-units inside Scrollable Body)
+	   ------------------------------------------------------------------------- */
+	.network-item-row {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--space-sm);
+		padding: var(--space-sm);
+		border-radius: var(--radius-sm);
+		background: rgba(var(--color-bg-base-rgb), var(--op-glass));
+		border: var(--bw-thin) solid var(--border-color);
+		box-sizing: border-box;
+		transition: background-color var(--transition-fast);
+		width: 100%;
+	}
+
+	.network-item-row:hover {
+		background: rgba(var(--color-bg-base-rgb), var(--op-heavy));
+	}
+
+	.network-name {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		line-height: 1.2;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+		display: block;
+	}
+
+	.network-btn-group {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--space-xs);
+		width: 100%;
+	}
+
+	/* -------------------------------------------------------------------------
+	   TACTILE MICRO ACTION BUTTON (Finger-Friendly, Zero !important)
+	   ------------------------------------------------------------------------- */
+	.btn-micro-action {
+		flex: 1 1 calc(50% - var(--space-xs));
+		min-width: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-2xs);
+		padding: calc(var(--space-xs)) var(--space-sm);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		font-family: var(--font-main);
+		border-radius: var(--radius-xs);
+		text-decoration: none;
+		cursor: pointer;
+		user-select: none;
+		-webkit-user-select: none;
+		white-space: nowrap;
+		border: var(--bw-thin) solid transparent;
+		box-sizing: border-box;
+		overflow: hidden;
+		transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+	}
+
+	/* Single button takes full width */
+	.network-btn-group .btn-micro-action:only-child {
+		flex: 1 1 100%;
+	}
+
+	/* When 3 buttons exist (e.g. WhatsApp, Online, App), WhatsApp gets top full row, Online & App share second row */
+	.network-btn-group .btn-action-whatsapp:first-child:nth-last-child(3) {
+		flex: 1 1 100%;
+	}
+
+	.btn-micro-action span {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 100%;
+	}
+
+	.btn-micro-action span:first-child {
+		flex-shrink: 0;
+	}
+
+	.btn-micro-action:active {
+		transform: translateY(1px);
+	}
+
+	/* Action Button Variants */
+	.btn-action-whatsapp {
+		background: rgba(37, 211, 102, 0.12);
+		color: #128c7e;
+		border-color: rgba(37, 211, 102, 0.35);
+		border-bottom: var(--bw-md) solid #25d366;
+	}
+	.btn-action-whatsapp:hover {
+		background: rgba(37, 211, 102, 0.22);
+	}
+
+	.btn-action-web {
+		background: rgba(var(--color-info-rgb), var(--op-subtle));
+		color: rgb(var(--color-info-rgb));
+		border-color: rgba(var(--color-info-rgb), var(--op-soft));
+		border-bottom: var(--bw-md) solid rgb(var(--color-info-rgb));
+	}
+	.btn-action-web:hover {
+		background: rgba(var(--color-info-rgb), var(--op-soft));
+	}
+
+	.btn-action-app {
+		background: rgba(var(--color-primary-rgb), var(--op-subtle));
+		color: rgb(var(--color-primary-rgb));
+		border-color: rgba(var(--color-primary-rgb), var(--op-soft));
+		border-bottom: var(--bw-md) solid rgb(var(--color-primary-rgb));
+	}
+	.btn-action-app:hover {
+		background: rgba(var(--color-primary-rgb), var(--op-soft));
+	}
+
+	.btn-action-pass {
+		background: rgba(var(--color-warning-rgb), var(--op-subtle));
+		color: rgb(var(--color-warning-rgb));
+		border-color: rgba(var(--color-warning-rgb), var(--op-soft));
+		border-bottom: var(--bw-md) solid rgb(var(--color-warning-rgb));
+	}
+	.btn-action-pass:hover {
+		background: rgba(var(--color-warning-rgb), var(--op-soft));
+	}
+
+	/* -------------------------------------------------------------------------
+	   ACCESSIBILITY
+	   ------------------------------------------------------------------------- */
+	@media (prefers-reduced-motion: reduce) {
+		.transit-action-card,
+		.transit-action-card .card-icon-bubble,
+		.btn-micro-action {
+			transition: none;
+		}
+	}
+
+	/* -------------------------------------------------------------------------
+	   RESPONSIVE (iPhone SE <= 380px)
+	   ------------------------------------------------------------------------- */
+	@media (max-width: 380px) {
+		.cards-gallery-grid {
+			gap: var(--space-sm);
+		}
+
+		.transit-action-card {
+			width: calc(50% - var(--space-sm));
+			aspect-ratio: 4 / 5.8;
+		}
+
+		.transit-action-card .card-icon-bubble {
+			width: calc(var(--size-icon-lg) + var(--space-sm));
+			height: calc(var(--size-icon-lg) + var(--space-sm));
+			font-size: var(--fs-md);
+		}
+
+		.network-btn-group {
+			flex-wrap: wrap;
+		}
+
+		.network-btn-group .btn-micro-action {
+			flex: 1 1 calc(50% - var(--space-xs));
+		}
+	}
+}

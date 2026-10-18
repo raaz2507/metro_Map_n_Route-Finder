@@ -20,12 +20,11 @@
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 		line-height: 1.15;
-		
-		/* 👈 3 लाइनों में टूटना बंद, ज्यादा बड़ा होने पर '...' आएगा */
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		max-width: 68px;
+		flex: 1;
+		min-width: 0;
 	}
 
 	/* 🔘 Round (?) Help Button */

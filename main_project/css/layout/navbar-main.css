@@ -1,5 +1,5 @@
-@import url("./navbar_header.css") layer(components);
-@import url("./navbar_sidebar.css") layer(components);
+@import url("./navbar_header.css");
+@import url("./navbar_sidebar.css");
 
 @layer components {
 	/* 1. Base Icon Container */
@@ -26,6 +26,14 @@
 		-webkit-mask-position: center;
 		mask-position: center;
 		transition: var(--transition-smooth);
+	}
+
+	/* Active state for sidebar navigation buttons - Light/White icon */
+	.sidebar-link.active .icon::after,
+	.sidebar-link.active svg {
+		background-color: var(--btn-primary-text, #ffffff);
+		fill: var(--btn-primary-text, #ffffff);
+		stroke: var(--btn-primary-text, #ffffff);
 	}
 
 	/* Inline URL-Encoded SVGs */

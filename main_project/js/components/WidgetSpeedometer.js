@@ -4,18 +4,22 @@
  */
 
 import { centerClass } from "../core/CenterClass.js";
+import { eventBus } from "../core/event-bus.js";
 
 
 export class SpeedometerWidget {
 	#elements = {};
 	#abortController = null;
 	#maxSpeedRecorded = 0.0;
+	#lastTelemetry = null;
+	#unsubscribeLang = null;
 
 	init() {
 		this.#abortController = new AbortController();
 		this.#queryElements();
 		this.#bindEvents();
 		this.#bindSpeedUpdates();
+		this.#bindLanguageChanges();
 	}
 
 	#queryElements() {
@@ -27,6 +31,14 @@ export class SpeedometerWidget {
 			accuracyValue: document.getElementById("speedAccuracyValue"),
 			statusValue: document.getElementById("speedStatusValue")
 		};
+	}
+
+	#bindLanguageChanges() {
+		this.#unsubscribeLang = eventBus.on("app:language-changed", () => {
+			if (this.#lastTelemetry) {
+				this.#renderSpeedometer(this.#lastTelemetry);
+			}
+		});
 	}
 
 	#bindEvents() {
@@ -55,46 +67,51 @@ export class SpeedometerWidget {
 	#bindSpeedUpdates() {
 		centerClass.bindSpeedometer((telemetry) => {
 			if (!telemetry) return;
-
-			const el = this.#elements;
-			const currentSpeed = typeof telemetry.currentSpeedKmh === "number" ? telemetry.currentSpeedKmh : 0;
-			const maxSpeed = typeof telemetry.maxSpeedKmh === "number" ? telemetry.maxSpeedKmh : currentSpeed;
-			const accuracy = typeof telemetry.accuracy === "number" ? telemetry.accuracy : null;
-			const motionState = telemetry.motionState || "HALTED";
-
-			// 1. स्पीड नंबर अपडेट
-			if (el.speedValue) {
-				el.speedValue.textContent = currentSpeed.toFixed(1);
-			}
-
-			// 2. मोशन स्टेट कलरिंग ('HALTED' | 'DEPARTING' | 'CRUISING')
-			if (el.widget) {
-				el.widget.setAttribute("data-motion", motionState);
-			}
-
-			// 3. टूलटिप डेटा अपडेट
-			if (el.topValue) {
-				if (maxSpeed > this.#maxSpeedRecorded) {
-					this.#maxSpeedRecorded = maxSpeed;
-				}
-				el.topValue.textContent = `${this.#maxSpeedRecorded.toFixed(1)} km/h`;
-			}
-
-			if (el.accuracyValue) {
-				el.accuracyValue.textContent = accuracy !== null ? `±${accuracy} m` : "±-- m";
-			}
-
-			if (el.statusValue) {
-				let statusKey = "pages.home.speedometer.statusHalted";
-				if (motionState === "DEPARTING") statusKey = "pages.home.speedometer.statusDeparting";
-				else if (motionState === "CRUISING") statusKey = "pages.home.speedometer.statusCruising";
-
-				el.statusValue.textContent = centerClass.t(statusKey);
-			}
+			this.#lastTelemetry = telemetry;
+			this.#renderSpeedometer(telemetry);
 		});
 	}
 
+	#renderSpeedometer(telemetry) {
+		const el = this.#elements;
+		const currentSpeed = typeof telemetry.currentSpeedKmh === "number" ? telemetry.currentSpeedKmh : 0;
+		const maxSpeed = typeof telemetry.maxSpeedKmh === "number" ? telemetry.maxSpeedKmh : currentSpeed;
+		const accuracy = typeof telemetry.accuracy === "number" ? telemetry.accuracy : null;
+		const motionState = telemetry.motionState || "HALTED";
+
+		// 1. स्पीड नंबर अपडेट
+		if (el.speedValue) {
+			el.speedValue.textContent = currentSpeed.toFixed(1);
+		}
+
+		// 2. मोशन स्टेट कलरिंग ('HALTED' | 'DEPARTING' | 'CRUISING')
+		if (el.widget) {
+			el.widget.setAttribute("data-motion", motionState);
+		}
+
+		// 3. टूलटिप डेटा अपडेट
+		if (el.topValue) {
+			if (maxSpeed > this.#maxSpeedRecorded) {
+				this.#maxSpeedRecorded = maxSpeed;
+			}
+			el.topValue.textContent = `${this.#maxSpeedRecorded.toFixed(1)} km/h`;
+		}
+
+		if (el.accuracyValue) {
+			el.accuracyValue.textContent = accuracy !== null ? `±${accuracy} m` : "±-- m";
+		}
+
+		if (el.statusValue) {
+			let statusKey = "pages.home.speedometer.statusHalted";
+			if (motionState === "DEPARTING") statusKey = "pages.home.speedometer.statusDeparting";
+			else if (motionState === "CRUISING") statusKey = "pages.home.speedometer.statusCruising";
+
+			el.statusValue.textContent = centerClass.t(statusKey);
+		}
+	}
+
 	destroy() {
+		this.#unsubscribeLang?.();
 		this.#abortController?.abort();
 	}
 }

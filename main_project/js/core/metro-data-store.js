@@ -685,8 +685,8 @@ class MetroDataStore {
 			return cityObj.name[activeLang] || cityObj.name.en || key;
 		}
 
-		// 2. फ़ॉलबैक: सादा की लौटाएं (Zero Hardcoded Dictionaries)
-		return key;
+		// 2. फ़ॉलबैक: की को सुंदर टाइटल केस में लौटाएं (e.g. delhi_ncr -> Delhi NCR)
+		return key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
 	}
 
 	get localeData() {

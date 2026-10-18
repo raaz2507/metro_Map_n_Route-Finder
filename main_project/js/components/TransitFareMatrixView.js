@@ -21,10 +21,12 @@ export class TransitFareMatrixView {
 	#activePolicyKey = null;
 	#activeMatrixClassPolicyKey = null;
 	#abortController = null;
+	#onPolicyChange = null;
 
 	constructor(options = {}) {
 		this.#fareContainerEl = document.querySelector(options.fareSelector || "#fare-matrix-section");
 		this.#passesContainerEl = document.querySelector(options.passesSelector || "#passes-guidelines-section");
+		this.#onPolicyChange = typeof options.onPolicyChange === "function" ? options.onPolicyChange : null;
 		this.#cacheDOM();
 	}
 
@@ -90,6 +92,9 @@ export class TransitFareMatrixView {
 
 		// 4. Render Passes & Cards Hub
 		this.#renderPassesHub();
+
+		// Notify policy change listener
+		this.#onPolicyChange?.(this.#activePolicyKey);
 	}
 
 	#renderNetworkTabs() {
@@ -147,6 +152,7 @@ export class TransitFareMatrixView {
 				if (targetPolicy && targetPolicy !== this.#activePolicyKey) {
 					this.#activePolicyKey = targetPolicy;
 					this.#activeMatrixClassPolicyKey = null; // Reset coach class to primary for the new network
+					this.#onPolicyChange?.(this.#activePolicyKey);
 					
 					if (this.#tableContainerEl) {
 						this.#tableContainerEl.classList.add("fare-table-snap-out");

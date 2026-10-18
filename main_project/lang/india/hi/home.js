@@ -198,14 +198,14 @@ export default {
 
 	// 6. Sensor Telemetry Widget
 	telemetry: {
-		title: "लाइव यात्रा टेलीमेट्री",
+		title: "टेलीमेट्री",
 		gpsBadge: "GPS लाइव",
 		gpsLabel: "GPS स्थिति",
 		netLabel: "नेटवर्क",
 		accuracyLabel: "GPS सटीकता",
 		guideTitle: "📡 टेलीमेट्री एवं GPS गाइड",
 		status: {
-			blocked: "अवरुद्ध (Blocked)",
+			blocked: "अवरुद्ध",
 			notAllowed: "अनुमति चाहिए",
 			off: "जीपीएस बंद",
 			tunnel: "सुरंग में",

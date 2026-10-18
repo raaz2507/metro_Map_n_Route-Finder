@@ -31,7 +31,7 @@
 
 	<title data-i18n="metroTicket.meta.title" data-i18n-title-tag="metroTicket.meta.title">Digital Metro QR Ticket & Mobile Pass | YatraMarg</title>
 
-	<!-- 🎯 Single CSS Entry Point Architecture -->
+	<!-- Single CSS Entry Point Architecture -->
 	<link rel="stylesheet" href="css/pages/metro_QR_ticket.css">
 	<!-- [METADATA_END] -->
 </head>
@@ -39,27 +39,18 @@
 	<!-- GLOBAL DYNAMIC HEADER -->
 	<div id="app-header"></div>
 	<main class="wallet-container">
-		<!-- Card 1: WhatsApp Booking Bridge -->
-		<section class="wallet-card">
-			<div class="card-header-wrap">
-				<h2 class="card-title" data-i18n="metroTicket.cards.whatsapp.title">1. Get Real DMRC Ticket</h2>
-				<p class="card-desc" data-i18n="metroTicket.cards.whatsapp.desc">Book official QR ticket via DMRC WhatsApp Bot</p>
-			</div>
-			<a href="https://wa.me/919650855800?text=Hi" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-launcher">
-				<span>💬</span>
-				<span data-i18n="metroTicket.cards.whatsapp.btn">Open DMRC WhatsApp Bot</span>
-			</a>
-		</section>
-
-		<!-- Card 2: Ingestion Zone -->
+		<!-- Ingestion Zone: Save & Scan Gate Ticket -->
 		<section class="wallet-card" id="ingestionCard">
 			<div class="card-header-wrap">
-				<h2 class="card-title" data-i18n="metroTicket.cards.ingestion.title">2. Save Gate Ticket</h2>
+				<h2 class="card-title">
+					<span class="svg-icon icon-ticket" aria-hidden="true"></span>
+					<span data-i18n="metroTicket.cards.ingestion.title">Save Gate Ticket</span>
+				</h2>
 				<p class="card-desc" data-i18n="metroTicket.cards.ingestion.desc">Drop paper ticket photo or WhatsApp screenshot here</p>
 			</div>
 
 			<div class="ingestion-zone" id="dropZone">
-				<span class="ingestion-icon">📸</span>
+				<span class="ingestion-icon svg-icon icon-camera" aria-hidden="true"></span>
 				<span class="ingestion-title" data-i18n="metroTicket.cards.ingestion.dropTitle">Drop Paper Ticket or Screenshot</span>
 				<span class="ingestion-hint" data-i18n="metroTicket.cards.ingestion.dropHint">Multi-Engine Fallback: BarcodeDetector -> jsQR -> ZXing</span>
 				<input type="file" id="fileInput" accept="image/*" class="visually-hidden-file-input">
@@ -67,21 +58,21 @@
 
 			<div class="ingestion-actions-grid">
 				<button type="button" class="btn-camera-action" id="btnCaptureCamera">
-					<span>📸</span>
+					<span class="svg-icon icon-camera" aria-hidden="true"></span>
 					<span data-i18n="metroTicket.cards.ingestion.btnCamera">Take Photo with Camera (Paper Ticket)</span>
 				</button>
 				<button type="button" class="btn-browse-action" id="btnBrowseFile">
-					<span>📁</span>
+					<span class="svg-icon icon-folder" aria-hidden="true"></span>
 					<span data-i18n="metroTicket.cards.ingestion.btnBrowse">Browse File from Device / Gallery</span>
 				</button>
 				<button type="button" class="btn-paste-action" id="btnPasteClipboard">
-					<span>📋</span>
+					<span class="svg-icon icon-clipboard" aria-hidden="true"></span>
 					<span data-i18n="metroTicket.cards.ingestion.btnPaste">Tap to Paste Screenshot from Clipboard</span>
 				</button>
 			</div>
 		</section>
 
-		<!-- Card 3: Active Gate Pass View -->
+		<!-- Active Gate Pass View -->
 		<article class="pass-card" id="passCard" aria-live="polite">
 			<div class="pass-header">
 				<div class="pass-status-pill">
@@ -103,30 +94,31 @@
 			<div class="pass-actions-grid">
 				<div class="pass-actions-row">
 					<button type="button" class="btn-gate-mode" id="btnOpenGateMode">
-						<span>🔆</span>
+						<span class="svg-icon icon-sun" aria-hidden="true"></span>
 						<span data-i18n="metroTicket.cards.pass.btnGateMode">Gate Mode</span>
 					</button>
 					<button type="button" class="btn-view-original" id="btnViewOriginal">
-						<span>🖼️</span>
+						<span class="svg-icon icon-image" aria-hidden="true"></span>
 						<span data-i18n="metroTicket.cards.pass.btnOriginalPic">Original Pic</span>
 					</button>
 				</div>
 				<button type="button" class="btn-archive-active" id="btnArchiveActive">
-					<span>📥</span>
+					<span class="svg-icon icon-archive" aria-hidden="true"></span>
 					<span data-i18n="metroTicket.cards.pass.btnArchive">Move to History</span>
 				</button>
 				<a href="./tvm_dispenser.html" class="btn-tvm-launcher" target="_blank" rel="noopener noreferrer">
-					<span>🎟️</span>
+					<span class="svg-icon icon-ticket" aria-hidden="true"></span>
 					<span data-i18n="metroTicket.cards.pass.btnTvm">Open TVM Dispenser</span>
 				</a>
 			</div>
 		</article>
 
-		<!-- Card 4: Ticket History & Archive List -->
+		<!-- Ticket History & Archive List -->
 		<section class="history-card" id="historyCard">
 			<div class="history-header">
 				<div class="history-title-wrap">
-					<span class="history-title" data-i18n="metroTicket.cards.history.title">📜 Ticket History</span>
+					<span class="svg-icon icon-history" aria-hidden="true"></span>
+					<span class="history-title" data-i18n="metroTicket.cards.history.title">Ticket History</span>
 					<span class="history-count-badge" id="historyCountBadge">0/13</span>
 				</div>
 				<button type="button" class="btn-clear-all-history" id="btnClearAllHistory" disabled data-i18n="metroTicket.cards.history.btnClearAll">
@@ -142,13 +134,13 @@
 		<!-- SECTION 1: HOW TO USE -->
 		<section class="info-guide-card">
 			<h2 class="info-guide-title">
-				<span>💡</span>
+				<span class="svg-icon icon-lightbulb" aria-hidden="true"></span>
 				<span data-i18n="metroTicket.guide.title">How to Add Tickets</span>
 			</h2>
 
 			<div class="guide-steps-grid">
 				<div class="guide-step-box">
-					<span class="guide-step-icon">📸</span>
+					<div class="guide-step-icon"><span class="svg-icon icon-camera" aria-hidden="true"></span></div>
 					<div class="guide-step-content">
 						<h3 data-i18n="metroTicket.guide.step1Title">1. Direct Camera Photo</h3>
 						<p data-i18n="metroTicket.guide.step1Desc">Tap 'Take Photo with Camera' and snap the paper ticket from counter/machine — instantly turned into digital pass.</p>
@@ -156,7 +148,7 @@
 				</div>
 
 				<div class="guide-step-box">
-					<span class="guide-step-icon">📱</span>
+					<div class="guide-step-icon"><span class="svg-icon icon-phone" aria-hidden="true"></span></div>
 					<div class="guide-step-content">
 						<h3 data-i18n="metroTicket.guide.step2Title">2. WhatsApp Screenshot (1-Tap Paste)</h3>
 						<p data-i18n="metroTicket.guide.step2Desc">Take screenshot when WhatsApp ticket arrives, then tap 'Tap to Paste'. Loads in 1 second.</p>
@@ -164,7 +156,7 @@
 				</div>
 
 				<div class="guide-step-box">
-					<span class="guide-step-icon">📁</span>
+					<div class="guide-step-icon"><span class="svg-icon icon-folder" aria-hidden="true"></span></div>
 					<div class="guide-step-content">
 						<h3 data-i18n="metroTicket.guide.step3Title">3. Gallery Pick or Drag-and-Drop</h3>
 						<p data-i18n="metroTicket.guide.step3Desc">Select any saved ticket image from your device gallery in 1 tap.</p>
@@ -180,13 +172,13 @@
 		<!-- SECTION 2: WHY USE METRO PASS WALLET? -->
 		<section class="why-use-card">
 			<h2 class="info-guide-title">
-				<span>🌟</span>
+				<span class="svg-icon icon-star" aria-hidden="true"></span>
 				<span data-i18n="metroTicket.benefits.title">Why Use Metro Pass Wallet?</span>
 			</h2>
 
 			<div class="benefits-list">
 				<div class="benefit-item">
-					<span class="benefit-icon">🌧️</span>
+					<div class="benefit-icon"><span class="svg-icon icon-rain" aria-hidden="true"></span></div>
 					<div class="benefit-text">
 						<h4 data-i18n="metroTicket.benefits.b1Title">No fear of paper tearing, getting wet or lost</h4>
 						<p data-i18n="metroTicket.benefits.b1Desc">Paper tickets in pockets crumple, get wet in rain, or get misplaced. Storing digital backup keeps ticket secure.</p>
@@ -194,7 +186,7 @@
 				</div>
 
 				<div class="benefit-item">
-					<span class="benefit-icon">📶</span>
+					<div class="benefit-icon"><span class="svg-icon icon-wifi" aria-hidden="true"></span></div>
 					<div class="benefit-text">
 						<h4 data-i18n="metroTicket.benefits.b2Title">Works 100% offline at underground stations</h4>
 						<p data-i18n="metroTicket.benefits.b2Desc">No internet or WhatsApp hanging at underground stations. This pass is offline-ready and opens instantly.</p>
@@ -202,7 +194,7 @@
 				</div>
 
 				<div class="benefit-item">
-					<span class="benefit-icon">⚡</span>
+					<div class="benefit-icon"><span class="svg-icon icon-lightning" aria-hidden="true"></span></div>
 					<div class="benefit-text">
 						<h4 data-i18n="metroTicket.benefits.b3Title">Instant gate entry in 1-tap (Gate Mode)</h4>
 						<p data-i18n="metroTicket.benefits.b3Desc">No searching through WhatsApp chats in crowds. Tap Gate Mode for high-contrast bright QR that gates read effortlessly.</p>
@@ -210,7 +202,7 @@
 				</div>
 
 				<div class="benefit-item">
-					<span class="benefit-icon">🔄</span>
+					<div class="benefit-icon"><span class="svg-icon icon-refresh" aria-hidden="true"></span></div>
 					<div class="benefit-text">
 						<h4 data-i18n="metroTicket.benefits.b4Title">Up to 13 tickets history & easy restore</h4>
 						<p data-i18n="metroTicket.benefits.b4Desc">Keep return journey or friends' tickets in history and restore them anytime with 1 tap.</p>
@@ -225,7 +217,9 @@
 		<div class="camera-modal-box">
 			<div class="camera-modal-header">
 				<span class="camera-modal-title" data-i18n="metroTicket.modals.camera.title">Live Camera Ticket Scanner</span>
-				<button type="button" class="btn-switch-camera" id="btnSwitchCamera" data-i18n-title="metroTicket.modals.camera.switchCamera" data-i18n-aria-label="metroTicket.modals.camera.switchCamera" title="Switch Camera" aria-label="Switch Camera">🔄</button>
+				<button type="button" class="btn-switch-camera" id="btnSwitchCamera" data-i18n-title="metroTicket.modals.camera.switchCamera" data-i18n-aria-label="metroTicket.modals.camera.switchCamera" title="Switch Camera" aria-label="Switch Camera">
+					<span class="svg-icon icon-refresh" aria-hidden="true"></span>
+				</button>
 			</div>
 			<div class="camera-viewport-wrap">
 				<video id="cameraVideo" playsinline autoplay muted class="camera-video"></video>
@@ -254,7 +248,10 @@
 	<div class="modal-overlay" id="originalModal" role="dialog" aria-modal="true" aria-hidden="true">
 		<div class="original-modal-box">
 			<div class="original-modal-header">
-				<span class="original-modal-title" data-i18n="metroTicket.modals.original.title">🖼️ Original Ticket Image</span>
+				<span class="original-modal-title">
+					<span class="svg-icon icon-image" aria-hidden="true"></span>
+					<span data-i18n="metroTicket.modals.original.title">Original Ticket Image</span>
+				</span>
 				<span class="original-modal-badge" data-i18n="metroTicket.modals.original.sub">Original Backup</span>
 			</div>
 			<div class="original-image-preview-wrap">

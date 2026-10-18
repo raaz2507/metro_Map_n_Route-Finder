@@ -43,39 +43,75 @@
 		<!-- MAIN WORKSPACE: 2 Pocket 2.5D Action Cards -->
 		<main class="showcase-main">
 			<div class="cards-gallery-grid">
-				<!-- CARD 1: YOUTUBE (Red 2.5D Theme - SVG loaded via CSS url) -->
-				<a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="transit-action-card card-theme-youtube" id="card-youtube-link">
-					<div class="card-top">
+				<!-- CARD 1: YOUTUBE (Red 2.5D Theme - Header + 2 Stacked Action Rows) -->
+				<div class="transit-action-card card-theme-youtube" id="card-youtube">
+					<!-- Header Section: Icon + Title + Channel Subtitle -->
+					<div class="card-header">
 						<div class="card-icon-bubble icon-bubble-youtube" aria-hidden="true"></div>
-						<span class="action-badge">Watch Video</span>
+						<div class="card-header-text">
+							<h2 class="card-title" data-i18n="pages.other.youtubeCard.title">Youtube</h2>
+							<span class="card-subtitle" data-i18n="pages.other.youtubeCard.subtitle">Official Channe</span>
+						</div>
 					</div>
 
-					<div class="card-body">
-						<h2 class="card-title">YouTube Guide</h2>
+					<!-- Body Section: Direct Full-Size Action Buttons (Auto-Adjusting Height & Width) -->
+					<div class="card-body-scrollable youtube-actions-body" id="youtube-actions-list">
+						<a href="#" target="_blank" rel="noopener noreferrer" class="btn-yt-large btn-yt-shorts" id="yt-btn-shorts">
+							<span class="btn-yt-text" data-i18n="pages.other.youtubeCard.btnShorts">⚡ Shorts</span>
+						</a>
+						<a href="#" target="_blank" rel="noopener noreferrer" class="btn-yt-large btn-yt-channel" id="yt-btn-channel">
+							<span class="btn-yt-text" data-i18n="pages.other.youtubeCard.btnChannel">📺 Channel</span>
+						</a>
 					</div>
+				</div>
 
-					<div class="card-footer">
-						<span class="action-arrow" aria-hidden="true"></span>
-					</div>
-				</a>
-
-				<!-- CARD 2: METRO MAP (Google Maps Green & Skyblue Theme - SVG loaded via CSS url) -->
-				<a href="index.html" class="transit-action-card card-theme-map" id="card-map-link">
-					<div class="card-top">
+				<!-- CARD 2: METRO MAP (Header + Scrollable Dynamic Buttons + Whole-Card Map Background) -->
+				<div class="transit-action-card card-theme-map" id="card-map">
+					<!-- Header Section: Icon + Title + City Subtitle -->
+					<div class="card-header">
 						<div class="card-icon-bubble icon-bubble-map" aria-hidden="true"></div>
-						<span class="action-badge">Live Map</span>
+						<div class="card-header-text">
+							<h2 class="card-title" data-i18n="pages.other.mapCard.title">Official Metro Map</h2>
+							<span class="card-subtitle" id="map-card-subtitle" data-i18n="pages.other.mapCard.defaultSubtitle"></span>
+						</div>
 					</div>
 
-					<div class="card-body">
-						<h2 class="card-title">Official Metro Map</h2>
+					<!-- Body Section: Scrollable Dynamic Network Buttons -->
+					<div class="card-body-scrollable" id="map-networks-list">
+						<!-- Dynamic network items populated by other.js -->
 					</div>
+				</div>
+			</div>
 
-					<div class="card-footer">
-						<span class="action-arrow" aria-hidden="true"></span>
-					</div>
-				</a>
+			<!-- Page Transit Map Legal Disclaimer (Subtle, Clean & Non-Intrusive) -->
+			<div class="page-transit-disclaimer">
+				<span class="disclaimer-icon" aria-hidden="true">⚠️</span>
+				<p class="disclaimer-text" data-i18n="pages.other.mapCard.disclaimer">Disclaimer: We do not own these transit maps or PDF data. All rights, maps, and trademarks belong to their respective official transit authorities.</p>
 			</div>
 		</main>
+
+		<!-- IN-APP 2.5D PDF VIEWER MODAL (Full-Screen In-App Viewing) -->
+		<div class="pdf-viewer-modal" id="pdf-viewer-modal" role="dialog" aria-modal="true" aria-hidden="true">
+			<div class="pdf-viewer-header">
+				<div class="pdf-viewer-title-group">
+					<span class="pdf-viewer-badge" id="pdf-viewer-badge">PDF Map</span>
+					<h3 class="pdf-viewer-title" id="pdf-viewer-title">Transit Map</h3>
+				</div>
+				<div class="pdf-viewer-actions">
+					<a href="#" download class="pdf-viewer-btn" id="pdf-viewer-download" title="Save / Download PDF" data-i18n-title="pages.other.modal.download">
+						<span>⬇️</span> <span data-i18n="pages.other.modal.save">Save</span>
+					</a>
+					<button type="button" class="pdf-viewer-btn pdf-viewer-btn-close" id="pdf-viewer-close" aria-label="Close" title="Close" data-i18n-title="pages.other.modal.close">✕</button>
+				</div>
+			</div>
+			<div class="pdf-viewer-body">
+				<div class="pdf-viewer-loading" id="pdf-viewer-loading">
+					<span>⏳</span>
+					<span data-i18n="pages.other.modal.loading">Loading Transit Map...</span>
+				</div>
+				<iframe class="pdf-viewer-frame" id="pdf-viewer-frame" src="about:blank" title="PDF Transit Map"></iframe>
+			</div>
+		</div>
 
 		<!-- GLOBAL DYNAMIC FOOTER -->
 		<div id="app-footer"></div>
