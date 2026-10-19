@@ -5,9 +5,9 @@
  */
 
 import { createDOMFromMap } from "../dom-builder.js";
-import { centerClass } from "../../core/CenterClass.js";
 
 export class MapLegend {
+	#centerClass = null;
 	#mapContainer = null;
 	#metroData = null;
 	#onToggleRouteVisibility = null;
@@ -28,6 +28,7 @@ export class MapLegend {
 	};
 
 	constructor({
+		centerClass = null,
 		mapContainer,
 		metroData,
 		onToggleRouteVisibility,
@@ -36,6 +37,7 @@ export class MapLegend {
 		onHighlightStatus,
 		abortSignal,
 	}) {
+		this.#centerClass = centerClass;
 		this.#mapContainer = mapContainer;
 		this.#metroData = metroData;
 		this.#onToggleRouteVisibility = onToggleRouteVisibility;
@@ -88,14 +90,14 @@ export class MapLegend {
 					type: "button",
 					id: "legendToggleBtn",
 					cls: "metro-btn-overlay",
-					html_con: `<span data-i18n="pages.home.map.legend">${centerClass.t("pages.home.map.legend")}</span>`,
+					html_con: `<span data-i18n="pages.home.map.legend">${this.#centerClass?.t("pages.home.map.legend") || "Legend"}</span>`,
 					parent: "topRightControls",
 				},
 				clearRouteBtn: {
 					type: "button",
 					id: "clearRouteHighlightBtn",
 					cls: "clear-route-highlight-btn hidden",
-					html_con: `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearRoute">${centerClass.t("pages.home.map.clearRoute")}</span>`,
+					html_con: `<span class="icon" aria-hidden="true">✕</span><span data-i18n="pages.home.map.clearRoute">${this.#centerClass?.t("pages.home.map.clearRoute") || "Clear Route"}</span>`,
 					parent: "topRightControls",
 				},
 				legendCloseBtn: {
@@ -111,7 +113,7 @@ export class MapLegend {
 				},
 				mainHeader: {
 					type: "h2",
-					html_con: `<span data-i18n="pages.home.map.legend">${centerClass.t("pages.home.map.legend")}</span>`,
+					html_con: `<span data-i18n="pages.home.map.legend">${this.#centerClass?.t("pages.home.map.legend") || "Legend"}</span>`,
 					parent: "legendPanel",
 				},
 				trackSection: {
@@ -223,7 +225,7 @@ export class MapLegend {
 			circle.style.color = lineInfo.color_name === "yellow" ? "#000000" : "#ffffff";
 
 			const text = document.createElement("span");
-			text.textContent = centerClass.getLineName(lineKey) || lineKey;
+			text.textContent = this.#centerClass?.getLineName(lineKey) || lineKey;
 
 			li.appendChild(circle);
 			li.appendChild(text);
@@ -262,7 +264,7 @@ export class MapLegend {
 			}
 
 			const text = document.createElement("span");
-			text.textContent = centerClass.t(`map.legend.stationTypes.${type}`);
+			text.textContent = this.#centerClass?.t(`map.legend.stationTypes.${type}`) || type;
 
 			li.appendChild(icon);
 			li.appendChild(text);
@@ -298,7 +300,7 @@ export class MapLegend {
 				bar.className = item.iconClass;
 
 				const text = document.createElement("span");
-				text.textContent = centerClass.t(`map.legend.trackStatus.${item.status}`);
+				text.textContent = this.#centerClass?.t(`map.legend.trackStatus.${item.status}`) || item.status;
 
 				li.appendChild(bar);
 				li.appendChild(text);
@@ -330,7 +332,7 @@ export class MapLegend {
 		if (activeStationType || activeLineId || activeStationId || activeStatus) {
 			btn.classList.remove("hidden");
 			btn.classList.remove("show-mode");
-			const label = centerClass.t("map.actions.clearFilter");
+			const label = this.#centerClass?.t("map.actions.clearFilter") || "Clear Filter";
 			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span>${label}</span>`;
 			return;
 		}
@@ -345,11 +347,11 @@ export class MapLegend {
 		btn.classList.remove("hidden");
 		if (isRouteVisible) {
 			btn.classList.remove("show-mode");
-			const label = centerClass.t("map.actions.clearRoute");
+			const label = this.#centerClass?.t("map.actions.clearRoute") || "Clear Route";
 			btn.innerHTML = `<span class="icon" aria-hidden="true">✕</span><span>${label}</span>`;
 		} else {
 			btn.classList.add("show-mode");
-			const label = centerClass.t("map.actions.showRoute");
+			const label = this.#centerClass?.t("map.actions.showRoute") || "Show Route";
 			btn.innerHTML = `<span class="icon" aria-hidden="true">👁️</span><span>${label}</span>`;
 		}
 	}

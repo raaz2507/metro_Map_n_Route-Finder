@@ -32,6 +32,13 @@
 		animation-play-state: paused;
 	}
 
+	/* 🪟 2.5D Mode Holographic Signboard Elevation */
+	.mapContainer.is-25d-view .station-map-callout {
+		transform-origin: 50% 100%;
+		filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.45))
+				drop-shadow(0 2px 6px rgba(var(--color-primary-rgb), var(--op-subtle)));
+	}
+
 	/* 🌀 3D एंबिएंट मोशन कीफ्रेम्स */
 	@keyframes signboard3DAmbient {
 		0%, 100% {
@@ -168,16 +175,52 @@
 	}
 
 	/* 🚧 Status Badge (Under Construction / Approved) */
+	/* 🏷️ Meta Badges Row (Civil Layout & Revenue Status) */
+	.callout-meta-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-2xs);
+		margin: var(--space-2xs) 0;
+	}
+
+	.callout-layout-badge,
 	.callout-status-badge {
 		font-size: 10px;
 		font-weight: var(--fw-bold);
-		padding: 2px 8px;
+		padding: 2px 7px;
 		border-radius: var(--radius-full, 9999px);
 		text-align: center;
-		margin: 2px auto 4px auto;
 		letter-spacing: 0.02em;
 		width: fit-content;
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		gap: 3px;
+	}
+
+	.callout-layout-badge.layout-underground {
+		background: rgba(var(--color-primary-rgb), 0.15);
+		color: rgb(var(--color-primary-rgb));
+		border: 1px solid rgba(var(--color-primary-rgb), 0.35);
+	}
+
+	.callout-layout-badge.layout-elevated {
+		background: rgba(16, 185, 129, 0.15);
+		color: #059669;
+		border: 1px solid rgba(16, 185, 129, 0.35);
+	}
+
+	.callout-layout-badge.layout-at-grade {
+		background: rgba(100, 116, 139, 0.15);
+		color: #475569;
+		border: 1px solid rgba(100, 116, 139, 0.35);
+	}
+
+	.callout-layout-badge.layout-multi-level {
+		background: rgba(192, 132, 252, 0.15);
+		color: #9333ea;
+		border: 1px solid rgba(192, 132, 252, 0.35);
 	}
 
 	.callout-status-badge.under-construction {
@@ -190,6 +233,18 @@
 		background: rgba(2, 132, 199, 0.15);
 		color: #0284c7;
 		border: 1px dotted rgba(2, 132, 199, 0.5);
+	}
+
+	.callout-status-badge.closed {
+		background: rgba(239, 68, 68, 0.15);
+		color: #dc2626;
+		border: 1px solid rgba(239, 68, 68, 0.4);
+	}
+
+	.callout-status-badge.decommissioned {
+		background: rgba(100, 116, 139, 0.15);
+		color: #64748b;
+		border: 1px solid rgba(100, 116, 139, 0.4);
 	}
 
 	/* 🕹️ ऐक्शन बटन्स रो (FROM / TO) */

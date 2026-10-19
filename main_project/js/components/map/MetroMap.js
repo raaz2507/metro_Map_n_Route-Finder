@@ -33,11 +33,13 @@ export class MetroMap {
 	#pins = null;
 	#bounds = null;
 	#zoomRange = null;
+	#centerClass = null;
 
 	onClearRoute = null;
 	onStationClick = null;
 
 	constructor({
+		centerClass = null,
 		mapContainerSelector = null,
 		metroData = null,
 		onClearRoute = null,
@@ -45,6 +47,7 @@ export class MetroMap {
 		lang = "en",
 		theme = "light",
 	}) {
+		this.#centerClass = centerClass;
 		this.#mapContainer = document.querySelector(mapContainerSelector);
 		this.#metroData = metroData;
 		this.onClearRoute = onClearRoute;
@@ -91,6 +94,7 @@ export class MetroMap {
 
 		// 3. Pan, Zoom & Interaction Engine
 		this.#panZoom = new MapPanZoom({
+			centerClass: this.#centerClass,
 			mapContainer: this.#mapContainer,
 			svgElement: this.#svgElement,
 			mainGroup: this.#mainGroup,
@@ -118,6 +122,7 @@ export class MetroMap {
 
 		// 5. Render Station Labels
 		this.#labelEngine = new MapLabelEngine({
+			centerClass: this.#centerClass,
 			mainGroup: this.#mainGroup,
 			stationData: this.#metroData.stationData,
 			labelGeometryCache,
@@ -150,6 +155,7 @@ export class MetroMap {
 
 		// 7. Legend Drawer & Top-Right Overlay Controls Hub
 		this.#legend = new MapLegend({
+			centerClass: this.#centerClass,
 			mapContainer: this.#mapContainer,
 			metroData: this.#metroData,
 			onToggleRouteVisibility: () => this.toggleRouteVisibility(),
@@ -255,6 +261,17 @@ export class MetroMap {
 		return this.#zoomRange;
 	}
 
+	get is25DMode() {
+		return Boolean(this.#panZoom?.is25DMode);
+	}
+
+	toggle25DMode(enable = null) {
+		this.#panZoom?.toggle25DMode(enable);
+	}
+
+	#cachedContainerRect = null;
+	#lastRectTimestamp = 0;
+
 	/**
 	 * Compute station screen coordinates relative to map container
 	 * @param {string} stationId
@@ -283,7 +300,13 @@ export class MetroMap {
 		if (!ctm) return null;
 
 		const screenPt = pt.matrixTransform(ctm);
-		const containerRect = this.#mapContainer.getBoundingClientRect();
+		
+		const now = performance.now();
+		if (!this.#cachedContainerRect || now - this.#lastRectTimestamp > 200) {
+			this.#cachedContainerRect = this.#mapContainer.getBoundingClientRect();
+			this.#lastRectTimestamp = now;
+		}
+		const containerRect = this.#cachedContainerRect;
 
 		return {
 			x: screenPt.x - containerRect.left,

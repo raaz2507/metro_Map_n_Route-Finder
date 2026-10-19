@@ -266,6 +266,22 @@ export class MapRenderer {
 					100,
 					effectiveStatus
 				);
+				const st1Layout = station.properties?.layout || "elevated";
+				const st2Layout = nextStation.properties?.layout || "elevated";
+				if (st1Layout === "underground" && st2Layout === "underground") {
+					line.dataset.layout = "underground";
+					line.classList.add("track-underground");
+				} else if (st1Layout === "underground" || st2Layout === "underground") {
+					line.dataset.layout = "tunnel-portal";
+					line.classList.add("track-portal");
+				} else if (st1Layout === "elevated" && st2Layout === "elevated") {
+					line.dataset.layout = "elevated";
+					line.classList.add("track-elevated");
+				} else {
+					line.dataset.layout = "at-grade";
+					line.classList.add("track-at-grade");
+				}
+
 				line.dataset.edgeId = key;
 				line.dataset.fromStation = station.id;
 				line.dataset.lineId = neighbor.line;
@@ -313,14 +329,23 @@ export class MapRenderer {
 				}
 
 				const stationStatus = station.properties?.status || "operational";
+				const stationLayout = station.properties?.layout || "elevated";
+
 				elem.dataset.stationId = station.id;
 				elem.dataset.stationType = stationType;
 				elem.dataset.status = stationStatus;
+				elem.dataset.layout = stationLayout;
+
+				elem.classList.add(`layout-${stationLayout.replace(/_/g, "-")}`);
 
 				if (stationStatus === "under_construction") {
 					elem.classList.add("station-under-construction");
-				} else if (stationStatus === "approved" || stationStatus === "proposed") {
+				} else if (stationStatus === "approved" || stationStatus === "proposed" || stationStatus === "planned") {
 					elem.classList.add("station-approved");
+				} else if (stationStatus === "temporarily_closed") {
+					elem.classList.add("station-temporarily-closed");
+				} else if (stationStatus === "decommissioned") {
+					elem.classList.add("station-decommissioned");
 				}
 				fragment.appendChild(elem);
 			}

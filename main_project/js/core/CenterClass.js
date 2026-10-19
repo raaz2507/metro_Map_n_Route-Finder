@@ -304,6 +304,7 @@ class CenterClass {
 		}
 
 		this.#mapInstance = new MetroMap({
+			centerClass: this,
 			mapContainerSelector: options.containerSelector || ".mapContainer",
 			metroData: this.#metroData,
 			lang: options.lang || "en",
@@ -366,6 +367,16 @@ class CenterClass {
 			return this.#mapInstance.getStationScreenPosition(stationId, x, y);
 		}
 		return null;
+	}
+
+	get is25DMode() {
+		return Boolean(this.#mapInstance?.is25DMode);
+	}
+
+	toggle25DMode(enable = null) {
+		if (this.#mapInstance && typeof this.#mapInstance.toggle25DMode === "function") {
+			this.#mapInstance.toggle25DMode(enable);
+		}
 	}
 	// =========================================================================
 	// 🧭 ROUTE SEARCH & PRICING ORCHESTRATION

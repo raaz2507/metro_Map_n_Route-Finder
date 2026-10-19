@@ -21,6 +21,7 @@ export class StationCalloutView {
 	#getActiveRoute = null;
 	#unsubTransform = null;
 	#onResize = null;
+	#rAFId = null;
 
 	constructor({ containerSelector = ".mapContainer", lang = "en", onRouteConfirm = null, getActiveRoute = null } = {}) {
 		this.#container = document.querySelector(containerSelector);
@@ -65,6 +66,16 @@ export class StationCalloutView {
 
 	updatePosition() {
 		if (!this.#calloutEl || !this.#activeStation) return;
+		if (this.#rAFId) return;
+
+		this.#rAFId = requestAnimationFrame(() => {
+			this.#rAFId = null;
+			this.#doUpdatePosition();
+		});
+	}
+
+	#doUpdatePosition() {
+		if (!this.#calloutEl || !this.#activeStation) return;
 		const { stationId, x, y } = this.#activeStation;
 		const pos = centerClass.getStationScreenPosition(stationId, x, y);
 		if (!pos) return;
@@ -82,6 +93,10 @@ export class StationCalloutView {
 
 	hide() {
 		this.#activeStation = null;
+		if (this.#rAFId) {
+			cancelAnimationFrame(this.#rAFId);
+			this.#rAFId = null;
+		}
 		if (this.#calloutEl) {
 			this.#calloutEl.remove();
 			this.#calloutEl = null;
@@ -89,6 +104,22 @@ export class StationCalloutView {
 		if (centerClass && typeof centerClass.clearStationHighlight === "function") {
 			centerClass.clearStationHighlight();
 		}
+	}
+
+	destroy() {
+		if (this.#rAFId) {
+			cancelAnimationFrame(this.#rAFId);
+			this.#rAFId = null;
+		}
+		if (typeof this.#unsubTransform === "function") {
+			this.#unsubTransform();
+			this.#unsubTransform = null;
+		}
+		if (this.#onResize) {
+			window.removeEventListener("resize", this.#onResize);
+			this.#onResize = null;
+		}
+		this.hide();
 	}
 
 	resetDraft() {
@@ -116,14 +147,43 @@ export class StationCalloutView {
 
 		const stationObj = centerClass.getStationDetails(stationId);
 		const status = stationObj?.properties?.status || "operational";
+		const layout = stationObj?.properties?.layout || "elevated";
+
+		// Civil layout badge
+		let layoutLabel = "";
+		if (layout === "underground") {
+			layoutLabel = this.#currentLang === "hi" ? "🚇 भूमिगत" : (this.#currentLang === "mr" ? "🚇 भुयारी" : "🚇 Underground");
+		} else if (layout === "elevated") {
+			layoutLabel = this.#currentLang === "hi" ? "🌁 एलिवेटेड" : (this.#currentLang === "mr" ? "🌁 उन्नत" : "🌁 Elevated");
+		} else if (layout === "at-grade") {
+			layoutLabel = this.#currentLang === "hi" ? "🛤️ धरातलीय" : (this.#currentLang === "mr" ? "🛤️ जमिनीवरील" : "🛤️ At-Grade");
+		} else if (layout === "multi_level") {
+			layoutLabel = this.#currentLang === "hi" ? "🏢 बहु-स्तरीय" : (this.#currentLang === "mr" ? "🏢 बहुमजली" : "🏢 Multi-Level");
+		}
+		const layoutBadgeHtml = layoutLabel ? `<span class="callout-layout-badge layout-${layout.replace(/_/g, '-')}" title="${layoutLabel}">${layoutLabel}</span>` : "";
+
+		// Revenue status badge
 		let statusBadgeHtml = "";
 		if (status === "under_construction") {
-			const badgeLabel = this.#currentLang === "hi" ? "🚧 निर्माणाधीन स्टेशन" : (this.#currentLang === "mr" ? "🚧 बांधकाम सुरू" : "🚧 Under Construction");
-			statusBadgeHtml = `<div class="callout-status-badge under-construction" title="${badgeLabel}">${badgeLabel}</div>`;
-		} else if (status === "approved" || status === "proposed") {
-			const badgeLabel = this.#currentLang === "hi" ? "🗓️ प्रस्तावित स्टेशन" : (this.#currentLang === "mr" ? "🗓️ नियोजित स्थानक" : "🗓️ Approved / Planned");
-			statusBadgeHtml = `<div class="callout-status-badge approved" title="${badgeLabel}">${badgeLabel}</div>`;
+			const badgeLabel = this.#currentLang === "hi" ? "🚧 निर्माणाधीन" : (this.#currentLang === "mr" ? "🚧 बांधकाम सुरू" : "🚧 Construction");
+			statusBadgeHtml = `<span class="callout-status-badge under-construction" title="${badgeLabel}">${badgeLabel}</span>`;
+		} else if (status === "approved" || status === "proposed" || status === "planned") {
+			const badgeLabel = this.#currentLang === "hi" ? "🗓️ प्रस्तावित" : (this.#currentLang === "mr" ? "🗓️ नियोजित" : "🗓️ Planned");
+			statusBadgeHtml = `<span class="callout-status-badge approved" title="${badgeLabel}">${badgeLabel}</span>`;
+		} else if (status === "temporarily_closed") {
+			const badgeLabel = this.#currentLang === "hi" ? "⚠️ अस्थायी बंद" : (this.#currentLang === "mr" ? "⚠️ तात्पुरते बंद" : "⚠️ Closed");
+			statusBadgeHtml = `<span class="callout-status-badge closed" title="${badgeLabel}">${badgeLabel}</span>`;
+		} else if (status === "decommissioned") {
+			const badgeLabel = this.#currentLang === "hi" ? "🛑 अप्रचलित" : (this.#currentLang === "mr" ? "🛑 निष्कासित" : "🛑 Retired");
+			statusBadgeHtml = `<span class="callout-status-badge decommissioned" title="${badgeLabel}">${badgeLabel}</span>`;
 		}
+
+		const metaBadgesHtml = (layoutBadgeHtml || statusBadgeHtml) ? `
+			<div class="callout-meta-row">
+				${layoutBadgeHtml}
+				${statusBadgeHtml}
+			</div>
+		` : "";
 
 		this.#calloutEl.innerHTML = `
 			<div class="callout-card-body">
@@ -137,7 +197,7 @@ export class StationCalloutView {
 					title="${btnText}"
 					aria-label="${btnText}"></a>
 				</div>
-				${statusBadgeHtml}
+				${metaBadgesHtml}
 				<div class="callout-actions">
 					<button type="button" class="callout-btn-from">
 						<span class="icon-from">▲</span>

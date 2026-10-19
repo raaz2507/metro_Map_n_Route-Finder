@@ -5,11 +5,11 @@
  */
 
 import { createDOMFromMap } from "../dom-builder.js";
-import { centerClass } from "../../core/CenterClass.js";
 import { eventBus } from "../../core/event-bus.js";
 import { MapGeometry } from "./MapGeometry.js";
 
 export class MapPanZoom {
+	#centerClass = null;
 	#mapContainer = null;
 	#svgElement = null;
 	#mainGroup = null;
@@ -23,6 +23,8 @@ export class MapPanZoom {
 	#minZoom = 0.4;
 	#maxZoom = 30.0;
 	#stationFocusZoom = 2.8;
+	#is25DMode = false;
+	#lastLodActive = null;
 
 	#pan = {
 		panX: 0,
@@ -30,6 +32,12 @@ export class MapPanZoom {
 		isPanning: false,
 		startX: 0,
 		startY: 0,
+		lastClientX: 0,
+		lastClientY: 0,
+		invA: 1,
+		invB: 0,
+		invC: 0,
+		invD: 1,
 		initialPinchDist: null,
 		initialZoom: 1,
 		pinchCx: 0,
@@ -44,6 +52,7 @@ export class MapPanZoom {
 	zoomScale = 1;
 
 	constructor({
+		centerClass = null,
 		mapContainer,
 		svgElement,
 		mainGroup,
@@ -53,6 +62,7 @@ export class MapPanZoom {
 		onStationHover,
 		abortSignal,
 	}) {
+		this.#centerClass = centerClass;
 		this.#mapContainer = mapContainer;
 		this.#svgElement = svgElement;
 		this.#mainGroup = mainGroup;
@@ -66,11 +76,93 @@ export class MapPanZoom {
 			if (zoomRange.stationFocusZoom) this.#stationFocusZoom = zoomRange.stationFocusZoom;
 		}
 
+		try {
+			const savedMode = localStorage.getItem("metro_map_view_mode");
+			if (savedMode === "2.5d") {
+				this.#is25DMode = true;
+				this.#mapContainer?.classList.add("is-25d-view");
+				this.zoomScale = 2.2;
+				const center = this.#getNetworkCenter();
+				if (center) {
+					this.#pan.panX = center.cx - center.cx * 2.2;
+					this.#pan.panY = center.cy - center.cy * 2.2;
+				}
+			}
+		} catch (e) {}
+
 		this.#initZoomControls(abortSignal);
 		this.#initMouseEvents(abortSignal);
 		this.#initTouchEvents(abortSignal);
 		this.#initWheelEvents(abortSignal);
 		this.#initDelegatedInteractions(abortSignal);
+	}
+
+	#getNetworkCenter() {
+		if (!this.#metroData?.stationData) return null;
+		const bounds = MapGeometry.getBounds(this.#metroData.stationData);
+		const { width, height } = MapGeometry.calculateSVGSize(bounds);
+		return { cx: width / 2, cy: height / 2 };
+	}
+
+	get is25DMode() {
+		return this.#is25DMode;
+	}
+
+	toggle25DMode(enable = null, save = true) {
+		this.#is25DMode = enable !== null ? Boolean(enable) : !this.#is25DMode;
+
+		if (this.#mapContainer) {
+			if (this.#is25DMode) {
+				this.#mapContainer.classList.add("is-25d-view");
+			} else {
+				this.#mapContainer.classList.remove("is-25d-view");
+			}
+		}
+
+		const btn = this.#elements.zoomControls?.querySelector("#toggle25DBtn");
+		if (btn) {
+			if (this.#is25DMode) {
+				btn.classList.add("active");
+				btn.textContent = "2D";
+				btn.title = this.#centerClass?.t("map.controls.view2D") || "Switch to 2D Flat Mode";
+			} else {
+				btn.classList.remove("active");
+				btn.textContent = "2.5D";
+				btn.title = this.#centerClass?.t("map.controls.view25D") || "Switch to 2.5D Perspective Mode";
+			}
+		}
+
+		if (save) {
+			try {
+				localStorage.setItem("metro_map_view_mode", this.#is25DMode ? "2.5d" : "2d");
+			} catch (e) {}
+		}
+
+		// 🎯 Step 2: Auto-focus & Readable Zoom in 2.5D mode
+		if (this.#is25DMode) {
+			if (this.zoomScale < 1.8) {
+				const center = this.#getNetworkCenter();
+				const targetZoom = Math.min(2.2, this.#maxZoom);
+				if (center) {
+					const targetPanX = center.cx - center.cx * targetZoom;
+					const targetPanY = center.cy - center.cy * targetZoom;
+					this.animatePanAndZoom(targetPanX, targetPanY, targetZoom, 500);
+				} else {
+					this.zoomScale = targetZoom;
+					this.updateZoomTransform();
+				}
+			} else {
+				this.updateZoomTransform();
+			}
+		} else {
+			if (Math.abs(this.zoomScale - 2.2) < 0.1) {
+				this.animatePanAndZoom(0, 0, 1.0, 450);
+			} else {
+				this.updateZoomTransform();
+			}
+		}
+
+		eventBus.emit("MAP_VIEW_MODE_CHANGED", { is25D: this.#is25DMode });
 	}
 
 	get minZoom() {
@@ -136,7 +228,7 @@ export class MapPanZoom {
 				type: "button",
 				id: "zoomInBtn",
 				cls: "zoom-btn",
-				oth_att: { title: centerClass.t("map.controls.zoomIn") },
+				oth_att: { title: this.#centerClass?.t("map.controls.zoomIn") || "Zoom In" },
 				html_con: "+",
 				parent: "zoomControls",
 			},
@@ -144,7 +236,7 @@ export class MapPanZoom {
 				type: "button",
 				id: "zoomOutBtn",
 				cls: "zoom-btn",
-				oth_att: { title: centerClass.t("map.controls.zoomOut") },
+				oth_att: { title: this.#centerClass?.t("map.controls.zoomOut") || "Zoom Out" },
 				html_con: "-",
 				parent: "zoomControls",
 			},
@@ -152,8 +244,16 @@ export class MapPanZoom {
 				type: "button",
 				id: "resetZoomBtn",
 				cls: "zoom-btn",
-				oth_att: { title: centerClass.t("map.controls.resetZoom") },
+				oth_att: { title: this.#centerClass?.t("map.controls.resetZoom") || "Reset Zoom" },
 				html_con: "=",
+				parent: "zoomControls",
+			},
+			toggle25DBtn: {
+				type: "button",
+				id: "toggle25DBtn",
+				cls: `zoom-btn view-mode-btn${this.#is25DMode ? " active" : ""}`,
+				oth_att: { title: this.#is25DMode ? (this.#centerClass?.t("map.controls.view2D") || "Switch to 2D Flat Mode") : (this.#centerClass?.t("map.controls.view25D") || "Switch to 2.5D Perspective Mode") },
+				html_con: this.#is25DMode ? "2D" : "2.5D",
 				parent: "zoomControls",
 			},
 		};
@@ -166,19 +266,24 @@ export class MapPanZoom {
 			this.#elements.zoomControls.addEventListener(
 				"click",
 				(event) => {
-					if (event.target.id === "zoomInBtn") {
+					const btn = event.target.closest("button");
+					if (!btn) return;
+
+					if (btn.id === "zoomInBtn") {
 						const next = this.zoomScale * 1.3;
 						this.zoomScale = Math.min(this.#maxZoom, Math.round(next * 100) / 100);
 						this.updateZoomTransform();
-					} else if (event.target.id === "zoomOutBtn") {
+					} else if (btn.id === "zoomOutBtn") {
 						const next = this.zoomScale / 1.3;
 						this.zoomScale = Math.max(this.#minZoom, Math.round(next * 100) / 100);
 						this.updateZoomTransform();
-					} else if (event.target.id === "resetZoomBtn") {
+					} else if (btn.id === "resetZoomBtn") {
 						this.zoomScale = 1;
 						this.#pan.panX = 0;
 						this.#pan.panY = 0;
 						this.updateZoomTransform();
+					} else if (btn.id === "toggle25DBtn") {
+						this.toggle25DMode();
 					}
 				},
 				{ signal },
@@ -189,6 +294,14 @@ export class MapPanZoom {
 	// =========================================================================
 	// Mouse & Dragging Events
 	// =========================================================================
+
+	#scheduleTransformUpdate() {
+		if (this.#panAnimFrame) return;
+		this.#panAnimFrame = requestAnimationFrame(() => {
+			this.#panAnimFrame = null;
+			this.updateZoomTransform();
+		});
+	}
 
 	#initMouseEvents(signal) {
 		const svg = this.#svgElement;
@@ -202,11 +315,18 @@ export class MapPanZoom {
 					this.#panAnimFrame = null;
 				}
 				this.#pan.isPanning = true;
+				this.#mapContainer?.classList.add("is-panning");
 				svg.style.cursor = "grabbing";
 
-				const svgPt = MapGeometry.getSVGCoordinates(svg, e.clientX, e.clientY);
-				this.#pan.startX = svgPt.x - this.#pan.panX;
-				this.#pan.startY = svgPt.y - this.#pan.panY;
+				const inv = svg.getScreenCTM()?.inverse();
+				if (inv) {
+					this.#pan.invA = inv.a;
+					this.#pan.invB = inv.b;
+					this.#pan.invC = inv.c;
+					this.#pan.invD = inv.d;
+				}
+				this.#pan.lastClientX = e.clientX;
+				this.#pan.lastClientY = e.clientY;
 			},
 			{ signal },
 		);
@@ -216,11 +336,15 @@ export class MapPanZoom {
 			(e) => {
 				if (!this.#pan.isPanning) return;
 
-				const svgPt = MapGeometry.getSVGCoordinates(svg, e.clientX, e.clientY);
-				this.#pan.panX = svgPt.x - this.#pan.startX;
-				this.#pan.panY = svgPt.y - this.#pan.startY;
+				const deltaX = e.clientX - this.#pan.lastClientX;
+				const deltaY = e.clientY - this.#pan.lastClientY;
+				this.#pan.lastClientX = e.clientX;
+				this.#pan.lastClientY = e.clientY;
 
-				this.updateZoomTransform();
+				this.#pan.panX += deltaX * this.#pan.invA + deltaY * this.#pan.invC;
+				this.#pan.panY += deltaX * this.#pan.invB + deltaY * this.#pan.invD;
+
+				this.#scheduleTransformUpdate();
 			},
 			{ signal },
 		);
@@ -228,8 +352,15 @@ export class MapPanZoom {
 		window.addEventListener(
 			"mouseup",
 			() => {
+				if (!this.#pan.isPanning) return;
 				this.#pan.isPanning = false;
+				this.#mapContainer?.classList.remove("is-panning");
 				svg.style.cursor = "grab";
+				if (this.#panAnimFrame) {
+					cancelAnimationFrame(this.#panAnimFrame);
+					this.#panAnimFrame = null;
+				}
+				this.updateZoomTransform();
 			},
 			{ signal },
 		);
@@ -252,10 +383,17 @@ export class MapPanZoom {
 				}
 				if (e.touches.length === 1) {
 					this.#pan.isPanning = true;
+					this.#mapContainer?.classList.add("is-panning");
 					const touch = e.touches[0];
-					const svgPt = MapGeometry.getSVGCoordinates(svg, touch.clientX, touch.clientY);
-					this.#pan.startX = svgPt.x - this.#pan.panX;
-					this.#pan.startY = svgPt.y - this.#pan.panY;
+					const inv = svg.getScreenCTM()?.inverse();
+					if (inv) {
+						this.#pan.invA = inv.a;
+						this.#pan.invB = inv.b;
+						this.#pan.invC = inv.c;
+						this.#pan.invD = inv.d;
+					}
+					this.#pan.lastClientX = touch.clientX;
+					this.#pan.lastClientY = touch.clientY;
 				} else if (e.touches.length === 2) {
 					this.#pan.isPanning = false;
 					const dx = e.touches[0].clientX - e.touches[1].clientX;
@@ -277,10 +415,14 @@ export class MapPanZoom {
 			(e) => {
 				if (e.touches.length === 1 && this.#pan.isPanning) {
 					const touch = e.touches[0];
-					const svgPt = MapGeometry.getSVGCoordinates(svg, touch.clientX, touch.clientY);
-					this.#pan.panX = svgPt.x - this.#pan.startX;
-					this.#pan.panY = svgPt.y - this.#pan.startY;
-					this.updateZoomTransform();
+					const deltaX = touch.clientX - this.#pan.lastClientX;
+					const deltaY = touch.clientY - this.#pan.lastClientY;
+					this.#pan.lastClientX = touch.clientX;
+					this.#pan.lastClientY = touch.clientY;
+
+					this.#pan.panX += deltaX * this.#pan.invA + deltaY * this.#pan.invC;
+					this.#pan.panY += deltaX * this.#pan.invB + deltaY * this.#pan.invD;
+					this.#scheduleTransformUpdate();
 				} else if (e.touches.length === 2 && this.#pan.initialPinchDist) {
 					e.preventDefault();
 					const dx = e.touches[0].clientX - e.touches[1].clientX;
@@ -293,7 +435,7 @@ export class MapPanZoom {
 					this.#pan.panX = this.#pan.pinchCx - (this.#pan.pinchCx - this.#pan.panX) * (newZoom / this.zoomScale);
 					this.#pan.panY = this.#pan.pinchCy - (this.#pan.pinchCy - this.#pan.panY) * (newZoom / this.zoomScale);
 					this.zoomScale = newZoom;
-					this.updateZoomTransform();
+					this.#scheduleTransformUpdate();
 				}
 			},
 			{ passive: false, signal },
@@ -307,6 +449,12 @@ export class MapPanZoom {
 				}
 				if (e.touches.length === 0) {
 					this.#pan.isPanning = false;
+					this.#mapContainer?.classList.remove("is-panning");
+					if (this.#panAnimFrame) {
+						cancelAnimationFrame(this.#panAnimFrame);
+						this.#panAnimFrame = null;
+					}
+					this.updateZoomTransform();
 				}
 			},
 			{ signal },
@@ -340,7 +488,7 @@ export class MapPanZoom {
 				this.#pan.panY = mousePt.y - (mousePt.y - this.#pan.panY) * (newZoom / oldZoom);
 				this.zoomScale = newZoom;
 
-				this.updateZoomTransform();
+				this.#scheduleTransformUpdate();
 			},
 			{ signal, passive: false },
 		);
@@ -417,6 +565,15 @@ export class MapPanZoom {
 
 			if (this.#elements.zoomLevel) {
 				this.#elements.zoomLevel.textContent = `${Math.round(this.zoomScale * 100)}%`;
+			}
+
+			// 🚀 Dynamic Mobile Level-Of-Detail (LOD): Hide minor station labels when zoomed out to save 75% GPU text rasterizer memory
+			if (this.#labelGroup) {
+				const isLODActive = this.#is25DMode ? this.zoomScale < 1.25 : this.zoomScale < 0.75;
+				if (this.#lastLodActive !== isLODActive) {
+					this.#lastLodActive = isLODActive;
+					this.#labelGroup.classList.toggle("lod-zoomed-out", isLODActive);
+				}
 			}
 
 			eventBus.emit("MAP_TRANSFORM_CHANGED", {

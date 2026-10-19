@@ -5,18 +5,16 @@
 	.map-section {
 		padding: var(--space-sm);
 		
-		/* थीम आधारित 100% ट्रांसपेरेंट ग्लास बैकग्राउंड */
+		/* Clean Glass Background without GPU-killing live blur filter */
 		border-radius: var(--map-radius); 
 		border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15)); 
-		background-color: rgba(var(--color-bg-base-rgb, 255, 255, 255), 0.65); 
-		backdrop-filter: blur(var(--backdrop-blur, 16px));
-		-webkit-backdrop-filter: blur(var(--backdrop-blur, 16px));
+		background-color: rgba(var(--color-bg-base-rgb, 255, 255, 255), 0.92); 
 		
 		/* GPU Layer Isolation & Anti-flicker */
 		transform: translateZ(0);
 		contain: paint layout;
 
-		/* स्मूथ थीम स्विचिंग ट्रांजिशन */
+		/* Smooth theme switching */
 		transition: background-color var(--transition-smooth), 
 					border-color var(--transition-smooth), 
 					box-shadow var(--transition-smooth);
@@ -33,6 +31,18 @@
 		outline: none;
 		background: transparent;
 		border: none;
+		border-radius: inherit;
+		overflow: hidden;
+	}
+
+	.mapContainer.is-25d-view {
+		perspective: 1200px;
+		perspective-origin: 50% 70%;
+		background: radial-gradient(
+			ellipse 85% 65% at 50% 65%,
+			rgba(var(--color-primary-rgb), 0.05) 0%,
+			transparent 75%
+		);
 	}
 
 	.mapContainer svg {
@@ -41,7 +51,110 @@
 		height: 100%;
 		max-width: 100%;
 		max-height: 100%;
-		object-fit: contain;
+		transform-origin: 50% 70%;
+		transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+		will-change: transform;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+	}
+
+	#main_layer {
+		will-change: transform;
+	}
+
+	/* 🚀 High-FPS Drag Mode: Suppress transitions, disable hit-testing & optimize vector speeds */
+	.mapContainer.is-panning,
+	.mapContainer.is-panning svg,
+	.mapContainer.is-panning * {
+		transition: none !important;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	.mapContainer.is-panning svg * {
+		pointer-events: none !important;
+	}
+
+	.mapContainer.is-panning svg {
+		shape-rendering: optimizeSpeed !important;
+		text-rendering: optimizeSpeed !important;
+	}
+
+	/* 🚀 2.5D Perspective Flight Deck Rotation (Compensate Foreshortening to Fill Container) */
+	.mapContainer.is-25d-view svg {
+		transform: translateY(-8%) rotateX(24deg) scale(1.38);
+	}
+
+	/* 🚀 Level-Of-Detail (LOD): Hide minor station labels when zoomed out in 2.5D to save 75% GPU text rendering */
+	#stationLabels.lod-zoomed-out text.label-normal {
+		display: none;
+	}
+
+	/* 🌁 Elevated Stations: Raised Viaduct Pillar Profile in 2.5D */
+	.mapContainer.is-25d-view svg [data-layout="elevated"] circle,
+	.mapContainer.is-25d-view svg .layout-elevated circle,
+	.mapContainer.is-25d-view svg circle[data-layout="elevated"] {
+		stroke-width: 80 !important;
+		filter: none !important;
+		transform: none !important;
+	}
+
+	/* 🌁 Elevated Tracks */
+	.mapContainer.is-25d-view svg line.track-elevated {
+		stroke-width: 110 !important;
+		filter: none !important;
+		transform: none !important;
+	}
+
+	/* 🚇 Underground Stations: Subterranean Sunken Shaft in 2.5D */
+	.mapContainer.is-25d-view svg [data-layout="underground"] circle,
+	.mapContainer.is-25d-view svg .layout-underground circle,
+	.mapContainer.is-25d-view svg circle[data-layout="underground"] {
+		fill: #0f172a !important;
+		stroke: #64748b !important;
+		stroke-width: 65 !important;
+		opacity: 0.85;
+		filter: none !important;
+		transform: none !important;
+	}
+
+	/* 🚇 Underground Tracks: Dark Subterranean Tunnel Trench in 2.5D */
+	.mapContainer.is-25d-view svg line.track-underground {
+		stroke: #334155 !important;
+		stroke-width: 70 !important;
+		opacity: 0.65;
+		filter: none !important;
+		transform: none !important;
+	}
+
+	/* 🏢 Multi-Level Stations */
+	.mapContainer.is-25d-view svg [data-layout="multi_level"] circle,
+	.mapContainer.is-25d-view svg .layout-multi-level circle,
+	.mapContainer.is-25d-view svg circle[data-layout="multi_level"] {
+		stroke-width: 95 !important;
+		filter: none !important;
+		transform: none !important;
+	}
+
+	/* 🛤️ At-grade / Surface Stations: Anchored directly on ground plane */
+	.mapContainer.is-25d-view svg [data-layout="at-grade"] circle,
+	.mapContainer.is-25d-view svg .layout-at-grade circle,
+	.mapContainer.is-25d-view svg circle[data-layout="at-grade"] {
+		stroke-width: 50 !important;
+		opacity: 0.98;
+		filter: none !important;
+		transform: none !important;
+	}
+
+	.mapContainer.is-25d-view svg line.track-at-grade {
+		filter: none !important;
+		transform: none !important;
+	}
+
+	/* 📍 3D Billboard Pin Badges: Vertically upright facing user camera (single element, GPU friendly) */
+	.mapContainer.is-25d-view svg .route-pin-badge {
+		transform-origin: 0% 100%;
+		transform: rotateX(-46deg) rotateZ(10deg) !important;
 	}
 
 	/* =========================================================================
@@ -275,6 +388,7 @@
 		align-items: center;
 		justify-content: center;
 		z-index: var(--z-sidebar);
+		pointer-events: auto;
 		transition: 
 			background-color var(--transition-smooth), 
 			border-color var(--transition-smooth), 
@@ -320,10 +434,23 @@
 		transform: scale(0.95);
 	}
 
-	/* Transition for Interactive Map Elements */
-	circle, line, text {
-		transition: opacity var(--transition-smooth), r var(--transition-smooth), stroke-width var(--transition-smooth), font-weight var(--transition-smooth);
+	#zoomControls button.view-mode-btn {
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		letter-spacing: 0.5px;
+		min-width: 36px;
+		padding: 0 4px;
 	}
+
+	#zoomControls button.view-mode-btn.active {
+		background: linear-gradient(135deg, rgb(var(--color-primary-rgb)), rgb(var(--color-primary-dark-rgb, var(--color-primary-rgb))));
+		color: #ffffff;
+		border-color: transparent;
+		box-shadow: 0 0 10px rgba(var(--color-primary-rgb), 0.5);
+	}
+
+
 
 	/* =========================================================================
 	Floating Top-Left Controls Hub (Clear Route + Legend Flex Group)
@@ -464,6 +591,22 @@
 		stroke: #0284c7;
 		stroke-dasharray: 25 35;
 		opacity: 0.85;
+	}
+
+	/* ⚠️ Temporarily Closed Station */
+	.mapContainer svg circle.station-temporarily-closed,
+	.mapContainer svg g.station-temporarily-closed circle {
+		opacity: 0.6;
+		stroke: #ef4444;
+		filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+	}
+
+	/* 🛑 Decommissioned / Abandoned Station */
+	.mapContainer svg circle.station-decommissioned,
+	.mapContainer svg g.station-decommissioned circle {
+		opacity: 0.35;
+		stroke: #64748b;
+		filter: grayscale(1);
 	}
 
 	/* Hidden state controlled by Map Settings Toggles */

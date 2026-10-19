@@ -4,15 +4,15 @@
  * multi-line SVG <tspan> formatting, and batch single-reflow DOM insertion.
  */
 
-import { centerClass } from "../../core/CenterClass.js";
-
 export class MapLabelEngine {
+	#centerClass = null;
 	#mainGroup = null;
 	#stationData = null;
 	#labelGeometryCache = null;
 	#currentLabelGroup = null;
 
-	constructor({ mainGroup, stationData, labelGeometryCache }) {
+	constructor({ centerClass = null, mainGroup, stationData, labelGeometryCache }) {
+		this.#centerClass = centerClass;
 		this.#mainGroup = mainGroup;
 		this.#stationData = stationData;
 		this.#labelGeometryCache = labelGeometryCache;
@@ -84,7 +84,7 @@ export class MapLabelEngine {
 				isEven: true,
 			};
 
-			const rawName = centerClass.getStationName(station.id) || "";
+			const rawName = this.#centerClass?.getStationName?.(station.id) || station.name || "";
 			const lines = MapLabelEngine.getWrappedLines(rawName);
 
 			let x = station.xy.x;
@@ -189,9 +189,11 @@ export class MapLabelEngine {
 			text.setAttribute("fill", "#222");
 			text.setAttribute("text-anchor", textAnchor);
 			text.setAttribute("dominant-baseline", dominantBaseline);
-			text.setAttribute("style", "user-select: none;");
+			const stationType = station.properties?.station_type || (station.lines?.length > 1 ? "interchange" : "normal");
 			text.dataset.stationId = station.id;
+			text.dataset.stationType = stationType;
 			text.dataset.status = station.properties?.status || "operational";
+			text.classList.add(`label-${stationType}`);
 
 			if (lines.length === 1) {
 				text.textContent = lines[0];

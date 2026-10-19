@@ -128,17 +128,15 @@
 	}
 
 	@layer components {
-		/* Mobile sidebar-wrapper adjustments */
+		/* Mobile sidebar-wrapper adjustments: Keep anchored at bottom-right just like desktop */
 		.sidebar-wrapper {
-			top: var(--space-sm);
-			left: var(--space-sm);
+			bottom: var(--space-sm);
+			top: auto;
 			right: var(--space-sm);
+			left: auto;
 			gap: var(--space-xs);
-			width: auto;
-			max-width: calc(100% - var(--space-md));
-			height: calc(100% - var(--space-md));
-			justify-content: flex-start;
-			align-items: flex-start;
+			max-height: calc(100% - var(--space-md));
+			align-items: flex-end;
 		}
 		.map-section {
 			min-height: 0;
