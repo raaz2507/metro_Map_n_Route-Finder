@@ -93,36 +93,67 @@
 	}
 }
 
-@layer components {
-	/* =========================================================================
-	🗺️ LEGEND OPEN STATE OVERLAYS HIDE (Desktop & Mobile)
-	जब Legend खुला हो, तो साइडबार नेव और सभी फ्लोटिंग ओवरले कंट्रोल्स स्मूथली छुप जाएं
-	========================================================================= */
-	body[data-legend-open="true"] :is(
-		#sidebar-nav,
-		.sidebar-nav,
-		.alarm-widget-wrapper,
-		#telemetrySignalCard,
-		#speedometer-widget,
-		#zoomControls,
-		.clear-route-highlight-btn
-	),
-	body:has(.legend-panel.active) :is(
-		#sidebar-nav,
-		.sidebar-nav,
-		.alarm-widget-wrapper,
-		#telemetrySignalCard,
-		#speedometer-widget,
-		#zoomControls,
-		.clear-route-highlight-btn
-	) {
-		opacity: 0;
-		visibility: hidden;
-		pointer-events: none;
-		transform: translateY(var(--space-lg));
-		transition: 
-			opacity var(--transition-smooth), 
-			transform var(--transition-smooth), 
-			visibility 0s var(--duration-normal);
+/* =========================================================================
+🗺️ LEGEND OPEN STATE OVERLAYS HIDE (Desktop & Mobile)
+========================================================================= */
+
+/* 🖥️ Desktop (min-width: 769px): Legend khulne par keval left side ke widgets (Telemetry, Speedometer, Zoom) hide honge.
+   Right side par maujood Sidebar Nav aur Alarm Widget poori tarah visible aur active rahenge. */
+@media (min-width: 769px) {
+	@layer components {
+		body[data-legend-open="true"] :is(
+			#telemetrySignalCard,
+			#speedometer-widget,
+			#zoomControls,
+			.clear-route-highlight-btn
+		),
+		body:has(.legend-panel.active) :is(
+			#telemetrySignalCard,
+			#speedometer-widget,
+			#zoomControls,
+			.clear-route-highlight-btn
+		) {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transform: translateY(var(--space-lg));
+			transition: 
+				opacity var(--transition-smooth), 
+				transform var(--transition-smooth), 
+				visibility 0s var(--duration-normal);
+		}
+	}
+}
+
+/* 📱 Mobile (max-width: 768px): Screen space kam hone ke kaaran Legend open hone par sabhi overlays & sidebar hide honge */
+@media (max-width: 768px) {
+	@layer components {
+		body[data-legend-open="true"] :is(
+			#sidebar-nav,
+			.sidebar-nav,
+			.alarm-widget-wrapper,
+			#telemetrySignalCard,
+			#speedometer-widget,
+			#zoomControls,
+			.clear-route-highlight-btn
+		),
+		body:has(.legend-panel.active) :is(
+			#sidebar-nav,
+			.sidebar-nav,
+			.alarm-widget-wrapper,
+			#telemetrySignalCard,
+			#speedometer-widget,
+			#zoomControls,
+			.clear-route-highlight-btn
+		) {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transform: translateY(var(--space-lg));
+			transition: 
+				opacity var(--transition-smooth), 
+				transform var(--transition-smooth), 
+				visibility 0s var(--duration-normal);
+		}
 	}
 }

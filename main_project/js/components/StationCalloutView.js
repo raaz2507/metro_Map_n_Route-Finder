@@ -9,7 +9,7 @@
  */
 
 import { centerClass } from "../core/CenterClass.js";
-
+import { eventBus } from "../core/event-bus.js";
 
 export class StationCalloutView {
 	#container = null;
@@ -19,12 +19,21 @@ export class StationCalloutView {
 	#draftRoute = { from: null, to: null };
 	#onRouteConfirm = null;
 	#getActiveRoute = null;
+	#unsubTransform = null;
+	#onResize = null;
 
 	constructor({ containerSelector = ".mapContainer", lang = "en", onRouteConfirm = null, getActiveRoute = null } = {}) {
 		this.#container = document.querySelector(containerSelector);
 		this.#currentLang = lang;
 		this.#onRouteConfirm = onRouteConfirm;
 		this.#getActiveRoute = getActiveRoute;
+
+		this.#unsubTransform = eventBus.on("MAP_TRANSFORM_CHANGED", () => {
+			this.updatePosition();
+		});
+
+		this.#onResize = () => this.updatePosition();
+		window.addEventListener("resize", this.#onResize);
 	}
 
 	setLanguage(newLang) {
@@ -51,6 +60,24 @@ export class StationCalloutView {
 		}
 
 		this.#renderInitialCard(stationId, x, y);
+		this.updatePosition();
+	}
+
+	updatePosition() {
+		if (!this.#calloutEl || !this.#activeStation) return;
+		const { stationId, x, y } = this.#activeStation;
+		const pos = centerClass.getStationScreenPosition(stationId, x, y);
+		if (!pos) return;
+
+		this.#calloutEl.style.left = `${Math.round(pos.x)}px`;
+		this.#calloutEl.style.top = `${Math.round(pos.y)}px`;
+
+		if (this.#container) {
+			const cw = this.#container.clientWidth;
+			const ch = this.#container.clientHeight;
+			const isOffscreen = pos.x < -180 || pos.x > cw + 180 || pos.y < -180 || pos.y > ch + 180;
+			this.#calloutEl.style.display = isOffscreen ? "none" : "";
+		}
 	}
 
 	hide() {
@@ -69,6 +96,14 @@ export class StationCalloutView {
 	}
 
 	destroy() {
+		if (this.#unsubTransform) {
+			this.#unsubTransform();
+			this.#unsubTransform = null;
+		}
+		if (this.#onResize) {
+			window.removeEventListener("resize", this.#onResize);
+			this.#onResize = null;
+		}
 		this.hide();
 		this.resetDraft();
 		this.#container = null;

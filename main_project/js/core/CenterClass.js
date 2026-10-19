@@ -360,6 +360,13 @@ class CenterClass {
 			this.#mapInstance.clearStationHighlight();
 		}
 	}
+
+	getStationScreenPosition(stationId, x = null, y = null) {
+		if (this.#mapInstance && typeof this.#mapInstance.getStationScreenPosition === "function") {
+			return this.#mapInstance.getStationScreenPosition(stationId, x, y);
+		}
+		return null;
+	}
 	// =========================================================================
 	// 🧭 ROUTE SEARCH & PRICING ORCHESTRATION
 	// =========================================================================

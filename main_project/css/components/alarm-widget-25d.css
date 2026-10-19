@@ -6,11 +6,12 @@
 
 @layer components {
 
-	/* 1. Outer Wrapper (Positioned at Bottom-Left, traces notch drop shadow) */
+	/* 1. Outer Wrapper (Positioned at Bottom-Right, pushed left of sidebar with gap) */
 	.alarm-widget-wrapper {
 		position: absolute;
-		bottom: calc(var(--space-lg) + 12px);
-		left: var(--space-lg);
+		bottom: var(--space-lg);
+		right: calc(var(--space-lg) + var(--size-sidebar-nav-w) + var(--space-md));
+		left: auto;
 		z-index: var(--z-sidebar);
 		width: 100%;
 		max-width: 385px;
@@ -31,28 +32,29 @@
 		filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22))
 		        drop-shadow(0 2.5px 7px rgba(234, 88, 12, 0.35));
 		max-width: 220px;
-		right: auto;
+		left: auto;
 	}
 
-	/* 2. The Card Body with Radial Cutout Mask */
+	/* 2. The Card Body with Radial Cutout Mask (Flipped for Right-Side Placement) */
 	.alarm-widget-card {
 		width: 100%;
 		background: var(--card-bg);
 		border: var(--bw-thin) solid var(--border-color);
-		border-top: 2px solid var(--specular-rim);
-		border-bottom: 4px solid #ea580c;
+		border-top: var(--bw-md) solid var(--specular-rim);
+		border-bottom: var(--bw-heavy) solid #ea580c;
 		border-radius: var(--radius-lg);
 		display: flex;
+		flex-direction: row-reverse;
 		position: relative;
 		box-sizing: border-box;
 		transition: all var(--transition-smooth);
-		/* 🎟️ Physical Cutout: Notch curves out at x = 76px */
+		/* 🎟️ Physical Cutout: Notch curves out at x = calc(100% - 76px) */
 		-webkit-mask-image: 
-			radial-gradient(circle 7px at 76px 0%, transparent 7px, #000 7.5px),
-			radial-gradient(circle 7px at 76px 100%, transparent 7px, #000 7.5px);
+			radial-gradient(circle 7px at calc(100% - 76px) 0%, transparent 7px, #000 7.5px),
+			radial-gradient(circle 7px at calc(100% - 76px) 100%, transparent 7px, #000 7.5px);
 		mask-image: 
-			radial-gradient(circle 7px at 76px 0%, transparent 7px, #000 7.5px),
-			radial-gradient(circle 7px at 76px 100%, transparent 7px, #000 7.5px);
+			radial-gradient(circle 7px at calc(100% - 76px) 0%, transparent 7px, #000 7.5px),
+			radial-gradient(circle 7px at calc(100% - 76px) 100%, transparent 7px, #000 7.5px);
 		-webkit-mask-composite: source-in;
 		mask-composite: intersect;
 	}
@@ -66,11 +68,12 @@
 		display: none;
 	}
 
-	/* 3. Decorative Notch Rim Borders (Follow the cutout curve) */
+	/* 3. Decorative Notch Rim Borders (Follow the cutout curve on right side) */
 	.alarm-widget-notch-top,
 	.alarm-widget-notch-bottom {
 		position: absolute;
-		left: 69px;
+		right: 69px;
+		left: auto;
 		width: 14px;
 		height: 14px;
 		border-radius: var(--radius-full);
@@ -86,7 +89,7 @@
 
 	.alarm-widget-notch-bottom {
 		bottom: -7px;
-		border-top: 4px solid #ea580c;
+		border-top: var(--bw-heavy) solid #ea580c;
 		transition: border-color var(--transition-smooth);
 	}
 
@@ -95,12 +98,13 @@
 	}
 
 	/* =========================================================================
-	   LEFT WING: Bouncing Alarm Pod & Status Badge
+	   RIGHT WING: Bouncing Alarm Pod & Status Badge (Flipped to Right Edge)
 	   ========================================================================= */
 	.alarm-pod-wing {
 		width: 76px;
 		background: rgba(234, 88, 12, 0.08);
-		border-right: var(--bw-thin) dashed var(--border-color);
+		border-left: var(--bw-thin) dashed var(--border-color);
+		border-right: none;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -543,8 +547,8 @@
 	@media (max-width: 768px) {
 		.alarm-widget-wrapper {
 			bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
-			left: var(--space-xs);
-			right: auto;
+			right: calc(var(--space-xs) + var(--size-sidebar-nav-w-md) + var(--space-xs));
+			left: auto;
 			max-width: 275px; /* Realme आदि में ज़ूम विजेट से सुरक्षित दूरी */
 		}
 
@@ -554,7 +558,7 @@
 
 		.alarm-widget-wrapper.is-inactive {
 			max-width: 220px;
-			right: auto;
+			left: auto;
 		}
 
 		.alarm-widget-card.is-inactive {
@@ -586,9 +590,9 @@
 	/* 2. Small Screen Only (iPhone SE, 360px - केवल 380px से नीचे) */
 	@media (max-width: 380px) {
 		.alarm-widget-wrapper {
-			left: var(--space-xs);
+			right: calc(var(--space-xs) + var(--size-sidebar-nav-w-sm) + var(--space-2xs));
 			bottom: var(--space-lg);
-			right: auto;
+			left: auto;
 			max-width: 250px;
 		}
 

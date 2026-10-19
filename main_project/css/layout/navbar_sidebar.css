@@ -1,12 +1,15 @@
 @layer components {
-	/* css/navbar_sidebar.css */
+	/* =========================================================================
+	   SIDEBAR NAVIGATION BAR (Token-Compliant Common Architecture)
+	   Strictly adheres to Master Design Tokens from base.css
+	   ========================================================================= */
 
 	.sidebar-nav {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: rgba(var(--color-bg-base-rgb), var(--op-translucent)); /* op-translucent */
-		border: 1px solid var(--border-color);
+		background: rgba(var(--color-bg-base-rgb), var(--op-translucent));
+		border: var(--bw-thin) solid var(--border-color);
 		border-radius: var(--radius-lg);
 		padding: var(--space-xs);
 		width: fit-content;
@@ -19,7 +22,7 @@
 
 	.sidebar-nav-list {
 		display: flex;
-		flex-direction: column; 
+		flex-direction: column;
 		gap: var(--space-xs);
 		list-style: none;
 		margin: 0;
@@ -32,13 +35,14 @@
 		position: relative;
 	}
 
+	/* 🎯 Uniform Button Geometry: Identical dimensions for all 5 buttons */
 	.sidebar-link {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: var(--space-xs);
-		padding: var(--space-xs);
+		gap: var(--space-2xs);
+		padding: var(--space-2xs) var(--space-xs);
 		background: transparent;
 		border: none;
 		border-radius: var(--radius-md);
@@ -46,40 +50,24 @@
 		cursor: pointer;
 		text-decoration: none;
 		text-align: center;
-		width: 56px;
-		min-height: 50px;
-		transition: var(--transition-smooth);
+		width: var(--size-sidebar-btn-w);
+		height: var(--size-sidebar-btn-h);
+		min-height: var(--size-sidebar-btn-h);
+		box-sizing: border-box;
+		transition: color var(--transition-smooth), background-color var(--transition-smooth), transform var(--transition-fast);
 	}
 
-	.sidebar-link:hover {
-		color: var(--text-primary);
-		background: rgba(var(--color-bg-base-rgb), var(--op-glow));
-	}
-
-	.sidebar-link:hover .icon::after {
-		background-color: var(--text-primary);
-	}
-
-	.sidebar-link.active {
-		color: var(--btn-primary-text);
-		background: var(--btn-primary-bg);
-	}
-
-	.sidebar-link.active .icon::after,
-	.sidebar-link.active svg {
-		background-color: var(--btn-primary-text) ;
-		fill: var(--btn-primary-text) ;
-		stroke: var(--btn-primary-text) ;
-	}
-
+	/* 1. Base Icon Container inside Sidebar Link */
 	.sidebar-link .icon {
-		width: 24px;
-		height: 24px;
+		width: var(--size-icon-lg);
+		height: var(--size-icon-lg);
+		flex-shrink: 0;
 	}
 
-	/* Text style: Allows clean wrapping into next line without cutting */
+	/* 2. Text Style: Fixed vertical slot so all icons align uniformly across 1-line and 2-line labels */
 	.sidebar-link span:last-child {
-		font-size: 0.68rem;
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
 		font-weight: var(--fw-semibold);
 		letter-spacing: 0.2px;
 		text-transform: capitalize;
@@ -87,26 +75,75 @@
 		white-space: normal;
 		line-height: 1.15;
 		word-break: break-word;
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 22px;
+		text-align: center;
 	}
 
-		/* 1. Realme & Standard Mobile (381px - 768px) - थोड़ा बड़ा और आरामदायक टच */
+	/* 3. Hover State */
+	.sidebar-link:hover {
+		color: var(--text-primary);
+		background-color: rgba(var(--color-bg-base-rgb), var(--op-glow));
+	}
+
+	.sidebar-link:hover .icon::after {
+		background-color: var(--text-primary);
+	}
+
+	/* 4. Active State */
+	.sidebar-link.active {
+		color: var(--btn-primary-text);
+		background-color: var(--btn-primary-bg);
+	}
+
+	.sidebar-link.active .icon::after,
+	.sidebar-link.active svg {
+		background-color: var(--btn-primary-text);
+		fill: var(--btn-primary-text);
+		stroke: var(--btn-primary-text);
+	}
+
+	/* 5. Active + Hover State (Preserve bright active styling) */
+	.sidebar-link.active:hover {
+		color: var(--btn-primary-text);
+		background-color: var(--btn-primary-hover);
+	}
+
+	.sidebar-link.active:hover .icon::after {
+		background-color: var(--btn-primary-text);
+	}
+
+	/* 6. Keyboard Accessibility Focus Ring */
+	.sidebar-link:focus-visible {
+		outline: var(--bw-md) solid rgb(var(--focus-ring-rgb));
+		outline-offset: var(--space-2xs);
+	}
+
+	/* =========================================================================
+	   RESPONSIVE LAYOUTS
+	   ========================================================================= */
+
+	/* 1. Tablet & Standard Mobile (381px - 768px) */
 	@media (max-width: 768px) {
 		.sidebar-link {
-			width: 62px;              /* 56px से बढ़ाकर 62px */
-			min-height: 54px;         /* 50px से बढ़ाकर 54px */
+			width: var(--size-sidebar-btn-w-md);
+			height: var(--size-sidebar-btn-h-md);
+			min-height: var(--size-sidebar-btn-h-md);
 			padding: var(--space-xs);
 		}
 		.sidebar-link .icon {
-			width: 26px;              /* आइकॉन थोड़ा बड़ा */
-			height: 26px;
+			width: var(--size-icon-lg);
+			height: var(--size-icon-lg);
 		}
 		.sidebar-link span:last-child {
-			font-size: var(--fs-xs);  /* 12px साफ़ और बड़ा टेक्स्ट */
+			font-size: var(--fs-xs);
+			height: 24px;
 		}
 	}
 
-	/* 2. iPhone SE (<= 380px) - थोड़ा कॉम्पैक्ट ताकि मैप को जगह मिले */
+	/* 2. iPhone SE & Ultra-Compact Screens (<= 380px) */
 	@media (max-width: 380px) {
 		.sidebar-nav {
 			padding: var(--space-2xs);
@@ -115,17 +152,19 @@
 			gap: var(--space-2xs);
 		}
 		.sidebar-link {
-			width: 48px;              /* 56px से घटाकर 48px */
-			min-height: 44px;         /* 50px से घटाकर 44px */
+			width: var(--size-sidebar-btn-w-sm);
+			height: var(--size-sidebar-btn-h-sm);
+			min-height: var(--size-sidebar-btn-h-sm);
 			padding: var(--space-2xs);
 			gap: var(--space-2xs);
 		}
 		.sidebar-link .icon {
-			width: 20px;
-			height: 20px;
+			width: var(--size-icon-md);
+			height: var(--size-icon-md);
 		}
 		.sidebar-link span:last-child {
-			font-size: var(--fs-2xs); /* 10px स्पष्ट पठनीय टेक्स्ट */
+			font-size: var(--fs-3xs);
+			height: 18px;
 		}
 	}
 }

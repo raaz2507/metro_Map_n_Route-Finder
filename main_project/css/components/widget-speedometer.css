@@ -41,7 +41,8 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 	#speedometer-widget {
 		position: absolute;
 		bottom: calc(var(--space-xl) + 185px);
-		right: calc(var(--space-xl) - 5px);
+		left: calc(var(--space-xl) - 5px);
+		right: auto;
 	}
 
 	.speedometer-widget .speed-number {
@@ -96,7 +97,8 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 	/* 🏎️ Speedometer Popover Tooltip */
 	.speedometer-tooltip {
 		position: absolute;
-		right: calc(100% + var(--space-md));
+		left: calc(100% + var(--space-md));
+		right: auto;
 		top: 50%;
 		transform: translateY(-50%) scale(0.92);
 		opacity: 0;
@@ -137,11 +139,12 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 	.tooltip-label { color: var(--text-secondary); }
 	.tooltip-val { font-weight: var(--fw-bold); color: var(--text-primary); }
 
-	/* 📱 Realme / Android (<= 768px): पूर्ण आकार (80x66px) और ज़ूम कंट्रोल्स के साथ दाएँ से सीध */
+	/* 📱 Realme / Android (<= 768px): पूर्ण आकार (80x66px) और ज़ूम कंट्रोल्स के साथ बाएँ से सीध */
 	@media (max-width: 768px) {
 		.map-section > .speedometer-widget,
 		#speedometer-widget {
-			right: var(--space-sm);
+			left: var(--space-sm);
+			right: auto;
 		}
 	}
 
@@ -150,7 +153,8 @@ Floating Glassmorphic Speedometer Widget (Above Zoom Controls)
 		.map-section > .speedometer-widget,
 		#speedometer-widget {
 			bottom: calc(var(--space-3xl) * 3 + var(--space-md));
-			right: var(--space-xs);
+			left: var(--space-xs);
+			right: auto;
 			width: 62px;
 			height: 52px;
 		}

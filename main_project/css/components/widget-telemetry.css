@@ -59,7 +59,8 @@
 	/* ❓ Sliding Guide Popover */
 	.telemetry-guide-popover {
 		position: absolute;
-		right: calc(100% + var(--space-sm));
+		left: calc(100% + var(--space-sm));
+		right: auto;
 		top: 0;
 		min-width: 230px;
 		padding: var(--space-sm) var(--space-md);
@@ -121,7 +122,8 @@
 .telemetry-signal-card {
 	position: absolute;
 	bottom: calc(var(--space-xl) + 260px);
-	right: calc(var(--space-xl) - 5px);
+	left: calc(var(--space-xl) - 5px);
+	right: auto;
 	width: 108px;
 	padding: var(--space-xs) 6px;
 	background: rgba(var(--color-bg-base-rgb), var(--op-aside-bg, 0.88));
@@ -233,7 +235,8 @@
 	.telemetry-signal-card {
 		bottom: auto;
 		top: calc(var(--space-3xl) + var(--space-2xs));
-		right: var(--space-sm);
+		left: var(--space-sm);
+		right: auto;
 		width: calc(var(--size-silhouette-w) + var(--space-sm));
 		padding: var(--space-2xs) var(--space-xs);
 		gap: var(--space-2xs);

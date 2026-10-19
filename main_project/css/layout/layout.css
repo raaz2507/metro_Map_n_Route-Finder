@@ -49,11 +49,14 @@
 	/* main's direct child: sidebar wrapper (flex container for nav & aside) */
 	.sidebar-wrapper {
 		position: absolute;
-		top: var(--space-lg);
-		left: var(--space-lg);
+		bottom: var(--space-lg);
+		top: auto;
+		right: var(--space-lg);
+		left: auto;
 		display: flex;
+		flex-direction: row-reverse;
 		gap: var(--space-md);
-		align-items: flex-start;
+		align-items: flex-end;
 		z-index: var(--z-sidebar);
 		max-height: calc(100% - var(--space-2xl));
 
