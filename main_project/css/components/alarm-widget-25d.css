@@ -535,7 +535,8 @@
 	}
 
 	/* Sidebar open hone par widget smooth hide ho sake (same as speedometer) */
-	body:not([data-active-tab="map"]) .alarm-widget-wrapper {
+	body:has(aside .sidebar-section.active) :is(.alarm-widget-wrapper, #viewModeWidget, #map25DControlsPanel),
+	body:not([data-active-tab="map"]) :is(.alarm-widget-wrapper, #viewModeWidget, #map25DControlsPanel) {
 		opacity: 0;
 		visibility: hidden;
 		pointer-events: none;

@@ -8,8 +8,8 @@
  * 3. 2nd-value completion confirmation & delegation via callback.
  */
 
-import { centerClass } from "../core/CenterClass.js";
-import { eventBus } from "../core/event-bus.js";
+import { centerClass } from "../../../core/CenterClass.js";
+import { eventBus } from "../../../core/event-bus.js";
 
 export class StationCalloutView {
 	#container = null;
@@ -106,28 +106,16 @@ export class StationCalloutView {
 		}
 	}
 
+	resetDraft() {
+		this.#draftRoute = { from: null, to: null };
+	}
+
 	destroy() {
 		if (this.#rAFId) {
 			cancelAnimationFrame(this.#rAFId);
 			this.#rAFId = null;
 		}
 		if (typeof this.#unsubTransform === "function") {
-			this.#unsubTransform();
-			this.#unsubTransform = null;
-		}
-		if (this.#onResize) {
-			window.removeEventListener("resize", this.#onResize);
-			this.#onResize = null;
-		}
-		this.hide();
-	}
-
-	resetDraft() {
-		this.#draftRoute = { from: null, to: null };
-	}
-
-	destroy() {
-		if (this.#unsubTransform) {
 			this.#unsubTransform();
 			this.#unsubTransform = null;
 		}

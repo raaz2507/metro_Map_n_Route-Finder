@@ -184,6 +184,7 @@ export default {
 		clearFilter: "Clear Filter",
 		metroTrackLines: "Metro Track Lines",
 		stationType: "Station Type",
+		civilStructure: "Civil Structure (Layout)",
 		trackStatus: "Track & Station Status",
 		viewStationInfo: "View Station Details",
 		ariaMap: "Interactive Metro Map",

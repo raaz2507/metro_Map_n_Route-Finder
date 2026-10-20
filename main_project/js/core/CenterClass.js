@@ -20,7 +20,7 @@ import { eventBus } from "./event-bus.js";
 import { RouteFinder } from "../services/route/RouteFinder.js";
 import { FareCalculator } from "../services/fare/FareCalculator.js";
 import { AlarmManager } from "../services/alarm/AlarmManager.js";
-import { MetroMap } from "../components/metro-map.js";
+import { MetroMap } from "../components/map/MetroMap.js";
 import { RecentSearchService } from "../services/route/recent-search-service.js";
 import { StationSearchEngine } from "../services/search/StationSearchEngine.js";
 import { UniversalSearchEngine } from "../services/search/UniversalSearchEngine.js";

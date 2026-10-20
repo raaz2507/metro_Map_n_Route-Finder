@@ -4,7 +4,7 @@
  * the sliding drawer panel, metro line color keys, station glyph keys, and track status keys.
  */
 
-import { createDOMFromMap } from "../dom-builder.js";
+import { createDOMFromMap } from "../../dom-builder.js";
 
 export class MapLegend {
 	#centerClass = null;
@@ -14,6 +14,7 @@ export class MapLegend {
 	#onHighlightLine = null;
 	#onHighlightStationType = null;
 	#onHighlightStatus = null;
+	#onHighlightLayout = null;
 	#abortSignal = null;
 
 	#elements = {
@@ -24,6 +25,7 @@ export class MapLegend {
 		legendPanel: null,
 		track_line_legend: null,
 		station_type_legend: null,
+		layout_legend: null,
 		status_legend: null,
 	};
 
@@ -35,6 +37,7 @@ export class MapLegend {
 		onHighlightLine,
 		onHighlightStationType,
 		onHighlightStatus,
+		onHighlightLayout,
 		abortSignal,
 	}) {
 		this.#centerClass = centerClass;
@@ -44,6 +47,7 @@ export class MapLegend {
 		this.#onHighlightLine = onHighlightLine;
 		this.#onHighlightStationType = onHighlightStationType;
 		this.#onHighlightStatus = onHighlightStatus;
+		this.#onHighlightLayout = onHighlightLayout;
 		this.#abortSignal = abortSignal;
 	}
 
@@ -146,6 +150,21 @@ export class MapLegend {
 					id: "station_type_legend",
 					parent: "stationSection",
 				},
+				layoutSection: {
+					type: "div",
+					cls: "legend-section",
+					parent: "legendPanel",
+				},
+				layoutHeader: {
+					type: "h3",
+					html_con: `<span data-i18n="pages.home.map.civilStructure">${this.#centerClass?.t("pages.home.map.civilStructure") || this.#centerClass?.t("map.legend.civilStructureTitle") || "Civil Structure (Layout)"}</span>`,
+					parent: "layoutSection",
+				},
+				layout_legend: {
+					type: "ul",
+					id: "layout_legend",
+					parent: "layoutSection",
+				},
 				statusSection: {
 					type: "div",
 					cls: "legend-section",
@@ -168,6 +187,7 @@ export class MapLegend {
 			this.#elements.legendToggleBtn = legendPanelElemts.legendToggleBtn;
 			this.#elements.track_line_legend = legendPanelElemts.track_line_legend;
 			this.#elements.station_type_legend = legendPanelElemts.station_type_legend;
+			this.#elements.layout_legend = legendPanelElemts.layout_legend;
 			this.#elements.status_legend = legendPanelElemts.status_legend;
 			this.#elements.legendPanel = legendPanelElemts.legendPanel;
 			this.#elements.clearRouteBtn = legendPanelElemts.clearRouteBtn;
@@ -203,7 +223,7 @@ export class MapLegend {
 			}, { signal });
 		}
 
-		const { track_line_legend, station_type_legend, status_legend } = this.#elements;
+		const { track_line_legend, station_type_legend, layout_legend, status_legend } = this.#elements;
 		if (!track_line_legend) return;
 
 		// Clear previous lists
@@ -280,14 +300,55 @@ export class MapLegend {
 			station_type_legend.appendChild(li);
 		});
 
-		// 3. Track & Station Status
+		// 3. Civil Structure / Layout
+		if (layout_legend) {
+			layout_legend.innerHTML = "";
+
+			const layoutList = [
+				{ layout: "elevated", iconClass: "legend-icon-elevated", labelKey: "map.legend.layout.elevated", defaultLabel: "Elevated Viaduct" },
+				{ layout: "underground", iconClass: "legend-icon-underground", labelKey: "map.legend.layout.underground", defaultLabel: "Underground Tunnel" },
+				{ layout: "at-grade", iconClass: "legend-icon-at-grade", labelKey: "map.legend.layout.at-grade", defaultLabel: "At-Grade (Surface)" },
+				{ layout: "cut_and_cover", iconClass: "legend-icon-cut-and-cover", labelKey: "map.legend.layout.cut_and_cover", defaultLabel: "Cut & Cover (Shallow)" },
+				{ layout: "multi_level", iconClass: "legend-icon-multi-level", labelKey: "map.legend.layout.multi_level", defaultLabel: "Multi-Level Hybrid" },
+			];
+
+			layoutList.forEach((item) => {
+				const li = document.createElement("li");
+				li.className = "legend_item";
+				li.style.cursor = "pointer";
+				li.dataset.layout = item.layout;
+
+				const icon = document.createElement("span");
+				icon.className = item.iconClass;
+
+				const text = document.createElement("span");
+				text.textContent = this.#centerClass?.t(item.labelKey) || item.defaultLabel;
+
+				li.appendChild(icon);
+				li.appendChild(text);
+
+				li.addEventListener("click", (e) => {
+					e.stopPropagation();
+					if (typeof this.#onHighlightLayout === "function") {
+						this.#onHighlightLayout(item.layout);
+					}
+					this.closeLegend();
+				});
+
+				layout_legend.appendChild(li);
+			});
+		}
+
+		// 4. Track & Station Status
 		if (status_legend) {
 			status_legend.innerHTML = "";
 
 			const statusList = [
-				{ status: "operational", iconClass: "legend-status-solid" },
-				{ status: "under_construction", iconClass: "legend-status-dashed" },
-				{ status: "approved", iconClass: "legend-status-dotted" },
+				{ status: "operational", iconClass: "legend-status-solid", labelKey: "map.legend.trackStatus.operational", defaultLabel: "Operational Track" },
+				{ status: "under_construction", iconClass: "legend-status-dashed", labelKey: "map.legend.trackStatus.under_construction", defaultLabel: "Under Construction" },
+				{ status: "planned", iconClass: "legend-status-dotted", labelKey: "map.legend.trackStatus.planned", defaultLabel: "Planned / Approved" },
+				{ status: "temporarily_closed", iconClass: "legend-status-closed", labelKey: "map.legend.trackStatus.temporarily_closed", defaultLabel: "Temporarily Closed" },
+				{ status: "decommissioned", iconClass: "legend-status-decommissioned", labelKey: "map.legend.trackStatus.decommissioned", defaultLabel: "Decommissioned" },
 			];
 
 			statusList.forEach((item) => {
@@ -300,7 +361,7 @@ export class MapLegend {
 				bar.className = item.iconClass;
 
 				const text = document.createElement("span");
-				text.textContent = this.#centerClass?.t(`map.legend.trackStatus.${item.status}`) || item.status;
+				text.textContent = this.#centerClass?.t(item.labelKey) || item.defaultLabel;
 
 				li.appendChild(bar);
 				li.appendChild(text);
@@ -326,10 +387,10 @@ export class MapLegend {
 		const btn = this.#elements.clearRouteBtn;
 		if (!btn) return;
 
-		const { activeStationType, activeLineId, activeStationId, activeStatus, activeRoutePath, isRouteVisible } = state;
+		const { activeStationType, activeLineId, activeStationId, activeStatus, activeLayout, activeRoutePath, isRouteVisible } = state;
 
 		// 1. Legend/Station filter active: Clear Filter mode
-		if (activeStationType || activeLineId || activeStationId || activeStatus) {
+		if (activeStationType || activeLineId || activeStationId || activeStatus || activeLayout) {
 			btn.classList.remove("hidden");
 			btn.classList.remove("show-mode");
 			const label = this.#centerClass?.t("map.actions.clearFilter") || "Clear Filter";

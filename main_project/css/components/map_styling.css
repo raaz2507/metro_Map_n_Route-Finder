@@ -35,332 +35,51 @@
 		overflow: hidden;
 	}
 
-	.mapContainer.is-25d-view {
-		perspective: 1200px;
-		perspective-origin: 50% 70%;
-		background: radial-gradient(
-			ellipse 85% 65% at 50% 65%,
-			rgba(var(--color-primary-rgb), 0.05) 0%,
-			transparent 75%
-		);
-	}
-
-	.mapContainer svg {
+	.mapContainer canvas {
 		display: block;
 		width: 100%;
 		height: 100%;
-		max-width: 100%;
-		max-height: 100%;
-		transform-origin: 50% 70%;
-		transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-		will-change: transform;
-		backface-visibility: hidden;
-		-webkit-backface-visibility: hidden;
+		outline: none;
+		touch-action: none;
+		cursor: grab;
 	}
 
-	#main_layer {
-		will-change: transform;
+	.mapContainer.is-panning canvas {
+		cursor: grabbing;
 	}
 
-	/* 🚀 High-FPS Drag Mode: Suppress transitions, disable hit-testing & optimize vector speeds */
-	.mapContainer.is-panning,
-	.mapContainer.is-panning svg,
-	.mapContainer.is-panning * {
-		transition: none !important;
-		user-select: none;
-		-webkit-user-select: none;
+	/* 📍 ROUTE PINS (Origin & Destination 3D Ribbon Badges: pin_route_from.svg & pin_route_to.svg) */
+	.mapContainer .route-pins-overlay {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		overflow: hidden;
+		z-index: 20;
 	}
 
-	.mapContainer.is-panning svg * {
-		pointer-events: none !important;
-	}
-
-	.mapContainer.is-panning svg {
-		shape-rendering: optimizeSpeed !important;
-		text-rendering: optimizeSpeed !important;
-	}
-
-	/* 🚀 2.5D Perspective Flight Deck Rotation (Compensate Foreshortening to Fill Container) */
-	.mapContainer.is-25d-view svg {
-		transform: translateY(-8%) rotateX(24deg) scale(1.38);
-	}
-
-	/* 🚀 Level-Of-Detail (LOD): Hide minor station labels when zoomed out in 2.5D to save 75% GPU text rendering */
-	#stationLabels.lod-zoomed-out text.label-normal {
-		display: none;
-	}
-
-	/* 🌁 Elevated Stations: Raised Viaduct Pillar Profile in 2.5D */
-	.mapContainer.is-25d-view svg [data-layout="elevated"] circle,
-	.mapContainer.is-25d-view svg .layout-elevated circle,
-	.mapContainer.is-25d-view svg circle[data-layout="elevated"] {
-		stroke-width: 80 !important;
-		filter: none !important;
-		transform: none !important;
-	}
-
-	/* 🌁 Elevated Tracks */
-	.mapContainer.is-25d-view svg line.track-elevated {
-		stroke-width: 110 !important;
-		filter: none !important;
-		transform: none !important;
-	}
-
-	/* 🚇 Underground Stations: Subterranean Sunken Shaft in 2.5D */
-	.mapContainer.is-25d-view svg [data-layout="underground"] circle,
-	.mapContainer.is-25d-view svg .layout-underground circle,
-	.mapContainer.is-25d-view svg circle[data-layout="underground"] {
-		fill: #0f172a !important;
-		stroke: #64748b !important;
-		stroke-width: 65 !important;
-		opacity: 0.85;
-		filter: none !important;
-		transform: none !important;
-	}
-
-	/* 🚇 Underground Tracks: Dark Subterranean Tunnel Trench in 2.5D */
-	.mapContainer.is-25d-view svg line.track-underground {
-		stroke: #334155 !important;
-		stroke-width: 70 !important;
-		opacity: 0.65;
-		filter: none !important;
-		transform: none !important;
-	}
-
-	/* 🏢 Multi-Level Stations */
-	.mapContainer.is-25d-view svg [data-layout="multi_level"] circle,
-	.mapContainer.is-25d-view svg .layout-multi-level circle,
-	.mapContainer.is-25d-view svg circle[data-layout="multi_level"] {
-		stroke-width: 95 !important;
-		filter: none !important;
-		transform: none !important;
-	}
-
-	/* 🛤️ At-grade / Surface Stations: Anchored directly on ground plane */
-	.mapContainer.is-25d-view svg [data-layout="at-grade"] circle,
-	.mapContainer.is-25d-view svg .layout-at-grade circle,
-	.mapContainer.is-25d-view svg circle[data-layout="at-grade"] {
-		stroke-width: 50 !important;
-		opacity: 0.98;
-		filter: none !important;
-		transform: none !important;
-	}
-
-	.mapContainer.is-25d-view svg line.track-at-grade {
-		filter: none !important;
-		transform: none !important;
-	}
-
-	/* 📍 3D Billboard Pin Badges: Vertically upright facing user camera (single element, GPU friendly) */
-	.mapContainer.is-25d-view svg .route-pin-badge {
-		transform-origin: 0% 100%;
-		transform: rotateX(-46deg) rotateZ(10deg) !important;
-	}
-
-	/* =========================================================================
-	SVG Map Elements Styling & Micro-interactions
-	========================================================================= */
-
-	/* स्टेशन के नाम (Labels) को थीम-फ्रेंडली बनाना */
-	.mapContainer svg text,
-	.mapContainer svg text tspan {
-		fill: var(--text-primary); 
-		font-family: var(--map-font);
-		font-weight: var(--fw-medium);
-		pointer-events: none; /* टेक्स्ट को री-पेंट इवेंट्स और टच ब्लॉक से बचाता है */
-		transition: font-size 0.2s ease, stroke-width 0.2s ease, opacity var(--transition-smooth); 
-	}
-
-	/* स्टेशन सर्कल्स (Normal Dots) और ग्रुप्स (Interchange / Walkway) पर बेस ट्रांजिशन */
-	.mapContainer svg circle,
-	.mapContainer svg g[data-station-id] circle {
-		cursor: pointer;
-		transform-origin: center;
-		transform-box: fill-box; 
-		transition: transform var(--transition-spring), opacity var(--transition-smooth); 
-	}
-
-	/* =========================================================================
-	HIGH-PERFORMANCE 60 FPS MAP VISUAL STATE ENGINE (GPU Accelerated)
-	========================================================================= */
-	.mapContainer svg.map-dimmed circle,
-	.mapContainer svg.map-dimmed line,
-	.mapContainer svg.map-dimmed text {
-		opacity: 0.15;
-		transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-	}
-
-	/* =========================================================================
-	1. LEGEND STATION TYPES & ROUTE CIRCLES - ROCK SOLID ACTIVE STATE
-	========================================================================= */
-	.mapContainer svg.map-dimmed circle.highlighted,
-	.mapContainer svg.map-dimmed g.highlighted circle {
-		opacity: 1;
-		transform: scale(1.22);
-		animation: none; /* स्टेशन नेम्स की ब्लिंकिंग को 100% रोकता है */
-		filter: drop-shadow(0 0 8px rgba(var(--color-primary-rgb), 0.5));
-	}
-
-	/* =========================================================================
-	2. HIGHLIGHTED METRO TRACKS - 60 FPS FROM-TO-TO METRO FLOW
-	========================================================================= */
-	@keyframes metro-dash-forward {
-		from {
-			stroke-dashoffset: 0;
-		}
-		to {
-			stroke-dashoffset: -1200;
-		}
-	}
-
-	@keyframes metro-dash-backward {
-		from {
-			stroke-dashoffset: 0;
-		}
-		to {
-			stroke-dashoffset: 1200;
-		}
-	}
-
-	.mapContainer svg.map-dimmed line.highlighted-line {
-		opacity: 1;
-		stroke-width: 190;
-		stroke-linecap: round;
-		stroke-dasharray: 400 200;
-		animation: metro-dash-forward 1.8s linear infinite;
-	}
-
-	/* जब लाइन का SVG पाथ यात्रा की उल्टी दिशा में बना हो (Reverse Direction) */
-	.mapContainer svg.map-dimmed line.highlighted-line.reverse-flow {
-		animation: metro-dash-backward 1.8s linear infinite;
-	}
-
-	/* =========================================================================
-	3. ROUTE HIGHLIGHTED STATION LABELS (Clean, Readable, Zero Overlap)
-	========================================================================= */
-	.mapContainer svg.map-dimmed text.highlighted-text,
-	.mapContainer svg.map-dimmed text.highlighted-text tspan {
-		opacity: 1;
-		font-size: 380px; /* सामान्य पठनीय आकार, होवर जैसा 500px नहीं */
-		font-weight: var(--fw-bold, 700);
-		fill: var(--text-primary);
-		stroke: var(--card-bg);
-		stroke-width: 80px; /* हल्का साफ़ बॉर्डर ताकि पटरियों के ऊपर साफ़ पढ़े जाएँ */
-		paint-order: stroke fill;
-		stroke-linejoin: round;
-		filter: none;
-	}
-
-	/* 🎯 केवल टार्गेट स्टेशन (Single Destination) पर ही बड़ा 500px + हेलो इफ़ेक्ट */
-	.mapContainer svg.map-dimmed text.target-highlight-text,
-	.mapContainer svg.map-dimmed text.target-highlight-text tspan {
-		opacity: 1;
-		font-size: 500px;
-		font-weight: var(--fw-bold);
-		fill: var(--text-primary);
-		stroke: var(--card-bg);
-		stroke-width: 250px;
-		paint-order: stroke fill;
-		stroke-linejoin: round;
-		filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.35));
-	}
-
-	/* =========================================================================
-	4. TARGET STATION (Single Destination from Search) - Pure Size Pulse
-	========================================================================= */
-	@keyframes pulse-target-station {
-		0%, 100% {
-			transform: scale(1.1);
-		}
-		50% {
-			transform: scale(1.65);
-		}
-	}
-
-	.mapContainer svg.map-dimmed circle.target-highlight-circle,
-	.mapContainer svg.map-dimmed g.target-highlight-circle circle {
-		opacity: 1;
-		animation: pulse-target-station 1.2s ease-in-out infinite;
-	}
-
-
-
-	/* =========================================================================
-	5. STATION HOVER FOCUS (Zero !important - Pure CSS Specificity & Cascade)
-	========================================================================= */
-	/* 🔍 टेक्स्ट होवर: नॉर्मल मैप और एक्टिव रूट दोनों में नाम 500px बड़ा, बोल्ड और 260px स्ट्रोक हेलो में दिखेगा */
-	.mapContainer svg text.hovered-text,
-	.mapContainer svg text:hover,
-	.mapContainer svg text.hovered-text tspan,
-	.mapContainer svg text:hover tspan,
-	.mapContainer svg.map-dimmed text.hovered-text,
-	.mapContainer svg.map-dimmed text:hover,
-	.mapContainer svg.map-dimmed text.hovered-text tspan,
-	.mapContainer svg.map-dimmed text:hover tspan,
-	.mapContainer svg.map-dimmed text.highlighted-text.hovered-text,
-	.mapContainer svg.map-dimmed text.highlighted-text:hover,
-	.mapContainer svg.map-dimmed text.highlighted-text.hovered-text tspan,
-	.mapContainer svg.map-dimmed text.highlighted-text:hover tspan,
-	.mapContainer svg.map-dimmed text.target-highlight-text.hovered-text,
-	.mapContainer svg.map-dimmed text.target-highlight-text:hover,
-	.mapContainer svg.map-dimmed text.target-highlight-text.hovered-text tspan,
-	.mapContainer svg.map-dimmed text.target-highlight-text:hover tspan {
-		opacity: 1;
-		font-size: 500px;
-		font-weight: var(--fw-bold, 700);
-		fill: var(--text-primary);
-		stroke: var(--card-bg);
-		stroke-width: 260px;
-		paint-order: stroke fill;
-		stroke-linejoin: round;
-		cursor: pointer;
-		filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.35));
-	}
-
-	/* ⚪ सर्कल होवर: नॉर्मल और रूट दोनों में सर्कल 1.35x बड़ा होगा और पल्स एनिमेशन पॉज होकर स्टेबल बड़ा दिखेगा */
-	.mapContainer svg circle.hovered-circle,
-	.mapContainer svg circle:hover,
-	.mapContainer svg g.hovered-circle circle,
-	.mapContainer svg g[data-station-id]:hover circle,
-	.mapContainer svg.map-dimmed circle.hovered-circle,
-	.mapContainer svg.map-dimmed circle:hover,
-	.mapContainer svg.map-dimmed g.hovered-circle circle,
-	.mapContainer svg.map-dimmed g[data-station-id]:hover circle,
-	.mapContainer svg.map-dimmed circle.highlighted.hovered-circle,
-	.mapContainer svg.map-dimmed circle.highlighted:hover,
-	.mapContainer svg.map-dimmed g.highlighted.hovered-circle circle,
-	.mapContainer svg.map-dimmed g.highlighted:hover circle,
-	.mapContainer svg.map-dimmed circle.target-highlight-circle.hovered-circle,
-	.mapContainer svg.map-dimmed circle.target-highlight-circle:hover,
-	.mapContainer svg.map-dimmed g.target-highlight-circle.hovered-circle circle,
-	.mapContainer svg.map-dimmed g.target-highlight-circle:hover circle {
-		opacity: 1;
-		animation: none;
-		transform: scale(1.35);
-		cursor: pointer;
-		filter: drop-shadow(0px 0px 10px rgba(var(--color-primary-rgb), 0.8));
-	}
-
-		/* =========================================================================
-	📍 ROUTE PINS (Origin & Destination 3D Ribbon Sleeper Badges)
-	========================================================================= */
-	.mapContainer svg .route-pin-badge {
+	.mapContainer .route-pin-badge {
+		position: absolute;
+		top: 0;
+		left: 0;
 		cursor: default;
 		pointer-events: none;
+		user-select: none;
+		-webkit-user-select: none;
+		z-index: 25;
+		will-change: transform;
 	}
 
-	.mapContainer svg .route-pin-badge .pin-drop-anim {
-		filter: drop-shadow(0 12px 24px rgba(0, 0, 0, var(--op-shadow)));
-		transform-origin: 0 0;
-		animation: pinDropPop var(--transition-spring) both;
+	.mapContainer .route-pin-badge .pin-drop-anim {
+		transform-origin: 50% 87.88%;
+		animation: pinDropPop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 	}
+
 	@keyframes pinDropPop {
 		0% {
 			opacity: 0;
-			transform: scale(0.2) translateY(-1000px);
-		}
-		70% {
-			transform: scale(1.12) translateY(60px);
+			transform: scale(0.4) translateY(-32px);
 		}
 		100% {
 			opacity: 1;
@@ -448,6 +167,288 @@
 		color: #ffffff;
 		border-color: transparent;
 		box-shadow: 0 0 10px rgba(var(--color-primary-rgb), 0.5);
+	}
+
+	/* =========================================================================
+	Top-Right 2D / 2.5D Animated Slider View-Mode Widget
+	========================================================================= */
+	.view-mode-widget {
+		position: absolute;
+		top: var(--space-md, 16px);
+		right: var(--space-md, 16px);
+		z-index: var(--z-sidebar, 100);
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		pointer-events: auto;
+		user-select: none;
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+		transition: opacity var(--transition-smooth, 0.3s ease), transform var(--transition-smooth, 0.3s ease), visibility 0s 0s;
+	}
+
+	.view-slider-track {
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding: 3px;
+		background: var(--surface-translucent, rgba(255, 255, 255, 0.88));
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border: 1px solid var(--border-subtle, rgba(203, 213, 225, 0.85));
+		border-radius: 9999px;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+		overflow: hidden;
+		width: 140px;
+		height: 38px;
+	}
+
+	.view-slider-thumb {
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		width: calc(50% - 3px);
+		height: calc(100% - 6px);
+		background: linear-gradient(135deg, rgb(var(--color-primary-rgb, 37, 99, 235)), rgb(var(--color-primary-dark-rgb, 29, 78, 216)));
+		border-radius: 9999px;
+		box-shadow: 0 4px 14px rgba(var(--color-primary-rgb, 37, 99, 235), 0.45);
+		transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.view-mode-widget[data-active-mode="2.5d"] .view-slider-thumb {
+		transform: translateX(100%);
+	}
+
+	.view-slider-btn {
+		position: relative;
+		z-index: 2;
+		flex: 1;
+		height: 100%;
+		border: none;
+		background: transparent;
+		color: var(--text-secondary, #64748b);
+		font-family: var(--font-title, sans-serif);
+		font-size: var(--fs-xs, 12px);
+		font-weight: 700;
+		letter-spacing: 0.3px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		padding: 0 6px;
+		transition: color 0.25s ease;
+	}
+
+	.view-slider-btn.active {
+		color: #ffffff !important;
+	}
+
+	.view-settings-toggle-btn {
+		width: 38px;
+		height: 38px;
+		border-radius: 50%;
+		border: 1px solid var(--border-subtle, rgba(203, 213, 225, 0.85));
+		background: var(--surface-translucent, rgba(255, 255, 255, 0.88));
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+		color: var(--text-primary, #0f172a);
+		font-size: 16px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.25s ease;
+	}
+
+	.view-settings-toggle-btn:hover {
+		transform: rotate(35deg) scale(1.06);
+		color: rgb(var(--color-primary-rgb, 37, 99, 235));
+	}
+
+	.view-settings-toggle-btn.active {
+		background: linear-gradient(135deg, rgb(var(--color-primary-rgb, 37, 99, 235)), rgb(var(--color-primary-dark-rgb, 29, 78, 216)));
+		color: #ffffff;
+		border-color: transparent;
+		transform: rotate(90deg);
+	}
+
+	.view-settings-toggle-btn.hidden {
+		display: none !important;
+	}
+
+	/* =========================================================================
+	Floating 2.5D Controls Panel (Top-Right Docked Card)
+	========================================================================= */
+	.map-25d-controls-panel {
+		position: absolute;
+		top: calc(var(--space-md, 16px) + 48px);
+		right: var(--space-md, 16px);
+		z-index: var(--z-sidebar, 100);
+		width: 280px;
+		max-height: calc(100vh - 120px);
+		overflow-y: auto;
+		background: var(--surface-translucent, rgba(255, 255, 255, 0.94));
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid var(--border-subtle, rgba(203, 213, 225, 0.85));
+		border-radius: 18px;
+		padding: 16px 18px;
+		box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		animation: slideDownFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+		user-select: none;
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+		transition: opacity var(--transition-smooth, 0.3s ease), transform var(--transition-smooth, 0.3s ease), visibility 0s 0s;
+	}
+
+	@keyframes slideDownFade {
+		from {
+			opacity: 0;
+			transform: translateY(-10px) scale(0.96);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	.map-25d-controls-panel.hidden {
+		display: none !important;
+	}
+
+	.map-25d-controls-panel .panel-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: 8px;
+		border-bottom: 1px solid var(--border-subtle, rgba(203, 213, 225, 0.65));
+	}
+
+	.map-25d-controls-panel .panel-title {
+		font-family: var(--font-title, sans-serif);
+		font-size: 13px;
+		font-weight: 700;
+		color: var(--text-primary, #0f172a);
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.map-25d-controls-panel .btn-close-25d-panel {
+		background: transparent;
+		border: none;
+		color: var(--text-secondary, #64748b);
+		font-size: 14px;
+		cursor: pointer;
+		padding: 2px 6px;
+		border-radius: 6px;
+		transition: background 0.2s ease, color 0.2s ease;
+	}
+
+	.map-25d-controls-panel .btn-close-25d-panel:hover {
+		background: rgba(0, 0, 0, 0.08);
+		color: var(--text-primary, #0f172a);
+	}
+
+	.map-25d-controls-panel .control-row {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.map-25d-controls-panel .control-label {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 11px;
+		font-weight: 600;
+		color: var(--text-secondary, #64748b);
+	}
+
+	.map-25d-controls-panel .control-label span:last-child {
+		font-weight: 700;
+		color: rgb(var(--color-primary-rgb, 37, 99, 235));
+	}
+
+	.map-25d-controls-panel input[type="range"] {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 100%;
+		height: 5px;
+		border-radius: 3px;
+		background: var(--bg-tertiary, #e2e8f0);
+		outline: none;
+		cursor: pointer;
+	}
+
+	.map-25d-controls-panel input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background: rgb(var(--color-primary-rgb, 37, 99, 235));
+		cursor: pointer;
+		box-shadow: 0 0 6px rgba(var(--color-primary-rgb, 37, 99, 235), 0.4);
+	}
+
+	.map-25d-controls-panel .btn-strata-toggle,
+	.map-25d-controls-panel .btn-reset-25d-view {
+		background: var(--bg-secondary, #f1f5f9);
+		border: 1px solid var(--border-subtle, rgba(203, 213, 225, 0.85));
+		border-radius: 10px;
+		padding: 7px 12px;
+		font-family: var(--font-title, sans-serif);
+		font-size: 11.5px;
+		font-weight: 600;
+		color: var(--text-primary, #0f172a);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 6px;
+		transition: all 0.2s ease;
+	}
+
+	.map-25d-controls-panel .btn-strata-toggle:hover,
+	.map-25d-controls-panel .btn-reset-25d-view:hover {
+		background: var(--btn-reset-hover, #e2e8f0);
+	}
+
+	.map-25d-controls-panel .btn-strata-toggle.active {
+		background: linear-gradient(135deg, rgb(var(--color-primary-rgb, 37, 99, 235)), rgb(var(--color-primary-dark-rgb, 29, 78, 216)));
+		color: #ffffff;
+		border-color: transparent;
+	}
+
+	/* Responsive for mobile */
+	@media (max-width: 768px) {
+		.view-mode-widget {
+		top: var(--space-sm, 12px);
+		right: var(--space-sm, 12px);
+		}
+		.view-slider-track {
+		width: 124px;
+		height: 34px;
+		}
+		.view-slider-btn {
+		font-size: 11px;
+		}
+		.map-25d-controls-panel {
+		top: calc(var(--space-sm, 12px) + 42px);
+		right: var(--space-sm, 12px);
+		width: calc(100vw - 32px);
+		max-width: 300px;
+		}
 	}
 
 
@@ -560,70 +561,6 @@
 		box-shadow: var(--shadow-lg);
 	}
 
-	/* =========================================================================
-	TRACK & STATION STATUS STYLING (Operational, Under Construction, Approved)
-	Aligned with legend_panel.css status indicators:
-	- Under Construction: Amber (#f59e0b) Dashed Track & Circle
-	- Approved / Planned: Sky Blue (#0284c7) Dotted Track & Circle
-	========================================================================= */
-	.mapContainer svg line.track-under-construction {
-		stroke: #f59e0b;
-		stroke-dasharray: 260 280;
-		stroke-linecap: round;
-		opacity: 0.95;
-	}
-
-	.mapContainer svg line.track-approved {
-		stroke: #0284c7;
-		stroke-dasharray: 50 220;
-		stroke-linecap: round;
-		opacity: 0.85;
-	}
-
-	.mapContainer svg circle.station-under-construction,
-	.mapContainer svg g.station-under-construction circle {
-		stroke: #f59e0b;
-		stroke-dasharray: 50 45;
-	}
-
-	.mapContainer svg circle.station-approved,
-	.mapContainer svg g.station-approved circle {
-		stroke: #0284c7;
-		stroke-dasharray: 25 35;
-		opacity: 0.85;
-	}
-
-	/* ⚠️ Temporarily Closed Station */
-	.mapContainer svg circle.station-temporarily-closed,
-	.mapContainer svg g.station-temporarily-closed circle {
-		opacity: 0.6;
-		stroke: #ef4444;
-		filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
-	}
-
-	/* 🛑 Decommissioned / Abandoned Station */
-	.mapContainer svg circle.station-decommissioned,
-	.mapContainer svg g.station-decommissioned circle {
-		opacity: 0.35;
-		stroke: #64748b;
-		filter: grayscale(1);
-	}
-
-	/* Hidden state controlled by Map Settings Toggles */
-	.mapContainer svg.hide-under-construction line.track-under-construction,
-	.mapContainer svg.hide-under-construction circle.station-under-construction,
-	.mapContainer svg.hide-under-construction g.station-under-construction,
-	.mapContainer svg.hide-under-construction text[data-status="under_construction"] {
-		display: none;
-	}
-
-	.mapContainer svg.hide-approved line.track-approved,
-	.mapContainer svg.hide-approved circle.station-approved,
-	.mapContainer svg.hide-approved g.station-approved,
-	.mapContainer svg.hide-approved text[data-status="approved"],
-	.mapContainer svg.hide-approved text[data-status="proposed"] {
-		display: none;
-	}
 
 	/* Mobile responsive layout for Zoom Controls */
 	@media (max-width: 768px) {

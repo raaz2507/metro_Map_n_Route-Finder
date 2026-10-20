@@ -79,7 +79,9 @@
 			#telemetrySignalCard,
 			.metro-btn-overlay,
 			.clear-route-highlight-btn,
-			.map-top-right-controls
+			.map-top-right-controls,
+			#viewModeWidget,
+			#map25DControlsPanel
 		) {
 			opacity: 0;
 			visibility: hidden;
@@ -135,7 +137,9 @@
 			#telemetrySignalCard,
 			#speedometer-widget,
 			#zoomControls,
-			.clear-route-highlight-btn
+			.clear-route-highlight-btn,
+			#viewModeWidget,
+			#map25DControlsPanel
 		),
 		body:has(.legend-panel.active) :is(
 			#sidebar-nav,
@@ -144,7 +148,9 @@
 			#telemetrySignalCard,
 			#speedometer-widget,
 			#zoomControls,
-			.clear-route-highlight-btn
+			.clear-route-highlight-btn,
+			#viewModeWidget,
+			#map25DControlsPanel
 		) {
 			opacity: 0;
 			visibility: hidden;

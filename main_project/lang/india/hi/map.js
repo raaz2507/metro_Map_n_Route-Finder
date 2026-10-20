@@ -13,11 +13,22 @@ export default {
 			"multimodal": "मल्टीमॉडल ट्रांजिट हब",
 			"shared_track": "साझा ट्रैक स्टेशन"
 		},
+		"civilStructureTitle": "सिविल संरचना (लेआउट)",
+		"layout": {
+			"elevated": "एलिवेटेड वायाडक्ट",
+			"underground": "भूमिगत सुरंग (टनल)",
+			"at-grade": "धरातलीय (सतह / एट-ग्रेड)",
+			"cut_and_cover": "कट एंड कवर (उथली सुरंग)",
+			"multi_level": "मल्टी-लेवल हाइब्रिड"
+		},
 		"trackStatusTitle": "ट्रैक व स्टेशन स्थिति",
 		"trackStatus": {
-			"operational": "चालू / सक्रिय ट्रैक",
-			"under_construction": "निर्माणाधीन (डैश लाइन)",
-			"approved": "प्रस्तावित / स्वीकृत (डॉटेड)"
+			"operational": "चालू / सक्रिय सेवा",
+			"under_construction": "निर्माणाधीन",
+			"planned": "प्रस्तावित / स्वीकृत",
+			"approved": "प्रस्तावित / स्वीकृत",
+			"temporarily_closed": "अस्थायी रूप से बंद",
+			"decommissioned": "स्थायी रूप से बंद (डिकमीशंड)"
 		}
 	},
 	"controls": {

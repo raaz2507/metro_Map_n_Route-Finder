@@ -13,11 +13,22 @@ export default {
 			"multimodal": "Multimodal Transit Hub",
 			"shared_track": "Shared Track Station"
 		},
+		"civilStructureTitle": "Civil Structure (Layout)",
+		"layout": {
+			"elevated": "Elevated Viaduct",
+			"underground": "Underground Tunnel",
+			"at-grade": "At-Grade (Surface)",
+			"cut_and_cover": "Cut & Cover (Shallow)",
+			"multi_level": "Multi-Level Hybrid"
+		},
 		"trackStatusTitle": "Track & Station Status",
 		"trackStatus": {
-			"operational": "Operational Track",
+			"operational": "Operational",
 			"under_construction": "Under Construction",
-			"approved": "Approved / Planned"
+			"planned": "Planned / Approved",
+			"approved": "Planned / Approved",
+			"temporarily_closed": "Temporarily Closed",
+			"decommissioned": "Decommissioned"
 		}
 	},
 	"controls": {

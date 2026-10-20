@@ -184,6 +184,7 @@ export default {
 		clearFilter: "फ़िल्टर हटाएं",
 		metroTrackLines: "मेट्रो ट्रैक लाइनें",
 		stationType: "स्टेशन प्रकार",
+		civilStructure: "सिविल संरचना (लेआउट)",
 		trackStatus: "ट्रैक एवं स्टेशन स्थिति",
 		viewStationInfo: "स्टेशन विवरण देखें",
 		ariaMap: "इंटरैक्टिव मेट्रो मैप",

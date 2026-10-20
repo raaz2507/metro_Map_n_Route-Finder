@@ -14,7 +14,7 @@ import { Toast } from "../components/Toast.js";
 import { ShareModalComponent } from "../components/share-modal.js";
 import { JourneyDetailsView } from "../components/JourneyDetailsView.js";
 import { RecentSearchesView } from "../components/RecentSearchesView.js";
-import { StationCalloutView } from "../components/StationCalloutView.js";
+import { StationCalloutView } from "../components/map/ui/StationCalloutView.js";
 import { AlarmBannerView } from "../components/AlarmBannerView.js";
 import { SpeedometerWidget } from "../components/WidgetSpeedometer.js";
 import { TelemetryWidget } from "../components/WidgetTelemetry.js";

@@ -4,8 +4,10 @@
  * sequence mapping, and 8-quadrant geometric label clearance calculations.
  */
 
+import { APP_CONFIG } from "../../../config/app-config.js";
+
 export const EARTH_SCALE = 111320; // Meters per degree
-export const DEFAULT_SCALE_MULTIPLIER = 2.0;
+export const DEFAULT_SCALE_MULTIPLIER = APP_CONFIG.MAP?.SCALE_MULTIPLIER || 2.2;
 
 export class MapGeometry {
 	/**
@@ -94,14 +96,14 @@ export class MapGeometry {
 	 * @param {Object} bounds
 	 * @param {number} scaleMultiplier
 	 * @param {number} marginPercent
-	 * @returns {{ viewBox: string, margin: number, width: number, height: number, avgLatRad: number }}
+	 * @returns {{ viewBox: string, margin: number, width: number, height: number, avgLatRad: number, minX: number, minY: number }}
 	 */
 	static calculateViewBox(bounds, scaleMultiplier = DEFAULT_SCALE_MULTIPLIER, marginPercent = 0.05) {
 		const { width, height, avgLatRad } = this.calculateSVGSize(bounds, scaleMultiplier);
 		const margin = Math.round(Math.max(width, height) * marginPercent);
 		const viewBox = `-${margin} -${margin} ${width + 2 * margin} ${height + 2 * margin}`;
 
-		return { viewBox, margin, width, height, avgLatRad };
+		return { viewBox, margin, width, height, avgLatRad, minX: -margin, minY: -margin };
 	}
 
 	/**
@@ -121,21 +123,6 @@ export class MapGeometry {
 			const y = (bounds.maxLat - lat) * EARTH_SCALE * scaleMultiplier;
 			station.xy = { x, y };
 		});
-	}
-
-	/**
-	 * Transform screen client (x, y) point to SVG viewBox space using CTM inverse
-	 * @param {SVGSVGElement} svgElement
-	 * @param {number} clientX
-	 * @param {number} clientY
-	 * @returns {DOMPoint} { x, y }
-	 */
-	static getSVGCoordinates(svgElement, clientX, clientY) {
-		if (!svgElement) return { x: 0, y: 0 };
-		const point = svgElement.createSVGPoint();
-		point.x = clientX;
-		point.y = clientY;
-		return point.matrixTransform(svgElement.getScreenCTM().inverse());
 	}
 
 	/**
