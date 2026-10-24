@@ -9,11 +9,40 @@ export const APP_CONFIG = Object.freeze({
 	// 🗺️ Metro Map Coordinate & Spacing Configuration
 	MAP: {
 		/**
+		 * 🗺️ 2D & 2.5D Scale Multiplier
 		 * 2 stations ke beech coordinate distance / gap badhane ke liye scale multiplier.
 		 * Is multiplier ko badhane se map me stations ke beech ki doori scale hoti hai.
 		 * (Pahle ye variable map JS me `#scaleMultiplier = 2.0` ke roop me declare tha).
 		 */
 		SCALE_MULTIPLIER: 2.2,
+
+		/**
+		 * 🌐 3D Map Specific Settings
+		 */
+		THREE_D: {
+			/**
+			 * 3D World bounding span (station-to-station distance / spread).
+			 * Default value pahle 220.0 thi.
+			 * Isko badhane par stations ke beech ki doori badhegi.
+			 */
+			TARGET_SPAN: 1050.0,
+
+			/**
+			 * 🚇 Metro Line Ribbon Width (Half-width)
+			 * Track ki chaudaai ~0.9m hai.
+			 * 0.90 rakhne par total ribbon width = 1.8m (~2x track width).
+			 * Ise aap apni zaroorat anusaar kam (e.g. 0.6) ya zyada (e.g. 1.2) kar sakte hain.
+			 */
+			RIBBON_WIDTH: 0.9,
+
+			/**
+			 * 🏛️ Elevated Metro Pillar Width Scale
+			 * piller.glb ki original chaudaai 3.0m hai.
+			 * 0.42 rakhne par pillar width = 1.26m (1.8m bridge deck ke theek neeche sleek fit hota hai).
+			 * Ise aap 0.35 se 0.50 ke beech apni marzi se set kar sakte hain.
+			 */
+			PILLAR_SCALE: 0.42,
+		},
 
 		/**
 		 * 🎛️ 2.5D Camera Orbit & Gesture Limits (Degrees)

@@ -24,6 +24,14 @@ import { pwaManager } from '../core/PwaManager.js';
 
 
 document.addEventListener("DOMContentLoaded", async () => {
+	// Detect Capacitor Native APK and tag body for platform-specific styling (status bar / header gap)
+	const isNativeApp = Boolean(
+		(typeof window !== "undefined" && window.Capacitor?.isNativePlatform?.()) ||
+		(typeof window !== "undefined" && window.location?.protocol === "capacitor:")
+	);
+	if (isNativeApp) {
+		document.body.classList.add("is-capacitor-app");
+	}
 
 	// PWA मैनेजर इनिशियलाइज़ करें
 	pwaManager.bindBannerUI();

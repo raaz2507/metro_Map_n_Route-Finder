@@ -200,7 +200,7 @@
 		border-radius: 9999px;
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 		overflow: hidden;
-		width: 140px;
+		width: 204px;
 		height: 38px;
 	}
 
@@ -208,7 +208,7 @@
 		position: absolute;
 		top: 3px;
 		left: 3px;
-		width: calc(50% - 3px);
+		width: calc(33.333% - 2px);
 		height: calc(100% - 6px);
 		background: linear-gradient(135deg, rgb(var(--color-primary-rgb, 37, 99, 235)), rgb(var(--color-primary-dark-rgb, 29, 78, 216)));
 		border-radius: 9999px;
@@ -218,8 +218,16 @@
 		z-index: 1;
 	}
 
+	.view-mode-widget[data-active-mode="2d"] .view-slider-thumb {
+		transform: translateX(0);
+	}
+
 	.view-mode-widget[data-active-mode="2.5d"] .view-slider-thumb {
 		transform: translateX(100%);
+	}
+
+	.view-mode-widget[data-active-mode="3d"] .view-slider-thumb {
+		transform: translateX(200%);
 	}
 
 	.view-slider-btn {
@@ -279,6 +287,68 @@
 
 	.view-settings-toggle-btn.hidden {
 		display: none !important;
+	}
+
+	/* =========================================================================
+	Top-Right Map Fullscreen Toggle Button
+	========================================================================= */
+	.view-fullscreen-btn {
+		width: 38px;
+		height: 38px;
+		border-radius: 50%;
+		background: var(--card-bg, #ffffff);
+		border: 1px solid var(--border-color, rgba(203, 213, 225, 0.85));
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+		cursor: pointer;
+		color: var(--text-secondary, #64748b);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.25s ease;
+		flex-shrink: 0;
+		padding: 0;
+	}
+
+	.view-fullscreen-btn:hover {
+		transform: scale(1.08);
+		color: rgb(var(--color-primary-rgb, 37, 99, 235));
+		border-color: rgb(var(--color-primary-rgb, 37, 99, 235));
+	}
+
+	.view-fullscreen-btn:active {
+		transform: scale(0.94);
+	}
+
+	.view-fullscreen-btn .fullscreen-icon {
+		width: 17px;
+		height: 17px;
+		background-color: currentColor;
+		display: inline-block;
+		mask-image: url("../../assets/icons/ui/maximize-solid-full.svg");
+		-webkit-mask-image: url("../../assets/icons/ui/maximize-solid-full.svg");
+		mask-repeat: no-repeat;
+		-webkit-mask-repeat: no-repeat;
+		mask-position: center;
+		-webkit-mask-position: center;
+		mask-size: contain;
+		-webkit-mask-size: contain;
+		transition: transform 0.2s ease;
+	}
+
+	/* ⛶ Fullscreen Active State: Switch to minimize-solid-full.svg */
+	.view-fullscreen-btn.is-fullscreen .fullscreen-icon,
+	:fullscreen .view-fullscreen-btn .fullscreen-icon,
+	:-webkit-full-screen .view-fullscreen-btn .fullscreen-icon {
+		mask-image: url("../../assets/icons/ui/minimize-solid-full.svg");
+		-webkit-mask-image: url("../../assets/icons/ui/minimize-solid-full.svg");
+	}
+
+	.view-fullscreen-btn.is-fullscreen,
+	:fullscreen .view-fullscreen-btn,
+	:-webkit-full-screen .view-fullscreen-btn {
+		background: linear-gradient(135deg, rgb(var(--color-primary-rgb, 37, 99, 235)), rgb(var(--color-primary-dark-rgb, 29, 78, 216)));
+		color: #ffffff;
+		border-color: transparent;
 	}
 
 	/* =========================================================================
@@ -437,11 +507,19 @@
 		right: var(--space-sm, 12px);
 		}
 		.view-slider-track {
-		width: 124px;
+		width: 176px;
 		height: 34px;
 		}
 		.view-slider-btn {
 		font-size: 11px;
+		}
+		.view-fullscreen-btn {
+			width: 34px;
+			height: 34px;
+		}
+		.view-fullscreen-btn .fullscreen-icon {
+			width: 15px;
+			height: 15px;
 		}
 		.map-25d-controls-panel {
 		top: calc(var(--space-sm, 12px) + 42px);
@@ -610,5 +688,38 @@
 				border-radius: var(--radius-2xs);
 			}
 		}
+	}
+
+	/* =========================================================================
+	Fullscreen Map Layout & Platform Adaptation
+	========================================================================= */
+	:fullscreen.map-section,
+	:-webkit-full-screen.map-section,
+	.map-section.is-fullscreen {
+		position: fixed !important;
+		inset: 0 !important;
+		width: 100vw !important;
+		height: 100vh !important;
+		max-width: 100vw !important;
+		max-height: 100vh !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		border: none !important;
+		border-radius: 0 !important;
+		z-index: 100000 !important;
+		background: var(--bg-base, #ffffff);
+	}
+
+	/* 📱 Capacitor Android APK: Notch & Status Bar Header Spacing */
+	body.is-capacitor-app :fullscreen.map-section,
+	body.is-capacitor-app :-webkit-full-screen.map-section,
+	body.is-capacitor-app .map-section.is-fullscreen {
+		padding-top: max(48px, calc(var(--space-md) + env(safe-area-inset-top, 28px))) !important;
+	}
+
+	body.is-capacitor-app :fullscreen.map-section #viewModeWidget,
+	body.is-capacitor-app :-webkit-full-screen.map-section #viewModeWidget,
+	body.is-capacitor-app .map-section.is-fullscreen #viewModeWidget {
+		top: max(calc(var(--space-sm) + 36px), calc(var(--space-sm) + env(safe-area-inset-top, 28px))) !important;
 	}
 }

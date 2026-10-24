@@ -143,11 +143,6 @@
 			
 			flex: 1 1 auto;
 		}
-		aside {
-			flex: 1;
-			width: 100%;
-			max-width: 100%; /* 👈 320px ki limit hata di */
-		}
 
 		/* Hide main site footer on interactive map view */
 		body:has(#map) footer.site-footer {

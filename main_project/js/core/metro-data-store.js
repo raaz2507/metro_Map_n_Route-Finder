@@ -242,6 +242,13 @@ class MetroDataStore {
 			}
 		}
 
+		// Ensure any stations belonging to the active lines are preserved
+		for (const [stId, stObj] of Object.entries(rawStations)) {
+			if (Array.isArray(stObj.lines) && stObj.lines.some(lId => filteredLines[lId])) {
+				activeStationIds.add(stId);
+			}
+		}
+
 		if (Object.keys(filteredLines).length === 0) {
 			return rawData;
 		}

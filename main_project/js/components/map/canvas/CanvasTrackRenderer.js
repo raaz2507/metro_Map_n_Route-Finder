@@ -39,6 +39,10 @@ export class CanvasTrackRenderer {
 				const st2 = stationData[nbr.station];
 				if (!st2 || !st1.xy || !st2.xy) return;
 
+				const edgeStatus = r.getEdgeStatus(st1, st2, nbr.line);
+				if (!r.showUnderConstruction && edgeStatus === "under_construction") return;
+				if (!r.showApproved && (edgeStatus === "approved" || edgeStatus === "proposed" || edgeStatus === "planned")) return;
+
 				const z1Raw = r.getLayoutElevation(st1.properties?.layout);
 				const z2Raw = r.getLayoutElevation(st2.properties?.layout);
 
@@ -217,6 +221,8 @@ export class CanvasTrackRenderer {
 	strokeTrackSegment(ctx, p1, p2, trackW, lineInfo, st1, st2, lineId, alpha, controlPoints = null) {
 		const r = this.#renderer;
 		const edgeStatus = r.getEdgeStatus(st1, st2, lineId);
+		if (!r.showUnderConstruction && edgeStatus === "under_construction") return;
+		if (!r.showApproved && (edgeStatus === "approved" || edgeStatus === "proposed" || edgeStatus === "planned")) return;
 		if (edgeStatus === "under_construction") {
 			ctx.setLineDash([trackW * 2.4, trackW * 1.8]);
 			ctx.strokeStyle = "#f59e0b";
@@ -293,6 +299,10 @@ export class CanvasTrackRenderer {
 				const st2 = stationData[nbr.station];
 				if (!st2 || !st1.xy || !st2.xy) return;
 
+				const edgeStatus = r.getEdgeStatus(st1, st2, nbr.line);
+				if (!r.showUnderConstruction && edgeStatus === "under_construction") return;
+				if (!r.showApproved && (edgeStatus === "approved" || edgeStatus === "proposed" || edgeStatus === "planned")) return;
+
 				const z1 = r.is25D ? r.getLayoutElevation(st1.properties?.layout) : 0;
 				const z2 = r.is25D ? r.getLayoutElevation(st2.properties?.layout) : 0;
 				const isUnderground = z1 < 0 && z2 < 0;
@@ -333,6 +343,10 @@ export class CanvasTrackRenderer {
 				const st2 = stationData[nbr.station];
 				if (!st2 || !st1.xy || !st2.xy) return;
 
+				const edgeStatus = r.getEdgeStatus(st1, st2, nbr.line);
+				if (!r.showUnderConstruction && edgeStatus === "under_construction") return;
+				if (!r.showApproved && (edgeStatus === "approved" || edgeStatus === "proposed" || edgeStatus === "planned")) return;
+
 				const z1 = r.is25D ? r.getLayoutElevation(st1.properties?.layout) : 0;
 				const z2 = r.is25D ? r.getLayoutElevation(st2.properties?.layout) : 0;
 				const isSurface = z1 === 0 && z2 === 0;
@@ -372,6 +386,10 @@ export class CanvasTrackRenderer {
 
 				const st2 = stationData[nbr.station];
 				if (!st2 || !st1.xy || !st2.xy) return;
+
+				const edgeStatus = r.getEdgeStatus(st1, st2, nbr.line);
+				if (!r.showUnderConstruction && edgeStatus === "under_construction") return;
+				if (!r.showApproved && (edgeStatus === "approved" || edgeStatus === "proposed" || edgeStatus === "planned")) return;
 
 				const z1 = r.is25D ? r.getLayoutElevation(st1.properties?.layout) : 0;
 				const z2 = r.is25D ? r.getLayoutElevation(st2.properties?.layout) : 0;
@@ -435,6 +453,10 @@ export class CanvasTrackRenderer {
 
 				const st2 = stationData[nbr.station];
 				if (!st2 || !st1.xy || !st2.xy) return;
+
+				const edgeStatus = r.getEdgeStatus(st1, st2, nbr.line);
+				if (!r.showUnderConstruction && edgeStatus === "under_construction") return;
+				if (!r.showApproved && (edgeStatus === "approved" || edgeStatus === "proposed" || edgeStatus === "planned")) return;
 
 				const z1 = r.is25D ? r.getLayoutElevation(st1.properties?.layout) : 0;
 				const z2 = r.is25D ? r.getLayoutElevation(st2.properties?.layout) : 0;

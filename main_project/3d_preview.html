@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>🚇 Metro 3D Engine - Pure Civil Infrastructure & Metro Line</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #2b2826;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    #canvas-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    /* Floating Header HUD */
+    .hud-header {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(25, 23, 20, 0.90);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(220, 185, 120, 0.35);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: #f7ecd7;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+      max-width: 380px;
+    }
+    .hud-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #f5cf7c;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .hud-badge {
+      display: inline-block;
+      font-size: 11px;
+      background: rgba(82, 179, 102, 0.2);
+      color: #6ee787;
+      border: 1px solid rgba(110, 231, 135, 0.4);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .hud-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #c9bea9;
+    }
+
+    /* Floating Checkbox Control Panel (Right Side) */
+    .hud-panel-right {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 290px;
+      background: rgba(22, 20, 18, 0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(220, 185, 120, 0.35);
+      border-radius: 14px;
+      padding: 16px 18px;
+      color: #f7ecd7;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.6);
+      z-index: 10;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+    }
+    .panel-header {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f5cf7c;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .panel-section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #baa88d;
+      margin: 10px 0 6px 0;
+      font-weight: 600;
+    }
+    .control-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 12px;
+      color: #faebd7;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .control-item:hover {
+      color: #ffffff;
+    }
+    .control-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    /* Modern Checkbox Toggle */
+    .chk-toggle {
+      width: 17px;
+      height: 17px;
+      accent-color: #e6a838;
+      cursor: pointer;
+    }
+    /* Color Swatches for Metro Line */
+    .color-swatches {
+      display: flex;
+      gap: 7px;
+      margin-top: 8px;
+      padding-top: 6px;
+    }
+    .swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .swatch:hover {
+      transform: scale(1.18);
+      border-color: #ffffff;
+    }
+    .swatch.active {
+      transform: scale(1.22);
+      border-color: #f5cf7c;
+      box-shadow: 0 0 8px rgba(245, 207, 124, 0.8);
+    }
+    .swatch-red { background: #d63031; }
+    .swatch-yellow { background: #f1c40f; }
+    .swatch-blue { background: #0984e3; }
+    .swatch-green { background: #2ecc71; }
+    .swatch-purple { background: #8e44ad; }
+
+    /* Station Design Selector Styles */
+    .station-selector-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+    .btn-station-style {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 11px;
+      color: #eae1d0;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-station-style:hover {
+      background: rgba(245, 207, 124, 0.2);
+      border-color: #f5cf7c;
+      color: #ffffff;
+    }
+    .btn-station-style.active {
+      background: rgba(230, 168, 56, 0.35);
+      border-color: #f5cf7c;
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 0 6px rgba(245, 207, 124, 0.4);
+    }
+    .btn-ug-style {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 11px;
+      color: #eae1d0;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-ug-style:hover {
+      background: rgba(0, 206, 201, 0.2);
+      border-color: #00cec9;
+      color: #ffffff;
+    }
+    .btn-ug-style.active {
+      background: rgba(0, 206, 201, 0.35);
+      border-color: #00cec9;
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 0 6px rgba(0, 206, 201, 0.4);
+    }
+    .btn-focus-station {
+      width: 100%;
+      background: rgba(9, 132, 227, 0.25);
+      border: 1px solid rgba(9, 132, 227, 0.6);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #74b9ff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 4px;
+    }
+    .btn-focus-station:hover {
+      background: rgba(9, 132, 227, 0.45);
+      color: #ffffff;
+    }
+    /* Drag Station Control */
+    .drag-station-control {
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(0, 206, 201, 0.35);
+      border-radius: 8px;
+      padding: 8px 10px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .drag-label {
+      font-size: 11px;
+      color: #00cec9;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .range-slider {
+      width: 100%;
+      accent-color: #00cec9;
+      cursor: pointer;
+    }
+    .drag-hint {
+      font-size: 10px;
+      color: #b2bec3;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* Bottom HUD Controls */
+    .hud-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(22, 20, 18, 0.90);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(220, 185, 120, 0.35);
+      border-radius: 40px;
+      padding: 8px 16px;
+      display: flex;
+      gap: 10px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+      z-index: 10;
+    }
+    .btn-hud {
+      background: rgba(255, 255, 255, 0.08);
+      color: #faebd7;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-hud:hover {
+      background: rgba(245, 207, 124, 0.25);
+      border-color: #f5cf7c;
+      color: #ffffff;
+    }
+  </style>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "./js/lib/three/three.module.js",
+    "three/addons/": "./js/lib/three/addons/"
+  }
+}
+</script>
+</head>
+<body>
+
+  <div id="canvas-container"></div>
+
+  <!-- HUD Header -->
+  <div class="hud-header">
+    <div class="hud-title">
+      <span>🚇 Metro 3D Network Viewer</span>
+      <span class="hud-badge">REAL DATA</span>
+    </div>
+    <div class="hud-desc">
+      <b>Interactive 3D Civil Infrastructure:</b><br>
+      • Real elevated viaducts, intermediate pillars & continuous rails.<br>
+      • Cut-and-cover canyon trenches for underground stations.<br>
+      • Realistic 3D station geometry with full camera controls.<br>
+    </div>
+  </div>
+
+  <!-- Checkbox Control Panel (Right Side) -->
+  <div class="hud-panel-right">
+    <div class="panel-header">
+      <span>🎛️ Elements Control</span>
+    </div>
+
+    <div class="panel-section-title">Civil Infrastructure</div>
+    <label class="control-item">
+      <span class="control-label">🌍 Ground Terrain</span>
+      <input type="checkbox" id="chk-ground" class="chk-toggle" checked>
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">🔍 Subterranean X-Ray View</span>
+      <input type="checkbox" id="chk-xray" class="chk-toggle">
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">🏛️ Stone Pillars</span>
+      <input type="checkbox" id="chk-pillars" class="chk-toggle" checked>
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">🌉 Viaduct Bridges</span>
+      <input type="checkbox" id="chk-bridges" class="chk-toggle" checked>
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">⛰️ Canyon Trench & Floor</span>
+      <input type="checkbox" id="chk-canyon" class="chk-toggle" checked>
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">🪨 Canyon Rim Rocks</span>
+      <input type="checkbox" id="chk-rocks" class="chk-toggle" checked>
+    </label>
+
+    <div class="panel-section-title">Metro Railway</div>
+    <label class="control-item">
+      <span class="control-label">🔴 Metro Line Ribbon</span>
+      <input type="checkbox" id="chk-metro-line" class="chk-toggle" checked>
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">🛤️ Railway Tracks</span>
+      <input type="checkbox" id="chk-tracks" class="chk-toggle" checked>
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">🚆 Metro Train</span>
+      <input type="checkbox" id="chk-train-vis" class="chk-toggle" checked>
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">⏩ Train Motion</span>
+      <input type="checkbox" id="chk-train-motion" class="chk-toggle" checked>
+    </label>
+
+    <div class="panel-section-title">Metro Line Color</div>
+    <div class="color-swatches">
+      <div class="swatch swatch-red active" data-color="0xd63031" title="Red Line"></div>
+      <div class="swatch swatch-yellow" data-color="0xf1c40f" title="Yellow Line"></div>
+      <div class="swatch swatch-blue" data-color="0x0984e3" title="Blue Line"></div>
+      <div class="swatch swatch-green" data-color="0x2ecc71" title="Green Line"></div>
+      <div class="swatch swatch-purple" data-color="0x8e44ad" title="Purple Line"></div>
+    </div>
+
+    <div class="panel-section-title">🚊 Elevated Station (5 Styles)</div>
+    <label class="control-item">
+      <span class="control-label">🚊 Show Elevated Station</span>
+      <input type="checkbox" id="chk-station" class="chk-toggle" checked>
+    </label>
+
+    <div class="station-selector-grid">
+      <button class="btn-station-style active" data-style="0">1. 🏛️ Modern Arch (DMRC)</button>
+      <button class="btn-station-style" data-style="1">2. 🏗️ Industrial Truss</button>
+      <button class="btn-station-style" data-style="2">3. 🏰 CoC Fantasy Stone</button>
+      <button class="btn-station-style" data-style="3">4. ⚡ Futuristic Aerocity</button>
+      <button class="btn-station-style" data-style="4">5. ⛏️ Cavern Bunker Vault</button>
+    </div>
+
+    <button class="btn-focus-station" id="btn-focus-station">🔍 Focus Elevated Station</button>
+
+    <div class="panel-section-title">🚇 Underground Station (5 Open-Air Styles)</div>
+    <label class="control-item">
+      <span class="control-label">🚇 Show Underground Station</span>
+      <input type="checkbox" id="chk-ug-station" class="chk-toggle" checked>
+    </label>
+
+    <label class="control-item">
+      <span class="control-label">✨ Transparent Glass Shade</span>
+      <input type="checkbox" id="chk-ug-glass" class="chk-toggle" checked>
+    </label>
+
+    <div class="station-selector-grid">
+      <button class="btn-ug-style active" data-style="0">1. 🚇 Modern Open-Cut Platform</button>
+      <button class="btn-ug-style" data-style="1">2. ⛏️ CoC Sunken Quarry Depot</button>
+      <button class="btn-ug-style" data-style="2">3. 🚀 Cyberpunk Skyway Trench</button>
+      <button class="btn-ug-style" data-style="3">4. 🏛️ Royal Heritage Baoli Ghat</button>
+      <button class="btn-ug-style" data-style="4">5. 🛡️ Industrial Open Sub-Dock</button>
+    </div>
+
+    <!-- Dynamic Station Drag & Linked Cutout Slider -->
+    <div class="drag-station-control">
+      <div class="drag-label">
+        <span>📍 Drag Station along Trench:</span>
+        <span id="txt-station-t">50%</span>
+      </div>
+      <input type="range" id="slider-station-pos" min="0.22" max="0.78" step="0.005" value="0.5" class="range-slider">
+      <div class="drag-hint">💡 3D में स्टेशन पर माउस दबाकर ड्रैग करें या यह स्लाइडर खींचें — गड्ढा (Cutout) स्टेशन के साथ-साथ चलेगा!</div>
+    </div>
+
+    <button class="btn-focus-station" id="btn-focus-ug-station">🔍 Focus Underground Station</button>
+  </div>
+
+  <!-- Bottom Floating HUD -->
+  <div class="hud-controls">
+    <button class="btn-hud" id="btn-focus-elev-hud">🚊 Elevated Station</button>
+    <button class="btn-hud" id="btn-focus-ug-hud">🚇 Underground Station</button>
+    <button class="btn-hud" id="btn-lighting">☀️ Golden Sunlight</button>
+    <button class="btn-hud" id="btn-reset-cam">🔄 Reset View</button>
+  </div>
+
+  <script type="module">
+    import { Metro3DEngine } from './js/components/map/three/Metro3DEngine.js';
+    import { metroDataStore } from './js/core/metro-data-store.js';
+
+    const container = document.getElementById('canvas-container');
+
+    // Optional: resolve city from URL query params (e.g. ?city=delhi_ncr or ?city=agra)
+    // Dynamically resolve city from URL query params (default: delhi_ncr)
+    const urlParams = new URLSearchParams(window.location.search);
+    const city = urlParams.get('city') || 'delhi_ncr';
+
+    // Update HUD Header title & badge
+    const hudTitle = document.querySelector('.hud-title span');
+    const hudBadge = document.querySelector('.hud-badge');
+    if (hudTitle) {
+      hudTitle.textContent = `🚇 3D Metro Network (${city.replace('_', ' ').toUpperCase()})`;
+    }
+    if (hudBadge) {
+      hudBadge.textContent = city.toUpperCase();
+    }
+
+    // Load real dynamic transit network data via the centralized Single Source of Truth Data Store
+    let metroData = null;
+    try {
+      metroData = await metroDataStore.loadCity(city);
+    } catch (e) {
+      console.warn("[3D Preview] metroDataStore.loadCity failed:", e);
+    }
+
+    const engine = new Metro3DEngine(container, metroData);
+    await engine.init();
+    engine.toggleSubterraneanView(false);
+
+    // Checkbox toggles
+    document.getElementById('chk-ground').addEventListener('change', (e) => {
+      engine.toggleGround(e.target.checked);
+    });
+
+    document.getElementById('chk-xray').addEventListener('change', (e) => {
+      engine.toggleSubterraneanView(e.target.checked);
+    });
+
+    document.getElementById('chk-pillars').addEventListener('change', (e) => {
+      engine.togglePillars(e.target.checked);
+    });
+
+    document.getElementById('chk-bridges').addEventListener('change', (e) => {
+      engine.toggleBridges(e.target.checked);
+    });
+
+    document.getElementById('chk-canyon').addEventListener('change', (e) => {
+      engine.toggleCanyon(e.target.checked);
+    });
+
+    document.getElementById('chk-rocks').addEventListener('change', (e) => {
+      engine.toggleRocks(e.target.checked);
+    });
+
+    document.getElementById('chk-metro-line').addEventListener('change', (e) => {
+      engine.toggleMetroLine(e.target.checked);
+    });
+
+    document.getElementById('chk-tracks').addEventListener('change', (e) => {
+      engine.toggleTracks(e.target.checked);
+    });
+
+    document.getElementById('chk-train-vis').addEventListener('change', (e) => {
+      engine.toggleTrainVisibility(e.target.checked);
+    });
+
+    document.getElementById('chk-train-motion').addEventListener('change', (e) => {
+      engine.toggleTrainMotion(e.target.checked);
+    });
+
+    // Station Toggles & Style Selection
+    document.getElementById('chk-station').addEventListener('change', (e) => {
+      engine.toggleStation(e.target.checked);
+    });
+
+    const stationBtns = document.querySelectorAll('.btn-station-style');
+    stationBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        stationBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const style = parseInt(btn.getAttribute('data-style'), 10);
+        engine.setStationStyle(style);
+      });
+    });
+
+    document.getElementById('btn-focus-station').addEventListener('click', () => {
+      engine.focusStation();
+    });
+
+    // Underground Station Toggles & Style Selection
+    document.getElementById('chk-ug-station').addEventListener('change', (e) => {
+      engine.toggleUndergroundStation(e.target.checked);
+    });
+
+    document.getElementById('chk-ug-glass').addEventListener('change', (e) => {
+      engine.toggleUndergroundGlassCanopy(e.target.checked);
+    });
+
+    const ugBtns = document.querySelectorAll('.btn-ug-style');
+    ugBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        ugBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const style = parseInt(btn.getAttribute('data-style'), 10);
+        engine.setUndergroundStationStyle(style);
+      });
+    });
+
+    document.getElementById('btn-focus-ug-station').addEventListener('click', () => {
+      engine.focusUndergroundStation();
+    });
+
+    // Dynamic Station Drag Slider & 3D Mouse Drag Sync
+    const sliderStationPos = document.getElementById('slider-station-pos');
+    const txtStationT = document.getElementById('txt-station-t');
+
+    sliderStationPos.addEventListener('input', (e) => {
+      const t = parseFloat(e.target.value);
+      engine.setUndergroundStationT(t);
+      txtStationT.innerText = Math.round(t * 100) + '%';
+    });
+
+    // When station is dragged directly with mouse in 3D scene
+    engine.onStationDrag = (t) => {
+      sliderStationPos.value = t;
+      txtStationT.innerText = Math.round(t * 100) + '%';
+    };
+
+    document.getElementById('btn-focus-elev-hud').addEventListener('click', () => {
+      engine.focusStation();
+    });
+
+    document.getElementById('btn-focus-ug-hud').addEventListener('click', () => {
+      engine.focusUndergroundStation();
+    });
+
+    // Metro Line Color Swatches
+    const swatches = document.querySelectorAll('.swatch');
+    swatches.forEach(s => {
+      s.addEventListener('click', () => {
+        swatches.forEach(sw => sw.classList.remove('active'));
+        s.classList.add('active');
+        const color = parseInt(s.getAttribute('data-color'), 16);
+        engine.setMetroLineColor(color);
+      });
+    });
+
+    // Lighting toggle
+    const btnLight = document.getElementById('btn-lighting');
+    btnLight.addEventListener('click', () => {
+      const isSunset = engine.toggleLighting();
+      btnLight.innerText = isSunset ? "🌇 Sunset Lighting" : "☀️ Golden Sunlight";
+    });
+
+    // Reset camera
+    document.getElementById('btn-reset-cam').addEventListener('click', () => {
+      engine.resetCamera();
+    });
+  </script>
+</body>
+</html>

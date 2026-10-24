@@ -4,6 +4,20 @@
  */
 import { appStateStore } from "./app-state-store.js";
 
+const FALLBACK_THEMES_MANIFEST = {
+	version: "1.0.0",
+	defaultTheme: "classic",
+	themes: [
+		{ id: "classic", name: "Classic Metro", category: "🚇 Transit & Metro", badge: "Standard Edition", preview: { light: "#ffffff", dark: "#0f172a", accent: "#2563eb" } },
+		{ id: "comic", name: "Pop-Comic Hero", category: "💥 Comics & Manga", badge: "Graphic Novel", preview: { light: "#fffde7", dark: "#18181b", accent: "#ef4444" } },
+		{ id: "anime", name: "Anime Nostalgia", category: "🎬 Anime & Cinema", badge: "Cinematic Edition", preview: { light: "#faf7ea", dark: "#152232", accent: "#b45309" } },
+		{ id: "cyberpunk", name: "Neon Cyberpunk", category: "⚡ Sci-Fi & Retro", badge: "Night City 2077", preview: { light: "#fdf4ff", dark: "#090314", accent: "#00f0ff" } },
+		{ id: "pixel", name: "Retro 8-Bit Pixel", category: "⚡ Sci-Fi & Retro", badge: "Arcade & 8-Bit", preview: { light: "#1535a1", dark: "#08081a", accent: "#30cef0" } },
+		{ id: "chamgadar", name: "Chamgadar", category: "🦇 Dark Vigilante", badge: "Shadow Patrol", preview: { light: "#dbe1ea", dark: "#0a0b0e", accent: "#f59e0b" } },
+		{ id: "makad-manav", name: "Makad-Manav", category: "🕷️ Web-Slinger", badge: "Web Transit", preview: { light: "#f5f3f7", dark: "#080912", accent: "#ef4444" } }
+	]
+};
+
 export class ThemeEngine {
 	static #instance = null;
 	#manifest = null;
@@ -36,12 +50,16 @@ export class ThemeEngine {
 		this.#ensureDOMMountPoints();
 
 		try {
-			const manifestRes = await fetch("themes/manifest.json");
-			if (manifestRes.ok) {
+			const manifestUrl = new URL("../../themes/manifest.json", import.meta.url).href;
+			const manifestRes = await fetch(manifestUrl).catch(() => fetch("themes/manifest.json"));
+			if (manifestRes && manifestRes.ok) {
 				this.#manifest = await manifestRes.json();
 			}
-		} catch (e) {
-			console.warn("[ThemeEngine] Could not load manifest:", e);
+		} catch (_) {
+			// Expected when opened via file:/// protocol or offline
+		}
+		if (!this.#manifest) {
+			this.#manifest = FALLBACK_THEMES_MANIFEST;
 		}
 
 		const defaultTheme = this.#manifest?.defaultTheme || "classic";

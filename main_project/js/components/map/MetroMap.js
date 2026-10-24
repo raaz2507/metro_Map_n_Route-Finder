@@ -5,15 +5,44 @@
  */
 
 import { MapGeometry } from "./core/MapGeometry.js";
+import { MapEngineFactory } from "./core/MapEngineFactory.js";
 import { CanvasRenderer } from "./canvas/CanvasRenderer.js";
+import { Metro3DEngine } from "./three/Metro3DEngine.js";
 import { MapLegend } from "./ui/MapLegend.js";
 import { eventBus } from "../../core/event-bus.js";
 import { APP_CONFIG } from "../../config/app-config.js";
+
+// Ensure standard 2D, 2.5D Canvas, and 3D WebGL engines are registered in the pluggable factory
+if (!MapEngineFactory.has("2d")) {
+	MapEngineFactory.register("2d", CanvasRenderer, {
+		label: "2D",
+		icon: "📐",
+		is3D: false,
+		description: "Standard schematic 2D transit map"
+	});
+}
+if (!MapEngineFactory.has("2.5d")) {
+	MapEngineFactory.register("2.5d", CanvasRenderer, {
+		label: "2.5D",
+		icon: "🧊",
+		is3D: true,
+		description: "Isometric 2.5D transit map with elevation"
+	});
+}
+if (!MapEngineFactory.has("3d")) {
+	MapEngineFactory.register("3d", Metro3DEngine, {
+		label: "3D",
+		icon: "🎮",
+		is3D: true,
+		description: "3D WebGL Metro Map View"
+	});
+}
 
 export class MetroMap {
 	#mapContainer = null;
 	#metroData = null;
 	#settings = { currentTheme: "light", currentLang: "en" };
+	#mapDisplaySettings = { showUnderConstruction: true, showApproved: true };
 	#abortController = null;
 	#centerClass = null;
 
@@ -22,6 +51,7 @@ export class MetroMap {
 	#legend = null;
 	#bounds = null;
 	#zoomRange = null;
+	#currentViewMode = "2d";
 
 	onClearRoute = null;
 	onStationClick = null;
@@ -42,6 +72,21 @@ export class MetroMap {
 		this.onStationClick = onStationClick;
 		this.#settings.currentLang = lang;
 		this.#settings.currentTheme = theme;
+
+		try {
+			const savedMapSettings = localStorage.getItem("metro_map_settings");
+			if (savedMapSettings) {
+				const parsed = JSON.parse(savedMapSettings);
+				if (typeof parsed.showUnderConstruction === "boolean") {
+					this.#mapDisplaySettings.showUnderConstruction = parsed.showUnderConstruction;
+				}
+				if (typeof parsed.showApproved === "boolean") {
+					this.#mapDisplaySettings.showApproved = parsed.showApproved;
+				}
+			}
+		} catch (e) {
+			console.warn("[MetroMap] Failed to load saved map settings:", e);
+		}
 		this.#abortController = new AbortController();
 
 		this.#init();
@@ -79,11 +124,12 @@ export class MetroMap {
 		MapGeometry.convertLatLonToXY(this.#metroData.stationData, this.#bounds, avgLatRad);
 		this.#zoomRange = MapGeometry.calculateZoomRange(this.#bounds);
 
-		// 2. Hardware-Accelerated Native Canvas Engine
+		// 2. Hardware-Accelerated Native Canvas Engine (Pluggable Factory)
 		const savedViewMode = localStorage.getItem("metro_map_view_mode") || "2d";
+		this.#currentViewMode = savedViewMode;
 		const isInitial25D = savedViewMode === "2.5d";
 
-		this.#canvasEngine = new CanvasRenderer({
+		this.#canvasEngine = MapEngineFactory.create(savedViewMode, {
 			container: this.#mapContainer,
 			metroData: this.#metroData,
 			centerClass: this.#centerClass,
@@ -92,13 +138,28 @@ export class MetroMap {
 			theme: this.#settings.currentTheme,
 		});
 
+		this.#canvasEngine?.setMapDisplaySettings?.(this.#mapDisplaySettings);
+
+		if (typeof this.#canvasEngine.init === "function") {
+			Promise.resolve(this.#canvasEngine.init()).catch(console.warn);
+		}
+
+		this.#canvasEngine.onTransformChange = (data) => {
+			const zoomLevel = this.#mapContainer?.querySelector("#zoomLevel");
+			if (zoomLevel && data.zoom != null) {
+				zoomLevel.textContent = `${Math.round(data.zoom * 100)}%`;
+			}
+			eventBus.emit("MAP_TRANSFORM_CHANGED", data);
+		};
+
 		this.#canvasEngine.onStationClick = (st) => {
-			if (st?.id) {
+			const id = st?.id || st?.stationId;
+			if (id) {
 				if (typeof this.onStationClick === "function") {
 					this.onStationClick({
-						stationId: st.id,
-						x: st.xy?.x ?? 0,
-						y: st.xy?.y ?? 0
+						stationId: id,
+						x: st.x ?? st.xy?.x ?? 0,
+						y: st.y ?? st.xy?.y ?? 0
 					});
 				}
 			}
@@ -204,9 +265,16 @@ export class MetroMap {
 						<span class="view-mode-icon" aria-hidden="true">🧊</span>
 						<span class="view-mode-text">2.5D</span>
 					</button>
+					<button type="button" class="view-slider-btn" id="btnView3D" role="radio" aria-checked="false" data-mode="3d">
+						<span class="view-mode-icon" aria-hidden="true">🎮</span>
+						<span class="view-mode-text">3D</span>
+					</button>
 				</div>
 				<button type="button" class="view-settings-toggle-btn hidden" id="btnToggle25DSettings" title="2.5D Camera & Layer Controls" aria-label="2.5D Settings">
 					<span class="settings-icon" aria-hidden="true">⚙️</span>
+				</button>
+				<button type="button" class="view-fullscreen-btn" id="btnToggleMapFullscreen" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">
+					<span class="fullscreen-icon" aria-hidden="true"></span>
 				</button>
 			`;
 			this.#mapContainer.appendChild(viewModeWidget);
@@ -312,8 +380,38 @@ export class MetroMap {
 			this.#mapContainer.appendChild(controlsPanel);
 		}
 
+		let panel3D = this.#mapContainer.querySelector("#map3DControlsPanel");
+		if (!panel3D) {
+			panel3D = document.createElement("div");
+			panel3D.id = "map3DControlsPanel";
+			panel3D.className = "map-25d-controls-panel hidden";
+			panel3D.setAttribute("role", "region");
+			panel3D.setAttribute("aria-label", "3D View Controls");
+			panel3D.innerHTML = `
+				<div class="panel-header">
+					<span class="panel-title">
+						<span class="title-icon" aria-hidden="true">🎮</span>
+						<span>3D View Controls</span>
+					</span>
+					<button type="button" class="btn-close-25d-panel" id="btnClose3DPanel" title="Close Panel" aria-label="Close">✕</button>
+				</div>
+
+				<div class="control-row strata-toggle-row">
+					<div class="control-label">
+						<span>Canyon Rim Rocks:</span>
+						<span id="lblRocksVal">ON</span>
+					</div>
+					<button type="button" class="btn-strata-toggle active" id="btnToggleRocks">
+						<span id="txtToggleRocks">🪨 Canyon Rim Rocks: ON</span>
+					</button>
+				</div>
+			`;
+			this.#mapContainer.appendChild(panel3D);
+		}
+
 		const btnView2D = viewModeWidget.querySelector("#btnView2D");
 		const btnView25D = viewModeWidget.querySelector("#btnView25D");
+		const btnView3D = viewModeWidget.querySelector("#btnView3D");
 		const btnToggle25DSettings = viewModeWidget.querySelector("#btnToggle25DSettings");
 		const btnClose25DPanel = controlsPanel.querySelector("#btnClose25DPanel");
 
@@ -338,43 +436,53 @@ export class MetroMap {
 		const lblStrataVal = controlsPanel.querySelector("#lblStrataVal");
 		const btnReset25DView = controlsPanel.querySelector("#btnReset25DView");
 
-		const updateWidgetState = (is25) => {
-			viewModeWidget.setAttribute("data-active-mode", is25 ? "2.5d" : "2d");
-			btnView2D.classList.toggle("active", !is25);
-			btnView2D.setAttribute("aria-checked", String(!is25));
-			btnView25D.classList.toggle("active", is25);
-			btnView25D.setAttribute("aria-checked", String(is25));
+		// Initial UI sync
+		this.#updateViewModeWidgetUI(this.#currentViewMode);
 
-			if (btnToggle25DSettings) {
-				btnToggle25DSettings.classList.toggle("hidden", !is25);
-			}
-			if (!is25 && controlsPanel) {
-				controlsPanel.classList.add("hidden");
+		btnView2D.onclick = () => this.switchEngineMode("2d");
+		btnView25D.onclick = () => this.switchEngineMode("2.5d");
+		if (btnView3D) {
+			btnView3D.onclick = () => this.switchEngineMode("3d");
+		}
+
+		let rocksVisible = true;
+		const btnClose3DPanel = panel3D?.querySelector("#btnClose3DPanel");
+		const btnToggleRocks = panel3D?.querySelector("#btnToggleRocks");
+		const lblRocksVal = panel3D?.querySelector("#lblRocksVal");
+		const txtToggleRocks = panel3D?.querySelector("#txtToggleRocks");
+
+		if (btnToggleRocks) {
+			btnToggleRocks.onclick = () => {
+				rocksVisible = !rocksVisible;
+				btnToggleRocks.classList.toggle("active", rocksVisible);
+				if (lblRocksVal) lblRocksVal.textContent = rocksVisible ? "ON" : "OFF";
+				if (txtToggleRocks) txtToggleRocks.textContent = `🪨 Canyon Rim Rocks: ${rocksVisible ? "ON" : "OFF"}`;
+				if (this.#canvasEngine && typeof this.#canvasEngine.toggleRocks === "function") {
+					this.#canvasEngine.toggleRocks(rocksVisible);
+				}
+			};
+		}
+
+		if (btnClose3DPanel) {
+			btnClose3DPanel.onclick = () => {
+				panel3D.classList.add("hidden");
 				btnToggle25DSettings?.classList.remove("active");
-			}
-		};
-
-		// Initial sync
-		const isInitial25 = Boolean(this.#canvasEngine?.is25D);
-		updateWidgetState(isInitial25);
-
-		btnView2D.onclick = () => {
-			if (this.#canvasEngine?.is25D) {
-				this.toggle25DMode(false);
-			}
-		};
-
-		btnView25D.onclick = () => {
-			if (!this.#canvasEngine?.is25D) {
-				this.toggle25DMode(true);
-			}
-		};
+			};
+		}
 
 		if (btnToggle25DSettings) {
 			btnToggle25DSettings.onclick = () => {
-				const isCurrentlyHidden = controlsPanel.classList.contains("hidden");
-				controlsPanel.classList.toggle("hidden", !isCurrentlyHidden);
-				btnToggle25DSettings.classList.toggle("active", isCurrentlyHidden);
+				if (this.#currentViewMode === "3d") {
+					controlsPanel?.classList.add("hidden");
+					const isHidden = panel3D.classList.contains("hidden");
+					panel3D.classList.toggle("hidden", !isHidden);
+					btnToggle25DSettings.classList.toggle("active", isHidden);
+				} else if (this.#currentViewMode === "2.5d") {
+					panel3D?.classList.add("hidden");
+					const isCurrentlyHidden = controlsPanel.classList.contains("hidden");
+					controlsPanel.classList.toggle("hidden", !isCurrentlyHidden);
+					btnToggle25DSettings.classList.toggle("active", isCurrentlyHidden);
+				}
 			};
 		}
 
@@ -384,6 +492,55 @@ export class MetroMap {
 				btnToggle25DSettings?.classList.remove("active");
 			};
 		}
+
+		// ⛶ Fullscreen Toggle Setup
+		const btnToggleFullscreen = viewModeWidget.querySelector("#btnToggleMapFullscreen");
+		const mapTarget = this.#mapContainer.closest(".map-section") || this.#mapContainer;
+
+		const updateFullscreenUI = () => {
+			const isFs = Boolean(
+				document.fullscreenElement ||
+				document.webkitFullscreenElement ||
+				mapTarget.classList.contains("is-fullscreen")
+			);
+			btnToggleFullscreen?.classList.toggle("is-fullscreen", isFs);
+			btnToggleFullscreen?.setAttribute("aria-expanded", String(isFs));
+			setTimeout(() => {
+				window.dispatchEvent(new Event("resize"));
+				if (typeof this.#canvasEngine?.resize === "function") {
+					this.#canvasEngine.resize();
+				}
+			}, 100);
+		};
+
+		if (btnToggleFullscreen) {
+			btnToggleFullscreen.onclick = async () => {
+				try {
+					if (document.fullscreenElement || document.webkitFullscreenElement) {
+						if (document.exitFullscreen) await document.exitFullscreen();
+						else if (document.webkitExitFullscreen) await document.webkitExitFullscreen();
+						mapTarget.classList.remove("is-fullscreen");
+					} else if (mapTarget.classList.contains("is-fullscreen")) {
+						mapTarget.classList.remove("is-fullscreen");
+					} else {
+						if (mapTarget.requestFullscreen) {
+							await mapTarget.requestFullscreen();
+						} else if (mapTarget.webkitRequestFullscreen) {
+							await mapTarget.webkitRequestFullscreen();
+						}
+						mapTarget.classList.add("is-fullscreen");
+					}
+				} catch (err) {
+					console.warn("[MetroMap] Fullscreen API request fallback to CSS fullscreen:", err);
+					mapTarget.classList.toggle("is-fullscreen");
+				}
+				updateFullscreenUI();
+			};
+		}
+
+		const signal = this.#abortController?.signal;
+		document.addEventListener("fullscreenchange", updateFullscreenUI, { signal });
+		document.addEventListener("webkitfullscreenchange", updateFullscreenUI, { signal });
 
 		if (sliderTilt25D) {
 			sliderTilt25D.oninput = (e) => {
@@ -517,9 +674,17 @@ export class MetroMap {
 			}
 		});
 
+		const unsubMapSettings = eventBus.on("MAP_SETTINGS_UPDATED", (settings) => {
+			if (settings) {
+				this.#mapDisplaySettings = { ...this.#mapDisplaySettings, ...settings };
+				this.#canvasEngine?.setMapDisplaySettings?.(this.#mapDisplaySettings);
+			}
+		});
+
 		if (signal) {
 			signal.addEventListener("abort", () => {
 				unsubLang();
+				unsubMapSettings();
 			});
 		}
 	}
@@ -636,34 +801,126 @@ export class MetroMap {
 		this.#canvasEngine?.clearRoutePins();
 	}
 
-	toggle25DMode(targetEnable = null) {
-		if (!this.#canvasEngine) return;
-		const current = Boolean(this.#canvasEngine.is25D);
-		if (targetEnable !== null && targetEnable === current) return;
-		const is25 = this.#canvasEngine.toggle25D(targetEnable);
-		localStorage.setItem("metro_map_view_mode", is25 ? "2.5d" : "2d");
+	switchEngineMode(targetMode) {
+		const currentMode = this.#currentViewMode || "2d";
+		if (targetMode === currentMode) return;
 
+		const isTargetCanvas = (targetMode === "2d" || targetMode === "2.5d");
+		const isCurrentCanvas = (currentMode === "2d" || currentMode === "2.5d");
+
+		if (isTargetCanvas && isCurrentCanvas) {
+			this.toggle25DMode(targetMode === "2.5d");
+			return;
+		}
+
+		// Full Engine Switch (e.g. Canvas 2D/2.5D <-> Three.js 3D)
+		if (this.#canvasEngine) {
+			this.#canvasEngine.destroy();
+			this.#canvasEngine = null;
+		}
+
+		this.#currentViewMode = targetMode;
+		localStorage.setItem("metro_map_view_mode", targetMode);
+
+		const is25D = targetMode === "2.5d";
+		this.#canvasEngine = MapEngineFactory.create(targetMode, {
+			container: this.#mapContainer,
+			metroData: this.#metroData,
+			centerClass: this.#centerClass,
+			is25D,
+			lang: this.#settings.currentLang,
+			theme: this.#settings.currentTheme,
+		});
+
+		this.#canvasEngine?.setMapDisplaySettings?.(this.#mapDisplaySettings);
+
+		if (typeof this.#canvasEngine.init === "function") {
+			Promise.resolve(this.#canvasEngine.init()).catch(console.warn);
+		}
+
+		this.#canvasEngine.onStationClick = (st) => {
+			const id = st?.id || st?.stationId;
+			if (id && typeof this.onStationClick === "function") {
+				this.onStationClick({
+					stationId: id,
+					x: st.x ?? st.xy?.x ?? 0,
+					y: st.y ?? st.xy?.y ?? 0
+				});
+			}
+		};
+
+		this.#canvasEngine.onTransformChange = (data) => {
+			const zoomLevel = this.#mapContainer?.querySelector("#zoomLevel");
+			if (zoomLevel && data.zoom != null) {
+				zoomLevel.textContent = `${Math.round(data.zoom * 100)}%`;
+			}
+			eventBus.emit("MAP_TRANSFORM_CHANGED", data);
+		};
+
+		this.#updateViewModeWidgetUI(targetMode);
+	}
+
+	#updateViewModeWidgetUI(mode) {
 		const viewModeWidget = this.#mapContainer?.querySelector("#viewModeWidget");
-		const btnView2D = viewModeWidget?.querySelector("#btnView2D");
-		const btnView25D = viewModeWidget?.querySelector("#btnView25D");
-		const btnToggle25DSettings = viewModeWidget?.querySelector("#btnToggle25DSettings");
+		if (!viewModeWidget) return;
+
+		viewModeWidget.setAttribute("data-active-mode", mode);
+		const btn2D = viewModeWidget.querySelector("#btnView2D");
+		const btn25D = viewModeWidget.querySelector("#btnView25D");
+		const btn3D = viewModeWidget.querySelector("#btnView3D");
+		const btnSettings = viewModeWidget.querySelector("#btnToggle25DSettings");
 		const controlsPanel = this.#mapContainer?.querySelector("#map25DControlsPanel");
 
-		if (viewModeWidget) {
-			viewModeWidget.setAttribute("data-active-mode", is25 ? "2.5d" : "2d");
-			btnView2D?.classList.toggle("active", !is25);
-			btnView2D?.setAttribute("aria-checked", String(!is25));
-			btnView25D?.classList.toggle("active", is25);
-			btnView25D?.setAttribute("aria-checked", String(is25));
-			btnToggle25DSettings?.classList.toggle("hidden", !is25);
-			if (!is25 && controlsPanel) {
-				controlsPanel.classList.add("hidden");
-				btnToggle25DSettings?.classList.remove("active");
+		btn2D?.classList.toggle("active", mode === "2d");
+		btn2D?.setAttribute("aria-checked", String(mode === "2d"));
+		btn25D?.classList.toggle("active", mode === "2.5d");
+		btn25D?.setAttribute("aria-checked", String(mode === "2.5d"));
+		btn3D?.classList.toggle("active", mode === "3d");
+		btn3D?.setAttribute("aria-checked", String(mode === "3d"));
+
+		const is25D = mode === "2.5d";
+		const is3D = mode === "3d";
+		const hasSettings = is25D || is3D;
+		const panel3D = this.#mapContainer?.querySelector("#map3DControlsPanel");
+
+		btnSettings?.classList.toggle("hidden", !hasSettings);
+		if (btnSettings) {
+			if (is3D) {
+				btnSettings.title = "3D View Controls";
+				btnSettings.setAttribute("aria-label", "3D Settings");
+			} else if (is25D) {
+				btnSettings.title = "2.5D Camera & Layer Controls";
+				btnSettings.setAttribute("aria-label", "2.5D Settings");
 			}
 		}
 
-		this.#canvasEngine.notifyTransformChange();
-		eventBus.emit("MAP_TRANSFORM_CHANGED", { is25D: is25 });
+		if (!is25D && controlsPanel) {
+			controlsPanel.classList.add("hidden");
+		}
+		if (!is3D && panel3D) {
+			panel3D.classList.add("hidden");
+		}
+		if (!hasSettings) {
+			btnSettings?.classList.remove("active");
+		} else {
+			const isAnyOpen = (!controlsPanel?.classList.contains("hidden") && is25D) || (!panel3D?.classList.contains("hidden") && is3D);
+			btnSettings?.classList.toggle("active", Boolean(isAnyOpen));
+		}
+	}
+
+	toggle25DMode(targetEnable = null) {
+		if (this.#canvasEngine && typeof this.#canvasEngine.toggle25D === "function") {
+			const current = Boolean(this.#canvasEngine.is25D);
+			if (targetEnable !== null && targetEnable === current) return;
+			const is25 = this.#canvasEngine.toggle25D(targetEnable);
+			this.#currentViewMode = is25 ? "2.5d" : "2d";
+			localStorage.setItem("metro_map_view_mode", this.#currentViewMode);
+			this.#updateViewModeWidgetUI(this.#currentViewMode);
+			this.#canvasEngine.notifyTransformChange?.();
+			eventBus.emit("MAP_TRANSFORM_CHANGED", { is25D: is25 });
+		} else {
+			this.switchEngineMode(targetEnable ? "2.5d" : "2d");
+		}
 	}
 
 	get zoomRange() {

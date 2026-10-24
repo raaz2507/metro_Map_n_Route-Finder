@@ -927,11 +927,20 @@ class PacksSettingsController {
 		const currentTheme = localStorage.getItem("app-theme") || "classic";
 
 		try {
-			// 1. Fetch live catalog directly from manifest.json (Zero Hardcoding!)
-			const res = await fetch("themes/manifest.json");
-			if (!res.ok) throw new Error("Manifest could not be loaded");
-			const manifest = await res.json();
-			const themesList = manifest.themes || [];
+			// 1. Fetch live catalog directly from manifest.json (or fallback to ThemeEngine)
+			let themesList = [];
+			try {
+				const res = await fetch("themes/manifest.json");
+				if (res.ok) {
+					const manifest = await res.json();
+					themesList = manifest.themes || [];
+				}
+			} catch (_) {}
+
+			if (!themesList || themesList.length === 0) {
+				const { themeEngine } = await import("../core/ThemeEngine.js");
+				themesList = themeEngine.getThemes();
+			}
 
 			let html = "";
 			themesList.forEach(theme => {

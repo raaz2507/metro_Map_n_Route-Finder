@@ -27,6 +27,7 @@ export class CanvasGestures {
 	#lastTouchDist = null;
 	#lastTouchAngle = null;
 	#lastTouchMidY = null;
+	#lastTapTime = 0;
 
 	/**
 	 * @param {import('./CanvasRenderer.js').CanvasRenderer} renderer
@@ -116,6 +117,7 @@ export class CanvasGestures {
 
 		// 7. Click Station Detection
 		canvas.addEventListener("click", (e) => {
+			if (Date.now() - this.#lastTapTime < 350) return;
 			if (this.#isDragMoved) {
 				this.#isDragMoved = false;
 				return;
@@ -218,6 +220,13 @@ export class CanvasGestures {
 				this.#lastTouchAngle = null;
 				this.#lastTouchMidY = null;
 			} else if (e.touches.length === 0) {
+				if (!this.#isDragMoved && this.#dragDownX != null && this.#dragDownY != null) {
+					const st = this.getStationAtScreenPoint(this.#dragDownX, this.#dragDownY);
+					if (st && typeof this.#renderer.onStationClick === "function") {
+						this.#lastTapTime = Date.now();
+						this.#renderer.onStationClick(st);
+					}
+				}
 				this.#isDragging = false;
 				this.#lastTouchDist = null;
 				this.#lastTouchAngle = null;
@@ -354,20 +363,28 @@ export class CanvasGestures {
 
 		let closest = null;
 		const zoom = this.#renderer.zoom;
-		const minDistance = Math.max(14, Math.min(24, 16 * Math.sqrt(zoom)));
+		let minDistance = Math.max(16, Math.min(30, 20 * Math.sqrt(zoom)));
 
-		const stationMap = this.#renderer.stationMap;
-		if (!stationMap) return null;
+		const stationData = this.#renderer.stationData;
+		if (!stationData) return null;
 
-		for (const st of stationMap.values()) {
+		const is25D = this.#renderer.is25D;
+
+		for (const st of Object.values(stationData)) {
 			if (!st.xy) continue;
 
-			const z = this.#renderer.getLayoutElevation(st.layout);
+			const status = st.properties?.status || "operational";
+			if (!this.#renderer.showUnderConstruction && status === "under_construction") continue;
+			if (!this.#renderer.showApproved && (status === "approved" || status === "proposed" || status === "planned")) continue;
+
+			const layout = st.properties?.layout || "elevated";
+			const z = is25D ? this.#renderer.getLayoutElevation(layout) : 0;
 			const pt = this.#renderer.projectPoint(st.xy.x, st.xy.y, z);
 			const dist = Math.hypot(pt.sx - mouseX, pt.sy - mouseY);
 
 			if (dist < minDistance) {
-				return st;
+				minDistance = dist;
+				closest = st;
 			}
 		}
 		return closest;

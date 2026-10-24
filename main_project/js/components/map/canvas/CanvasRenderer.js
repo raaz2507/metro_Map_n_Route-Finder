@@ -8,6 +8,7 @@
  * - Sleek, compact styling with clean theme switching
  */
 
+import { BaseMapEngine } from "../core/BaseMapEngine.js";
 import { MapGeometry } from "../core/MapGeometry.js";
 import { MapLabelEngine } from "../core/MapLabelEngine.js";
 import { CanvasGestures } from "./CanvasGestures.js";
@@ -15,7 +16,7 @@ import { CanvasCamera3D } from "./CanvasCamera3D.js";
 import { CanvasTrackRenderer } from "./CanvasTrackRenderer.js";
 import { APP_CONFIG } from "../../../config/app-config.js";
 
-export class CanvasRenderer {
+export class CanvasRenderer extends BaseMapEngine {
 	#container = null;
 	#canvas = null;
 	#ctx = null;
@@ -79,6 +80,8 @@ export class CanvasRenderer {
 	#activeStatus = null;
 	#activeStationType = null;
 	#activeLayout = null;
+	#showUnderConstruction = true;
+	#showApproved = true;
 	#currentLang = "en";
 	#currentTheme = "light";
 
@@ -94,8 +97,11 @@ export class CanvasRenderer {
 		centerClass = null,
 		is25D = false,
 		lang = "en",
-		theme = "light"
-	}) {
+		theme = "light",
+		...options
+	} = {}) {
+		super({ container, metroData, centerClass, is25D, lang, theme, ...options });
+
 		this.#container = typeof container === "string" ? document.querySelector(container) : container;
 		this.#metroData = metroData || {};
 		this.#stationData = metroData?.stationData || {};
@@ -164,8 +170,12 @@ export class CanvasRenderer {
 		this.#canvas.style.userSelect = "none";
 		this.#canvas.style.webkitUserSelect = "none";
 		this.#ctx = this.#canvas.getContext("2d", { alpha: true });
-		this.#container.innerHTML = "";
-		this.#container.appendChild(this.#canvas);
+		// Cleanly mount canvas behind floating controls/widgets (e.g. #viewModeWidget)
+		if (this.#container.firstChild) {
+			this.#container.insertBefore(this.#canvas, this.#container.firstChild);
+		} else {
+			this.#container.appendChild(this.#canvas);
+		}
 		this.#initRoutePinsOverlay();
 		this.#resizeCanvas();
 
@@ -1164,6 +1174,8 @@ export class CanvasRenderer {
 
 			const stationType = this.getStationType(st);
 			const stationStatus = st.properties?.status || "operational";
+			if (!this.#showUnderConstruction && stationStatus === "under_construction") return;
+			if (!this.#showApproved && (stationStatus === "approved" || stationStatus === "proposed" || stationStatus === "planned")) return;
 			const isHoverTarget = this.#hoverStationId === st.id;
 			const isFocused = this.#activeStationId === st.id;
 			const isRouteSt = this.#activeRouteStations.has(st.id);
@@ -1433,6 +1445,10 @@ export class CanvasRenderer {
 		for (const st of sortedStations) {
 			if (!st.xy) continue;
 
+			const stationStatus = st.properties?.status || "operational";
+			if (!this.#showUnderConstruction && stationStatus === "under_construction") continue;
+			if (!this.#showApproved && (stationStatus === "approved" || stationStatus === "proposed" || stationStatus === "planned")) continue;
+
 			let hoverAmount = 0;
 			if (this.#hoverStationId === st.id) {
 				hoverAmount = this.#hoverProgress;
@@ -1647,6 +1663,7 @@ export class CanvasRenderer {
 	// =========================================================================
 
 	get container() { return this.#container; }
+	set container(val) { this.#container = typeof val === "string" ? document.querySelector(val) : val; }
 	get canvas() { return this.#canvas; }
 	get is25D() { return this.#is25D; }
 	get stationData() { return this.#stationData; }
@@ -1731,6 +1748,21 @@ export class CanvasRenderer {
 
 	setZoom(newZoom) {
 		if (this.#gestures) this.#gestures.setZoom(newZoom);
+	}
+
+	setPan(x, y) {
+		this.#panX = x;
+		this.#panY = y;
+		this.requestRender();
+	}
+
+	resize() {
+		this.#resizeCanvas();
+		this.requestRender();
+	}
+
+	init() {
+		this.requestRender();
 	}
 
 	getStationAtScreenPoint(clientX, clientY) {
@@ -1899,6 +1931,10 @@ export class CanvasRenderer {
 		this.requestRender();
 	}
 
+	clearRoute() {
+		this.clearRouteHighlight();
+	}
+
 	highlightLine(lineId) {
 		this.#activeLineId = this.#activeLineId === lineId ? null : lineId;
 		this.requestRender();
@@ -1988,6 +2024,24 @@ export class CanvasRenderer {
 		this.requestRender();
 	}
 
+	setMapDisplaySettings(settings = {}) {
+		if (typeof settings.showUnderConstruction === "boolean") {
+			this.#showUnderConstruction = settings.showUnderConstruction;
+		}
+		if (typeof settings.showApproved === "boolean") {
+			this.#showApproved = settings.showApproved;
+		}
+		this.requestRender();
+	}
+
+	get showUnderConstruction() {
+		return this.#showUnderConstruction;
+	}
+
+	get showApproved() {
+		return this.#showApproved;
+	}
+
 	destroy() {
 		if (this.#gestures) {
 			this.#gestures.destroy();
@@ -2011,8 +2065,9 @@ export class CanvasRenderer {
 			this.#pinFromEl = null;
 			this.#pinToEl = null;
 		}
-		if (this.#container) {
-			this.#container.innerHTML = "";
+		if (this.#canvas && this.#canvas.parentNode) {
+			this.#canvas.parentNode.removeChild(this.#canvas);
+			this.#canvas = null;
 		}
 	}
 }
