@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/compact_root"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@drawable/widget_bg_card"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:gravity="center_vertical">
+
+    <!-- Top Row: Route / Standby Info (Left) + Distance Capsule (Right) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="24dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/compact_distance_badge"
+            android:layout_toStartOf="@+id/compact_distance_badge"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/compact_status_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🚆"
+                android:textSize="11sp"
+                android:paddingRight="4dp"
+                android:paddingEnd="4dp" />
+
+            <TextView
+                android:id="@+id/compact_route_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Metro Live Pass"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <!-- Distance Capsule (Right) -->
+        <LinearLayout
+            android:id="@+id/compact_distance_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/widget_distance_badge"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/compact_live_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 ---"
+                android:textColor="#38BDF8"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Bottom Row: Action Buttons (Always Visible in Default View!) -->
+    <LinearLayout
+        android:id="@+id/compact_actions_container"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/compact_btn_snooze"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/widget_btn_disabled"
+            android:gravity="center"
+            android:text="⏱ Snooze"
+            android:textColor="#6B7280"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/compact_btn_dismiss"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/widget_btn_disabled"
+            android:gravity="center"
+            android:text="🔕 Dismiss"
+            android:textColor="#6B7280"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

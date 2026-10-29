@@ -759,9 +759,12 @@
 		}
 
 		.smartcard-cards-grid {
-			flex-direction: column;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
 			align-items: center;
-			gap: var(--space-md);
+			gap: var(--space-sm);
 		}
 
 		.smartcard-unit-card {

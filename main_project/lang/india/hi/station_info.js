@@ -198,6 +198,23 @@ export default {
 			"Others": "अन्य स्थल"
 		}
 	},
+	search: {
+		placeholder: "गेट, एटीएम, लिफ्ट, प्लेटफॉर्म, बस, नजदीकी स्थल खोजें...",
+		ariaLabel: "स्टेशन की सुविधाएं और इंफ्रास्ट्रक्चर खोजें",
+		clearBtn: "खोज साफ़ करें",
+		resultsCount: "{count} मेल खाते परिणाम",
+		noResults: "\"{query}\" के लिए कोई सुविधा या गेट नहीं मिला",
+		resetBtn: "फ़िल्टर हटाएं",
+		categories: {
+			gates: "🚪 गेट",
+			facilities: "♿ सुविधाएं",
+			transit: "🛗 लिफ्ट व एस्केलेटर",
+			platforms: "🚉 प्लेटफॉर्म",
+			nearby: "📍 नजदीकी स्थल",
+			feederBus: "🚌 फीडर बसें",
+			parking: "🅿️ पार्किंग"
+		}
+	},
 	notFound: {
 		title: "⚠️ स्टेशन नहीं मिला",
 		message: "अनुरोधित स्टेशन कोड/आईडी \"{stationId}\" हमारे मेट्रो डायरेक्टरी में नहीं मिला।"

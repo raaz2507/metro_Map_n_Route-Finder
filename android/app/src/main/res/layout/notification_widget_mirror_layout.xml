@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notif_widget_mirror_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/widget_bg_card"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="10dp"
+    android:gravity="center_vertical">
+
+    <!-- 🔔 Left Wing: Alarm Pod Section -->
+    <LinearLayout
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Status Micro-Badge -->
+        <TextView
+            android:id="@+id/notif_wm_status_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/widget_status_pill_bg"
+            android:text="STANDBY"
+            android:textColor="#9CA3AF"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp" />
+
+        <!-- Pod Icon Circle Button -->
+        <TextView
+            android:id="@+id/notif_wm_pod_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:background="@drawable/widget_pod_inactive"
+            android:text="🔔"
+            android:textSize="15sp" />
+
+        <!-- Alarm Tag Label -->
+        <TextView
+            android:id="@+id/notif_wm_pod_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="ALARM"
+            android:textColor="#6B7280"
+            android:textSize="8sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 🚆 Right Wing: OLED Display & Controls Strip -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical">
+
+        <!-- Top: OLED Station Display Screen -->
+        <LinearLayout
+            android:id="@+id/notif_wm_screen_pill"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@drawable/widget_screen_bg"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/notif_wm_screen_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔔"
+                android:textSize="12sp"
+                android:paddingRight="5dp" />
+
+            <TextView
+                android:id="@+id/notif_wm_station_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No Alarm Set"
+                android:textColor="#38BDF8"
+                android:textSize="11.5sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/notif_wm_distance_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/widget_distance_badge"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:text="📍 ---"
+                android:textColor="#38BDF8"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Bottom: Snooze & Dismiss Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/notif_wm_btn_snooze"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/widget_btn_disabled"
+                android:gravity="center"
+                android:text="SNOOZE"
+                android:textColor="#6B7280"
+                android:textSize="9.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/notif_wm_btn_dismiss"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/widget_btn_disabled"
+                android:gravity="center"
+                android:text="DISMISS"
+                android:textColor="#6B7280"
+                android:textSize="9.5sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

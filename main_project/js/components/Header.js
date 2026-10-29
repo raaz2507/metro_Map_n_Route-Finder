@@ -103,6 +103,39 @@ export class HeaderComponent {
 	/**
 	 * Mobile Header Navigation 2.5D Expand/Collapse Handler
 	 */
+	static buildThemeMenuItems(currentTheme, availableThemes = []) {
+		const groups = {};
+		availableThemes.forEach(t => {
+			const cat = t.category || "🎨 Themes";
+			if (!groups[cat]) groups[cat] = [];
+			groups[cat].push(t);
+		});
+		return Object.entries(groups).map(([categoryName, themes]) => `
+			<li class="dropdown-category-header" role="presentation">
+				<span>${categoryName}</span>
+			</li>
+			${themes.map(t => `
+				<li class="custom-dropdown-item ${currentTheme === t.id ? 'active' : ''}" role="option" data-value="${t.id}">
+					${t.name}
+				</li>
+			`).join('')}
+		`).join('');
+	}
+
+	static updateThemeMenuItems(themeMenu, currentTheme, availableThemes = []) {
+		if (!themeMenu) return;
+		const divider = themeMenu.querySelector('.dropdown-divider');
+		if (!divider) return;
+		while (divider.nextElementSibling) {
+			divider.nextElementSibling.remove();
+		}
+		const temp = document.createElement('ul');
+		temp.innerHTML = HeaderComponent.buildThemeMenuItems(currentTheme, availableThemes);
+		while (temp.firstElementChild) {
+			divider.parentNode.appendChild(temp.firstElementChild);
+		}
+	}
+
 	static #setupHeaderNavToggle() {
 		const toggleBtn = document.getElementById('header-nav-toggle-btn');
 		const bogieContainer = document.getElementById('nav-bogie-container');
@@ -228,20 +261,57 @@ export class HeaderComponent {
 		const activeCity  = urlParams.get('city') || localStorage.getItem('active_city') || 'delhi_ncr';
 		let activeNetwork = urlParams.get('network') || urlParams.get('net') || localStorage.getItem('active_network') || '';
 		if (activeNetwork === 'all') activeNetwork = '';
-		const activeLang  = localStorage.getItem('app-lang') || 'en';
+		const activeLang  = localStorage.getItem('app-lang') || localStorage.getItem('language') || 'en';
 
-		// --- Fetch countries manifest + india registry in parallel ---
+		// --- Fetch countries manifest + india registry with Strict Locale Dictionaries ---
 		let countriesManifest = null;
 		let indiaRegistry     = null;
 
 		try {
-			const [cmRes, irRes] = await Promise.allSettled([
-				fetch('data/countries_manifest.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
-				fetch('data/india/india_transit_registry.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+			const [cmRes, irRes, cmLocRes, irLocRes] = await Promise.all([
+				fetch('data/countries_manifest.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null),
+				fetch('data/india/india_transit_registry.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null),
+				fetch(`locales/${activeLang}/countries_manifest_locale.json`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null),
+				fetch(`locales/${activeLang}/india/transit_registry_locale.json`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => null)
 			]);
-			if (cmRes.status === 'fulfilled')  countriesManifest = cmRes.value;
-			if (irRes.status === 'fulfilled')  indiaRegistry     = irRes.value;
-		} catch (_) { /* silent — pill will show fallback */ }
+
+			countriesManifest = cmRes;
+			indiaRegistry     = irRes;
+
+			// Strict Locale Injection with robust fallback
+			const cmLoc = cmLocRes?.countries || {};
+			for (const [cKey, cVal] of Object.entries(countriesManifest?.countries || {})) {
+				cVal.name = cmLoc[cKey]?.name || cVal.name || cKey;
+			}
+
+			const irLoc = irLocRes?.registry?.cities || {};
+			for (const [cityK, cityV] of Object.entries(indiaRegistry?.cities || {})) {
+				const locCity = irLoc[cityK] || {};
+				if (locCity.name) cityV.name = locCity.name;
+				if (locCity.state) cityV.state = locCity.state;
+				if (cityV.networks) {
+					for (const [netK, netV] of Object.entries(cityV.networks)) {
+						const locNet = locCity.networks?.[netK] || {};
+						if (locNet.name) netV.name = locNet.name;
+						if (locNet.operator) netV.operator = locNet.operator;
+					}
+				}
+			}
+		} catch (_) { /* silent */ }
+
+		const resolveCityName = (cityKey, cityMeta) => {
+			if (typeof cityMeta?.name === 'string' && cityMeta.name.trim()) {
+				return cityMeta.name;
+			}
+			return cityMeta?.name?.[activeLang] || cityMeta?.name?.en || cityKey;
+		};
+
+		const resolveNetName = (netKey, netMeta) => {
+			if (typeof netMeta?.name === 'string' && netMeta.name.trim()) {
+				return netMeta.name;
+			}
+			return netMeta?.name?.[activeLang] || netMeta?.name?.en || netKey;
+		};
 
 		// --- Build pill label from registry (City or specific Network) ---
 		const buildPillLabel = (cityKey, netKey) => {
@@ -252,13 +322,13 @@ export class HeaderComponent {
 
 			if (netKey && cityData.networks?.[netKey]) {
 				const netData = cityData.networks[netKey];
-				const netName = netData.name?.[activeLang] || netData.name?.en || netKey;
+				const netName = resolveNetName(netKey, netData);
 				return { flag, name: netName };
 			}
 
 			return {
 				flag,
-				name: (cityData.name?.[activeLang] || cityData.name?.en || cityKey)
+				name: resolveCityName(cityKey, cityData)
 			};
 		};
 
@@ -271,7 +341,7 @@ export class HeaderComponent {
 
 		if (countriesManifest?.countries && indiaRegistry?.cities) {
 			for (const [countryKey, countryMeta] of Object.entries(countriesManifest.countries)) {
-				const countryName = countryMeta.name?.[activeLang] || countryMeta.name?.en || countryKey;
+				const countryName = countryMeta.name || countryKey;
 				const countryFlag = countryMeta.flag || '';
 				const isActive    = countryMeta.status === 'active';
 
@@ -285,8 +355,8 @@ export class HeaderComponent {
 					const availableCities = Object.entries(indiaRegistry.cities)
 						.filter(([, c]) => c.hasData === true)
 						.sort(([keyA, cityA], [keyB, cityB]) => {
-							const nameA = cityA.name?.[activeLang] || cityA.name?.en || keyA;
-							const nameB = cityB.name?.[activeLang] || cityB.name?.en || keyB;
+							const nameA = resolveCityName(keyA, cityA);
+							const nameB = resolveCityName(keyB, cityB);
 							return nameA.localeCompare(nameB, activeLang, { sensitivity: 'base' });
 						});
 
@@ -314,7 +384,7 @@ export class HeaderComponent {
 					const renderCombinedCityGroups = (citiesList) => {
 						let itemsHtml = '';
 						for (const [cityKey, cityMeta] of citiesList) {
-							const cityName = cityMeta.name?.[activeLang] || cityMeta.name?.en || cityKey;
+							const cityName = resolveCityName(cityKey, cityMeta);
 							const isCitySelected = cityKey === activeCity;
 							const isAllSelected = isCitySelected && (!activeNetwork || activeNetwork === 'all');
 							const safeCityKey = cityKey.replace(/[^a-z0-9_-]/gi, '');
@@ -336,7 +406,7 @@ export class HeaderComponent {
 								if (netMeta.hasData !== true && netMeta.status !== 'operational' && netMeta.status !== 'operational_partial') {
 									continue;
 								}
-								const netName = netMeta.name?.[activeLang] || netMeta.name?.en || netKey;
+								const netName = resolveNetName(netKey, netMeta);
 								const isNetSelected = isCitySelected && activeNetwork === netKey;
 								const safeNetKey = netKey.replace(/[^a-z0-9_-]/gi, '');
 								const mode = netMeta.mode || 'Metro';
@@ -359,7 +429,7 @@ export class HeaderComponent {
 					const renderSingleCityItems = (citiesList) => {
 						let itemsHtml = '';
 						for (const [cityKey, cityMeta] of citiesList) {
-							const cityName = cityMeta.name?.[activeLang] || cityMeta.name?.en || cityKey;
+							const cityName = resolveCityName(cityKey, cityMeta);
 							const isSelected = cityKey === activeCity;
 							const safeCityKey = cityKey.replace(/[^a-z0-9_-]/gi, '');
 							itemsHtml += `<li class="city-dropdown-item ${isSelected ? 'active' : ''}"
@@ -563,21 +633,23 @@ export class HeaderComponent {
 			}
 		});
 
-		menu.querySelectorAll('.custom-dropdown-item').forEach(item => {
-			const selectItem = (e) => {
-				e.stopPropagation();
-				const val = item.getAttribute('data-value');
-				if (!val) return;
-				menu.querySelectorAll('.custom-dropdown-item').forEach(i => i.classList.remove('active'));
-				item.classList.add('active');
-				close();
-				if (onSelectCallback) onSelectCallback(val);
-			};
-			item.addEventListener('click', selectItem);
-			item.addEventListener('touchend', (e) => {
+		const handleItemSelect = (e) => {
+			const item = e.target.closest('.custom-dropdown-item');
+			if (!item || !menu.contains(item)) return;
+			e.stopPropagation();
+			const val = item.getAttribute('data-value');
+			if (!val) return;
+			menu.querySelectorAll('.custom-dropdown-item').forEach(i => i.classList.remove('active'));
+			item.classList.add('active');
+			close();
+			if (onSelectCallback) onSelectCallback(val);
+		};
+		menu.addEventListener('click', handleItemSelect);
+		menu.addEventListener('touchend', (e) => {
+			if (e.target.closest('.custom-dropdown-item')) {
 				e.preventDefault();
-				selectItem(e);
-			});
+				handleItemSelect(e);
+			}
 		});
 
 		document.addEventListener('click', (e) => {
@@ -647,6 +719,9 @@ export class HeaderComponent {
 					<path d="M9 21V12h6v9"/>
 					<path d="M12 7.5v1.5"/>
 				</symbol>
+								<symbol id="icon-tourist" viewBox="0 0 24 24">
+					<path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6a3 3 0 0 1 6 0v6M10 9h4"/>
+				</symbol>
 				<symbol id="icon-stations" viewBox="0 0 24 24">
 					<rect x="4" y="3" width="16" height="14" rx="3"/>
 					<path d="M4 11h16"/>
@@ -704,7 +779,7 @@ export class HeaderComponent {
 									<polyline points="6 9 12 15 18 9"/>
 								</svg>
 							</button>
-							<ul class="city-dropdown-menu" id="city-dropdown-menu" role="listbox" aria-label="Select City"></ul>
+							<ul class="city-dropdown-menu" id="city-dropdown-menu" role="listbox" aria-label="Select City" data-i18n-aria-label="header.citySelector.label"></ul>
 						</div>
 						` : ''}
 					</div>
@@ -785,52 +860,34 @@ export class HeaderComponent {
 						
 						<!-- 🎨 Unified Theme & Appearance Selector -->
 						<div class="dropdown-container">
-							<button type="button" class="btn-25d theme-selector" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme & Appearance Selector">
+							<button type="button" class="btn-25d theme-selector" id="theme-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Theme & Appearance Selector" data-i18n-aria-label="header.theme.ariaLabel">
 								<span class="btn-icon">🎨</span>
-								<span class="btn-text">Theme</span>
+								<span class="btn-text" data-i18n="header.theme.btnText">Theme</span>
 							</button>
 							<ul class="custom-dropdown-menu" id="theme-menu" role="listbox">
 								<!-- ☀️ / 🌙 / 💻 Semantic Radio Mode Switcher Segment -->
 								<li class="dropdown-header-segment-wrapper" role="presentation">
-									<fieldset class="theme-mode-segmented-bar" aria-label="Appearance Mode">
+									<fieldset class="theme-mode-segmented-bar" aria-label="Appearance Mode" data-i18n-aria-label="header.mode.appearanceMode">
 										<span class="theme-mode-glider" aria-hidden="true"></span>
 										<input type="radio" name="app-appearance-mode" id="mode-opt-light" value="light" class="mode-radio-input" ${(currentMode === 'light') ? 'checked' : ''}>
 										<label for="mode-opt-light" class="mode-pill-label">
 											<span class="mode-icon">☀️</span>
-											<span class="mode-text">Light</span>
+											<span class="mode-text" data-i18n="header.mode.light">Light</span>
 										</label>
 										<input type="radio" name="app-appearance-mode" id="mode-opt-dark" value="dark" class="mode-radio-input" ${(currentMode === 'dark') ? 'checked' : ''}>
 										<label for="mode-opt-dark" class="mode-pill-label">
 											<span class="mode-icon">🌙</span>
-											<span class="mode-text">Dark</span>
+											<span class="mode-text" data-i18n="header.mode.dark">Dark</span>
 										</label>
 										<input type="radio" name="app-appearance-mode" id="mode-opt-auto" value="auto" class="mode-radio-input" ${(currentMode === 'auto') ? 'checked' : ''}>
 										<label for="mode-opt-auto" class="mode-pill-label">
 											<span class="mode-icon">💻</span>
-											<span class="mode-text">Auto</span>
+											<span class="mode-text" data-i18n="header.mode.auto">Auto</span>
 										</label>
 									</fieldset>
 								</li>
-								<li class="dropdown-divider" role="separator"></li>
-								${(() => {
-									// Group themes by category dynamically from manifest
-									const groups = {};
-									availableThemes.forEach(t => {
-										const cat = t.category || "🎨 Themes";
-										if (!groups[cat]) groups[cat] = [];
-										groups[cat].push(t);
-									});
-									return Object.entries(groups).map(([categoryName, themes]) => `
-										<li class="dropdown-category-header" role="presentation">
-											<span>${categoryName}</span>
-										</li>
-										${themes.map(t => `
-											<li class="custom-dropdown-item ${currentTheme === t.id ? 'active' : ''}" role="option" data-value="${t.id}">
-												${t.name}
-											</li>
-										`).join('')}
-									`).join('');
-								})()}
+								<li class="dropdown-divider" id="theme-menu-divider" role="separator"></li>
+								${HeaderComponent.buildThemeMenuItems(currentTheme, availableThemes)}
 							</ul>
 						</div>
 						<!-- 🌐 Language Selector -->
@@ -893,6 +950,14 @@ export class HeaderComponent {
 						icon: 'icon-stations',
 						i18n: 'nav-header.stations',
 						label: 'Stations'
+					},
+					{
+						target: 'tourist',
+						active: activePage === 'tourist' || activePage === 'tourist_places',
+						href: `tourist_places.html${cityParam}`,
+						icon: 'icon-tourist',
+						i18n: 'nav-header.tourist',
+						label: 'Tourist Places'
 					},
 					{
 						target: 'recharge',

@@ -24,6 +24,8 @@ import { ThreeMetroLineRibbon } from './ThreeMetroLineRibbon.js';
 import { ThreeViaductBridge } from './ThreeViaductBridge.js';
 import { ThreeStationBuilder, STATION_STYLES } from './ThreeStationBuilder.js';
 import { ThreeUndergroundStationBuilder, UG_STATION_STYLES } from './ThreeUndergroundStationBuilder.js';
+import { ThreeUndergroundModes } from './ThreeUndergroundModes.js';
+import { ThreeStationHoardings } from './ThreeStationHoardings.js';
 
 /**
  * Common shared width constant used across all infrastructure modules
@@ -74,6 +76,8 @@ export class Metro3DEngine extends BaseMapEngine {
   #controls;
   #sunLight;
   #hemiLight;
+  #ambientLight;
+  _themeObserver = null;
 
   // Sub-modules
   #terrain;
@@ -85,6 +89,10 @@ export class Metro3DEngine extends BaseMapEngine {
   #bridges;
   #stations;
   #undergroundStation;
+  #undergroundModes;
+  #hoardings;
+  #allCanyonCurves = [];
+  #undergroundMode = 'canyon';
   #canyonCurve = null;
   #undergroundStationT = 0.5;
   #isDraggingStation = false;
@@ -93,6 +101,8 @@ export class Metro3DEngine extends BaseMapEngine {
   // Real Metro Data Cache
   #stationCoordinates3D = new Map();
   #realLines = [];
+  #worldSpan3D = 1000.0;
+  #baseDistance = null;
 
   // Active Train Spline
   #mainSpline = null;
@@ -127,13 +137,13 @@ export class Metro3DEngine extends BaseMapEngine {
 
     // 1. Scene
     this.#scene = new THREE.Scene();
-    this.#scene.background = new THREE.Color(0xe8d6b5); // Warm CoC parchment/desert tone
-    this.#scene.fog = null; // Fog removed for 100% crisp visibility and higher GPU performance
+    this.#scene.background = new THREE.Color(0xf1f5f9); // Clean architectural slate
+    this.#scene.fog = null; // Dynamically bound to sky color in updateThemeEnvironment
 
-    // 2. Camera (Isometric view angle framing the multi-line network)
+    // 2. Camera (Aligned with 2.5D: 45-degree pitch, 0 horizontal rotation)
     const aspect = this.#container.clientWidth / this.#container.clientHeight;
-    this.#camera = new THREE.PerspectiveCamera(40, aspect, 0.5, 600);
-    this.#camera.position.set(56, 52, 48);
+    this.#camera = new THREE.PerspectiveCamera(40, aspect, 0.5, 1200);
+    this.#camera.position.set(0, 65, 65);
 
     // 3. Renderer with antialiasing and soft shadows
     this.#renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, stencil: true, powerPreference: 'high-performance' });
@@ -143,8 +153,22 @@ export class Metro3DEngine extends BaseMapEngine {
     this.#renderer.shadowMap.type = THREE.PCFShadowMap;
     this.#renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.#renderer.toneMappingExposure = 1.05;
-    if (this.#container.firstChild) {
-      this.#container.insertBefore(this.#renderer.domElement, this.#container.firstChild);
+    this.#renderer.domElement.className = 'engine-canvas-3d';
+    this.#renderer.domElement.style.cssText = `
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 2;
+      pointer-events: auto;
+    `;
+    // Cleanly mount on top of existing 2D/2.5D canvas, but behind floating UI widgets
+    const firstWidget = this.#container.querySelector("#viewModeWidget, #zoomControls, .map-route-pins-layer");
+    if (firstWidget) {
+      this.#container.insertBefore(this.#renderer.domElement, firstWidget);
     } else {
       this.#container.appendChild(this.#renderer.domElement);
     }
@@ -155,8 +179,9 @@ export class Metro3DEngine extends BaseMapEngine {
     this.#controls.dampingFactor = 0.05;
     this.#controls.target.set(0, 1, -2);
     this.#controls.maxPolarAngle = Math.PI / 2 - 0.04;
-    this.#controls.minDistance = 10;
-    this.#controls.maxDistance = 220;
+    this.#controls.minDistance = 5;
+    this.#controls.maxDistance = 3000;
+    this.#controls.addEventListener('change', () => this.#emitTransformChange());
 
     // 5. Lighting
     this.#setupLights();
@@ -171,18 +196,27 @@ export class Metro3DEngine extends BaseMapEngine {
     this.#metroLine = new ThreeMetroLineRibbon(this.#scene);
     this.#stations = new ThreeStationBuilder(this.#scene);
     this.#undergroundStation = new ThreeUndergroundStationBuilder(this.#scene);
+    this.#undergroundModes = new ThreeUndergroundModes(this.#scene);
+    this.#hoardings = new ThreeStationHoardings(this.#scene);
 
     this.#setupStationDragging();
 
     window.addEventListener('resize', this.#onWindowResize);
+
+    // Dynamic 3D Theme & Night Mode Observer
+    this.updateThemeEnvironment();
+    if (typeof MutationObserver !== "undefined" && typeof document !== "undefined" && document.body) {
+      this._themeObserver = new MutationObserver(() => this.updateThemeEnvironment());
+      this._themeObserver.observe(document.body, { attributes: true, attributeFilter: ["data-mode", "data-theme", "class"] });
+    }
   }
 
   #setupLights() {
-    this.#hemiLight = new THREE.HemisphereLight(0xdcf0ff, 0xbf9c6e, 1.1);
+    this.#hemiLight = new THREE.HemisphereLight(0xe0f2fe, 0x3f623f, 1.1);
     this.#hemiLight.position.set(0, 50, 0);
     this.#scene.add(this.#hemiLight);
 
-    this.#sunLight = new THREE.DirectionalLight(0xfff2d9, 2.6);
+    this.#sunLight = new THREE.DirectionalLight(0xfffbeb, 2.6);
     this.#sunLight.position.set(45, 60, 35);
     this.#sunLight.castShadow = true;
     this.#sunLight.shadow.mapSize.width = 2048;
@@ -198,8 +232,60 @@ export class Metro3DEngine extends BaseMapEngine {
     this.#sunLight.shadow.radius = 2.8;
     this.#scene.add(this.#sunLight);
 
-    const ambient = new THREE.AmbientLight(0xffffff, 0.45);
-    this.#scene.add(ambient);
+    this.#ambientLight = new THREE.AmbientLight(0xffffff, 0.45);
+    this.#scene.add(this.#ambientLight);
+  }
+
+  #resolveThemeTokens() {
+    if (typeof window === "undefined" || !document.body) {
+      return {
+        sky: "#f1f5f9",
+        ground: "#e2e8f0",
+        hemiSky: "#ffffff",
+        hemiGround: "#cbd5e1",
+        sunlight: "#ffffff",
+        ambient: "#94a3b8"
+      };
+    }
+    const cs = getComputedStyle(document.body);
+    const get = (name, fb) => cs.getPropertyValue(name).trim() || fb;
+    return {
+      sky: get("--map-3d-sky", "#f1f5f9"),
+      ground: get("--map-3d-ground", "#e2e8f0"),
+      hemiSky: get("--map-3d-hemi-sky", "#ffffff"),
+      hemiGround: get("--map-3d-hemi-ground", "#cbd5e1"),
+      sunlight: get("--map-3d-sunlight", "#ffffff"),
+      ambient: get("--map-3d-ambient", "#94a3b8")
+    };
+  }
+
+  setTheme(themeId, mode) {
+    this.updateThemeEnvironment();
+  }
+
+  updateThemeEnvironment() {
+    const tokens = this.#resolveThemeTokens();
+    if (this.#scene) {
+      const skyCol = new THREE.Color(tokens.sky);
+      this.#scene.background = skyCol;
+      this.#scene.fog = null;
+    }
+    if (this.#hemiLight) {
+      this.#hemiLight.color.set(tokens.hemiSky);
+      this.#hemiLight.groundColor.set(tokens.hemiGround);
+    }
+    if (this.#sunLight) {
+      this.#sunLight.color.set(tokens.sunlight);
+      const isDark = this.isDarkMode;
+      this.#sunLight.intensity = isDark ? 1.4 : 2.6;
+    }
+    if (this.#ambientLight) {
+      const isDark = this.isDarkMode;
+      this.#ambientLight.intensity = isDark ? 0.28 : 0.45;
+    }
+    if (this.#terrain && typeof this.#terrain.setThemeColor === "function") {
+      this.#terrain.setThemeColor(tokens.ground);
+    }
   }
 
   #updateShadowCameraForSpan(span = 1050.0) {
@@ -225,33 +311,35 @@ export class Metro3DEngine extends BaseMapEngine {
 
     const overlay = document.createElement('div');
     overlay.className = 'metro3d-loading-overlay';
+    // Pure transparent wrapper without dark backdrop - underlying map remains 100% visible!
     overlay.style.cssText = `
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      background: rgba(15, 13, 11, 0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1000;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      transition: opacity 0.4s ease;
-      pointer-events: all;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
     `;
 
     overlay.innerHTML = `
       <div style="
         width: 90%;
         max-width: 440px;
-        background: rgba(26, 23, 20, 0.95);
+        background: rgba(26, 23, 20, 0.92);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(220, 185, 120, 0.35);
         border-radius: 16px;
         padding: 22px 24px;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
         color: #f7ecd7;
+        pointer-events: auto;
       ">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
           <div style="display: flex; align-items: center; gap: 10px;">
@@ -360,18 +448,22 @@ export class Metro3DEngine extends BaseMapEngine {
       this.#logConsoleEl.scrollTop = this.#logConsoleEl.scrollHeight;
     }
 
-    // When 100% complete, smoothly fade out after a brief moment
+    // When 100% complete, smoothly fade in 3D canvas and fade out overlay
     if (percent >= 100 && !isError) {
+      if (this.#renderer?.domElement) {
+        this.#renderer.domElement.style.opacity = '1';
+      }
       setTimeout(() => {
         if (this.#loadingOverlay) {
           this.#loadingOverlay.style.opacity = '0';
-          this.#loadingOverlay.style.pointerEvents = 'none';
           setTimeout(() => {
             this.#loadingOverlay?.remove();
             this.#loadingOverlay = null;
-          }, 400);
+          }, 450);
         }
-      }, 450);
+      }, 400);
+    } else if (isError && this.#renderer?.domElement) {
+      this.#renderer.domElement.style.opacity = '1';
     }
   }
 
@@ -381,45 +473,91 @@ export class Metro3DEngine extends BaseMapEngine {
     const stations = Array.isArray(rawStationData) ? rawStationData : Object.values(rawStationData);
     if (stations.length === 0) return false;
 
-    let hasXY = stations.some(st => st.xy?.x != null && st.xy?.y != null);
-    if (!hasXY) {
-      const stationMap = Array.isArray(rawStationData)
-        ? Object.fromEntries(rawStationData.map(st => [st.id, st]))
-        : rawStationData;
-      const bounds = MapGeometry.getBounds(stationMap);
-      const { avgLatRad } = MapGeometry.calculateSVGSize(bounds);
-      MapGeometry.convertLatLonToXY(stationMap, bounds, avgLatRad);
+    // Load real-world scaling parameters configured in app-config.js
+    const config3D = APP_CONFIG?.MAP?.THREE_D || {};
+    const metersPerUnit = config3D.METERS_PER_UNIT || 22.0;
+
+    const EARTH_SCALE = 111320; // Meters per degree on Earth (WGS84 approx)
+
+    let minLat = Infinity, maxLat = -Infinity;
+    let minLon = Infinity, maxLon = -Infinity;
+    let hasDecimals = false;
+
+    for (const st of stations) {
+      const dec = st.location?.decimal;
+      if (dec?.lat != null && dec?.lon != null) {
+        const lat = Number(dec.lat);
+        const lon = Number(dec.lon);
+        if (!isNaN(lat) && !isNaN(lon)) {
+          hasDecimals = true;
+          if (lat < minLat) minLat = lat;
+          if (lat > maxLat) maxLat = lat;
+          if (lon < minLon) minLon = lon;
+          if (lon > maxLon) maxLon = lon;
+        }
+      }
     }
+
+    let centerLat = 0;
+    let centerLon = 0;
+    let avgLatRad = 0;
 
     let minX = Infinity, maxX = -Infinity;
     let minY = Infinity, maxY = -Infinity;
-    for (const st of stations) {
-      if (st.xy?.x != null && st.xy?.y != null) {
-        if (st.xy.x < minX) minX = st.xy.x;
-        if (st.xy.x > maxX) maxX = st.xy.x;
-        if (st.xy.y < minY) minY = st.xy.y;
-        if (st.xy.y > maxY) maxY = st.xy.y;
-      }
-    }
 
-    const centerX = (minX + maxX) / 2;
-    const centerY = (minY + maxY) / 2;
-    const maxSpan = Math.max(1, Math.max(maxX - minX, maxY - minY));
-    const targetSpan = APP_CONFIG?.MAP?.THREE_D?.TARGET_SPAN || 350.0;
-    const scale = targetSpan / maxSpan;
+    if (hasDecimals) {
+      centerLat = (minLat + maxLat) / 2;
+      centerLon = (minLon + maxLon) / 2;
+      avgLatRad = (centerLat * Math.PI) / 180;
+      const spanMetersX = (maxLon - minLon) * EARTH_SCALE * Math.cos(avgLatRad);
+      const spanMetersY = (maxLat - minLat) * EARTH_SCALE;
+      this.#worldSpan3D = Math.max(spanMetersX, spanMetersY) / metersPerUnit;
+    } else {
+      // Fallback: convert through MapGeometry if lat/lon not in decimals
+      let hasXY = stations.some(st => st.xy?.x != null && st.xy?.y != null);
+      if (!hasXY) {
+        const stationMap = Array.isArray(rawStationData)
+          ? Object.fromEntries(rawStationData.map(st => [st.id, st]))
+          : rawStationData;
+        const bounds = MapGeometry.getBounds(stationMap);
+        const { avgLatRad: rad } = MapGeometry.calculateSVGSize(bounds);
+        MapGeometry.convertLatLonToXY(stationMap, bounds, rad);
+      }
+      for (const st of stations) {
+        if (st.xy?.x != null && st.xy?.y != null) {
+          if (st.xy.x < minX) minX = st.xy.x;
+          if (st.xy.x > maxX) maxX = st.xy.x;
+          if (st.xy.y < minY) minY = st.xy.y;
+          if (st.xy.y > maxY) maxY = st.xy.y;
+        }
+      }
+      const maxSpan = Math.max(1, Math.max(maxX - minX, maxY - minY));
+      this.#worldSpan3D = maxSpan / metersPerUnit;
+    }
 
     this.#stationCoordinates3D.clear();
     for (const st of stations) {
-      if (st.xy?.x == null || st.xy?.y == null) continue;
-      const x = (st.xy.x - centerX) * scale;
-      const z = (st.xy.y - centerY) * scale;
-      const layout = (st.properties?.layout || st.layout || "elevated").toLowerCase();
-      let y = 0.35;
-      if (layout.includes("underground") || layout.includes("tunnel") || layout.includes("subway") || layout.includes("cut_and_cover") || layout.includes("cut-and-cover") || layout.includes("trench")) {
-        y = -3.5;
-      } else if (layout.includes("elevated") || layout.includes("viaduct") || layout.includes("aerial") || layout.includes("bridge")) {
-        y = 5.2;
+      let x = 0;
+      let z = 0;
+
+      const dec = st.location?.decimal;
+      if (hasDecimals && dec?.lat != null && dec?.lon != null) {
+        const xMeters = (Number(dec.lon) - centerLon) * EARTH_SCALE * Math.cos(avgLatRad);
+        const zMeters = (centerLat - Number(dec.lat)) * EARTH_SCALE;
+        x = xMeters / metersPerUnit;
+        z = zMeters / metersPerUnit;
+      } else if (st.xy?.x != null && st.xy?.y != null) {
+        const centerX = (minX + maxX) / 2;
+        const centerY = (minY + maxY) / 2;
+        const scale = 1.0 / metersPerUnit;
+        x = (st.xy.x - centerX) * scale;
+        z = (st.xy.y - centerY) * scale;
+      } else {
+        continue;
       }
+
+      const layout = st.properties?.layout || st.layout || "elevated";
+      const y = this.getLayoutElevation(layout);
 
       this.#stationCoordinates3D.set(st.id, {
         st,
@@ -550,17 +688,36 @@ export class Metro3DEngine extends BaseMapEngine {
         const spline = new THREE.CatmullRomCurve3(points, isLoop, 'centripetal', 0.5);
         spline.closed = isLoop;
 
-        // Distribute pillars at clean, realistic 16m intervals along the entire elevated track
+        // Distribute pillars with realistic open spacing along elevated tracks and descent ramps
+        const config3D = APP_CONFIG?.MAP?.THREE_D || {};
+        const pillarSpacing = config3D.PILLAR_SPACING || 9.0;
+
         const totalSplineLen = spline.getLength();
-        const pillarSpacing = 16.0;
         const numPillarSamples = Math.max(1, Math.floor(totalSplineLen / pillarSpacing));
         for (let i = 0; i <= numPillarSamples; i++) {
           const u = i / numPillarSamples;
           const pt = spline.getPointAt(u);
-          if (pt.y > 1.5) {
-            const pos = new THREE.Vector3(pt.x, 0, pt.z);
-            if (!pillarPoints.some(p => p.distanceTo(pos) < 10.0)) {
-              pillarPoints.push(pos);
+          // Place pillars wherever track is elevated or on descent ramp (down to 0.8m before portal)
+          if (pt.y >= 0.8) {
+            const isNearExisting = pillarPoints.some(p => Math.hypot(p.x - pt.x, p.z - pt.z) < pillarSpacing * 0.75);
+
+            if (!isNearExisting) {
+              const tan = spline.getTangentAt(u).normalize();
+              const yaw = Math.atan2(tan.x, tan.z);
+              const pitch = Math.atan2(tan.y, Math.hypot(tan.x, tan.z));
+              const trackY = pt.y;
+              // Target height reaches exactly the bottom face of the 0.35m thick ribbon deck
+              const pillarHeight = Math.max(0.5, trackY - 0.35);
+
+              pillarPoints.push({
+                x: pt.x,
+                y: 0,
+                z: pt.z,
+                trackY,
+                pillarHeight,
+                yaw,
+                pitch
+              });
             }
           }
         }
@@ -647,6 +804,9 @@ export class Metro3DEngine extends BaseMapEngine {
             });
           }
 
+          this.#allCanyonCurves = allCanyonCurves;
+          this.#undergroundModes.init({ curves: allCanyonCurves, metroLines });
+
           this.#updateProgress(74, "Erecting Pillars...", `Placing ${pillarPoints.length} elevated stone pillars...`);
           if (pillarPoints.length > 0) {
             await this.#pillars.loadPillars(pillarPoints, { targetHeight: 5.2 }).catch(console.warn);
@@ -657,16 +817,18 @@ export class Metro3DEngine extends BaseMapEngine {
           const undergroundStationsList = [];
 
           for (const [stId, coord] of this.#stationCoordinates3D.entries()) {
+            const stData = coord.st || metroDataStore.stationData?.[stId] || {};
             const item = {
               id: stId,
-              name: coord.st?.name || stId,
+              st: stData,
+              name: coord.st?.name || stData?.name || stId,
               pos: coord.pos,
               rotationY: coord.rotationY || 0,
               layout: coord.layout,
-              status: coord.st?.properties?.status || "operational"
+              status: coord.st?.properties?.status || stData?.properties?.status || "operational"
             };
 
-            if (coord.layout.includes("underground")) {
+            if (this.isUnderground(coord.layout)) {
               undergroundStationsList.push(item);
             } else {
               elevatedStationsList.push(item);
@@ -683,19 +845,27 @@ export class Metro3DEngine extends BaseMapEngine {
             this.#undergroundStation.buildAllStations(undergroundStationsList, UG_STATION_STYLES.MODERN_DMRC_OPENCUT);
           }
 
+          // Mount 3D Unipole Station Hoardings above all station canopies/atria
+          const allStationsList = [...elevatedStationsList, ...undergroundStationsList];
+          this.#hoardings.buildHoardings(allStationsList);
+
           this.#updateProgress(94, "Placing Rolling Stock...", "Initializing metro train & controls...");
           this.#train.setSpline(this.#mainSpline);
           await this.#train.loadModel('./assets/3d_models/train.glb', 1.15).catch(console.warn);
 
-          const targetSpan = APP_CONFIG?.MAP?.THREE_D?.TARGET_SPAN || 350.0;
+          const targetSpan = this.#worldSpan3D || 1000.0;
           this.#updateShadowCameraForSpan(targetSpan);
-          const camDist = targetSpan * 0.55;
-          this.#camera.position.set(camDist * 1.1, camDist, camDist * 0.9);
+          // Set camera position aligned with 2.5D: X = 0 (straight North-South), pitch = 45 degrees (Y == Z)
+          const camDist = targetSpan * 0.45;
+          this.#baseDistance = camDist * Math.SQRT2;
+          this.#camera.position.set(0, camDist, camDist);
           this.#controls.target.set(0, 0, 0);
-          this.#controls.maxDistance = Math.max(800, targetSpan * 3.0);
-          this.#camera.far = Math.max(1500, targetSpan * 5.0);
+          this.#controls.minDistance = 5;
+          this.#controls.maxDistance = Math.max(1500, targetSpan * 3.0);
+          this.#camera.far = Math.max(3000, targetSpan * 4.0);
           this.#camera.updateProjectionMatrix();
           this.#controls.update();
+          this.#emitTransformChange();
 
           this.#isRunning = true;
           this.#animate();
@@ -718,12 +888,17 @@ export class Metro3DEngine extends BaseMapEngine {
     }
   }
 
+  get canvas() {
+    return this.#renderer?.domElement || null;
+  }
+
   // --- Element Toggle API for Checkbox Control Panel ---
 
   setMapDisplaySettings(settings = {}) {
     if (typeof settings.showUnderConstruction === "boolean") {
       this.#stations?.toggleVisibilityByStatus?.("under_construction", settings.showUnderConstruction);
       this.#undergroundStation?.toggleVisibilityByStatus?.("under_construction", settings.showUnderConstruction);
+      this.#hoardings?.toggleVisibilityByStatus?.("under_construction", settings.showUnderConstruction);
     }
   }
 
@@ -746,6 +921,28 @@ export class Metro3DEngine extends BaseMapEngine {
 
   toggleCanyon(visible) {
     return this.#tunnel.toggleCanyon(visible);
+  }
+
+  setUndergroundMode(mode) {
+    this.#undergroundMode = mode || 'canyon';
+    if (this.#tunnel) {
+      this.#tunnel.toggleCanyon(this.#undergroundMode === 'canyon');
+    }
+    if (this.#terrain) {
+      if (this.#undergroundMode !== 'canyon') {
+        this.#terrain.toggleRocks(false);
+      } else {
+        this.#terrain.toggleRocks(true);
+      }
+    }
+    if (this.#undergroundModes) {
+      this.#undergroundModes.setMode(this.#undergroundMode);
+    }
+    return this.#undergroundMode;
+  }
+
+  getUndergroundMode() {
+    return this.#undergroundMode;
   }
 
   toggleRocks(visible) {
@@ -772,13 +969,36 @@ export class Metro3DEngine extends BaseMapEngine {
     return this.#stations.toggleVisibility(visible);
   }
 
+  /**
+   * Computes visual elevation in 3D scene units for a structural layout type
+   * Uses canonical real-world meters scaled by 3D scale ratio and vertical exaggeration
+   * @param {string} layout
+   * @returns {number}
+   */
+  getLayoutElevation(layout) {
+    const config3D = APP_CONFIG?.MAP?.THREE_D || {};
+    const metersPerUnit = config3D.METERS_PER_UNIT || 22.0;
+    const vertExaggeration = config3D.VERTICAL_EXAGGERATION || 9.5;
+    if (this.isSurface(layout)) return 0.35;
+    if (this.classifyLayout(layout) === "cut_and_cover") {
+      return config3D.REAL_METERS?.CUT_AND_COVER_DEPTH_3D ?? -0.90;
+    }
+    if (this.isUnderground(layout)) {
+      // Half-floor visual depth in 3D: subtle, clean excavation cutting (~-1.60 units)
+      // instead of deep 7m canyon crater
+      return config3D.REAL_METERS?.UNDERGROUND_DEPTH_3D ?? -1.60;
+    }
+    const realMeters = this.getRealElevationMeters(layout);
+    return (realMeters / metersPerUnit) * vertExaggeration;
+  }
+
   setStationStyle(styleIndex) {
     return this.#stations.buildStation(styleIndex);
   }
 
   focusStation() {
     for (const [stId, coord] of this.#stationCoordinates3D.entries()) {
-      if (!coord.layout?.includes("underground")) {
+      if (!this.isUnderground(coord.layout)) {
         this.#camera.position.set(coord.x + 10, coord.y + 6, coord.z + 10);
         this.#controls.target.set(coord.x, coord.y, coord.z);
         this.#controls.update();
@@ -788,6 +1008,10 @@ export class Metro3DEngine extends BaseMapEngine {
     this.#camera.position.set(24, 9, 8);
     this.#controls.target.set(14, 6.5, -1);
     this.#controls.update();
+  }
+
+  toggleHoardings(visible) {
+    return this.#hoardings.toggleVisibility(visible);
   }
 
   toggleUndergroundStation(visible) {
@@ -826,21 +1050,22 @@ export class Metro3DEngine extends BaseMapEngine {
 
   focusUndergroundStation() {
     for (const [stId, coord] of this.#stationCoordinates3D.entries()) {
-      if (coord.layout?.includes("underground")) {
-        this.#camera.position.set(coord.x + 8, coord.y + 6, coord.z + 8);
-        this.#controls.target.set(coord.x, coord.y, coord.z);
+      if (this.isUnderground(coord.layout)) {
+        // Focus directly on the modern glass entrance pavilion at ground level
+        this.#camera.position.set(coord.x + 9, 5.5, coord.z + 9);
+        this.#controls.target.set(coord.x, 1.8, coord.z);
         this.#controls.update();
         return;
       }
     }
     if (this.#canyonCurve) {
       const p = this.#canyonCurve.getPointAt(this.#undergroundStationT);
-      this.#camera.position.set(p.x, 5, p.z + 16);
-      this.#controls.target.set(p.x, -2.5, p.z);
+      this.#camera.position.set(p.x + 9, 5.5, p.z + 9);
+      this.#controls.target.set(p.x, 1.8, p.z);
       this.#controls.update();
     } else {
-      this.#camera.position.set(0, 5, -13);
-      this.#controls.target.set(0, -2.5, -29);
+      this.#camera.position.set(9, 5.5, -20);
+      this.#controls.target.set(0, 1.8, -29);
       this.#controls.update();
     }
   }
@@ -848,7 +1073,8 @@ export class Metro3DEngine extends BaseMapEngine {
   #setupStationDragging() {
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
-    const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 3.5); // Plane at Y = -3.5
+    const ugDepth = Math.abs(APP_CONFIG?.MAP?.THREE_D?.REAL_METERS?.UNDERGROUND_DEPTH_3D ?? 1.60);
+    const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), ugDepth); // Track level plane
     const hitPoint = new THREE.Vector3();
 
     const onPointerDown = (e) => {
@@ -943,10 +1169,129 @@ export class Metro3DEngine extends BaseMapEngine {
     return this.#mainSpline;
   }
 
-  resetCamera() {
-    this.#camera.position.set(56, 52, 48);
-    this.#controls.target.set(0, 1, -2);
+  /**
+   * Current 3D zoom scale relative to the base fit-to-screen distance
+   * @returns {number}
+   */
+  get zoom() {
+    if (!this.#camera || !this.#controls) return 1.0;
+    const currentDist = this.#camera.position.distanceTo(this.#controls.target);
+    const base = this.#baseDistance || ((this.#worldSpan3D || 1000.0) * 0.45 * Math.SQRT2);
+    if (currentDist <= 0.001) return 1.0;
+    return Math.max(0.05, Math.min(50.0, base / currentDist));
+  }
+
+  /**
+   * Sets the 3D zoom level by scaling camera distance from target
+   * @param {number} zoomVal
+   */
+  setZoom(zoomVal) {
+    if (!this.#camera || !this.#controls) return;
+    const clampedZoom = Math.max(0.1, Math.min(30.0, zoomVal || 1.0));
+    const base = this.#baseDistance || ((this.#worldSpan3D || 1000.0) * 0.45 * Math.SQRT2);
+    let targetDist = base / clampedZoom;
+
+    const minD = this.#controls.minDistance || 5;
+    const maxD = this.#controls.maxDistance || 3000;
+    targetDist = Math.max(minD, Math.min(maxD, targetDist));
+
+    const target = this.#controls.target;
+    const dir = new THREE.Vector3().subVectors(this.#camera.position, target);
+    if (dir.lengthSq() < 0.0001) {
+      dir.set(0, 1, 1);
+    }
+    dir.normalize();
+
+    this.#camera.position.copy(target).addScaledVector(dir, targetDist);
     this.#controls.update();
+    this.#emitTransformChange();
+  }
+
+  zoomIn(factor = 1.3) {
+    this.setZoom(this.zoom * factor);
+  }
+
+  zoomOut(factor = 1.3) {
+    this.setZoom(this.zoom / factor);
+  }
+
+  fitToScreen(paddingRatio = 1.0) {
+    this.resetCamera();
+    if (paddingRatio !== 1.0) {
+      this.setZoom(1.0 / paddingRatio);
+    }
+  }
+
+  setPitch(deg) {
+    if (!this.#camera || !this.#controls) return;
+    const rad = THREE.MathUtils.degToRad(Math.max(5, Math.min(88, deg)));
+    const target = this.#controls.target;
+    const currentDist = this.#camera.position.distanceTo(target);
+    const horizDir = new THREE.Vector2(this.#camera.position.x - target.x, this.#camera.position.z - target.z);
+    if (horizDir.lengthSq() < 0.0001) horizDir.set(0, 1);
+    horizDir.normalize();
+
+    const horizDist = currentDist * Math.cos(rad);
+    const y = currentDist * Math.sin(rad);
+
+    this.#camera.position.set(
+      target.x + horizDir.x * horizDist,
+      target.y + y,
+      target.z + horizDir.y * horizDist
+    );
+    this.#controls.update();
+    this.#emitTransformChange();
+  }
+
+  setRotation(deg) {
+    if (!this.#camera || !this.#controls) return;
+    const rad = THREE.MathUtils.degToRad(deg);
+    const target = this.#controls.target;
+    const pos = this.#camera.position;
+    const dx = pos.x - target.x;
+    const dz = pos.z - target.z;
+    const horizDist = Math.hypot(dx, dz);
+    const y = pos.y;
+
+    this.#camera.position.set(
+      target.x + Math.sin(rad) * horizDist,
+      y,
+      target.z + Math.cos(rad) * horizDist
+    );
+    this.#controls.update();
+    this.#emitTransformChange();
+  }
+
+  resetCamera() {
+    const targetSpan = this.#worldSpan3D || 1000.0;
+    const camDist = targetSpan * 0.45;
+    this.#baseDistance = camDist * Math.SQRT2;
+    this.#camera.position.set(0, camDist, camDist);
+    this.#controls.target.set(0, 0, 0);
+    this.#controls.update();
+    this.#emitTransformChange();
+  }
+
+  #emitTransformChange() {
+    if (typeof this.onTransformChange === 'function') {
+      const target = this.#controls?.target || new THREE.Vector3();
+      const pos = this.#camera?.position || new THREE.Vector3();
+      const dx = pos.x - target.x;
+      const dy = pos.y - target.y;
+      const dz = pos.z - target.z;
+      const horizDist = Math.hypot(dx, dz);
+      const pitchDeg = horizDist > 0.001 ? Math.atan2(dy, horizDist) * (180 / Math.PI) : 45;
+      const rotateDeg = Math.atan2(dx, dz) * (180 / Math.PI);
+
+      this.onTransformChange({
+        zoom: this.zoom,
+        pitchDeg,
+        rotateDeg,
+        bearingDeg: rotateDeg,
+        x: target.x,
+        y: target.z
+      });
+    }
   }
 
   #animate = (timestamp = 0) => {
@@ -957,6 +1302,7 @@ export class Metro3DEngine extends BaseMapEngine {
     this.#lastTime = timestamp;
 
     this.#controls.update();
+    this.#hoardings?.update(this.#camera);
     this.#train.update(delta);
     this.#renderer.render(this.#scene, this.#camera);
   };
@@ -972,16 +1318,23 @@ export class Metro3DEngine extends BaseMapEngine {
 
   destroy() {
     this.#isRunning = false;
-    window.removeEventListener('resize', this.#onWindowResize);
-    this.#controls?.dispose();
-    this.#track?.destroy?.();
-    this.#renderer?.dispose();
-    if (this.#loadingOverlay && this.#loadingOverlay.parentNode) {
-      this.#loadingOverlay.parentNode.removeChild(this.#loadingOverlay);
+    try { this._themeObserver?.disconnect(); this._themeObserver = null; } catch (e) {}
+    try { window.removeEventListener('resize', this.#onWindowResize); } catch (e) {}
+    try { this.#controls?.dispose(); } catch (e) {}
+    try { this.#hoardings?.dispose(); } catch (e) {}
+    try { this.#track?.destroy?.(); } catch (e) {}
+    try { this.#renderer?.dispose(); } catch (e) {}
+    try {
+      if (this.#loadingOverlay && this.#loadingOverlay.parentNode) {
+        this.#loadingOverlay.parentNode.removeChild(this.#loadingOverlay);
+      }
       this.#loadingOverlay = null;
-    }
-    if (this.#renderer?.domElement && this.#container?.contains(this.#renderer.domElement)) {
-      this.#container.removeChild(this.#renderer.domElement);
-    }
+    } catch (e) {}
+    try {
+      const dom = this.#renderer?.domElement;
+      if (dom && dom.parentNode) {
+        dom.parentNode.removeChild(dom);
+      }
+    } catch (e) {}
   }
 }

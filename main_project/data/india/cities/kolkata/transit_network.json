@@ -6,64 +6,32 @@
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
-			"kolkata_metro": {
-				"operator": "Metro Railway, Kolkata (Indian Railways)",
-				"avgSpeedMetersPerMin": 550,
-				"stationHaltMinutes": 0.5
-			}
+			"kolkata_metro": {"operator": "Metro Railway, Kolkata (Indian Railways)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"kolkata_metro_standard": {
 				"network": "kolkata_metro",
 				"effectiveFrom": "2019-12-05",
 				"fareModel": "distance_based",
-				"calculation": {
-					"distanceUnit": "km",
-					"rounding": "nearest"
-				},
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
 				"fareTables": {
 					"standard": [
-						{
-							"minKm": 0,
-							"maxKm": 2,
-							"fare": 5
-						},
-						{
-							"minKm": 2,
-							"maxKm": 5,
-							"fare": 10
-						},
-						{
-							"minKm": 5,
-							"maxKm": 10,
-							"fare": 15
-						},
-						{
-							"minKm": 10,
-							"maxKm": 20,
-							"fare": 20
-						},
-						{
-							"minKm": 20,
-							"maxKm": null,
-							"fare": 25
-						}
+						{"minKm": 0, "maxKm": 2, "fare": 5},
+						{"minKm": 2, "maxKm": 5, "fare": 10},
+						{"minKm": 5, "maxKm": 10, "fare": 15},
+						{"minKm": 10, "maxKm": 20, "fare": 20},
+						{"minKm": 20, "maxKm": null, "fare": 25}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base"
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
 						"minBalance": 50,
 						"refundableDeposit": 50,
-						"maxTravelTimeMinutes": {
-							"sameStation": 20,
-							"otherStation": 120
-						},
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 120},
 						"rechargeUrl": ""
 					},
 					"qr_ticket": {
@@ -74,22 +42,8 @@
 						"bookingUrl": "",
 						"appUrl": ""
 					},
-					"tourist_card_3day": {
-						"type": "flat_pass",
-						"cost": 250,
-						"travelValue": 200,
-						"refundableDeposit": 50,
-						"validityDays": 3,
-						"unlimitedRides": true
-					},
-					"tourist_card_5day": {
-						"type": "flat_pass",
-						"cost": 550,
-						"travelValue": 500,
-						"refundableDeposit": 50,
-						"validityDays": 5,
-						"unlimitedRides": true
-					}
+					"tourist_card_3day": {"type": "flat_pass", "cost": 250, "travelValue": 200, "refundableDeposit": 50, "validityDays": 3, "unlimitedRides": true},
+					"tourist_card_5day": {"type": "flat_pass", "cost": 550, "travelValue": 500, "refundableDeposit": 50, "validityDays": 5, "unlimitedRides": true}
 				},
 				"stationStayRules": {
 					"sameStationExitFare": 5,
@@ -111,38 +65,8 @@
 			"color": "#005BA6",
 			"color_name": "blue",
 			"style": "solid",
-			"route": {
-				"from": "dakshineswar",
-				"to": "kavi_subhash"
-			},
-			"stations": [
-				"dakshineswar",
-				"baranagar",
-				"noapara",
-				"dum_dum",
-				"belgachhia",
-				"shyambazar",
-				"shobhabazar_sutanuti",
-				"girish_park",
-				"mahatma_gandhi_road",
-				"central",
-				"chandni_chowk",
-				"esplanade",
-				"park_street",
-				"maidan",
-				"rabindra_sadan",
-				"netaji_bhavan",
-				"jatin_das_park",
-				"kalighat",
-				"rabindra_sarobar",
-				"mahanayak_uttam_kumar",
-				"netaji",
-				"masterda_surya_sen",
-				"gitanjali",
-				"kavi_nazrul",
-				"shahid_khudiram",
-				"kavi_subhash"
-			]
+			"route": {"from": "dakshineswar", "to": "kavi_subhash"},
+			"stations": ["dakshineswar", "baranagar", "noapara", "dum_dum", "belgachhia", "shyambazar", "shobhabazar_sutanuti", "girish_park", "mahatma_gandhi_road", "central", "chandni_chowk", "esplanade", "park_street", "maidan", "rabindra_sadan", "netaji_bhavan", "jatin_das_park", "kalighat", "rabindra_sarobar", "mahanayak_uttam_kumar", "netaji", "masterda_surya_sen", "gitanjali", "kavi_nazrul", "shahid_khudiram", "kavi_subhash"]
 		},
 		"kolkata_metro.green": {
 			"id": "kolkata_metro.green",
@@ -153,24 +77,8 @@
 			"color": "#008752",
 			"color_name": "green",
 			"style": "solid",
-			"route": {
-				"from": "howrah_maidan",
-				"to": "salt_lake_sector_v"
-			},
-			"stations": [
-				"howrah_maidan",
-				"howrah",
-				"mahakaran",
-				"esplanade",
-				"sealdah",
-				"phoolbagan",
-				"salt_lake_stadium",
-				"bengal_chemical",
-				"city_center",
-				"central_park",
-				"karunamoyee",
-				"salt_lake_sector_v"
-			]
+			"route": {"from": "howrah_maidan", "to": "salt_lake_sector_v"},
+			"stations": ["howrah_maidan", "howrah", "mahakaran", "esplanade", "sealdah", "phoolbagan", "salt_lake_stadium", "bengal_chemical", "city_center", "central_park", "karunamoyee", "salt_lake_sector_v"]
 		},
 		"kolkata_metro.orange": {
 			"id": "kolkata_metro.orange",
@@ -181,10 +89,7 @@
 			"color": "#FF7A00",
 			"color_name": "orange",
 			"style": "solid",
-			"route": {
-				"from": "kavi_subhash",
-				"to": "beleghata"
-			},
+			"route": {"from": "kavi_subhash", "to": "beleghata"},
 			"stations": ["kavi_subhash", "satyajit_ray", "jyotirindra_nandi", "kavi_sukanta", "hemanta_mukhopadhyay", "vip_bazar", "ritwik_ghatak", "barun_sengupta", "beleghata"]
 		},
 		"kolkata_metro.purple": {
@@ -196,10 +101,7 @@
 			"color": "#8C2877",
 			"color_name": "purple",
 			"style": "solid",
-			"route": {
-				"from": "joka",
-				"to": "majerhat"
-			},
+			"route": {"from": "joka", "to": "majerhat"},
 			"stations": ["joka", "thakurpukur", "behala_sakherbazar", "behala_chowrasta", "behala_bazar", "taratala", "majerhat"]
 		},
 		"kolkata_metro.yellow": {
@@ -211,62 +113,33 @@
 			"color": "#FBC02D",
 			"color_name": "yellow",
 			"style": "solid",
-			"route": {
-				"from": "noapara",
-				"to": "jai_hind"
-			},
+			"route": {"from": "noapara", "to": "jai_hind"},
 			"stations": ["noapara", "dum_dum_cantonment", "jessore_road", "jai_hind"]
 		}
 	},
 	"transfers": {
 		"esplanade": {
 			"kolkata_metro.blue": {
-				"esplanade:kolkata_metro.green": {
-					"type": "interchange",
-					"transfer_mode": "corridor",
-					"distance_meters": 75,
-					"levels": 1
-				}
+				"esplanade:kolkata_metro.green": {"type": "interchange", "transfer_mode": "corridor", "distance_meters": 75, "levels": 1}
 			},
 			"kolkata_metro.green": {
-				"esplanade:kolkata_metro.blue": {
-					"type": "interchange",
-					"transfer_mode": "corridor",
-					"distance_meters": 75,
-					"levels": 1
-				}
+				"esplanade:kolkata_metro.blue": {"type": "interchange", "transfer_mode": "corridor", "distance_meters": 75, "levels": 1}
 			}
 		},
 		"kavi_subhash": {
 			"kolkata_metro.blue": {
-				"kavi_subhash:kolkata_metro.orange": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 30
-				}
+				"kavi_subhash:kolkata_metro.orange": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 30}
 			},
 			"kolkata_metro.orange": {
-				"kavi_subhash:kolkata_metro.blue": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 30
-				}
+				"kavi_subhash:kolkata_metro.blue": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 30}
 			}
 		},
 		"noapara": {
 			"kolkata_metro.blue": {
-				"noapara:kolkata_metro.yellow": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"noapara:kolkata_metro.yellow": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			},
 			"kolkata_metro.yellow": {
-				"noapara:kolkata_metro.blue": {
-					"type": "interchange",
-					"transfer_mode": "cross_platform",
-					"distance_meters": 20
-				}
+				"noapara:kolkata_metro.blue": {"type": "interchange", "transfer_mode": "cross_platform", "distance_meters": 20}
 			}
 		}
 	},
@@ -274,1363 +147,572 @@
 		"dakshineswar": {
 			"id": "dakshineswar",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "baranagar",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "baranagar", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.6538276,
-					"lon": 88.3636977
-				}
+				"decimal": {"lat": 22.6538276, "lon": 88.3636977}
 			}
 		},
 		"baranagar": {
 			"id": "baranagar",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "dakshineswar",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "noapara",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "dakshineswar", "line": "kolkata_metro.blue"}, {"station": "noapara", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.653226,
-					"lon": 88.380472
-				}
+				"decimal": {"lat": 22.653226, "lon": 88.380472}
 			}
 		},
 		"noapara": {
 			"id": "noapara",
 			"lines": ["kolkata_metro.blue", "kolkata_metro.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "baranagar",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "dum_dum",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "dum_dum_cantonment",
-					"line": "kolkata_metro.yellow"
-				}
+				{"station": "baranagar", "line": "kolkata_metro.blue"},
+				{"station": "dum_dum", "line": "kolkata_metro.blue"},
+				{"station": "dum_dum_cantonment", "line": "kolkata_metro.yellow"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.63985,
-					"lon": 88.394094
-				}
+				"decimal": {"lat": 22.63985, "lon": 88.394094}
 			}
 		},
 		"dum_dum": {
 			"id": "dum_dum",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "noapara",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "belgachhia",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "noapara", "line": "kolkata_metro.blue"}, {"station": "belgachhia", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.6213219,
-					"lon": 88.3929726
-				}
+				"decimal": {"lat": 22.6213219, "lon": 88.3929726}
 			}
 		},
 		"belgachhia": {
 			"id": "belgachhia",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "dum_dum",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "shyambazar",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "dum_dum", "line": "kolkata_metro.blue"}, {"station": "shyambazar", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.6061287,
-					"lon": 88.3868685
-				}
+				"decimal": {"lat": 22.6061287, "lon": 88.3868685}
 			}
 		},
 		"shyambazar": {
 			"id": "shyambazar",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "belgachhia",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "shobhabazar_sutanuti",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "belgachhia", "line": "kolkata_metro.blue"}, {"station": "shobhabazar_sutanuti", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.6006027,
-					"lon": 88.3702928
-				}
+				"decimal": {"lat": 22.6006027, "lon": 88.3702928}
 			}
 		},
 		"shobhabazar_sutanuti": {
 			"id": "shobhabazar_sutanuti",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "shyambazar",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "girish_park",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "shyambazar", "line": "kolkata_metro.blue"}, {"station": "girish_park", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5960254,
-					"lon": 88.3652848
-				}
+				"decimal": {"lat": 22.5960254, "lon": 88.3652848}
 			}
 		},
 		"girish_park": {
 			"id": "girish_park",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
+			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "shobhabazar_sutanuti",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "mahatma_gandhi_road",
-					"line": "kolkata_metro.blue"
-				}
+				{"station": "shobhabazar_sutanuti", "line": "kolkata_metro.blue"},
+				{"station": "mahatma_gandhi_road", "line": "kolkata_metro.blue"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5871415,
-					"lon": 88.3630842
-				}
+				"decimal": {"lat": 22.5871415, "lon": 88.3630842}
 			}
 		},
 		"mahatma_gandhi_road": {
 			"id": "mahatma_gandhi_road",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "girish_park",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "central",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "girish_park", "line": "kolkata_metro.blue"}, {"station": "central", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.580696,
-					"lon": 88.3613813
-				}
+				"decimal": {"lat": 22.580696, "lon": 88.3613813}
 			}
 		},
 		"central": {
 			"id": "central",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "mahatma_gandhi_road",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "chandni_chowk",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "mahatma_gandhi_road", "line": "kolkata_metro.blue"}, {"station": "chandni_chowk", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5725237,
-					"lon": 88.3582423
-				}
+				"decimal": {"lat": 22.5725237, "lon": 88.3582423}
 			}
 		},
 		"chandni_chowk": {
 			"id": "chandni_chowk",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "central",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "esplanade",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "central", "line": "kolkata_metro.blue"}, {"station": "esplanade", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.566797,
-					"lon": 88.3538026
-				}
+				"decimal": {"lat": 22.566797, "lon": 88.3538026}
 			}
 		},
 		"esplanade": {
 			"id": "esplanade",
 			"lines": ["kolkata_metro.blue", "kolkata_metro.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "underground", "status": "operational", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "chandni_chowk",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "park_street",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "mahakaran",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "sealdah",
-					"line": "kolkata_metro.green"
-				}
+				{"station": "chandni_chowk", "line": "kolkata_metro.blue"},
+				{"station": "park_street", "line": "kolkata_metro.blue"},
+				{"station": "mahakaran", "line": "kolkata_metro.green"},
+				{"station": "sealdah", "line": "kolkata_metro.green"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5648115,
-					"lon": 88.3506738
-				}
+				"decimal": {"lat": 22.5648115, "lon": 88.3506738}
 			}
 		},
 		"park_street": {
 			"id": "park_street",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground and double track",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "esplanade",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "maidan",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground and double track", "status": "operational"},
+			"neighbors": [{"station": "esplanade", "line": "kolkata_metro.blue"}, {"station": "maidan", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.55445,
-					"lon": 88.34985
-				}
+				"decimal": {"lat": 22.55445, "lon": 88.34985}
 			}
 		},
 		"maidan": {
 			"id": "maidan",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "park_street",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "rabindra_sadan",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "park_street", "line": "kolkata_metro.blue"}, {"station": "rabindra_sadan", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5492537,
-					"lon": 88.3485751
-				}
+				"decimal": {"lat": 22.5492537, "lon": 88.3485751}
 			}
 		},
 		"rabindra_sadan": {
 			"id": "rabindra_sadan",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "maidan",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "netaji_bhavan",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "maidan", "line": "kolkata_metro.blue"}, {"station": "netaji_bhavan", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5409865,
-					"lon": 88.3472773
-				}
+				"decimal": {"lat": 22.5409865, "lon": 88.3472773}
 			}
 		},
 		"netaji_bhavan": {
 			"id": "netaji_bhavan",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "rabindra_sadan",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "jatin_das_park",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "rabindra_sadan", "line": "kolkata_metro.blue"}, {"station": "jatin_das_park", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.532977,
-					"lon": 88.3457124
-				}
+				"decimal": {"lat": 22.532977, "lon": 88.3457124}
 			}
 		},
 		"jatin_das_park": {
 			"id": "jatin_das_park",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "netaji_bhavan",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "kalighat",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "netaji_bhavan", "line": "kolkata_metro.blue"}, {"station": "kalighat", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.524262,
-					"lon": 88.346489
-				}
+				"decimal": {"lat": 22.524262, "lon": 88.346489}
 			}
 		},
 		"kalighat": {
 			"id": "kalighat",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jatin_das_park",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "rabindra_sarobar",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "jatin_das_park", "line": "kolkata_metro.blue"}, {"station": "rabindra_sarobar", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5167667,
-					"lon": 88.3461329
-				}
+				"decimal": {"lat": 22.5167667, "lon": 88.3461329}
 			}
 		},
 		"rabindra_sarobar": {
 			"id": "rabindra_sarobar",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kalighat",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "mahanayak_uttam_kumar",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "kalighat", "line": "kolkata_metro.blue"}, {"station": "mahanayak_uttam_kumar", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5078864,
-					"lon": 88.3455571
-				}
+				"decimal": {"lat": 22.5078864, "lon": 88.3455571}
 			}
 		},
 		"mahanayak_uttam_kumar": {
 			"id": "mahanayak_uttam_kumar",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "at grade",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "rabindra_sarobar",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "netaji",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "at grade", "status": "operational"},
+			"neighbors": [{"station": "rabindra_sarobar", "line": "kolkata_metro.blue"}, {"station": "netaji", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4944519,
-					"lon": 88.3451538
-				}
+				"decimal": {"lat": 22.4944519, "lon": 88.3451538}
 			}
 		},
 		"netaji": {
 			"id": "netaji",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
+			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "mahanayak_uttam_kumar",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "masterda_surya_sen",
-					"line": "kolkata_metro.blue"
-				}
+				{"station": "mahanayak_uttam_kumar", "line": "kolkata_metro.blue"},
+				{"station": "masterda_surya_sen", "line": "kolkata_metro.blue"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4809362,
-					"lon": 88.3459611
-				}
+				"decimal": {"lat": 22.4809362, "lon": 88.3459611}
 			}
 		},
 		"masterda_surya_sen": {
 			"id": "masterda_surya_sen",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "netaji",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "gitanjali",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "netaji", "line": "kolkata_metro.blue"}, {"station": "gitanjali", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4734883,
-					"lon": 88.3608039
-				}
+				"decimal": {"lat": 22.4734883, "lon": 88.3608039}
 			}
 		},
 		"gitanjali": {
 			"id": "gitanjali",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "masterda_surya_sen",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "kavi_nazrul",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "masterda_surya_sen", "line": "kolkata_metro.blue"}, {"station": "kavi_nazrul", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.469425,
-					"lon": 88.3699223
-				}
+				"decimal": {"lat": 22.469425, "lon": 88.3699223}
 			}
 		},
 		"kavi_nazrul": {
 			"id": "kavi_nazrul",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "gitanjali",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "shahid_khudiram",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "gitanjali", "line": "kolkata_metro.blue"}, {"station": "shahid_khudiram", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4642442,
-					"lon": 88.3806582
-				}
+				"decimal": {"lat": 22.4642442, "lon": 88.3806582}
 			}
 		},
 		"shahid_khudiram": {
 			"id": "shahid_khudiram",
 			"lines": ["kolkata_metro.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kavi_nazrul",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "kavi_subhash",
-					"line": "kolkata_metro.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kavi_nazrul", "line": "kolkata_metro.blue"}, {"station": "kavi_subhash", "line": "kolkata_metro.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4660094,
-					"lon": 88.3916655
-				}
+				"decimal": {"lat": 22.4660094, "lon": 88.3916655}
 			}
 		},
 		"kavi_subhash": {
 			"id": "kavi_subhash",
 			"lines": ["kolkata_metro.blue", "kolkata_metro.orange"],
-			"properties": {
-				"layout": "at grade",
-				"status": "operational",
-				"station_type": "interchange"
-			},
-			"neighbors": [
-				{
-					"station": "shahid_khudiram",
-					"line": "kolkata_metro.blue"
-				},
-				{
-					"station": "satyajit_ray",
-					"line": "kolkata_metro.orange"
-				}
-			],
+			"properties": {"layout": "at grade", "status": "operational", "station_type": "interchange"},
+			"neighbors": [{"station": "shahid_khudiram", "line": "kolkata_metro.blue"}, {"station": "satyajit_ray", "line": "kolkata_metro.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4721747,
-					"lon": 88.3978668
-				}
+				"decimal": {"lat": 22.4721747, "lon": 88.3978668}
 			}
 		},
 		"howrah_maidan": {
 			"id": "howrah_maidan",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "howrah",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "howrah", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5833782,
-					"lon": 88.3337983
-				}
+				"decimal": {"lat": 22.5833782, "lon": 88.3337983}
 			}
 		},
 		"howrah": {
 			"id": "howrah",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "howrah_maidan",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "mahakaran",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "howrah_maidan", "line": "kolkata_metro.green"}, {"station": "mahakaran", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5833627,
-					"lon": 88.3379692
-				}
+				"decimal": {"lat": 22.5833627, "lon": 88.3379692}
 			}
 		},
 		"mahakaran": {
 			"id": "mahakaran",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "howrah",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "esplanade",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "howrah", "line": "kolkata_metro.green"}, {"station": "esplanade", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5724499,
-					"lon": 88.350744
-				}
+				"decimal": {"lat": 22.5724499, "lon": 88.350744}
 			}
 		},
 		"sealdah": {
 			"id": "sealdah",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "esplanade",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "phoolbagan",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "esplanade", "line": "kolkata_metro.green"}, {"station": "phoolbagan", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5662671,
-					"lon": 88.3713355
-				}
+				"decimal": {"lat": 22.5662671, "lon": 88.3713355}
 			}
 		},
 		"phoolbagan": {
 			"id": "phoolbagan",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "sealdah",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "salt_lake_stadium",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "sealdah", "line": "kolkata_metro.green"}, {"station": "salt_lake_stadium", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5721833,
-					"lon": 88.389419
-				}
+				"decimal": {"lat": 22.5721833, "lon": 88.389419}
 			}
 		},
 		"salt_lake_stadium": {
 			"id": "salt_lake_stadium",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "phoolbagan",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "bengal_chemical",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "phoolbagan", "line": "kolkata_metro.green"}, {"station": "bengal_chemical", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.573016,
-					"lon": 88.4030255
-				}
+				"decimal": {"lat": 22.573016, "lon": 88.4030255}
 			}
 		},
 		"bengal_chemical": {
 			"id": "bengal_chemical",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "salt_lake_stadium",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "city_center",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "salt_lake_stadium", "line": "kolkata_metro.green"}, {"station": "city_center", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5800328,
-					"lon": 88.4013242
-				}
+				"decimal": {"lat": 22.5800328, "lon": 88.4013242}
 			}
 		},
 		"city_center": {
 			"id": "city_center",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "bengal_chemical",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "central_park",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "bengal_chemical", "line": "kolkata_metro.green"}, {"station": "central_park", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.587069,
-					"lon": 88.407875
-				}
+				"decimal": {"lat": 22.587069, "lon": 88.407875}
 			}
 		},
 		"central_park": {
 			"id": "central_park",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "city_center",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "karunamoyee",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "city_center", "line": "kolkata_metro.green"}, {"station": "karunamoyee", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5903952,
-					"lon": 88.4155095
-				}
+				"decimal": {"lat": 22.5903952, "lon": 88.4155095}
 			}
 		},
 		"karunamoyee": {
 			"id": "karunamoyee",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "central_park",
-					"line": "kolkata_metro.green"
-				},
-				{
-					"station": "salt_lake_sector_v",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "central_park", "line": "kolkata_metro.green"}, {"station": "salt_lake_sector_v", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5862825,
-					"lon": 88.4214022
-				}
+				"decimal": {"lat": 22.5862825, "lon": 88.4214022}
 			}
 		},
 		"salt_lake_sector_v": {
 			"id": "salt_lake_sector_v",
 			"lines": ["kolkata_metro.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "karunamoyee",
-					"line": "kolkata_metro.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "karunamoyee", "line": "kolkata_metro.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.580939,
-					"lon": 88.429052
-				}
+				"decimal": {"lat": 22.580939, "lon": 88.429052}
 			}
 		},
 		"satyajit_ray": {
 			"id": "satyajit_ray",
 			"lines": ["kolkata_metro.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kavi_subhash",
-					"line": "kolkata_metro.orange"
-				},
-				{
-					"station": "jyotirindra_nandi",
-					"line": "kolkata_metro.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kavi_subhash", "line": "kolkata_metro.orange"}, {"station": "jyotirindra_nandi", "line": "kolkata_metro.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4839198,
-					"lon": 88.3922501
-				}
+				"decimal": {"lat": 22.4839198, "lon": 88.3922501}
 			}
 		},
 		"jyotirindra_nandi": {
 			"id": "jyotirindra_nandi",
 			"lines": ["kolkata_metro.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "satyajit_ray",
-					"line": "kolkata_metro.orange"
-				},
-				{
-					"station": "kavi_sukanta",
-					"line": "kolkata_metro.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "satyajit_ray", "line": "kolkata_metro.orange"}, {"station": "kavi_sukanta", "line": "kolkata_metro.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.49595,
-					"lon": 88.398611
-				}
+				"decimal": {"lat": 22.49595, "lon": 88.398611}
 			}
 		},
 		"kavi_sukanta": {
 			"id": "kavi_sukanta",
 			"lines": ["kolkata_metro.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
+			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "jyotirindra_nandi",
-					"line": "kolkata_metro.orange"
-				},
-				{
-					"station": "hemanta_mukhopadhyay",
-					"line": "kolkata_metro.orange"
-				}
+				{"station": "jyotirindra_nandi", "line": "kolkata_metro.orange"},
+				{"station": "hemanta_mukhopadhyay", "line": "kolkata_metro.orange"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.505602,
-					"lon": 88.401066
-				}
+				"decimal": {"lat": 22.505602, "lon": 88.401066}
 			}
 		},
 		"hemanta_mukhopadhyay": {
 			"id": "hemanta_mukhopadhyay",
 			"lines": ["kolkata_metro.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kavi_sukanta",
-					"line": "kolkata_metro.orange"
-				},
-				{
-					"station": "vip_bazar",
-					"line": "kolkata_metro.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kavi_sukanta", "line": "kolkata_metro.orange"}, {"station": "vip_bazar", "line": "kolkata_metro.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.514684,
-					"lon": 88.401604
-				}
+				"decimal": {"lat": 22.514684, "lon": 88.401604}
 			}
 		},
 		"vip_bazar": {
 			"id": "vip_bazar",
 			"lines": ["kolkata_metro.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
+			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "hemanta_mukhopadhyay",
-					"line": "kolkata_metro.orange"
-				},
-				{
-					"station": "ritwik_ghatak",
-					"line": "kolkata_metro.orange"
-				}
+				{"station": "hemanta_mukhopadhyay", "line": "kolkata_metro.orange"},
+				{"station": "ritwik_ghatak", "line": "kolkata_metro.orange"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.524879,
-					"lon": 88.396244
-				}
+				"decimal": {"lat": 22.524879, "lon": 88.396244}
 			}
 		},
 		"ritwik_ghatak": {
 			"id": "ritwik_ghatak",
 			"lines": ["kolkata_metro.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "vip_bazar",
-					"line": "kolkata_metro.orange"
-				},
-				{
-					"station": "barun_sengupta",
-					"line": "kolkata_metro.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "vip_bazar", "line": "kolkata_metro.orange"}, {"station": "barun_sengupta", "line": "kolkata_metro.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.532913,
-					"lon": 88.39644
-				}
+				"decimal": {"lat": 22.532913, "lon": 88.39644}
 			}
 		},
 		"barun_sengupta": {
 			"id": "barun_sengupta",
 			"lines": ["kolkata_metro.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "ritwik_ghatak",
-					"line": "kolkata_metro.orange"
-				},
-				{
-					"station": "beleghata",
-					"line": "kolkata_metro.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ritwik_ghatak", "line": "kolkata_metro.orange"}, {"station": "beleghata", "line": "kolkata_metro.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.54387,
-					"lon": 88.399343
-				}
+				"decimal": {"lat": 22.54387, "lon": 88.399343}
 			}
 		},
 		"beleghata": {
 			"id": "beleghata",
 			"lines": ["kolkata_metro.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "barun_sengupta",
-					"line": "kolkata_metro.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "barun_sengupta", "line": "kolkata_metro.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.5506998,
-					"lon": 88.4040364
-				}
+				"decimal": {"lat": 22.5506998, "lon": 88.4040364}
 			}
 		},
 		"joka": {
 			"id": "joka",
 			"lines": ["kolkata_metro.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "thakurpukur",
-					"line": "kolkata_metro.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "thakurpukur", "line": "kolkata_metro.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4519191,
-					"lon": 88.3015804
-				}
+				"decimal": {"lat": 22.4519191, "lon": 88.3015804}
 			}
 		},
 		"thakurpukur": {
 			"id": "thakurpukur",
 			"lines": ["kolkata_metro.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "joka",
-					"line": "kolkata_metro.purple"
-				},
-				{
-					"station": "behala_sakherbazar",
-					"line": "kolkata_metro.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "joka", "line": "kolkata_metro.purple"}, {"station": "behala_sakherbazar", "line": "kolkata_metro.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4639013,
-					"lon": 88.3074175
-				}
+				"decimal": {"lat": 22.4639013, "lon": 88.3074175}
 			}
 		},
 		"behala_sakherbazar": {
 			"id": "behala_sakherbazar",
 			"lines": ["kolkata_metro.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "thakurpukur",
-					"line": "kolkata_metro.purple"
-				},
-				{
-					"station": "behala_chowrasta",
-					"line": "kolkata_metro.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "thakurpukur", "line": "kolkata_metro.purple"}, {"station": "behala_chowrasta", "line": "kolkata_metro.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4747597,
-					"lon": 88.3099273
-				}
+				"decimal": {"lat": 22.4747597, "lon": 88.3099273}
 			}
 		},
 		"behala_chowrasta": {
 			"id": "behala_chowrasta",
 			"lines": ["kolkata_metro.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "behala_sakherbazar",
-					"line": "kolkata_metro.purple"
-				},
-				{
-					"station": "behala_bazar",
-					"line": "kolkata_metro.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "behala_sakherbazar", "line": "kolkata_metro.purple"}, {"station": "behala_bazar", "line": "kolkata_metro.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.4870602,
-					"lon": 88.3131928
-				}
+				"decimal": {"lat": 22.4870602, "lon": 88.3131928}
 			}
 		},
 		"behala_bazar": {
 			"id": "behala_bazar",
 			"lines": ["kolkata_metro.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "behala_chowrasta",
-					"line": "kolkata_metro.purple"
-				},
-				{
-					"station": "taratala",
-					"line": "kolkata_metro.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "behala_chowrasta", "line": "kolkata_metro.purple"}, {"station": "taratala", "line": "kolkata_metro.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.500378,
-					"lon": 88.3172706
-				}
+				"decimal": {"lat": 22.500378, "lon": 88.3172706}
 			}
 		},
 		"taratala": {
 			"id": "taratala",
 			"lines": ["kolkata_metro.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "behala_bazar",
-					"line": "kolkata_metro.purple"
-				},
-				{
-					"station": "majerhat",
-					"line": "kolkata_metro.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "behala_bazar", "line": "kolkata_metro.purple"}, {"station": "majerhat", "line": "kolkata_metro.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.507687,
-					"lon": 88.320279
-				}
+				"decimal": {"lat": 22.507687, "lon": 88.320279}
 			}
 		},
 		"majerhat": {
 			"id": "majerhat",
 			"lines": ["kolkata_metro.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "taratala",
-					"line": "kolkata_metro.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "taratala", "line": "kolkata_metro.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.519219,
-					"lon": 88.323742
-				}
+				"decimal": {"lat": 22.519219, "lon": 88.323742}
 			}
 		},
 		"dum_dum_cantonment": {
 			"id": "dum_dum_cantonment",
 			"lines": ["kolkata_metro.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "noapara",
-					"line": "kolkata_metro.yellow"
-				},
-				{
-					"station": "jessore_road",
-					"line": "kolkata_metro.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "noapara", "line": "kolkata_metro.yellow"}, {"station": "jessore_road", "line": "kolkata_metro.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.6369865,
-					"lon": 88.4125389
-				}
+				"decimal": {"lat": 22.6369865, "lon": 88.4125389}
 			}
 		},
 		"jessore_road": {
 			"id": "jessore_road",
 			"lines": ["kolkata_metro.yellow"],
-			"properties": {
-				"layout": "at grade",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "dum_dum_cantonment",
-					"line": "kolkata_metro.yellow"
-				},
-				{
-					"station": "jai_hind",
-					"line": "kolkata_metro.yellow"
-				}
-			],
+			"properties": {"layout": "at grade", "status": "operational"},
+			"neighbors": [{"station": "dum_dum_cantonment", "line": "kolkata_metro.yellow"}, {"station": "jai_hind", "line": "kolkata_metro.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.6391925,
-					"lon": 88.4297986
-				}
+				"decimal": {"lat": 22.6391925, "lon": 88.4297986}
 			}
 		},
 		"jai_hind": {
 			"id": "jai_hind",
 			"lines": ["kolkata_metro.yellow"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jessore_road",
-					"line": "kolkata_metro.yellow"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "jessore_road", "line": "kolkata_metro.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 22.647315,
-					"lon": 88.437376
-				}
+				"decimal": {"lat": 22.647315, "lon": 88.437376}
 			}
 		}
 	}

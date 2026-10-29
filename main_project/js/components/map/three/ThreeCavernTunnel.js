@@ -87,7 +87,9 @@ export class ThreeCavernTunnel {
       const lHash = Math.sin(lBlockIdx * 78.233 + 12.98) * 43758.54;
       const lStoneFacet = ((lHash - Math.floor(lHash)) - 0.5) * 0.55 * mouthTaper;
 
-      const wallBotY = Math.min(0.0, pt.y);
+      // Bedrock canyon floor sits 0.35m below spline so metro line ribbon (thickness: 0.35m)
+      // rests directly on the trench floor without clipping or Z-fighting
+      const wallBotY = Math.min(0.0, pt.y - 0.35);
       const wallTopY = 0.0;
 
       const pR_top = new THREE.Vector3(pt.x + right.x * rWidth, wallTopY, pt.z + right.z * rWidth);
@@ -273,7 +275,9 @@ export class ThreeCavernTunnel {
       const lHash = Math.sin(lBlockIdx * 78.233 + 12.98) * 43758.54;
       const lStoneFacet = ((lHash - Math.floor(lHash)) - 0.5) * 0.55 * mouthTaper;
 
-      const wallBotY = Math.min(0.0, pt.y);
+      // Bedrock canyon floor sits 0.35m below spline so metro line ribbon (thickness: 0.35m)
+      // rests directly on the trench floor without clipping or Z-fighting
+      const wallBotY = Math.min(0.0, pt.y - 0.35);
       const wallTopY = 0.0;
 
       const pR_topX = pt.x + right.x * rWidth;

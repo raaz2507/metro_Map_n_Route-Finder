@@ -400,9 +400,40 @@ export class JourneyDetailsView {
 				globalStationIndex++;
 
 				let gateBadgeHtml = "";
+				let gateDrawerHtml = "";
 				if (isFirstOverall || isLastOverall) {
+					const gates = centerClass.getStationGates(st.id);
+					const gateEntries = Object.entries(gates || {});
+					const gateCount = gateEntries.length;
 					const gateLabel = centerClass.t("pages.home.findRoute.timeline.gate") || "Gate";
-					gateBadgeHtml = `<span class="badge-gate">🚪 ${gateLabel}</span>`;
+					const gatesTitle = isLastOverall
+						? (centerClass.t("pages.home.findRoute.timeline.exitGates") || "Exit Gates & Nearby Landmarks")
+						: (centerClass.t("pages.home.findRoute.timeline.entryGates") || "Entry Gates & Nearby Landmarks");
+
+					if (gateCount > 0) {
+						gateBadgeHtml = `
+							<button type="button" class="badge-gate-toggle" aria-expanded="true" title="${gatesTitle}">
+								<span class="badge-gate">🚪 ${gateLabel} (${gateCount}) <span class="gate-chevron">▾</span></span>
+							</button>
+						`;
+						gateDrawerHtml = `
+							<div class="station-gates-drawer" role="region" aria-label="${gatesTitle}">
+								<div class="station-gates-box">
+									<div class="gates-box-header">
+										<span class="gates-box-title">🚪 ${gatesTitle}</span>
+									</div>
+									<div class="gates-pill-list">
+										${gateEntries.map(([gNum, landmark]) => `
+											<div class="gate-pill-item">
+												<span class="gate-num-badge">${gateLabel} ${gNum}</span>
+												<span class="gate-landmark-text">➔ ${landmark}</span>
+											</div>
+										`).join("")}
+									</div>
+								</div>
+							</div>
+						`;
+					}
 				}
 
 				const hopText = st.hopDistanceKm ? `${st.hopDistanceKm} km · ` : "";
@@ -434,15 +465,20 @@ export class JourneyDetailsView {
 						<div class="station-track-line" style="background-color: ${trackColor};"></div>
 					</div>
 					<div class="station-info">
-						<a href="station_info.html?id=${encodeURIComponent(st.id)}&city=${encodeURIComponent(currentCity)}" 
-						class="station-name-main" 
-						target="_blank" 
-						rel="noopener noreferrer" 
-						title="${name}">
-							${name}
-							${gateBadgeHtml}
-						</a>
-						<span class="station-time-cumulative">${hopText}~${st.timeMinutes}m</span>
+						<div class="station-row-header">
+							<div class="station-name-wrap">
+								<a href="station_info.html?id=${encodeURIComponent(st.id)}&city=${encodeURIComponent(currentCity)}" 
+								class="station-name-main" 
+								target="_blank" 
+								rel="noopener noreferrer" 
+								title="${name}">
+									${name}
+								</a>
+								${gateBadgeHtml}
+							</div>
+							<span class="station-time-cumulative">${hopText}~${st.timeMinutes}m</span>
+						</div>
+						${gateDrawerHtml}
 					</div>
 				`;
 				segmentEl.appendChild(rowEl);
@@ -522,6 +558,21 @@ export class JourneyDetailsView {
 				`;
 				timelineContainer.appendChild(interchangeContainer);
 				animationRowCounter++;
+			}
+		});
+
+		// 🚪 O(1) Event Delegation for Gate Toggles (Zero per-item listeners)
+		timelineContainer.addEventListener("click", (e) => {
+			const gateBtn = e.target.closest(".badge-gate-toggle");
+			if (!gateBtn) return;
+			e.preventDefault();
+			e.stopPropagation();
+
+			const drawer = gateBtn.closest(".station-info")?.querySelector(".station-gates-drawer");
+			if (drawer) {
+				drawer.classList.toggle("collapsed");
+				const isExpanded = !drawer.classList.contains("collapsed");
+				gateBtn.setAttribute("aria-expanded", String(isExpanded));
 			}
 		});
 

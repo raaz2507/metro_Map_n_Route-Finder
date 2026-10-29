@@ -1,0 +1,2034 @@
+{
+  "city": "agra",
+  "version": "1.0.0",
+  "total_places": 50,
+  "places": [
+    {
+      "id": "taj_mahal",
+      "wiki_title": "Taj_Mahal",
+      "category": "heritage",
+      "coordinates": [
+        27.1751,
+        78.0421
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": [
+          "Friday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1751,78.0421",
+      "image_asset": "transit_assets/tourist_places/agra/taj_mahal.webp",
+      "tags": [
+        "unesco_world_heritage",
+        "wonder_of_world",
+        "shah_jahan",
+        "mumtaz_mahal",
+        "mughal_architecture",
+        "white_marble"
+      ],
+      "recommended_time_min": 150,
+      "en": {
+        "name": "Taj Mahal",
+        "description": "UNESCO World Heritage Site and one of the Seven Wonders of the World, an ivory-white marble mausoleum built by Mughal Emperor Shah Jahan for Mumtaz Mahal.",
+        "best_time_to_visit": "Sunrise or sunset for magical lighting"
+      },
+      "hi": {
+        "name": "ताज महल",
+        "description": "यूनेस्को विश्व धरोहर स्थल और विश्व के सात अजूबों में शुमार, मुग़ल सम्राट शाहजहाँ द्वारा अपनी बेगम मुमताज़ महल की याद में सफेद संगमरमर से निर्मित बेमिसाल मकबरा।",
+        "best_time_to_visit": "सूर्योदय या सूर्यास्त के समय"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Taj_Mahal_%28Edited%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "agra_fort",
+      "wiki_title": "Agra_Fort",
+      "category": "heritage",
+      "coordinates": [
+        27.1795,
+        78.0211
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1795,78.0211",
+      "image_asset": "transit_assets/tourist_places/agra/agra_fort.webp",
+      "tags": [
+        "unesco_world_heritage",
+        "mughal_fortress",
+        "akbar",
+        "shah_jahan",
+        "red_sandstone"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Agra Fort",
+        "description": "UNESCO World Heritage 16th-century red sandstone fortress that served as the imperial seat and primary residence of the Mughal dynasty until 1638.",
+        "best_time_to_visit": "Morning hours when temperatures are cool"
+      },
+      "hi": {
+        "name": "आगरा का किला",
+        "description": "यूनेस्को विश्व धरोहर लाल बलुआ पत्थर का भव्य किला, जो 1638 तक मुग़ल साम्राज्य की मुख्य शाही राजधानी और निवास स्थान रहा।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Agra_03-2016_16_Agra_Fort.jpg/3840px-Agra_03-2016_16_Agra_Fort.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "fatehpur_sikri",
+      "wiki_title": "Fatehpur_Sikri",
+      "category": "heritage",
+      "coordinates": [
+        27.0945,
+        77.6679
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.0945,77.6679",
+      "image_asset": "transit_assets/tourist_places/agra/fatehpur_sikri.webp",
+      "tags": [
+        "unesco_world_heritage",
+        "akbar_capital",
+        "red_sandstone",
+        "buland_darwaza",
+        "salim_chishti"
+      ],
+      "recommended_time_min": 180,
+      "en": {
+        "name": "Fatehpur Sikri",
+        "description": "UNESCO World Heritage historic fortified capital founded by Emperor Akbar in 1571, famed for Buland Darwaza and Salim Chishti's marble tomb.",
+        "best_time_to_visit": "Early morning or late afternoon"
+      },
+      "hi": {
+        "name": "फ़तेहपुर सीकरी",
+        "description": "सम्राट अकबर द्वारा 1571 में स्थापित यूनेस्को विश्व धरोहर शाही नगरी, जो बुलंद दरवाज़ा और सलीम चिश्ती की दरगाह के लिए दुनिया भर में प्रसिद्ध है।",
+        "best_time_to_visit": "सुबह या दोपहर बाद"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "mehtab_bagh",
+      "wiki_title": "Mehtab_Bagh",
+      "category": "park",
+      "coordinates": [
+        27.18,
+        78.042
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1800,78.0420",
+      "image_asset": "transit_assets/tourist_places/agra/mehtab_bagh.webp",
+      "tags": [
+        "charbagh",
+        "moonlight_garden",
+        "taj_view",
+        "yamuna_river",
+        "sunset_point"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Mehtab Bagh (Moonlight Garden)",
+        "description": "Lush Charbagh complex located directly opposite the Taj Mahal across the Yamuna River, famous for unparalleled unobstructed sunset reflections of the monument.",
+        "best_time_to_visit": "1 hour before sunset"
+      },
+      "hi": {
+        "name": "मेहताब बाग़",
+        "description": "यमुना नदी के उस पार ताज महल के ठीक सामने स्थित सुंदर चारबाग़ उद्यान, जहाँ से सूर्यास्त के समय ताज महल का अद्भुत और शांत दृश्य दिखाई देता है।",
+        "best_time_to_visit": "सूर्यास्त से एक घंटा पहले"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Mehtab_Bagh_facing_Taj_Mahal.JPG/3840px-Mehtab_Bagh_facing_Taj_Mahal.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "tomb_of_itimad_ud_daulah",
+      "wiki_title": "Tomb_of_I%27timad-ud-Daulah",
+      "category": "heritage",
+      "coordinates": [
+        27.193,
+        78.0313
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1930,78.0313",
+      "image_asset": "transit_assets/tourist_places/agra/tomb_of_itimad_ud_daulah.webp",
+      "tags": [
+        "baby_taj",
+        "jewel_box",
+        "pietra_dura",
+        "nur_jahan",
+        "marble_mausoleum"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Tomb of I'timad-ud-Daulah (Baby Taj)",
+        "description": "Often called the 'Jewel Box' or 'Baby Taj', this exquisite marble mausoleum built by Empress Nur Jahan pioneered pietra dura inlay work in India.",
+        "best_time_to_visit": "Morning light to appreciate lattice screens"
+      },
+      "hi": {
+        "name": "एतमादुद्दौला का मकबरा (बेबी ताज)",
+        "description": "'ज्वेल बॉक्स' या 'बेबी ताज' के नाम से प्रसिद्ध, नूरजहाँ द्वारा अपने पिता के लिए निर्मित यह मकबरा संगमरमर पर पिएत्रा ड्यूरा नक्काशी का पहला उत्कृष्ट उदाहरण है।",
+        "best_time_to_visit": "सुबह की धूप में नक्काशी देखने के लिए"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cenotaphs%20and%20the%20interior%20of%20the%20tomb%20of%20Itimad-ud-Daulah.jpg"
+    },
+    {
+      "id": "akbar_tomb_sikandra",
+      "wiki_title": "Tomb_of_Akbar_the_Great",
+      "category": "heritage",
+      "coordinates": [
+        27.2206,
+        77.9505
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2206,77.9505",
+      "image_asset": "transit_assets/tourist_places/agra/akbar_tomb_sikandra.webp",
+      "tags": [
+        "akbar_tomb",
+        "sikandra",
+        "mughal_masterpiece",
+        "charbagh",
+        "deer_park"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Akbar's Tomb, Sikandra",
+        "description": "Magnificent four-tiered red sandstone and white marble mausoleum of Emperor Akbar, set amidst serene gardens frequented by blackbucks and peacocks.",
+        "best_time_to_visit": "Afternoon to stroll through the lush grounds"
+      },
+      "hi": {
+        "name": "अकबर का मकबरा, सिकंदरा",
+        "description": "मुग़ल सम्राट अकबर का चार-मंजिला भव्य मकबरा जो लाल बलुआ पत्थर और सफेद संगमरमर से बना है, जिसके विस्तृत बगीचों में हिरण और मोर विचरण करते हैं।",
+        "best_time_to_visit": "दोपहर से शाम के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Akbar%27s_Tomb_in_Sikandra_15.jpg/3840px-Akbar%27s_Tomb_in_Sikandra_15.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "mariam_tomb",
+      "wiki_title": "Mariam%27s_Tomb",
+      "category": "heritage",
+      "coordinates": [
+        27.2144,
+        77.9392
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2144,77.9392",
+      "image_asset": "transit_assets/tourist_places/agra/mariam_tomb.webp",
+      "tags": [
+        "jodha_bai",
+        "mariam_uz_zamani",
+        "mughal_tomb",
+        "sikandra"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Mariam's Tomb",
+        "description": "Mausoleum of Mariam-uz-Zamani (commonly known as Jodha Bai), Empress of Emperor Akbar and mother of Jahangir, featuring unique baradari pavilions.",
+        "best_time_to_visit": "Daytime combined with Sikandra visit"
+      },
+      "hi": {
+        "name": "मरियम का मकबरा",
+        "description": "सम्राट अकबर की महारानी और जहाँगीर की माता मरियम-उज़-ज़मानी (जोधा बाई) का शांत बारादरी मकबरा, जो सिकंदरा के निकट स्थित है।",
+        "best_time_to_visit": "दोपहर के समय सिकंदरा के साथ"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mariam%27s%20Tomb%2C%20Sikandra%2C%20Agra.JPG"
+    },
+    {
+      "id": "chini_ka_rauza",
+      "wiki_title": "Chini_Ka_Rauza",
+      "category": "heritage",
+      "coordinates": [
+        27.2014,
+        78.0392
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2014,78.0392",
+      "image_asset": "transit_assets/tourist_places/agra/chini_ka_rauza.webp",
+      "tags": [
+        "glazed_tile",
+        "persian_architecture",
+        "afzal_khan",
+        "yamuna_river"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Chini Ka Rauza",
+        "description": "Funerary monument dedicated to Mughal poet-scholar Afzal Khan Shirazi, celebrated for its exquisite Persian porcelain-style glazed tile ornamentation.",
+        "best_time_to_visit": "Morning sunlight illuminating surviving tiles"
+      },
+      "hi": {
+        "name": "चीनी का रौज़ा",
+        "description": "मुग़ल वज़ीर और विद्वान अफ़ज़ल खान शिराज़ी का मकबरा, जो अपनी दुर्लभ फ़ारसी शैली की रंगीन चीनी-मिट्टी की टाइल नक्काशी (कालीगरी) के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Chini_ki_Rauza_4.jpg/3840px-Chini_ki_Rauza_4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "jama_masjid_agra",
+      "wiki_title": "Jama_Mosque,_Agra",
+      "category": "religious",
+      "coordinates": [
+        27.1818,
+        78.0163
+      ],
+      "timings": {
+        "open": "05:30",
+        "close": "20:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1818,78.0163",
+      "image_asset": "transit_assets/tourist_places/agra/jama_masjid_agra.webp",
+      "tags": [
+        "jahanara_begum",
+        "shah_jahan",
+        "historic_mosque",
+        "red_sandstone",
+        "mankameshwar_metro"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Jama Masjid, Agra",
+        "description": "Monumental 17th-century congregational mosque built by Mughal princess Jahanara Begum opposite Agra Fort, with distinctive zigzag patterned domes.",
+        "best_time_to_visit": "Morning or late afternoon (outside prayer times)"
+      },
+      "hi": {
+        "name": "जामा मस्जिद, आगरा",
+        "description": "शाहजहाँ की पुत्री शहज़ादी जहाँआरा बेगम द्वारा 1648 में निर्मित ऐतिहासिक मस्जिद, जो अपने लाल बलुआ पत्थर और ज़िग-ज़ैग संगमरमरी गुंबदों के लिए विख्यात है।",
+        "best_time_to_visit": "सुबह या दोपहर बाद"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Jami_Masjid_-Agra_-Uttar_Pradesh_-IMG_0282.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "moti_masjid_agra",
+      "wiki_title": "Moti_Masjid_(Agra_Fort)",
+      "category": "heritage",
+      "coordinates": [
+        27.1802,
+        78.0219
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1802,78.0219",
+      "image_asset": "transit_assets/tourist_places/agra/moti_masjid_agra.webp",
+      "tags": [
+        "pearl_mosque",
+        "shah_jahan",
+        "white_marble",
+        "agra_fort_complex"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Moti Masjid (Pearl Mosque)",
+        "description": "Luminous pure white marble royal sanctuary built by Shah Jahan inside the Agra Fort complex, renowned for its flawless pearlescent radiance.",
+        "best_time_to_visit": "Morning inside Agra Fort tour"
+      },
+      "hi": {
+        "name": "मोती मस्जिद (आगरा किला)",
+        "description": "शाहजहाँ द्वारा आगरा किले के अंदर शुद्ध सफेद संगमरमर से निर्मित शाही मस्जिद, जो अपनी मोतियों जैसी धवल चमक और शांति के लिए जानी जाती है।",
+        "best_time_to_visit": "आगरा किला भ्रमण के साथ"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Moti_Masjid%2CAgra.jpg/3840px-Moti_Masjid%2CAgra.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "guru_ka_taal",
+      "wiki_title": "Guru_ka_Taal",
+      "category": "religious",
+      "coordinates": [
+        27.2163,
+        77.9628
+      ],
+      "timings": {
+        "open": "04:00",
+        "close": "22:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2163,77.9628",
+      "image_asset": "transit_assets/tourist_places/agra/guru_ka_taal.webp",
+      "tags": [
+        "sikh_gurudwara",
+        "guru_tegh_bahadur",
+        "holy_sarovar",
+        "langar",
+        "historic"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Guru Ka Taal Gurudwara",
+        "description": "Revered historic Sikh pilgrimage site marking the spot where Ninth Guru, Guru Tegh Bahadur Ji, voluntarily offered his arrest to Emperor Aurangzeb.",
+        "best_time_to_visit": "Early morning or during evening langar"
+      },
+      "hi": {
+        "name": "गुरु का ताल गुरुद्वारा",
+        "description": "सिखों का पवित्र ऐतिहासिक तीर्थ स्थल जहाँ नौवें गुरु, गुरु तेग बहादुर जी ने औरंगज़ेब के दरबार में अपनी स्वेच्छा से गिरफ्तारी दी थी। यहाँ 24 घंटे लंगर सेवा चलती है।",
+        "best_time_to_visit": "सुबह या शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gurudwara%20Guru%20ka%20Taal%20Agra.jpg"
+    },
+    {
+      "id": "mankameshwar_temple",
+      "wiki_title": "Mankameshwar_Temple",
+      "category": "religious",
+      "coordinates": [
+        27.1812,
+        78.0175
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1812,78.0175",
+      "image_asset": "transit_assets/tourist_places/agra/mankameshwar_temple.webp",
+      "tags": [
+        "shiva_temple",
+        "corner_guardian",
+        "rawatpara",
+        "ancient_jyotirlinga",
+        "mankameshwar_metro"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Mankameshwar Temple",
+        "description": "Ancient Shiva temple said to have been founded by Lord Shiva himself in Dwapara Yuga; one of the four corner guardian shrines protecting Agra.",
+        "best_time_to_visit": "Monday mornings or evening aarti"
+      },
+      "hi": {
+        "name": "मनकामेश्वर मंदिर",
+        "description": "द्वापर युग से स्थापित माना जाने वाला आगरा के चार कोनों का रक्षक प्राचीन शिव मंदिर, जहाँ मन की हर मुराद पूरी होने की मान्यता है।",
+        "best_time_to_visit": "सोमवार या शाम की भव्य आरती"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/IAshishTripathi_Mankameshwar_Temple_Agra.jpg/3840px-IAshishTripathi_Mankameshwar_Temple_Agra.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "balkeshwar_temple",
+      "wiki_title": "Agra#Places_of_worship",
+      "category": "religious",
+      "coordinates": [
+        27.228,
+        78.026
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2280,78.0260",
+      "image_asset": "transit_assets/tourist_places/agra/balkeshwar_temple.webp",
+      "tags": [
+        "shiva_temple",
+        "yamuna_ghat",
+        "corner_guardian",
+        "sawan_mela"
+      ],
+      "recommended_time_min": 50,
+      "en": {
+        "name": "Balkeshwar Mahadev Temple",
+        "description": "One of the four ancient protective corner Mahadev shrines of Agra, situated on the scenic ghats of river Yamuna with lush riverside environs.",
+        "best_time_to_visit": "Early morning riverside prayers"
+      },
+      "hi": {
+        "name": "बल्केश्वर महादेव मंदिर",
+        "description": "यमुना तट पर स्थित आगरा के चार प्रमुख रक्षक शिव मंदिरों में से एक, जहाँ सावन मास में विशाल मेला और लाखों श्रद्धालुओं का तांता लगता है।",
+        "best_time_to_visit": "प्रातः काल यमुना तट की शांति में"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Taj%20Mahal%2C%20Agra%2C%20India%20edit2.jpg"
+    },
+    {
+      "id": "rajeshwar_temple",
+      "wiki_title": "Agra#Places_of_worship",
+      "category": "religious",
+      "coordinates": [
+        27.135,
+        78.0425
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1350,78.0425",
+      "image_asset": "transit_assets/tourist_places/agra/rajeshwar_temple.webp",
+      "tags": [
+        "shiva_temple",
+        "rajpur_chungi",
+        "corner_guardian",
+        "shivling"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Rajeshwar Mahadev Temple",
+        "description": "Venerated corner Shiva temple located in Rajpur Chungi, consecrated over eight centuries ago and renowned for its miraculous stone Shivalinga.",
+        "best_time_to_visit": "Monday evening prayers"
+      },
+      "hi": {
+        "name": "राजेश्वर महादेव मंदिर",
+        "description": "राजपुर चुंगी में स्थित 850 वर्ष से अधिक प्राचीन ऐतिहासिक शिव मंदिर, जो आगरा के दक्षिणी कोण की रक्षा करने वाले प्रमुख महादेव हैं।",
+        "best_time_to_visit": "सोमवार की शाम"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/%E0%A6%B6%E0%A7%8D%E0%A7%B0%E0%A7%80%20%E0%A6%B6%E0%A7%8D%E0%A7%B0%E0%A7%80%20%E0%A6%B6%E0%A6%BF%E0%A7%B1%20%E0%A6%A6%E0%A7%87%E0%A7%B1%E0%A6%BE%E0%A6%B2%E0%A6%AF%E0%A6%BC.jpg"
+    },
+    {
+      "id": "kailash_temple_agra",
+      "wiki_title": "Agra#Places_of_worship",
+      "category": "religious",
+      "coordinates": [
+        27.245,
+        77.925
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2450,77.9250",
+      "image_asset": "transit_assets/tourist_places/agra/kailash_temple_agra.webp",
+      "tags": [
+        "shiva_temple",
+        "yamuna_banks",
+        "sikandra_road",
+        "corner_guardian",
+        "kailash_mela"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Kailash Mahadev Temple",
+        "description": "Ancient holy Shiva shrine on the banks of Yamuna near Sikandra where Lord Rama and Parashurama are revered to have offered prayers; hosts the historic Kailash Mela.",
+        "best_time_to_visit": "During Shravan month festival"
+      },
+      "hi": {
+        "name": "कैलाश महादेव मंदिर",
+        "description": "सिकंदरा के समीप यमुना किनारे स्थित पौराणिक शिव धाम जहाँ भगवान परशुराम द्वारा तपस्या की मान्यता है; यहाँ प्रतिवर्ष ऐतिहासिक कैलाश मेला भरता है।",
+        "best_time_to_visit": "सावन सोमवार और मेला उत्सव"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rudra%20Gareshwor%20Mahadev%20Temple%20Pashupatinath%20Kathmandu%20Nepal%20Rajesh%20Dhungana%20%28004%29.jpg"
+    },
+    {
+      "id": "prithvinath_temple",
+      "wiki_title": "Agra#Places_of_worship",
+      "category": "religious",
+      "coordinates": [
+        27.172,
+        77.985
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1720,77.9850",
+      "image_asset": "transit_assets/tourist_places/agra/prithvinath_temple.webp",
+      "tags": [
+        "shiva_temple",
+        "prithviraj_chauhan",
+        "shahganj",
+        "corner_guardian"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Prithvinath Temple",
+        "description": "Historic Shiva temple in Shahganj founded by Rajput King Prithviraj Chauhan, serving as the fourth sacred corner deity guarding the city.",
+        "best_time_to_visit": "Morning aarti"
+      },
+      "hi": {
+        "name": "पृथ्वीनाथ मंदिर",
+        "description": "शाहगंज क्षेत्र में सम्राट पृथ्वीराज चौहान द्वारा स्थापित पौराणिक शिव मंदिर, जो आगरा नगर के चौथे कोने के रक्षक तीर्थ के रूप में पूजनीय है।",
+        "best_time_to_visit": "सुबह आरती के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "rawatpara_petha_market",
+      "wiki_title": "Petha",
+      "category": "shopping",
+      "coordinates": [
+        27.1815,
+        78.018
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1815,78.0180",
+      "image_asset": "transit_assets/tourist_places/agra/rawatpara_petha_market.webp",
+      "tags": [
+        "agra_petha",
+        "panchi_petha",
+        "traditional_sweets",
+        "spices",
+        "mankameshwar_metro"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Rawatpara Petha & Spice Market",
+        "description": "Historic centuries-old marketplace located near Agra Fort and Mankameshwar Temple, world-famous as the origin and hub of authentic Agra Petha sweets.",
+        "best_time_to_visit": "Evening for street sweets tasting"
+      },
+      "hi": {
+        "name": "रावतपाड़ा पेठा बाज़ार",
+        "description": "आगरा किला व मनकामेश्वर मंदिर के निकट स्थित सदियों पुराना बाज़ार, जो विश्व प्रसिद्ध स्वादिष्ट 'आगरा का पेठा' और मसालों का ऐतिहासिक केंद्र है।",
+        "best_time_to_visit": "शाम के समय ताज़ा पेठा चखने"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Petha_kesari.JPG/3840px-Petha_kesari.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "sadar_bazaar_agra",
+      "wiki_title": "Agra_Cantonment",
+      "category": "shopping",
+      "coordinates": [
+        27.156,
+        78.008
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": [
+          "Tuesday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1560,78.0080",
+      "image_asset": "transit_assets/tourist_places/agra/sadar_bazaar_agra.webp",
+      "tags": [
+        "shopping_hub",
+        "leather_goods",
+        "handicrafts",
+        "chaat_gali",
+        "cantonment"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Sadar Bazaar",
+        "description": "Agra's premier lifestyle shopping promenade in Cantonment, famed for leather accessories, marble inlay souvenirs, garment boutiques, and delicious Chaat Gali street delicacies.",
+        "best_time_to_visit": "Late afternoon and evening"
+      },
+      "hi": {
+        "name": "सदर बाज़ार, आगरा",
+        "description": "कैंट क्षेत्र में स्थित आगरा का सबसे लोकप्रिय और आधुनिक बाज़ार, जहाँ उम्दा चमड़े का सामान, मार्बल स्मृति-चिह्न और 'चाट गली' का लज़ीज़ खानपान मिलता है।",
+        "best_time_to_visit": "शाम के समय खरीदारी और चाट के लिए"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Agra_Cantt.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "kinari_bazaar",
+      "wiki_title": "Agra#Culture",
+      "category": "shopping",
+      "coordinates": [
+        27.1825,
+        78.015
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": [
+          "Tuesday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1825,78.0150",
+      "image_asset": "transit_assets/tourist_places/agra/kinari_bazaar.webp",
+      "tags": [
+        "old_city",
+        "zari_zardozi",
+        "jewelry",
+        "bridal_market",
+        "mankameshwar_metro"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Kinari Bazaar",
+        "description": "Intricate maze of historic lanes behind Jama Masjid teeming with traditional zari-zardozi embroideries, bridal trimmings, marble handicrafts, and silverware.",
+        "best_time_to_visit": "Afternoon for traditional craft shopping"
+      },
+      "hi": {
+        "name": "किनारी बाज़ार",
+        "description": "जामा मस्जिद के पीछे बसा ऐतिहासिक संकरी गलियों का रंग-बिरंगा बाज़ार, जो ज़री-ज़रदोज़ी की कारीगरी, गोटे-किनारी, आभूषण और हस्तशिल्प का प्रमुख गढ़ है।",
+        "best_time_to_visit": "दोपहर से शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Naughara%20mansions%20in%20Kinari%20Bazaar.jpg"
+    },
+    {
+      "id": "soor_sarovar_bird_sanctuary",
+      "wiki_title": "Sur_Sarovar_Bird_Sanctuary",
+      "category": "nature",
+      "coordinates": [
+        27.251,
+        77.844
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2510,77.8440",
+      "image_asset": "transit_assets/tourist_places/agra/soor_sarovar_bird_sanctuary.webp",
+      "tags": [
+        "ramsar_site",
+        "keetham_lake",
+        "migratory_birds",
+        "wildlife",
+        "nature_reserve"
+      ],
+      "recommended_time_min": 150,
+      "en": {
+        "name": "Soor Sarovar Bird Sanctuary (Keetham Lake)",
+        "description": "Designated Ramsar wetland bird sanctuary and tranquil lake hosting over 165 species of migratory and resident aquatic birds named after poet Soordas.",
+        "best_time_to_visit": "Early morning during winter months (Nov - Feb)"
+      },
+      "hi": {
+        "name": "सूर सरोवर पक्षी अभयारण्य (कीठम झील)",
+        "description": "कवि सूरदास की साधना स्थली पर स्थित रामसर आर्द्रभूमि अभयारण्य, जहाँ कीठम झील के शांत पानी में 165 से अधिक देशी-विदेशी प्रवासी पक्षी डेरा डालते हैं।",
+        "best_time_to_visit": "सर्दियों की सुबह (नवंबर से फरवरी)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "wildlife_sos_elephant_centre",
+      "wiki_title": "Wildlife_SOS",
+      "category": "nature",
+      "coordinates": [
+        27.247,
+        77.838
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 500,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2470,77.8380",
+      "image_asset": "transit_assets/tourist_places/agra/wildlife_sos_elephant_centre.webp",
+      "tags": [
+        "elephant_rescue",
+        "wildlife_sos",
+        "ethical_tourism",
+        "conservation"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Wildlife SOS Elephant Conservation Centre",
+        "description": "Pioneering ethical wildlife rescue and rehabilitation haven offering visitors educational guided walks to observe rescued elephants enjoying freedom.",
+        "best_time_to_visit": "Morning walking session with elephants"
+      },
+      "hi": {
+        "name": "वाइल्डलाइफ एसओएस हाथी संरक्षण केंद्र",
+        "description": "भारत का पहला प्राकृतिक हाथी बचाव व पुनर्वास केंद्र, जहाँ प्रताड़ना से मुक्त कराए गए हाथियों को खुले व सुरक्षित माहौल में घूमते हुए करीब से देखा जा सकता है।",
+        "best_time_to_visit": "सुबह 9:00 से 11:00 के सत्र में"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/en/4/44/Wildlife_SOS_Logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "taj_nature_walk",
+      "wiki_title": "Taj_Mahal#Surroundings",
+      "category": "park",
+      "coordinates": [
+        27.1705,
+        78.0485
+      ],
+      "timings": {
+        "open": "06:30",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1705,78.0485",
+      "image_asset": "transit_assets/tourist_places/agra/taj_nature_walk.webp",
+      "tags": [
+        "nature_trail",
+        "taj_east_gate",
+        "birdwatching",
+        "taj_viewpoint",
+        "forest"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Taj Nature Walk",
+        "description": "Serene 70-hectare woodland reserve located 500 meters from the Taj East Gate, featuring 9 kilometers of nature trails, watchtowers, butterflies, and panoramic Taj views.",
+        "best_time_to_visit": "Sunrise for tranquil nature walking"
+      },
+      "hi": {
+        "name": "ताज नेचर वॉक",
+        "description": "ताज महल के पूर्वी द्वार के पास 70 हेक्टेयर में फैला शांत हरित वन क्षेत्र, जहाँ 9 किमी की पगडंडियाँ, वॉच टावर और ताज महल के मनोरम कोण देखने को मिलते हैं।",
+        "best_time_to_visit": "सुबह सूर्योदय के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "shah_jahan_park",
+      "wiki_title": "Agra#Parks_and_gardens",
+      "category": "park",
+      "coordinates": [
+        27.1735,
+        78.028
+      ],
+      "timings": {
+        "open": "05:30",
+        "close": "19:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1735,78.0280",
+      "image_asset": "transit_assets/tourist_places/agra/shah_jahan_park.webp",
+      "tags": [
+        "mughal_gardens",
+        "greenery",
+        "walking_track",
+        "agra_fort_proximity"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Shah Jahan Park",
+        "description": "One of Agra's most sprawling and well-manicured civic gardens located midway between the Taj Mahal and Agra Fort, perfect for a peaceful afternoon respite.",
+        "best_time_to_visit": "Early morning or late afternoon"
+      },
+      "hi": {
+        "name": "शाहजहाँ पार्क",
+        "description": "ताज महल और आगरा किले के बीच में स्थित विस्तृत और हरा-भरा सुंदर पार्क, जो शहर के बीचों-बीच टहलने और विश्राम करने के लिए एक आदर्श स्थान है।",
+        "best_time_to_visit": "सुबह या शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Park%20beside%20Shah%20Jahan%20Mosque.jpg"
+    },
+    {
+      "id": "paliwal_park",
+      "wiki_title": "Paliwal_Park",
+      "category": "park",
+      "coordinates": [
+        27.1985,
+        78.0085
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1985,78.0085",
+      "image_asset": "transit_assets/tourist_places/agra/paliwal_park.webp",
+      "tags": [
+        "city_park",
+        "hewitt_park",
+        "boating_lake",
+        "botanical_garden",
+        "john_library"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Paliwal Park (Hewitt Park)",
+        "description": "Historic 70-acre central public park featuring centuries-old shade trees, a scenic boating lake, morning jogging circuits, and the landmark John Public Library.",
+        "best_time_to_visit": "Morning exercise or leisurely evening boating"
+      },
+      "hi": {
+        "name": "पालीवाल पार्क (ह्यूइट पार्क)",
+        "description": "आगरा के हृदय में 70 एकड़ में फैला ऐतिहासिक सेंट्रल पार्क, जहाँ विशाल झील, बोटिंग, हरे-भरे मैदान और प्रसिद्ध जॉन पब्लिक लाइब्रेरी स्थित है।",
+        "best_time_to_visit": "सुबह की सैर या शाम को बोटिंग के लिए"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Paliwal_Park_Agra_Uttar_Pradesh.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "ram_bagh",
+      "wiki_title": "Aram_Bagh,_Agra",
+      "category": "heritage",
+      "coordinates": [
+        27.214,
+        78.0435
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2140,78.0435",
+      "image_asset": "transit_assets/tourist_places/agra/ram_bagh.webp",
+      "tags": [
+        "aram_bagh",
+        "babur_garden",
+        "oldest_mughal_garden",
+        "charbagh",
+        "yamuna_river"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Ram Bagh (Aram Bagh)",
+        "description": "The oldest surviving Mughal garden in India, originally laid out in 1528 by Emperor Babur on the Yamuna banks utilizing the Persian Charbagh concept.",
+        "best_time_to_visit": "Morning hours for peaceful walk"
+      },
+      "hi": {
+        "name": "राम बाग़ (आराम बाग़)",
+        "description": "भारत का सबसे पहला मुग़ल उद्यान, जिसे 1528 में सम्राट बाबर द्वारा चारबाग़ शैली में यमुना के किनारे विश्राम के लिए बनवाया गया था।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Chhatri_at_Arambagh_2.jpg/3840px-Chhatri_at_Arambagh_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "buland_darwaza",
+      "wiki_title": "Buland_Darwaza",
+      "category": "heritage",
+      "coordinates": [
+        27.0948,
+        77.6622
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.0948,77.6622",
+      "image_asset": "transit_assets/tourist_places/agra/buland_darwaza.webp",
+      "tags": [
+        "gate_of_magnificence",
+        "fatehpur_sikri",
+        "highest_gateway",
+        "akbar_gujarat_victory"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Buland Darwaza",
+        "description": "Towering 54-meter 'Gate of Magnificence' erected by Akbar in 1601 at Fatehpur Sikri to commemorate his triumphant conquest of Gujarat; the highest gateway in the world.",
+        "best_time_to_visit": "Late afternoon to capture golden sandstone hues"
+      },
+      "hi": {
+        "name": "बुलंद दरवाज़ा",
+        "description": "सम्राट अकबर द्वारा गुजरात विजय के उपलक्ष्य में 1601 में फ़तेहपुर सीकरी में निर्मित 54 मीटर ऊँचा भव्य प्रवेश द्वार, जो विश्व का सबसे ऊँचा दरवाज़ा माना जाता है।",
+        "best_time_to_visit": "दोपहर बाद जब धूप में पत्थर सुनहरे दिखते हैं"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "salim_chishti_tomb",
+      "wiki_title": "Tomb_of_Salim_Chishti",
+      "category": "religious",
+      "coordinates": [
+        27.0955,
+        77.6626
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.0955,77.6626",
+      "image_asset": "transit_assets/tourist_places/agra/salim_chishti_tomb.webp",
+      "tags": [
+        "fatehpur_sikri",
+        "sufi_saint",
+        "white_marble_dargah",
+        "intricate_jali",
+        "thread_wishing"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Tomb of Sheikh Salim Chishti",
+        "description": "Masterpiece white marble mausoleum inside Fatehpur Sikri courtyard honoring the Sufi saint who prophesied the birth of Prince Salim (Jahangir); famous for wish threads tied on intricate stone jaalis.",
+        "best_time_to_visit": "Morning inside Fatehpur Sikri"
+      },
+      "hi": {
+        "name": "शेख सलीम चिश्ती की दरगाह",
+        "description": "फ़तेहपुर सीकरी के प्रांगण में सफेद संगमरमर से बनी प्रसिद्ध सूफी संत की दरगाह, जहाँ जालीदार झरोखों पर मन्नत का धागा बाँधने देश-विदेश से लोग आते हैं।",
+        "best_time_to_visit": "सुबह सीकरी भ्रमण के दौरान"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Fatehpur_Sikri_near_Agra_2016-03_img02.jpg/3840px-Fatehpur_Sikri_near_Agra_2016-03_img02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "panch_mahal_fatehpur",
+      "wiki_title": "Panch_Mahal,_Fatehpur_Sikri",
+      "category": "heritage",
+      "coordinates": [
+        27.0965,
+        77.664
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.0965,77.6640",
+      "image_asset": "transit_assets/tourist_places/agra/panch_mahal_fatehpur.webp",
+      "tags": [
+        "wind_catcher",
+        "five_storey_palace",
+        "fatehpur_sikri",
+        "buddhist_architecture"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Panch Mahal, Fatehpur Sikri",
+        "description": "Extraordinary five-story columnar pleasure pavilion in Fatehpur Sikri tapering upward to a single domed chhatri, designed for imperial ladies to enjoy cooling breezes.",
+        "best_time_to_visit": "Morning hours"
+      },
+      "hi": {
+        "name": "पंच महल, फ़तेहपुर सीकरी",
+        "description": "फ़तेहपुर सीकरी में 176 नक्काशीदार खंभों पर टिका पांच-मंजिला अनोखा हवा महल, जो ऊपर की ओर पिरामिड नुमा घटते हुए शीर्ष छतरी तक पहुँचता है।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Panch_Mahal_and_its_gardens.jpg/3840px-Panch_Mahal_and_its_gardens.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "diwan_i_khas_agra_fort",
+      "wiki_title": "Diwan-i-Khas_(Agra_Fort)",
+      "category": "heritage",
+      "coordinates": [
+        27.1798,
+        78.0225
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1798,78.0225",
+      "image_asset": "transit_assets/tourist_places/agra/diwan_i_khas_agra_fort.webp",
+      "tags": [
+        "agra_fort",
+        "hall_of_private_audiences",
+        "pietra_dura",
+        "black_throne_jahangir"
+      ],
+      "recommended_time_min": 40,
+      "en": {
+        "name": "Diwan-i-Khas, Agra Fort",
+        "description": "Hall of Private Audiences built by Shah Jahan in 1635 with elegant marble arches, delicate floral stone inlays, and the historic black onyx throne of Jahangir.",
+        "best_time_to_visit": "Morning inside Agra Fort complex"
+      },
+      "hi": {
+        "name": "दीवान-ए-खास, आगरा किला",
+        "description": "शाहजहाँ द्वारा निर्मित विशेष कक्ष जहाँ मुग़ल सम्राट विदेशी राजदूतों और खास मंत्रियों से मंत्रणा करते थे; यहाँ जहाँगीर की प्रसिद्ध काली संगमरमरी गद्दी स्थित है।",
+        "best_time_to_visit": "आगरा किला भ्रमण के दौरान"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/20191204%20Diwan-i-Khas%2C%20Agra%20Fort%200945%206642.jpg"
+    },
+    {
+      "id": "diwan_i_aam_agra_fort",
+      "wiki_title": "Agra_Fort#Diwan-i-Am",
+      "category": "heritage",
+      "coordinates": [
+        27.1792,
+        78.0215
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1792,78.0215",
+      "image_asset": "transit_assets/tourist_places/agra/diwan_i_aam_agra_fort.webp",
+      "tags": [
+        "hall_of_public_audience",
+        "agra_fort",
+        "peacock_throne",
+        "red_sandstone_columns"
+      ],
+      "recommended_time_min": 40,
+      "en": {
+        "name": "Diwan-i-Aam, Agra Fort",
+        "description": "Majestic multi-columned Hall of Public Audience in Agra Fort where the Mughal emperor addressed the common populace and once displayed the famed Peacock Throne.",
+        "best_time_to_visit": "Morning or afternoon"
+      },
+      "hi": {
+        "name": "दीवान-ए-आम, आगरा किला",
+        "description": "आगरा किले का विशाल तीन-गलियारे वाला सभागार जहाँ सम्राट आम जनता की फरियाद सुनते थे; यहीं कभी विश्व प्रसिद्ध 'तख्त-ए-ताऊस' (मयूर सिंहासन) रखा जाता था।",
+        "best_time_to_visit": "सुबह या दोपहर"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sheesh_mahal_agra_fort",
+      "wiki_title": "Sheesh_Mahal_(Agra_Fort)",
+      "category": "heritage",
+      "coordinates": [
+        27.1796,
+        78.0227
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1796,78.0227",
+      "image_asset": "transit_assets/tourist_places/agra/sheesh_mahal_agra_fort.webp",
+      "tags": [
+        "glass_palace",
+        "syrian_mirrors",
+        "agra_fort",
+        "shah_jahan_bath"
+      ],
+      "recommended_time_min": 35,
+      "en": {
+        "name": "Sheesh Mahal, Agra Fort",
+        "description": "The sparkling 'Palace of Mirrors' within Agra Fort, fitted with thousands of convex mirror pieces imported from Aleppo (Syria) to illuminate royal dressing chambers.",
+        "best_time_to_visit": "Daytime viewing from doorway"
+      },
+      "hi": {
+        "name": "शीश महल, आगरा किला",
+        "description": "आगरा किले के भीतर स्थित अलौकिक 'कांच का महल', जिसकी दीवारों व छतों में सीरिया के अलेप्पो से लाए गए हजारों छोटे-छोटे शीशे जड़े हैं जो मोमबत्ती की रोशनी में जगमगा उठते थे।",
+        "best_time_to_visit": "दिन के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "musamman_burj",
+      "wiki_title": "Musamman_Burj",
+      "category": "heritage",
+      "coordinates": [
+        27.1797,
+        78.0232
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1797,78.0232",
+      "image_asset": "transit_assets/tourist_places/agra/musamman_burj.webp",
+      "tags": [
+        "octagonal_tower",
+        "shah_jahan_captivity",
+        "taj_viewpoint",
+        "pietra_dura"
+      ],
+      "recommended_time_min": 35,
+      "en": {
+        "name": "Musamman Burj",
+        "description": "Graceful octagonal marble tower in Agra Fort where Shah Jahan spent his final years of house arrest gazingly looking across the Yamuna toward the Taj Mahal.",
+        "best_time_to_visit": "Morning inside Agra Fort"
+      },
+      "hi": {
+        "name": "मुसम्मन बुर्ज",
+        "description": "आगरा किले का वह ऐतिहासिक अष्टकोणीय संगमरमरी बुर्ज जहाँ शाहजहाँ ने अपने जीवन के अंतिम 8 वर्ष नज़रबंद रहकर खिड़की से ताजमहल को निहारते हुए बिताए थे।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Agra%20Fort%20-%20View%20of%20rear%20side%20of%20Khas%20Mahal%20and%20Musamman%20Burj.jpg"
+    },
+    {
+      "id": "jahangiri_mahal",
+      "wiki_title": "Jahangiri_Mahal_(Agra_Fort)",
+      "category": "heritage",
+      "coordinates": [
+        27.1788,
+        78.0229
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1788,78.0229",
+      "image_asset": "transit_assets/tourist_places/agra/jahangiri_mahal.webp",
+      "tags": [
+        "akbar_palace",
+        "zenana",
+        "hindu_mughal_fusion",
+        "red_sandstone"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Jahangiri Mahal",
+        "description": "Principal red sandstone zenana palace built by Akbar for his Rajput wives, showcasing an extraordinary synthesis of Hindu architectural carvings and Islamic arches.",
+        "best_time_to_visit": "Morning inside Agra Fort"
+      },
+      "hi": {
+        "name": "जहाँगीरी महल",
+        "description": "सम्राट अकबर द्वारा अपनी रानियों के लिए बनवाया गया विशाल महल, जो हिंदू और इस्लामिक स्थापत्य कला के सुंदर समन्वय और बारीक बलुआ पत्थर की नक्काशी का बेजोड़ नमूना है।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jahangiri%20Mahal-Red%20Fort-Agra-India5356.JPG"
+    },
+    {
+      "id": "anguri_bagh",
+      "wiki_title": "Anguri_Bagh",
+      "category": "park",
+      "coordinates": [
+        27.1793,
+        78.0226
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1793,78.0226",
+      "image_asset": "transit_assets/tourist_places/agra/anguri_bagh.webp",
+      "tags": [
+        "grape_garden",
+        "agra_fort",
+        "khas_mahal",
+        "charbagh"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Anguri Bagh (Garden of Grapes)",
+        "description": "Symmetrical Charbagh courtyard garden fronting Khas Mahal in Agra Fort, originally planted with grapevines and exotic flora for royal imperial ladies.",
+        "best_time_to_visit": "Morning or afternoon"
+      },
+      "hi": {
+        "name": "अंगूरी बाग़",
+        "description": "आगरा किले में खास महल के सामने स्थित ज्यामितीय मुग़ल उद्यान, जहाँ मुग़ल काल में रानियों के लिए अंगूर की बेलें और सुगंधित फूलों की क्यारियाँ लगाई जाती थीं।",
+        "best_time_to_visit": "दोपहर से पहले"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Anguri%20Bagh%2C%20Agra%20Fort%2C%20Agra%2C%20Uttar%20Pradesh%2C%20India.jpg"
+    },
+    {
+      "id": "jodha_bai_palace",
+      "wiki_title": "Jodha_Bai%27s_Palace",
+      "category": "heritage",
+      "coordinates": [
+        27.095,
+        77.6635
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.0950,77.6635",
+      "image_asset": "transit_assets/tourist_places/agra/jodha_bai_palace.webp",
+      "tags": [
+        "fatehpur_sikri",
+        "rajput_architecture",
+        "zenana",
+        "akbar_queen"
+      ],
+      "recommended_time_min": 50,
+      "en": {
+        "name": "Jodha Bai's Palace, Fatehpur Sikri",
+        "description": "The largest and most important palace in Fatehpur Sikri's imperial seraglio, intricately decorated with Gujarati Hindu motifs, jharokhas, and glazed azure tiles.",
+        "best_time_to_visit": "Morning inside Fatehpur Sikri"
+      },
+      "hi": {
+        "name": "जोधा बाई का महल, फ़तेहपुर सीकरी",
+        "description": "फ़तेहपुर सीकरी का सबसे बड़ा और सुरक्षित शाही महल, जिसमें राजस्थानी और गुजराती हिंदू स्थापत्य कला के झरोखे, घंटियाँ और सुंदर नक्काशीदार खंभे सुशोभित हैं।",
+        "best_time_to_visit": "सुबह सीकरी भ्रमण के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fatehpur%20Sikri%2C%20Jodha%20Bai%20Mahal%20%282002%29%2008.jpg"
+    },
+    {
+      "id": "birbal_bhavan",
+      "wiki_title": "Fatehpur_Sikri#Birbal's_House",
+      "category": "heritage",
+      "coordinates": [
+        27.0952,
+        77.6628
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.0952,77.6628",
+      "image_asset": "transit_assets/tourist_places/agra/birbal_bhavan.webp",
+      "tags": [
+        "raja_birbal",
+        "navratna",
+        "fatehpur_sikri",
+        "sandstone_carvings"
+      ],
+      "recommended_time_min": 35,
+      "en": {
+        "name": "Birbal's Palace (Birbal Bhavan)",
+        "description": "Delightfully carved two-story red sandstone mansion built for Akbar's wise minister and Navratna, Raja Birbal, featuring ornate brackets and double-domed ceilings.",
+        "best_time_to_visit": "Morning"
+      },
+      "hi": {
+        "name": "बीरबल का महल (बीरबल भवन)",
+        "description": "अकबर के प्रिय नवरत्न व बुद्धिमान वज़ीर राजा बीरबल के लिए निर्मित दो-मंजिला सुंदर महल, जिसकी हर दीवार व छत पर बारीक पत्थरों की नक्काशी देखने योग्य है।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "fatehpur_sikri_jama_masjid",
+      "wiki_title": "Jama_Mosque,_Fatehpur_Sikri",
+      "category": "religious",
+      "coordinates": [
+        27.0958,
+        77.6624
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.0958,77.6624",
+      "image_asset": "transit_assets/tourist_places/agra/fatehpur_sikri_jama_masjid.webp",
+      "tags": [
+        "congregational_mosque",
+        "fatehpur_sikri",
+        "akbar",
+        "central_courtyard"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Jama Masjid, Fatehpur Sikri",
+        "description": "Grand 16th-century congregational mosque built by Akbar, among the largest mosques in India, anchoring the monumental central courtyard of Fatehpur Sikri.",
+        "best_time_to_visit": "Morning or early afternoon"
+      },
+      "hi": {
+        "name": "जामा मस्जिद, फ़तेहपुर सीकरी",
+        "description": "अकबर द्वारा 1571 में निर्मित भारत की सबसे विशाल मस्जिदों में से एक, जिसके भव्य आंगन में शेख सलीम चिश्ती की सफेद संगमरमरी दरगाह स्थित है।",
+        "best_time_to_visit": "सुबह या दोपहर बाद"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Jama_Masjid_Agra.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "hiran_minar_fatehpur",
+      "wiki_title": "Hiran_Minar",
+      "category": "heritage",
+      "coordinates": [
+        27.098,
+        77.6605
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.0980,77.6605",
+      "image_asset": "transit_assets/tourist_places/agra/hiran_minar_fatehpur.webp",
+      "tags": [
+        "elephant_tusk_tower",
+        "fatehpur_sikri",
+        "hunting_milepost",
+        "akbar"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Hiran Minar, Fatehpur Sikri",
+        "description": "Curious circular 21-meter tower studded with hundreds of carved stone elephant tusks, originally serving as an imperial milepost and vantage point over the lake.",
+        "best_time_to_visit": "Late afternoon"
+      },
+      "hi": {
+        "name": "हिरन मीनार, फ़तेहपुर सीकरी",
+        "description": "फ़तेहपुर सीकरी की 21 मीटर ऊँची अनोखी गोलाकार मीनार, जिसकी बाहरी दीवारों पर सैकड़ों पत्थर के हाथी-दांत जड़े हैं; इसे शाही मील-स्तंभ के रूप में बनवाया गया था।",
+        "best_time_to_visit": "दोपहर बाद"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Octagonal_Pavilion_in_Water_Tank_at_Hiran_Minar.jpg/3840px-Octagonal_Pavilion_in_Water_Tank_at_Hiran_Minar.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "subhash_bazaar",
+      "wiki_title": "Agra#Shopping",
+      "category": "shopping",
+      "coordinates": [
+        27.181,
+        78.014
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": [
+          "Tuesday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1810,78.0140",
+      "image_asset": "transit_assets/tourist_places/agra/subhash_bazaar.webp",
+      "tags": [
+        "silk_sarees",
+        "clothing",
+        "traditional_market",
+        "mankameshwar_metro"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Subhash Bazaar",
+        "description": "Buzzing historic city bazaar situated near Agra Fort, popular among locals and travelers for silk sarees, textile fabrics, and ethnic Indian attire.",
+        "best_time_to_visit": "Late afternoon"
+      },
+      "hi": {
+        "name": "सुभाष बाज़ार",
+        "description": "आगरा किले के निकट स्थित चहल-पहल भरा बाज़ार, जो बनारसी व सिल्क साड़ियों, पारंपरिक वस्त्रों और भारतीय परिधानों के लिए बेहद लोकप्रिय है।",
+        "best_time_to_visit": "दोपहर बाद से शाम तक"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "st_george_cathedral_agra",
+      "wiki_title": "Cathedral_of_the_Immaculate_Conception,_Agra",
+      "category": "religious",
+      "coordinates": [
+        27.158,
+        78.0065
+      ],
+      "timings": {
+        "open": "07:00",
+        "close": "19:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1580,78.0065",
+      "image_asset": "transit_assets/tourist_places/agra/st_george_cathedral_agra.webp",
+      "tags": [
+        "colonial_church",
+        "cantonment",
+        "neoclassical",
+        "cantonment_heritage"
+      ],
+      "recommended_time_min": 40,
+      "en": {
+        "name": "St. George's Cathedral",
+        "description": "Elegant 1828 Anglican church in Agra Cantonment designed by Col. J.T. Boileau, showcasing neoclassical spires, Ionic columns, and colonial memorials.",
+        "best_time_to_visit": "Sunday morning or weekday afternoon"
+      },
+      "hi": {
+        "name": "सेंट जॉर्ज कैथेड्रल",
+        "description": "1828 में आगरा छावनी में निर्मित ऐतिहासिक एंग्लिकन चर्च, जो अपने नवशास्त्रीय खंभों, शांत प्रांगण और ब्रिटिश कालीन वास्तुकला के लिए दर्शनीय है।",
+        "best_time_to_visit": "रविवार सुबह या दोपहर के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kingston%20-%20ON%20-%20St.%20George%27s%20Cathedral1.jpg"
+    },
+    {
+      "id": "akbar_church",
+      "wiki_title": "Akbar%27s_Church",
+      "category": "religious",
+      "coordinates": [
+        27.199,
+        78.005
+      ],
+      "timings": {
+        "open": "07:00",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1990,78.0050",
+      "image_asset": "transit_assets/tourist_places/agra/akbar_church.webp",
+      "tags": [
+        "jesuit_church",
+        "oldest_church_north_india",
+        "akbar_grant",
+        "civil_lines"
+      ],
+      "recommended_time_min": 40,
+      "en": {
+        "name": "Akbar's Church",
+        "description": "The first Catholic church in North India, commissioned in 1598 by Jesuit missionaries under a royal firman and land endowment granted by Emperor Akbar.",
+        "best_time_to_visit": "Morning for quiet reflection"
+      },
+      "hi": {
+        "name": "अकबर का चर्च",
+        "description": "उत्तर भारत का पहला कैथोलिक चर्च, जिसे सम्राट अकबर के शाही फरमान और भूमि दान के तहत 1598 में जेसुइट पादरियों द्वारा स्थापित किया गया था।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Agra%2C%20Akbar%27s%20church.JPG"
+    },
+    {
+      "id": "roman_catholic_cemetery",
+      "wiki_title": "Agra#Places_of_interest",
+      "category": "heritage",
+      "coordinates": [
+        27.2025,
+        78.004
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2025,78.0040",
+      "image_asset": "transit_assets/tourist_places/agra/roman_catholic_cemetery.webp",
+      "tags": [
+        "red_taj",
+        "hessing_tomb",
+        "oldest_christian_cemetery",
+        "colonial_history"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Roman Catholic Cemetery (Red Taj)",
+        "description": "Oldest Christian burial ground in Northern India, noted for the striking red sandstone mausoleum of Dutch mercenary John William Hessing, nicknamed the 'Red Taj'.",
+        "best_time_to_visit": "Afternoon"
+      },
+      "hi": {
+        "name": "रोमन कैथोलिक कब्रिस्तान (रेड ताज)",
+        "description": "उत्तर भारत का सबसे पुराना ईसाई कब्रिस्तान, जहाँ डच सेनापति जॉन विलियम हेसिंग का लाल बलुआ पत्थर से बना हूबहू ताजमहल जैसा 'लाल ताज' मकबरा स्थित है।",
+        "best_time_to_visit": "दोपहर के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/John%20Hessing%27s%20Tomb%2C%20Red%20Taj%2C%20Agra.jpg"
+    },
+    {
+      "id": "babur_chauburji",
+      "wiki_title": "Aram_Bagh,_Agra",
+      "category": "heritage",
+      "coordinates": [
+        27.2145,
+        78.043
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2145,78.0430",
+      "image_asset": "transit_assets/tourist_places/agra/babur_chauburji.webp",
+      "tags": [
+        "chauburji",
+        "ram_bagh",
+        "babur_temporary_tomb",
+        "mughal_pavilion"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Babur's Chauburji Pavilion",
+        "description": "Historic four-towered riverfront pavilion in Ram Bagh complex where Emperor Babur was temporarily buried before his mortal remains were interred in Kabul.",
+        "best_time_to_visit": "Morning inside Ram Bagh"
+      },
+      "hi": {
+        "name": "बाबर की चौबुर्जी",
+        "description": "राम बाग़ परिसर में स्थित चार मीनारों वाला ऐतिहासिक मंडप जहाँ काबुल ले जाने से पूर्व मुग़ल संस्थापक सम्राट बाबर के पार्थिव शरीर को अस्थायी रूप से दफनाया गया था।",
+        "best_time_to_visit": "राम बाग़ भ्रमण के साथ"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "zohra_bagh",
+      "wiki_title": "Agra#Parks_and_gardens",
+      "category": "heritage",
+      "coordinates": [
+        27.208,
+        78.041
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2080,78.0410",
+      "image_asset": "transit_assets/tourist_places/agra/zohra_bagh.webp",
+      "tags": [
+        "mughal_garden",
+        "babur_daughter",
+        "yamuna_banks",
+        "peaceful"
+      ],
+      "recommended_time_min": 40,
+      "en": {
+        "name": "Zohra Bagh",
+        "description": "Tranquil riverfront charbagh garden believed to have been constructed by Babur for his daughter Zohra, positioned quietly along the eastern bank of the Yamuna.",
+        "best_time_to_visit": "Late afternoon riverside stroll"
+      },
+      "hi": {
+        "name": "ज़ोहरा बाग़",
+        "description": "यमुना नदी के पूर्वी तट पर स्थित शांत ऐतिहासिक मुग़ल उद्यान, जिसे सम्राट बाबर ने अपनी पुत्री ज़ोहरा के नाम पर विश्राम व सैर के लिए बनवाया था।",
+        "best_time_to_visit": "दोपहर बाद यमुना किनारे"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chhatri%20of%20Zohra%20Bagh%20near%20Chini%20Ka%20Rauza.jpg"
+    },
+    {
+      "id": "korai_village",
+      "wiki_title": "Fatehpur_Sikri",
+      "category": "culture",
+      "coordinates": [
+        27.11,
+        77.72
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1100,77.7200",
+      "image_asset": "transit_assets/tourist_places/agra/korai_village.webp",
+      "tags": [
+        "rural_tourism",
+        "kalandar_tribe",
+        "cultural_village",
+        "handicrafts"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Korai Tribal Village",
+        "description": "Traditional hamlet of the Kalandar community near Fatehpur Sikri offering authentic glimpse into rural lifestyle, folk crafts, and grassroots heritage.",
+        "best_time_to_visit": "En route to or returning from Fatehpur Sikri"
+      },
+      "hi": {
+        "name": "कोराई ग्रामीण व जनजातीय गाँव",
+        "description": "फ़तेहपुर सीकरी मार्ग पर स्थित कलंदर समुदाय का पारंपरिक गाँव, जहाँ ग्रामीण भारतीय जीवनशैली, लोक कला और मिट्टी की झोपड़ियों की संस्कृति का अनुभव होता है।",
+        "best_time_to_visit": "फ़तेहपुर सीकरी जाते समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "hathi_ghat",
+      "wiki_title": "Agra#Places_of_interest",
+      "category": "culture",
+      "coordinates": [
+        27.185,
+        78.026
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.1850,78.0260",
+      "image_asset": "transit_assets/tourist_places/agra/hathi_ghat.webp",
+      "tags": [
+        "yamuna_ghat",
+        "river_bank",
+        "boat_rides",
+        "evening_aarti"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Hathi Ghat",
+        "description": "Historic Yamuna river ghat near Agra Fort where royal elephants were bathed during Mughal rule; now a popular site for river views and evening prayer rituals.",
+        "best_time_to_visit": "Sunset hour for serene river aarti"
+      },
+      "hi": {
+        "name": "हाथी घाट",
+        "description": "आगरा किले के निकट यमुना का ऐतिहासिक पक्का घाट जहाँ मुग़ल काल में शाही हाथियों को स्नान कराया जाता था; अब यह शाम की यमुना आरती व नौकायन के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "सूर्यास्त के समय यमुना आरती"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "battis_khamba",
+      "wiki_title": "Agra#Monuments",
+      "category": "heritage",
+      "coordinates": [
+        27.218,
+        77.955
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2180,77.9550",
+      "image_asset": "transit_assets/tourist_places/agra/battis_khamba.webp",
+      "tags": [
+        "sandstone_monument",
+        "sikandra_road",
+        "mughal_pavilion",
+        "historic_pillars"
+      ],
+      "recommended_time_min": 35,
+      "en": {
+        "name": "Battis Khamba",
+        "description": "Monumental 32-pillared red sandstone pavilion near Sikandra dating from the Mughal era, noted for its symmetrical stone arches and octagonal plan.",
+        "best_time_to_visit": "Morning or afternoon"
+      },
+      "hi": {
+        "name": "बत्तीस खंभा",
+        "description": "सिकंदरा मार्ग पर स्थित 32 नक्काशीदार खंभों वाला मुग़ल कालीन लाल बलुआ पत्थर का सुंदर मंडप, जो अपनी ज्यामितीय बनावट और मेहराबों के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "सुबह या दोपहर"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Battis%20Khamba%2C%20Agra.jpg"
+    },
+    {
+      "id": "chhatri_of_jaswant_singh",
+      "wiki_title": "Agra#Monuments",
+      "category": "heritage",
+      "coordinates": [
+        27.206,
+        78.028
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2060,78.0280",
+      "image_asset": "transit_assets/tourist_places/agra/chhatri_of_jaswant_singh.webp",
+      "tags": [
+        "marwar_cenotaph",
+        "rajput_architecture",
+        "yamuna_river",
+        "rajwara"
+      ],
+      "recommended_time_min": 40,
+      "en": {
+        "name": "Jaswant Singh Ki Chhatri",
+        "description": "Sole surviving Rajput monument in Agra, a striking 17th-century domed cenotaph featuring intricate jaali latticework built for Maharaja Jaswant Singh of Marwar.",
+        "best_time_to_visit": "Morning light filtering through stone screens"
+      },
+      "hi": {
+        "name": "जसवंत सिंह की छतरी",
+        "description": "आगरा में स्थित एकमात्र ऐतिहासिक राजपूत स्मारक, जो मारवाड़ के महाराजा जसवंत सिंह की स्मृति में बारीक पत्थर की जालियों और गुंबदों से निर्मित शानदार छतरी है।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jaswant%20Singh-ki-Chattri.jpg"
+    },
+    {
+      "id": "barahkhamba_agra",
+      "wiki_title": "Agra#Monuments",
+      "category": "heritage",
+      "coordinates": [
+        27.201,
+        77.965
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2010,77.9650",
+      "image_asset": "transit_assets/tourist_places/agra/barahkhamba_agra.webp",
+      "tags": [
+        "twelve_pillared",
+        "mughal_structure",
+        "bodla_road",
+        "heritage"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Barahkhamba Tomb Structure",
+        "description": "Historic twelve-pillared Mughal tomb pavilion situated off Bodla Road, presenting graceful classical Mughal post-and-lintel stonework.",
+        "best_time_to_visit": "Daytime"
+      },
+      "hi": {
+        "name": "बारहखंभा स्मारक",
+        "description": "बोदला क्षेत्र में स्थित मुग़ल कालीन बारह खंभों वाला स्मारक, जो अपने सममितीय स्तंभों और शांत परिवेश के लिए जाना जाता है।",
+        "best_time_to_visit": "दिन के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sanjay_place_commercial_hub",
+      "wiki_title": "Agra#Economy",
+      "category": "shopping",
+      "coordinates": [
+        27.2015,
+        78.006
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=27.2015,78.0060",
+      "image_asset": "transit_assets/tourist_places/agra/sanjay_place_commercial_hub.webp",
+      "tags": [
+        "central_business_district",
+        "restaurants",
+        "shopping_complexes",
+        "modern_agra"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Sanjay Place Commercial Hub",
+        "description": "The modern central business district and lifestyle center of Agra, packed with bustling shopping complexes, bookshops, electronics showrooms, and top eateries.",
+        "best_time_to_visit": "Evening for dining and modern retail"
+      },
+      "hi": {
+        "name": "संजय प्लेस व्यापारिक केंद्र",
+        "description": "आधुनिक आगरा का मुख्य वाणिज्यिक और व्यावसायिक केंद्र, जहाँ बड़े शॉपिंग कॉम्प्लेक्स, बेहतरीन रेस्टोरेंट और इलेक्ट्रॉनिक बाज़ार गुलज़ार रहते हैं।",
+        "best_time_to_visit": "शाम के समय भोजन और खरीदारी"
+      },
+      "image_source_url": null
+    }
+  ]
+}

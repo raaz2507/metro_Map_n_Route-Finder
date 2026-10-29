@@ -114,8 +114,8 @@ export class CanvasRenderer extends BaseMapEngine {
 		this.#camera = new CanvasCamera3D({
 			pitchDeg: 48,
 			rotateDeg: 0,
-			viaductLift: 16,
-			undergroundDepth: 14,
+			viaductLift: 7.5,
+			undergroundDepth: 6.5,
 			enableZIndex: true,
 			sunAngleDeg: 135
 		});
@@ -127,7 +127,10 @@ export class CanvasRenderer extends BaseMapEngine {
 
 		// Auto sync on theme switch
 		if (typeof MutationObserver !== "undefined" && typeof document !== "undefined") {
-			this._themeObserver = new MutationObserver(() => this.requestRender());
+			this._themeObserver = new MutationObserver(() => {
+				this.invalidateThemeTokens();
+				this.requestRender();
+			});
 			if (document.body) {
 				this._themeObserver.observe(document.body, { attributes: true, attributeFilter: ["data-mode", "data-theme", "class"] });
 			}
@@ -135,6 +138,76 @@ export class CanvasRenderer extends BaseMapEngine {
 				this._themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-mode", "data-theme", "class"] });
 			}
 		}
+	}
+
+	#themeTokens = null;
+
+	get themeTokens() {
+		if (!this.#themeTokens) {
+			this.#themeTokens = this.resolveThemeTokens();
+		}
+		return this.#themeTokens;
+	}
+
+	invalidateThemeTokens() {
+		this.#themeTokens = null;
+	}
+
+	resolveThemeTokens() {
+		if (typeof window === "undefined" || !document.body) {
+			return {
+				bg: "#f8fafc",
+				gridColor: "rgba(148, 163, 184, 0.22)",
+				gridWash: "rgba(241, 245, 249, 0.06)",
+				stationFill: "#fdfbd4",
+				stationStroke: "#0f172a",
+				stationUndergroundFill: "#f0fdf4",
+				stationMultimodal: "#9333ea",
+				stationShared: "#e11d48",
+				stationHalo: "rgba(255, 255, 255, 0.95)",
+				labelColor: "#0f172a",
+				labelHalo: "#ffffff",
+				labelHover: "#2563eb",
+				interchangeBadge: "#ffffff",
+				interchangeRing: "#0f172a",
+				trackBed: "#e2e8f0",
+				trackShadow: "rgba(15, 23, 42, 0.12)",
+				tunnelConduit: "rgba(30, 41, 59, 0.08)",
+				routeGlow: "rgba(2, 132, 199, 0.45)",
+				strataSubFill: "rgba(99, 102, 241, 0.04)",
+				strataSubStroke: "rgba(99, 102, 241, 0.55)",
+				strataViaductFill: "rgba(14, 165, 233, 0.03)",
+				strataViaductStroke: "rgba(14, 165, 233, 0.55)",
+				mapFont: "'Montserrat', -apple-system, sans-serif"
+			};
+		}
+		const cs = getComputedStyle(document.body);
+		const get = (name, fb) => cs.getPropertyValue(name).trim() || fb;
+		return {
+			bg: get("--map-bg", "#f8fafc"),
+			gridColor: get("--map-grid-color", "rgba(148, 163, 184, 0.22)"),
+			gridWash: get("--map-grid-wash", "rgba(241, 245, 249, 0.06)"),
+			stationFill: get("--map-station-fill", "#fdfbd4"),
+			stationStroke: get("--map-station-stroke", "#0f172a"),
+			stationUndergroundFill: get("--map-station-underground-fill", "#f0fdf4"),
+			stationMultimodal: get("--map-station-multimodal", "#9333ea"),
+			stationShared: get("--map-station-shared", "#e11d48"),
+			stationHalo: get("--map-station-halo", "rgba(255, 255, 255, 0.95)"),
+			labelColor: get("--map-label-color", get("--text-primary", "#0f172a")),
+			labelHalo: get("--map-label-halo", get("--card-bg", "#ffffff")),
+			labelHover: get("--map-label-hover", get("--btn-primary-bg", "#2563eb")),
+			interchangeBadge: get("--map-interchange-badge", "#ffffff"),
+			interchangeRing: get("--map-interchange-ring", "#0f172a"),
+			trackBed: get("--map-track-bed", "#e2e8f0"),
+			trackShadow: get("--map-track-shadow", "rgba(15, 23, 42, 0.12)"),
+			tunnelConduit: get("--map-tunnel-conduit", "rgba(30, 41, 59, 0.08)"),
+			routeGlow: get("--map-route-glow", "rgba(2, 132, 199, 0.45)"),
+			strataSubFill: get("--map-strata-sub-fill", "rgba(99, 102, 241, 0.04)"),
+			strataSubStroke: get("--map-strata-sub-stroke", "rgba(99, 102, 241, 0.55)"),
+			strataViaductFill: get("--map-strata-viaduct-fill", "rgba(14, 165, 233, 0.03)"),
+			strataViaductStroke: get("--map-strata-viaduct-stroke", "rgba(14, 165, 233, 0.55)"),
+			mapFont: get("--map-font", "'Montserrat', -apple-system, sans-serif")
+		};
 	}
 
 	getThemeToken(varName, fallback = "") {
@@ -166,9 +239,18 @@ export class CanvasRenderer extends BaseMapEngine {
 	#initCanvas() {
 		if (!this.#container) return;
 		this.#canvas = document.createElement("canvas");
+		this.#canvas.className = "engine-canvas-2d";
+		this.#canvas.style.position = "absolute";
+		this.#canvas.style.inset = "0";
+		this.#canvas.style.width = "100%";
+		this.#canvas.style.height = "100%";
 		this.#canvas.style.touchAction = "none";
 		this.#canvas.style.userSelect = "none";
 		this.#canvas.style.webkitUserSelect = "none";
+		this.#canvas.style.pointerEvents = "auto";
+		this.#canvas.style.zIndex = "1";
+		this.#canvas.style.transition = "opacity 0.4s ease";
+		this.#canvas.style.opacity = "1";
 		this.#ctx = this.#canvas.getContext("2d", { alpha: true });
 		// Cleanly mount canvas behind floating controls/widgets (e.g. #viewModeWidget)
 		if (this.#container.firstChild) {
@@ -363,10 +445,10 @@ export class CanvasRenderer extends BaseMapEngine {
 	get #rotateDeg() { return this.#camera ? this.#camera.rotateDeg : 0; }
 	set #rotateDeg(val) { if (this.#camera) this.#camera.rotateDeg = val; }
 
-	get #viaductLift() { return this.#camera ? this.#camera.viaductLift : 16; }
+	get #viaductLift() { return this.#camera ? this.#camera.viaductLift : 7.5; }
 	set #viaductLift(val) { if (this.#camera) this.#camera.viaductLift = val; }
 
-	get #undergroundDepth() { return this.#camera ? this.#camera.undergroundDepth : 14; }
+	get #undergroundDepth() { return this.#camera ? this.#camera.undergroundDepth : 6.5; }
 	set #undergroundDepth(val) { if (this.#camera) this.#camera.undergroundDepth = val; }
 
 	get #enableZIndex() { return this.#camera ? this.#camera.enableZIndex : true; }
@@ -394,7 +476,8 @@ export class CanvasRenderer extends BaseMapEngine {
 			zoom: this.#zoom,
 			panX: this.#panX,
 			panY: this.#panY,
-			is25D: this.#is25D
+			is25D: this.#is25D,
+			isDark: this.isDarkMode
 		};
 	}
 
@@ -445,7 +528,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	}
 
 	getViaductLift() {
-		return this.#camera ? this.#camera.viaductLift : 16;
+		return this.#camera ? this.#camera.viaductLift : 7.5;
 	}
 
 	setUndergroundDepth(px) {
@@ -454,7 +537,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	}
 
 	getUndergroundDepth() {
-		return this.#camera ? this.#camera.undergroundDepth : 14;
+		return this.#camera ? this.#camera.undergroundDepth : 6.5;
 	}
 
 	setZPlanesVisible(visible) {
@@ -741,7 +824,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	 */
 	#drawGroundPerspectiveGrid(ctx) {
 		if (!this.#viewBoxInfo) return;
-		const isLight = this.#currentTheme === "light";
+		const tokens = this.themeTokens;
 		const opacity = this.#zPlanesOpacity;
 
 		const margin = this.#viewBoxInfo.margin || 0;
@@ -760,10 +843,8 @@ export class CanvasRenderer extends BaseMapEngine {
 
 		ctx.save();
 
-		// Floor wash (Subtle, airy translucent ground wash)
-		ctx.fillStyle = isLight
-			? `rgba(241, 245, 249, ${0.06 * opacity})`
-			: `rgba(15, 23, 42, ${0.08 * opacity})`;
+		// Floor wash (CSS Token Driven)
+		ctx.fillStyle = tokens.gridWash;
 		ctx.beginPath();
 		ctx.moveTo(c1.sx, c1.sy);
 		ctx.lineTo(c2.sx, c2.sy);
@@ -772,10 +853,8 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.closePath();
 		ctx.fill();
 
-		// Interior grid lines (Soft, non-intrusive reference lines)
-		ctx.strokeStyle = isLight
-			? `rgba(148, 163, 184, ${0.12 * opacity})`
-			: `rgba(71, 85, 105, ${0.16 * opacity})`;
+		// Interior grid lines (CSS Token Driven)
+		ctx.strokeStyle = tokens.gridColor;
 		ctx.lineWidth = 0.6;
 		ctx.beginPath();
 		for (let x = xMin; x <= xMax; x += gridSize) {
@@ -793,9 +872,7 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.stroke();
 
 		// Outer datum border (Delicate framing)
-		ctx.strokeStyle = isLight
-			? `rgba(148, 163, 184, ${0.20 * opacity})`
-			: `rgba(100, 116, 139, ${0.25 * opacity})`;
+		ctx.strokeStyle = tokens.gridColor;
 		ctx.lineWidth = 1.0;
 		ctx.beginPath();
 		ctx.moveTo(c1.sx, c1.sy);
@@ -817,7 +894,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	#drawSubterraneanPlane(ctx) {
 		if (!this.#viewBoxInfo || this.#undergroundDepth <= 0) return;
 		const z = -this.#undergroundDepth;
-		const isLight = this.#currentTheme === "light";
+		const tokens = this.themeTokens;
 		const opacity = this.#zPlanesOpacity;
 
 		const margin = this.#viewBoxInfo.margin || 0;
@@ -837,9 +914,7 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.save();
 
 		// Stratum floor wash
-		ctx.fillStyle = isLight
-			? `rgba(99, 102, 241, ${0.035 * opacity})`
-			: `rgba(30, 27, 75, ${0.28 * opacity})`;
+		ctx.fillStyle = tokens.strataSubFill;
 		ctx.beginPath();
 		ctx.moveTo(c1.sx, c1.sy);
 		ctx.lineTo(c2.sx, c2.sy);
@@ -849,9 +924,7 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.fill();
 
 		// Stratum boundary border
-		ctx.strokeStyle = isLight
-			? `rgba(99, 102, 241, ${0.55 * opacity})`
-			: `rgba(129, 140, 248, ${0.60 * opacity})`;
+		ctx.strokeStyle = tokens.strataSubStroke;
 		ctx.lineWidth = 1.4;
 		ctx.beginPath();
 		ctx.moveTo(c1.sx, c1.sy);
@@ -862,8 +935,8 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.stroke();
 
 		// Stratum Level Badge
-		ctx.fillStyle = isLight ? "#4f46e5" : "#a5b4fc";
-		ctx.font = `600 10.5px Montserrat`;
+		ctx.fillStyle = tokens.strataSubStroke;
+		ctx.font = `600 10.5px ${tokens.mapFont}`;
 		ctx.textAlign = "left";
 		ctx.textBaseline = "top";
 		ctx.fillText(`[-Z] SUBTERRANEAN STRATUM (-${this.#undergroundDepth}px)`, c4.sx + 8, c4.sy - 18);
@@ -880,7 +953,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	#drawElevatedPlane(ctx) {
 		if (!this.#viewBoxInfo || this.#viaductLift <= 0) return;
 		const z = this.#viaductLift;
-		const isLight = this.#currentTheme === "light";
+		const tokens = this.themeTokens;
 		const opacity = this.#zPlanesOpacity;
 
 		const margin = this.#viewBoxInfo.margin || 0;
@@ -900,9 +973,7 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.save();
 
 		// Stratum aerial wash
-		ctx.fillStyle = isLight
-			? `rgba(14, 165, 233, ${0.025 * opacity})`
-			: `rgba(14, 165, 233, ${0.09 * opacity})`;
+		ctx.fillStyle = tokens.strataViaductFill;
 		ctx.beginPath();
 		ctx.moveTo(c1.sx, c1.sy);
 		ctx.lineTo(c2.sx, c2.sy);
@@ -912,9 +983,7 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.fill();
 
 		// Stratum boundary border
-		ctx.strokeStyle = isLight
-			? `rgba(14, 165, 233, ${0.55 * opacity})`
-			: `rgba(56, 189, 248, ${0.60 * opacity})`;
+		ctx.strokeStyle = tokens.strataViaductStroke;
 		ctx.lineWidth = 1.4;
 		ctx.beginPath();
 		ctx.moveTo(c1.sx, c1.sy);
@@ -925,8 +994,8 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.stroke();
 
 		// Stratum Level Badge
-		ctx.fillStyle = isLight ? "#0284c7" : "#38bdf8";
-		ctx.font = `600 10.5px Montserrat`;
+		ctx.fillStyle = tokens.strataViaductStroke;
+		ctx.font = `600 10.5px ${tokens.mapFont}`;
 		ctx.textAlign = "left";
 		ctx.textBaseline = "bottom";
 		ctx.fillText(`[+Z] ELEVATED VIADUCT STRATUM (+${this.#viaductLift}px)`, c1.sx + 8, c1.sy - 8);
@@ -942,7 +1011,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	 */
 	#drawVerticalZStrataGuides(ctx) {
 		if (!this.#viewBoxInfo) return;
-		const isLight = this.#currentTheme === "light";
+		const tokens = this.themeTokens;
 		const opacity = this.#zPlanesOpacity;
 
 		const margin = this.#viewBoxInfo.margin || 0;
@@ -961,9 +1030,7 @@ export class CanvasRenderer extends BaseMapEngine {
 		];
 
 		ctx.save();
-		ctx.strokeStyle = isLight
-			? `rgba(100, 116, 139, ${0.40 * opacity})`
-			: `rgba(148, 163, 184, ${0.45 * opacity})`;
+		ctx.strokeStyle = tokens.gridColor;
 		ctx.lineWidth = 1.2;
 		ctx.setLineDash([3, 3]);
 
@@ -985,7 +1052,7 @@ export class CanvasRenderer extends BaseMapEngine {
 			[pBottom, pGround, pTop].forEach((pt) => {
 				ctx.save();
 				ctx.setLineDash([]);
-				ctx.fillStyle = isLight ? "#2563eb" : "#38bdf8";
+				ctx.fillStyle = tokens.labelHover;
 				ctx.beginPath();
 				ctx.arc(pt.sx, pt.sy, 2.5, 0, Math.PI * 2);
 				ctx.fill();
@@ -1007,7 +1074,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	 */
 	#drawVerticalZAxisRuler(ctx) {
 		if (!this.#viewBoxInfo) return;
-		const isLight = this.#currentTheme === "light";
+		const tokens = this.themeTokens;
 		const margin = this.#viewBoxInfo.margin || 0;
 		const minX = this.#viewBoxInfo.minX !== undefined ? this.#viewBoxInfo.minX : -margin;
 		const minY = this.#viewBoxInfo.minY !== undefined ? this.#viewBoxInfo.minY : -margin;
@@ -1019,7 +1086,7 @@ export class CanvasRenderer extends BaseMapEngine {
 		const pBot = this.projectPoint(rx, ry, -this.#undergroundDepth);
 
 		ctx.save();
-		ctx.strokeStyle = isLight ? "#2563eb" : "#38bdf8";
+		ctx.strokeStyle = tokens.labelHover;
 		ctx.lineWidth = 2.5;
 		ctx.beginPath();
 		ctx.moveTo(pBot.sx, pBot.sy);
@@ -1027,9 +1094,9 @@ export class CanvasRenderer extends BaseMapEngine {
 		ctx.stroke();
 
 		const ticks = [
-			{ pt: pTop, label: `+Z Viaduct (+${this.#viaductLift}px / +25m)`, color: isLight ? "#0284c7" : "#38bdf8" },
-			{ pt: pMid, label: `0 Ground / Street (0px / 0m)`, color: isLight ? "#475569" : "#cbd5e1" },
-			{ pt: pBot, label: `-Z Subterranean (-${this.#undergroundDepth}px / -20m)`, color: isLight ? "#4f46e5" : "#a5b4fc" }
+			{ pt: pTop, label: `+Z Viaduct (+${this.#viaductLift}px / +25m)`, color: tokens.strataViaductStroke },
+			{ pt: pMid, label: `0 Ground / Street (0px / 0m)`, color: tokens.labelColor },
+			{ pt: pBot, label: `-Z Subterranean (-${this.#undergroundDepth}px / -20m)`, color: tokens.strataSubStroke }
 		];
 
 		ticks.forEach((t) => {
@@ -1038,15 +1105,15 @@ export class CanvasRenderer extends BaseMapEngine {
 			ctx.arc(t.pt.sx, t.pt.sy, 4, 0, Math.PI * 2);
 			ctx.fill();
 
-			ctx.font = "700 11px Montserrat";
+			ctx.font = `700 11px ${tokens.mapFont}`;
 			ctx.textAlign = "left";
 			ctx.textBaseline = "middle";
 
 			const textW = ctx.measureText(t.label).width;
-			ctx.fillStyle = isLight ? "rgba(255, 255, 255, 0.90)" : "rgba(15, 23, 42, 0.92)";
+			ctx.fillStyle = tokens.labelHalo;
 			ctx.fillRect(t.pt.sx + 8, t.pt.sy - 8, textW + 10, 16);
 
-			ctx.strokeStyle = isLight ? "rgba(203, 213, 225, 0.85)" : "rgba(51, 65, 85, 0.85)";
+			ctx.strokeStyle = tokens.stationStroke;
 			ctx.lineWidth = 1;
 			ctx.strokeRect(t.pt.sx + 8, t.pt.sy - 8, textW + 10, 16);
 
@@ -1067,7 +1134,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	#drawSubterraneanTrench(ctx) {
 		const stationData = this.#stationData;
 		const drawn = new Set();
-		const isDark = this.getThemeToken("--theme-mode", "light") === "dark";
+		const tokens = this.themeTokens;
 
 		ctx.save();
 		ctx.lineCap = "round";
@@ -1094,7 +1161,7 @@ export class CanvasRenderer extends BaseMapEngine {
 				const trackW = this.getTrackWidth(p1.scale);
 
 				// 1. Recessed Trench Bed
-				ctx.strokeStyle = isDark ? "rgba(15, 23, 42, 0.90)" : "rgba(226, 232, 240, 0.85)";
+				ctx.strokeStyle = tokens.trackBed;
 				ctx.lineWidth = trackW * 2.2;
 				ctx.beginPath();
 				ctx.moveTo(p1.sx, p1.sy);
@@ -1102,7 +1169,7 @@ export class CanvasRenderer extends BaseMapEngine {
 				ctx.stroke();
 
 				// 2. UPPER SHADOW: The top wall casts an inner shadow into the groove!
-				ctx.strokeStyle = isDark ? "rgba(0, 0, 0, 0.75)" : "rgba(15, 23, 42, 0.28)";
+				ctx.strokeStyle = tokens.trackShadow;
 				ctx.lineWidth = trackW * 0.7;
 				ctx.beginPath();
 				ctx.moveTo(p1.sx, p1.sy - 3.5 * p1.scale);
@@ -1110,7 +1177,7 @@ export class CanvasRenderer extends BaseMapEngine {
 				ctx.stroke();
 
 				// 3. LOWER HIGHLIGHT: The bottom wall catches the light!
-				ctx.strokeStyle = isDark ? "rgba(51, 65, 85, 0.6)" : "rgba(255, 255, 255, 0.9)";
+				ctx.strokeStyle = tokens.stationHalo;
 				ctx.lineWidth = trackW * 0.35;
 				ctx.beginPath();
 				ctx.moveTo(p1.sx, p1.sy + 3.5 * p1.scale);
@@ -1215,7 +1282,8 @@ export class CanvasRenderer extends BaseMapEngine {
 				else ctx.setLineDash([]);
 			};
 
-			const baseFill = layout === "underground" ? "#f0fdf4" : "#FDFBD4";
+			const tokens = this.themeTokens;
+			const baseFill = this.isUnderground(layout) ? tokens.stationUndergroundFill : tokens.stationFill;
 
 			// 🚉 Render Glyphs adhering strictly to Legend Station Types:
 			if (stationType === "walkway") {
@@ -1239,14 +1307,14 @@ export class CanvasRenderer extends BaseMapEngine {
 				ctx.fill();
 
 			} else if (stationType === "multimodal") {
-				// 2. Multimodal Transit Hub (Rounded Square Squircle + Glowing Violet #c084fc)
+				// 2. Multimodal Transit Hub (Rounded Square Squircle + Glowing Accent)
 				const size = baseR * 2.3 * hoverScale;
 				const offset = size / 2;
 				const rx = size * 0.28;
 				const rInner = baseR * 0.52 * hoverScale;
 
 				ctx.fillStyle = baseFill;
-				ctx.strokeStyle = "#c084fc";
+				ctx.strokeStyle = tokens.stationMultimodal;
 				ctx.lineWidth = Math.max(1.2, trackW * 0.35);
 				applyStatusDash();
 				ctx.beginPath();
@@ -1259,20 +1327,20 @@ export class CanvasRenderer extends BaseMapEngine {
 				ctx.stroke();
 
 				ctx.setLineDash([]);
-				ctx.fillStyle = "#c084fc";
+				ctx.fillStyle = tokens.stationMultimodal;
 				ctx.beginPath();
 				ctx.arc(pt.sx, pt.sy, rInner, 0, Math.PI * 2);
 				ctx.fill();
 
 			} else if (stationType === "shared_track") {
-				// 3. Shared Track (Capsule Stadium Pill + 2 Tandem Dots #f43f5e)
+				// 3. Shared Track (Capsule Stadium Pill + 2 Tandem Dots)
 				const w = baseR * 2.6 * hoverScale;
 				const h = baseR * 1.45 * hoverScale;
 				const dotR = baseR * 0.28 * hoverScale;
 				const dotOffset = w * 0.24;
 
 				ctx.fillStyle = baseFill;
-				ctx.strokeStyle = "#f43f5e";
+				ctx.strokeStyle = tokens.stationShared;
 				ctx.lineWidth = Math.max(1.2, trackW * 0.35);
 				applyStatusDash();
 				ctx.beginPath();
@@ -1285,7 +1353,7 @@ export class CanvasRenderer extends BaseMapEngine {
 				ctx.stroke();
 
 				ctx.setLineDash([]);
-				ctx.fillStyle = "#f43f5e";
+				ctx.fillStyle = tokens.stationShared;
 				ctx.beginPath();
 				ctx.arc(pt.sx - dotOffset, pt.sy, dotR, 0, Math.PI * 2);
 				ctx.arc(pt.sx + dotOffset, pt.sy, dotR, 0, Math.PI * 2);
@@ -1307,7 +1375,7 @@ export class CanvasRenderer extends BaseMapEngine {
 
 				ctx.setLineDash([]);
 				ctx.fillStyle = strokeColor;
-				ctx.strokeStyle = "#ffffff";
+				ctx.strokeStyle = tokens.interchangeRing;
 				ctx.lineWidth = Math.max(1.0, trackW * 0.25);
 				ctx.beginPath();
 				ctx.arc(pt.sx, pt.sy, rInner, 0, Math.PI * 2);
@@ -1315,7 +1383,7 @@ export class CanvasRenderer extends BaseMapEngine {
 				ctx.stroke();
 
 			} else {
-				// 5. Normal Station (Clean Cream Circle with Line Color Border)
+				// 5. Normal Station (Clean Circle with Line Color Border)
 				const r = baseR * hoverScale;
 				ctx.fillStyle = baseFill;
 				ctx.strokeStyle = strokeColor;
@@ -1409,10 +1477,11 @@ export class CanvasRenderer extends BaseMapEngine {
 		const fontSize = Math.max(1.5, Math.min(36.0, 380 * effectiveScale));
 		ctx.textBaseline = "middle";
 
-		const themeTextPrimary = this.getThemeToken("--text-primary", "#0f172a");
-		const themeCardBg = this.getThemeToken("--card-bg", "#ffffff");
-		const themePrimary = this.getThemeToken("--btn-primary-bg", "#3b82f6");
-		const mapFont = this.getThemeToken("--map-font", "'Montserrat', -apple-system, sans-serif");
+		const tokens = this.themeTokens;
+		const themeTextPrimary = tokens.labelColor;
+		const themeCardBg = tokens.labelHalo;
+		const themePrimary = tokens.labelHover;
+		const mapFont = tokens.mapFont;
 
 		const occupiedBoxes = [];
 		const labelsToDraw = [];
@@ -1665,6 +1734,7 @@ export class CanvasRenderer extends BaseMapEngine {
 	get container() { return this.#container; }
 	set container(val) { this.#container = typeof val === "string" ? document.querySelector(val) : val; }
 	get canvas() { return this.#canvas; }
+
 	get is25D() { return this.#is25D; }
 	get stationData() { return this.#stationData; }
 	get linesData() { return this.#linesData; }
@@ -2021,6 +2091,7 @@ export class CanvasRenderer extends BaseMapEngine {
 
 	setTheme(theme) {
 		this.#currentTheme = theme;
+		this.invalidateThemeTokens();
 		this.requestRender();
 	}
 

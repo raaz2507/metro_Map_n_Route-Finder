@@ -1,0 +1,2064 @@
+{
+  "city": "kanpur",
+  "version": "1.0.0",
+  "total_places": 50,
+  "places": [
+    {
+      "id": "jk_temple",
+      "wiki_title": "JK_Temple",
+      "category": "religious",
+      "coordinates": [
+        26.4764,
+        80.3061
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4764,80.3061",
+      "image_asset": "transit_assets/tourist_places/kanpur/jk_temple.webp",
+      "tags": [
+        "radha_krishna",
+        "marble_temple",
+        "singhania",
+        "neo_hindu_architecture",
+        "gardens"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "J.K. Temple (Radhakrishna Temple)",
+        "description": "Exquisite white marble temple constructed in 1960 by the Singhania family, showcasing a blend of ancient Nagara and modern architectural spires.",
+        "best_time_to_visit": "Evening when illuminated against floodlights"
+      },
+      "hi": {
+        "name": "जे.के. मंदिर (राधाकृष्ण मंदिर)",
+        "description": "1960 में सिंघानिया परिवार द्वारा सफेद संगमरमर से निर्मित भव्य मंदिर, जो अपनी नागर शैली के नक्काशीदार शिखरों और शाम की रोशनी के लिए विख्यात है।",
+        "best_time_to_visit": "शाम के समय (आरती व रोशनी)"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/JKTemple.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "allen_forest_zoo",
+      "wiki_title": "Kanpur_Zoo",
+      "category": "entertainment",
+      "coordinates": [
+        26.5056,
+        80.3167
+      ],
+      "timings": {
+        "open": "08:30",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 40,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.5056,80.3167",
+      "image_asset": "transit_assets/tourist_places/kanpur/allen_forest_zoo.webp",
+      "tags": [
+        "zoo",
+        "natural_forest",
+        "lake",
+        "tigers",
+        "largest_in_north_india"
+      ],
+      "recommended_time_min": 180,
+      "en": {
+        "name": "Allen Forest Zoo (Kanpur Zoological Park)",
+        "description": "Sprawling over 190 acres in a natural lush forest around a lake, recognized as one of Asia's few open-range zoological parks.",
+        "best_time_to_visit": "October to March (Closed Mondays)"
+      },
+      "hi": {
+        "name": "एलन फॉरेस्ट चिड़ियाघर (कानपुर चिड़ियाघर)",
+        "description": "190 एकड़ के घने प्राकृतिक वन और झील के चारों ओर फैला एशिया का अनूठा चिड़ियाघर, जहां बाघ, तेंदुए और विदेशी वन्यजीव प्राकृतिक वातावरण में रहते हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च (सोमवार बंद)"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Oskanpur-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "moti_jheel_park",
+      "wiki_title": "Moti_Jheel",
+      "category": "park",
+      "coordinates": [
+        26.4778,
+        80.325
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4778,80.325",
+      "image_asset": "transit_assets/tourist_places/kanpur/moti_jheel_park.webp",
+      "tags": [
+        "lake",
+        "boating",
+        "kargil_park",
+        "promenade",
+        "motijheel_metro"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Moti Jheel & Lake Promenade",
+        "description": "Historic drinking water reservoir dating to the British era transformed into Kanpur's favorite recreational haven with boating, musical fountains, and children's parks.",
+        "best_time_to_visit": "Evenings (Directly at Moti Jheel Metro Station)"
+      },
+      "hi": {
+        "name": "मोती झील एवं पार्क प्रोमेनेड",
+        "description": "ब्रिटिश काल में निर्मित ऐतिहासिक झील, जो अब बोटिंग, संगीतमय फव्वारों और कारगिल विजय पार्क के साथ शहर का सबसे लोकप्रिय विश्राम स्थल है।",
+        "best_time_to_visit": "शाम के समय (मोतीझील मेट्रो स्टेशन के ठीक सामने)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Moti%20Jheel%20metro%20station.jpg"
+    },
+    {
+      "id": "bithoor_brahmavart_ghat",
+      "wiki_title": "Bithoor",
+      "category": "religious",
+      "coordinates": [
+        26.6167,
+        80.2667
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.6167,80.2667",
+      "image_asset": "transit_assets/tourist_places/kanpur/bithoor_brahmavart_ghat.webp",
+      "tags": [
+        "brahma_khunti",
+        "creation_of_universe",
+        "sacred_ganga",
+        "bithoor",
+        "pilgrimage"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Brahmavart Ghat (Bithoor)",
+        "description": "The holiest ghat in Bithoor where Lord Brahma is believed to have created the universe after performing a grand Ashvamedha Yajna, venerating the sacred Brahma Khunti nail.",
+        "best_time_to_visit": "Kartik Poornima or sunrise on the Ganga"
+      },
+      "hi": {
+        "name": "ब्रह्मावर्त घाट (बिठूर)",
+        "description": "बिठूर का सर्वाधिक पावन गंगा घाट, जहां सृष्टि के रचयिता भगवान ब्रह्मा ने अश्वमेध यज्ञ कर सृष्टि की रचना की थी; यहां स्थापित 'ब्रह्मा की खूंटी' पूजनीय है।",
+        "best_time_to_visit": "कार्तिक पूर्णिमा अथवा सूर्योदय"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/1167_main-ghat-at-bithoor.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "valmiki_ashram_bithoor",
+      "wiki_title": "Bithoor",
+      "category": "heritage",
+      "coordinates": [
+        26.6181,
+        80.2611
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.6181,80.2611",
+      "image_asset": "transit_assets/tourist_places/kanpur/valmiki_ashram_bithoor.webp",
+      "tags": [
+        "ramayana_origin",
+        "sita_kund",
+        "luv_kush_birthplace",
+        "stairway_to_heaven",
+        "bithoor"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Maharishi Valmiki Ashram (Bithoor)",
+        "description": "Elevated sanctuary where Sage Valmiki composed the immortal epic Ramayana, Goddess Sita resided during exile, and Luv and Kush were born and trained.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "महर्षि वाल्मीकि आश्रम (बिठूर)",
+        "description": "पवित्र आश्रम जहां महर्षि वाल्मीकि ने रामायण की रचना की, माता सीता ने वनवास काटा और लव-कुश का जन्म व बाल्यकाल बीता; यहां सीता कुंड दर्शनीय है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "nana_rao_park",
+      "wiki_title": "Nana_Rao_Park",
+      "category": "heritage",
+      "coordinates": [
+        26.4708,
+        80.3542
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4708,80.3542",
+      "image_asset": "transit_assets/tourist_places/kanpur/nana_rao_park.webp",
+      "tags": [
+        "company_bagh",
+        "1857_revolt",
+        "nana_saheb_peshwa",
+        "tatya_tope",
+        "historic_trees"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Nana Rao Park (Company Bagh)",
+        "description": "Historic public park dedicated to 1857 freedom fighters Nana Saheb Peshwa and Tatya Tope, built on the site of the former Bibighar memorial.",
+        "best_time_to_visit": "Morning jogs or sunset"
+      },
+      "hi": {
+        "name": "नाना राव पार्क (कंपनी बाग)",
+        "description": "1857 के प्रथम स्वतंत्रता संग्राम के महानायकों नाना साहब पेशवा और तात्या टोपे की स्मृति को समर्पित ऐतिहासिक पार्क, जो हरे-भरे पेड़ों और लॉन से सुसज्जित है।",
+        "best_time_to_visit": "सुबह या शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nana%20Rao%20Park%20Renovated.jpg"
+    },
+    {
+      "id": "phool_bagh",
+      "wiki_title": "Phool_Bagh,_Kanpur",
+      "category": "park",
+      "coordinates": [
+        26.4667,
+        80.3556
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4667,80.3556",
+      "image_asset": "transit_assets/tourist_places/kanpur/phool_bagh.webp",
+      "tags": [
+        "queen_victoria_memorial",
+        "kpo_museum",
+        "ganesh_shankar_vidyarthi",
+        "flowers"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Phool Bagh & Ganesh Udyan",
+        "description": "Grand historic garden in civil lines housing the Kanpur City Museum (Sangrahalaya) and the historic KEM Hall where Mahatma Gandhi and national leaders addressed rallies.",
+        "best_time_to_visit": "Afternoon to evening"
+      },
+      "hi": {
+        "name": "फूल बाग एवं गणेश शंकर विद्यार्थी उद्यान",
+        "description": "कानपुर का ऐतिहासिक उद्यान जहां कानपुर संग्रहालय और केईएम हॉल स्थित हैं; यहां महात्मा गांधी और बाल गंगाधर तिलक जैसे नेताओं ने विशाल जनसभाएं की थीं।",
+        "best_time_to_visit": "दोपहर से शाम"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Phool%20Bagh%20Bareilly.jpg"
+    },
+    {
+      "id": "kanpur_memorial_church",
+      "wiki_title": "Kanpur_Memorial_Church",
+      "category": "heritage",
+      "coordinates": [
+        26.4472,
+        80.3708
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4472,80.3708",
+      "image_asset": "transit_assets/tourist_places/kanpur/kanpur_memorial_church.webp",
+      "tags": [
+        "all_souls_cathedral",
+        "lombardic_gothic",
+        "angel_of_peace",
+        "cantonment",
+        "1857"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Kanpur Memorial Church (All Souls' Cathedral)",
+        "description": "Magnificent red-brick Lombardic Gothic cathedral consecrated in 1875 to honor fallen soldiers of the 1857 Siege of Cawnpore, featuring Baron Marochetti's Angel of Peace.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "कानपुर मेमोरियल चर्च (ऑल सोल्स कैथेड्रल)",
+        "description": "1857 की कानपुर घेराबंदी की स्मृति में 1875 में लाल ईंटों से निर्मित लोम्बार्डिक गोथिक शैली का भव्य गिरजाघर, जिसमें शांति की दूत की संगमरमर प्रतिमा स्थापित है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Kanpur_Memorial_Church.jpg/3840px-Kanpur_Memorial_Church.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "iskcon_temple_kanpur",
+      "wiki_title": "ISKCON_Temple_Kanpur",
+      "category": "religious",
+      "coordinates": [
+        26.5417,
+        80.2667
+      ],
+      "timings": {
+        "open": "04:30",
+        "close": "20:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.5417,80.2667",
+      "image_asset": "transit_assets/tourist_places/kanpur/iskcon_temple_kanpur.webp",
+      "tags": [
+        "radha_madhav",
+        "vedic_ashram",
+        "govindas_restaurant",
+        "mainavati_marg",
+        "spiritual"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "ISKCON Temple Kanpur (Sri Sri Radha Madhav)",
+        "description": "Massive 15-acre Vedic cultural complex on Mainavati Marg with a towering marble temple, Goshala, organic gardens, and Govinda's pure vegetarian restaurant.",
+        "best_time_to_visit": "Evening Sandhya Aarti (19:00)"
+      },
+      "hi": {
+        "name": "इस्कॉन मंदिर कानपुर (श्री श्री राधा माधव)",
+        "description": "मैनावती मार्ग पर 15 एकड़ में फैला भव्य वैदिक सांस्कृतिक केंद्र, जहां सफेद संगमरमर का विशाल मंदिर, गौशाला और शांत आध्यात्मिक वातावरण श्रद्धालुओं को आकर्षित करता है।",
+        "best_time_to_visit": "संध्या आरती (शाम 7:00 बजे)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "green_park_stadium",
+      "wiki_title": "Green_Park_Stadium",
+      "category": "entertainment",
+      "coordinates": [
+        26.4778,
+        80.35
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4778,80.35",
+      "image_asset": "transit_assets/tourist_places/kanpur/green_park_stadium.webp",
+      "tags": [
+        "cricket_stadium",
+        "historic_test_venue",
+        "ganga_banks",
+        "floodlights"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Green Park International Cricket Stadium",
+        "description": "Historic 32,000-seater cricket arena beside the Ganga that hosted India's 500th Test Match, named after Madam Green who exercised here in the 1940s.",
+        "best_time_to_visit": "Match days or daytime"
+      },
+      "hi": {
+        "name": "ग्रीन पार्क अंतरराष्ट्रीय क्रिकेट स्टेडियम",
+        "description": "गंगा किनारे स्थित ऐतिहासिक 32,000 दर्शक क्षमता वाला टेस्ट क्रिकेट स्टेडियम, जिसने भारत का ऐतिहासिक 500वां टेस्ट मैच आयोजित किया था।",
+        "best_time_to_visit": "मैच के दिन अथवा दिन में"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Green_Park_International_Stadium_Kanpur.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "massacre_ghat",
+      "wiki_title": "Sati_Chaura_Ghat",
+      "category": "heritage",
+      "coordinates": [
+        26.4444,
+        80.3806
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4444,80.3806",
+      "image_asset": "transit_assets/tourist_places/kanpur/massacre_ghat.webp",
+      "tags": [
+        "sati_chaura",
+        "1857_mutiny",
+        "ganga_ghat",
+        "shiva_temple",
+        "historic"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Massacre Ghat (Sati Chaura Ghat)",
+        "description": "Historic river landing on the sacred Ganga renowned in colonial chronicles as the focal site of the 1857 boat ambush during the Indian Rebellion.",
+        "best_time_to_visit": "Sunrise or sunset on the Ganga"
+      },
+      "hi": {
+        "name": "सती चौरा घाट (मैसाकर घाट)",
+        "description": "गंगा का ऐतिहासिक पक्का घाट जो 1857 के प्रथम स्वतंत्रता संग्राम के दौरान नाना साहब की सेना और ईस्ट इंडिया कंपनी के बीच हुए संघर्ष का प्रमुख गवाह रहा।",
+        "best_time_to_visit": "सूर्योदय अथवा सूर्यास्त"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Oskanpur-6.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "jain_glass_temple",
+      "wiki_title": "Jain_Glass_Temple",
+      "category": "religious",
+      "coordinates": [
+        26.4639,
+        80.3528
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "19:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4639,80.3528",
+      "image_asset": "transit_assets/tourist_places/kanpur/jain_glass_temple.webp",
+      "tags": [
+        "glass_mosaic",
+        "tirthankara",
+        "kamala_tower",
+        "belgian_mirrors",
+        "intricate"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Jain Glass Temple (Kanch Ka Mandir)",
+        "description": "Dazzling temple in Maheshwari Mohalla adorned entirely with intricate glass mosaics, Belgian mirrors, and enamel murals illustrating Jain Jainology.",
+        "best_time_to_visit": "Daytime to appreciate the glass reflections"
+      },
+      "hi": {
+        "name": "जैन कांच का मंदिर",
+        "description": "महेश्वरी मोहल्ले में स्थित अद्भुत मंदिर जो पूरी तरह रंगीन कांच के टुकड़ों, बेल्जियम के दर्पणों और 24 तीर्थंकरों की सजीव आकृतियों से सजा हुआ है।",
+        "best_time_to_visit": "दिन के समय (कांच की चमक देखने हेतु)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shree%20Sumatinath%20Jain%20temple%2C%20Kinari%20Bazaar%20-%20Glass%20paintings.jpg"
+    },
+    {
+      "id": "anandeshwar_temple_parmat",
+      "wiki_title": "Parmat_Temple",
+      "category": "religious",
+      "coordinates": [
+        26.4889,
+        80.3361
+      ],
+      "timings": {
+        "open": "04:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4889,80.3361",
+      "image_asset": "transit_assets/tourist_places/kanpur/anandeshwar_temple_parmat.webp",
+      "tags": [
+        "kashi_of_kanpur",
+        "swayambhu_shivalinga",
+        "ganga_ghat",
+        "parmat",
+        "sawan"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Shri Anandeshwar Temple (Parmat Mandir)",
+        "description": "Hailed as the 'Kashi of Kanpur', this ancient Shiva temple on the banks of Ganga enshrines a self-manifested Shivalinga revered by millions of pilgrims.",
+        "best_time_to_visit": "Mondays and Shravan month"
+      },
+      "hi": {
+        "name": "श्री आनंदेश्वर मंदिर (परमट मंदिर)",
+        "description": "'कानपुर की काशी' कहलाने वाला गंगा तट पर स्थित अत्यंत प्राचीन व जाग्रत शिव मंदिर, जहां स्वयंभू शिवलिंग के दर्शन हेतु सावन में लाखों श्रद्धालु आते हैं।",
+        "best_time_to_visit": "सोमवार अथवा सावन माह"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "panki_hanuman_mandir",
+      "wiki_title": "Panki,_Uttar_Pradesh",
+      "category": "religious",
+      "coordinates": [
+        26.475,
+        80.2472
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.475,80.2472",
+      "image_asset": "transit_assets/tourist_places/kanpur/panki_hanuman_mandir.webp",
+      "tags": [
+        "hanuman",
+        "panchmukhi",
+        "historic_temple",
+        "budhwa_mangal",
+        "miracles"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Panki Hanuman Mandir",
+        "description": "Centuries-old miraculous Hanuman shrine in Panki established by Mahant Sri Salik Ramji; focal point of Uttar Pradesh's historic Budhwa Mangal fairs.",
+        "best_time_to_visit": "Tuesday, Saturday, or Budhwa Mangal"
+      },
+      "hi": {
+        "name": "पनकी हनुमान मंदिर",
+        "description": "पनकी में स्थित 400 वर्ष प्राचीन चमत्कारी हनुमान मंदिर, जहां बाल स्वरूप बजरंगबली की प्रतिमा स्थापित है; यहां का 'बुढ़वा मंगल' मेला पूरे उत्तर भारत में प्रसिद्ध है।",
+        "best_time_to_visit": "मंगलवार, शनिवार अथवा बुढ़वा मंगल"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Panki_railway_station_nameplate.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "kamla_retreat",
+      "wiki_title": "Kamla_Retreat",
+      "category": "heritage",
+      "coordinates": [
+        26.4806,
+        80.3167
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4806,80.3167",
+      "image_asset": "transit_assets/tourist_places/kanpur/kamla_retreat.webp",
+      "tags": [
+        "private_estate",
+        "wave_pool",
+        "singhania",
+        "heritage_museum",
+        "gardens"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Kamla Retreat (Singhania Heritage Estate)",
+        "description": "Private estate of the Singhania industrial house featuring landscaped gardens, canals with artificial waves, swimming pools, and a private archaeological museum.",
+        "best_time_to_visit": "October to March (Prior visitor permission required)"
+      },
+      "hi": {
+        "name": "कमला रिट्रीट",
+        "description": "सिंघानिया उद्योग घराने का सुरम्य निजी हेरिटेज परिसर, जिसमें कृत्रिम तरंगों वाली नहरें, विशाल लॉन और दुर्लभ प्राचीन कलाकृतियों का संग्रहालय मौजूद है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "z_square_mall",
+      "wiki_title": "Z_Square_Mall",
+      "category": "modern",
+      "coordinates": [
+        26.4694,
+        80.3528
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4694,80.3528",
+      "image_asset": "transit_assets/tourist_places/kanpur/z_square_mall.webp",
+      "tags": [
+        "mega_mall",
+        "the_mall_road",
+        "inox",
+        "food_court",
+        "shopping"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Z Square Mega Mall (The Mall Road)",
+        "description": "One of North India's premier shopping destinations sprawling over 900,000 sq ft in the heart of Civil Lines, hosting 150+ international retail brands and INOX.",
+        "best_time_to_visit": "Afternoon to evening"
+      },
+      "hi": {
+        "name": "ज़ेड स्क्वायर मेगा मॉल (द मॉल रोड)",
+        "description": "मॉल रोड पर 9 लाख वर्ग फुट में फैला उत्तर भारत का विशाल आधुनिक मॉल, जहां 150 से अधिक राष्ट्रीय-अंतरराष्ट्रीय ब्रांड्स और आईनॉक्स मल्टीप्लेक्स हैं।",
+        "best_time_to_visit": "दोपहर व शाम"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Z%20Square%20Mall%20-%20Kanpur%2020220505%20203247.jpg"
+    },
+    {
+      "id": "blue_world_theme_park",
+      "wiki_title": "Blue_World_Theme_Park",
+      "category": "entertainment",
+      "coordinates": [
+        26.5556,
+        80.2083
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "19:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 600,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.5556,80.2083",
+      "image_asset": "transit_assets/tourist_places/kanpur/blue_world_theme_park.webp",
+      "tags": [
+        "water_park",
+        "roller_coaster",
+        "mandhana",
+        "musical_fountain",
+        "family_fun"
+      ],
+      "recommended_time_min": 240,
+      "en": {
+        "name": "Blue World Theme & Water Park",
+        "description": "Massive 25-acre international-standard amusement and aquatic theme park on Mandhana-Bithoor Road, featuring fairy-tale theme zones, extreme roller coasters, and wave pools.",
+        "best_time_to_visit": "Summer and post-monsoon full-day trip"
+      },
+      "hi": {
+        "name": "ब्लू वर्ल्ड थीम एवं वॉटर पार्क",
+        "description": "मंधना-बिठूर मार्ग पर 25 एकड़ में फैला भव्य थीम पार्क, जिसमें दुनिया के सात अजूबों के मॉडल, रोमांचक रोलर कोस्टर और विशाल वॉटर राइड्स उपलब्ध हैं।",
+        "best_time_to_visit": "पूरे दिन का पारिवारिक भ्रमण"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Blue%20Sky%20Carousel%20-%20Genting%20SkyWorlds%20Theme%20Park.jpg"
+    },
+    {
+      "id": "kanpur_central_station",
+      "wiki_title": "Kanpur_Central_railway_station",
+      "category": "heritage",
+      "coordinates": [
+        26.4539,
+        80.3514
+      ],
+      "timings": {
+        "open": "00:00",
+        "close": "23:59",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4539,80.3514",
+      "image_asset": "transit_assets/tourist_places/kanpur/kanpur_central_station.webp",
+      "tags": [
+        "busiest_railway_junction",
+        "charing_cross_architecture",
+        "red_brick",
+        "metro_connected"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Kanpur Central Railway Station (Heritage Architecture)",
+        "description": "One of India's five busiest railway stations, opened in 1930 modeled after London's Charing Cross Station with grand red-brick arches and heritage facades.",
+        "best_time_to_visit": "Evening when illuminated"
+      },
+      "hi": {
+        "name": "कानपुर सेंट्रल रेलवे स्टेशन (हेरिटेज वास्तुकला)",
+        "description": "1930 में लंदन के चेरिंग क्रॉस स्टेशन की तर्ज पर निर्मित भारत का व्यस्ततम रेलवे जंक्शन, जिसकी लाल ईंटों की वास्तुकला और विशाल मेहराब ऐतिहासिक हैं।",
+        "best_time_to_visit": "शाम के समय (कानपुर सेंट्रल मेट्रो के पास)"
+      },
+      "image_source_url": "https://en.wikipedia.org/wiki/Special:FilePath/Kanpur%20Central%20railway%20station.jpg"
+    },
+    {
+      "id": "ganga_barrage_lav_kush",
+      "wiki_title": "Ganga_Barrage",
+      "category": "nature",
+      "coordinates": [
+        26.5056,
+        80.3361
+      ],
+      "timings": {
+        "open": "00:00",
+        "close": "23:59",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.5056,80.3361",
+      "image_asset": "transit_assets/tourist_places/kanpur/ganga_barrage_lav_kush.webp",
+      "tags": [
+        "lav_kush_barrage",
+        "maggi_points",
+        "sunset",
+        "ganga_breeze",
+        "drive"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Ganga Barrage (Lav Kush Barrage Promenade)",
+        "description": "Colossal 621-meter bridge-dam across the holy Ganga connecting Kanpur to Unnao, celebrated as a vibrant evening hangout for cool breezes and riverside food stalls.",
+        "best_time_to_visit": "Sunset and evening tea"
+      },
+      "hi": {
+        "name": "गंगा बैराज (लवकुश बैराज प्रोमेनेड)",
+        "description": "गंगा नदी पर बना 621 मीटर लंबा विशाल बैराज, जो कानपुर को उन्नाव से जोड़ता है; शाम के समय ठंडी हवाओं और चाय-मैग्गी के स्टॉल्स के लिए युवाओं का पसंदीदा अड्डा है।",
+        "best_time_to_visit": "सूर्यास्त व शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/GangaBarrage.jpg"
+    },
+    {
+      "id": "patthar_ghat_bithoor",
+      "wiki_title": "Bithoor",
+      "category": "heritage",
+      "coordinates": [
+        26.6194,
+        80.2694
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.6194,80.2694",
+      "image_asset": "transit_assets/tourist_places/kanpur/patthar_ghat_bithoor.webp",
+      "tags": [
+        "red_sandstone",
+        "peshwa_architecture",
+        "ganga_ghat",
+        "shivling",
+        "bithoor"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Patthar Ghat (Bithoor)",
+        "description": "Monumental ghat built of solid red sandstone blocks by Raja Tikait Rai, minister of Awadh, housing an ancient Shiva temple with a unique blue kasauti-stone lingam.",
+        "best_time_to_visit": "Morning or sunset"
+      },
+      "hi": {
+        "name": "पत्थर घाट (बिठूर)",
+        "description": "अवध के मंत्री राजा टिकैत राय द्वारा लाल बलुआ पत्थर के विशाल पत्थरों से निर्मित भव्य घाट, जहां कसौटी पत्थर का दुर्लभ शिवलिंग स्थापित है।",
+        "best_time_to_visit": "सुबह या शाम"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "iit_kanpur_campus",
+      "wiki_title": "IIT_Kanpur",
+      "category": "heritage",
+      "coordinates": [
+        26.5122,
+        80.2328
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.5122,80.2328",
+      "image_asset": "transit_assets/tourist_places/kanpur/iit_kanpur_campus.webp",
+      "tags": [
+        "institute_of_eminence",
+        "pk_kelkar_library",
+        "airstrip",
+        "kalyanpur",
+        "greenery"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "IIT Kanpur Green Campus",
+        "description": "Acclaimed 1,055-acre wooded campus founded in 1959 with American collaboration, renowned for brutalist modernist architecture, PK Kelkar Library, and gliding airstrip.",
+        "best_time_to_visit": "Daytime (Right at IIT Kanpur Metro Station)"
+      },
+      "hi": {
+        "name": "आईआईटी कानपुर परिसर",
+        "description": "1,055 एकड़ में फैला भारत का प्रतिष्ठित तकनीकी संस्थान परिसर, जो अपनी सुंदर हरित छटा, पी.के. केलकर लाइब्रेरी और निजी हवाई पट्टी के लिए विख्यात है।",
+        "best_time_to_visit": "दिन के समय (आईआईटी कानपुर मेट्रो स्टेशन के पास)"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a3/IIT_Kanpur_Logo.svg/330px-IIT_Kanpur_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "kanpur_sangrahalaya",
+      "wiki_title": "Kanpur_Sangrahalaya",
+      "category": "museum",
+      "coordinates": [
+        26.4672,
+        80.355
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "16:30",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 15,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4672,80.355",
+      "image_asset": "transit_assets/tourist_places/kanpur/kanpur_sangrahalaya.webp",
+      "tags": [
+        "city_museum",
+        "freedom_struggle",
+        "british_colonial",
+        "phool_bagh",
+        "kem_hall"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Kanpur Sangrahalaya (Kanpur City Museum)",
+        "description": "The official city museum housed in the historic colonial King Edward Memorial Hall at Phool Bagh, documenting Kanpur's rise as the 'Manchester of the East'.",
+        "best_time_to_visit": "October to March (Closed Mondays)"
+      },
+      "hi": {
+        "name": "कानपुर संग्रहालय (फूल बाग)",
+        "description": "फूल बाग के ऐतिहासिक किंग एडवर्ड मेमोरियल हॉल में स्थित नगर संग्रहालय, जो कानपुर के 'पूरब का मैनचेस्टर' बनने और 1857 की क्रांति के इतिहास को दर्शाता है।",
+        "best_time_to_visit": "अक्टूबर से मार्च (सोमवार बंद)"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Kanpur_Sangrahalaya.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "siddhnath_temple_jajmau",
+      "wiki_title": "Jajmau",
+      "category": "religious",
+      "coordinates": [
+        26.4306,
+        80.4028
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4306,80.4028",
+      "image_asset": "transit_assets/tourist_places/kanpur/siddhnath_temple_jajmau.webp",
+      "tags": [
+        "siddhnath_shiva",
+        "jajmau_ghat",
+        "ancient",
+        "ganga_view",
+        "devotion"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Siddhnath Temple (Jajmau)",
+        "description": "Ancient Shiva temple situated on high river bluffs in historic Jajmau, offering panoramic vistas of the holy Ganga and peaceful riverbank ghats.",
+        "best_time_to_visit": "Mornings or Mahashivratri"
+      },
+      "hi": {
+        "name": "सिद्धनाथ मंदिर (जाजमऊ)",
+        "description": "प्राचीन जाजमऊ में गंगा के ऊंचे टीले पर स्थित भगवान शिव का ऐतिहासिक मंदिर, जहां से गंगा नदी का विहंगम दृश्य और शांत घाट दिखाई देते हैं।",
+        "best_time_to_visit": "प्रातःकाल अथवा महाशिवरात्रि"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "dhruva_teela_bithoor",
+      "wiki_title": "Bithoor",
+      "category": "heritage",
+      "coordinates": [
+        26.615,
+        80.2639
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.615,80.2639",
+      "image_asset": "transit_assets/tourist_places/kanpur/dhruva_teela_bithoor.webp",
+      "tags": [
+        "dhruva_tapasya",
+        "polestar",
+        "bithoor",
+        "mythological_mound",
+        "ganga"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Dhruva Teela (Mound of Dhruva)",
+        "description": "Sacred mythological hillock in Bithoor revered as the spot where child devotee Dhruva performed rigorous penance standing on one leg to attain immortality as the Pole Star.",
+        "best_time_to_visit": "Morning hours"
+      },
+      "hi": {
+        "name": "ध्रुव टीला (बिठूर)",
+        "description": "बिठूर में स्थित पावन टीला जहां भक्त ध्रुव ने एक पैर पर खड़े होकर कठोर तपस्या की थी और भगवान विष्णु से ध्रुव तारा बनने का अमर वरदान प्राप्त किया था।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "boodha_bargad",
+      "wiki_title": "Nana_Rao_Park",
+      "category": "heritage",
+      "coordinates": [
+        26.4711,
+        80.3547
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4711,80.3547",
+      "image_asset": "transit_assets/tourist_places/kanpur/boodha_bargad.webp",
+      "tags": [
+        "historic_banyan_tree",
+        "1857_martyrs",
+        "nana_rao_park",
+        "freedom_monument"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Boodha Bargad (Old Banyan Tree Monument)",
+        "description": "Revered memorial spot marking the historic banyan tree in Nana Rao Park where 133 Indian freedom fighters were hanged by the British following the 1857 uprising.",
+        "best_time_to_visit": "Daytime while exploring Nana Rao Park"
+      },
+      "hi": {
+        "name": "बूढ़ा बरगद शहीद स्मारक",
+        "description": "नाना राव पार्क में वह ऐतिहासिक स्थान जहां 1857 की क्रांति के बाद 133 भारतीय देशभक्तों को ब्रिटिश हुकूमत ने एक ही बरगद के पेड़ पर फांसी दी थी।",
+        "best_time_to_visit": "नाना राव पार्क भ्रमण के दौरान"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "naveen_market",
+      "wiki_title": "Naveen_Market",
+      "category": "market",
+      "coordinates": [
+        26.4722,
+        80.3472
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": [
+          "Sunday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4722,80.3472",
+      "image_asset": "transit_assets/tourist_places/kanpur/naveen_market.webp",
+      "tags": [
+        "shopping",
+        "leather_goods",
+        "garments",
+        "chikan_suits",
+        "naveen_market_metro"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Naveen Market Central Shopping Arcade",
+        "description": "Symmetrical red-brick shopping quadrangle in the city center famed for Kanpur leather shoes, belts, bags, traditional cotton wear, and local street snacks.",
+        "best_time_to_visit": "Afternoon to evening (Directly at Naveen Market Metro)"
+      },
+      "hi": {
+        "name": "नवीन मार्केट सेंट्रल शॉपिंग आर्केड",
+        "description": "शहर के केंद्र में लाल ईंटों से बना प्रसिद्ध शॉपिंग कॉम्प्लेक्स, जो चमड़े के जूते-बैग, चिकन के कपड़ों और स्ट्रीट फूड हेतु सीधे नवीन मार्केट मेट्रो से जुड़ा है।",
+        "best_time_to_visit": "दोपहर से शाम (रविवार बंद)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hampi%2C%20Karnataka%2C%20India%203.jpg"
+    },
+    {
+      "id": "tapeshwari_devi_temple",
+      "wiki_title": "Kanpur",
+      "category": "religious",
+      "coordinates": [
+        26.4639,
+        80.3444
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4639,80.3444",
+      "image_asset": "transit_assets/tourist_places/kanpur/tapeshwari_devi_temple.webp",
+      "tags": [
+        "tapeshwari_mata",
+        "sita_tapasya",
+        "historic_temple",
+        "navratri",
+        "shakti"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Tapeshwari Devi Temple",
+        "description": "Historic shrine in Birhana Road where Mata Sita is believed to have performed severe austerities with goddesses Kamala, Vimala, and Saraswati.",
+        "best_time_to_visit": "Navratri or mornings"
+      },
+      "hi": {
+        "name": "तपेश्वरी देवी मंदिर",
+        "description": "बिरहाना रोड के पास स्थित अत्यंत प्राचीन मंदिर, जहां माता सीता ने कमला, विमला और सरस्वती देवियों के साथ तपस्या की थी; नवरात्रि में भारी भीड़ होती है।",
+        "best_time_to_visit": "नवरात्रि अथवा प्रातःकाल"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cawnporeskyline.jpg"
+    },
+    {
+      "id": "baradevi_temple",
+      "wiki_title": "Baradevi",
+      "category": "religious",
+      "coordinates": [
+        26.4389,
+        80.3306
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4389,80.3306",
+      "image_asset": "transit_assets/tourist_places/kanpur/baradevi_temple.webp",
+      "tags": [
+        "baradevi",
+        "12_sisters_deity",
+        "1700_year_old",
+        "navratri_mela",
+        "faith"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Shri Baradevi Temple",
+        "description": "A 1,700-year-old historic shrine in South Kanpur enshrining 12 petrified stone manifestations of the Mother Goddess, hosting South Kanpur's largest Navratri festival.",
+        "best_time_to_visit": "Chaitra or Sharad Navratri"
+      },
+      "hi": {
+        "name": "श्री बारादेवी मंदिर",
+        "description": "दक्षिण कानपुर में स्थित 1,700 वर्ष प्राचीन पावन शक्तिपीठ, जहां मां भगवती की 12 मूर्तियां स्थापित हैं; नवरात्रि में यहां विशाल मेला भरता है।",
+        "best_time_to_visit": "नवरात्रि महोत्सव"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Baradevi.jpg"
+    },
+    {
+      "id": "sudhanshu_ji_maharaj_ashram",
+      "wiki_title": "Bithoor",
+      "category": "religious",
+      "coordinates": [
+        26.5694,
+        80.2444
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "19:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.5694,80.2444",
+      "image_asset": "transit_assets/tourist_places/kanpur/sudhanshu_ji_maharaj_ashram.webp",
+      "tags": [
+        "anand_dham",
+        "kailash_mansarovar_replica",
+        "meditation",
+        "bithoor_road",
+        "tranquility"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Anand Dham Ashram (Sudhanshu Ji Maharaj)",
+        "description": "Spiritual hermitage on Bithoor Road famous for its grand artificial replica of Mount Kailash and Mansarovar Lake, caves, and sprawling landscaped gardens.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "आनंद धाम आश्रम (सुधांशु जी महाराज)",
+        "description": "बिठूर मार्ग पर स्थित भव्य आध्यात्मिक आश्रम, जहां भगवान शिव के कैलाश पर्वत व मानसरोवर की सजीव प्रतिकृति, गुफाएं और सुंदर बगीचे बनाए गए हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "lal_imli_heritage_mill",
+      "wiki_title": "British_India_Corporation",
+      "category": "heritage",
+      "coordinates": [
+        26.4778,
+        80.3444
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4778,80.3444",
+      "image_asset": "transit_assets/tourist_places/kanpur/lal_imli_heritage_mill.webp",
+      "tags": [
+        "manchester_of_the_east",
+        "clock_tower",
+        "red_brick_factory",
+        "industrial_heritage"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Lal Imli Woollen Mill & Clock Tower",
+        "description": "Monumental 1876 red-brick woollen textile mill established by the British India Corporation, symbol of Kanpur's industrial zenith as the 'Manchester of the East'.",
+        "best_time_to_visit": "External architectural viewing in Civil Lines"
+      },
+      "hi": {
+        "name": "लाल इमली हेरिटेज मिल एवं क्लॉक टावर",
+        "description": "1876 में ब्रिटिश इंडिया कॉर्पोरेशन द्वारा स्थापित लाल ईंटों की ऐतिहासिक ऊनी मिल और क्लॉक टावर, जो कानपुर के 'पूरब का मैनचेस्टर' कहे जाने का गवाह है।",
+        "best_time_to_visit": "सिविल लाइन्स से बाहरी वास्तुकला दर्शन"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/LalImli.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "bithoor_fort_ruins",
+      "wiki_title": "Bithoor",
+      "category": "heritage",
+      "coordinates": [
+        26.6208,
+        80.265
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.6208,80.265",
+      "image_asset": "transit_assets/tourist_places/kanpur/bithoor_fort_ruins.webp",
+      "tags": [
+        "nana_saheb_palace",
+        "1857_headquarters",
+        "cannons",
+        "freedom_struggle",
+        "bithoor"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Nana Saheb Peshwa Palace Ruins (Bithoor)",
+        "description": "Ruins of the royal palace of Peshwa Nana Saheb that served as the war headquarters during the 1857 Uprising, housing a small museum and cannons.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "नाना साहब पेशवा महल खंडहर (बिठूर)",
+        "description": "1857 के प्रथम स्वतंत्रता संग्राम का मुख्य मुख्यालय रहा नाना साहब पेशवा का ऐतिहासिक महल, जहां आज भी उस दौर की तोपें और अवशेष सुरक्षित हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "bada_chauraha_market",
+      "wiki_title": "Bada_Chauraha",
+      "category": "market",
+      "coordinates": [
+        26.4681,
+        80.3514
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4681,80.3514",
+      "image_asset": "transit_assets/tourist_places/kanpur/bada_chauraha_market.webp",
+      "tags": [
+        "bada_chauraha_metro",
+        "saree_bazaar",
+        "thaggu_ke_laddu",
+        "street_food",
+        "shopping"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Bada Chauraha Historic Trade Square",
+        "description": "The central commercial crossroads of Kanpur, famous for historic bookshops, heritage cloth merchants, and Kanpur's legendary 'Thaggu Ke Laddu'.",
+        "best_time_to_visit": "Evenings (Right at Bada Chauraha Metro)"
+      },
+      "hi": {
+        "name": "बड़ा चौराहा ऐतिहासिक व्यापार चौक",
+        "description": "कानपुर का मुख्य व्यापारिक चौराहा जो सीधे बड़ा चौराहा मेट्रो से जुड़ा है; यहां के प्रसिद्ध 'ठग्गू के लड्डू' और साड़ियों के बाज़ार विश्व विख्यात हैं।",
+        "best_time_to_visit": "शाम के समय (ठग्गू के लड्डू चखने हेतु)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "rave_3_mall",
+      "wiki_title": "Rawatpur",
+      "category": "modern",
+      "coordinates": [
+        26.4806,
+        80.3014
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4806,80.3014",
+      "image_asset": "transit_assets/tourist_places/kanpur/rave_3_mall.webp",
+      "tags": [
+        "shopping",
+        "cinema",
+        "rawatpur_metro",
+        "food_court",
+        "entertainment"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Rave 3 Mall (Rawatpur)",
+        "description": "Pioneering entertainment and shopping multiplex on Parbati Bagla Road near Rawatpur Metro, offering retail fashion brands and multi-cuisine dining.",
+        "best_time_to_visit": "Afternoon to evening"
+      },
+      "hi": {
+        "name": "रेव 3 मॉल (रावतपुर)",
+        "description": "रावतपुर मेट्रो स्टेशन के पास स्थित प्रमुख मनोरंजन मॉल, जिसमें मल्टीप्लेक्स सिनेमा, ब्रांडेड शोरूम और फूड कोर्ट की बेहतरीन सुविधा है।",
+        "best_time_to_visit": "दोपहर व शाम"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sarsaiya_ghat",
+      "wiki_title": "Ganges_in_Hinduism",
+      "category": "nature",
+      "coordinates": [
+        26.475,
+        80.3583
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.475,80.3583",
+      "image_asset": "transit_assets/tourist_places/kanpur/sarsaiya_ghat.webp",
+      "tags": [
+        "ganga_aarti",
+        "boat_rides",
+        "holy_dip",
+        "city_centre_ghat",
+        "sunrise"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Sarsaiya Ghat & Evening Ganga Aarti",
+        "description": "Central and most accessible sacred ghat on the holy Ganga in Kanpur, popular for evening musical Ganga Aarti, holy dips, and dawn wooden boat rides.",
+        "best_time_to_visit": "Evening Ganga Aarti or sunrise"
+      },
+      "hi": {
+        "name": "सरसैया घाट एवं सांध्य गंगा आरती",
+        "description": "कानपुर शहर के केंद्र में स्थित सर्वाधिक सुलभ व पावन गंगा घाट, जहां शाम को होने वाली भव्य गंगा आरती और सुबह नाव की सवारी मन मोह लेती है।",
+        "best_time_to_visit": "सांध्य गंगा आरती अथवा प्रातः सूर्योदय"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/17th_to_18th-century_goddess_Ganga_sculpture%2C_Mus%C3%A9e_Rodin%2C_Paris.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "kargil_park_moti_jheel",
+      "wiki_title": "Moti_Jheel",
+      "category": "park",
+      "coordinates": [
+        26.4789,
+        80.3242
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 10,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4789,80.3242",
+      "image_asset": "transit_assets/tourist_places/kanpur/kargil_park_moti_jheel.webp",
+      "tags": [
+        "kargil_martyrs",
+        "war_memorial",
+        "fighter_jet_model",
+        "moti_jheel",
+        "patriotism"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Kargil Vijay Park (Moti Jheel)",
+        "description": "Memorial park adjoining Moti Jheel honoring Operation Vijay martyrs, exhibiting retired Indian military equipment, fighter jet models, and illuminated fountains.",
+        "best_time_to_visit": "Evenings (Close to Moti Jheel Metro)"
+      },
+      "hi": {
+        "name": "कारगिल विजय पार्क (मोती झील)",
+        "description": "मोती झील परिसर में कारगिल युद्ध के वीर शहीदों की स्मृति में निर्मित प्रेरणादायी पार्क, जहां लड़ाकू विमान के मॉडल और सुंदर फव्वारे लगे हैं।",
+        "best_time_to_visit": "शाम के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "hbttu_heritage_campus",
+      "wiki_title": "Harcourt_Butler_Technical_University",
+      "category": "heritage",
+      "coordinates": [
+        26.495,
+        80.3167
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": [
+          "Sunday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.495,80.3167",
+      "image_asset": "transit_assets/tourist_places/kanpur/hbttu_heritage_campus.webp",
+      "tags": [
+        "century_old_university",
+        "sir_spencer_harcourt_butler",
+        "oil_technology",
+        "heritage"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "HBTU Heritage Technical Campus",
+        "description": "Established in 1921 by Sir Spencer Harcourt Butler, this historic engineering campus in Nawabganj is globally pioneer in oil, paint, and leather chemical technologies.",
+        "best_time_to_visit": "Daytime"
+      },
+      "hi": {
+        "name": "एचबीटीयू हेरिटेज तकनीकी परिसर",
+        "description": "1921 में स्थापित उत्तर भारत का गौरवशाली तकनीकी विश्वविद्यालय परिसर, जिसने देश को केमिकल, ऑयल और लेदर इंजीनियरिंग के दिग्गज दिए हैं।",
+        "best_time_to_visit": "दिन के समय"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/en/2/20/Harcourt_Butler_Technical_University_Logo_SSH.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "christ_church_kanpur",
+      "wiki_title": "Christ_Church_College,_Kanpur",
+      "category": "heritage",
+      "coordinates": [
+        26.4678,
+        80.3542
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": [
+          "Sunday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4678,80.3542",
+      "image_asset": "transit_assets/tourist_places/kanpur/christ_church_kanpur.webp",
+      "tags": [
+        "oldest_church_1840",
+        "gothic",
+        "stained_glass",
+        "the_mall_road"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Christ Church (Oldest Church in Kanpur 1840)",
+        "description": "Consecrated in 1840 on The Mall Road, this is Kanpur's oldest surviving church building, designed with historic Gothic lancet windows and memorial brass plaques.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "क्राइस्ट चर्च (कानपुर का सबसे पुराना चर्च)",
+        "description": "द मॉल रोड पर 1840 में स्थापित कानपुर का सबसे प्राचीन गिरजाघर, जो अपनी गोथिक मेहराबों और रंगीन कांच की ऐतिहासिक खिड़कियों के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/CCC%20YenChing%20College%2C%20%E6%A0%A1%E9%9A%8A.png"
+    },
+    {
+      "id": "jajmau_ancient_mound",
+      "wiki_title": "Jajmau",
+      "category": "heritage",
+      "coordinates": [
+        26.4333,
+        80.4056
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4333,80.4056",
+      "image_asset": "transit_assets/tourist_places/kanpur/jajmau_ancient_mound.webp",
+      "tags": [
+        "yayati_fort",
+        "northern_black_polished_ware",
+        "1000_bce",
+        "asi_excavation",
+        "antiquity"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Jajmau Ancient Mound & Yayati Fort Site",
+        "description": "Archaeological high mound dating to 1000 BCE identifying Kanpur's earliest civilization, excavated by ASI uncovering Northern Black Polished Ware and King Yayati's fort.",
+        "best_time_to_visit": "Winter mornings"
+      },
+      "hi": {
+        "name": "जाजमऊ प्राचीन टीला एवं ययाति किला स्थल",
+        "description": "1000 ईसा पूर्व का ऐतिहासिक पुरातात्विक टीला जहां उत्खनन में प्राचीन 'उत्तरी काले चमकीले मृद्भांड' और पौराणिक राजा ययाति के किले के अवशेष मिले हैं।",
+        "best_time_to_visit": "सर्दियों की सुबह"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ancient%20mound%20at%20Jajmau..jpg"
+    },
+    {
+      "id": "csjm_university_campus",
+      "wiki_title": "Chhatrapati_Shahu_Ji_Maharaj_University",
+      "category": "heritage",
+      "coordinates": [
+        26.4972,
+        80.2722
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": [
+          "Sunday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4972,80.2722",
+      "image_asset": "transit_assets/tourist_places/kanpur/csjm_university_campus.webp",
+      "tags": [
+        "university",
+        "kalyanpur",
+        "auditorium",
+        "green_campus",
+        "vishwavidyalaya_metro"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "CSJM University Campus (Kanpur University)",
+        "description": "Sprawling 264-acre green educational hub in Kalyanpur established in 1966, featuring grand academic quadrangles directly at Vishwavidyalaya Metro Station.",
+        "best_time_to_visit": "Daytime (Directly at Vishwavidyalaya Metro)"
+      },
+      "hi": {
+        "name": "सीएसजेएम विश्वविद्यालय परिसर (कानपुर यूनिवर्सिटी)",
+        "description": "कल्याणपुर में 264 एकड़ में फैला प्रमुख राज्य विश्वविद्यालय परिसर, जो सीधे विश्वविद्यालय मेट्रो स्टेशन से जुड़ा हुआ हरा-भरा शैक्षणिक केंद्र है।",
+        "best_time_to_visit": "दिन के समय (विश्वविद्यालय मेट्रो के पास)"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/en/5/5a/Chhatrapati_Shahu_Ji_Maharaj_University_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "makhdum_shah_dargah_jajmau",
+      "wiki_title": "Jajmau",
+      "category": "religious",
+      "coordinates": [
+        26.4319,
+        80.4042
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4319,80.4042",
+      "image_asset": "transit_assets/tourist_places/kanpur/makhdum_shah_dargah_jajmau.webp",
+      "tags": [
+        "sufi_saint",
+        "alaul_haq",
+        "1360_ad",
+        "jajmau_high_cliff",
+        "pilgrimage"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Dargah Makhdum Shah Ala-ul-Haq (Jajmau)",
+        "description": "Venerated 14th-century Sufi shrine perched high on the Jajmau cliff over the Ganga, constructed in 1360 CE by Feroz Shah Tughlaq.",
+        "best_time_to_visit": "Thursday evenings or annual Urs"
+      },
+      "hi": {
+        "name": "दरगाह मखदूम शाह अलाउल हक (जाजमऊ)",
+        "description": "1360 ईस्वी में फिरोज़ शाह तुगलक द्वारा निर्मित 14वीं सदी की ऐतिहासिक दरगाह, जो गंगा के ऊंचे टीले से नदी का विहंगम दृश्य प्रस्तुत करती है।",
+        "best_time_to_visit": "गुरुवार शाम अथवा वार्षिक उर्स"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "rave_moti_mall",
+      "wiki_title": "Moti_Jheel",
+      "category": "modern",
+      "coordinates": [
+        26.4806,
+        80.3194
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4806,80.3194",
+      "image_asset": "transit_assets/tourist_places/kanpur/rave_moti_mall.webp",
+      "tags": [
+        "multiplex",
+        "shopping",
+        "moti_jheel_corridor",
+        "dining",
+        "entertainment"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Rave Moti Mall (Gurudev Chauraha)",
+        "description": "Popular lifestyle entertainment mall featuring multi-screen cinema, branded apparel outlets, and family dining near Moti Jheel and Gurudev Chauraha.",
+        "best_time_to_visit": "Afternoon to evening"
+      },
+      "hi": {
+        "name": "रेव मोती मॉल (गुरुदेव चौराहा)",
+        "description": "गुरुदेव चौराहा और मोतीझील के निकट स्थित लोकप्रिय शॉपिंग और मनोरंजन मॉल, जहां मल्टीप्लेक्स सिनेमा और प्रमुख फूड ब्रांड्स उपलब्ध हैं।",
+        "best_time_to_visit": "दोपहर व शाम"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "nawabganj_kanpur_ghat",
+      "wiki_title": "Nawabganj,_Kanpur",
+      "category": "nature",
+      "coordinates": [
+        26.5028,
+        80.3278
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.5028,80.3278",
+      "image_asset": "transit_assets/tourist_places/kanpur/nawabganj_kanpur_ghat.webp",
+      "tags": [
+        "ganga_ghat",
+        "nawabganj",
+        "boat_rides",
+        "serene",
+        "holy_ganga"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Nawabganj Ganga Ghats",
+        "description": "Quiet series of river ghats in northern Kanpur near the zoo forest, popular for holy morning dips, scenic dawn boat cruises, and calm vistas.",
+        "best_time_to_visit": "Sunrise"
+      },
+      "hi": {
+        "name": "नवाबगंज गंगा घाट",
+        "description": "चिड़ियाघर के समीप उत्तरी कानपुर में गंगा के शांत घाट, जहां सुबह की ताज़ा हवा, पवित्र स्नान और नौका विहार का आनंद लिया जाता है।",
+        "best_time_to_visit": "प्रातः सूर्योदय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Domesticated%20geese%20at%20Hastings%20Avenue%2C%20Azad%20Nagar%2C%20Nawabganj%2C%20Kanpur%2C%20Uttar%20Pradesh%2C%20India.jpg"
+    },
+    {
+      "id": "ghanta_ghar_kanpur",
+      "wiki_title": "Kanpur",
+      "category": "heritage",
+      "coordinates": [
+        26.4556,
+        80.3528
+      ],
+      "timings": {
+        "open": "00:00",
+        "close": "23:59",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4556,80.3528",
+      "image_asset": "transit_assets/tourist_places/kanpur/ghanta_ghar_kanpur.webp",
+      "tags": [
+        "clock_tower",
+        "heritage_landmark",
+        "central_station_area",
+        "illuminated"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Ghanta Ghar (Kanpur Central Clock Tower)",
+        "description": "Historic colonial clock tower standing proudly near Kanpur Central railway station, long serving as an iconic civic landmark of the industrial metropolis.",
+        "best_time_to_visit": "Evenings when illuminated"
+      },
+      "hi": {
+        "name": "घंटाघर कानपुर (सेंट्रल क्लॉक टावर)",
+        "description": "कानपुर सेंट्रल स्टेशन के समीप स्थित ब्रिटिश कालीन ऐतिहासिक घंटाघर, जो शहर का एक प्रमुख लैंडमार्क है और शाम को रोशनी में चमकता है।",
+        "best_time_to_visit": "शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ghanta%20Ghar%20Kanpur.jpg"
+    },
+    {
+      "id": "parshwanath_digamber_jain_temple",
+      "wiki_title": "Kanpur",
+      "category": "religious",
+      "coordinates": [
+        26.4611,
+        80.35
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4611,80.35",
+      "image_asset": "transit_assets/tourist_places/kanpur/parshwanath_digamber_jain_temple.webp",
+      "tags": [
+        "parshwanath",
+        "digamber_jain",
+        "ancient_idol",
+        "generalganj",
+        "peaceful"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Shri 1008 Parshwanath Digamber Jain Mandir (Generalganj)",
+        "description": "Historic Jain temple in Generalganj enshrining an ancient idol of 23rd Tirthankara Lord Parshwanath, renowned for traditional marble carving.",
+        "best_time_to_visit": "Morning hours"
+      },
+      "hi": {
+        "name": "श्री 1008 पार्श्वनाथ दिगंबर जैन मंदिर (जनरलगंज)",
+        "description": "जनरलगंज में स्थित 23वें तीर्थंकर भगवान पार्श्वनाथ का प्राचीन मंदिर, जो अपनी शांत आध्यात्मिक आभा और सुंदर संगमरमर नक्काशी के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "leather_market_jajmau",
+      "wiki_title": "Jajmau",
+      "category": "market",
+      "coordinates": [
+        26.4333,
+        80.3972
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4333,80.3972",
+      "image_asset": "transit_assets/tourist_places/kanpur/leather_market_jajmau.webp",
+      "tags": [
+        "leather_city_of_the_world",
+        "saddlery",
+        "jackets",
+        "shoes",
+        "export_bazaar"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Jajmau Leather Craft & Export Bazaar",
+        "description": "Global hub for authentic Kanpur leather goods including equestrian saddlery, leather jackets, handcrafted footwear, and travel accessories directly from artisans.",
+        "best_time_to_visit": "Afternoon to evening"
+      },
+      "hi": {
+        "name": "जाजमऊ लेदर क्राफ्ट एवं निर्यात बाज़ार",
+        "description": "'लेदर सिटी' कानपुर का मुख्य केंद्र जहां प्रामाणिक चमड़े के जैकेट, जूते, बैग और घुड़सवारी के साज-सामान थोक व खुदरा मूल्य पर उपलब्ध हैं।",
+        "best_time_to_visit": "दोपहर से शाम"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "subhash_park_cantonment",
+      "wiki_title": "Kanpur_Cantonment",
+      "category": "park",
+      "coordinates": [
+        26.4528,
+        80.3667
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4528,80.3667",
+      "image_asset": "transit_assets/tourist_places/kanpur/subhash_park_cantonment.webp",
+      "tags": [
+        "cantonment_park",
+        "netaji_subhash",
+        "lush_lawns",
+        "military_area",
+        "jogging"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Netaji Subhash Chandra Bose Park (Cantonment)",
+        "description": "Immaculately maintained green park in Kanpur Cantonment featuring broad jogging tracks, floral beds, and a life-sized bronze statue of Netaji.",
+        "best_time_to_visit": "Morning walk"
+      },
+      "hi": {
+        "name": "नेताजी सुभाष चंद्र बोस पार्क (छावनी)",
+        "description": "कानपुर कैंट क्षेत्र में स्थित अत्यंत स्वच्छ और हरा-भरा पार्क, जिसमें नेताजी की कांस्य प्रतिमा और सुबह की सैर के लिए बेहतरीन ट्रैक है।",
+        "best_time_to_visit": "सुबह 5:00 से 8:30 बजे"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Memorial%20Church%2C%20Kanpur%2C%20India.jpg"
+    },
+    {
+      "id": "sports_village_green_park",
+      "wiki_title": "Green_Park_Stadium",
+      "category": "museum",
+      "coordinates": [
+        26.4789,
+        80.3494
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4789,80.3494",
+      "image_asset": "transit_assets/tourist_places/kanpur/sports_village_green_park.webp",
+      "tags": [
+        "cricket_museum",
+        "hall_of_fame",
+        "historic_bats",
+        "green_park",
+        "memorabilia"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Green Park Cricket Gallery & Hall of Fame",
+        "description": "Specialized cricket gallery within Green Park showcasing historic photographs, signed cricket bats, test match balls, and memorabilia from legendary matches.",
+        "best_time_to_visit": "Daytime (Closed Mondays)"
+      },
+      "hi": {
+        "name": "ग्रीन पार्क क्रिकेट गैलरी एवं हॉल ऑफ फेम",
+        "description": "ग्रीन पार्क स्टेडियम के भीतर स्थित क्रिकेट संग्रहालय, जहां दिग्गज खिलाड़ियों के हस्ताक्षर युक्त बल्ले, ऐतिहासिक टेस्ट मैचों की तस्वीरें और स्मृति चिह्न प्रदर्शित हैं।",
+        "best_time_to_visit": "दिन के समय (सोमवार बंद)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "spm_hospital_heritage_complex",
+      "wiki_title": "Kanpur",
+      "category": "heritage",
+      "coordinates": [
+        26.5014,
+        80.2611
+      ],
+      "timings": {
+        "open": "00:00",
+        "close": "23:59",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.5014,80.2611",
+      "image_asset": "transit_assets/tourist_places/kanpur/spm_hospital_heritage_complex.webp",
+      "tags": [
+        "spm_hospital_metro",
+        "gtd_road",
+        "civic_heritage",
+        "kalyanpur"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Dr. Syama Prasad Mookerjee Memorial Enclave",
+        "description": "Civic medical and memorial square on GT Road directly serving the Kalyanpur-Rawatpur corridor at SPM Hospital Metro Station.",
+        "best_time_to_visit": "Daytime"
+      },
+      "hi": {
+        "name": "डॉ. श्यामा प्रसाद मुखर्जी स्मारक एन्क्लेव",
+        "description": "जीटी रोड पर कल्याणपुर-रावतपुर कॉरिडोर के मध्य स्थित प्रमुख नागरिक केंद्र, जो सीधे एसपीएम हॉस्पिटल मेट्रो स्टेशन से जुड़ा हुआ है।",
+        "best_time_to_visit": "दिन के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "gurudev_chauraha_cultural_hub",
+      "wiki_title": "Rawatpur",
+      "category": "modern",
+      "coordinates": [
+        26.4889,
+        80.2889
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4889,80.2889",
+      "image_asset": "transit_assets/tourist_places/kanpur/gurudev_chauraha_cultural_hub.webp",
+      "tags": [
+        "gurudev_palace",
+        "cinema_crossroad",
+        "metro_connected",
+        "street_food",
+        "kanpur_youth"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Gurudev Chauraha Cultural & Entertainment Junction",
+        "description": "Lively entertainment crossroads named after the historic Gurudev Cinema Palace, buzzing with student cafes, cinema halls, and street cuisine.",
+        "best_time_to_visit": "Evenings (Right at Gurudev Chauraha Metro)"
+      },
+      "hi": {
+        "name": "गुरुदेव चौराहा मनोरंजन जंक्शन",
+        "description": "ऐतिहासिक गुरुदेव सिनेमा के नाम पर प्रसिद्ध युवाओं का पसंदीदा चौराहा, जहां सिनेमा हॉल, कैफे और लखनवी-कानपुरी स्ट्रीट फूड की भरमार है।",
+        "best_time_to_visit": "शाम के समय (गुरुदेव चौराहा मेट्रो के पास)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "nayaganj_heritage_sarafa",
+      "wiki_title": "Kanpur",
+      "category": "market",
+      "coordinates": [
+        26.4611,
+        80.3583
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": [
+          "Sunday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=26.4611,80.3583",
+      "image_asset": "transit_assets/tourist_places/kanpur/nayaganj_heritage_sarafa.webp",
+      "tags": [
+        "bullion_market",
+        "nayaganj_metro",
+        "gold_souk",
+        "dry_fruits",
+        "historic_lane"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Nayaganj Heritage Bullion & Dry Fruit Bazaar",
+        "description": "Kanpur's historic bullion and spices trade heartland directly served by the underground Naya Ganj Metro Station, famous for gold jewelry and wholesale nuts.",
+        "best_time_to_visit": "Afternoons (Right at Naya Ganj Metro)"
+      },
+      "hi": {
+        "name": "नयागंज हेरिटेज सर्राफा एवं मेवा बाज़ार",
+        "description": "कानपुर का ऐतिहासिक सर्राफा और थोक मेवा व्यापार केंद्र, जो सीधे भूमिगत नयागंज मेट्रो स्टेशन से जुड़ा हुआ है; यहां सोने-चांदी के पारंपरिक आभूषण मिलते हैं।",
+        "best_time_to_visit": "दोपहर से शाम (रविवार बंद)"
+      },
+      "image_source_url": null
+    }
+  ]
+}

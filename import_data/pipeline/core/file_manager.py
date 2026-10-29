@@ -187,3 +187,20 @@ class UniversalFileSystemManager:
 				json.dump(data, f, indent="\t", ensure_ascii=False)
 		temp_file.replace(target_path)
 		return target_path
+
+	@classmethod
+	def get_tourist_source_path(cls, city_id: str) -> Path:
+		"""Returns: data/tourist_places/{clean_city}/{clean_city}_tourist_places_source.json"""
+		clean_city = (city_id or "").strip().lower()
+		p = DATA_DIR / "tourist_places" / clean_city
+		p.mkdir(parents=True, exist_ok=True)
+		return p / f"{clean_city}_tourist_places_source.json"
+
+	@classmethod
+	def load_tourist_source_json(cls, city_id: str) -> Optional[dict]:
+		"""Loads parsed tourist places source JSON if exists, else None."""
+		path = cls.get_tourist_source_path(city_id)
+		if not path.exists():
+			return None
+		with open(path, "r", encoding="utf-8") as f:
+			return json.load(f)

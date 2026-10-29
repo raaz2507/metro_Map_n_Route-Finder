@@ -15,7 +15,15 @@ export default {
 		"appOptions": "App Utilities",
 		"mode": {
 			"switchToDark": "Switch to Dark Mode",
-			"switchToLight": "Switch to Light Mode"
+			"switchToLight": "Switch to Light Mode",
+			"appearanceMode": "Appearance Mode",
+			"light": "Light",
+			"dark": "Dark",
+			"auto": "Auto"
+		},
+		"theme": {
+			"btnText": "Theme",
+			"ariaLabel": "Theme & Appearance Selector"
 		},
 		"fontScale": {
 			"btnTitle": "Adjust Text Size",
@@ -38,6 +46,7 @@ export default {
 		"networks": "Networks",
 		"home": "Home",
 		"stations": "Stations",
+		"tourist": "Tourist Places",
 		"recharge": "Smart Card/ Tokken",
 		"passengerSupport": "Passenger Support",
 		"other": "Other",

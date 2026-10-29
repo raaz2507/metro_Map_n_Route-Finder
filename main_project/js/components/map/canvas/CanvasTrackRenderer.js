@@ -24,10 +24,20 @@ export class CanvasTrackRenderer {
 	drawViaductSoftShadows(ctx) {
 		const r = this.#renderer;
 		const stationData = r.stationData || {};
+		const linesData = r.linesData || {};
 		const drawn = new Set();
-		const isDark = r.getThemeToken("--theme-mode", "light") === "dark";
-		const shadowAlpha = isDark ? 0.10 : 0.06;
+		const isDark = Boolean(r.isDarkMode);
+		const shadowAlpha = isDark ? 0.09 : 0.06;
 		const shadowEdges = [];
+
+		const hexToRgba = (hex, alpha) => {
+			if (!hex || !hex.startsWith("#")) return `rgba(56, 189, 248, ${alpha})`;
+			const h = hex.replace("#", "");
+			const cr = parseInt(h.substring(0, 2), 16) || 0;
+			const cg = parseInt(h.substring(2, 4), 16) || 0;
+			const cb = parseInt(h.substring(4, 6), 16) || 0;
+			return `rgba(${cr}, ${cg}, ${cb}, ${alpha})`;
+		};
 
 		// Viaduct segment ground shadows along sunlight vector
 		Object.values(stationData).forEach((st1) => {
@@ -56,7 +66,7 @@ export class CanvasTrackRenderer {
 					const sp2 = r.projectSunShadow(st2.xy.x, st2.xy.y, z2);
 					const avgScale = ((sp1.scale || 1) + (sp2.scale || 1)) / 2;
 					const trackW = r.getTrackWidth(avgScale);
-					shadowEdges.push({ x1: sp1.sx, y1: sp1.sy, x2: sp2.sx, y2: sp2.sy, baseW: trackW });
+					shadowEdges.push({ x1: sp1.sx, y1: sp1.sy, x2: sp2.sx, y2: sp2.sy, baseW: trackW, lineId: nbr.line });
 				}
 				// Case 2: Transition Edge (One elevated, other is underground/ground)
 				else if (z1 > 0 || z2 > 0) {
@@ -73,25 +83,39 @@ export class CanvasTrackRenderer {
 					const spGround = r.projectSunShadow(groundX, groundY, 0); // Z = 0!
 					const avgScale = ((spElev.scale || 1) + (spGround.scale || 1)) / 2;
 					const trackW = r.getTrackWidth(avgScale);
-					shadowEdges.push({ x1: spElev.sx, y1: spElev.sy, x2: spGround.sx, y2: spGround.sy, baseW: trackW * 0.9 });
+					shadowEdges.push({ x1: spElev.sx, y1: spElev.sy, x2: spGround.sx, y2: spGround.sy, baseW: trackW * 0.9, lineId: nbr.line });
 				}
 			});
 		});
 
 		ctx.save();
 		ctx.lineCap = "round";
+		ctx.lineJoin = "round";
 
-		// Diffused ambient viaduct ground shadow with wide, misty falloff (dhundhla - zero thin lines)
-		const tiers = [
-			{ widthMultiplier: 5.0, alphaMult: 0.25 },
-			{ widthMultiplier: 3.2, alphaMult: 0.45 },
-			{ widthMultiplier: 2.0, alphaMult: 0.30 }
+		// Soft Gaussian atmospheric blur to eliminate all sharpness and parallel lines
+		if (typeof ctx.filter !== "undefined") {
+			ctx.filter = isDark ? "blur(4.5px)" : "blur(3px)";
+		}
+
+		// Broad diffused ambient viaduct ground shadow with soft, misty falloff (zero thin lines)
+		// Option C: In dark mode, matches each metro line's colored nocturnal underglow!
+		const tiers = isDark ? [
+			{ widthMultiplier: 6.5, alphaMult: 0.20 },
+			{ widthMultiplier: 4.2, alphaMult: 0.40 },
+			{ widthMultiplier: 2.4, alphaMult: 0.40 }
+		] : [
+			{ widthMultiplier: 6.5, alphaMult: 0.20 },
+			{ widthMultiplier: 4.2, alphaMult: 0.45 },
+			{ widthMultiplier: 2.4, alphaMult: 0.35 }
 		];
 
 		tiers.forEach((tier) => {
-			ctx.strokeStyle = `rgba(15, 23, 42, ${shadowAlpha * tier.alphaMult})`;
 			shadowEdges.forEach((e) => {
-				ctx.lineWidth = e.baseW * tier.widthMultiplier;
+				const lineInfo = linesData[e.lineId];
+				ctx.strokeStyle = isDark
+					? hexToRgba(lineInfo?.color, shadowAlpha * tier.alphaMult)
+					: `rgba(15, 23, 42, ${shadowAlpha * tier.alphaMult})`;
+				ctx.lineWidth = Math.max(3.5, e.baseW * tier.widthMultiplier);
 				ctx.beginPath();
 				ctx.moveTo(e.x1, e.y1);
 				ctx.lineTo(e.x2, e.y2);
@@ -107,12 +131,21 @@ export class CanvasTrackRenderer {
 				const trackW = r.getTrackWidth(sp.scale);
 				const isInterchange = st.lines && st.lines.length > 1;
 				const baseR = r.getStationRadius ? r.getStationRadius(sp.scale, isInterchange) : (isInterchange ? Math.max(2.8, trackW * 1.4) : Math.max(2.0, trackW * 1.1));
-				const outerR = baseR * 2.8;
+				const outerR = Math.max(8.0, baseR * 3.0);
 
-				const grad = ctx.createRadialGradient(sp.sx, sp.sy, baseR * 0.2, sp.sx, sp.sy, outerR);
-				grad.addColorStop(0.0, `rgba(15, 23, 42, ${shadowAlpha * 0.35})`);
-				grad.addColorStop(0.5, `rgba(15, 23, 42, ${shadowAlpha * 0.15})`);
-				grad.addColorStop(1.0, "rgba(15, 23, 42, 0)");
+				const lineId = st.lines && st.lines.length > 0 ? st.lines[0] : null;
+				const stColor = (lineId && linesData[lineId]?.color) || "#38bdf8";
+
+				const grad = ctx.createRadialGradient(sp.sx, sp.sy, baseR * 0.1, sp.sx, sp.sy, outerR);
+				if (isDark) {
+					grad.addColorStop(0.0, hexToRgba(stColor, shadowAlpha * 0.45));
+					grad.addColorStop(0.5, hexToRgba(stColor, shadowAlpha * 0.18));
+					grad.addColorStop(1.0, hexToRgba(stColor, 0));
+				} else {
+					grad.addColorStop(0.0, `rgba(15, 23, 42, ${shadowAlpha * 0.35})`);
+					grad.addColorStop(0.5, `rgba(15, 23, 42, ${shadowAlpha * 0.15})`);
+					grad.addColorStop(1.0, `rgba(15, 23, 42, 0)`);
+				}
 
 				ctx.fillStyle = grad;
 				ctx.beginPath();
@@ -129,95 +162,9 @@ export class CanvasTrackRenderer {
 	 * @param {CanvasRenderingContext2D} ctx
 	 */
 	drawTunnelGroundReverseShadow(ctx) {
-		const r = this.#renderer;
-		if (r.undergroundDepth <= 0) return;
-		const isLight = r.currentTheme === "light";
-		const stationData = r.stationData || {};
-		const drawn = new Set();
-		const shadowEdges = [];
-
-		Object.values(stationData).forEach((st1) => {
-			if (!st1.neighbors) return;
-			const nbrList = Array.isArray(st1.neighbors)
-				? st1.neighbors
-				: (typeof st1.neighbors === "object" ? Object.values(st1.neighbors).flat() : []);
-
-			nbrList.forEach((nbr) => {
-				const nbrId = (nbr && typeof nbr === "object") ? (nbr.station || nbr.id) : nbr;
-				if (!nbrId) return;
-
-				const key = [st1.id, nbrId].sort().join("-");
-				if (drawn.has(key)) return;
-				drawn.add(key);
-
-				const st2 = stationData[nbrId];
-				if (!st2 || !st1.xy || !st2.xy) return;
-
-				const z1 = r.getLayoutElevation(st1.properties?.layout);
-				const z2 = r.getLayoutElevation(st2.properties?.layout);
-
-				const isUG1 = z1 < 0;
-				const isUG2 = z2 < 0;
-
-				// Case A: Fully Underground edge
-				if (isUG1 && isUG2) {
-					const sp1 = r.projectTunnelReverseShadow(st1.xy.x, st1.xy.y, z1);
-					const sp2 = r.projectTunnelReverseShadow(st2.xy.x, st2.xy.y, z2);
-					const trackW = r.getTrackWidth(sp1.scale);
-					shadowEdges.push({ x1: sp1.sx, y1: sp1.sy, x2: sp2.sx, y2: sp2.sy, trackW: Math.max(2.0, trackW * 1.1) });
-				}
-				// Case B: Transition edge (descending from ground to underground)
-				else if (isUG1 || isUG2) {
-					const ugStation = isUG1 ? st1 : st2;
-					const otherStation = isUG1 ? st2 : st1;
-					const ugZ = isUG1 ? z1 : z2;
-
-					const groundX = ugStation.xy.x + (otherStation.xy.x - ugStation.xy.x) * 0.45;
-					const groundY = ugStation.xy.y + (otherStation.xy.y - ugStation.xy.y) * 0.45;
-
-					const spUG = r.projectTunnelReverseShadow(ugStation.xy.x, ugStation.xy.y, ugZ);
-					const spGround = r.projectPoint(groundX, groundY, 0);
-					const trackW = r.getTrackWidth(spUG.scale);
-					shadowEdges.push({ x1: spGround.sx, y1: spGround.sy, x2: spUG.sx, y2: spUG.sy, trackW: Math.max(1.8, trackW * 0.95) });
-				}
-			});
-		});
-
-		if (shadowEdges.length === 0) return;
-
-		ctx.save();
-		ctx.lineCap = "round";
-		ctx.lineJoin = "round";
-
-		// Misty Skyblue subterranean tunnel conduit (dhundhla / hazy / soft diffused aura)
-		// Zero thin parallel lines - broad atmospheric glow on ground datum
-		const tiers = isLight ? [
-			{ widthMultiplier: 4.8, stroke: "rgba(2, 132, 199, 0.02)" },
-			{ widthMultiplier: 3.2, stroke: "rgba(14, 165, 233, 0.035)" },
-			{ widthMultiplier: 1.8, stroke: "rgba(56, 189, 248, 0.04)" }
-		] : [
-			{ widthMultiplier: 4.8, stroke: "rgba(56, 189, 248, 0.02)" },
-			{ widthMultiplier: 3.2, stroke: "rgba(56, 189, 248, 0.035)" },
-			{ widthMultiplier: 1.8, stroke: "rgba(125, 211, 252, 0.045)" }
-		];
-
-		tiers.forEach((tier) => {
-			ctx.strokeStyle = tier.stroke;
-			shadowEdges.forEach((e) => {
-				ctx.lineWidth = e.trackW * tier.widthMultiplier;
-				ctx.beginPath();
-				ctx.moveTo(e.x1, e.y1);
-				ctx.lineTo(e.x2, e.y2);
-				ctx.stroke();
-			});
-		});
-
-		ctx.restore();
+		// Disabled: Kept clean as underground tracks already render at true physical depth (-Z) below ground datum
 	}
 
-	/**
-	 * Stroke an individual track segment with construction/planned line dash styling or smooth S-curve ramp
-	 */
 	strokeTrackSegment(ctx, p1, p2, trackW, lineInfo, st1, st2, lineId, alpha, controlPoints = null) {
 		const r = this.#renderer;
 		const edgeStatus = r.getEdgeStatus(st1, st2, lineId);
@@ -409,7 +356,7 @@ export class CanvasTrackRenderer {
 				// In 2.5D, elevated viaduct tracks get a subtle contact drop shadow directly behind them (never separated)
 				if (r.is25D && !isDimmed) {
 					ctx.save();
-					ctx.strokeStyle = "rgba(15, 23, 42, 0.12)";
+					ctx.strokeStyle = r.themeTokens?.trackShadow || "rgba(15, 23, 42, 0.12)";
 					ctx.lineWidth = trackW * 1.35;
 					const contactOffset = Math.max(0.4, trackW * 0.22);
 					ctx.beginPath();

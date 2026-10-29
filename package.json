@@ -11,7 +11,10 @@
 		"test:ai": "node tester/run-ai.js",
 		"build:android-web": "node main_project_scripts/build-android.cjs",
 		"sync:android": "npm run build:android-web && cap sync android",
-		"sync:three": "node main_project_scripts/sync-three.cjs"
+		"sync:three": "node main_project_scripts/sync-three.cjs",
+		"download:transit-assets": "python import_data/pipeline/download_transit_assets.py --all",
+		"compress:transit-assets": "python import_data/pipeline/compress_tourist_assets.py --all",
+		"update:metrics": "python main_project_scripts/data_pipeline/update_about_metrics.py"
 	},
 	"repository": {
 		"type": "git",

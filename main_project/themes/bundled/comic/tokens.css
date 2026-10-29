@@ -60,6 +60,38 @@ Exact 1:1 Match with comic_design_lab.html Option 1 (Pulp Newsprint):
 		--badge-border: #000000;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #fffde7;
+		--map-grid-color: rgba(34, 34, 34, 0.15);
+		--map-grid-wash: rgba(254, 240, 138, 0.10);
+		--map-station-fill: #ffffff;
+		--map-station-stroke: #111111;
+		--map-station-underground-fill: #fef08a;
+		--map-station-multimodal: #ef4444;
+		--map-station-shared: #2563eb;
+		--map-station-halo: rgba(255, 253, 231, 0.98);
+		--map-label-color: #111111;
+		--map-label-halo: #fffde7;
+		--map-label-hover: #dc2626;
+		--map-interchange-badge: #facc15;
+		--map-interchange-ring: #111111;
+		--map-track-bed: #fef9c3;
+		--map-track-shadow: rgba(0, 0, 0, 0.28);
+		--map-tunnel-conduit: rgba(0, 0, 0, 0.12);
+		--map-route-glow: rgba(239, 68, 68, 0.45);
+		--map-strata-sub-fill: rgba(250, 204, 21, 0.12);
+		--map-strata-sub-stroke: rgba(220, 38, 38, 0.65);
+		--map-strata-viaduct-fill: rgba(37, 99, 235, 0.08);
+		--map-strata-viaduct-stroke: rgba(17, 17, 17, 0.70);
+
+		/* 3D WebGL Graphic Novel Cel-Shade */
+		--map-3d-sky: #fef9c3;
+		--map-3d-ground: #fde047;
+		--map-3d-hemi-sky: #ffffff;
+		--map-3d-hemi-ground: #eab308;
+		--map-3d-sunlight: #ffffff;
+		--map-3d-ambient: #ca8a04;
 	}
 
 	/* 🌙 COMIC NOIR (Aged Noir Graphic Novel Night) */
@@ -97,6 +129,38 @@ Exact 1:1 Match with comic_design_lab.html Option 1 (Pulp Newsprint):
 		--badge-border: #facc15;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #181614;
+		--map-grid-color: rgba(250, 204, 21, 0.18);
+		--map-grid-wash: rgba(0, 0, 0, 0.25);
+		--map-station-fill: #221f1b;
+		--map-station-stroke: #facc15;
+		--map-station-underground-fill: #292524;
+		--map-station-multimodal: #ef4444;
+		--map-station-shared: #38bdf8;
+		--map-station-halo: rgba(24, 22, 20, 0.98);
+		--map-label-color: #fefce8;
+		--map-label-halo: #181614;
+		--map-label-hover: #facc15;
+		--map-interchange-badge: #ef4444;
+		--map-interchange-ring: #facc15;
+		--map-track-bed: #26221d;
+		--map-track-shadow: rgba(0, 0, 0, 0.60);
+		--map-tunnel-conduit: rgba(250, 204, 21, 0.15);
+		--map-route-glow: rgba(250, 204, 21, 0.65);
+		--map-strata-sub-fill: rgba(239, 68, 68, 0.18);
+		--map-strata-sub-stroke: rgba(239, 68, 68, 0.75);
+		--map-strata-viaduct-fill: rgba(250, 204, 21, 0.10);
+		--map-strata-viaduct-stroke: rgba(250, 204, 21, 0.75);
+
+		/* 3D WebGL Noir Inked Night */
+		--map-3d-sky: #100f0d;
+		--map-3d-ground: #1c1917;
+		--map-3d-hemi-sky: #facc15;
+		--map-3d-hemi-ground: #292524;
+		--map-3d-sunlight: #fef08a;
+		--map-3d-ambient: #78716c;
 	}
 
 	/* 💥 BALANCED PULP COMIC OVERRIDES (Zero Clutter) */

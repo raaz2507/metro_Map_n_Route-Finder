@@ -62,6 +62,7 @@ class HomePageController {
 	// Lifecycle
 	#abortController = null;
 	#unsubscribeStore = null;
+	#unsubscribeTheme = null;
 	constructor() {
 		this.#abortController = new AbortController();
 		this.#get_element();
@@ -76,6 +77,10 @@ class HomePageController {
 		if (typeof this.#unsubscribeStore === "function") {
 			this.#unsubscribeStore();
 			this.#unsubscribeStore = null;
+		}
+		if (typeof this.#unsubscribeTheme === "function") {
+			this.#unsubscribeTheme();
+			this.#unsubscribeTheme = null;
 		}
 		if (this.#mapObj?.destroy) this.#mapObj.destroy();
 		if (this.#recentSearchesView?.destroy) this.#recentSearchesView.destroy();
@@ -260,6 +265,11 @@ class HomePageController {
 			if (this.#stationCalloutView) this.#stationCalloutView.setLanguage(newLang);
 			if (this.#dishaAiView) this.#dishaAiView.setLanguage(newLang);
 			syncInputsAndDetails(newLang);
+		});
+
+		this.#unsubscribeTheme = appStateStore.subscribe("currentTheme", (newTheme) => {
+			this.#settings.currentTheme = newTheme;
+			if (this.#mapObj) this.#mapObj.setTheme(newTheme);
 		});
 	}
 	#initSwapButton(signal) {

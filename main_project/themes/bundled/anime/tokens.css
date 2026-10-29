@@ -61,6 +61,38 @@ Style: Option 1 - Spirited Sea-Railway (Miyazaki Antique Locomotive & Brass)
 		--badge-border: #78350f;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #faf7ea;
+		--map-grid-color: rgba(180, 83, 9, 0.18);
+		--map-grid-wash: rgba(244, 239, 219, 0.12);
+		--map-station-fill: #fffef8;
+		--map-station-stroke: #78350f;
+		--map-station-underground-fill: #fef3c7;
+		--map-station-multimodal: #b45309;
+		--map-station-shared: #0284c7;
+		--map-station-halo: rgba(250, 247, 234, 0.98);
+		--map-label-color: #382415;
+		--map-label-halo: #faf7ea;
+		--map-label-hover: #b45309;
+		--map-interchange-badge: #d97706;
+		--map-interchange-ring: #78350f;
+		--map-track-bed: #f2ebd5;
+		--map-track-shadow: rgba(69, 26, 3, 0.16);
+		--map-tunnel-conduit: rgba(180, 83, 9, 0.12);
+		--map-route-glow: rgba(217, 119, 6, 0.45);
+		--map-strata-sub-fill: rgba(180, 83, 9, 0.08);
+		--map-strata-sub-stroke: rgba(180, 83, 9, 0.65);
+		--map-strata-viaduct-fill: rgba(2, 132, 199, 0.08);
+		--map-strata-viaduct-stroke: rgba(2, 132, 199, 0.65);
+
+		/* 3D WebGL Spirited Sea-Rail Sunset */
+		--map-3d-sky: #fef3c7;
+		--map-3d-ground: #f4efdb;
+		--map-3d-hemi-sky: #fde68a;
+		--map-3d-hemi-ground: #d97706;
+		--map-3d-sunlight: #ffffff;
+		--map-3d-ambient: #b45309;
 	}
 
 	/* 🌙 SPIRITED TWILIGHT (Sixth Station Sea-Railway Twilight #152232) */
@@ -98,6 +130,38 @@ Style: Option 1 - Spirited Sea-Railway (Miyazaki Antique Locomotive & Brass)
 		--badge-border: #f59e0b;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #152232;
+		--map-grid-color: rgba(217, 119, 6, 0.22);
+		--map-grid-wash: rgba(14, 23, 36, 0.20);
+		--map-station-fill: #0e1724;
+		--map-station-stroke: #f59e0b;
+		--map-station-underground-fill: #1e3147;
+		--map-station-multimodal: #d97706;
+		--map-station-shared: #38bdf8;
+		--map-station-halo: rgba(21, 34, 50, 0.98);
+		--map-label-color: #fef3c7;
+		--map-label-halo: #152232;
+		--map-label-hover: #f59e0b;
+		--map-interchange-badge: #d97706;
+		--map-interchange-ring: #fef3c7;
+		--map-track-bed: #1b2c40;
+		--map-track-shadow: rgba(0, 0, 0, 0.55);
+		--map-tunnel-conduit: rgba(217, 119, 6, 0.18);
+		--map-route-glow: rgba(245, 158, 11, 0.65);
+		--map-strata-sub-fill: rgba(217, 119, 6, 0.16);
+		--map-strata-sub-stroke: rgba(217, 119, 6, 0.70);
+		--map-strata-viaduct-fill: rgba(56, 189, 248, 0.12);
+		--map-strata-viaduct-stroke: rgba(56, 189, 248, 0.70);
+
+		/* 3D WebGL Spirited Twilight Sky & Ground */
+		--map-3d-sky: #0a131f;
+		--map-3d-ground: #101c2b;
+		--map-3d-hemi-sky: #f59e0b;
+		--map-3d-hemi-ground: #1b2c40;
+		--map-3d-sunlight: #fed7aa;
+		--map-3d-ambient: #78350f;
 	}
 
 	/* 🚂 OPTION 1: SPIRITED SEA-RAILWAY OVERRIDES */

@@ -57,12 +57,36 @@
             android:grantUriPermissions="true">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
         </provider>
+
+        <!-- 🔔 2.5D Home Screen Alarm Widget Provider -->
+        <receiver
+            android:name=".AlarmWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_alarm_info" />
+        </receiver>
+
+        <!-- ⚡ Unified Alarm Action Receiver (Widget & Notification Clicks) -->
+        <receiver
+            android:name=".AlarmActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.raaz.metroroutefinder.ACTION_DISMISS_ALARM" />
+                <action android:name="com.raaz.metroroutefinder.ACTION_SNOOZE_ALARM" />
+            </intent-filter>
+        </receiver>
     </application>
 
     <!-- Essential Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- Camera & Safe Media Storage Permissions -->
     <uses-permission android:name="android.permission.CAMERA" />

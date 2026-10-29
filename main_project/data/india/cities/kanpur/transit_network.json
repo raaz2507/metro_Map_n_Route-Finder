@@ -12,26 +12,8 @@
 			"color": "#FF7A00",
 			"color_name": "orange",
 			"style": "solid",
-			"route": {
-				"from": "iit_kanpur",
-				"to": "kanpur_central"
-			},
-			"stations": [
-				"iit_kanpur",
-				"kalyanpur_metro",
-				"spm_hospital",
-				"vishwavidyalaya_metro",
-				"gurudev_chauraha",
-				"geeta_nagar",
-				"rawatpur_metro",
-				"llr_hospital",
-				"motijheel_metro",
-				"chunni_ganj",
-				"naveen_market",
-				"bada_chauraha",
-				"naya_ganj",
-				"kanpur_central"
-			],
+			"route": {"from": "iit_kanpur", "to": "kanpur_central"},
+			"stations": ["iit_kanpur", "kalyanpur_metro", "spm_hospital", "vishwavidyalaya_metro", "gurudev_chauraha", "geeta_nagar", "rawatpur_metro", "llr_hospital", "motijheel_metro", "chunni_ganj", "naveen_market", "bada_chauraha", "naya_ganj", "kanpur_central"],
 			"farePolicy": "kanpur_metro_standard"
 		}
 	},
@@ -40,412 +22,172 @@
 		"iit_kanpur": {
 			"id": "iit_kanpur",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kalyanpur_metro",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kalyanpur_metro", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.5092425,
-					"lon": 80.248232
-				}
+				"decimal": {"lat": 26.5092425, "lon": 80.248232}
 			}
 		},
 		"kalyanpur_metro": {
 			"id": "kalyanpur_metro",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "iit_kanpur",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "spm_hospital",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "iit_kanpur", "line": "upmrc_kanpur.orange"}, {"station": "spm_hospital", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.5035126,
-					"lon": 80.2526633
-				}
+				"decimal": {"lat": 26.5035126, "lon": 80.2526633}
 			}
 		},
 		"spm_hospital": {
 			"id": "spm_hospital",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
+			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "kalyanpur_metro",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "vishwavidyalaya_metro",
-					"line": "upmrc_kanpur.orange"
-				}
+				{"station": "kalyanpur_metro", "line": "upmrc_kanpur.orange"},
+				{"station": "vishwavidyalaya_metro", "line": "upmrc_kanpur.orange"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.498813,
-					"lon": 80.2590395
-				}
+				"decimal": {"lat": 26.498813, "lon": 80.2590395}
 			}
 		},
 		"vishwavidyalaya_metro": {
 			"id": "vishwavidyalaya_metro",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "spm_hospital",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "gurudev_chauraha",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "spm_hospital", "line": "upmrc_kanpur.orange"}, {"station": "gurudev_chauraha", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.497146,
-					"lon": 80.264898
-				}
+				"decimal": {"lat": 26.497146, "lon": 80.264898}
 			}
 		},
 		"gurudev_chauraha": {
 			"id": "gurudev_chauraha",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "vishwavidyalaya_metro",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "geeta_nagar",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "vishwavidyalaya_metro", "line": "upmrc_kanpur.orange"}, {"station": "geeta_nagar", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4915747,
-					"lon": 80.2844945
-				}
+				"decimal": {"lat": 26.4915747, "lon": 80.2844945}
 			}
 		},
 		"geeta_nagar": {
 			"id": "geeta_nagar",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "gurudev_chauraha",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "rawatpur_metro",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "gurudev_chauraha", "line": "upmrc_kanpur.orange"}, {"station": "rawatpur_metro", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4875095,
-					"lon": 80.2915727
-				}
+				"decimal": {"lat": 26.4875095, "lon": 80.2915727}
 			}
 		},
 		"rawatpur_metro": {
 			"id": "rawatpur_metro",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "geeta_nagar",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "llr_hospital",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "geeta_nagar", "line": "upmrc_kanpur.orange"}, {"station": "llr_hospital", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4829232,
-					"lon": 80.2998924
-				}
+				"decimal": {"lat": 26.4829232, "lon": 80.2998924}
 			}
 		},
 		"llr_hospital": {
 			"id": "llr_hospital",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "rawatpur_metro",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "motijheel_metro",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "rawatpur_metro", "line": "upmrc_kanpur.orange"}, {"station": "motijheel_metro", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4792933,
-					"lon": 80.3119705
-				}
+				"decimal": {"lat": 26.4792933, "lon": 80.3119705}
 			}
 		},
 		"motijheel_metro": {
 			"id": "motijheel_metro",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "llr_hospital",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "chunni_ganj",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "llr_hospital", "line": "upmrc_kanpur.orange"}, {"station": "chunni_ganj", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4790678,
-					"lon": 80.3176226
-				}
+				"decimal": {"lat": 26.4790678, "lon": 80.3176226}
 			}
 		},
 		"chunni_ganj": {
 			"id": "chunni_ganj",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "motijheel_metro",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "naveen_market",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "motijheel_metro", "line": "upmrc_kanpur.orange"}, {"station": "naveen_market", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4770763,
-					"lon": 80.3372678
-				}
+				"decimal": {"lat": 26.4770763, "lon": 80.3372678}
 			}
 		},
 		"naveen_market": {
 			"id": "naveen_market",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "chunni_ganj",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "bada_chauraha",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "chunni_ganj", "line": "upmrc_kanpur.orange"}, {"station": "bada_chauraha", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4740497,
-					"lon": 80.3464474
-				}
+				"decimal": {"lat": 26.4740497, "lon": 80.3464474}
 			}
 		},
 		"bada_chauraha": {
 			"id": "bada_chauraha",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "naveen_market",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "naya_ganj",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "naveen_market", "line": "upmrc_kanpur.orange"}, {"station": "naya_ganj", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4726327,
-					"lon": 80.3522295
-				}
+				"decimal": {"lat": 26.4726327, "lon": 80.3522295}
 			}
 		},
 		"naya_ganj": {
 			"id": "naya_ganj",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "bada_chauraha",
-					"line": "upmrc_kanpur.orange"
-				},
-				{
-					"station": "kanpur_central",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "bada_chauraha", "line": "upmrc_kanpur.orange"}, {"station": "kanpur_central", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4641849,
-					"lon": 80.3596218
-				}
+				"decimal": {"lat": 26.4641849, "lon": 80.3596218}
 			}
 		},
 		"kanpur_central": {
 			"id": "kanpur_central",
 			"lines": ["upmrc_kanpur.orange"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "naya_ganj",
-					"line": "upmrc_kanpur.orange"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "naya_ganj", "line": "upmrc_kanpur.orange"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.4537015,
-					"lon": 80.3512524
-				}
+				"decimal": {"lat": 26.4537015, "lon": 80.3512524}
 			}
 		}
 	},
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
-			"kanpur_metro": {
-				"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
-				"avgSpeedMetersPerMin": 550,
-				"stationHaltMinutes": 0.5
-			},
-			"upmrc_kanpur": {
-				"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
-				"avgSpeedMetersPerMin": 550,
-				"stationHaltMinutes": 0.5
-			}
+			"kanpur_metro": {"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
+			"upmrc_kanpur": {"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"kanpur_metro_standard": {
 				"network": "kanpur_metro",
 				"effectiveFrom": "2021-12-28",
 				"fareModel": "station_count_based",
-				"calculation": {
-					"distanceUnit": "stations",
-					"rounding": "exact"
-				},
+				"calculation": {"distanceUnit": "stations", "rounding": "exact"},
 				"fareTables": {
 					"standard": [
-						{
-							"minStations": 1,
-							"maxStations": 1,
-							"fare": 10
-						},
-						{
-							"minStations": 2,
-							"maxStations": 2,
-							"fare": 15
-						},
-						{
-							"minStations": 3,
-							"maxStations": 6,
-							"fare": 20
-						},
-						{
-							"minStations": 7,
-							"maxStations": 9,
-							"fare": 30
-						},
-						{
-							"minStations": 10,
-							"maxStations": 13,
-							"fare": 40
-						},
-						{
-							"minStations": 14,
-							"maxStations": 17,
-							"fare": 50
-						},
-						{
-							"minStations": 18,
-							"maxStations": null,
-							"fare": 60
-						}
+						{"minStations": 1, "maxStations": 1, "fare": 10},
+						{"minStations": 2, "maxStations": 2, "fare": 15},
+						{"minStations": 3, "maxStations": 6, "fare": 20},
+						{"minStations": 7, "maxStations": 9, "fare": 30},
+						{"minStations": 10, "maxStations": 13, "fare": 40},
+						{"minStations": 14, "maxStations": 17, "fare": 50},
+						{"minStations": 18, "maxStations": null, "fare": 60}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base"
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
@@ -454,29 +196,9 @@
 						"refundableDeposit": 100,
 						"rechargeUrl": ""
 					},
-					"tourist_card_1day": {
-						"type": "flat_pass",
-						"cost": 200,
-						"travelValue": 100,
-						"refundableDeposit": 100,
-						"validityDays": 1,
-						"unlimitedRides": true
-					},
-					"tourist_card_3day": {
-						"type": "flat_pass",
-						"cost": 350,
-						"travelValue": 250,
-						"refundableDeposit": 100,
-						"validityDays": 3,
-						"unlimitedRides": true
-					},
-					"qr_ticket": {
-						"type": "digital",
-						"validityMinutes": 60,
-						"whatsappUrl": "",
-						"bookingUrl": "",
-						"appUrl": ""
-					}
+					"tourist_card_1day": {"type": "flat_pass", "cost": 200, "travelValue": 100, "refundableDeposit": 100, "validityDays": 1, "unlimitedRides": true},
+					"tourist_card_3day": {"type": "flat_pass", "cost": 350, "travelValue": 250, "refundableDeposit": 100, "validityDays": 3, "unlimitedRides": true},
+					"qr_ticket": {"type": "digital", "validityMinutes": 60, "whatsappUrl": "", "bookingUrl": "", "appUrl": ""}
 				},
 				"stationStayRules": {
 					"sameStationExitFare": 10,

@@ -6,89 +6,37 @@
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
-			"jaipur_metro": {
-				"operator": "Jaipur Metro Rail Corporation (JMRC)",
-				"avgSpeedMetersPerMin": 530,
-				"stationHaltMinutes": 0.5
-			},
-			"jmrc": {
-				"operator": "Jaipur Metro Rail Corporation (JMRC)",
-				"avgSpeedMetersPerMin": 530,
-				"stationHaltMinutes": 0.5
-			}
+			"jaipur_metro": {"operator": "Jaipur Metro Rail Corporation (JMRC)", "avgSpeedMetersPerMin": 530, "stationHaltMinutes": 0.5},
+			"jmrc": {"operator": "Jaipur Metro Rail Corporation (JMRC)", "avgSpeedMetersPerMin": 530, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"jaipur_metro_standard": {
 				"network": "jaipur_metro",
 				"effectiveFrom": "2020-09-23",
 				"fareModel": "station_count_based",
-				"calculation": {
-					"distanceUnit": "stations",
-					"rounding": "exact"
-				},
+				"calculation": {"distanceUnit": "stations", "rounding": "exact"},
 				"fareTables": {
 					"standard": [
-						{
-							"minStations": 0,
-							"maxStations": 2,
-							"fare": 10
-						},
-						{
-							"minStations": 3,
-							"maxStations": 5,
-							"fare": 15
-						},
-						{
-							"minStations": 6,
-							"maxStations": 8,
-							"fare": 20
-						},
-						{
-							"minStations": 9,
-							"maxStations": null,
-							"fare": 25
-						}
+						{"minStations": 0, "maxStations": 2, "fare": 10},
+						{"minStations": 3, "maxStations": 5, "fare": 15},
+						{"minStations": 6, "maxStations": 8, "fare": 20},
+						{"minStations": 9, "maxStations": null, "fare": 25}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base"
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
 						"minBalance": 50,
 						"refundableDeposit": 50,
-						"maxTravelTimeMinutes": {
-							"sameStation": 20,
-							"otherStation": 60
-						},
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 60},
 						"rechargeUrl": ""
 					},
-					"tourist_card_1day": {
-						"type": "flat_pass",
-						"cost": 150,
-						"travelValue": 100,
-						"refundableDeposit": 50,
-						"validityDays": 1,
-						"unlimitedRides": true
-					},
-					"tourist_card_3day": {
-						"type": "flat_pass",
-						"cost": 250,
-						"travelValue": 200,
-						"refundableDeposit": 50,
-						"validityDays": 3,
-						"unlimitedRides": true
-					},
-					"qr_ticket": {
-						"type": "digital",
-						"validityMinutes": 60,
-						"whatsappUrl": "",
-						"bookingUrl": "",
-						"appUrl": ""
-					}
+					"tourist_card_1day": {"type": "flat_pass", "cost": 150, "travelValue": 100, "refundableDeposit": 50, "validityDays": 1, "unlimitedRides": true},
+					"tourist_card_3day": {"type": "flat_pass", "cost": 250, "travelValue": 200, "refundableDeposit": 50, "validityDays": 3, "unlimitedRides": true},
+					"qr_ticket": {"type": "digital", "validityMinutes": 60, "whatsappUrl": "", "bookingUrl": "", "appUrl": ""}
 				},
 				"stationStayRules": {
 					"sameStationExitFare": 10,
@@ -110,23 +58,8 @@
 			"color_name": "pink",
 			"farePolicy": "jaipur_metro_standard",
 			"style": "solid",
-			"route": {
-				"from": "mansarovar",
-				"to": "badi_chaupar"
-			},
-			"stations": [
-				"mansarovar",
-				"new_aatish_market",
-				"vivek_vihar",
-				"shyam_nagar",
-				"ram_nagar",
-				"civil_lines",
-				"railway_station",
-				"sindhi_camp",
-				"chandpole",
-				"chhoti_chaupar",
-				"badi_chaupar"
-			]
+			"route": {"from": "mansarovar", "to": "badi_chaupar"},
+			"stations": ["mansarovar", "new_aatish_market", "vivek_vihar", "shyam_nagar", "ram_nagar", "civil_lines", "railway_station", "sindhi_camp", "chandpole", "chhoti_chaupar", "badi_chaupar"]
 		}
 	},
 	"transfers": {},
@@ -134,268 +67,111 @@
 		"mansarovar": {
 			"id": "mansarovar",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "new_aatish_market",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "new_aatish_market", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8795679,
-					"lon": 75.7505817
-				}
+				"decimal": {"lat": 26.8795679, "lon": 75.7505817}
 			}
 		},
 		"new_aatish_market": {
 			"id": "new_aatish_market",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "mansarovar",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "vivek_vihar",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mansarovar", "line": "jmrc.pink"}, {"station": "vivek_vihar", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.880275,
-					"lon": 75.764588
-				}
+				"decimal": {"lat": 26.880275, "lon": 75.764588}
 			}
 		},
 		"vivek_vihar": {
 			"id": "vivek_vihar",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "new_aatish_market",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "shyam_nagar",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "new_aatish_market", "line": "jmrc.pink"}, {"station": "shyam_nagar", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.888792,
-					"lon": 75.76854
-				}
+				"decimal": {"lat": 26.888792, "lon": 75.76854}
 			}
 		},
 		"shyam_nagar": {
 			"id": "shyam_nagar",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "vivek_vihar",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "ram_nagar",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "vivek_vihar", "line": "jmrc.pink"}, {"station": "ram_nagar", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.896477,
-					"lon": 75.77068
-				}
+				"decimal": {"lat": 26.896477, "lon": 75.77068}
 			}
 		},
 		"ram_nagar": {
 			"id": "ram_nagar",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "shyam_nagar",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "civil_lines",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "shyam_nagar", "line": "jmrc.pink"}, {"station": "civil_lines", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.9019446,
-					"lon": 75.774671
-				}
+				"decimal": {"lat": 26.9019446, "lon": 75.774671}
 			}
 		},
 		"civil_lines": {
 			"id": "civil_lines",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "ram_nagar",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "railway_station",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ram_nagar", "line": "jmrc.pink"}, {"station": "railway_station", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.9096443,
-					"lon": 75.7812921
-				}
+				"decimal": {"lat": 26.9096443, "lon": 75.7812921}
 			}
 		},
 		"railway_station": {
 			"id": "railway_station",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "civil_lines",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "sindhi_camp",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "civil_lines", "line": "jmrc.pink"}, {"station": "sindhi_camp", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.918157,
-					"lon": 75.7902021
-				}
+				"decimal": {"lat": 26.918157, "lon": 75.7902021}
 			}
 		},
 		"sindhi_camp": {
 			"id": "sindhi_camp",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "railway_station",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "chandpole",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "railway_station", "line": "jmrc.pink"}, {"station": "chandpole", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.9233891,
-					"lon": 75.8003196
-				}
+				"decimal": {"lat": 26.9233891, "lon": 75.8003196}
 			}
 		},
 		"chandpole": {
 			"id": "chandpole",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "sindhi_camp",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "chhoti_chaupar",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "sindhi_camp", "line": "jmrc.pink"}, {"station": "chhoti_chaupar", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.9263216,
-					"lon": 75.8074324
-				}
+				"decimal": {"lat": 26.9263216, "lon": 75.8074324}
 			}
 		},
 		"chhoti_chaupar": {
 			"id": "chhoti_chaupar",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "chandpole",
-					"line": "jmrc.pink"
-				},
-				{
-					"station": "badi_chaupar",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "chandpole", "line": "jmrc.pink"}, {"station": "badi_chaupar", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.924705,
-					"lon": 75.818491
-				}
+				"decimal": {"lat": 26.924705, "lon": 75.818491}
 			}
 		},
 		"badi_chaupar": {
 			"id": "badi_chaupar",
 			"lines": ["jmrc.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "chhoti_chaupar",
-					"line": "jmrc.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "chhoti_chaupar", "line": "jmrc.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.922971,
-					"lon": 75.826842
-				}
+				"decimal": {"lat": 26.922971, "lon": 75.826842}
 			}
 		}
 	}

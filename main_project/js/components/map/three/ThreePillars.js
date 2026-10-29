@@ -43,7 +43,8 @@ export class ThreePillars {
     if (!locations || locations.length === 0) return;
     this.clear();
 
-    const geo = new THREE.CylinderGeometry(0.38, 0.48, targetHeight, 8);
+    const unitHeight = 1.0;
+    const geo = new THREE.CylinderGeometry(0.24, 0.30, unitHeight, 8);
     const mat = new THREE.MeshStandardMaterial({
       color: 0x8a7f72,
       roughness: 0.85,
@@ -56,7 +57,13 @@ export class ThreePillars {
 
     const dummy = new THREE.Object3D();
     locations.forEach((loc, i) => {
-      dummy.position.set(loc.x, (loc.y || 0) + targetHeight / 2, loc.z);
+      // Dynamic pillar height to touch bottom of deck exactly
+      const h = loc.pillarHeight ?? (loc.trackY != null ? Math.max(0.5, loc.trackY - 0.35) : targetHeight - 0.35);
+      dummy.scale.set(1, h, 1);
+      dummy.position.set(loc.x, (loc.y || 0) + h / 2, loc.z);
+      if (loc.yaw != null) {
+        dummy.rotation.y = loc.yaw + Math.PI / 2;
+      }
       dummy.updateMatrix();
       instancedMesh.setMatrixAt(i, dummy.matrix);
     });
@@ -67,6 +74,8 @@ export class ThreePillars {
 
   /**
    * Places pillars supporting the elevated track.
+   * Scales height per-pillar so pillars smoothly shorten along descent ramps
+   * and meet the underside of the deck with 0 penetration into the ribbon.
    */
   async loadPillars(locations, { modelUrl = './assets/3d_models/piller.glb', targetHeight = 5.2 } = {}) {
     if (!locations || locations.length === 0) return;
@@ -85,14 +94,22 @@ export class ThreePillars {
             }
           });
 
-          // Pillar original bounding box: width 3.0, height 7.05
-          const scaleY = targetHeight / 7.05;
-          const scaleXZ = APP_CONFIG?.MAP?.THREE_D?.PILLAR_SCALE ?? 0.42;
+          const scaleXZ = APP_CONFIG?.MAP?.THREE_D?.PILLAR_SCALE ?? 0.28;
 
           for (const loc of locations) {
             const p = pillarBase.clone();
+            // Dynamic pillar height: supports bottom of deck without piercing through ribbon
+            const h = loc.pillarHeight ?? (loc.trackY != null ? Math.max(0.5, loc.trackY - 0.35) : targetHeight - 0.35);
+            const scaleY = h / 7.05;
+
             p.scale.set(scaleXZ, scaleY, scaleXZ);
-            p.position.set(loc.x, loc.y, loc.z);
+            p.position.set(loc.x, loc.y || 0, loc.z);
+
+            // Orient crosshead across the track (perpendicular to travel)
+            if (loc.yaw != null) {
+              p.rotation.y = loc.yaw + Math.PI / 2;
+            }
+
             this.#pillarGroup.add(p);
           }
           resolve();

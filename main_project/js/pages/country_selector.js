@@ -49,7 +49,8 @@ export class CountrySelector {
 		await HeaderComponent.render();
 
 		// Subscribe to dynamic language toggle for instant in-place re-render
-		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
+		this.#unsubscribeLang = appStateStore.subscribe("currentLang", async (newLang) => {
+			await this.#reloadLocale(newLang);
 			if (this.#dom.searchInput) {
 				this.#dom.searchInput.placeholder = centerClass.t("pages.countrySelector.search.placeholder");
 			}
@@ -126,14 +127,38 @@ export class CountrySelector {
 
 	async #fetchManifest() {
 		try {
-			const response = await fetch("data/countries_manifest.json");
-			if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
-			this.#manifestData = await response.json();
+			const activeLang = localStorage.getItem("app-lang") || localStorage.getItem("language") || centerClass.currentLanguage || "en";
+			const [manifestRes, locRes] = await Promise.all([
+				fetch("data/countries_manifest.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
+				fetch(`locales/${activeLang}/countries_manifest_locale.json`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+			]);
+
+			this.#manifestData = manifestRes;
+			const locCountries = locRes?.countries || {};
+
+			for (const [cKey, cVal] of Object.entries(this.#manifestData.countries || {})) {
+				cVal.name = locCountries[cKey]?.name || "";
+			}
+
 			this.#render();
 		} catch (error) {
 			if (error.name === "AbortError") return;
 			console.error("[CountrySelector] Failed to load countries manifest:", error);
 			this.#renderErrorState(error.message);
+		}
+	}
+
+	async #reloadLocale(newLang) {
+		if (!this.#manifestData?.countries) return;
+		try {
+			const activeLang = newLang || "en";
+			const locRes = await fetch(`locales/${activeLang}/countries_manifest_locale.json`, { signal: this.#abortController?.signal }).then(r => r.ok ? r.json() : null);
+			const locCountries = locRes?.countries || {};
+			for (const [cKey, cVal] of Object.entries(this.#manifestData.countries || {})) {
+				cVal.name = locCountries[cKey]?.name || "";
+			}
+		} catch (e) {
+			console.warn("[CountrySelector] Failed to reload locale:", e);
 		}
 	}
 
@@ -172,10 +197,9 @@ export class CountrySelector {
 
 			// Text Search Filter (Matches country name in EN/HI and ISO code)
 			if (query.length > 0) {
-				const nameEn = (data.name?.en || "").toLowerCase();
-				const nameHi = (data.name?.hi || "").toLowerCase();
+				const countryName = (data.name || "").toLowerCase();
 				const code = (data.code || "").toLowerCase();
-				const matches = nameEn.includes(query) || nameHi.includes(query) || code.includes(query) || key.includes(query);
+				const matches = countryName.includes(query) || code.includes(query) || key.includes(query);
 				if (!matches) continue;
 			}
 

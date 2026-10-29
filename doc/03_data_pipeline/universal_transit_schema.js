@@ -742,3 +742,195 @@ export const LocalizedTransitPackSchema = {
 		}
 	}
 };
+
+// ============================================================================
+// FILE 4: COUNTRIES MANIFEST MASTER SCHEMA & LOCALIZED SCHEMA
+// ============================================================================
+// Master schema destination: data/countries_manifest.json (Language-Neutral)
+// Localized schema destination: locales/<lang>/countries_manifest_locale.json
+// Consumer: CountrySelector, App Header, Global Network Registry Router
+
+export const CountriesManifestMasterSchema = {
+	version: "<string: semver e.g. 1.0>",
+	default_country: "<string: country_key e.g. india>",
+	countries: {
+		"<country_key>": { // e.g. "india"
+			code: "<string: 2_letter_iso_code e.g. in>",
+			flag: "<string: unicode_flag_emoji e.g. 🇮🇳>",
+			status: "<string: active | upcoming | inactive>",
+			themeColor: "<string: hex_color e.g. #FF9933>",
+			accentColor: "<string: hex_color e.g. #000080>",
+			landmark: "<string: landmark_id e.g. taj_mahal>",
+			landmarkSvg: "<string: relative_asset_path e.g. assets/icons/landmarks/taj_mahal.svg>",
+			totalCities: "<number: count_of_supported_cities>",
+			totalNetworks: "<number: count_of_transit_networks>",
+			registryPath: "<string: relative_json_path e.g. data/india/india_transit_registry.json>",
+			searchIndexPath: "<string: relative_json_path e.g. data/india/search_cache/search_index.json>"
+		}
+	}
+};
+
+export const LocalizedCountriesManifestSchema = {
+	countries: {
+		"<country_key>": { // e.g. "india"
+			name: "<string: localized_country_name e.g. India | भारत>"
+		}
+	}
+};
+
+
+// ============================================================================
+// FILE 5: TRANSIT REGISTRY MASTER SCHEMA & LOCALIZED SCHEMA
+// ============================================================================
+// Master schema destination: data/<country>/<country>_transit_registry.json (Language-Neutral)
+// Localized schema destination: locales/<lang>/<country>/transit_registry_locale.json
+// Consumer: TransitNetworkSelector, Multi-City City Switcher, Network Badges
+
+export const TransitRegistryMasterSchema = {
+	version: "<string: semver e.g. 1.0>",
+	last_updated: "<string: iso_date e.g. 2026-10-28>",
+	countryCode: "<string: 2_letter_iso_code e.g. IN>",
+	modes: [
+		"<string: transit_mode e.g. Metro | RRTS | Monorail | Water Metro | Suburban Railway>"
+	],
+	cities: {
+		"<city_key>": { // e.g. "delhi_ncr"
+			hasData: "<boolean: true | false>",
+			dataPath: "<string: relative_directory_path e.g. data/cities/delhi_ncr>",
+			themeColor: "<string: hex_color e.g. #1E40AF>",
+			networks: {
+				"<network_id_slug>": { // e.g. "dmrc"
+					operatorId: "<string: language_neutral_operator_id e.g. dmrc | ncrtc | hmrtc>",
+					mode: "<string: transit_mode e.g. Metro | RRTS>",
+					status: "<string: operational | operational_partial | under_construction | approved>",
+					website: "<url_string: official_agency_website>",
+					hasData: "<boolean: true | false>",
+					dataPath: "<string: relative_directory_path e.g. data/cities/delhi_ncr>",
+					icon: "<string: relative_svg_path e.g. assets/icons/networks/dmrc.svg>",
+					map: {
+						official_url: "<url_string_or_null: official_web_map_page>",
+						official_pdf_url: "<url_string_or_null: official_remote_pdf_link>",
+						local_pdf: "<string_or_null: relative_local_pdf_path e.g. delhi_ncr/DMRC-NMRC-NCRTC-MAP.pdf>"
+					}
+				}
+			}
+		}
+	}
+};
+
+export const LocalizedTransitRegistrySchema = {
+	version: "<string: semver e.g. 1.0>",
+	registry: {
+		country: "<string: localized_country_name e.g. India | भारत>",
+		cities: {
+			"<city_key>": { // e.g. "delhi_ncr"
+				name: "<string: localized_city_name e.g. Delhi NCR | दिल्ली एनसीआर>",
+				state: "<string: localized_state_list e.g. Delhi, Haryana, UP | दिल्ली, हरियाणा, यूपी>",
+				networks: {
+					"<network_id_slug>": { // e.g. "dmrc"
+						name: "<string: localized_network_name e.g. Delhi Metro | दिल्ली मेट्रो>",
+						operator: "<string: localized_operator_full_name e.g. Delhi Metro Rail Corporation (DMRC) | दिल्ली मेट्रो रेल कॉर्पोरेशन (DMRC)>"
+					}
+				}
+			}
+		}
+	}
+};
+
+
+// ============================================================================
+// FILE 6: TOURIST PLACES MASTER SCHEMA & LOCALIZED SCHEMAS
+// ============================================================================
+// Master schema destination: data/<country>/cities/<city>/tourist_places.json (Language-Neutral)
+// Content locale destination: locales/<lang>/<country>/<city>_tourist_places_locale.json
+// UI i18n locale destination: lang/<lang>/tourist.js
+// Consumer: tourist_places.html, tourist_places.js, Station Modal Attractions
+
+export const TouristPlacesMasterSchema = {
+	city: "<string: city_slug e.g. delhi_ncr>",
+	version: "<string: semver e.g. 1.0>",
+	total_places: "<number: count_of_places>",
+	places: [
+		{
+			id: "<string: unique_place_slug e.g. india_gate>",
+			category: "<string: monument | religious | museum | garden | market | adventure | entertainment | landmark>",
+			coordinates: [
+				"<number: latitude e.g. 28.6129>",
+				"<number: longitude e.g. 77.2295>"
+			],
+			timings: {
+				open: "<string: 24h_time e.g. 09:00 or 00:00>",
+				close: "<string: 24h_time e.g. 21:00 or 23:59>",
+				all_day: "<boolean: true | false>",
+				closed_on: [
+					"<string: day_of_week e.g. Monday | Tuesday>"
+				]
+			},
+			entry_fee: {
+				is_free: "<boolean: true | false>",
+				amount: "<number: fee_amount_in_currency e.g. 0 or 50>",
+				currency: "<string: iso_4217_currency_code e.g. INR>"
+			},
+			google_maps_url: "<url_string_or_null: google_maps_link_or_null_for_spatial_coords_generator>",
+			tags: [
+				"<string: tag_identifier e.g. heritage | war_memorial | unesco | picnic>"
+			],
+			recommended_time_min: "<number: duration_in_minutes e.g. 60>"
+		}
+	]
+};
+
+export const LocalizedTouristPlacesSchema = {
+	city: "<string: city_slug e.g. delhi_ncr>",
+	places: {
+		"<place_id_slug>": { // e.g. "india_gate"
+			name: "<string: localized_place_name e.g. India Gate & Kartavya Path | इंडिया गेट और कर्तव्य पथ>",
+			description: "<string: comprehensive_localized_description>",
+			best_time_to_visit: "<string: localized_best_visiting_hours_recommendation>"
+		}
+	}
+};
+
+export const TouristPlacesUISchema = {
+	meta: {
+		title: "<string: html_document_title>",
+		desc: "<string: meta_tag_description>"
+	},
+	hero: {
+		badge: "<string: hero_section_badge_label>",
+		title: "<string: hero_section_heading>",
+		subtitle: "<string: hero_section_subheading>"
+	},
+	categories: {
+		all: "<string: label_for_all_filter>",
+		monument: "<string: label_for_monument_filter>",
+		religious: "<string: label_for_religious_filter>",
+		museum: "<string: label_for_museum_filter>",
+		garden: "<string: label_for_garden_filter>",
+		market: "<string: label_for_market_filter>",
+		adventure: "<string: label_for_adventure_filter>",
+		entertainment: "<string: label_for_entertainment_filter>"
+	},
+	ui: {
+		search_placeholder: "<string: input_placeholder_text>",
+		sort_nearest: "<string: sort_option_nearest_metro>",
+		sort_name: "<string: sort_option_name_alphabetical>",
+		sort_time: "<string: sort_option_recommended_time>",
+		station_count: "<string: header_metro_connectivity_badge>",
+		nearest_metro_label: "<string: section_header_nearest_metro>",
+		timings_label: "<string: card_timings_heading>",
+		entry_fee_label: "<string: card_entry_fee_heading>",
+		best_time_label: "<string: card_best_time_heading>",
+		free_entry: "<string: free_of_charge_badge>",
+		maps_button: "<string: maps_action_button_label>",
+		wiki_button: "<string: wikipedia_action_button_label>",
+		view_on_map: "<string: metro_view_station_button_label>",
+		station_info: "<string: station_modal_info_button_label>",
+		no_results: "<string: empty_state_no_results_message>",
+		clear_search: "<string: clear_search_filter_button_label>",
+		walk_time_approx: "<string: walk_time_suffix_or_template>",
+		closed_today: "<string: place_closed_today_badge>",
+		open_today: "<string: place_open_today_badge>",
+		all_day_open: "<string: open_24_hours_badge>"
+	}
+};

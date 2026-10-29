@@ -276,16 +276,23 @@
 	}
 
 	/* -------------------------------------------------------------------------
-	   RESPONSIVE (iPhone SE <= 380px)
+	   RESPONSIVE (Mobile 2 Cards Per Row <= 768px & Ultra-Compact <= 380px)
 	   ------------------------------------------------------------------------- */
-	@media (max-width: 380px) {
-		.cards-gallery-grid {
+	@media (max-width: 768px) {
+		.cards-gallery-grid,
+		.smartcard-cards-grid {
 			gap: var(--space-sm);
 		}
 
 		.transit-action-card {
 			width: calc(50% - var(--space-sm));
+			max-width: 260px;
 			aspect-ratio: 4 / 5.8;
+		}
+
+		.transit-action-card .card-header {
+			padding: var(--space-xs) var(--space-sm);
+			gap: var(--space-xs);
 		}
 
 		.transit-action-card .card-icon-bubble {
@@ -294,12 +301,37 @@
 			font-size: var(--fs-md);
 		}
 
+		.transit-action-card .card-title {
+			font-size: var(--fs-xs);
+		}
+
+		.transit-action-card .card-subtitle {
+			font-size: var(--fs-2xs);
+		}
+
+		.transit-action-card .card-body-scrollable {
+			padding: var(--space-xs) var(--space-sm);
+			gap: var(--space-xs);
+		}
+
 		.network-btn-group {
 			flex-wrap: wrap;
 		}
 
 		.network-btn-group .btn-micro-action {
 			flex: 1 1 calc(50% - var(--space-xs));
+		}
+	}
+
+	@media (max-width: 380px) {
+		.cards-gallery-grid,
+		.smartcard-cards-grid {
+			gap: var(--space-xs);
+		}
+
+		.transit-action-card {
+			width: calc(50% - var(--space-xs));
+			aspect-ratio: 4 / 6;
 		}
 	}
 }

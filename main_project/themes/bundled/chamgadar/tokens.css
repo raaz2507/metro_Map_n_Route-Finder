@@ -56,6 +56,38 @@ Tactical Dark Knight: Carbon Fiber, Bat-Signal Amber Gold, Armored Angular Notch
 		--badge-border: #f59e0b;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #dbe1ea;
+		--map-grid-color: rgba(15, 23, 42, 0.20);
+		--map-grid-wash: rgba(226, 232, 240, 0.15);
+		--map-station-fill: #ffffff;
+		--map-station-stroke: #0f172a;
+		--map-station-underground-fill: #cbd5e1;
+		--map-station-multimodal: #f59e0b;
+		--map-station-shared: #b45309;
+		--map-station-halo: rgba(219, 225, 234, 0.98);
+		--map-label-color: #0a0b0e;
+		--map-label-halo: #dbe1ea;
+		--map-label-hover: #f59e0b;
+		--map-interchange-badge: #0f172a;
+		--map-interchange-ring: #f59e0b;
+		--map-track-bed: #cbd5e1;
+		--map-track-shadow: rgba(0, 0, 0, 0.30);
+		--map-tunnel-conduit: rgba(15, 23, 42, 0.15);
+		--map-route-glow: rgba(245, 158, 11, 0.50);
+		--map-strata-sub-fill: rgba(15, 23, 42, 0.10);
+		--map-strata-sub-stroke: rgba(15, 23, 42, 0.70);
+		--map-strata-viaduct-fill: rgba(245, 158, 11, 0.10);
+		--map-strata-viaduct-stroke: rgba(245, 158, 11, 0.70);
+
+		/* 3D WebGL Wayne Enterprises Titanium */
+		--map-3d-sky: #cbd5e1;
+		--map-3d-ground: #94a3b8;
+		--map-3d-hemi-sky: #f8fafc;
+		--map-3d-hemi-ground: #64748b;
+		--map-3d-sunlight: #f59e0b;
+		--map-3d-ambient: #475569;
 	}
 
 	/* 🌙 GOTHAM MIDNIGHT DARK (Matte Carbon Fiber & Amber Signal) */
@@ -93,6 +125,38 @@ Tactical Dark Knight: Carbon Fiber, Bat-Signal Amber Gold, Armored Angular Notch
 		--badge-border: #f59e0b;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #0a0b0e;
+		--map-grid-color: rgba(245, 158, 11, 0.16);
+		--map-grid-wash: rgba(18, 20, 28, 0.25);
+		--map-station-fill: #12141c;
+		--map-station-stroke: #f59e0b;
+		--map-station-underground-fill: #07080b;
+		--map-station-multimodal: #f59e0b;
+		--map-station-shared: #fbbf24;
+		--map-station-halo: rgba(10, 11, 14, 0.98);
+		--map-label-color: #f8fafc;
+		--map-label-halo: #0a0b0e;
+		--map-label-hover: #f59e0b;
+		--map-interchange-badge: #1c1503;
+		--map-interchange-ring: #f59e0b;
+		--map-track-bed: #141722;
+		--map-track-shadow: rgba(0, 0, 0, 0.75);
+		--map-tunnel-conduit: rgba(245, 158, 11, 0.14);
+		--map-route-glow: rgba(245, 158, 11, 0.80);
+		--map-strata-sub-fill: rgba(245, 158, 11, 0.12);
+		--map-strata-sub-stroke: rgba(245, 158, 11, 0.70);
+		--map-strata-viaduct-fill: rgba(251, 191, 36, 0.10);
+		--map-strata-viaduct-stroke: rgba(251, 191, 36, 0.75);
+
+		/* 3D WebGL Gotham Night Patrol */
+		--map-3d-sky: #050608;
+		--map-3d-ground: #0c0e14;
+		--map-3d-hemi-sky: #f59e0b;
+		--map-3d-hemi-ground: #12141c;
+		--map-3d-sunlight: #f59e0b;
+		--map-3d-ambient: #1e2230;
 	}
 
 	/* 🦇 TACTICAL ARMOR OVERRIDES */

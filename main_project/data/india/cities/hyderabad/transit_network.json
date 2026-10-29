@@ -6,99 +6,40 @@
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
-			"hmrl": {
-				"operator": "L&T Metro Rail (Hyderabad) Limited / HMRL",
-				"avgSpeedMetersPerMin": 550,
-				"stationHaltMinutes": 0.5
-			}
+			"hmrl": {"operator": "L&T Metro Rail (Hyderabad) Limited / HMRL", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"hmrl_standard": {
 				"network": "hmrl",
 				"effectiveFrom": "2024-01-01",
 				"fareModel": "distance_based",
-				"calculation": {
-					"distanceUnit": "km",
-					"rounding": "nearest"
-				},
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
 				"fareTables": {
 					"standard": [
-						{
-							"minKm": 0,
-							"maxKm": 2,
-							"fare": 11
-						},
-						{
-							"minKm": 2,
-							"maxKm": 4,
-							"fare": 17
-						},
-						{
-							"minKm": 4,
-							"maxKm": 6,
-							"fare": 28
-						},
-						{
-							"minKm": 6,
-							"maxKm": 9,
-							"fare": 37
-						},
-						{
-							"minKm": 9,
-							"maxKm": 12,
-							"fare": 47
-						},
-						{
-							"minKm": 12,
-							"maxKm": 15,
-							"fare": 51
-						},
-						{
-							"minKm": 15,
-							"maxKm": 18,
-							"fare": 56
-						},
-						{
-							"minKm": 18,
-							"maxKm": 21,
-							"fare": 61
-						},
-						{
-							"minKm": 21,
-							"maxKm": 24,
-							"fare": 65
-						},
-						{
-							"minKm": 24,
-							"maxKm": null,
-							"fare": 69
-						}
+						{"minKm": 0, "maxKm": 2, "fare": 11},
+						{"minKm": 2, "maxKm": 4, "fare": 17},
+						{"minKm": 4, "maxKm": 6, "fare": 28},
+						{"minKm": 6, "maxKm": 9, "fare": 37},
+						{"minKm": 9, "maxKm": 12, "fare": 47},
+						{"minKm": 12, "maxKm": 15, "fare": 51},
+						{"minKm": 15, "maxKm": 18, "fare": 56},
+						{"minKm": 18, "maxKm": 21, "fare": 61},
+						{"minKm": 21, "maxKm": 24, "fare": 65},
+						{"minKm": 24, "maxKm": null, "fare": 69}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base"
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
 						"discountPercent": 10,
 						"minBalance": 50,
 						"refundableDeposit": 100,
-						"maxTravelTimeMinutes": {
-							"sameStation": 30,
-							"otherStation": 120
-						},
+						"maxTravelTimeMinutes": {"sameStation": 30, "otherStation": 120},
 						"rechargeUrl": ""
 					},
-					"super_saver_holiday_card": {
-						"type": "flat_pass",
-						"cost": 59,
-						"travelValue": 59,
-						"refundableDeposit": 0,
-						"validityDays": 1,
-						"unlimitedRides": true
-					},
+					"super_saver_holiday_card": {"type": "flat_pass", "cost": 59, "travelValue": 59, "refundableDeposit": 0, "validityDays": 1, "unlimitedRides": true},
 					"qr_ticket": {
 						"type": "digital",
 						"validityMinutes": 120,
@@ -107,11 +48,7 @@
 						"bookingUrl": "",
 						"appUrl": ""
 					},
-					"ncmc_card": {
-						"type": "interoperable",
-						"discountPercent": 10,
-						"minBalance": 50
-					}
+					"ncmc_card": {"type": "interoperable", "discountPercent": 10, "minBalance": 50}
 				},
 				"stationStayRules": {
 					"sameStationExitFare": 11,
@@ -133,39 +70,8 @@
 			"color": "#D32F2F",
 			"color_name": "red",
 			"style": "solid",
-			"route": {
-				"from": "miyapur",
-				"to": "lb-nagar"
-			},
-			"stations": [
-				"miyapur",
-				"jntu-college",
-				"kphb-colony",
-				"kukatpally",
-				"balanagar",
-				"moosapet",
-				"bharat-nagar",
-				"erragadda",
-				"esi-hospital",
-				"sr-nagar",
-				"ameerpet",
-				"punjagutta",
-				"irrum-manzil",
-				"khairtabad",
-				"lakdi-ka-pul",
-				"assembly",
-				"nampally",
-				"gandhi-bhavan",
-				"osmania-college",
-				"mg-bus-station",
-				"malakpet",
-				"new-market",
-				"musarambagh",
-				"dilsukhnagar",
-				"chaitanya-puri",
-				"victoria-memorial",
-				"lb-nagar"
-			]
+			"route": {"from": "miyapur", "to": "lb-nagar"},
+			"stations": ["miyapur", "jntu-college", "kphb-colony", "kukatpally", "balanagar", "moosapet", "bharat-nagar", "erragadda", "esi-hospital", "sr-nagar", "ameerpet", "punjagutta", "irrum-manzil", "khairtabad", "lakdi-ka-pul", "assembly", "nampally", "gandhi-bhavan", "osmania-college", "mg-bus-station", "malakpet", "new-market", "musarambagh", "dilsukhnagar", "chaitanya-puri", "victoria-memorial", "lb-nagar"]
 		},
 		"hmrl.blue": {
 			"id": "hmrl.blue",
@@ -176,35 +82,8 @@
 			"color": "#005BA6",
 			"color_name": "blue",
 			"style": "solid",
-			"route": {
-				"from": "nagole",
-				"to": "raidurg"
-			},
-			"stations": [
-				"nagole",
-				"uppal-bus",
-				"stadium",
-				"ngri",
-				"habsiguda",
-				"tarnaka",
-				"mettuguda",
-				"secunderabad-east",
-				"parade-ground",
-				"paradise",
-				"rasoolpura",
-				"prakash-nagar",
-				"begumpet",
-				"ameerpet",
-				"madhura-nagar",
-				"yusufguda",
-				"road-no-5-jubilee-hills",
-				"jubilee-hills-check-post",
-				"peddamma-gudi",
-				"madhapur",
-				"durgam-cheruvu",
-				"hitec-city",
-				"raidurg"
-			]
+			"route": {"from": "nagole", "to": "raidurg"},
+			"stations": ["nagole", "uppal-bus", "stadium", "ngri", "habsiguda", "tarnaka", "mettuguda", "secunderabad-east", "parade-ground", "paradise", "rasoolpura", "prakash-nagar", "begumpet", "ameerpet", "madhura-nagar", "yusufguda", "road-no-5-jubilee-hills", "jubilee-hills-check-post", "peddamma-gudi", "madhapur", "durgam-cheruvu", "hitec-city", "raidurg"]
 		},
 		"hmrl.green": {
 			"id": "hmrl.green",
@@ -215,66 +94,35 @@
 			"color": "#008752",
 			"color_name": "green",
 			"style": "solid",
-			"route": {
-				"from": "jbs-parade-ground",
-				"to": "mg-bus-station"
-			},
+			"route": {"from": "jbs-parade-ground", "to": "mg-bus-station"},
 			"stations": ["jbs-parade-ground", "secunderabad-west", "gandhi-hospital", "musheerabad", "rtc-x-roads", "chikkadpally", "narayanguda", "sultan-bazar", "mg-bus-station"]
 		}
 	},
 	"transfers": {
 		"ameerpet": {
 			"hmrl.red": {
-				"ameerpet:hmrl.blue": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"ameerpet:hmrl.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"hmrl.blue": {
-				"ameerpet:hmrl.red": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"ameerpet:hmrl.red": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		},
 		"mg-bus-station": {
 			"hmrl.red": {
-				"mg-bus-station:hmrl.green": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"mg-bus-station:hmrl.green": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"hmrl.green": {
-				"mg-bus-station:hmrl.red": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"mg-bus-station:hmrl.red": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		},
 		"parade-ground": {
 			"hmrl.blue": {
-				"jbs-parade-ground:hmrl.green": {
-					"type": "walkway",
-					"transfer_mode": "corridor",
-					"distance_meters": 240
-				}
+				"jbs-parade-ground:hmrl.green": {"type": "walkway", "transfer_mode": "corridor", "distance_meters": 240}
 			}
 		},
 		"jbs-parade-ground": {
 			"hmrl.green": {
-				"parade-ground:hmrl.blue": {
-					"type": "walkway",
-					"transfer_mode": "corridor",
-					"distance_meters": 240
-				}
+				"parade-ground:hmrl.blue": {"type": "walkway", "transfer_mode": "corridor", "distance_meters": 240}
 			}
 		}
 	},
@@ -282,1450 +130,597 @@
 		"miyapur": {
 			"id": "miyapur",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jntu-college",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jntu-college", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4964613,
-					"lon": 78.3719813
-				}
+				"decimal": {"lat": 17.4964613, "lon": 78.3719813}
 			}
 		},
 		"jntu-college": {
 			"id": "jntu-college",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "miyapur",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "kphb-colony",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "miyapur", "line": "hmrl.red"}, {"station": "kphb-colony", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4986677,
-					"lon": 78.3888094
-				}
+				"decimal": {"lat": 17.4986677, "lon": 78.3888094}
 			}
 		},
 		"kphb-colony": {
 			"id": "kphb-colony",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jntu-college",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "kukatpally",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jntu-college", "line": "hmrl.red"}, {"station": "kukatpally", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.494533,
-					"lon": 78.4002155
-				}
+				"decimal": {"lat": 17.494533, "lon": 78.4002155}
 			}
 		},
 		"kukatpally": {
 			"id": "kukatpally",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kphb-colony",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "balanagar",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kphb-colony", "line": "hmrl.red"}, {"station": "balanagar", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4851155,
-					"lon": 78.4115577
-				}
+				"decimal": {"lat": 17.4851155, "lon": 78.4115577}
 			}
 		},
 		"balanagar": {
 			"id": "balanagar",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kukatpally",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "moosapet",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kukatpally", "line": "hmrl.red"}, {"station": "moosapet", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.476544,
-					"lon": 78.422199
-				}
+				"decimal": {"lat": 17.476544, "lon": 78.422199}
 			}
 		},
 		"moosapet": {
 			"id": "moosapet",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "balanagar",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "bharat-nagar",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "balanagar", "line": "hmrl.red"}, {"station": "bharat-nagar", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4721,
-					"lon": 78.425955
-				}
+				"decimal": {"lat": 17.4721, "lon": 78.425955}
 			}
 		},
 		"bharat-nagar": {
 			"id": "bharat-nagar",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "moosapet",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "erragadda",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "moosapet", "line": "hmrl.red"}, {"station": "erragadda", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4640387,
-					"lon": 78.4300467
-				}
+				"decimal": {"lat": 17.4640387, "lon": 78.4300467}
 			}
 		},
 		"erragadda": {
 			"id": "erragadda",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "bharat-nagar",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "esi-hospital",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "bharat-nagar", "line": "hmrl.red"}, {"station": "esi-hospital", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4523383,
-					"lon": 78.435912
-				}
+				"decimal": {"lat": 17.4523383, "lon": 78.435912}
 			}
 		},
 		"esi-hospital": {
 			"id": "esi-hospital",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "erragadda",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "sr-nagar",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "erragadda", "line": "hmrl.red"}, {"station": "sr-nagar", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4474197,
-					"lon": 78.438333
-				}
+				"decimal": {"lat": 17.4474197, "lon": 78.438333}
 			}
 		},
 		"sr-nagar": {
 			"id": "sr-nagar",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "esi-hospital",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "ameerpet",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "esi-hospital", "line": "hmrl.red"}, {"station": "ameerpet", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4416568,
-					"lon": 78.4416327
-				}
+				"decimal": {"lat": 17.4416568, "lon": 78.4416327}
 			}
 		},
 		"ameerpet": {
 			"id": "ameerpet",
 			"lines": ["hmrl.red", "hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "sr-nagar",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "punjagutta",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "begumpet",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "madhura-nagar",
-					"line": "hmrl.blue"
-				}
+				{"station": "sr-nagar", "line": "hmrl.red"},
+				{"station": "punjagutta", "line": "hmrl.red"},
+				{"station": "begumpet", "line": "hmrl.blue"},
+				{"station": "madhura-nagar", "line": "hmrl.blue"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4356865,
-					"lon": 78.4445922
-				}
+				"decimal": {"lat": 17.4356865, "lon": 78.4445922}
 			}
 		},
 		"punjagutta": {
 			"id": "punjagutta",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "ameerpet",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "irrum-manzil",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ameerpet", "line": "hmrl.red"}, {"station": "irrum-manzil", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.428605,
-					"lon": 78.451161
-				}
+				"decimal": {"lat": 17.428605, "lon": 78.451161}
 			}
 		},
 		"irrum-manzil": {
 			"id": "irrum-manzil",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "punjagutta",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "khairtabad",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "punjagutta", "line": "hmrl.red"}, {"station": "khairtabad", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4205591,
-					"lon": 78.4560943
-				}
+				"decimal": {"lat": 17.4205591, "lon": 78.4560943}
 			}
 		},
 		"khairtabad": {
 			"id": "khairtabad",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "irrum-manzil",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "lakdi-ka-pul",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "irrum-manzil", "line": "hmrl.red"}, {"station": "lakdi-ka-pul", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4125277,
-					"lon": 78.46095
-				}
+				"decimal": {"lat": 17.4125277, "lon": 78.46095}
 			}
 		},
 		"lakdi-ka-pul": {
 			"id": "lakdi-ka-pul",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "khairtabad",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "assembly",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "khairtabad", "line": "hmrl.red"}, {"station": "assembly", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.403954,
-					"lon": 78.465004
-				}
+				"decimal": {"lat": 17.403954, "lon": 78.465004}
 			}
 		},
 		"assembly": {
 			"id": "assembly",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "lakdi-ka-pul",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "nampally",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "lakdi-ka-pul", "line": "hmrl.red"}, {"station": "nampally", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.398107,
-					"lon": 78.470797
-				}
+				"decimal": {"lat": 17.398107, "lon": 78.470797}
 			}
 		},
 		"nampally": {
 			"id": "nampally",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "assembly",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "gandhi-bhavan",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "assembly", "line": "hmrl.red"}, {"station": "gandhi-bhavan", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.392351,
-					"lon": 78.470134
-				}
+				"decimal": {"lat": 17.392351, "lon": 78.470134}
 			}
 		},
 		"gandhi-bhavan": {
 			"id": "gandhi-bhavan",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "nampally",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "osmania-college",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "nampally", "line": "hmrl.red"}, {"station": "osmania-college", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.3855132,
-					"lon": 78.4735666
-				}
+				"decimal": {"lat": 17.3855132, "lon": 78.4735666}
 			}
 		},
 		"osmania-college": {
 			"id": "osmania-college",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "gandhi-bhavan",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "mg-bus-station",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "gandhi-bhavan", "line": "hmrl.red"}, {"station": "mg-bus-station", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.382346,
-					"lon": 78.4810712
-				}
+				"decimal": {"lat": 17.382346, "lon": 78.4810712}
 			}
 		},
 		"mg-bus-station": {
 			"id": "mg-bus-station",
 			"lines": ["hmrl.red", "hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "osmania-college",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "malakpet",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "sultan-bazar",
-					"line": "hmrl.green"
-				}
+				{"station": "osmania-college", "line": "hmrl.red"},
+				{"station": "malakpet", "line": "hmrl.red"},
+				{"station": "sultan-bazar", "line": "hmrl.green"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.379853,
-					"lon": 78.4859827
-				}
+				"decimal": {"lat": 17.379853, "lon": 78.4859827}
 			}
 		},
 		"malakpet": {
 			"id": "malakpet",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "mg-bus-station",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "new-market",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mg-bus-station", "line": "hmrl.red"}, {"station": "new-market", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.3769601,
-					"lon": 78.4943142
-				}
+				"decimal": {"lat": 17.3769601, "lon": 78.4943142}
 			}
 		},
 		"new-market": {
 			"id": "new-market",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "malakpet",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "musarambagh",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "malakpet", "line": "hmrl.red"}, {"station": "musarambagh", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.373484,
-					"lon": 78.502906
-				}
+				"decimal": {"lat": 17.373484, "lon": 78.502906}
 			}
 		},
 		"musarambagh": {
 			"id": "musarambagh",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "new-market",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "dilsukhnagar",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "new-market", "line": "hmrl.red"}, {"station": "dilsukhnagar", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.371128,
-					"lon": 78.511944
-				}
+				"decimal": {"lat": 17.371128, "lon": 78.511944}
 			}
 		},
 		"dilsukhnagar": {
 			"id": "dilsukhnagar",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "musarambagh",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "chaitanya-puri",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "musarambagh", "line": "hmrl.red"}, {"station": "chaitanya-puri", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.368594,
-					"lon": 78.52573
-				}
+				"decimal": {"lat": 17.368594, "lon": 78.52573}
 			}
 		},
 		"chaitanya-puri": {
 			"id": "chaitanya-puri",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "dilsukhnagar",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "victoria-memorial",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "dilsukhnagar", "line": "hmrl.red"}, {"station": "victoria-memorial", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.3683237,
-					"lon": 78.5359278
-				}
+				"decimal": {"lat": 17.3683237, "lon": 78.5359278}
 			}
 		},
 		"victoria-memorial": {
 			"id": "victoria-memorial",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "chaitanya-puri",
-					"line": "hmrl.red"
-				},
-				{
-					"station": "lb-nagar",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "chaitanya-puri", "line": "hmrl.red"}, {"station": "lb-nagar", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.3618337,
-					"lon": 78.5439605
-				}
+				"decimal": {"lat": 17.3618337, "lon": 78.5439605}
 			}
 		},
 		"lb-nagar": {
 			"id": "lb-nagar",
 			"lines": ["hmrl.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "victoria-memorial",
-					"line": "hmrl.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "victoria-memorial", "line": "hmrl.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.3497098,
-					"lon": 78.547973
-				}
+				"decimal": {"lat": 17.3497098, "lon": 78.547973}
 			}
 		},
 		"nagole": {
 			"id": "nagole",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "uppal-bus",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "uppal-bus", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.390809,
-					"lon": 78.558832
-				}
+				"decimal": {"lat": 17.390809, "lon": 78.558832}
 			}
 		},
 		"uppal-bus": {
 			"id": "uppal-bus",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "nagole",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "stadium",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "nagole", "line": "hmrl.blue"}, {"station": "stadium", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4000864,
-					"lon": 78.5601816
-				}
+				"decimal": {"lat": 17.4000864, "lon": 78.5601816}
 			}
 		},
 		"stadium": {
 			"id": "stadium",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "uppal-bus",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "ngri",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "uppal-bus", "line": "hmrl.blue"}, {"station": "ngri", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.40739,
-					"lon": 78.5542321
-				}
+				"decimal": {"lat": 17.40739, "lon": 78.5542321}
 			}
 		},
 		"ngri": {
 			"id": "ngri",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "stadium",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "habsiguda",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "stadium", "line": "hmrl.blue"}, {"station": "habsiguda", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.414831,
-					"lon": 78.546318
-				}
+				"decimal": {"lat": 17.414831, "lon": 78.546318}
 			}
 		},
 		"habsiguda": {
 			"id": "habsiguda",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "ngri",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "tarnaka",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ngri", "line": "hmrl.blue"}, {"station": "tarnaka", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4201961,
-					"lon": 78.5405362
-				}
+				"decimal": {"lat": 17.4201961, "lon": 78.5405362}
 			}
 		},
 		"tarnaka": {
 			"id": "tarnaka",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "habsiguda",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "mettuguda",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "habsiguda", "line": "hmrl.blue"}, {"station": "mettuguda", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.428293,
-					"lon": 78.5285577
-				}
+				"decimal": {"lat": 17.428293, "lon": 78.5285577}
 			}
 		},
 		"mettuguda": {
 			"id": "mettuguda",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "tarnaka",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "secunderabad-east",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "tarnaka", "line": "hmrl.blue"}, {"station": "secunderabad-east", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4354241,
-					"lon": 78.5197012
-				}
+				"decimal": {"lat": 17.4354241, "lon": 78.5197012}
 			}
 		},
 		"secunderabad-east": {
 			"id": "secunderabad-east",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "mettuguda",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "parade-ground",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mettuguda", "line": "hmrl.blue"}, {"station": "parade-ground", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4357879,
-					"lon": 78.5054284
-				}
+				"decimal": {"lat": 17.4357879, "lon": 78.5054284}
 			}
 		},
 		"parade-ground": {
 			"id": "parade-ground",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "walkway"
-			},
-			"neighbors": [
-				{
-					"station": "secunderabad-east",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "paradise",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "walkway"},
+			"neighbors": [{"station": "secunderabad-east", "line": "hmrl.blue"}, {"station": "paradise", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.443868,
-					"lon": 78.4973861
-				}
+				"decimal": {"lat": 17.443868, "lon": 78.4973861}
 			}
 		},
 		"paradise": {
 			"id": "paradise",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "parade-ground",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "rasoolpura",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "parade-ground", "line": "hmrl.blue"}, {"station": "rasoolpura", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4435024,
-					"lon": 78.4861922
-				}
+				"decimal": {"lat": 17.4435024, "lon": 78.4861922}
 			}
 		},
 		"rasoolpura": {
 			"id": "rasoolpura",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "paradise",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "prakash-nagar",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "paradise", "line": "hmrl.blue"}, {"station": "prakash-nagar", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.443597,
-					"lon": 78.476365
-				}
+				"decimal": {"lat": 17.443597, "lon": 78.476365}
 			}
 		},
 		"prakash-nagar": {
 			"id": "prakash-nagar",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "rasoolpura",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "begumpet",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "rasoolpura", "line": "hmrl.blue"}, {"station": "begumpet", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4448917,
-					"lon": 78.4658366
-				}
+				"decimal": {"lat": 17.4448917, "lon": 78.4658366}
 			}
 		},
 		"begumpet": {
 			"id": "begumpet",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "prakash-nagar",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "ameerpet",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "prakash-nagar", "line": "hmrl.blue"}, {"station": "ameerpet", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4375764,
-					"lon": 78.4569502
-				}
+				"decimal": {"lat": 17.4375764, "lon": 78.4569502}
 			}
 		},
 		"madhura-nagar": {
 			"id": "madhura-nagar",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "ameerpet",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "yusufguda",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ameerpet", "line": "hmrl.blue"}, {"station": "yusufguda", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.436894,
-					"lon": 78.438951
-				}
+				"decimal": {"lat": 17.436894, "lon": 78.438951}
 			}
 		},
 		"yusufguda": {
 			"id": "yusufguda",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "madhura-nagar",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "road-no-5-jubilee-hills",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "madhura-nagar", "line": "hmrl.blue"}, {"station": "road-no-5-jubilee-hills", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4350829,
-					"lon": 78.4273015
-				}
+				"decimal": {"lat": 17.4350829, "lon": 78.4273015}
 			}
 		},
 		"road-no-5-jubilee-hills": {
 			"id": "road-no-5-jubilee-hills",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "yusufguda",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "jubilee-hills-check-post",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "yusufguda", "line": "hmrl.blue"}, {"station": "jubilee-hills-check-post", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.430084,
-					"lon": 78.422997
-				}
+				"decimal": {"lat": 17.430084, "lon": 78.422997}
 			}
 		},
 		"jubilee-hills-check-post": {
 			"id": "jubilee-hills-check-post",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "road-no-5-jubilee-hills",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "peddamma-gudi",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "road-no-5-jubilee-hills", "line": "hmrl.blue"}, {"station": "peddamma-gudi", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4282288,
-					"lon": 78.4137204
-				}
+				"decimal": {"lat": 17.4282288, "lon": 78.4137204}
 			}
 		},
 		"peddamma-gudi": {
 			"id": "peddamma-gudi",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jubilee-hills-check-post",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "madhapur",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jubilee-hills-check-post", "line": "hmrl.blue"}, {"station": "madhapur", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4305546,
-					"lon": 78.4084895
-				}
+				"decimal": {"lat": 17.4305546, "lon": 78.4084895}
 			}
 		},
 		"madhapur": {
 			"id": "madhapur",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "peddamma-gudi",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "durgam-cheruvu",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "peddamma-gudi", "line": "hmrl.blue"}, {"station": "durgam-cheruvu", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4367684,
-					"lon": 78.4007102
-				}
+				"decimal": {"lat": 17.4367684, "lon": 78.4007102}
 			}
 		},
 		"durgam-cheruvu": {
 			"id": "durgam-cheruvu",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "madhapur",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "hitec-city",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "madhapur", "line": "hmrl.blue"}, {"station": "hitec-city", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4428098,
-					"lon": 78.3876282
-				}
+				"decimal": {"lat": 17.4428098, "lon": 78.3876282}
 			}
 		},
 		"hitec-city": {
 			"id": "hitec-city",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "durgam-cheruvu",
-					"line": "hmrl.blue"
-				},
-				{
-					"station": "raidurg",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "durgam-cheruvu", "line": "hmrl.blue"}, {"station": "raidurg", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4489198,
-					"lon": 78.3831911
-				}
+				"decimal": {"lat": 17.4489198, "lon": 78.3831911}
 			}
 		},
 		"raidurg": {
 			"id": "raidurg",
 			"lines": ["hmrl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "hitec-city",
-					"line": "hmrl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "hitec-city", "line": "hmrl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4420806,
-					"lon": 78.3771549
-				}
+				"decimal": {"lat": 17.4420806, "lon": 78.3771549}
 			}
 		},
 		"jbs-parade-ground": {
 			"id": "jbs-parade-ground",
 			"lines": ["hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "walkway"
-			},
-			"neighbors": [
-				{
-					"station": "secunderabad-west",
-					"line": "hmrl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "walkway"},
+			"neighbors": [{"station": "secunderabad-west", "line": "hmrl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.445486,
-					"lon": 78.498987
-				}
+				"decimal": {"lat": 17.445486, "lon": 78.498987}
 			}
 		},
 		"secunderabad-west": {
 			"id": "secunderabad-west",
 			"lines": ["hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jbs-parade-ground",
-					"line": "hmrl.green"
-				},
-				{
-					"station": "gandhi-hospital",
-					"line": "hmrl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jbs-parade-ground", "line": "hmrl.green"}, {"station": "gandhi-hospital", "line": "hmrl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4336897,
-					"lon": 78.4992136
-				}
+				"decimal": {"lat": 17.4336897, "lon": 78.4992136}
 			}
 		},
 		"gandhi-hospital": {
 			"id": "gandhi-hospital",
 			"lines": ["hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "secunderabad-west",
-					"line": "hmrl.green"
-				},
-				{
-					"station": "musheerabad",
-					"line": "hmrl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "secunderabad-west", "line": "hmrl.green"}, {"station": "musheerabad", "line": "hmrl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4256372,
-					"lon": 78.5018684
-				}
+				"decimal": {"lat": 17.4256372, "lon": 78.5018684}
 			}
 		},
 		"musheerabad": {
 			"id": "musheerabad",
 			"lines": ["hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "gandhi-hospital",
-					"line": "hmrl.green"
-				},
-				{
-					"station": "rtc-x-roads",
-					"line": "hmrl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "gandhi-hospital", "line": "hmrl.green"}, {"station": "rtc-x-roads", "line": "hmrl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.4128529,
-					"lon": 78.4982039
-				}
+				"decimal": {"lat": 17.4128529, "lon": 78.4982039}
 			}
 		},
 		"rtc-x-roads": {
 			"id": "rtc-x-roads",
 			"lines": ["hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "musheerabad",
-					"line": "hmrl.green"
-				},
-				{
-					"station": "chikkadpally",
-					"line": "hmrl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "musheerabad", "line": "hmrl.green"}, {"station": "chikkadpally", "line": "hmrl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.407094,
-					"lon": 78.496558
-				}
+				"decimal": {"lat": 17.407094, "lon": 78.496558}
 			}
 		},
 		"chikkadpally": {
 			"id": "chikkadpally",
 			"lines": ["hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "rtc-x-roads",
-					"line": "hmrl.green"
-				},
-				{
-					"station": "narayanguda",
-					"line": "hmrl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "rtc-x-roads", "line": "hmrl.green"}, {"station": "narayanguda", "line": "hmrl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.400489,
-					"lon": 78.494848
-				}
+				"decimal": {"lat": 17.400489, "lon": 78.494848}
 			}
 		},
 		"narayanguda": {
 			"id": "narayanguda",
 			"lines": ["hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "chikkadpally",
-					"line": "hmrl.green"
-				},
-				{
-					"station": "sultan-bazar",
-					"line": "hmrl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "chikkadpally", "line": "hmrl.green"}, {"station": "sultan-bazar", "line": "hmrl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.3944238,
-					"lon": 78.4944771
-				}
+				"decimal": {"lat": 17.3944238, "lon": 78.4944771}
 			}
 		},
 		"sultan-bazar": {
 			"id": "sultan-bazar",
 			"lines": ["hmrl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "narayanguda",
-					"line": "hmrl.green"
-				},
-				{
-					"station": "mg-bus-station",
-					"line": "hmrl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "narayanguda", "line": "hmrl.green"}, {"station": "mg-bus-station", "line": "hmrl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.3844362,
-					"lon": 78.4841699
-				}
+				"decimal": {"lat": 17.3844362, "lon": 78.4841699}
 			}
 		},
 		"secunderabad-railway-station": {
 			"id": "secunderabad-railway-station",
 			"lines": [],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "normal"
-			},
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
 			"neighbors": [],
 			"platforms": {}
 		},
 		"m-g-bus-station": {
 			"id": "m-g-bus-station",
 			"lines": [],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "normal"
-			},
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "normal"},
 			"neighbors": [],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 17.378055,
-					"lon": 78.480005
-				}
+				"decimal": {"lat": 17.378055, "lon": 78.480005}
 			}
 		}
 	}

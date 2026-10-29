@@ -51,6 +51,8 @@ export default {
 			activeNow: "Active Now",
 			showOnMap: "Show route on map",
 			gate: "Gate",
+			exitGates: "Exit Gates & Nearby Landmarks",
+			entryGates: "Entry Gates & Nearby Landmarks",
 			firstTrain: "First Train",
 			lastTrain: "Last Train",
 			directionText: "Towards {terminal} · Platform {platform}",
@@ -95,8 +97,38 @@ export default {
 		tabs: {
 			alarm: "Alarm",
 			map: "Map",
+			notification: "Notification",
 			backup: "Backup / Restore",
 			packs: "Packs"
+		},
+		notification: {
+			title: "Notification Bar & Live Pass",
+			subtitle: "Android status bar card layouts & tracking pass",
+			persistentHeading: "⚙️ Live Pass Preferences",
+			persistentLabel: "Persistent Live Pass",
+			persistentDesc: "Keep live metro pass in Android status bar even before searching a route.",
+			stylesHeading: "🎨 Choose Notification Bar UI Style",
+			stylesDesc: "Tap any card to select your preferred notification layout.",
+			cards: {
+				boardingPass: {
+					title: "Boarding Pass",
+					desc: "Digital ticket with time, distance, fare chips & full station details."
+				},
+				minimalPill: {
+					title: "Minimal Island",
+					desc: "Sleek 2-line pill card with next station, live distance badge & quick buttons."
+				},
+				progressBar: {
+					title: "Track Progress Line",
+					desc: "Visual transit track with train position, completed and remaining stations."
+				},
+				widgetMirror: {
+					title: "2.5D Widget Mirror",
+					desc: "Matches the 2.5D beveled card style from your Android home screen widget."
+				}
+			},
+			testBtn: "Test Selected Style on Phone Status Bar",
+			testToast: "📲 Test notification sent to status bar!"
 		},
 		packs: {
 			langHeading: "Language Packs",
@@ -293,6 +325,8 @@ export default {
 		sms: "SMS",
 		copyLink: "Copy Link",
 		copyDetails: "Copy Details",
+		copyImage: "Copy Image",
+		downloadCard: "Download Screenshot",
 		closeAria: "Close share modal"
 	},
 
@@ -325,6 +359,11 @@ export default {
 		share: {
 			copiedLink: "Route link copied to clipboard!",
 			copiedDetails: "Route details copied to clipboard!",
+			downloadedCard: "Route timeline screenshot saved!",
+			capturing: "Capturing full route timeline...",
+			whatsappPasteHint: "📋 Timeline screenshot copied! Press Ctrl+V in WhatsApp chat to paste.",
+			telegramPasteHint: "📋 Timeline screenshot copied! Press Ctrl+V in Telegram chat to paste.",
+			imageCopied: "Timeline screenshot copied to clipboard!",
 			shareFailed: "Failed to share route."
 		},
 		route: {

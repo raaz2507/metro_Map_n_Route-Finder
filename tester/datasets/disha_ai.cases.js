@@ -13,6 +13,55 @@ export const dishaAiTestCases = {
 	// 1. INTENT CLASSIFICATION CASES
 	// =========================================================================
 	intents: [
+		// Added from User Feedback (2026-10-26) [Network: delhi_ncr]
+		{
+			id: "SHEET_2026-10-26_007",
+			text: "disha mujhe rohini se gtb nagar jaana hi kaise jaun",
+			lang: "en",
+			expectedIntent: "ROUTE_SEARCH", // TODO: Verify or update expected slots
+		},
+		// Added from User Feedback (2026-10-26) [Network: delhi_ncr]
+		{
+			id: "SHEET_2026-10-26_006",
+			text: "Go to this station",
+			lang: "en",
+			expectedIntent: "ROUTE_SEARCH", // TODO: Verify or update expected slots
+		},
+		// Added from User Feedback (2026-10-26) [Network: delhi_ncr]
+		{
+			id: "SHEET_2026-10-26_005",
+			text: "Jadoda",
+			lang: "en",
+			expectedIntent: "ROUTE_SEARCH", // TODO: Verify or update expected slots
+		},
+		// Added from User Feedback (2026-10-26) [Network: delhi_ncr]
+		{
+			id: "SHEET_2026-10-26_004",
+			text: "Start journey from here",
+			lang: "en",
+			expectedIntent: "ROUTE_SEARCH", // TODO: Verify or update expected slots
+		},
+		// Added from User Feedback (2026-10-26) [Network: delhi_ncr]
+		{
+			id: "SHEET_2026-10-26_003",
+			text: "जहांगीरपुरी",
+			lang: "en",
+			expectedIntent: "ROUTE_SEARCH", // TODO: Verify or update expected slots
+		},
+		// Added from User Feedback (2026-10-26) [Network: delhi_ncr]
+		{
+			id: "SHEET_2026-10-26_002",
+			text: "Jahangirpuri",
+			lang: "en",
+			expectedIntent: "ROUTE_SEARCH", // TODO: Verify or update expected slots
+		},
+		// Added from User Feedback (2026-10-26) [Network: delhi_ncr]
+		{
+			id: "SHEET_2026-10-26_001",
+			text: "daurli se burari kaise jayen",
+			lang: "en",
+			expectedIntent: "ROUTE_SEARCH", // TODO: Verify or update expected slots
+		},
 		// Added from User Feedback (2026-10-14) [Network: delhi_ncr]
 		{
 			id: "SHEET_2026-10-14_002",
@@ -234,6 +283,23 @@ export const dishaAiTestCases = {
 	// 2. STATION ENTITY & SLOT EXTRACTION CASES (Delhi NCR baseline)
 	// =========================================================================
 	entities: [
+		// Google Sheet User Feedback Regression Tests
+		{
+			id: "ENT_SHEET_01",
+			text: "daurli se burari kaise jayen",
+			lang: "hi",
+			expectedSource: "daurli",
+			expectedDest: "burari",
+			expectedUnverified: null
+		},
+		{
+			id: "ENT_SHEET_02",
+			text: "disha mujhe rohini se gtb nagar jaana hi kaise jaun",
+			lang: "hi",
+			expectedDest: "guru_teg_bahadur_nagar",
+			expectedAmbiguous: true,
+			expectedUnverified: null
+		},
 		// Standard Preposition (EN)
 		{
 			id: "ENT_01",

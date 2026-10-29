@@ -64,19 +64,20 @@ TARGET_FILES = [
 	"transit_network.json",
 	"staging_buffer.json",
 	"station_details.json",
-	"passenger_support.json"
+	"passenger_support.json",
+	"tourist_places.json"
 ]
 
 EXCLUDE_CONTAINERS = {
 	"stationData", "stations", "lines", "transfers", "fareRules", "defaults",
 	"policies", "networks", "platforms", "gates", "parkings", "facilities",
 	"nearby_places", "vertical_transit", "lifts", "escalators", "emergency",
-	"helplines", "portals", "fareTables", "timeRules", "products"
+	"helplines", "portals", "fareTables", "timeRules", "products", "places"
 }
 
 ALWAYS_COMPACT_KEYS = {
 	"label", "train_schedule", "decimal", "dms", "properties",
-	"coordinates", "contact", "timings", "landmark"
+	"coordinates", "contact", "timings", "landmark", "entry_fee"
 }
 
 def compact_format(obj, indent_level=0, parent_key="", grandparent_key=""):
@@ -113,8 +114,8 @@ def compact_format(obj, indent_level=0, parent_key="", grandparent_key=""):
 		if not obj:
 			return "[]"
 
-		# Compact stations, amenity badges, aliases, landmarks (Single Line Arrays)
-		if parent_key in ["stations", "amenity_badges", "aliases", "landmarks"]:
+		# Compact stations, amenity badges, aliases, landmarks, tags, closed_on (Single Line Arrays)
+		if parent_key in ["stations", "amenity_badges", "aliases", "landmarks", "tags", "closed_on"]:
 			return json.dumps(obj, ensure_ascii=False)
 
 		# 2D matrix rows or lists of primitives within length limit

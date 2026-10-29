@@ -7,7 +7,7 @@ export default {
 	stopwords: [
 		"metro", "train", "station", "line", "interchange", "route", "rasta", "path",
 		"fare", "kiraya", "ticket", "cost", "price", "kitna", "kitni", "kitne",
-		"kaise", "jaye", "jana", "jaana", "pahunche", "pahuchna", "chalke", "chalna",
+		"kaise", "jaye", "jayen", "jayein", "jaayen", "jaayein", "jana", "jaana", "jaun", "jau", "jaunga", "jaungi", "jayenge", "pahunche", "pahuchna", "chalke", "chalna",
 		"samay", "time", "distance", "door", "dur", "kab", "kya", "hai", "h", "hi", "tha", "thi",
 		"disha", "दिशा", "ye", "yeh", "bato", "batao", "bataiye", "batana", "bata", "bataoo", "bolo", "btao", "dikhao", "dikhaye", "chahiye",
 		"help", "hello", "hi", "namaste", "please", "plz", "kripya", "and", "or",
@@ -19,7 +19,7 @@ export default {
 		"kaun", "konsi", "kaunsi", "si", "badalni", "badalna", "hogi", "hoga", "badle",
 		// Devanagari Hindi Stopwords
 		"मेट्रो", "ट्रेन", "स्टेशन", "लाइन", "रूट", "रास्ता", "किराया", "टिकट",
-		"कितना", "कितनी", "कितने", "कैसे", "जाएं", "जाना", "पहुंचे", "पहुंचना",
+		"कितना", "कितनी", "कितने", "कैसे", "जाएं", "जाना", "जाऊं", "पहुंचे", "पहुंचना",
 		"समय", "दूरी", "दूर", "कब", "क्या", "है", "हूँ", "बताओ", "बताइए", "दिखाओ",
 		"चाहिए", "नमस्ते", "कृपया", "से", "तक", "को", "का", "की", "के", "में", "पर",
 		"गेट", "प्लेटफॉर्म", "नंबर", "टाइमिंग", "सुविधा", "कौन", "कौनसी", "बदलना", "बदलनी", "होगी", "होगा"
@@ -27,8 +27,8 @@ export default {
 
 	fillerPatterns: [
 		/\b(batao|bataiye|dikhao|bata|btao|please|plz|kripya|chahiye|dikhaye)\b/gi,
-		/\b(kaise jaye|kaise jaun|kaise jau|kaise pauche|jana hai|jaana hai|jaana h|jana h|reach|how to go|how to reach|pahochna hai|jaun|jau)\b/gi,
-		/(बताओ|बताइए|दिखाइए|दिखाओ|कृपया|चाहिए|कैसे जाएं|कैसे जाऊं|कैसे पहुंचे|जाना है|पहुंचना है|जाऊं)/gu
+		/\b(kaise (jaye|jayen|jayein|jaayen|jaayein|jaun|jau|pauche|pahunche|jana hai|jaana hai)|jana hai|jaana hai|jaana h|jana h|jaana hi|jana hi|reach|how to go|how to reach|pahochna hai|jaun|jau|jayen|jayein|jaayen|jaayein)\b/gi,
+		/(बताओ|बताइए|दिखाइए|दिखाओ|कृपया|चाहिए|कैसे जाएं|कैसे जाऊं|कैसे पहुंचे|जाना है|पहुंचना है|जाऊं|जाएं)/gu
 	],
 
 	routeMarkers: {
@@ -37,7 +37,7 @@ export default {
 		sourcePre: ["from", "start"],
 		sourcePost: ["se", "से"],
 		destPre: ["to", "towards"],
-		destPost: ["tak", "तक", "ko", "को", "jana", "जाना", "जाएं", "jaye", "reach", "jaun", "जाऊं", "jau"],
+		destPost: ["tak", "तक", "ko", "को", "jana", "जाना", "जाएं", "jaye", "jayen", "jayein", "jaayen", "jaayein", "reach", "jaun", "जाऊं", "jau"],
 		betweenPairs: [
 			{ from: "se", to: "tak" },
 			{ from: "se", to: "ko" },

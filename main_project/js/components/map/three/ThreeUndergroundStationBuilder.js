@@ -1,12 +1,23 @@
 /**
  * ThreeUndergroundStationBuilder.js
- * Open-Air Sunken Trench Subterranean Station Architecture:
- * 1. NO ROOF / NO CEILING: 100% open-air canyon trench so camera has an unobstructed
- *    top-down isometric view of tracks, metro line, and arriving trains.
- * 2. MODULAR CURVED PLATFORM: Platform is composed of modular precast square slabs
- *    that follow the track curve with uniform 1.25m clearance (Zero rail clipping).
- * 3. EXCAVATION BAY FIT: Fits neatly inside the squared-off, stone-chiseled subterranean canyon bay.
- * 4. Open-air stairs climbing the rock wall to ground level (Y = 0).
+ * 🚇 Hybrid 2-Tier Underground Metro Station Architecture:
+ * 
+ * 1. SURFACE LEVEL (ज़मीन के ऊपर):
+ *    - Modern Transparent Glass Entrance Pavilion (फुल ट्रांसपेरेंट ग्लास शेड)
+ *    - Accurately matching the architectural reference drawing (media_1793128282191_8352dcde.png):
+ *      * Sweeping curved sloped roof ("curve me cut le kar dhalan li hui hai")
+ *      * Rotated 90° so the entrance faces perpendicular to the metro line (towards the street/sidewalk)
+ *      * Raked structural steel entrance columns and line-colored portal header
+ *      * Dual commercial transit escalators & stairs descending from ground down to subterranean depth
+ * 
+ * 2. SUBTERRANEAN LEVEL (ज़मीन के नीचे):
+ *    - Seamlessly connects with the descending stairs/escalators
+ *    - 5 Distinct Architectural Platform Styles (Switchable via UI Menu):
+ *      0. MODERN_DMRC_OPENCUT: Precast modular platform slabs, glass railings, safety line, LED signage
+ *      1. COC_QUARRY_DEPOT: Rustic timber beams, chiseled quarry stones, rope balustrades, braziers
+ *      2. CYBERPUNK_TRENCH: Carbon titanium slabs, glowing cyan/pink neon stripes, holographic displays
+ *      3. HERITAGE_BAOLI_GHAT: Ancient Indian stepwell (Baoli) red sandstone steps, carved arches, jali screens
+ *      4. INDUSTRIAL_SUB_DOCK: Heavy concrete docks, hazard-striped edge slabs, industrial high-mast floodlights
  */
 
 import * as THREE from '../../../lib/three/three.module.js';
@@ -27,7 +38,7 @@ export class ThreeUndergroundStationBuilder {
   #currentStyle = UG_STATION_STYLES.MODERN_DMRC_OPENCUT;
   #position = new THREE.Vector3(0, -3.5, -29);
   #rotationY = -Math.PI / 2;
-  #glassCanopy = null;
+  #streetPavilions = [];
   #showGlassCanopy = true;
   #isVisible = true;
 
@@ -51,29 +62,44 @@ export class ThreeUndergroundStationBuilder {
     this.setTransform(pt, angle);
   }
 
-  #buildStyleGroup(group, styleIndex) {
+  #buildStyleGroup(group, styleIndex, item = null) {
+    const subGroup = new THREE.Group();
+    subGroup.name = "Subterranean_Platform_Level";
+
+    // Build the selected subterranean platform design (at track level Y = 0)
     switch (styleIndex) {
       case UG_STATION_STYLES.MODERN_DMRC_OPENCUT:
-        this.#buildModernOpencut(group);
+        this.#buildModernOpencut(subGroup);
         break;
       case UG_STATION_STYLES.COC_QUARRY_DEPOT:
-        this.#buildCoCQuarryDepot(group);
+        this.#buildCoCQuarryDepot(subGroup);
         break;
       case UG_STATION_STYLES.CYBERPUNK_TRENCH:
-        this.#buildCyberpunkTrench(group);
+        this.#buildCyberpunkTrench(subGroup);
         break;
       case UG_STATION_STYLES.HERITAGE_BAOLI_GHAT:
-        this.#buildHeritageBaoliGhat(group);
+        this.#buildHeritageBaoliGhat(subGroup);
         break;
       case UG_STATION_STYLES.INDUSTRIAL_SUB_DOCK:
-        this.#buildIndustrialSubDock(group);
+        this.#buildIndustrialSubDock(subGroup);
         break;
       default:
-        this.#buildModernOpencut(group);
+        this.#buildModernOpencut(subGroup);
     }
+    group.add(subGroup);
 
-    // Add transparent vaulted glass atrium canopy sitting over the square pit
-    this.#buildGlassAtriumShade(group);
+    // Build the Modern Glass Entrance Pavilion at surface level (rotated 90 degrees)
+    // Relative to station position (which is at Y = item.pos.y, e.g. -3.5 to -4.53),
+    // ground surface is at groundY = -item.pos.y
+    const posY = item?.pos?.y != null ? item.pos.y : this.#position.y;
+    const groundY = posY < 0 ? -posY : 3.5;
+
+    this.#buildModernGlassPavilion(group, {
+      groundY,
+      xOffset: 3.2,
+      zOffset: 0.0,
+      item
+    });
   }
 
   buildStation(styleIndex = UG_STATION_STYLES.MODERN_DMRC_OPENCUT) {
@@ -94,7 +120,6 @@ export class ThreeUndergroundStationBuilder {
     this.#scene.add(group);
     this.#currentGroup = group;
 
-    // If multi-stations are active, update their style too!
     if (this.#stationsList.length > 0) {
       this.buildAllStations(this.#stationsList, styleIndex);
     }
@@ -103,11 +128,9 @@ export class ThreeUndergroundStationBuilder {
   }
 
   /**
-   * Builds and places authentic underground stations across ALL subterranean station coordinates.
-   * Uses template cloning so every underground station displays the full architectural design
-   * (open-cut stone trench, curved modular slabs, climbing stairs, transparent glass atrium skylight, etc.)
+   * Builds and places authentic 2-tier underground stations across ALL subterranean station coordinates.
    */
-  buildAllStations(stationsList, styleIndex = this.#currentStyle, scaleFactor = 0.22) {
+  buildAllStations(stationsList, styleIndex = this.#currentStyle) {
     this.#currentStyle = styleIndex;
     this.#stationsList = stationsList;
 
@@ -119,90 +142,364 @@ export class ThreeUndergroundStationBuilder {
 
     if (!stationsList || stationsList.length === 0) return null;
 
-    const template = new THREE.Group();
-    this.#buildStyleGroup(template, styleIndex);
-    // Scale horizontal footprint along track (X, Z), but preserve Y-height (1.0)
-    // so stairs climb up to ground surface (Y = 0) and the glass skylight sits at ground level!
-    template.scale.set(scaleFactor, 1.0, scaleFactor);
-
     const masterGroup = new THREE.Group();
+    masterGroup.name = "UndergroundStations_MasterGroup";
     const placedPositions = [];
 
     for (const item of stationsList) {
       // Deduplicate overlapping stations at interchange junctions
-      if (placedPositions.some(p => p.distanceTo(item.pos) < 6.0)) {
+      if (placedPositions.some(p => Math.hypot(p.x - item.pos.x, p.z - item.pos.z) < 6.0)) {
         continue;
       }
       placedPositions.push(item.pos);
 
-      const clone = template.clone(true);
-      clone.position.copy(item.pos);
-      clone.rotation.y = item.rotationY || 0;
-      clone.userData = { id: item.id, status: item.status || 'operational' };
-      masterGroup.add(clone);
+      const stationGroup = new THREE.Group();
+      stationGroup.position.copy(item.pos);
+      stationGroup.rotation.y = item.rotationY || 0;
+      stationGroup.userData = { id: item.id, status: item.status || 'operational', item };
+
+      this.#buildStyleGroup(stationGroup, styleIndex, item);
+
+      masterGroup.add(stationGroup);
     }
 
     masterGroup.visible = this.#isVisible;
-    if (!this.#showGlassCanopy) {
-      masterGroup.traverse(child => {
-        if (child.name === 'glassAtriumShade') {
-          child.visible = false;
-        }
-      });
-    }
-
     this.#multiStationsGroup = masterGroup;
     this.#scene.add(masterGroup);
     return masterGroup;
   }
 
-  toggleGlassCanopy(visible) {
-    this.#showGlassCanopy = typeof visible === 'boolean' ? visible : !this.#showGlassCanopy;
-    if (this.#glassCanopy) {
-      this.#glassCanopy.visible = this.#showGlassCanopy;
+  // =========================================================================
+  // 1. SURFACE LEVEL: MODERN GLASS ENTRANCE PAVILION (Rotated 90° to Line)
+  // =========================================================================
+  #buildModernGlassPavilion(group, { groundY = 3.5, xOffset = 3.2, zOffset = 0.0, item = null } = {}) {
+    const pavilion = new THREE.Group();
+    pavilion.name = "StreetEntrancePavilion_Glass";
+
+    // Overall Pavilion Dimensions
+    const width = 4.4;      // Pavilion width across the entrance
+    const length = 7.6;     // Total length from front to back
+    const frontOverhang = 1.2; // Forward cantilever overhang at front
+    const hFront = 3.2;     // Height at front entrance (above plinth)
+    const hRear = 1.55;     // Height at rear wall (above plinth)
+    const plinthH = 0.38;   // Street granite plinth height
+    const baseWallH = 0.55; // Low side concrete/granite dado wall
+
+    // Position at ground surface, shifted slightly to the platform side
+    pavilion.position.set(xOffset, groundY, zOffset);
+    // 🔄 90° Rotation: Makes entrance face perpendicular to line (towards street/sidewalk)
+    pavilion.rotation.y = Math.PI / 2;
+
+    // Resolve Line Color for Portal Accent
+    let accentColor = 0xf1c40f; // Default Yellow Line accent
+    if (item?.st?.lines) {
+      const lineStr = String(item.st.lines[0] || '').toLowerCase();
+      if (lineStr.includes('red')) accentColor = 0xd63031;
+      else if (lineStr.includes('blue')) accentColor = 0x0984e3;
+      else if (lineStr.includes('green')) accentColor = 0x2ecc71;
+      else if (lineStr.includes('violet') || lineStr.includes('purple')) accentColor = 0x8e44ad;
+      else if (lineStr.includes('magenta') || lineStr.includes('pink')) accentColor = 0xe84393;
+      else if (lineStr.includes('orange') || lineStr.includes('airport')) accentColor = 0xe67e22;
+      else if (lineStr.includes('yellow')) accentColor = 0xf1c40f;
     }
-    if (this.#multiStationsGroup) {
-      this.#multiStationsGroup.traverse(child => {
-        if (child.name === 'glassAtriumShade') {
-          child.visible = this.#showGlassCanopy;
-        }
+
+    // Materials Palette: Light, Clean, Crystal Clear (Never black!)
+    const glassMat = new THREE.MeshStandardMaterial({
+      color: 0xb3e5fc,
+      transparent: true,
+      opacity: 0.45,
+      roughness: 0.08,
+      metalness: 0.05,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    });
+
+    const steelMat = new THREE.MeshStandardMaterial({
+      color: 0x5a6572,
+      roughness: 0.35,
+      metalness: 0.65
+    });
+
+    const graniteMat = new THREE.MeshStandardMaterial({
+      color: 0xd6d0c4,
+      roughness: 0.65,
+      metalness: 0.05
+    });
+
+    const darkCurbMat = new THREE.MeshStandardMaterial({
+      color: 0x9e978e,
+      roughness: 0.8
+    });
+
+    const linePortalMat = new THREE.MeshStandardMaterial({
+      color: accentColor,
+      roughness: 0.3,
+      metalness: 0.4
+    });
+
+    const warmLightMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      emissive: 0xffe6a3,
+      emissiveIntensity: 0.95
+    });
+
+    const escalatorTrussMat = new THREE.MeshStandardMaterial({
+      color: 0x474e56,
+      roughness: 0.3,
+      metalness: 0.7
+    });
+
+    const rubberHandrailMat = new THREE.MeshStandardMaterial({
+      color: 0x1f2429,
+      roughness: 0.85
+    });
+
+    const stepTreadMat = new THREE.MeshStandardMaterial({
+      color: 0xbdc3c7,
+      roughness: 0.4,
+      metalness: 0.5
+    });
+
+    // 1. Street Granite Plinth & Aperture
+    const plinthGroup = new THREE.Group();
+    const curbThickness = 0.35;
+    [-width / 2 + curbThickness / 2, width / 2 - curbThickness / 2].forEach(x => {
+      const sideCurb = new THREE.Mesh(
+        new THREE.BoxGeometry(curbThickness, plinthH + baseWallH, length),
+        graniteMat
+      );
+      sideCurb.position.set(x, (plinthH + baseWallH) / 2, 0);
+      plinthGroup.add(sideCurb);
+    });
+
+    const rearCurb = new THREE.Mesh(
+      new THREE.BoxGeometry(width, plinthH + baseWallH, curbThickness),
+      graniteMat
+    );
+    rearCurb.position.set(0, (plinthH + baseWallH) / 2, -length / 2 + curbThickness / 2);
+    plinthGroup.add(rearCurb);
+
+    const frontApron = new THREE.Mesh(
+      new THREE.BoxGeometry(width + 0.6, plinthH, 1.2),
+      darkCurbMat
+    );
+    frontApron.position.set(0, plinthH / 2, length / 2 + 0.6);
+    plinthGroup.add(frontApron);
+
+    pavilion.add(plinthGroup);
+
+    // 2. Curved Sloped Roof ("Curve me cut le kar dhalan")
+    const zFront = length / 2;
+    const zTip = zFront + frontOverhang;
+    const roofSegments = 16;
+    const roofCurvePoints = [];
+
+    const getRoofY = (z) => {
+      if (z >= zFront) {
+        const t = (z - zFront) / frontOverhang;
+        return hFront + 0.15 * Math.sin(t * Math.PI * 0.5);
+      } else {
+        const u = Math.max(0, Math.min(1, (zFront - z) / length));
+        return hFront - (hFront - hRear) * Math.pow(u, 1.25);
+      }
+    };
+
+    roofCurvePoints.push({ z: zTip, y: getRoofY(zTip) });
+    for (let i = 0; i <= roofSegments; i++) {
+      const z = zFront - (i / roofSegments) * length;
+      roofCurvePoints.push({ z, y: getRoofY(z) });
+    }
+
+    const roofWidth = width + 0.35;
+    const roofPositions = [];
+    const roofUvs = [];
+    const roofIndices = [];
+
+    const numPts = roofCurvePoints.length;
+    for (let i = 0; i < numPts; i++) {
+      const pt = roofCurvePoints[i];
+      const yWorld = plinthH + pt.y;
+
+      roofPositions.push(-roofWidth / 2, yWorld, pt.z);
+      roofUvs.push(0, i / (numPts - 1));
+
+      roofPositions.push(roofWidth / 2, yWorld, pt.z);
+      roofUvs.push(1, i / (numPts - 1));
+
+      if (i < numPts - 1) {
+        const v0 = i * 2;
+        const v1 = i * 2 + 1;
+        const v2 = (i + 1) * 2;
+        const v3 = (i + 1) * 2 + 1;
+        roofIndices.push(v0, v1, v2);
+        roofIndices.push(v1, v3, v2);
+      }
+    }
+
+    const roofGeo = new THREE.BufferGeometry();
+    roofGeo.setAttribute('position', new THREE.Float32BufferAttribute(roofPositions, 3));
+    roofGeo.setAttribute('uv', new THREE.Float32BufferAttribute(roofUvs, 2));
+    roofGeo.setIndex(roofIndices);
+    roofGeo.computeVertexNormals();
+
+    const glassRoofMesh = new THREE.Mesh(roofGeo, glassMat);
+    pavilion.add(glassRoofMesh);
+
+    // Curved Fascia Beams
+    [-roofWidth / 2, roofWidth / 2].forEach(x => {
+      const beamPts = roofCurvePoints.map(p => new THREE.Vector3(x, plinthH + p.y, p.z));
+      const beamCurve = new THREE.CatmullRomCurve3(beamPts);
+      const beamGeo = new THREE.TubeGeometry(beamCurve, 24, 0.05, 8, false);
+      const beamMesh = new THREE.Mesh(beamGeo, steelMat);
+      pavilion.add(beamMesh);
+    });
+
+    const tipPt = roofCurvePoints[0];
+    const frontEavesBar = new THREE.Mesh(new THREE.BoxGeometry(roofWidth + 0.08, 0.12, 0.12), steelMat);
+    frontEavesBar.position.set(0, plinthH + tipPt.y, tipPt.z);
+    pavilion.add(frontEavesBar);
+
+    const rearPt = roofCurvePoints[roofCurvePoints.length - 1];
+    const rearEavesBar = new THREE.Mesh(new THREE.BoxGeometry(roofWidth + 0.08, 0.10, 0.10), steelMat);
+    rearEavesBar.position.set(0, plinthH + rearPt.y, rearPt.z);
+    pavilion.add(rearEavesBar);
+
+    // Transverse Rafters & Interior LED Lighting
+    const numRafters = 6;
+    for (let r = 0; r <= numRafters; r++) {
+      const zRafter = zFront - (r / numRafters) * length;
+      const yRafter = plinthH + getRoofY(zRafter);
+
+      const rafter = new THREE.Mesh(new THREE.BoxGeometry(roofWidth - 0.05, 0.06, 0.06), steelMat);
+      rafter.position.set(0, yRafter - 0.03, zRafter);
+      pavilion.add(rafter);
+
+      const ledStrip = new THREE.Mesh(new THREE.BoxGeometry(roofWidth - 0.6, 0.02, 0.04), warmLightMat);
+      ledStrip.position.set(0, yRafter - 0.07, zRafter);
+      pavilion.add(ledStrip);
+    }
+
+    // 3. Side Transparent Glass Curtain Walls
+    const numGlassBays = 6;
+    const baySpacing = length / numGlassBays;
+
+    [-width / 2, width / 2].forEach(x => {
+      for (let b = 0; b < numGlassBays; b++) {
+        const z0 = zFront - b * baySpacing;
+        const z1 = zFront - (b + 1) * baySpacing;
+        const zMid = (z0 + z1) / 2;
+
+        const yBottom = plinthH + baseWallH;
+        const yTop = plinthH + getRoofY(zMid);
+        const glassHeight = Math.max(0.2, yTop - yBottom);
+
+        const glassPane = new THREE.Mesh(new THREE.BoxGeometry(0.03, glassHeight, baySpacing - 0.05), glassMat);
+        glassPane.position.set(x, yBottom + glassHeight / 2, zMid);
+        pavilion.add(glassPane);
+
+        const transom = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.04, baySpacing), steelMat);
+        transom.position.set(x, yBottom + glassHeight * 0.45, zMid);
+        pavilion.add(transom);
+
+        const mullionH = Math.max(0.2, (plinthH + getRoofY(z1)) - yBottom);
+        const mullion = new THREE.Mesh(new THREE.BoxGeometry(0.06, mullionH, 0.06), steelMat);
+        mullion.position.set(x, yBottom + mullionH / 2, z1);
+        pavilion.add(mullion);
+      }
+    });
+
+    // Rear Glass Wall
+    const rearYBottom = plinthH + baseWallH;
+    const rearYTop = plinthH + hRear;
+    const rearGlassH = Math.max(0.2, rearYTop - rearYBottom);
+    const rearGlass = new THREE.Mesh(new THREE.BoxGeometry(width - curbThickness * 2, rearGlassH, 0.03), glassMat);
+    rearGlass.position.set(0, rearYBottom + rearGlassH / 2, -length / 2 + curbThickness / 2);
+    pavilion.add(rearGlass);
+
+    // 4. Front Entrance Portal & Raked Columns
+    [-width / 2 + 0.15, width / 2 - 0.15].forEach(x => {
+      const pBase = new THREE.Vector3(x, plinthH + baseWallH, zFront);
+      const pTop = new THREE.Vector3(x, plinthH + getRoofY(zTip - 0.2), zTip - 0.2);
+      const pillarCurve = new THREE.LineCurve3(pBase, pTop);
+      const pillarGeo = new THREE.TubeGeometry(pillarCurve, 4, 0.07, 8, false);
+      const pillarMesh = new THREE.Mesh(pillarGeo, steelMat);
+      pavilion.add(pillarMesh);
+    });
+
+    const portalBar = new THREE.Mesh(new THREE.BoxGeometry(width - 0.2, 0.28, 0.12), linePortalMat);
+    portalBar.position.set(0, plinthH + hFront - 0.14, zFront + 0.1);
+    pavilion.add(portalBar);
+
+    const signPlate = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.18, 0.04), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    signPlate.position.set(0, plinthH + hFront - 0.14, zFront + 0.18);
+    pavilion.add(signPlate);
+
+    // 5. Descending Dual Escalators & Stairs into Ground
+    const escDepth = groundY; // Descends smoothly all the way down to subterranean track level!
+    const escLength = 5.6;
+    const escWidth = 0.95;
+
+    [-0.75, 0.75].forEach(escX => {
+      this.#buildEscalatorPair(pavilion, {
+        topX: escX,
+        topY: plinthH,
+        topZ: zFront - 0.8,
+        botY: -escDepth + 0.45,
+        botZ: zFront - 0.8 - escLength,
+        width: escWidth,
+        trussMat: escalatorTrussMat,
+        stepMat: stepTreadMat,
+        glassMat,
+        handrailMat: rubberHandrailMat
       });
-    }
-    return this.#showGlassCanopy;
+    });
+
+    group.add(pavilion);
+    this.#streetPavilions.push(pavilion);
   }
 
-  toggleVisibility(visible) {
-    this.#isVisible = typeof visible === 'boolean' ? visible : !this.#isVisible;
-    if (this.#currentGroup) {
-      this.#currentGroup.visible = this.#isVisible;
-    }
-    if (this.#multiStationsGroup) {
-      this.#multiStationsGroup.visible = this.#isVisible;
-    }
-    return this.#isVisible;
-  }
+  #buildEscalatorPair(group, { topX, topY, topZ, botY, botZ, width, trussMat, stepMat, glassMat, handrailMat }) {
+    const escGroup = new THREE.Group();
+    const heightDiff = topY - botY;
+    const runZ = topZ - botZ;
+    const slopeAngle = Math.atan2(heightDiff, runZ);
+    const diagonalLen = Math.hypot(heightDiff, runZ);
 
-  toggleVisibilityByStatus(status, visible) {
-    if (this.#multiStationsGroup) {
-      this.#multiStationsGroup.children.forEach(child => {
-        if (child.userData?.status === status) {
-          child.visible = visible;
-        }
-      });
-    }
-  }
+    const truss = new THREE.Mesh(new THREE.BoxGeometry(width, 0.35, diagonalLen), trussMat);
+    truss.position.set(topX, botY + heightDiff / 2, botZ + runZ / 2);
+    truss.rotation.x = slopeAngle;
+    escGroup.add(truss);
 
-  get currentStyle() {
-    return this.#currentStyle;
+    const numSteps = 16;
+    for (let s = 0; s < numSteps; s++) {
+      const frac = s / numSteps;
+      const step = new THREE.Mesh(new THREE.BoxGeometry(width - 0.12, heightDiff / numSteps, runZ / numSteps), stepMat);
+      step.position.set(topX, botY + frac * heightDiff + (heightDiff / numSteps) / 2, botZ + frac * runZ + (runZ / numSteps) / 2);
+      escGroup.add(step);
+    }
+
+    [-width / 2 + 0.03, width / 2 - 0.03].forEach(bx => {
+      const balustrade = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.70, diagonalLen), glassMat);
+      balustrade.position.set(topX + bx, botY + heightDiff / 2 + 0.38, botZ + runZ / 2);
+      balustrade.rotation.x = slopeAngle;
+      escGroup.add(balustrade);
+
+      const handrail = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.04, diagonalLen + 0.1), handrailMat);
+      handrail.position.set(topX + bx, botY + heightDiff / 2 + 0.74, botZ + runZ / 2);
+      handrail.rotation.x = slopeAngle;
+      escGroup.add(handrail);
+    });
+
+    group.add(escGroup);
   }
 
   // =========================================================================
-  // 1. MODERN DMRC OPEN-CUT METRO PLATFORM
+  // SUBTERRANEAN DESIGN 0: MODERN DMRC OPEN-CUT PLATFORM
   // =========================================================================
   #buildModernOpencut(group) {
     const platWidth = 2.4;
     const platHeight = 0.45;
-    const platBaseX = 1.25 + platWidth / 2; // Exact 1.25m safety clearance from track center
+    const platBaseX = 1.25 + platWidth / 2;
 
     const concreteMat = new THREE.MeshStandardMaterial({ color: 0xdedede, roughness: 0.6, metalness: 0.1 });
     const safetyYellow = new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 });
@@ -216,7 +513,6 @@ export class ThreeUndergroundStationBuilder {
       opacity: 0.6
     });
 
-    // 8 Precast Modular Slabs following the track curvature
     const numSlabs = 8;
     const slabLength = 2.0;
 
@@ -225,38 +521,31 @@ export class ThreeUndergroundStationBuilder {
       const xCurve = (z * z) / 52.0;
       const angle = Math.atan2(z, 26.0);
 
-      // Precast square concrete slab
       const slab = new THREE.Mesh(new THREE.BoxGeometry(platWidth, platHeight, slabLength - 0.04), concreteMat);
       slab.position.set(platBaseX + xCurve, platHeight / 2, z);
       slab.rotation.y = angle;
       slab.castShadow = true;
       slab.receiveShadow = true;
 
-      // Yellow tactile strip on this modular slab
       const tactile = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.02, slabLength - 0.04), safetyYellow);
       tactile.position.set(-platWidth / 2 + 0.14, platHeight / 2 + 0.01, 0);
       slab.add(tactile);
 
-      // Glass safety railing on this slab
       const glass = new THREE.Mesh(new THREE.BoxGeometry(0.04, 1.05, slabLength - 0.04), glassMat);
       glass.position.set(-platWidth / 2 + 0.04, platHeight / 2 + 0.525, 0);
       slab.add(glass);
 
-      // Handrail
       const handrail = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.05, slabLength - 0.04), steelMat);
       handrail.position.set(-platWidth / 2 + 0.04, platHeight / 2 + 1.05, 0);
       slab.add(handrail);
 
-      // Post
       const post = new THREE.Mesh(new THREE.BoxGeometry(0.08, 1.1, 0.08), steelMat);
       post.position.set(-platWidth / 2 + 0.04, platHeight / 2 + 0.55, -slabLength / 2 + 0.05);
       slab.add(post);
 
-      // Light poles on selected slabs
       if (k === 1 || k === 4 || k === 6) {
         const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, 3.2, 8), steelMat);
         pole.position.set(platWidth / 2 - 0.25, platHeight / 2 + 1.6, 0);
-        pole.castShadow = true;
         slab.add(pole);
 
         const lampHead = new THREE.Mesh(
@@ -267,28 +556,20 @@ export class ThreeUndergroundStationBuilder {
         slab.add(lampHead);
       }
 
-      // Passenger benches on selected slabs
       if (k === 2 || k === 5) {
         const bench = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.4, 1.4), steelMat);
         bench.position.set(0.35, platHeight / 2 + 0.2, 0);
-        bench.castShadow = true;
         slab.add(bench);
       }
 
       group.add(slab);
     }
 
-    // Open-Air Concrete Stairs climbing the canyon wall up to ground (Y = 0)
-    const zStair = 3.5;
-    const xStair = platBaseX + (zStair * zStair) / 52.0 + platWidth / 2 - 0.1;
-    this.#buildOpenAirStairs(group, xStair, platHeight, zStair, concreteMat, steelMat);
-
-    // Modern Station Signboard
-    this.#addSideSignboard(group, 'CHAWRI BAZAR (OPEN CUT)', 0x0984e3, platBaseX + 0.6, platHeight + 2.2, 0);
+    this.#addSideSignboard(group, 'CHAWRI BAZAR (SUBTERRANEAN)', 0x0984e3, platBaseX + 0.6, platHeight + 2.2, 0);
   }
 
   // =========================================================================
-  // 2. CLASH OF CLANS SUNKEN QUARRY DEPOT
+  // SUBTERRANEAN DESIGN 1: CLASH OF CLANS SUNKEN QUARRY DEPOT
   // =========================================================================
   #buildCoCQuarryDepot(group) {
     const platWidth = 2.4;
@@ -313,17 +594,14 @@ export class ThreeUndergroundStationBuilder {
       slab.castShadow = true;
       slab.receiveShadow = true;
 
-      // Timber edge beam
       const woodEdge = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.08, slabLength - 0.04), woodMat);
       woodEdge.position.set(-platWidth / 2 + 0.1, platHeight / 2 + 0.04, 0);
       slab.add(woodEdge);
 
-      // Wooden post
       const post = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.09, 0.95, 6), woodMat);
       post.position.set(-platWidth / 2 + 0.1, platHeight / 2 + 0.475, 0);
       slab.add(post);
 
-      // Rope railings
       [0.4, 0.8].forEach((yOff) => {
         const rope = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, slabLength - 0.04, 6), ropeMat);
         rope.rotation.x = Math.PI / 2;
@@ -331,7 +609,6 @@ export class ThreeUndergroundStationBuilder {
         slab.add(rope);
       });
 
-      // Torches on selected slabs
       if (k === 1 || k === 6) {
         const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 2.2, 6), woodMat);
         pole.position.set(platWidth / 2 - 0.25, platHeight / 2 + 1.1, 0);
@@ -345,7 +622,6 @@ export class ThreeUndergroundStationBuilder {
         slab.add(flame);
       }
 
-      // Barrels/crates on slabs
       if (k === 3) {
         const crate = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.65, 0.65), woodMat);
         crate.position.set(0.4, platHeight / 2 + 0.325, 0);
@@ -355,16 +631,11 @@ export class ThreeUndergroundStationBuilder {
       group.add(slab);
     }
 
-    // Wooden Gangway Stairs climbing canyon wall
-    const zStair = 3.5;
-    const xStair = platBaseX + (zStair * zStair) / 52.0 + platWidth / 2 - 0.1;
-    this.#buildOpenAirStairs(group, xStair, platHeight, zStair, woodMat, woodMat);
-
     this.#addSideSignboard(group, 'CANYON QUARRY DEPOT', 0xd35400, platBaseX + 0.6, platHeight + 2.2, 0);
   }
 
   // =========================================================================
-  // 3. CYBERPUNK OPEN SKYWAY TRENCH
+  // SUBTERRANEAN DESIGN 2: CYBERPUNK SKYWAY TRENCH
   // =========================================================================
   #buildCyberpunkTrench(group) {
     const platWidth = 2.4;
@@ -390,12 +661,10 @@ export class ThreeUndergroundStationBuilder {
       slab.castShadow = true;
       slab.receiveShadow = true;
 
-      // Cyan floor track
       const floorStrip = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.02, slabLength - 0.04), neonCyan);
       floorStrip.position.set(-0.2, platHeight / 2 + 0.01, 0);
       slab.add(floorStrip);
 
-      // Laser emitters & beams
       const emitter = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.85, 0.1), carbonMat);
       emitter.position.set(-platWidth / 2 + 0.06, platHeight / 2 + 0.425, 0);
       slab.add(emitter);
@@ -407,7 +676,6 @@ export class ThreeUndergroundStationBuilder {
         slab.add(beam);
       });
 
-      // Holographic Monoliths
       if (k === 2 || k === 5) {
         const holo = new THREE.Mesh(
           new THREE.PlaneGeometry(1.0, 1.8),
@@ -420,15 +688,11 @@ export class ThreeUndergroundStationBuilder {
       group.add(slab);
     }
 
-    const zStair = 3.5;
-    const xStair = platBaseX + (zStair * zStair) / 52.0 + platWidth / 2 - 0.1;
-    this.#buildOpenAirStairs(group, xStair, platHeight, zStair, carbonMat, neonCyan);
-
     this.#addSideSignboard(group, 'NEO-DELHI DOCK-01', 0x00f0ff, platBaseX + 0.6, platHeight + 2.2, 0);
   }
 
   // =========================================================================
-  // 4. ROYAL HERITAGE BAOLI GHAT
+  // SUBTERRANEAN DESIGN 3: ROYAL HERITAGE BAOLI GHAT
   // =========================================================================
   #buildHeritageBaoliGhat(group) {
     const platWidth = 2.5;
@@ -452,12 +716,10 @@ export class ThreeUndergroundStationBuilder {
       slab.castShadow = true;
       slab.receiveShadow = true;
 
-      // Upper seating step along rear
       const upperStep = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.35, slabLength - 0.04), redSandstoneMat);
       upperStep.position.set(platWidth / 2 - 0.4, platHeight / 2 + 0.175, 0);
       slab.add(upperStep);
 
-      // Balustrade post & jali screen
       const pillar = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.12, 0.85, 8), redSandstoneMat);
       pillar.position.set(-platWidth / 2 + 0.08, platHeight / 2 + 0.425, 0);
       slab.add(pillar);
@@ -466,7 +728,6 @@ export class ThreeUndergroundStationBuilder {
       jali.position.set(-platWidth / 2 + 0.08, platHeight / 2 + 0.425, 0);
       slab.add(jali);
 
-      // Deepastambha Lampposts
       if (k === 1 || k === 6) {
         const post = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.18, 2.6, 8), redSandstoneMat);
         post.position.set(platWidth / 2 - 0.3, platHeight / 2 + 1.3, 0);
@@ -483,15 +744,11 @@ export class ThreeUndergroundStationBuilder {
       group.add(slab);
     }
 
-    const zStair = 3.5;
-    const xStair = platBaseX + (zStair * zStair) / 52.0 + platWidth / 2 - 0.1;
-    this.#buildOpenAirStairs(group, xStair, platHeight, zStair, redSandstoneMat, redSandstoneMat);
-
     this.#addSideSignboard(group, 'PURANA QILA (OPEN GHAT)', 0xd4af37, platBaseX + 0.6, platHeight + 2.2, 0);
   }
 
   // =========================================================================
-  // 5. INDUSTRIAL SUB-DOCK
+  // SUBTERRANEAN DESIGN 4: INDUSTRIAL SUB-DOCK
   // =========================================================================
   #buildIndustrialSubDock(group) {
     const platWidth = 2.4;
@@ -517,17 +774,14 @@ export class ThreeUndergroundStationBuilder {
       slab.castShadow = true;
       slab.receiveShadow = true;
 
-      // Hazard striping
       const stripe = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.02, slabLength - 0.04), k % 2 === 0 ? safetyYellow : hazardBlack);
       stripe.position.set(-platWidth / 2 + 0.1, platHeight / 2 + 0.01, 0);
       slab.add(stripe);
 
-      // Yellow cage railing
       const cage = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.95, slabLength - 0.04), safetyYellow);
       cage.position.set(-platWidth / 2 + 0.06, platHeight / 2 + 0.475, 0);
       slab.add(cage);
 
-      // High-mast floodlight
       if (k === 1) {
         const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.12, 3.8, 8), steelMat);
         mast.position.set(platWidth / 2 - 0.25, platHeight / 2 + 1.9, 0);
@@ -550,44 +804,7 @@ export class ThreeUndergroundStationBuilder {
       group.add(slab);
     }
 
-    const zStair = 3.5;
-    const xStair = platBaseX + (zStair * zStair) / 52.0 + platWidth / 2 - 0.1;
-    this.#buildOpenAirStairs(group, xStair, platHeight, zStair, steelMat, safetyYellow);
-
     this.#addSideSignboard(group, 'SECTOR-7 (OPEN DOCK)', 0xf1c40f, platBaseX + 0.6, platHeight + 2.2, 0);
-  }
-
-  // =========================================================================
-  // HELPER: OPEN-AIR STAIRS CLIMBING CANYON WALL TO GROUND LEVEL (Y = 0)
-  // =========================================================================
-  #buildOpenAirStairs(group, startX, startY, centerZ, stepMat, handrailMat) {
-    const numSteps = 12;
-    const totalRise = 3.05; // From Y = -3.05 up to Y = 0.0 ground surface
-    const stepRise = totalRise / numSteps;
-    const stepTread = 0.35;
-    const stairWidth = 1.4;
-
-    const stairGroup = new THREE.Group();
-    const zBase = centerZ;
-
-    for (let i = 0; i < numSteps; i++) {
-      const stepMesh = new THREE.Mesh(new THREE.BoxGeometry(stairWidth, stepRise, stepTread), stepMat);
-      stepMesh.position.set(startX + 0.3, startY + (i + 0.5) * stepRise, zBase + i * stepTread);
-      stepMesh.castShadow = true;
-      stepMesh.receiveShadow = true;
-      stairGroup.add(stepMesh);
-    }
-
-    // Slanted Handrail along the climbing stairs
-    const railLength = Math.sqrt(totalRise * totalRise + (numSteps * stepTread) * (numSteps * stepTread));
-    const rail = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.06, railLength), handrailMat);
-    const midY = startY + totalRise / 2 + 0.85;
-    const midZ = zBase + (numSteps * stepTread) / 2;
-    rail.position.set(startX - stairWidth / 2 + 0.35, midY, midZ);
-    rail.rotation.x = -Math.atan2(totalRise, numSteps * stepTread);
-    stairGroup.add(rail);
-
-    group.add(stairGroup);
   }
 
   // =========================================================================
@@ -642,59 +859,47 @@ export class ThreeUndergroundStationBuilder {
     group.add(boardGroup);
   }
 
-  // =========================================================================
-  // HELPER: TRANSPARENT GLASS SKYLIGHT SHADE OVER THE SQUARE PIT (NO CAGE/ARCH)
-  // =========================================================================
-  #buildGlassAtriumShade(group) {
-    const shadeGroup = new THREE.Group();
-    shadeGroup.name = 'glassAtriumShade';
-    const length = 17.0;
-    const xMin = 1.35;
-    const xMax = 4.85;
-    const xCenter = (xMin + xMax) / 2;
-    const spanWidth = xMax - xMin;
-    const groundY = 3.5; // Ground surface level Y = 0.0 in world coordinates
+  toggleGlassCanopy(visible) {
+    this.#showGlassCanopy = typeof visible === 'boolean' ? visible : !this.#showGlassCanopy;
+    for (const pav of this.#streetPavilions) {
+      pav.visible = this.#showGlassCanopy;
+    }
+    return this.#showGlassCanopy;
+  }
 
-    // Pure transparent glass material matching the elevated station glass
-    const glassMat = new THREE.MeshPhysicalMaterial({
-      color: 0x88ccff,
-      roughness: 0.08,
-      metalness: 0.1,
-      transmission: 0.75,
-      transparent: true,
-      opacity: 0.55,
-      depthWrite: false,
-      side: THREE.DoubleSide
-    });
+  toggleVisibility(visible) {
+    this.#isVisible = typeof visible === 'boolean' ? visible : !this.#isVisible;
+    if (this.#currentGroup) {
+      this.#currentGroup.visible = this.#isVisible;
+    }
+    if (this.#multiStationsGroup) {
+      this.#multiStationsGroup.visible = this.#isVisible;
+    }
+    return this.#isVisible;
+  }
 
-    // Clean subtle stainless chrome edge trim (ultra thin, no cage bars)
-    const trimMat = new THREE.MeshStandardMaterial({
-      color: 0xb0bec5,
-      metalness: 0.85,
-      roughness: 0.25
-    });
+  toggleVisibilityByStatus(status, visible) {
+    if (this.#multiStationsGroup) {
+      this.#multiStationsGroup.children.forEach((child) => {
+        if (child.userData?.status === status) {
+          child.visible = visible;
+        }
+      });
+    }
+  }
 
-    // 1. Pure flat crystal-clear transparent glass panel over the station pit
-    const glassGeo = new THREE.BoxGeometry(spanWidth + 0.2, 0.05, length);
-    const glassMesh = new THREE.Mesh(glassGeo, glassMat);
-    glassMesh.position.set(xCenter, groundY + 0.03, 0);
-    shadeGroup.add(glassMesh);
-
-    // 2. Ultra-slim perimeter bezel frame around the pit edges (no cage, no arch)
-    [-length / 2, length / 2].forEach(z => {
-      const endTrim = new THREE.Mesh(new THREE.BoxGeometry(spanWidth + 0.3, 0.06, 0.08), trimMat);
-      endTrim.position.set(xCenter, groundY + 0.03, z);
-      shadeGroup.add(endTrim);
-    });
-    [xMin - 0.1, xMax + 0.1].forEach(x => {
-      const sideTrim = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.06, length), trimMat);
-      sideTrim.position.set(x, groundY + 0.03, 0);
-      shadeGroup.add(sideTrim);
-    });
-
-    shadeGroup.visible = this.#showGlassCanopy;
-    this.#glassCanopy = shadeGroup;
-    group.add(shadeGroup);
+  dispose() {
+    if (this.#currentGroup) {
+      this.#scene.remove(this.#currentGroup);
+      this.#disposeGroup(this.#currentGroup);
+      this.#currentGroup = null;
+    }
+    if (this.#multiStationsGroup) {
+      this.#scene.remove(this.#multiStationsGroup);
+      this.#disposeGroup(this.#multiStationsGroup);
+      this.#multiStationsGroup = null;
+    }
+    this.#streetPavilions = [];
   }
 
   #disposeGroup(group) {

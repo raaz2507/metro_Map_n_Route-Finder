@@ -8,6 +8,7 @@
  */
 
 import { AudioPlayer } from "../services/alarm/AudioPlayer.js";
+import { widgetBridgeService } from "../services/alarm/WidgetBridgeService.js";
 import { centerClass } from "../core/CenterClass.js";
 import { eventBus } from "../core/event-bus.js";
 
@@ -31,7 +32,7 @@ class AlarmSettingsController {
 		customAudioName: "",
 		volume: 80,  // 0 - 100
 		vibrationPattern: "long",// long | short | sos | continuous
-		enableVoiceAnnouncement: true
+		enableVoiceAnnouncement: true,
 	};
 
 	#settings = {};
@@ -439,6 +440,120 @@ class MapSettingsController {
 // =============================================================================
 // 3. ⚙️ MAIN SETTINGS ORCHESTRATOR & FOLDER TABS CONTROLLER
 // =============================================================================
+// =============================================================================
+// 📲 NOTIFICATION & LIVE PASS SETTINGS SUB-CONTROLLER
+// =============================================================================
+class NotificationSettingsController {
+	#elements = {};
+	#abortController = null;
+	#settings = {
+		persistentNotification: true,
+		notificationStyle: "boarding_pass"
+	};
+
+	init() {
+		this.#abortController = new AbortController();
+		this.#queryElements();
+		this.#loadSettings();
+		this.#bindEvents();
+		this.#render();
+	}
+
+	destroy() {
+		this.#abortController?.abort();
+	}
+
+	#queryElements() {
+		const panel = document.getElementById("panel-setting-notification");
+		if (!panel) return;
+
+		this.#elements = {
+			panel,
+			persistentNotif: document.getElementById("settingPersistentNotif"),
+			styleCards: panel.querySelectorAll(".notif-style-card"),
+			btnTestNotif: document.getElementById("btnTestNotif")
+		};
+	}
+
+	#loadSettings() {
+		try {
+			const saved = localStorage.getItem("metro_notif_settings");
+			if (saved) {
+				this.#settings = { ...this.#settings, ...JSON.parse(saved) };
+			}
+		} catch (e) {
+			console.warn("[NotifSettings] Failed to parse saved settings:", e);
+		}
+		widgetBridgeService.setNotificationStyle(this.#settings.notificationStyle || "boarding_pass");
+		widgetBridgeService.setPersistentNotification(this.#settings.persistentNotification !== false);
+	}
+
+	#saveSettings() {
+		try {
+			localStorage.setItem("metro_notif_settings", JSON.stringify(this.#settings));
+		} catch (e) {
+			console.error("[NotifSettings] Failed to save settings:", e);
+		}
+	}
+
+	#render() {
+		const el = this.#elements;
+		if (!el.panel) return;
+
+		if (el.persistentNotif) {
+			el.persistentNotif.checked = this.#settings.persistentNotification !== false;
+		}
+
+		el.styleCards?.forEach(card => {
+			const isSelected = card.dataset.style === this.#settings.notificationStyle;
+			card.classList.toggle("active", isSelected);
+			card.setAttribute("aria-checked", String(isSelected));
+			const radio = card.querySelector("input[type='radio']");
+			if (radio) radio.checked = isSelected;
+		});
+	}
+
+	#bindEvents() {
+		const el = this.#elements;
+		const signal = this.#abortController.signal;
+
+		// 1. Persistent Notification Toggle
+		el.persistentNotif?.addEventListener("change", (e) => {
+			this.#settings.persistentNotification = e.target.checked;
+			this.#saveSettings();
+			widgetBridgeService.setPersistentNotification(e.target.checked);
+		}, { signal });
+
+		// 2. Radio Card Click Selection
+		el.styleCards?.forEach(card => {
+			card.addEventListener("click", () => {
+				const style = card.dataset.style;
+				if (!style) return;
+				this.#settings.notificationStyle = style;
+				this.#saveSettings();
+				this.#render();
+				widgetBridgeService.setNotificationStyle(style);
+			}, { signal });
+
+			card.addEventListener("keydown", (e) => {
+				if (e.key === "Enter" || e.key === " ") {
+					e.preventDefault();
+					card.click();
+				}
+			}, { signal });
+		});
+
+		// 3. Test Notification Button
+		el.btnTestNotif?.addEventListener("click", () => {
+			widgetBridgeService.testNotification(this.#settings.notificationStyle);
+			eventBus.emit("SHOW_TOAST", {
+				message: centerClass.t("pages.home.settings.notification.testToast"),
+				type: "info"
+			});
+		}, { signal });
+	}
+}
+
 export class SettingsView {
 	#controllers = new Map();
 	#abortController = null;
@@ -447,6 +562,7 @@ export class SettingsView {
 	constructor() {
 		this.#controllers.set("alarm", new AlarmSettingsController());
 		this.#controllers.set("map", new MapSettingsController());
+		this.#controllers.set("notification", new NotificationSettingsController());
 		this.#controllers.set("backup", new BackupSettingsController());
 		this.#controllers.set("packs", new PacksSettingsController());
 	}
@@ -512,6 +628,12 @@ export class SettingsView {
 			const isActive = panel.dataset.panel === tabKey;
 			panel.classList.toggle("active", isActive);
 		});
+
+		// 3. 📂 Smart 2-Tier Row Flip (Active row shifts to front touching panel)
+		if (this.#elements.tabsContainer) {
+			const isSecondary = ["packs", "backup"].includes(tabKey);
+			this.#elements.tabsContainer.dataset.activeTier = isSecondary ? "secondary" : "primary";
+		}
 
 		// 3. एक्टिव टैब को लोकल स्टोरेज में याद रखें
 		try {

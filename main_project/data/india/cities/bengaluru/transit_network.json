@@ -7,121 +7,40 @@
 		"currency": "INR",
 		"last_updated": "2026-09-20",
 		"networks": {
-			"namma_metro": {
-				"operator": "Bangalore Metro Rail Corporation Limited (BMRCL)",
-				"avgSpeedMetersPerMin": 550,
-				"stationHaltMinutes": 0.5
-			}
+			"namma_metro": {"operator": "Bangalore Metro Rail Corporation Limited (BMRCL)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"bmrcl_standard": {
 				"network": "namma_metro",
 				"effectiveFrom": "2024-01-01",
 				"fareModel": "distance_based",
-				"calculation": {
-					"distanceUnit": "km",
-					"rounding": "nearest"
-				},
+				"calculation": {"distanceUnit": "km", "rounding": "nearest"},
 				"fareTables": {
 					"standard": [
-						{
-							"minKm": 0,
-							"maxKm": 2,
-							"fare": 10
-						},
-						{
-							"minKm": 2,
-							"maxKm": 4,
-							"fare": 20
-						},
-						{
-							"minKm": 4,
-							"maxKm": 6,
-							"fare": 30
-						},
-						{
-							"minKm": 6,
-							"maxKm": 8,
-							"fare": 40
-						},
-						{
-							"minKm": 8,
-							"maxKm": 10,
-							"fare": 50
-						},
-						{
-							"minKm": 10,
-							"maxKm": 15,
-							"fare": 60
-						},
-						{
-							"minKm": 15,
-							"maxKm": 20,
-							"fare": 70
-						},
-						{
-							"minKm": 20,
-							"maxKm": 25,
-							"fare": 80
-						},
-						{
-							"minKm": 25,
-							"maxKm": null,
-							"fare": 90
-						}
+						{"minKm": 0, "maxKm": 2, "fare": 10},
+						{"minKm": 2, "maxKm": 4, "fare": 20},
+						{"minKm": 4, "maxKm": 6, "fare": 30},
+						{"minKm": 6, "maxKm": 8, "fare": 40},
+						{"minKm": 8, "maxKm": 10, "fare": 50},
+						{"minKm": 10, "maxKm": 15, "fare": 60},
+						{"minKm": 15, "maxKm": 20, "fare": 70},
+						{"minKm": 20, "maxKm": 25, "fare": 80},
+						{"minKm": 25, "maxKm": null, "fare": 90}
 					],
 					"holiday": [
-						{
-							"minKm": 0,
-							"maxKm": 2,
-							"fare": 9
-						},
-						{
-							"minKm": 2,
-							"maxKm": 4,
-							"fare": 18
-						},
-						{
-							"minKm": 4,
-							"maxKm": 6,
-							"fare": 27
-						},
-						{
-							"minKm": 6,
-							"maxKm": 8,
-							"fare": 36
-						},
-						{
-							"minKm": 8,
-							"maxKm": 10,
-							"fare": 45
-						},
-						{
-							"minKm": 10,
-							"maxKm": 15,
-							"fare": 54
-						},
-						{
-							"minKm": 15,
-							"maxKm": 20,
-							"fare": 63
-						},
-						{
-							"minKm": 20,
-							"maxKm": 25,
-							"fare": 72
-						},
-						{
-							"minKm": 25,
-							"maxKm": null,
-							"fare": 81
-						}
+						{"minKm": 0, "maxKm": 2, "fare": 9},
+						{"minKm": 2, "maxKm": 4, "fare": 18},
+						{"minKm": 4, "maxKm": 6, "fare": 27},
+						{"minKm": 6, "maxKm": 8, "fare": 36},
+						{"minKm": 8, "maxKm": 10, "fare": 45},
+						{"minKm": 10, "maxKm": 15, "fare": 54},
+						{"minKm": 15, "maxKm": 20, "fare": 63},
+						{"minKm": 20, "maxKm": 25, "fare": 72},
+						{"minKm": 25, "maxKm": null, "fare": 81}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base"
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
@@ -129,34 +48,12 @@
 						"weekendDiscountPercent": 10,
 						"minBalance": 50,
 						"refundableDeposit": 50,
-						"maxTravelTimeMinutes": {
-							"sameStation": 20,
-							"otherStation": 120
-						},
+						"maxTravelTimeMinutes": {"sameStation": 20, "otherStation": 120},
 						"rechargeUrl": ""
 					},
-					"off_peak_smart_card": {
-						"type": "discount",
-						"baseProduct": "smart_card",
-						"discountPercent": 10,
-						"timeRule": "off_peak"
-					},
-					"tourist_card_1day": {
-						"type": "flat_pass",
-						"cost": 200,
-						"travelValue": 150,
-						"refundableDeposit": 50,
-						"validityDays": 1,
-						"unlimitedRides": true
-					},
-					"tourist_card_3day": {
-						"type": "flat_pass",
-						"cost": 400,
-						"travelValue": 350,
-						"refundableDeposit": 50,
-						"validityDays": 3,
-						"unlimitedRides": true
-					},
+					"off_peak_smart_card": {"type": "discount", "baseProduct": "smart_card", "discountPercent": 10, "timeRule": "off_peak"},
+					"tourist_card_1day": {"type": "flat_pass", "cost": 200, "travelValue": 150, "refundableDeposit": 50, "validityDays": 1, "unlimitedRides": true},
+					"tourist_card_3day": {"type": "flat_pass", "cost": 400, "travelValue": 350, "refundableDeposit": 50, "validityDays": 3, "unlimitedRides": true},
 					"qr_ticket": {
 						"type": "digital",
 						"validityMinutes": 120,
@@ -166,28 +63,10 @@
 						"bookingUrl": "",
 						"appUrl": ""
 					},
-					"ncmc_card": {
-						"type": "interoperable",
-						"discountPercent": 5,
-						"weekendDiscountPercent": 10,
-						"minBalance": 50
-					}
+					"ncmc_card": {"type": "interoperable", "discountPercent": 5, "weekendDiscountPercent": 10, "minBalance": 50}
 				},
 				"timeRules": {
-					"off_peak": [
-						{
-							"start": "00:00",
-							"end": "08:00"
-						},
-						{
-							"start": "12:00",
-							"end": "16:00"
-						},
-						{
-							"start": "21:00",
-							"end": "23:59"
-						}
-					]
+					"off_peak": [{"start": "00:00", "end": "08:00"}, {"start": "12:00", "end": "16:00"}, {"start": "21:00", "end": "23:59"}]
 				},
 				"stationStayRules": {
 					"sameStationExitFare": 10,
@@ -209,49 +88,8 @@
 			"color": "#8C2877",
 			"color_name": "purple",
 			"style": "solid",
-			"route": {
-				"from": "whitefield_kadugodi",
-				"to": "challaghatta"
-			},
-			"stations": [
-				"whitefield_kadugodi",
-				"hopefarm_channasandra",
-				"kadugodi_tree_park",
-				"pattandur_agrahara",
-				"sri_sathya_sai_hospital",
-				"nallurhalli",
-				"kundalahalli",
-				"seetharamapalya",
-				"hoodi",
-				"garudacharpalya",
-				"singayyanapalya",
-				"krishnarajapura",
-				"benniganahalli",
-				"baiyappanahalli",
-				"swami_vivekananda_road",
-				"indira_nagar",
-				"halasuru",
-				"trinity",
-				"mahatma_gandhi_road",
-				"cubbon_park",
-				"dr_b_r_ambedkar_station_vidhana_soudha",
-				"sir_m_visveshwaraya_station_central_college",
-				"nadaprabhu_kempegowda_station_majestic",
-				"krantivira_sangolli_rayanna_railway_station",
-				"magadi_road",
-				"hosahalli",
-				"vijayanagar",
-				"attiguppe",
-				"deepanjali_nagar",
-				"mysuru_road",
-				"pantharapalyanayandahalli",
-				"rajarajeshwari_nagar",
-				"jnanabharathi",
-				"pattanagere",
-				"kengeri_bus_terminal",
-				"kengeri",
-				"challaghatta"
-			]
+			"route": {"from": "whitefield_kadugodi", "to": "challaghatta"},
+			"stations": ["whitefield_kadugodi", "hopefarm_channasandra", "kadugodi_tree_park", "pattandur_agrahara", "sri_sathya_sai_hospital", "nallurhalli", "kundalahalli", "seetharamapalya", "hoodi", "garudacharpalya", "singayyanapalya", "krishnarajapura", "benniganahalli", "baiyappanahalli", "swami_vivekananda_road", "indira_nagar", "halasuru", "trinity", "mahatma_gandhi_road", "cubbon_park", "dr_b_r_ambedkar_station_vidhana_soudha", "sir_m_visveshwaraya_station_central_college", "nadaprabhu_kempegowda_station_majestic", "krantivira_sangolli_rayanna_railway_station", "magadi_road", "hosahalli", "vijayanagar", "attiguppe", "deepanjali_nagar", "mysuru_road", "pantharapalyanayandahalli", "rajarajeshwari_nagar", "jnanabharathi", "pattanagere", "kengeri_bus_terminal", "kengeri", "challaghatta"]
 		},
 		"bmrcl.green": {
 			"id": "bmrcl.green",
@@ -262,44 +100,8 @@
 			"color": "#008752",
 			"color_name": "green",
 			"style": "solid",
-			"route": {
-				"from": "madavara",
-				"to": "silk_institute"
-			},
-			"stations": [
-				"madavara",
-				"chikkabidarakallu",
-				"manjunathanagara",
-				"nagasandra",
-				"dasarahalli",
-				"jalahalli",
-				"peenya_industry",
-				"peenya",
-				"goraguntepalya",
-				"yeshwanthpur",
-				"sandal_soap_factory",
-				"mahalakshmi",
-				"rajajinagar",
-				"mahakavi_kuvempu_road",
-				"srirampura",
-				"mantri_square_sampige_road",
-				"nadaprabhu_kempegowda_station_majestic",
-				"chickpete",
-				"krishna_rajendra_market",
-				"national_college",
-				"lalbagh",
-				"southend_circle",
-				"jayanagar",
-				"rashtreeya_vidyalaya_road",
-				"banashankari",
-				"jaya_prakash_nagar",
-				"yelachenahalli",
-				"konanakunte_cross",
-				"doddakallasandra",
-				"vajarahalli",
-				"thalaghattapura",
-				"silk_institute"
-			]
+			"route": {"from": "madavara", "to": "silk_institute"},
+			"stations": ["madavara", "chikkabidarakallu", "manjunathanagara", "nagasandra", "dasarahalli", "jalahalli", "peenya_industry", "peenya", "goraguntepalya", "yeshwanthpur", "sandal_soap_factory", "mahalakshmi", "rajajinagar", "mahakavi_kuvempu_road", "srirampura", "mantri_square_sampige_road", "nadaprabhu_kempegowda_station_majestic", "chickpete", "krishna_rajendra_market", "national_college", "lalbagh", "southend_circle", "jayanagar", "rashtreeya_vidyalaya_road", "banashankari", "jaya_prakash_nagar", "yelachenahalli", "konanakunte_cross", "doddakallasandra", "vajarahalli", "thalaghattapura", "silk_institute"]
 		},
 		"bmrcl.yellow": {
 			"id": "bmrcl.yellow",
@@ -311,28 +113,8 @@
 			"color_name": "yellow",
 			"style": "dashed",
 			"status": "under_construction",
-			"route": {
-				"from": "rashtreeya_vidyalaya_road",
-				"to": "delta_electronics_bommasandra"
-			},
-			"stations": [
-				"rashtreeya_vidyalaya_road",
-				"ragigudda",
-				"jayadeva_hospital",
-				"btm_layout",
-				"central_silk_board",
-				"bommanahalli",
-				"hongasandra",
-				"kudlu_gate",
-				"singasandra",
-				"hosa_road",
-				"beratena_agrahara",
-				"electronic_city",
-				"infosys_foundation_konappana_agrahara",
-				"huskur_road",
-				"biocon_hebbagodi",
-				"delta_electronics_bommasandra"
-			]
+			"route": {"from": "rashtreeya_vidyalaya_road", "to": "delta_electronics_bommasandra"},
+			"stations": ["rashtreeya_vidyalaya_road", "ragigudda", "jayadeva_hospital", "btm_layout", "central_silk_board", "bommanahalli", "hongasandra", "kudlu_gate", "singasandra", "hosa_road", "beratena_agrahara", "electronic_city", "infosys_foundation_konappana_agrahara", "huskur_road", "biocon_hebbagodi", "delta_electronics_bommasandra"]
 		},
 		"bmrcl.pink": {
 			"id": "bmrcl.pink",
@@ -344,30 +126,8 @@
 			"color_name": "pink",
 			"style": "dashed",
 			"status": "under_construction",
-			"route": {
-				"from": "kalena_agrahara",
-				"to": "nagawara"
-			},
-			"stations": [
-				"kalena_agrahara",
-				"hulimavu",
-				"iimb",
-				"jp_nagar_4th_phase",
-				"jayadeva_hospital",
-				"tavarekere",
-				"dairy_circle",
-				"lakkasandra",
-				"langford_town",
-				"national_military_school",
-				"mahatma_gandhi_road",
-				"shivaji_nagar",
-				"cantonment_railway_station",
-				"pottery_town",
-				"tannery_road",
-				"venkateshpura",
-				"kadugundanahalli",
-				"nagawara"
-			]
+			"route": {"from": "kalena_agrahara", "to": "nagawara"},
+			"stations": ["kalena_agrahara", "hulimavu", "iimb", "jp_nagar_4th_phase", "jayadeva_hospital", "tavarekere", "dairy_circle", "lakkasandra", "langford_town", "national_military_school", "mahatma_gandhi_road", "shivaji_nagar", "cantonment_railway_station", "pottery_town", "tannery_road", "venkateshpura", "kadugundanahalli", "nagawara"]
 		},
 		"bmrcl.blue": {
 			"id": "bmrcl.blue",
@@ -379,168 +139,65 @@
 			"color_name": "blue",
 			"style": "dashed",
 			"status": "under_construction",
-			"route": {
-				"from": "central_silk_board",
-				"to": "kial_terminals"
-			},
-			"stations": [
-				"central_silk_board",
-				"hsr_layout",
-				"agara",
-				"ibbaluru",
-				"bellandur",
-				"kadubeesanahalli",
-				"kodibeesanahalli",
-				"marathahalli",
-				"isro",
-				"doddanekundi",
-				"drdo_sports_complex",
-				"sarasvathi_nagara",
-				"krishnarajapura",
-				"kasturinagara",
-				"horamavu",
-				"hrbr_layout",
-				"kalyan_nagar",
-				"hbr_layout",
-				"nagawara",
-				"veerannapalya",
-				"kempapura",
-				"hebbala",
-				"kodigehalli",
-				"jakkur_cross",
-				"yelahanka",
-				"bagalur_cross",
-				"doddajala",
-				"airport_city",
-				"kial_terminals"
-			]
+			"route": {"from": "central_silk_board", "to": "kial_terminals"},
+			"stations": ["central_silk_board", "hsr_layout", "agara", "ibbaluru", "bellandur", "kadubeesanahalli", "kodibeesanahalli", "marathahalli", "isro", "doddanekundi", "drdo_sports_complex", "sarasvathi_nagara", "krishnarajapura", "kasturinagara", "horamavu", "hrbr_layout", "kalyan_nagar", "hbr_layout", "nagawara", "veerannapalya", "kempapura", "hebbala", "kodigehalli", "jakkur_cross", "yelahanka", "bagalur_cross", "doddajala", "airport_city", "kial_terminals"]
 		}
 	},
 	"transfers": {
 		"nadaprabhu_kempegowda_station_majestic": {
 			"bmrcl.purple": {
-				"nadaprabhu_kempegowda_station_majestic:bmrcl.green": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"nadaprabhu_kempegowda_station_majestic:bmrcl.green": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"bmrcl.green": {
-				"nadaprabhu_kempegowda_station_majestic:bmrcl.purple": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"nadaprabhu_kempegowda_station_majestic:bmrcl.purple": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		},
 		"mahatma_gandhi_road": {
 			"bmrcl.purple": {
-				"mahatma_gandhi_road:bmrcl.pink": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 60,
-					"levels": 1
-				}
+				"mahatma_gandhi_road:bmrcl.pink": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 60, "levels": 1}
 			},
 			"bmrcl.pink": {
-				"mahatma_gandhi_road:bmrcl.purple": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 60,
-					"levels": 1
-				}
+				"mahatma_gandhi_road:bmrcl.purple": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 60, "levels": 1}
 			}
 		},
 		"rashtreeya_vidyalaya_road": {
 			"bmrcl.green": {
-				"rashtreeya_vidyalaya_road:bmrcl.yellow": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 45,
-					"levels": 1
-				}
+				"rashtreeya_vidyalaya_road:bmrcl.yellow": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 45, "levels": 1}
 			},
 			"bmrcl.yellow": {
-				"rashtreeya_vidyalaya_road:bmrcl.green": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 45,
-					"levels": 1
-				}
+				"rashtreeya_vidyalaya_road:bmrcl.green": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 45, "levels": 1}
 			}
 		},
 		"jayadeva_hospital": {
 			"bmrcl.yellow": {
-				"jayadeva_hospital:bmrcl.pink": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 40,
-					"levels": 1
-				}
+				"jayadeva_hospital:bmrcl.pink": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 40, "levels": 1}
 			},
 			"bmrcl.pink": {
-				"jayadeva_hospital:bmrcl.yellow": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 40,
-					"levels": 1
-				}
+				"jayadeva_hospital:bmrcl.yellow": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 40, "levels": 1}
 			}
 		},
 		"central_silk_board": {
 			"bmrcl.yellow": {
-				"central_silk_board:bmrcl.blue": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 60,
-					"levels": 1
-				}
+				"central_silk_board:bmrcl.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 60, "levels": 1}
 			},
 			"bmrcl.blue": {
-				"central_silk_board:bmrcl.yellow": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 60,
-					"levels": 1
-				}
+				"central_silk_board:bmrcl.yellow": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 60, "levels": 1}
 			}
 		},
 		"krishnarajapura": {
 			"bmrcl.purple": {
-				"krishnarajapura:bmrcl.blue": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"krishnarajapura:bmrcl.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"bmrcl.blue": {
-				"krishnarajapura:bmrcl.purple": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"krishnarajapura:bmrcl.purple": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		},
 		"nagawara": {
 			"bmrcl.pink": {
-				"nagawara:bmrcl.blue": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"nagawara:bmrcl.blue": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			},
 			"bmrcl.blue": {
-				"nagawara:bmrcl.pink": {
-					"type": "interchange",
-					"transfer_mode": "vertical",
-					"distance_meters": 50,
-					"levels": 1
-				}
+				"nagawara:bmrcl.pink": {"type": "interchange", "transfer_mode": "vertical", "distance_meters": 50, "levels": 1}
 			}
 		}
 	},
@@ -548,3149 +205,1307 @@
 		"whitefield_kadugodi": {
 			"id": "whitefield_kadugodi",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "hopefarm_channasandra",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "hopefarm_channasandra", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.991614,
-					"lon": 77.7534697
-				}
+				"decimal": {"lat": 12.991614, "lon": 77.7534697}
 			}
 		},
 		"hopefarm_channasandra": {
 			"id": "hopefarm_channasandra",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "whitefield_kadugodi",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "kadugodi_tree_park",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "whitefield_kadugodi", "line": "bmrcl.purple"}, {"station": "kadugodi_tree_park", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.987348,
-					"lon": 77.753796
-				}
+				"decimal": {"lat": 12.987348, "lon": 77.753796}
 			}
 		},
 		"kadugodi_tree_park": {
 			"id": "kadugodi_tree_park",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "hopefarm_channasandra",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "pattandur_agrahara",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "hopefarm_channasandra", "line": "bmrcl.purple"}, {"station": "pattandur_agrahara", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.985711,
-					"lon": 77.746842
-				}
+				"decimal": {"lat": 12.985711, "lon": 77.746842}
 			}
 		},
 		"pattandur_agrahara": {
 			"id": "pattandur_agrahara",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kadugodi_tree_park",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "sri_sathya_sai_hospital",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kadugodi_tree_park", "line": "bmrcl.purple"}, {"station": "sri_sathya_sai_hospital", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.987622,
-					"lon": 77.737737
-				}
+				"decimal": {"lat": 12.987622, "lon": 77.737737}
 			}
 		},
 		"sri_sathya_sai_hospital": {
 			"id": "sri_sathya_sai_hospital",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "pattandur_agrahara",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "nallurhalli",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "pattandur_agrahara", "line": "bmrcl.purple"}, {"station": "nallurhalli", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9810264,
-					"lon": 77.7276147
-				}
+				"decimal": {"lat": 12.9810264, "lon": 77.7276147}
 			}
 		},
 		"nallurhalli": {
 			"id": "nallurhalli",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "sri_sathya_sai_hospital",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "kundalahalli",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "sri_sathya_sai_hospital", "line": "bmrcl.purple"}, {"station": "kundalahalli", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.976632,
-					"lon": 77.724752
-				}
+				"decimal": {"lat": 12.976632, "lon": 77.724752}
 			}
 		},
 		"kundalahalli": {
 			"id": "kundalahalli",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "nallurhalli",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "seetharamapalya",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "nallurhalli", "line": "bmrcl.purple"}, {"station": "seetharamapalya", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.977607,
-					"lon": 77.715523
-				}
+				"decimal": {"lat": 12.977607, "lon": 77.715523}
 			}
 		},
 		"seetharamapalya": {
 			"id": "seetharamapalya",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kundalahalli",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "hoodi",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kundalahalli", "line": "bmrcl.purple"}, {"station": "hoodi", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9808252,
-					"lon": 77.7088526
-				}
+				"decimal": {"lat": 12.9808252, "lon": 77.7088526}
 			}
 		},
 		"hoodi": {
 			"id": "hoodi",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "seetharamapalya",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "garudacharpalya",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "seetharamapalya", "line": "bmrcl.purple"}, {"station": "garudacharpalya", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.988782,
-					"lon": 77.711364
-				}
+				"decimal": {"lat": 12.988782, "lon": 77.711364}
 			}
 		},
 		"garudacharpalya": {
 			"id": "garudacharpalya",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "hoodi",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "singayyanapalya",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "hoodi", "line": "bmrcl.purple"}, {"station": "singayyanapalya", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9934865,
-					"lon": 77.7036972
-				}
+				"decimal": {"lat": 12.9934865, "lon": 77.7036972}
 			}
 		},
 		"singayyanapalya": {
 			"id": "singayyanapalya",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "garudacharpalya",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "krishnarajapura",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "garudacharpalya", "line": "bmrcl.purple"}, {"station": "krishnarajapura", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.996557,
-					"lon": 77.692708
-				}
+				"decimal": {"lat": 12.996557, "lon": 77.692708}
 			}
 		},
 		"krishnarajapura": {
 			"id": "krishnarajapura",
 			"lines": ["bmrcl.purple", "bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "singayyanapalya",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "benniganahalli",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "sarasvathi_nagara",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "kasturinagara",
-					"line": "bmrcl.blue"
-				}
+				{"station": "singayyanapalya", "line": "bmrcl.purple"},
+				{"station": "benniganahalli", "line": "bmrcl.purple"},
+				{"station": "sarasvathi_nagara", "line": "bmrcl.blue"},
+				{"station": "kasturinagara", "line": "bmrcl.blue"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9984,
-					"lon": 77.6775
-				}
+				"decimal": {"lat": 12.9984, "lon": 77.6775}
 			}
 		},
 		"benniganahalli": {
 			"id": "benniganahalli",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "krishnarajapura",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "baiyappanahalli",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "krishnarajapura", "line": "bmrcl.purple"}, {"station": "baiyappanahalli", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9963737,
-					"lon": 77.6682628
-				}
+				"decimal": {"lat": 12.9963737, "lon": 77.6682628}
 			}
 		},
 		"baiyappanahalli": {
 			"id": "baiyappanahalli",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "at grade",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "benniganahalli",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "swami_vivekananda_road",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "at grade", "status": "operational"},
+			"neighbors": [{"station": "benniganahalli", "line": "bmrcl.purple"}, {"station": "swami_vivekananda_road", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9892619,
-					"lon": 77.6516551
-				}
+				"decimal": {"lat": 12.9892619, "lon": 77.6516551}
 			}
 		},
 		"swami_vivekananda_road": {
 			"id": "swami_vivekananda_road",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "baiyappanahalli",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "indira_nagar",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "baiyappanahalli", "line": "bmrcl.purple"}, {"station": "indira_nagar", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9859106,
-					"lon": 77.645004
-				}
+				"decimal": {"lat": 12.9859106, "lon": 77.645004}
 			}
 		},
 		"indira_nagar": {
 			"id": "indira_nagar",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "swami_vivekananda_road",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "halasuru",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "swami_vivekananda_road", "line": "bmrcl.purple"}, {"station": "halasuru", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9782619,
-					"lon": 77.6385257
-				}
+				"decimal": {"lat": 12.9782619, "lon": 77.6385257}
 			}
 		},
 		"halasuru": {
 			"id": "halasuru",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "indira_nagar",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "trinity",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "indira_nagar", "line": "bmrcl.purple"}, {"station": "trinity", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9763635,
-					"lon": 77.626715
-				}
+				"decimal": {"lat": 12.9763635, "lon": 77.626715}
 			}
 		},
 		"trinity": {
 			"id": "trinity",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "halasuru",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "mahatma_gandhi_road",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "halasuru", "line": "bmrcl.purple"}, {"station": "mahatma_gandhi_road", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.973186,
-					"lon": 77.6162792
-				}
+				"decimal": {"lat": 12.973186, "lon": 77.6162792}
 			}
 		},
 		"mahatma_gandhi_road": {
 			"id": "mahatma_gandhi_road",
 			"lines": ["bmrcl.purple", "bmrcl.pink"],
-			"properties": {
-				"layout": "elevatedunderground",
-				"status": "operational",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "elevatedunderground", "status": "operational", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "trinity",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "cubbon_park",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "national_military_school",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "shivaji_nagar",
-					"line": "bmrcl.pink"
-				}
+				{"station": "trinity", "line": "bmrcl.purple"},
+				{"station": "cubbon_park", "line": "bmrcl.purple"},
+				{"station": "national_military_school", "line": "bmrcl.pink"},
+				{"station": "shivaji_nagar", "line": "bmrcl.pink"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9756,
-					"lon": 77.6067
-				}
+				"decimal": {"lat": 12.9756, "lon": 77.6067}
 			}
 		},
 		"cubbon_park": {
 			"id": "cubbon_park",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
+			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "mahatma_gandhi_road",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "dr_b_r_ambedkar_station_vidhana_soudha",
-					"line": "bmrcl.purple"
-				}
+				{"station": "mahatma_gandhi_road", "line": "bmrcl.purple"},
+				{"station": "dr_b_r_ambedkar_station_vidhana_soudha", "line": "bmrcl.purple"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9809008,
-					"lon": 77.5974654
-				}
+				"decimal": {"lat": 12.9809008, "lon": 77.5974654}
 			}
 		},
 		"dr_b_r_ambedkar_station_vidhana_soudha": {
 			"id": "dr_b_r_ambedkar_station_vidhana_soudha",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
+			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "cubbon_park",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "sir_m_visveshwaraya_station_central_college",
-					"line": "bmrcl.purple"
-				}
+				{"station": "cubbon_park", "line": "bmrcl.purple"},
+				{"station": "sir_m_visveshwaraya_station_central_college", "line": "bmrcl.purple"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9796925,
-					"lon": 77.5926343
-				}
+				"decimal": {"lat": 12.9796925, "lon": 77.5926343}
 			}
 		},
 		"sir_m_visveshwaraya_station_central_college": {
 			"id": "sir_m_visveshwaraya_station_central_college",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
+			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "dr_b_r_ambedkar_station_vidhana_soudha",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "nadaprabhu_kempegowda_station_majestic",
-					"line": "bmrcl.purple"
-				}
+				{"station": "dr_b_r_ambedkar_station_vidhana_soudha", "line": "bmrcl.purple"},
+				{"station": "nadaprabhu_kempegowda_station_majestic", "line": "bmrcl.purple"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9742805,
-					"lon": 77.5839458
-				}
+				"decimal": {"lat": 12.9742805, "lon": 77.5839458}
 			}
 		},
 		"nadaprabhu_kempegowda_station_majestic": {
 			"id": "nadaprabhu_kempegowda_station_majestic",
 			"lines": ["bmrcl.purple", "bmrcl.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "underground", "status": "operational", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "sir_m_visveshwaraya_station_central_college",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "krantivira_sangolli_rayanna_railway_station",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "mantri_square_sampige_road",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "chickpete",
-					"line": "bmrcl.green"
-				}
+				{"station": "sir_m_visveshwaraya_station_central_college", "line": "bmrcl.purple"},
+				{"station": "krantivira_sangolli_rayanna_railway_station", "line": "bmrcl.purple"},
+				{"station": "mantri_square_sampige_road", "line": "bmrcl.green"},
+				{"station": "chickpete", "line": "bmrcl.green"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9756836,
-					"lon": 77.5728745
-				}
+				"decimal": {"lat": 12.9756836, "lon": 77.5728745}
 			}
 		},
 		"krantivira_sangolli_rayanna_railway_station": {
 			"id": "krantivira_sangolli_rayanna_railway_station",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
+			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "nadaprabhu_kempegowda_station_majestic",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "magadi_road",
-					"line": "bmrcl.purple"
-				}
+				{"station": "nadaprabhu_kempegowda_station_majestic", "line": "bmrcl.purple"},
+				{"station": "magadi_road", "line": "bmrcl.purple"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9758403,
-					"lon": 77.5657561
-				}
+				"decimal": {"lat": 12.9758403, "lon": 77.5657561}
 			}
 		},
 		"magadi_road": {
 			"id": "magadi_road",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
+			"properties": {"layout": "elevated", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "krantivira_sangolli_rayanna_railway_station",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "hosahalli",
-					"line": "bmrcl.purple"
-				}
+				{"station": "krantivira_sangolli_rayanna_railway_station", "line": "bmrcl.purple"},
+				{"station": "hosahalli", "line": "bmrcl.purple"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9756582,
-					"lon": 77.5554115
-				}
+				"decimal": {"lat": 12.9756582, "lon": 77.5554115}
 			}
 		},
 		"hosahalli": {
 			"id": "hosahalli",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "magadi_road",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "vijayanagar",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "magadi_road", "line": "bmrcl.purple"}, {"station": "vijayanagar", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9743099,
-					"lon": 77.5451248
-				}
+				"decimal": {"lat": 12.9743099, "lon": 77.5451248}
 			}
 		},
 		"vijayanagar": {
 			"id": "vijayanagar",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "hosahalli",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "attiguppe",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "hosahalli", "line": "bmrcl.purple"}, {"station": "attiguppe", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9708197,
-					"lon": 77.5373638
-				}
+				"decimal": {"lat": 12.9708197, "lon": 77.5373638}
 			}
 		},
 		"attiguppe": {
 			"id": "attiguppe",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "vijayanagar",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "deepanjali_nagar",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "vijayanagar", "line": "bmrcl.purple"}, {"station": "deepanjali_nagar", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9621018,
-					"lon": 77.5337131
-				}
+				"decimal": {"lat": 12.9621018, "lon": 77.5337131}
 			}
 		},
 		"deepanjali_nagar": {
 			"id": "deepanjali_nagar",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "attiguppe",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "mysuru_road",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "attiguppe", "line": "bmrcl.purple"}, {"station": "mysuru_road", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.952215,
-					"lon": 77.5371013
-				}
+				"decimal": {"lat": 12.952215, "lon": 77.5371013}
 			}
 		},
 		"mysuru_road": {
 			"id": "mysuru_road",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "deepanjali_nagar",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "pantharapalyanayandahalli",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "deepanjali_nagar", "line": "bmrcl.purple"}, {"station": "pantharapalyanayandahalli", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9467268,
-					"lon": 77.5300739
-				}
+				"decimal": {"lat": 12.9467268, "lon": 77.5300739}
 			}
 		},
 		"pantharapalyanayandahalli": {
 			"id": "pantharapalyanayandahalli",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "mysuru_road",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "rajarajeshwari_nagar",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mysuru_road", "line": "bmrcl.purple"}, {"station": "rajarajeshwari_nagar", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.941826,
-					"lon": 77.525164
-				}
+				"decimal": {"lat": 12.941826, "lon": 77.525164}
 			}
 		},
 		"rajarajeshwari_nagar": {
 			"id": "rajarajeshwari_nagar",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "pantharapalyanayandahalli",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "jnanabharathi",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "pantharapalyanayandahalli", "line": "bmrcl.purple"}, {"station": "jnanabharathi", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.936693,
-					"lon": 77.519556
-				}
+				"decimal": {"lat": 12.936693, "lon": 77.519556}
 			}
 		},
 		"jnanabharathi": {
 			"id": "jnanabharathi",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "rajarajeshwari_nagar",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "pattanagere",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "rajarajeshwari_nagar", "line": "bmrcl.purple"}, {"station": "pattanagere", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.935446,
-					"lon": 77.512178
-				}
+				"decimal": {"lat": 12.935446, "lon": 77.512178}
 			}
 		},
 		"pattanagere": {
 			"id": "pattanagere",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jnanabharathi",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "kengeri_bus_terminal",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jnanabharathi", "line": "bmrcl.purple"}, {"station": "kengeri_bus_terminal", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.924276,
-					"lon": 77.498305
-				}
+				"decimal": {"lat": 12.924276, "lon": 77.498305}
 			}
 		},
 		"kengeri_bus_terminal": {
 			"id": "kengeri_bus_terminal",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "pattanagere",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "kengeri",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "pattanagere", "line": "bmrcl.purple"}, {"station": "kengeri", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9113139,
-					"lon": 77.4818453
-				}
+				"decimal": {"lat": 12.9113139, "lon": 77.4818453}
 			}
 		},
 		"kengeri": {
 			"id": "kengeri",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kengeri_bus_terminal",
-					"line": "bmrcl.purple"
-				},
-				{
-					"station": "challaghatta",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kengeri_bus_terminal", "line": "bmrcl.purple"}, {"station": "challaghatta", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9079857,
-					"lon": 77.4759866
-				}
+				"decimal": {"lat": 12.9079857, "lon": 77.4759866}
 			}
 		},
 		"challaghatta": {
 			"id": "challaghatta",
 			"lines": ["bmrcl.purple"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kengeri",
-					"line": "bmrcl.purple"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kengeri", "line": "bmrcl.purple"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8973787,
-					"lon": 77.4612408
-				}
+				"decimal": {"lat": 12.8973787, "lon": 77.4612408}
 			}
 		},
 		"madavara": {
 			"id": "madavara",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "chikkabidarakallu",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "chikkabidarakallu", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0573826,
-					"lon": 77.4729597
-				}
+				"decimal": {"lat": 13.0573826, "lon": 77.4729597}
 			}
 		},
 		"chikkabidarakallu": {
 			"id": "chikkabidarakallu",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "madavara",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "manjunathanagara",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "madavara", "line": "bmrcl.green"}, {"station": "manjunathanagara", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.052417,
-					"lon": 77.487894
-				}
+				"decimal": {"lat": 13.052417, "lon": 77.487894}
 			}
 		},
 		"manjunathanagara": {
 			"id": "manjunathanagara",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "chikkabidarakallu",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "nagasandra",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "chikkabidarakallu", "line": "bmrcl.green"}, {"station": "nagasandra", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0502168,
-					"lon": 77.4943419
-				}
+				"decimal": {"lat": 13.0502168, "lon": 77.4943419}
 			}
 		},
 		"nagasandra": {
 			"id": "nagasandra",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "manjunathanagara",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "dasarahalli",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "manjunathanagara", "line": "bmrcl.green"}, {"station": "dasarahalli", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0481133,
-					"lon": 77.5001231
-				}
+				"decimal": {"lat": 13.0481133, "lon": 77.5001231}
 			}
 		},
 		"dasarahalli": {
 			"id": "dasarahalli",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "nagasandra",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "jalahalli",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "nagasandra", "line": "bmrcl.green"}, {"station": "jalahalli", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0435419,
-					"lon": 77.5123791
-				}
+				"decimal": {"lat": 13.0435419, "lon": 77.5123791}
 			}
 		},
 		"jalahalli": {
 			"id": "jalahalli",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "dasarahalli",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "peenya_industry",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "dasarahalli", "line": "bmrcl.green"}, {"station": "peenya_industry", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0395842,
-					"lon": 77.5198378
-				}
+				"decimal": {"lat": 13.0395842, "lon": 77.5198378}
 			}
 		},
 		"peenya_industry": {
 			"id": "peenya_industry",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jalahalli",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "peenya",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jalahalli", "line": "bmrcl.green"}, {"station": "peenya", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0364479,
-					"lon": 77.5254516
-				}
+				"decimal": {"lat": 13.0364479, "lon": 77.5254516}
 			}
 		},
 		"peenya": {
 			"id": "peenya",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "peenya_industry",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "goraguntepalya",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "peenya_industry", "line": "bmrcl.green"}, {"station": "goraguntepalya", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0347174,
-					"lon": 77.5294603
-				}
+				"decimal": {"lat": 13.0347174, "lon": 77.5294603}
 			}
 		},
 		"goraguntepalya": {
 			"id": "goraguntepalya",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "peenya",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "yeshwanthpur",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "peenya", "line": "bmrcl.green"}, {"station": "yeshwanthpur", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.028486,
-					"lon": 77.5408673
-				}
+				"decimal": {"lat": 13.028486, "lon": 77.5408673}
 			}
 		},
 		"yeshwanthpur": {
 			"id": "yeshwanthpur",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "goraguntepalya",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "sandal_soap_factory",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "goraguntepalya", "line": "bmrcl.green"}, {"station": "sandal_soap_factory", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0233093,
-					"lon": 77.5498636
-				}
+				"decimal": {"lat": 13.0233093, "lon": 77.5498636}
 			}
 		},
 		"sandal_soap_factory": {
 			"id": "sandal_soap_factory",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "yeshwanthpur",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "mahalakshmi",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "yeshwanthpur", "line": "bmrcl.green"}, {"station": "mahalakshmi", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0147286,
-					"lon": 77.5540309
-				}
+				"decimal": {"lat": 13.0147286, "lon": 77.5540309}
 			}
 		},
 		"mahalakshmi": {
 			"id": "mahalakshmi",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "sandal_soap_factory",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "rajajinagar",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "sandal_soap_factory", "line": "bmrcl.green"}, {"station": "rajajinagar", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0083376,
-					"lon": 77.5488342
-				}
+				"decimal": {"lat": 13.0083376, "lon": 77.5488342}
 			}
 		},
 		"rajajinagar": {
 			"id": "rajajinagar",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "mahalakshmi",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "mahakavi_kuvempu_road",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mahalakshmi", "line": "bmrcl.green"}, {"station": "mahakavi_kuvempu_road", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0003458,
-					"lon": 77.5497483
-				}
+				"decimal": {"lat": 13.0003458, "lon": 77.5497483}
 			}
 		},
 		"mahakavi_kuvempu_road": {
 			"id": "mahakavi_kuvempu_road",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "rajajinagar",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "srirampura",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "rajajinagar", "line": "bmrcl.green"}, {"station": "srirampura", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9985023,
-					"lon": 77.5569472
-				}
+				"decimal": {"lat": 12.9985023, "lon": 77.5569472}
 			}
 		},
 		"srirampura": {
 			"id": "srirampura",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "mahakavi_kuvempu_road",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "mantri_square_sampige_road",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mahakavi_kuvempu_road", "line": "bmrcl.green"}, {"station": "mantri_square_sampige_road", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9965258,
-					"lon": 77.5633563
-				}
+				"decimal": {"lat": 12.9965258, "lon": 77.5633563}
 			}
 		},
 		"mantri_square_sampige_road": {
 			"id": "mantri_square_sampige_road",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "srirampura",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "nadaprabhu_kempegowda_station_majestic",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "srirampura", "line": "bmrcl.green"}, {"station": "nadaprabhu_kempegowda_station_majestic", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9905452,
-					"lon": 77.5708049
-				}
+				"decimal": {"lat": 12.9905452, "lon": 77.5708049}
 			}
 		},
 		"chickpete": {
 			"id": "chickpete",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
+			"properties": {"layout": "underground", "status": "operational"},
 			"neighbors": [
-				{
-					"station": "nadaprabhu_kempegowda_station_majestic",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "krishna_rajendra_market",
-					"line": "bmrcl.green"
-				}
+				{"station": "nadaprabhu_kempegowda_station_majestic", "line": "bmrcl.green"},
+				{"station": "krishna_rajendra_market", "line": "bmrcl.green"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9675461,
-					"lon": 77.5747925
-				}
+				"decimal": {"lat": 12.9675461, "lon": 77.5747925}
 			}
 		},
 		"krishna_rajendra_market": {
 			"id": "krishna_rajendra_market",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "chickpete",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "national_college",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "chickpete", "line": "bmrcl.green"}, {"station": "national_college", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.960161,
-					"lon": 77.574479
-				}
+				"decimal": {"lat": 12.960161, "lon": 77.574479}
 			}
 		},
 		"national_college": {
 			"id": "national_college",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "krishna_rajendra_market",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "lalbagh",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "krishna_rajendra_market", "line": "bmrcl.green"}, {"station": "lalbagh", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9506135,
-					"lon": 77.5737362
-				}
+				"decimal": {"lat": 12.9506135, "lon": 77.5737362}
 			}
 		},
 		"lalbagh": {
 			"id": "lalbagh",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "national_college",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "southend_circle",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "national_college", "line": "bmrcl.green"}, {"station": "southend_circle", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.946287,
-					"lon": 77.5800611
-				}
+				"decimal": {"lat": 12.946287, "lon": 77.5800611}
 			}
 		},
 		"southend_circle": {
 			"id": "southend_circle",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "lalbagh",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "jayanagar",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "lalbagh", "line": "bmrcl.green"}, {"station": "jayanagar", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9383208,
-					"lon": 77.5800748
-				}
+				"decimal": {"lat": 12.9383208, "lon": 77.5800748}
 			}
 		},
 		"jayanagar": {
 			"id": "jayanagar",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "southend_circle",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "rashtreeya_vidyalaya_road",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "southend_circle", "line": "bmrcl.green"}, {"station": "rashtreeya_vidyalaya_road", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9296749,
-					"lon": 77.5801753
-				}
+				"decimal": {"lat": 12.9296749, "lon": 77.5801753}
 			}
 		},
 		"rashtreeya_vidyalaya_road": {
 			"id": "rashtreeya_vidyalaya_road",
 			"lines": ["bmrcl.green", "bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "elevated", "status": "operational", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "jayanagar",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "banashankari",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "ragigudda",
-					"line": "bmrcl.yellow"
-				}
+				{"station": "jayanagar", "line": "bmrcl.green"},
+				{"station": "banashankari", "line": "bmrcl.green"},
+				{"station": "ragigudda", "line": "bmrcl.yellow"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.921458,
-					"lon": 77.580375
-				}
+				"decimal": {"lat": 12.921458, "lon": 77.580375}
 			}
 		},
 		"banashankari": {
 			"id": "banashankari",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "rashtreeya_vidyalaya_road",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "jaya_prakash_nagar",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "rashtreeya_vidyalaya_road", "line": "bmrcl.green"}, {"station": "jaya_prakash_nagar", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9155385,
-					"lon": 77.5736288
-				}
+				"decimal": {"lat": 12.9155385, "lon": 77.5736288}
 			}
 		},
 		"jaya_prakash_nagar": {
 			"id": "jaya_prakash_nagar",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "banashankari",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "yelachenahalli",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "banashankari", "line": "bmrcl.green"}, {"station": "yelachenahalli", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9075563,
-					"lon": 77.573061
-				}
+				"decimal": {"lat": 12.9075563, "lon": 77.573061}
 			}
 		},
 		"yelachenahalli": {
 			"id": "yelachenahalli",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "jaya_prakash_nagar",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "konanakunte_cross",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "jaya_prakash_nagar", "line": "bmrcl.green"}, {"station": "konanakunte_cross", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8960529,
-					"lon": 77.5701606
-				}
+				"decimal": {"lat": 12.8960529, "lon": 77.5701606}
 			}
 		},
 		"konanakunte_cross": {
 			"id": "konanakunte_cross",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "yelachenahalli",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "doddakallasandra",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "yelachenahalli", "line": "bmrcl.green"}, {"station": "doddakallasandra", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.888909,
-					"lon": 77.56278
-				}
+				"decimal": {"lat": 12.888909, "lon": 77.56278}
 			}
 		},
 		"doddakallasandra": {
 			"id": "doddakallasandra",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "konanakunte_cross",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "vajarahalli",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "konanakunte_cross", "line": "bmrcl.green"}, {"station": "vajarahalli", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.884636,
-					"lon": 77.552824
-				}
+				"decimal": {"lat": 12.884636, "lon": 77.552824}
 			}
 		},
 		"vajarahalli": {
 			"id": "vajarahalli",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "doddakallasandra",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "thalaghattapura",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "doddakallasandra", "line": "bmrcl.green"}, {"station": "thalaghattapura", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.877485,
-					"lon": 77.544817
-				}
+				"decimal": {"lat": 12.877485, "lon": 77.544817}
 			}
 		},
 		"thalaghattapura": {
 			"id": "thalaghattapura",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "vajarahalli",
-					"line": "bmrcl.green"
-				},
-				{
-					"station": "silk_institute",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "vajarahalli", "line": "bmrcl.green"}, {"station": "silk_institute", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.871366,
-					"lon": 77.538439
-				}
+				"decimal": {"lat": 12.871366, "lon": 77.538439}
 			}
 		},
 		"silk_institute": {
 			"id": "silk_institute",
 			"lines": ["bmrcl.green"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "thalaghattapura",
-					"line": "bmrcl.green"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "thalaghattapura", "line": "bmrcl.green"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.861672,
-					"lon": 77.529981
-				}
+				"decimal": {"lat": 12.861672, "lon": 77.529981}
 			}
 		},
 		"beratena_agrahara": {
 			"id": "beratena_agrahara",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "hosa_road",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "electronic_city",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "hosa_road", "line": "bmrcl.yellow"}, {"station": "electronic_city", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8604,
-					"lon": 77.6698
-				}
+				"decimal": {"lat": 12.8604, "lon": 77.6698}
 			}
 		},
 		"biocon_hebbagodi": {
 			"id": "biocon_hebbagodi",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "huskur_road",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "delta_electronics_bommasandra",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "huskur_road", "line": "bmrcl.yellow"}, {"station": "delta_electronics_bommasandra", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8211,
-					"lon": 77.6865
-				}
+				"decimal": {"lat": 12.8211, "lon": 77.6865}
 			}
 		},
 		"bommanahalli": {
 			"id": "bommanahalli",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "central_silk_board",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "hongasandra",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "central_silk_board", "line": "bmrcl.yellow"}, {"station": "hongasandra", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9038,
-					"lon": 77.6256
-				}
+				"decimal": {"lat": 12.9038, "lon": 77.6256}
 			}
 		},
 		"btm_layout": {
 			"id": "btm_layout",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "jayadeva_hospital",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "central_silk_board",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "jayadeva_hospital", "line": "bmrcl.yellow"}, {"station": "central_silk_board", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.91656,
-					"lon": 77.60825
-				}
+				"decimal": {"lat": 12.91656, "lon": 77.60825}
 			}
 		},
 		"central_silk_board": {
 			"id": "central_silk_board",
 			"lines": ["bmrcl.yellow", "bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "elevated", "status": "under_construction", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "btm_layout",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "bommanahalli",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "hsr_layout",
-					"line": "bmrcl.blue"
-				}
+				{"station": "btm_layout", "line": "bmrcl.yellow"},
+				{"station": "bommanahalli", "line": "bmrcl.yellow"},
+				{"station": "hsr_layout", "line": "bmrcl.blue"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9176,
-					"lon": 77.6231
-				}
+				"decimal": {"lat": 12.9176, "lon": 77.6231}
 			}
 		},
 		"delta_electronics_bommasandra": {
 			"id": "delta_electronics_bommasandra",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "biocon_hebbagodi",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "biocon_hebbagodi", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8198,
-					"lon": 77.6877
-				}
+				"decimal": {"lat": 12.8198, "lon": 77.6877}
 			}
 		},
 		"electronic_city": {
 			"id": "electronic_city",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
+			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [
-				{
-					"station": "beratena_agrahara",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "infosys_foundation_konappana_agrahara",
-					"line": "bmrcl.yellow"
-				}
+				{"station": "beratena_agrahara", "line": "bmrcl.yellow"},
+				{"station": "infosys_foundation_konappana_agrahara", "line": "bmrcl.yellow"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8488,
-					"lon": 77.6765
-				}
+				"decimal": {"lat": 12.8488, "lon": 77.6765}
 			}
 		},
 		"hongasandra": {
 			"id": "hongasandra",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "bommanahalli",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "kudlu_gate",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "bommanahalli", "line": "bmrcl.yellow"}, {"station": "kudlu_gate", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8948,
-					"lon": 77.6334
-				}
+				"decimal": {"lat": 12.8948, "lon": 77.6334}
 			}
 		},
 		"hosa_road": {
 			"id": "hosa_road",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "singasandra",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "beratena_agrahara",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "singasandra", "line": "bmrcl.yellow"}, {"station": "beratena_agrahara", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8687,
-					"lon": 77.6622
-				}
+				"decimal": {"lat": 12.8687, "lon": 77.6622}
 			}
 		},
 		"huskur_road": {
 			"id": "huskur_road",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
+			"properties": {"layout": "elevated", "status": "under_construction"},
 			"neighbors": [
-				{
-					"station": "infosys_foundation_konappana_agrahara",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "biocon_hebbagodi",
-					"line": "bmrcl.yellow"
-				}
+				{"station": "infosys_foundation_konappana_agrahara", "line": "bmrcl.yellow"},
+				{"station": "biocon_hebbagodi", "line": "bmrcl.yellow"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8306,
-					"lon": 77.6835
-				}
+				"decimal": {"lat": 12.8306, "lon": 77.6835}
 			}
 		},
 		"infosys_foundation_konappana_agrahara": {
 			"id": "infosys_foundation_konappana_agrahara",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "electronic_city",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "huskur_road",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "electronic_city", "line": "bmrcl.yellow"}, {"station": "huskur_road", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8398,
-					"lon": 77.6792
-				}
+				"decimal": {"lat": 12.8398, "lon": 77.6792}
 			}
 		},
 		"jayadeva_hospital": {
 			"id": "jayadeva_hospital",
 			"lines": ["bmrcl.yellow", "bmrcl.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "elevated", "status": "under_construction", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "ragigudda",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "btm_layout",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "jp_nagar_4th_phase",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "tavarekere",
-					"line": "bmrcl.pink"
-				}
+				{"station": "ragigudda", "line": "bmrcl.yellow"},
+				{"station": "btm_layout", "line": "bmrcl.yellow"},
+				{"station": "jp_nagar_4th_phase", "line": "bmrcl.pink"},
+				{"station": "tavarekere", "line": "bmrcl.pink"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9172,
-					"lon": 77.5986
-				}
+				"decimal": {"lat": 12.9172, "lon": 77.5986}
 			}
 		},
 		"kudlu_gate": {
 			"id": "kudlu_gate",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "hongasandra",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "singasandra",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "hongasandra", "line": "bmrcl.yellow"}, {"station": "singasandra", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8872,
-					"lon": 77.6433
-				}
+				"decimal": {"lat": 12.8872, "lon": 77.6433}
 			}
 		},
 		"ragigudda": {
 			"id": "ragigudda",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "rashtreeya_vidyalaya_road",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "jayadeva_hospital",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "rashtreeya_vidyalaya_road", "line": "bmrcl.yellow"}, {"station": "jayadeva_hospital", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.917,
-					"lon": 77.5884
-				}
+				"decimal": {"lat": 12.917, "lon": 77.5884}
 			}
 		},
 		"singasandra": {
 			"id": "singasandra",
 			"lines": ["bmrcl.yellow"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "kudlu_gate",
-					"line": "bmrcl.yellow"
-				},
-				{
-					"station": "hosa_road",
-					"line": "bmrcl.yellow"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "kudlu_gate", "line": "bmrcl.yellow"}, {"station": "hosa_road", "line": "bmrcl.yellow"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8778,
-					"lon": 77.6534
-				}
+				"decimal": {"lat": 12.8778, "lon": 77.6534}
 			}
 		},
 		"agara": {
 			"id": "agara",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "hsr_layout",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "ibbaluru",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "hsr_layout", "line": "bmrcl.blue"}, {"station": "ibbaluru", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9271,
-					"lon": 77.6482
-				}
+				"decimal": {"lat": 12.9271, "lon": 77.6482}
 			}
 		},
 		"airport_city": {
 			"id": "airport_city",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "at-grade",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "doddajala",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "kial_terminals",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "at-grade", "status": "under_construction"},
+			"neighbors": [{"station": "doddajala", "line": "bmrcl.blue"}, {"station": "kial_terminals", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.1978,
-					"lon": 77.6784
-				}
+				"decimal": {"lat": 13.1978, "lon": 77.6784}
 			}
 		},
 		"bagalur_cross": {
 			"id": "bagalur_cross",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "yelahanka",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "doddajala",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "yelahanka", "line": "bmrcl.blue"}, {"station": "doddajala", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.1342,
-					"lon": 77.6258
-				}
+				"decimal": {"lat": 13.1342, "lon": 77.6258}
 			}
 		},
 		"drdo_sports_complex": {
 			"id": "drdo_sports_complex",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "doddanekundi",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "sarasvathi_nagara",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "doddanekundi", "line": "bmrcl.blue"}, {"station": "sarasvathi_nagara", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9868,
-					"lon": 77.6924
-				}
+				"decimal": {"lat": 12.9868, "lon": 77.6924}
 			}
 		},
 		"cantonment_railway_station": {
 			"id": "cantonment_railway_station",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "shivaji_nagar",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "pottery_town",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "shivaji_nagar", "line": "bmrcl.pink"}, {"station": "pottery_town", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9942,
-					"lon": 77.5991
-				}
+				"decimal": {"lat": 12.9942, "lon": 77.5991}
 			}
 		},
 		"dairy_circle": {
 			"id": "dairy_circle",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "tavarekere",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "lakkasandra",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "tavarekere", "line": "bmrcl.pink"}, {"station": "lakkasandra", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9366,
-					"lon": 77.5985
-				}
+				"decimal": {"lat": 12.9366, "lon": 77.5985}
 			}
 		},
 		"doddajala": {
 			"id": "doddajala",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "bagalur_cross",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "airport_city",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "bagalur_cross", "line": "bmrcl.blue"}, {"station": "airport_city", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.1784,
-					"lon": 77.6321
-				}
+				"decimal": {"lat": 13.1784, "lon": 77.6321}
 			}
 		},
 		"doddanekundi": {
 			"id": "doddanekundi",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "isro",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "drdo_sports_complex",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "isro", "line": "bmrcl.blue"}, {"station": "drdo_sports_complex", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9754,
-					"lon": 77.6972
-				}
+				"decimal": {"lat": 12.9754, "lon": 77.6972}
 			}
 		},
 		"kadubeesanahalli": {
 			"id": "kadubeesanahalli",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "bellandur",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "kodibeesanahalli",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "bellandur", "line": "bmrcl.blue"}, {"station": "kodibeesanahalli", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9365,
-					"lon": 77.6896
-				}
+				"decimal": {"lat": 12.9365, "lon": 77.6896}
 			}
 		},
 		"hbr_layout": {
 			"id": "hbr_layout",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "kalyan_nagar",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "nagawara",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "kalyan_nagar", "line": "bmrcl.blue"}, {"station": "nagawara", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0335,
-					"lon": 77.6309
-				}
+				"decimal": {"lat": 13.0335, "lon": 77.6309}
 			}
 		},
 		"hebbala": {
 			"id": "hebbala",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "kempapura",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "kodigehalli",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "kempapura", "line": "bmrcl.blue"}, {"station": "kodigehalli", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0435,
-					"lon": 77.5921
-				}
+				"decimal": {"lat": 13.0435, "lon": 77.5921}
 			}
 		},
 		"horamavu": {
 			"id": "horamavu",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "kasturinagara",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "hrbr_layout",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "kasturinagara", "line": "bmrcl.blue"}, {"station": "hrbr_layout", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0163,
-					"lon": 77.6534
-				}
+				"decimal": {"lat": 13.0163, "lon": 77.6534}
 			}
 		},
 		"hrbr_layout": {
 			"id": "hrbr_layout",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "horamavu",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "kalyan_nagar",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "horamavu", "line": "bmrcl.blue"}, {"station": "kalyan_nagar", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0238,
-					"lon": 77.6441
-				}
+				"decimal": {"lat": 13.0238, "lon": 77.6441}
 			}
 		},
 		"hsr_layout": {
 			"id": "hsr_layout",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "central_silk_board",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "agara",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "central_silk_board", "line": "bmrcl.blue"}, {"station": "agara", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9234,
-					"lon": 77.6385
-				}
+				"decimal": {"lat": 12.9234, "lon": 77.6385}
 			}
 		},
 		"hulimavu": {
 			"id": "hulimavu",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "kalena_agrahara",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "iimb",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "kalena_agrahara", "line": "bmrcl.pink"}, {"station": "iimb", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8797,
-					"lon": 77.5956
-				}
+				"decimal": {"lat": 12.8797, "lon": 77.5956}
 			}
 		},
 		"ibbaluru": {
 			"id": "ibbaluru",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "agara",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "bellandur",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "agara", "line": "bmrcl.blue"}, {"station": "bellandur", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9248,
-					"lon": 77.6658
-				}
+				"decimal": {"lat": 12.9248, "lon": 77.6658}
 			}
 		},
 		"iimb": {
 			"id": "iimb",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "hulimavu",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "jp_nagar_4th_phase",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "hulimavu", "line": "bmrcl.pink"}, {"station": "jp_nagar_4th_phase", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8953,
-					"lon": 77.6015
-				}
+				"decimal": {"lat": 12.8953, "lon": 77.6015}
 			}
 		},
 		"isro": {
 			"id": "isro",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "marathahalli",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "doddanekundi",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "marathahalli", "line": "bmrcl.blue"}, {"station": "doddanekundi", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9644,
-					"lon": 77.6989
-				}
+				"decimal": {"lat": 12.9644, "lon": 77.6989}
 			}
 		},
 		"jakkur_cross": {
 			"id": "jakkur_cross",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "kodigehalli",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "yelahanka",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "kodigehalli", "line": "bmrcl.blue"}, {"station": "yelahanka", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0789,
-					"lon": 77.5925
-				}
+				"decimal": {"lat": 13.0789, "lon": 77.5925}
 			}
 		},
 		"jp_nagar_4th_phase": {
 			"id": "jp_nagar_4th_phase",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "iimb",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "jayadeva_hospital",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "iimb", "line": "bmrcl.pink"}, {"station": "jayadeva_hospital", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9069,
-					"lon": 77.5997
-				}
+				"decimal": {"lat": 12.9069, "lon": 77.5997}
 			}
 		},
 		"kadugundanahalli": {
 			"id": "kadugundanahalli",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "venkateshpura",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "nagawara",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "venkateshpura", "line": "bmrcl.pink"}, {"station": "nagawara", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0315,
-					"lon": 77.6226
-				}
+				"decimal": {"lat": 13.0315, "lon": 77.6226}
 			}
 		},
 		"kalena_agrahara": {
 			"id": "kalena_agrahara",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "hulimavu",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "hulimavu", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.8661,
-					"lon": 77.5855
-				}
+				"decimal": {"lat": 12.8661, "lon": 77.5855}
 			}
 		},
 		"kalyan_nagar": {
 			"id": "kalyan_nagar",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "hrbr_layout",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "hbr_layout",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "hrbr_layout", "line": "bmrcl.blue"}, {"station": "hbr_layout", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0278,
-					"lon": 77.6392
-				}
+				"decimal": {"lat": 13.0278, "lon": 77.6392}
 			}
 		},
 		"kasturinagara": {
 			"id": "kasturinagara",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "krishnarajapura",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "horamavu",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "krishnarajapura", "line": "bmrcl.blue"}, {"station": "horamavu", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0075,
-					"lon": 77.6651
-				}
+				"decimal": {"lat": 13.0075, "lon": 77.6651}
 			}
 		},
 		"kempapura": {
 			"id": "kempapura",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "veerannapalya",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "hebbala",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "veerannapalya", "line": "bmrcl.blue"}, {"station": "hebbala", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0468,
-					"lon": 77.6012
-				}
+				"decimal": {"lat": 13.0468, "lon": 77.6012}
 			}
 		},
 		"kial_terminals": {
 			"id": "kial_terminals",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "airport_city",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "airport_city", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.1994,
-					"lon": 77.7068
-				}
+				"decimal": {"lat": 13.1994, "lon": 77.7068}
 			}
 		},
 		"kodibeesanahalli": {
 			"id": "kodibeesanahalli",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "kadubeesanahalli",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "marathahalli",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "kadubeesanahalli", "line": "bmrcl.blue"}, {"station": "marathahalli", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9421,
-					"lon": 77.6934
-				}
+				"decimal": {"lat": 12.9421, "lon": 77.6934}
 			}
 		},
 		"kodigehalli": {
 			"id": "kodigehalli",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "hebbala",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "jakkur_cross",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "hebbala", "line": "bmrcl.blue"}, {"station": "jakkur_cross", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0645,
-					"lon": 77.5884
-				}
+				"decimal": {"lat": 13.0645, "lon": 77.5884}
 			}
 		},
 		"lakkasandra": {
 			"id": "lakkasandra",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "dairy_circle",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "langford_town",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "dairy_circle", "line": "bmrcl.pink"}, {"station": "langford_town", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9463,
-					"lon": 77.5983
-				}
+				"decimal": {"lat": 12.9463, "lon": 77.5983}
 			}
 		},
 		"langford_town": {
 			"id": "langford_town",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "lakkasandra",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "national_military_school",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "lakkasandra", "line": "bmrcl.pink"}, {"station": "national_military_school", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9576,
-					"lon": 77.6033
-				}
+				"decimal": {"lat": 12.9576, "lon": 77.6033}
 			}
 		},
 		"marathahalli": {
 			"id": "marathahalli",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "kodibeesanahalli",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "isro",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "kodibeesanahalli", "line": "bmrcl.blue"}, {"station": "isro", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9538,
-					"lon": 77.7011
-				}
+				"decimal": {"lat": 12.9538, "lon": 77.7011}
 			}
 		},
 		"nagawara": {
 			"id": "nagawara",
 			"lines": ["bmrcl.pink", "bmrcl.blue"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction",
-				"station_type": "interchange"
-			},
+			"properties": {"layout": "underground", "status": "under_construction", "station_type": "interchange"},
 			"neighbors": [
-				{
-					"station": "kadugundanahalli",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "hbr_layout",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "veerannapalya",
-					"line": "bmrcl.blue"
-				}
+				{"station": "kadugundanahalli", "line": "bmrcl.pink"},
+				{"station": "hbr_layout", "line": "bmrcl.blue"},
+				{"station": "veerannapalya", "line": "bmrcl.blue"}
 			],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.04051,
-					"lon": 77.62466
-				}
+				"decimal": {"lat": 13.04051, "lon": 77.62466}
 			}
 		},
 		"national_military_school": {
 			"id": "national_military_school",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "langford_town",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "mahatma_gandhi_road",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "langford_town", "line": "bmrcl.pink"}, {"station": "mahatma_gandhi_road", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9669,
-					"lon": 77.6074
-				}
+				"decimal": {"lat": 12.9669, "lon": 77.6074}
 			}
 		},
 		"pottery_town": {
 			"id": "pottery_town",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "cantonment_railway_station",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "tannery_road",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "cantonment_railway_station", "line": "bmrcl.pink"}, {"station": "tannery_road", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0039,
-					"lon": 77.6085
-				}
+				"decimal": {"lat": 13.0039, "lon": 77.6085}
 			}
 		},
 		"bellandur": {
 			"id": "bellandur",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "ibbaluru",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "kadubeesanahalli",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "ibbaluru", "line": "bmrcl.blue"}, {"station": "kadubeesanahalli", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9288,
-					"lon": 77.6768
-				}
+				"decimal": {"lat": 12.9288, "lon": 77.6768}
 			}
 		},
 		"sarasvathi_nagara": {
 			"id": "sarasvathi_nagara",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "drdo_sports_complex",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "krishnarajapura",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "drdo_sports_complex", "line": "bmrcl.blue"}, {"station": "krishnarajapura", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9942,
-					"lon": 77.6853
-				}
+				"decimal": {"lat": 12.9942, "lon": 77.6853}
 			}
 		},
 		"shivaji_nagar": {
 			"id": "shivaji_nagar",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "mahatma_gandhi_road",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "cantonment_railway_station",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "mahatma_gandhi_road", "line": "bmrcl.pink"}, {"station": "cantonment_railway_station", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9863,
-					"lon": 77.6041
-				}
+				"decimal": {"lat": 12.9863, "lon": 77.6041}
 			}
 		},
 		"tannery_road": {
 			"id": "tannery_road",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "pottery_town",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "venkateshpura",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "pottery_town", "line": "bmrcl.pink"}, {"station": "venkateshpura", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0135,
-					"lon": 77.6186
-				}
+				"decimal": {"lat": 13.0135, "lon": 77.6186}
 			}
 		},
 		"tavarekere": {
 			"id": "tavarekere",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "jayadeva_hospital",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "dairy_circle",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "jayadeva_hospital", "line": "bmrcl.pink"}, {"station": "dairy_circle", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 12.9239,
-					"lon": 77.6067
-				}
+				"decimal": {"lat": 12.9239, "lon": 77.6067}
 			}
 		},
 		"veerannapalya": {
 			"id": "veerannapalya",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "nagawara",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "kempapura",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "nagawara", "line": "bmrcl.blue"}, {"station": "kempapura", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0422,
-					"lon": 77.6115
-				}
+				"decimal": {"lat": 13.0422, "lon": 77.6115}
 			}
 		},
 		"venkateshpura": {
 			"id": "venkateshpura",
 			"lines": ["bmrcl.pink"],
-			"properties": {
-				"layout": "underground",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "tannery_road",
-					"line": "bmrcl.pink"
-				},
-				{
-					"station": "kadugundanahalli",
-					"line": "bmrcl.pink"
-				}
-			],
+			"properties": {"layout": "underground", "status": "under_construction"},
+			"neighbors": [{"station": "tannery_road", "line": "bmrcl.pink"}, {"station": "kadugundanahalli", "line": "bmrcl.pink"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.0245,
-					"lon": 77.6208
-				}
+				"decimal": {"lat": 13.0245, "lon": 77.6208}
 			}
 		},
 		"yelahanka": {
 			"id": "yelahanka",
 			"lines": ["bmrcl.blue"],
-			"properties": {
-				"layout": "elevated",
-				"status": "under_construction"
-			},
-			"neighbors": [
-				{
-					"station": "jakkur_cross",
-					"line": "bmrcl.blue"
-				},
-				{
-					"station": "bagalur_cross",
-					"line": "bmrcl.blue"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "under_construction"},
+			"neighbors": [{"station": "jakkur_cross", "line": "bmrcl.blue"}, {"station": "bagalur_cross", "line": "bmrcl.blue"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 13.1005,
-					"lon": 77.5963
-				}
+				"decimal": {"lat": 13.1005, "lon": 77.5963}
 			}
 		}
 	}

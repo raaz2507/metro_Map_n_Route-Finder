@@ -464,9 +464,30 @@
 
 	@media (max-width: 768px) {
 		.smartcard-cards-grid {
-			flex-direction: column;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
 			align-items: center;
-			gap: var(--space-md);
+			gap: var(--space-sm);
+		}
+
+		.card-fields-row {
+			gap: var(--space-xs);
+		}
+
+		.recharge-amount-chips {
+			gap: var(--space-2xs);
+		}
+
+		.recharge-chip-btn {
+			padding: var(--space-2xs) var(--space-xs);
+			font-size: var(--fs-2xs);
+		}
+
+		.smartcard-card-footer,
+		.wallet-card-footer {
+			padding: var(--space-xs) var(--space-sm);
 		}
 	}
 }

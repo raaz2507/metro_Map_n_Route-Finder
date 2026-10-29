@@ -42,7 +42,14 @@ class I18n {
 	#languageCache = new Map();
 	#RTL_LANGUAGES = new Set(["ar", "fa", "ur"]);
 
-	constructor() {}
+	constructor() {
+		try {
+			const savedLanguage = localStorage.getItem("language") || localStorage.getItem("app-lang");
+			if (savedLanguage) {
+				this.#currentLanguage = savedLanguage;
+			}
+		} catch (e) {}
+	}
 
 	/* Initialize i18n from storage */
 	async initI18n() {

@@ -10,14 +10,11 @@ export default {
 		title: "Navigating Cities with Speed, Privacy & Precision",
 		desc: "YatraMarg was built to solve a widespread urban transit challenge: navigating fragmented, multi-operator metro networks through a single unified, zero-tracking, and lightning-fast platform.",
 		metrics: {
-			m1Value: "450+",
-			m1Label: "Mapped Stations",
-			m2Value: "100%",
-			m2Label: "Client-Side Privacy",
-			m3Value: "0 ms",
-			m3Label: "Server Tracking Latency",
-			m4Value: "6+",
-			m4Label: "Integrated Networks"
+			m1Label: "Countries",
+			m2Label: "Metro Cities",
+			m3Label: "Transit Networks",
+			m4Label: "Mapped Stations",
+			m5Label: "Offline Ready"
 		}
 	},
 	bento: {

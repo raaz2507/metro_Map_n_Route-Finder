@@ -1,0 +1,178 @@
+{
+	"version": "1.0",
+	"registry": {
+		"country": "भारत",
+		"cities": {
+			"delhi_ncr": {
+				"name": "दिल्ली एनसीआर",
+				"state": "दिल्ली, हरियाणा, उत्तर प्रदेश",
+				"networks": {
+					"dmrc": {"name": "दिल्ली मेट्रो", "operator": "दिल्ली मेट्रो रेल कॉर्पोरेशन (DMRC)"},
+					"nmrc": {"name": "नोएडा मेट्रो", "operator": "नोएडा मेट्रो रेल कॉर्पोरेशन (NMRC)"},
+					"rapid_metro_gurugram": {"name": "रैपिड मेट्रो गुरुग्राम", "operator": "हरियाणा मास रैपिड ट्रांसपोर्ट कॉर्पोरेशन (HMRTC / DMRC)"},
+					"delhi_meerut_rrts": {"name": "नमो भारत आरआरटीएस (दिल्ली-मेरठ)", "operator": "राष्ट्रीय राजधानी क्षेत्र परिवहन निगम (NCRTC)"},
+					"delhi_alwar_rrts": {"name": "दिल्ली-अलवर आरआरटीएस", "operator": "राष्ट्रीय राजधानी क्षेत्र परिवहन निगम (NCRTC)"},
+					"delhi_panipat_rrts": {"name": "दिल्ली-पानीपत आरआरटीएस", "operator": "राष्ट्रीय राजधानी क्षेत्र परिवहन निगम (NCRTC)"}
+				}
+			},
+			"mumbai": {
+				"name": "मुंबई",
+				"state": "महाराष्ट्र",
+				"networks": {
+					"mumbai_metro": {"name": "मुंबई मेट्रो", "operator": "मुंबई महानगर प्रदेश विकास प्राधिकरण (MMRDA / MMRC)"},
+					"mumbai_monorail": {"name": "मुंबई मोनोरेल", "operator": "मुंबई महानगर प्रदेश विकास प्राधिकरण (MMRDA)"},
+					"thane_metro": {"name": "ठाणे मेट्रो", "operator": "मुंबई महानगर प्रदेश विकास प्राधिकरण (MMRDA)"},
+					"navi_mumbai_metro": {"name": "नवी मुंबई मेट्रो", "operator": "नगर एवं औद्योगिक विकास निगम (CIDCO)"}
+				}
+			},
+			"kolkata": {
+				"name": "कोलकाता",
+				"state": "पश्चिम बंगाल",
+				"networks": {
+					"kolkata_metro": {"name": "कोलकाता मेट्रो", "operator": "कोलकाता मेट्रो रेलवे (KMRC / भारतीय रेल)"}
+				}
+			},
+			"bengaluru": {
+				"name": "बेंगलुरु",
+				"state": "कर्नाटक",
+				"networks": {
+					"namma_metro": {"name": "नम्मा मेट्रो", "operator": "बैंगलोर मेट्रो रेल कॉर्पोरेशन लिमिटेड (BMRCL)"}
+				}
+			},
+			"hyderabad": {
+				"name": "हैदराबाद",
+				"state": "तेलंगाना",
+				"networks": {
+					"hmrl": {"name": "हैदराबाद मेट्रो", "operator": "हैदराबाद मेट्रो रेल लिमिटेड (HMRL)"}
+				}
+			},
+			"chennai": {
+				"name": "चेन्नई",
+				"state": "तमिलनाडु",
+				"networks": {
+					"chennai_metro": {"name": "चेन्नई मेट्रो", "operator": "चेन्नई मेट्रो रेल लिमिटेड (CMRL)"},
+					"chennai_light_rail": {"name": "चेन्नई लाइट रेल", "operator": "चेन्नई मेट्रो रेल लिमिटेड (CMRL)"}
+				}
+			},
+			"kochi": {
+				"name": "कोच्चि",
+				"state": "केरल",
+				"networks": {
+					"kochi_metro": {"name": "कोच्चि मेट्रो", "operator": "कोच्चि मेट्रो रेल लिमिटेड (KMRL)"}
+				}
+			},
+			"ahmedabad_gandhinagar": {
+				"name": "अहमदाबाद - गांधीनगर",
+				"state": "गुजरात",
+				"networks": {
+					"ahmedabad_metro": {"name": "अहमदाबाद मेट्रो", "operator": "गुजरात मेट्रो रेल कॉर्पोरेशन (GMRC)"}
+				}
+			},
+			"nagpur": {
+				"name": "नागपुर",
+				"state": "महाराष्ट्र",
+				"networks": {
+					"nagpur_metro": {"name": "नागपुर मेट्रो", "operator": "महाराष्ट्र मेट्रो रेल कॉर्पोरेशन (महा मेट्रो)"}
+				}
+			},
+			"pune": {
+				"name": "पुणे",
+				"state": "महाराष्ट्र",
+				"networks": {
+					"pune_metro": {"name": "पुणे मेट्रो", "operator": "महाराष्ट्र मेट्रो रेल कॉर्पोरेशन (महा मेट्रो)"}
+				}
+			},
+			"jaipur": {
+				"name": "जयपुर",
+				"state": "राजस्थान",
+				"networks": {
+					"jaipur_metro": {"name": "जयपुर मेट्रो", "operator": "जयपुर मेट्रो रेल कॉर्पोरेशन (JMRC)"}
+				}
+			},
+			"lucknow": {
+				"name": "लखनऊ",
+				"state": "उत्तर प्रदेश",
+				"networks": {
+					"lucknow_metro": {"name": "लखनऊ मेट्रो", "operator": "उत्तर प्रदेश मेट्रो रेल कॉर्पोरेशन (UPMRC)"}
+				}
+			},
+			"kanpur": {
+				"name": "कानपुर",
+				"state": "उत्तर प्रदेश",
+				"networks": {
+					"kanpur_metro": {"name": "कानपुर मेट्रो", "operator": "उत्तर प्रदेश मेट्रो रेल कॉर्पोरेशन (UPMRC)"}
+				}
+			},
+			"agra": {
+				"name": "आगरा",
+				"state": "उत्तर प्रदेश",
+				"networks": {
+					"agra_metro": {"name": "आगरा मेट्रो", "operator": "उत्तर प्रदेश मेट्रो रेल कॉर्पोरेशन (UPMRC)"}
+				}
+			},
+			"indore": {
+				"name": "इंदौर",
+				"state": "मध्य प्रदेश",
+				"networks": {
+					"indore_metro": {"name": "इंदौर मेट्रो", "operator": "मध्य प्रदेश मेट्रो रेल कॉर्पोरेशन (MPMRCL)"}
+				}
+			},
+			"bhopal": {
+				"name": "भोपाल",
+				"state": "मध्य प्रदेश",
+				"networks": {
+					"bhopal_metro": {"name": "भोपाल मेट्रो", "operator": "मध्य प्रदेश मेट्रो रेल कॉर्पोरेशन (MPMRCL)"}
+				}
+			},
+			"patna": {
+				"name": "पटना",
+				"state": "बिहार",
+				"networks": {
+					"patna_metro": {"name": "पटना मेट्रो", "operator": "पटना मेट्रो रेल कॉर्पोरेशन (PMRC)"}
+				}
+			},
+			"surat": {
+				"name": "सूरत",
+				"state": "गुजरात",
+				"networks": {
+					"surat_metro": {"name": "सूरत मेट्रो", "operator": "गुजरात मेट्रो रेल कॉर्पोरेशन (GMRC)"}
+				}
+			},
+			"meerut": {
+				"name": "मेरठ",
+				"state": "उत्तर प्रदेश",
+				"networks": {
+					"meerut_metro": {"name": "मेरठ मेट्रो (लोकल कॉरिडोर)", "operator": "राष्ट्रीय राजधानी क्षेत्र परिवहन निगम (NCRTC)"}
+				}
+			},
+			"gorakhpur": {
+				"name": "गोरखपुर",
+				"state": "उत्तर प्रदेश",
+				"networks": {
+					"gorakhpur_metrolite": {"name": "गोरखपुर मेट्रोलाइट", "operator": "उत्तर प्रदेश मेट्रो रेल कॉर्पोरेशन (UPMRC)"}
+				}
+			},
+			"jammu": {
+				"name": "जम्मू",
+				"state": "जम्मू और कश्मीर",
+				"networks": {
+					"jammu_metrolite": {"name": "जम्मू मेट्रोलाइट", "operator": "जम्मू और कश्मीर मेट्रो रेल ट्रांसपोर्ट कॉर्पोरेशन"}
+				}
+			},
+			"srinagar": {
+				"name": "श्रीनगर",
+				"state": "जम्मू और कश्मीर",
+				"networks": {
+					"srinagar_metrolite": {"name": "श्रीनगर मेट्रोलाइट", "operator": "जम्मू और कश्मीर मेट्रो रेल ट्रांसपोर्ट कॉर्पोरेशन"}
+				}
+			},
+			"dehradun": {
+				"name": "देहरादून",
+				"state": "उत्तराखंड",
+				"networks": {
+					"dehradun_metroneo": {"name": "देहरादून मेट्रोनियो", "operator": "उत्तराखंड मेट्रो रेल कॉर्पोरेशन (UKMRC)"}
+				}
+			}
+		}
+	}
+}

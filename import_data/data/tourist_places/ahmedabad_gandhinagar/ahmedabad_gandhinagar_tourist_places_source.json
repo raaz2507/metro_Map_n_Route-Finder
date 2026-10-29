@@ -1,0 +1,2040 @@
+{
+  "city": "ahmedabad_gandhinagar",
+  "version": "1.0",
+  "total_places": 50,
+  "places": [
+    {
+      "id": "sabarmati_ashram",
+      "category": "heritage",
+      "coordinates": [
+        23.0605,
+        72.5804
+      ],
+      "timings": {
+        "open": "08:30",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0605,72.5804",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/sabarmati_ashram.webp",
+      "tags": [
+        "gandhi",
+        "ashram",
+        "heritage",
+        "freedom_struggle",
+        "hriday_kunj"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Sabarmati Ashram (Gandhi Ashram)",
+        "description": "Historic headquarters of Mahatma Gandhi from 1917 to 1930 and the starting point of the 1930 Salt March (Dandi Satyagraha), preserving Hriday Kunj, Gandhi's spinning wheel, and archives.",
+        "best_time_to_visit": "October to March (Early mornings)"
+      },
+      "hi": {
+        "name": "साबरमती आश्रम (गांधी आश्रम)",
+        "description": "1917 से 1930 तक महात्मा गांधी का ऐतिहासिक निवास स्थल और दांडी मार्च का प्रस्थान बिंदु; यहाँ हृदय कुंज, बापू का चरखा और स्वतंत्रता संग्राम के दुर्लभ अभिलेखागार संरक्षित हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च (सुबह के समय)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Gandhi%20at%20Sabarmati%20Ashram.jpg"
+    },
+    {
+      "id": "atal_pedestrian_bridge",
+      "category": "monument",
+      "coordinates": [
+        23.0232,
+        72.5714
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "23:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0232,72.5714",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/atal_pedestrian_bridge.webp",
+      "tags": [
+        "bridge",
+        "sabarmati",
+        "pedestrian",
+        "architecture",
+        "riverfront"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Atal Pedestrian Bridge",
+        "description": "Award-winning 300-meter iconic foot overbridge on Sabarmati Riverfront inspired by kite festival colors, connecting the eastern and western promenades with stunning nighttime LED illumination.",
+        "best_time_to_visit": "Evenings (06:00 PM - 10:00 PM)"
+      },
+      "hi": {
+        "name": "अटल पेडेस्ट्रियन ब्रिज",
+        "description": "साबरमती रिवरफ्रंट पर 300 मीटर लंबा प्रसिद्ध पैदल पुल, जो पतंगोत्सव के रंगों और आधुनिक वास्तुकला से प्रेरित है; रात में इसकी रंगीन एलईडी लाइटिंग बेहद मनमोहक दिखती है।",
+        "best_time_to_visit": "शाम 6 से रात 10 बजे"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Atal%20Pedestrian%20Bridge%20at%20Night.jpg"
+    },
+    {
+      "id": "sabarmati_riverfront",
+      "category": "nature",
+      "coordinates": [
+        23.0185,
+        72.5694
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "23:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0185,72.5694",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/sabarmati_riverfront.webp",
+      "tags": [
+        "riverfront",
+        "promenade",
+        "boating",
+        "flower_park",
+        "cycling"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Sabarmati Riverfront Promenade",
+        "description": "11.5 km beautifully landscaped waterfront promenade featuring tree-lined walkways, cycling tracks, speed boating, the annual International Flower Show, and sunset views.",
+        "best_time_to_visit": "November to February (Sunrise and Sunset)"
+      },
+      "hi": {
+        "name": "साबरमती रिवरफ्रंट प्रोमेनेड",
+        "description": "11.5 किमी लंबा सुंदर रिवरफ्रंट वॉकवे, जहाँ बोटिंग, साइकिलिंग ट्रैक, वार्षिक अंतरराष्ट्रीय पुष्प प्रदर्शनी और साबरमती नदी के किनारे मनोरम शाम का आनंद लिया जा सकता है।",
+        "best_time_to_visit": "नवंबर से फरवरी (सूर्योदय और सूर्यास्त)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sabarmati%20Riverfront%20in%20evening.jpg"
+    },
+    {
+      "id": "adalaj_stepwell",
+      "category": "heritage",
+      "coordinates": [
+        23.1667,
+        72.58
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1667,72.5800",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/adalaj_stepwell.webp",
+      "tags": [
+        "stepwell",
+        "vav",
+        "solanki",
+        "architecture",
+        "heritage"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Adalaj Stepwell (Rudabai Vav)",
+        "description": "Subterranean architectural marvel built in 1498 by Queen Rudabai, descending five stories deep with intricately carved sandstone pillars, balconies, and cooler subterranean temperatures.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "अडालज की वाव (रुदाबाई बावड़ी)",
+        "description": "1498 में रानी रुदाबाई द्वारा निर्मित 5 मंजिला भूमिगत बावड़ी, जो सोलंकी और इंडो-इस्लामिक वास्तुकला, बारीक नक्काशीदार खंभों और ठंडी भूमिगत दीर्घाओं के लिए विश्वप्रसिद्ध है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Adalaj%20Stepwell%20-%20Rudabai%20stepwell.jpg"
+    },
+    {
+      "id": "akshardham_temple_gandhinagar",
+      "category": "religious",
+      "coordinates": [
+        23.2338,
+        72.6738
+      ],
+      "timings": {
+        "open": "09:30",
+        "close": "19:30",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2338,72.6738",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/akshardham_temple_gandhinagar.webp",
+      "tags": [
+        "temple",
+        "swaminarayan",
+        "sandstone",
+        "water_show",
+        "gandhinagar"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Swaminarayan Akshardham (Gandhinagar)",
+        "description": "Sprawling 23-acre spiritual complex carved from 6,000 tonnes of pink Rajasthani sandstone without steel, featuring thematic exhibitions, serene gardens, and the Sat-Chit-Anand water show.",
+        "best_time_to_visit": "October to March (Evening water show)"
+      },
+      "hi": {
+        "name": "स्वामीनारायण अक्षरधाम मंदिर (गांधीनगर)",
+        "description": "बिना स्टील के 6,000 टन गुलाबी बलुआ पत्थर से निर्मित 23 एकड़ का भव्य आध्यात्मिक मंदिर, जिसमें सांस्कृतिक प्रदर्शनियां और 'सत-चित-आनंद' वाटर लेजर शो दर्शनीय हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च (शाम का वाटर शो)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/BAPS%20Akshardham%20Gandhinagar.jpg"
+    },
+    {
+      "id": "sidi_saiyyed_mosque",
+      "category": "heritage",
+      "coordinates": [
+        23.027,
+        72.5815
+      ],
+      "timings": {
+        "open": "07:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0270,72.5815",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/sidi_saiyyed_mosque.webp",
+      "tags": [
+        "tree_of_life",
+        "jali",
+        "carved_marble",
+        "unesco",
+        "heritage"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Sidi Saiyyed Mosque (Tree of Life)",
+        "description": "Built in 1573, globally renowned for its exquisite semi-circular marble lattice window (Jali) depicting the 'Tree of Life', which serves as the official emblem of IIM Ahmedabad.",
+        "best_time_to_visit": "Throughout the year"
+      },
+      "hi": {
+        "name": "सीदी सैयद मस्जिद (ट्री ऑफ लाइफ)",
+        "description": "1573 में निर्मित विश्वप्रसिद्ध मस्जिद, जिसकी पत्थर की नक्काशीदार जाली में बना 'ट्री ऑफ लाइफ' (जीवन का वृक्ष) भारतीय कला का शिखर माना जाता है और IIM अहमदाबाद का प्रतीक चिह्न है।",
+        "best_time_to_visit": "वर्षभर"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Carved%20Mesh%20of%20Sidi%20Saiyyed%20Mosque%20Ahmedabad%20Gujarat%20DSC001.jpg"
+    },
+    {
+      "id": "hutheesing_jain_temple",
+      "category": "religious",
+      "coordinates": [
+        23.0416,
+        72.5901
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0416,72.5901",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/hutheesing_jain_temple.webp",
+      "tags": [
+        "jain",
+        "white_marble",
+        "manastambha",
+        "dharmanatha",
+        "heritage"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Hutheesing Jain Temple",
+        "description": "Constructed in 1848 by merchant Hutheesing Kesarisinh, built with pristine white Makrana marble dedicated to 15th Tirthankara Lord Dharmanatha, featuring 52 mini-shrines and a soaring Manastambha.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "हठीसिंह जैन मंदिर",
+        "description": "1848 में शुद्ध सफेद मकराना संगमरमर से निर्मित भव्य जैन मंदिर, जो 15वें तीर्थंकर भगवान धर्मनाथ को समर्पित है; इसमें 52 उप-मंदिर और सुंदर मानस्तंभ बना हुआ है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sheth%20Hutheesinh%20Temple.jpg"
+    },
+    {
+      "id": "kankaria_lake",
+      "category": "nature",
+      "coordinates": [
+        23.0063,
+        72.6027
+      ],
+      "timings": {
+        "open": "04:00",
+        "close": "23:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0063,72.6027",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/kankaria_lake.webp",
+      "tags": [
+        "lake",
+        "naginawadi",
+        "toy_train",
+        "zoo",
+        "carnival"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Kankaria Lake & Nagina Wadi",
+        "description": "Historic 15th-century polygonal lake completed by Sultan Qutb-ud-Din, featuring a central summer pleasure pavilion (Nagina Wadi), toy train (Atal Express), tethered balloon rides, and an annual December carnival.",
+        "best_time_to_visit": "November to February (Evenings & Kankaria Carnival)"
+      },
+      "hi": {
+        "name": "कांकरिया झील एवं नगीना वाड़ी",
+        "description": "15वीं सदी में सुल्तान कुतुबुद्दीन द्वारा निर्मित विशाल झील, जिसके केंद्र में नगीना वाड़ी द्वीप, अटल एक्सप्रेस टॉय ट्रेन, चिड़ियाघर और वार्षिक कांकरिया कार्निवल आयोजित होता है।",
+        "best_time_to_visit": "नवंबर से फरवरी (शाम का समय व कार्निवल)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kankaria%20Lake%20-%20Nagina%20Wadi2.JPG"
+    },
+    {
+      "id": "bhadra_fort",
+      "category": "heritage",
+      "coordinates": [
+        23.0248,
+        72.5847
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0248,72.5847",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/bhadra_fort.webp",
+      "tags": [
+        "fort",
+        "ahmad_shah",
+        "citadel",
+        "teen_darwaza",
+        "heritage"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Bhadra Fort & Teen Darwaza",
+        "description": "Royal citadel built in 1411 by Sultan Ahmad Shah upon founding Ahmedabad, featuring fortified red stone bastions, royal palaces, a clock tower, and the grand Teen Darwaza ceremonial gateway.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "भद्रा का किला एवं तीन दरवाजा",
+        "description": "1411 में सुल्तान अहमद शाह द्वारा स्थापित अहमदाबाद का शाही गढ़, जिसमें लाल पत्थर के परकोटे, घंटाघर और ऐतिहासिक शाही प्रवेश द्वार 'तीन दरवाजा' स्थित हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Teen%20Darwaza.JPG"
+    },
+    {
+      "id": "jama_masjid_ahmedabad",
+      "category": "heritage",
+      "coordinates": [
+        23.0238,
+        72.5886
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0238,72.5886",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/jama_masjid_ahmedabad.webp",
+      "tags": [
+        "mosque",
+        "yellow_sandstone",
+        "260_pillars",
+        "unesco",
+        "heritage"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Jama Masjid (Ahmedabad)",
+        "description": "Monumental yellow sandstone congregational mosque built in 1424 by Ahmad Shah I, renowned for its serene arcaded courtyard supported by 260 carved pillars and 15 domes blending Hindu, Jain, and Islamic motifs.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "जामा मस्जिद (अहमदाबाद)",
+        "description": "1424 में निर्मित पीले बलुआ पत्थर की भव्य मस्जिद, जिसमें 260 नक्काशीदार खंभे और 15 गुंबद हैं; यह इंडो-सारासेनिक, हिंदू व जैन वास्तुशिल्प का अद्भुत समन्वय प्रस्तुत करती है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jama%20Masjid%2C%20Ahmedabad%2001.jpg"
+    },
+    {
+      "id": "science_city_ahmedabad",
+      "category": "museum",
+      "coordinates": [
+        23.0801,
+        72.4982
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0801,72.4982",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/science_city_ahmedabad.webp",
+      "tags": [
+        "aquatic_gallery",
+        "robotic_gallery",
+        "imax",
+        "science",
+        "planetarium"
+      ],
+      "recommended_time_min": 180,
+      "en": {
+        "name": "Gujarat Science City",
+        "description": "Comprehensive 107-hectare science center housing India's largest public Aquatic Gallery with underwater shark tunnels, a state-of-the-art Robotic Gallery, IMAX 3D Theatre, and Nature Park.",
+        "best_time_to_visit": "Throughout the year"
+      },
+      "hi": {
+        "name": "गुजरात साइंस सिटी",
+        "description": "107 हेक्टेयर में फैला अत्याधुनिक विज्ञान केंद्र, जिसमें भारत की सबसे बड़ी अंडरवाटर एक्वाटिक गैलरी, रोबोटिक्स गैलरी, आईमैक्स 3D थिएटर और नेचर पार्क आकर्षण के केंद्र हैं।",
+        "best_time_to_visit": "वर्षभर"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Science%20City%20Ahmedabad.jpg"
+    },
+    {
+      "id": "calico_museum_of_textiles",
+      "category": "museum",
+      "coordinates": [
+        23.0558,
+        72.5936
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "13:00",
+        "all_day": false,
+        "closed_on": [
+          "Wednesday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0558,72.5936",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/calico_museum_of_textiles.webp",
+      "tags": [
+        "textiles",
+        "sarabhai",
+        "historic_fabrics",
+        "pichwai",
+        "crafts"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Calico Museum of Textiles",
+        "description": "One of the premier textile museums in the world, founded in 1949 by Gautam and Gira Sarabhai, housing five centuries of rare royal court textiles, Kashmiri shawls, and Pichwai tapestries in wooden haveli architecture.",
+        "best_time_to_visit": "November to February (Prior booking required)"
+      },
+      "hi": {
+        "name": "कैलिको वस्त्र संग्रहालय",
+        "description": "विश्व का प्रमुख कपड़ा संग्रहालय, जहाँ 5 शताब्दियों के दुर्लभ शाही वस्त्र, कश्मीरी शॉल, कलमकारी और पिछवाई चित्रों का अनूठा संग्रह पारंपरिक काष्ठ हवेली में प्रदर्शित है।",
+        "best_time_to_visit": "नवंबर से फरवरी (पूर्व बुकिंग अनिवार्य)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Calico%20Museum%20of%20Textiles%2C%20Ahmedabad%2C%201952.jpg"
+    },
+    {
+      "id": "auto_world_vintage_car_museum",
+      "category": "museum",
+      "coordinates": [
+        23.0336,
+        72.6974
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 100,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0336,72.6974",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/auto_world_vintage_car_museum.webp",
+      "tags": [
+        "vintage_cars",
+        "rolls_royce",
+        "dastan_estate",
+        "cadillac",
+        "automobiles"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Auto World Vintage Car Museum",
+        "description": "One of the largest private collections of vintage cars in Asia, showcasing over 115 immaculate classic vehicles including custom Rolls-Royces, Bentleys, Cadillacs, and horse-drawn carriages of Indian Maharajas.",
+        "best_time_to_visit": "Throughout the year"
+      },
+      "hi": {
+        "name": "ऑटो वर्ल्ड विंटेज कार संग्रहालय",
+        "description": "एशिया का सबसे बड़ा निजी विंटेज कार संग्रहालय, जहाँ भारतीय राजा-महाराजाओं की 115 से अधिक दुर्लभ रोल्स-रॉयस, बेंटले, कैडिलैक और शाही बग्गियां सुरक्षित हैं।",
+        "best_time_to_visit": "वर्षभर"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Auto%20World%20Vintage%20Car%20Museum%2C%20Ahmedabad%2C%20Gujarat%2C%20India.jpg"
+    },
+    {
+      "id": "shaking_minarets_sidi_bashir",
+      "category": "heritage",
+      "coordinates": [
+        23.0197,
+        72.6019
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0197,72.6019",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/shaking_minarets_sidi_bashir.webp",
+      "tags": [
+        "jhulta_minar",
+        "architectural_mystery",
+        "sarangpur",
+        "heritage"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Jhulta Minar (Sidi Bashir Shaking Minarets)",
+        "description": "Mysterious 15th-century architectural enigma in Sarangpur: when one minaret is shaken, the other vibrates in resonance after a few seconds without transmitting vibration across the connecting bridge.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "झूलता मीनार (सीदी बशीर मस्जिद)",
+        "description": "सारंगपुर में स्थित 15वीं सदी का अनूठा वास्तुकला चमत्कार; जब एक मीनार को हिलाया जाता है तो दूसरी मीनार भी कुछ सेकंड बाद झूलने लगती है, जिसका रहस्य आज भी अनसुलझा है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jhulta%20Minar%2C%20Bibiji%20Masjid.jpg"
+    },
+    {
+      "id": "sarkhej_roza",
+      "category": "heritage",
+      "coordinates": [
+        22.9818,
+        72.4996
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=22.9818,72.4996",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/sarkhej_roza.webp",
+      "tags": [
+        "acropolis",
+        "sufi",
+        "roza",
+        "ahmed_khattu",
+        "heritage"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Sarkhej Roza (The Acropolis of Ahmedabad)",
+        "description": "Exquisite 15th-century Sufi architectural complex and royal palace pavilions surrounding a central tank, praised by architect Le Corbusier as the 'Acropolis of Ahmedabad' for its peerless proportion and symmetry.",
+        "best_time_to_visit": "October to March (Late afternoon sunset)"
+      },
+      "hi": {
+        "name": "सरखेज रोज़ा",
+        "description": "15वीं सदी का सूफी वास्तुकला और शाही महलों का भव्य परिसर, जिसे प्रसिद्ध वास्तुकार ली कार्बूजिए ने इसकी अद्भुत समरूपता के कारण 'अहमदाबाद का एक्रोपोलिस' कहा था।",
+        "best_time_to_visit": "अक्टूबर से मार्च (सूर्यास्त के समय)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sarkhej.JPG"
+    },
+    {
+      "id": "manek_chowk",
+      "category": "shopping",
+      "coordinates": [
+        23.0232,
+        72.5898
+      ],
+      "timings": {
+        "open": "19:00",
+        "close": "02:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0232,72.5898",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/manek_chowk.webp",
+      "tags": [
+        "street_food",
+        "night_market",
+        "pav_bhaji",
+        "gwalior_dosa",
+        "walled_city"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Manek Chowk Night Food Market",
+        "description": "Fabled walled city square that transforms after dark into a buzzing culinary night market renowned for cheese pineapple sandwiches, Gwalior dosa, chocolate sandwiches, and Kulfi.",
+        "best_time_to_visit": "Night (08:30 PM - 01:00 AM)"
+      },
+      "hi": {
+        "name": "मानेक चौक नाइट फूड मार्केट",
+        "description": "पुराने अहमदाबाद का प्रसिद्ध चौक जो रात होते ही जीवंत स्ट्रीट फूड हब में बदल जाता है; यहाँ की पनीर पाइनएप्पल सैंडविच, ग्वालियर डोसा और कुल्फी रात के 2 बजे तक मिलती है।",
+        "best_time_to_visit": "रात 8:30 से 1:00 बजे"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Urban%20Chowk%20Food%20Court%20in%20Ahmedabad.jpg"
+    },
+    {
+      "id": "dandi_kutir_gandhinagar",
+      "category": "museum",
+      "coordinates": [
+        23.2272,
+        72.6288
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 10,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2272,72.6288",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/dandi_kutir_gandhinagar.webp",
+      "tags": [
+        "dandi_march",
+        "salt_mound",
+        "multimedia_museum",
+        "gandhi",
+        "mahatma_mandir"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Dandi Kutir Museum (Gandhinagar)",
+        "description": "India's largest museum dedicated to Mahatma Gandhi, housed inside a 41-meter high salt-mound shaped structure at Mahatma Mandir with immersive 3D audio-visual and laser exhibits.",
+        "best_time_to_visit": "Throughout the year"
+      },
+      "hi": {
+        "name": "दांडी कुटीर संग्रहालय (गांधीनगर)",
+        "description": "महात्मा मंदिर में 41 मीटर ऊंचे नमक के टीले के आकार में निर्मित भारत का सबसे बड़ा गांधी संग्रहालय, जहाँ 3D लेजर और मल्टीमीडिया द्वारा बापू के जीवन को दर्शाया गया है।",
+        "best_time_to_visit": "वर्षभर"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dandi%20kutir%20gujrat.jpg"
+    },
+    {
+      "id": "indroda_dinosaur_and_fossil_park",
+      "category": "nature",
+      "coordinates": [
+        23.1906,
+        72.6464
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1906,72.6464",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/indroda_dinosaur_and_fossil_park.webp",
+      "tags": [
+        "jurassic_park",
+        "fossils",
+        "dinosaur_eggs",
+        "sabarmati",
+        "geev"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Indroda Dinosaur & Fossil Park",
+        "description": "Regarded as India's 'Jurassic Park', it is the second largest dinosaur egg hatchery in the world, featuring life-size fiberglass dinosaur models, authentic fossilized dinosaur eggs, and a botanical zoo.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "इंद्रोदा डायनासोर एवं जीवाश्म पार्क",
+        "description": "भारत का 'जुरासिक पार्क' माना जाने वाला यह पार्क विश्व की दूसरी सबसे बड़ी डायनासोर हैचरी है, जहाँ डायनासोर के वास्तविक जीवाश्म अंडे और आदमकद मॉडल मौजूद हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Indroda%20Dinosaur%20Park.jpg"
+    },
+    {
+      "id": "narendra_modi_stadium",
+      "category": "recreation",
+      "coordinates": [
+        23.0917,
+        72.5973
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0917,72.5973",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/narendra_modi_stadium.webp",
+      "tags": [
+        "motera",
+        "largest_cricket_stadium",
+        "sports",
+        "world_cup",
+        "cricket"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Narendra Modi Stadium (Motera)",
+        "description": "The world's largest cricket stadium with a seating capacity of 132,000 spectators, featuring 360-degree LED ring lights, clubhouse facilities, and host of ICC World Cup finals.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "नरेंद्र मोदी स्टेडियम (मोटेरा)",
+        "description": "1,32,000 दर्शकों की क्षमता वाला विश्व का सबसे बड़ा क्रिकेट स्टेडियम, जिसमें अत्याधुनिक 360-डिग्री एलईडी रिंग लाइट्स और विश्वस्तरीय सुविधाएं मौजूद हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Motera%20Stadium%20Ahmedabad%20Panorama.jpg"
+    },
+    {
+      "id": "iskcon_temple_ahmedabad",
+      "category": "religious",
+      "coordinates": [
+        23.0284,
+        72.5068
+      ],
+      "timings": {
+        "open": "04:30",
+        "close": "20:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0284,72.5068",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/iskcon_temple_ahmedabad.webp",
+      "tags": [
+        "iskcon",
+        "radha_krishna",
+        "sg_highway",
+        "temple",
+        "peace"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "ISKCON Temple (Hare Krishna Mandir)",
+        "description": "Majestic Rajasthani marble and Gujarati architectural temple on SG Highway dedicated to Sri Sri Radha Govindaji, featuring serene chanting halls and Govinda's prasadam restaurant.",
+        "best_time_to_visit": "Throughout the year (Evening aarti)"
+      },
+      "hi": {
+        "name": "इस्कॉन मंदिर (एसजी हाईवे)",
+        "description": "एसजी हाईवे पर स्थित राजस्थानी संगमरमर और गुजराती शैली का भव्य कृष्ण मंदिर, जो श्री राधा-गोविंद जी के दिव्य विग्रह और संध्या महा-आरती के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "वर्षभर (शाम की आरती)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hare%20Krishna%20Mandir.jpg"
+    },
+    {
+      "id": "dada_harir_stepwell",
+      "category": "heritage",
+      "coordinates": [
+        23.0427,
+        72.6074
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0427,72.6074",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/dada_harir_stepwell.webp",
+      "tags": [
+        "stepwell",
+        "vav",
+        "asarwa",
+        "sanskrit_inscriptions",
+        "heritage"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Dada Harir Stepwell (Bai Harir Vav)",
+        "description": "Subterranean stepwell built in 1499 in Asarwa featuring five octagonal subterranean pavilion storeys adorned with floral sculptures and dual Sanskrit and Arabic stone inscriptions.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "दादा हरीर की वाव (असारवा)",
+        "description": "1499 में असारवा में निर्मित 5 मंजिला अष्टकोणीय बावड़ी, जिसकी दीवारों पर फूल-पत्तियों की बारीक नक्काशी और संस्कृत व अरबी दोनों भाषाओं में शिलालेख खुदे हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bai%20harir%20Vav%20Details%201.jpg"
+    },
+    {
+      "id": "law_garden_night_market",
+      "category": "shopping",
+      "coordinates": [
+        23.0242,
+        72.5583
+      ],
+      "timings": {
+        "open": "17:00",
+        "close": "23:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0242,72.5583",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/law_garden_night_market.webp",
+      "tags": [
+        "chaniya_choli",
+        "bandhani",
+        "handicrafts",
+        "navratri_shopping",
+        "street_market"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Law Garden Night Market",
+        "description": "Lively evening street market adjoining Law Garden renowned for traditional Gujarati Chaniya Cholis, mirror-work Bandhani dupattas, oxidized silver jewelry, and Kathiyawadi street snacks.",
+        "best_time_to_visit": "October to March (Especially Navratri season)"
+      },
+      "hi": {
+        "name": "लॉ गार्डन नाइट मार्केट",
+        "description": "पारंपरिक गुजराती चनिया चोली, बांधनी दुपट्टे, कच्छी हस्तशिल्प और ऑक्सीडाइज्ड ज्वेलरी के लिए मशहूर प्रसिद्ध स्ट्रीट मार्केट, जहाँ नवरात्रि में भारी रौनक रहती है।",
+        "best_time_to_visit": "अक्टूबर से मार्च (विशेषकर नवरात्रि)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Manchester%20Cristmas%20Market%202025.jpg"
+    },
+    {
+      "id": "vastrapur_lake",
+      "category": "nature",
+      "coordinates": [
+        23.0375,
+        72.5284
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0375,72.5284",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/vastrapur_lake.webp",
+      "tags": [
+        "lake",
+        "amphitheatre",
+        "narsinh_mehta",
+        "jogging",
+        "vastrapur"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Vastrapur Lake & Open Air Theatre",
+        "description": "Serene urban lake named after medieval poet Narsinh Mehta, surrounded by an open-air amphitheatre hosting classical music concerts, jogging track, and children's park.",
+        "best_time_to_visit": "October to March (Mornings and evenings)"
+      },
+      "hi": {
+        "name": "वस्त्रापुर झील एवं ओपन एयर थिएटर",
+        "description": "भक्तकवि नरसिंह मेहता को समर्पित पश्चिमी अहमदाबाद की सुंदर झील, जिसके किनारे ओपन-एयर एम्फीथिएटर, जॉगिंग ट्रैक और शांत उद्यान स्थित हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च (सुबह और शाम)"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/VASTRAPUR_LAKE2%2C_AHMEDABAD_GUFRAN_KHAN.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "gujarat_university_heritage",
+      "category": "heritage",
+      "coordinates": [
+        23.0371,
+        72.5471
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": [
+          "Sunday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0371,72.5471",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/gujarat_university_heritage.webp",
+      "tags": [
+        "clock_tower",
+        "education",
+        "indology",
+        "manuscripts",
+        "heritage"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Gujarat University Clock Tower & LD Indology",
+        "description": "Landmark red-brick educational campus founded in 1949 with its iconic clock tower, housing the L.D. Institute of Indology with 75,000 rare palm-leaf manuscripts and ancient sculptures.",
+        "best_time_to_visit": "Throughout the year"
+      },
+      "hi": {
+        "name": "गुजरात विश्वविद्यालय क्लॉक टॉवर एवं एल.डी. इंडोलॉजी",
+        "description": "1949 में स्थापित ऐतिहासिक विश्वविद्यालय परिसर, जिसका घंटाघर और एल.डी. इंडोलॉजी संस्थान 75,000 से अधिक दुर्लभ ताड़पत्र पांडुलिपियों के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "वर्षभर"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "rani_no_hajiro",
+      "category": "heritage",
+      "coordinates": [
+        23.0237,
+        72.591
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0237,72.5910",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/rani_no_hajiro.webp",
+      "tags": [
+        "queens_tomb",
+        "manek_chowk",
+        "jewelry_bazaar",
+        "heritage",
+        "crafts"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Rani no Hajiro (Tomb of the Queens)",
+        "description": "Historical 15th-century open courtyard mausoleum of Sultan Ahmad Shah's queens, leading into a bustling traditional market famous for women's jewelry, brocades, and Mashru fabrics.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "रानी नो हजीरो (रानियों की मजार)",
+        "description": "सुल्तान अहमद शाह की रानियों का 15वीं सदी का ऐतिहासिक मकबरा, जिसके बाहर पारंपरिक गुजराती आभूषणों, मशरू और जरी के कपड़ों का प्रसिद्ध बाज़ार लगता है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tombs%20of%20Queens%20of%20Ahmed%20Shah%20%28Rani%20Ka%20Ghar%29.jpg"
+    },
+    {
+      "id": "kamla_nehru_zoological_garden",
+      "category": "nature",
+      "coordinates": [
+        23.0084,
+        72.6022
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:15",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0084,72.6022",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/kamla_nehru_zoological_garden.webp",
+      "tags": [
+        "zoo",
+        "kankaria",
+        "bengal_tigers",
+        "nocturnal_zoo",
+        "wildlife"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Kamla Nehru Zoological Garden (Kankaria Zoo)",
+        "description": "Renowned 117-acre zoological park established in 1951 on Kankaria Lake shores, home to endangered Asiatic lions, Royal Bengal tigers, white peacocks, and a nocturnal animal house.",
+        "best_time_to_visit": "November to February"
+      },
+      "hi": {
+        "name": "कमला नेहरू प्राणी उद्यान (कांकरिया चिड़ियाघर)",
+        "description": "कांकरिया झील के तट पर 117 एकड़ में फैला ऐतिहासिक चिड़ियाघर, जहाँ एशियाई शेर, रॉयल बंगाल टाइगर, सफेद मोर और निशाचर प्राणियों का विशेष घर स्थित है।",
+        "best_time_to_visit": "नवंबर से फरवरी"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Crocodile%202%20at%20Kamla%20Nehru%20Zoo%20-%20Kankaria%20Lake.jpg"
+    },
+    {
+      "id": "shree_camp_hanuman_temple",
+      "category": "religious",
+      "coordinates": [
+        23.0645,
+        72.6028
+      ],
+      "timings": {
+        "open": "05:30",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0645,72.6028",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/shree_camp_hanuman_temple.webp",
+      "tags": [
+        "hanuman",
+        "cantonment",
+        "military_heritage",
+        "pilgrimage",
+        "historic"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Camp Hanuman Temple (Cantonment)",
+        "description": "One of the most revered Hanuman shrines in Gujarat, situated in Ahmedabad Military Cantonment with roots over 150 years old, attracting thousands of devotees on Tuesdays and Saturdays.",
+        "best_time_to_visit": "Throughout the year (Tuesdays and Saturdays)"
+      },
+      "hi": {
+        "name": "कैम्प हनुमान मंदिर (छावनी)",
+        "description": "अहमदाबाद सैन्य छावनी में स्थित गुजरात का अत्यंत प्रतिष्ठित 150 वर्ष से अधिक प्राचीन हनुमान मंदिर, जहाँ मंगलवार और शनिवार को श्रद्धालुओं की भारी भीड़ उमड़ती है।",
+        "best_time_to_visit": "वर्षभर (मंगलवार व शनिवार)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sanskar_kendra_city_museum",
+      "category": "museum",
+      "coordinates": [
+        23.0118,
+        72.5714
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0118,72.5714",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/sanskar_kendra_city_museum.webp",
+      "tags": [
+        "le_corbusier",
+        "kite_museum",
+        "city_museum",
+        "modernist",
+        "architecture"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Sanskar Kendra & Kite Museum",
+        "description": "Modernist museum building designed in 1954 by Swiss-French master architect Le Corbusier, housing the Ahmedabad City Museum and India's famous Patang (Kite) Museum.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "संस्कार केंद्र एवं पतंग संग्रहालय",
+        "description": "1954 में प्रख्यात वास्तुकार ली कार्बूजिए द्वारा डिजाइन की गई आधुनिक इमारत, जिसमें अहमदाबाद शहर का इतिहास और भारत का अनूठा पतंग संग्रहालय स्थित है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sanskar%20Kendra%20Museum.JPG"
+    },
+    {
+      "id": "vechaar_utensils_museum",
+      "category": "museum",
+      "coordinates": [
+        22.9965,
+        72.5286
+      ],
+      "timings": {
+        "open": "15:00",
+        "close": "22:30",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=22.9965,72.5286",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/vechaar_utensils_museum.webp",
+      "tags": [
+        "utensils",
+        "vishalla",
+        "brass",
+        "copper",
+        "traditional_crafts"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Vechaar Utensils Museum (Vishalla)",
+        "description": "Unique heritage museum conceived by Surendra Patel at Vishalla, showcasing over 4,500 traditional Indian utensils from clay to brass, copper, and bronze spanning 1,000 years.",
+        "best_time_to_visit": "Evenings (coupled with Vishalla traditional Gujarati dinner)"
+      },
+      "hi": {
+        "name": "वेचार बर्तन संग्रहालय (विशाला)",
+        "description": "विशाला परिसर में स्थित अनोखा संग्रहालय, जहाँ मिट्टी, पीतल, तांबे और कांस्य से बने 1,000 साल पुराने 4,500 से अधिक पारंपरिक भारतीय बर्तन प्रदर्शित हैं।",
+        "best_time_to_visit": "शाम के समय (पारंपरिक गुजराती भोजन के साथ)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vechaar%20Utensils%20Museum%20Ahmedabad.jpg"
+    },
+    {
+      "id": "gift_city_fintech_hub",
+      "category": "monument",
+      "coordinates": [
+        23.1611,
+        72.6841
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1611,72.6841",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/gift_city_fintech_hub.webp",
+      "tags": [
+        "gift_city",
+        "fintech",
+        "skyscrapers",
+        "smart_city",
+        "gandhinagar"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "GIFT City (Gujarat International Finance Tec-City)",
+        "description": "India's premier operational smart city and International Financial Services Centre (IFSC) on Sabarmati banks, featuring futuristic glass skyscrapers and modern urban infrastructure.",
+        "best_time_to_visit": "Evenings for skyline views"
+      },
+      "hi": {
+        "name": "गिफ्ट सिटी (GIFT City)",
+        "description": "साबरमती के तट पर भारत की पहली ऑपरेशनल स्मार्ट सिटी और अंतरराष्ट्रीय वित्तीय सेवा केंद्र, जो अपने गगनचुंबी कांच के टावरों और आधुनिक बुनियादी ढांचे के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "शाम का समय (स्काईलाइन व्यू)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gujarat%20International%20Finance%20Tec-City%2C%20Gujarat%20382355%2C%20India%20-%20panoramio.jpg"
+    },
+    {
+      "id": "puneet_van_gandhinagar",
+      "category": "nature",
+      "coordinates": [
+        23.2334,
+        72.6582
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2334,72.6582",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/puneet_van_gandhinagar.webp",
+      "tags": [
+        "astrological_park",
+        "nakshatra_van",
+        "herbal_garden",
+        "peace",
+        "gandhinagar"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Puneet Van (Gandhinagar)",
+        "description": "Unique botanical and astrological garden in Gandhinagar Sector 19 where thousands of trees and medicinal herbs are planted according to zodiac signs (Rashi) and planetary constellations (Nakshatra).",
+        "best_time_to_visit": "October to March (Mornings)"
+      },
+      "hi": {
+        "name": "पुनीत वन (गांधीनगर)",
+        "description": "गांधीनगर सेक्टर 19 में स्थित अनूठा वानस्पतिक व ज्योतिषीय उद्यान, जहाँ राशियों और नक्षत्रों के अनुसार औषधीय वृक्ष लगाए गए हैं; यह शांति और योग के लिए उत्तम है।",
+        "best_time_to_visit": "अक्टूबर से मार्च (सुबह के समय)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sarita_udyan_gandhinagar",
+      "category": "nature",
+      "coordinates": [
+        23.2185,
+        72.6685
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2185,72.6685",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/sarita_udyan_gandhinagar.webp",
+      "tags": [
+        "deer_park",
+        "picnic",
+        "sabarmati",
+        "botanical",
+        "gandhinagar"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Sarita Udyan & Deer Park (Gandhinagar)",
+        "description": "Picturesque riverside picnic garden on the banks of Sabarmati in Gandhinagar Sector 9, featuring rolling lawns, shady flowering trees, and an adjoining deer sanctuary.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "सरिता उद्यान एवं मृग वन (गांधीनगर)",
+        "description": "साबरमती नदी के किनारे सेक्टर 9 में स्थित सुरम्य पिकनिक गार्डन, जिसके हरे-भरे लॉन, छायादार पेड़ और पास का हिरण पार्क पर्यटकों को आकर्षित करते हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "mahatma_mandir_gandhinagar",
+      "category": "monument",
+      "coordinates": [
+        23.2291,
+        72.6322
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2291,72.6322",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/mahatma_mandir_gandhinagar.webp",
+      "tags": [
+        "convention_centre",
+        "vibrant_gujarat",
+        "spinning_wheel",
+        "gandhi_architecture",
+        "gandhinagar"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Mahatma Mandir Convention Centre",
+        "description": "Monumental 34-acre convention and exhibition complex in Gandhinagar inspired by the philosophy of Mahatma Gandhi, venue of the biennial Vibrant Gujarat Global Summit.",
+        "best_time_to_visit": "Throughout the year"
+      },
+      "hi": {
+        "name": "महात्मा मंदिर कन्वेंशन सेंटर (गांधीनगर)",
+        "description": "गांधीनगर में 34 एकड़ में फैला भव्य अंतरराष्ट्रीय सम्मेलन केंद्र, जो गांधीवादी दर्शन पर आधारित है और 'वाइब्रेंट गुजरात' ग्लोबल समिट का मुख्य आयोजन स्थल है।",
+        "best_time_to_visit": "वर्षभर"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mahatma%20Mandir%20as%20seen%20from%20Swarnim%20Park.tif"
+    },
+    {
+      "id": "lalbhai_dalpatbhai_museum",
+      "category": "museum",
+      "coordinates": [
+        23.036,
+        72.5482
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0360,72.5482",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/lalbhai_dalpatbhai_museum.webp",
+      "tags": [
+        "jain_bronzes",
+        "miniature_paintings",
+        "coins",
+        "art",
+        "indology"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Lalbhai Dalpatbhai Museum (LD Museum)",
+        "description": "Treasure trove of ancient Indian art and archaeology, showcasing rare medieval stone sculptures, Chola and Gujarat bronzes, ancient coins, and illustrated Jain manuscripts.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "लालभाई दलपतभाई संग्रहालय (एल.डी. म्यूजियम)",
+        "description": "प्राचीन भारतीय कला और पुरातत्व का खजाना, जिसमें दुर्लभ मध्यकालीन पत्थर की मूर्तियां, चोल व गुजरात की कांस्य कलाकृतियां और लघु चित्र सुरक्षित हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Head%20of%20Boddhisatva%20Maitreya%2C%20Late%202nd%20century%20CE%2C%20Gandhara%2C%20Lal%20Bhai%20Museum%2C%20Ahmedabad.jpg"
+    },
+    {
+      "id": "alpha_one_ahmedabad_one_mall",
+      "category": "shopping",
+      "coordinates": [
+        23.0402,
+        72.5282
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0402,72.5282",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/alpha_one_ahmedabad_one_mall.webp",
+      "tags": [
+        "shopping_mall",
+        "vastrapur",
+        "cinepolis",
+        "dining",
+        "entertainment"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Ahmedabad One Mall (Alpha One)",
+        "description": "Premier shopping and entertainment destination in Vastrapur sprawling 1.2 million sq ft with international fashion brands, multi-cuisine food court, and Cinepolis multiplex.",
+        "best_time_to_visit": "Throughout the year"
+      },
+      "hi": {
+        "name": "अहमदाबाद वन मॉल (अल्फा वन)",
+        "description": "वस्त्रापुर में 12 लाख वर्ग फुट में फैला अहमदाबाद का प्रमुख शॉपिंग मॉल, जिसमें अंतरराष्ट्रीय ब्रांड्स, बड़ा फूड कोर्ट और सिनेपॉलिस मल्टीप्लेक्स मौजूद हैं।",
+        "best_time_to_visit": "वर्षभर"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ahmedabad%20One.jpg"
+    },
+    {
+      "id": "palladium_mall_ahmedabad",
+      "category": "shopping",
+      "coordinates": [
+        23.0617,
+        72.5186
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0617,72.5186",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/palladium_mall_ahmedabad.webp",
+      "tags": [
+        "luxury_shopping",
+        "palladium",
+        "sg_highway",
+        "fine_dining",
+        "imax"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Palladium Mall Ahmedabad",
+        "description": "Ultra-luxury retail destination on Thaltej-SG Highway housing premier global fashion houses, luxury lifestyle brands, fine-dining restaurants, and state-of-the-art cinemas.",
+        "best_time_to_visit": "Throughout the year"
+      },
+      "hi": {
+        "name": "पैलेडियम मॉल (थलतेज-एसजी हाईवे)",
+        "description": "अहमदाबाद का शीर्ष लक्जरी शॉपिंग मॉल, जहाँ विश्वप्रसिद्ध डिजाइनर ब्रांड्स, लक्जरी फैशन, उत्तम डाइनिंग रेस्टोरेंट और आधुनिक सिनेमा अनुभव उपलब्ध हैं।",
+        "best_time_to_visit": "वर्षभर"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Palladium%20mall%20Ahmedabad.jpg"
+    },
+    {
+      "id": "bhadrakali_temple",
+      "category": "religious",
+      "coordinates": [
+        23.0245,
+        72.5835
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0245,72.5835",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/bhadrakali_temple.webp",
+      "tags": [
+        "bhadrakali",
+        "goddess",
+        "bhadra_fort",
+        "patron_deity",
+        "heritage"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Bhadrakali Temple (Bhadra Fort)",
+        "description": "Historic 14th-century temple dedicated to Goddess Bhadrakali, the revered patron guardian deity of Ahmedabad, situated right within the Bhadra Fort citadel.",
+        "best_time_to_visit": "October to March (Navratri)"
+      },
+      "hi": {
+        "name": "भद्रकाली मंदिर (भद्रा किला)",
+        "description": "अहमदाबाद की कुलदेवी मानी जाने वाली मां भद्रकाली को समर्पित 14वीं सदी का प्राचीन मंदिर, जो भद्रा किले के अंदर स्थित है और नवरात्रि में विशेष पूजनीय है।",
+        "best_time_to_visit": "अक्टूबर से मार्च (नवरात्रि)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bhadra%20gate%20beside%20Bhadrakali%20temple%2CAhmedabad.jpg"
+    },
+    {
+      "id": "baps_shri_swaminarayan_mandir_kalupur",
+      "category": "religious",
+      "coordinates": [
+        23.0279,
+        72.5976
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0279,72.5976",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/baps_shri_swaminarayan_mandir_kalupur.webp",
+      "tags": [
+        "kalupur_mandir",
+        "first_swaminarayan_temple",
+        "carved_wood",
+        "burma_teak",
+        "heritage"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Shri Swaminarayan Mandir (Kalupur)",
+        "description": "The very first temple of the Swaminarayan Sampradaya built in 1822 under Lord Swaminarayan's personal direction, renowned for its jaw-dropping Burma teak wood carvings and heritage haveli architecture.",
+        "best_time_to_visit": "October to March (Diwali & Annakut)"
+      },
+      "hi": {
+        "name": "श्री स्वामीनारायण मंदिर (कालूपुर)",
+        "description": "1822 में भगवान स्वामीनारायण के निर्देशन में निर्मित स्वामीनारायण संप्रदाय का पहला मंदिर, जो बर्मा टीक की बेजोड़ नक्काशी और हेरिटेज हवेली शैली के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "अक्टूबर से मार्च (दीपावली व अन्नकूट)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kalupur%20Swaminarayan%20Mandir%20Ahmedabad%20Gujarat.jpg"
+    },
+    {
+      "id": "rani_sipri_mosque",
+      "category": "heritage",
+      "coordinates": [
+        23.0182,
+        72.5905
+      ],
+      "timings": {
+        "open": "07:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0182,72.5905",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/rani_sipri_mosque.webp",
+      "tags": [
+        "masjid_e_nagina",
+        "stone_filigree",
+        "1514",
+        "gujarat_sultanate",
+        "heritage"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Rani Sipri Mosque (Masjid-e-Nagina)",
+        "description": "Built in 1514 by Rani Asni (Sipri), revered as the 'Jewel of the Mosque' (Masjid-e-Nagina) for its delicate 50-foot minarets and intricate sandstone filigree work.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "रानी सीपरी मस्जिद (मस्जिद-ए-नगीना)",
+        "description": "1514 में रानी सीपरी द्वारा निर्मित मस्जिद, जिसे अपनी बारीक पत्थर की नक्काशी और 50 फीट ऊंची नक्काशीदार मीनारों के कारण 'मस्जिदों का नगीना' कहा जाता है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rani%20Sipri%27s%20Mosque%20at%20Ahmedabad.%20Gujarat%20-%20India.jpg"
+    },
+    {
+      "id": "usmanpura_garden_riverfront",
+      "category": "nature",
+      "coordinates": [
+        23.0461,
+        72.5712
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0461,72.5712",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/usmanpura_garden_riverfront.webp",
+      "tags": [
+        "riverfront_park",
+        "sculptures",
+        "jogging",
+        "river_view",
+        "usmanpura"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Usmanpura Riverfront Park",
+        "description": "Serene riverside park on the western Sabarmati embankment featuring contemporary stone sculptures, lush lawns, waterfront steps, and cool evening breeze.",
+        "best_time_to_visit": "Evenings throughout the year"
+      },
+      "hi": {
+        "name": "उस्मानपुरा रिवरफ्रंट पार्क",
+        "description": "साबरमती के पश्चिमी तट पर स्थित शांत पार्क, जहाँ आधुनिक पत्थर की मूर्तियां, सुंदर लॉन और नदी के किनारे ताज़ी शाम की हवा का आनंद लिया जा सकता है।",
+        "best_time_to_visit": "वर्षभर (शाम के समय)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "riverfront_flower_park",
+      "category": "nature",
+      "coordinates": [
+        23.0135,
+        72.5702
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0135,72.5702",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/riverfront_flower_park.webp",
+      "tags": [
+        "flower_show",
+        "botanical",
+        "riverfront",
+        "seasonal_blooms",
+        "photography"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Riverfront Flower Park",
+        "description": "Spectacular 45,000 sq meter permanent floral garden on Sabarmati banks showcasing millions of vibrant seasonal flowers, topiaries, and host to the annual Ahmedabad Flower Show.",
+        "best_time_to_visit": "December to February (Annual Flower Show)"
+      },
+      "hi": {
+        "name": "रिवरफ्रंट फ्लावर पार्क",
+        "description": "साबरमती तट पर 45,000 वर्ग मीटर में फैला स्थायी पुष्प उद्यान, जहाँ मौसमी फूलों की लाखों किस्में, कलात्मक झाड़ियां और वार्षिक फ्लावर शो आयोजित होता है।",
+        "best_time_to_visit": "दिसंबर से फरवरी (वार्षिक फ्लावर शो)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sabarmati%20Riverfront%20Flower%20Park%20Ahmedabad.jpg"
+    },
+    {
+      "id": "parimal_garden",
+      "category": "nature",
+      "coordinates": [
+        23.0188,
+        72.5562
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0188,72.5562",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/parimal_garden.webp",
+      "tags": [
+        "lotus_pond",
+        "heritage_garden",
+        "ambawadi",
+        "walking_track",
+        "peace"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Parimal Garden (Ambawadi)",
+        "description": "Picturesque heritage city garden in Ambawadi featuring tranquil lotus ponds with water lilies, stone gazebos, arched walking bridges, and open-air gym.",
+        "best_time_to_visit": "October to March (Mornings)"
+      },
+      "hi": {
+        "name": "परिमल गार्डन (अम्बावाड़ी)",
+        "description": "अम्बावाड़ी में स्थित अहमदाबाद का पसंदीदा हेरिटेज पार्क, जिसमें कमल के फूलों वाले शांत तालाब, पत्थर की छतरियां और सुंदर पुल बने हुए हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च (सुबह के समय)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Renovated%20Entrance%20of%20Parimal%20Garden.jpg"
+    },
+    {
+      "id": "c_g_road_shopping",
+      "category": "shopping",
+      "coordinates": [
+        23.0308,
+        72.5586
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0308,72.5586",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/c_g_road_shopping.webp",
+      "tags": [
+        "shopping_avenue",
+        "navrangpura",
+        "clothing",
+        "jewelry",
+        "commercial"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "C.G. Road Shopping District",
+        "description": "Ahmedabad's most celebrated upscale commercial avenue in Navrangpura, lined with premier branded clothing showrooms, traditional silver jewelry stores, and sweet shops.",
+        "best_time_to_visit": "Evenings throughout the year"
+      },
+      "hi": {
+        "name": "सी.जी. रोड शॉपिंग जिला",
+        "description": "नवरंगपुरा में अहमदाबाद का सबसे प्रसिद्ध आधुनिक शॉपिंग मार्ग, जहाँ प्रमुख ब्रांडेड शोरूम, पारंपरिक गुजराती परिधान और मिठाइयों की दुकानें हैं।",
+        "best_time_to_visit": "वर्षभर (शाम के समय)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Oxford%20Road%2C%20Reading%2C%20south%20side%2C%20c.%201901.jpg"
+    },
+    {
+      "id": "sindhu_bhavan_road_sbr",
+      "category": "recreation",
+      "coordinates": [
+        23.045,
+        72.5085
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "01:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0450,72.5085",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/sindhu_bhavan_road_sbr.webp",
+      "tags": [
+        "sbr",
+        "cafes",
+        "nightlife",
+        "luxury_dining",
+        "youth_hangout"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Sindhu Bhavan Road (SBR Lifestyle Strip)",
+        "description": "The trendy lifestyle and nightlife corridor of western Ahmedabad, packed with chic open-air cafes, gourmet artisanal restaurants, drive-ins, and entertainment centers.",
+        "best_time_to_visit": "Late evenings (07:00 PM - 12:00 AM)"
+      },
+      "hi": {
+        "name": "सिंधु भवन रोड (एसबीआर)",
+        "description": "अहमदाबाद का सबसे आधुनिक और ट्रेंडी लाइफस्टाइल कॉरिडोर, जहाँ शानदार ओपन-एयर कैफे, लक्जरी रेस्टोरेंट और युवाओं के लोकप्रिय हैंगआउट स्पॉट्स हैं।",
+        "best_time_to_visit": "देर शाम (7 से 12 बजे)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Oxygen%20Park%2C%20Sindhu%20Bhavan%20Road.jpg"
+    },
+    {
+      "id": "gandhinagar_vidhan_sabha",
+      "category": "monument",
+      "coordinates": [
+        23.2238,
+        72.6565
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": [
+          "Saturday",
+          "Sunday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2238,72.6565",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/gandhinagar_vidhan_sabha.webp",
+      "tags": [
+        "vidhan_sabha",
+        "capitol",
+        "central_vista",
+        "vithalbhai_patel_bhavan",
+        "gandhinagar"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Gujarat Vidhan Sabha & Central Vista (Gandhinagar)",
+        "description": "The political heart of Gujarat at Vithalbhai Patel Bhavan, set within the grandiose green Central Vista parkland of planned capital city Gandhinagar.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "गुजरात विधानसभा एवं सेंट्रल विस्टा (गांधीनगर)",
+        "description": "विठ्ठलभाई पटेल भवन स्थित गुजरात की विधानसभा और हरित सेंट्रल विस्टा, जो भारत की सुनियोजित राजधानी गांधीनगर का गौरवशाली केंद्र बिंदु है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "gujarat_high_court_sola",
+      "category": "monument",
+      "coordinates": [
+        23.0784,
+        72.527
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": [
+          "Saturday",
+          "Sunday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0784,72.5270",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/gujarat_high_court_sola.webp",
+      "tags": [
+        "judiciary",
+        "high_court",
+        "sg_highway",
+        "architecture",
+        "sola"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Gujarat High Court (Sola)",
+        "description": "Imposing modern architectural complex on SG Highway serving as the highest judicial forum for the State of Gujarat with expansive landscaped gardens.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "गुजरात उच्च न्यायालय (सोला)",
+        "description": "एसजी हाईवे सोला पर स्थित गुजरात राज्य का सर्वोच्च न्यायिक न्यायालय परिसर, जो अपनी भव्य आधुनिक वास्तुकला और विस्तृत बगीचों के लिए जाना जाता है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gujarat-High-Court.jpg"
+    },
+    {
+      "id": "teen_darwaza",
+      "category": "heritage",
+      "coordinates": [
+        23.0242,
+        72.5862
+      ],
+      "timings": {
+        "open": "00:00",
+        "close": "23:59",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0242,72.5862",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/teen_darwaza.webp",
+      "tags": [
+        "gateway",
+        "ahmad_shah",
+        "royal_entrance",
+        "walled_city",
+        "heritage"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Teen Darwaza (Triple Gateway)",
+        "description": "Historic triple-arched royal gateway constructed in 1415 by Sultan Ahmad Shah to serve as the grand ceremonial entrance to the royal Maidan-e-Shahi.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "तीन दरवाजा (शाही प्रवेश द्वार)",
+        "description": "1415 में सुल्तान अहमद शाह द्वारा निर्मित तीन मेहराबों वाला ऐतिहासिक शाही प्रवेश द्वार, जो भद्रा के शाही मैदान का मुख्य द्वार था।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Teen%20Darwaza%20Triple%20Gateway%20Ahmedabad%201866.jpg"
+    },
+    {
+      "id": "ahmed_shah_mosque",
+      "category": "heritage",
+      "coordinates": [
+        23.0253,
+        72.5839
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "19:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0253,72.5839",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/ahmed_shah_mosque.webp",
+      "tags": [
+        "oldest_mosque",
+        "1414",
+        "bhadra_fort",
+        "heritage",
+        "architecture"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Ahmed Shah's Mosque",
+        "description": "Erected in 1414, it is the oldest surviving mosque in Ahmedabad, built as the private royal chapel of founder Sultan Ahmad Shah inside Bhadra Fort.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "अहमद शाह मस्जिद",
+        "description": "1414 में निर्मित अहमदाबाद की सबसे पुरानी मस्जिद, जो भद्रा किले के अंदर संस्थापक सुल्तान अहमद शाह की निजी शाही इबादतगाह थी।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jali%20Work%20at%20Ahmed%20Shah%20Mosque%20-%20Ahmedabad%20-%20Gujarat%20DSC001.jpg"
+    },
+    {
+      "id": "amduranjan_amusement_kankaria",
+      "category": "recreation",
+      "coordinates": [
+        23.0075,
+        72.6015
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 10,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0075,72.6015",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/amduranjan_amusement_kankaria.webp",
+      "tags": [
+        "balvatika",
+        "mirror_house",
+        "planetarium",
+        "children",
+        "kankaria"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Balvatika & Butterfly Park (Kankaria)",
+        "description": "Enchanting children's park on Kankaria Lake peninsula featuring a mirror house, toy museum, butterfly sanctuary, and planetarium.",
+        "best_time_to_visit": "Throughout the year (Evenings)"
+      },
+      "hi": {
+        "name": "बालवाटिका एवं बटरफ्लाई पार्क (कांकरिया)",
+        "description": "कांकरिया झील के तट पर बच्चों का लोकप्रिय मनोरंजन पार्क, जिसमें आईना घर (मिरर हाउस), खिलौना संग्रहालय, तितली पार्क और तारामंडल है।",
+        "best_time_to_visit": "वर्षभर (शाम के समय)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sarabhai_foundation_museum",
+      "category": "museum",
+      "coordinates": [
+        23.0135,
+        72.5362
+      ],
+      "timings": {
+        "open": "14:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 40,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.0135,72.5362",
+      "image_asset": "transit_assets/tourist_places/ahmedabad_gandhinagar/sarabhai_foundation_museum.webp",
+      "tags": [
+        "shreyas_folk_museum",
+        "kathiawar",
+        "kutch_embroidery",
+        "puppetry",
+        "folk_art"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Shreyas Folk Museum (Sarabhai Foundation)",
+        "description": "Vibrant folk museum showcasing the colorful tribal costumes, Kathiawar beadwork, Kutch embroideries, wood carvings, and puppet arts of Gujarat.",
+        "best_time_to_visit": "October to March"
+      },
+      "hi": {
+        "name": "श्रेयस लोक संग्रहालय (साराभाई फाउंडेशन)",
+        "description": "गुजरात की समृद्ध जनजातीय लोक-कला का जीवंत संग्रहालय, जिसमें काठियावाड़ की कशीदाकारी, कच्छ का हस्तशिल्प और पारंपरिक कठपुतली कला प्रदर्शित है।",
+        "best_time_to_visit": "अक्टूबर से मार्च"
+      },
+      "image_source_url": null
+    }
+  ]
+}

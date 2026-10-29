@@ -11,6 +11,60 @@ export const DEFAULT_SCALE_MULTIPLIER = APP_CONFIG.MAP?.SCALE_MULTIPLIER || 2.2;
 
 export class MapGeometry {
 	/**
+	 * Canonical layout classifier for metro infrastructure across 2D, 2.5D, and 3D
+	 * @param {string} layout
+	 * @returns {"elevated"|"underground"|"cut_and_cover"|"surface"}
+	 */
+	static classifyLayout(layout) {
+		const l = (layout || "").toLowerCase().trim();
+		if (l.includes("cut_and_cover") || l.includes("cut-and-cover") || l.includes("trench")) return "cut_and_cover";
+		if (l.includes("underground") || l.includes("tunnel") || l.includes("subway")) return "underground";
+		if (l.includes("at-grade") || l.includes("at grade") || l.includes("surface") || l.includes("ground") || l.includes("multi_level")) return "surface";
+		return "elevated";
+	}
+
+	/**
+	 * Returns real-world elevation in meters based on infrastructure layout
+	 * @param {string} layout
+	 * @returns {number} Real elevation in meters (+14m elevated, -16m underground, -7m cut-and-cover, 0m surface)
+	 */
+	static getRealElevationMeters(layout) {
+		const type = this.classifyLayout(layout);
+		const cfg = APP_CONFIG?.MAP?.REAL_METERS || APP_CONFIG?.MAP?.THREE_D?.REAL_METERS || {};
+		switch (type) {
+			case "underground":
+				return cfg.UNDERGROUND_DEPTH ?? -16.0;
+			case "cut_and_cover":
+				return cfg.CUT_AND_COVER_DEPTH ?? ((cfg.UNDERGROUND_DEPTH ?? -16.0) * 0.45);
+			case "surface":
+				return cfg.AT_GRADE_HEIGHT ?? 0.0;
+			case "elevated":
+			default:
+				return cfg.VIADUCT_HEIGHT ?? 14.0;
+		}
+	}
+
+	/**
+	 * Converts real-world meters to SVG world coordinate units
+	 * @param {number} meters
+	 * @param {number} [scaleMultiplier=DEFAULT_SCALE_MULTIPLIER]
+	 * @returns {number} World SVG units
+	 */
+	static metersToWorldUnits(meters, scaleMultiplier = DEFAULT_SCALE_MULTIPLIER) {
+		return meters * scaleMultiplier;
+	}
+
+	/**
+	 * Converts SVG world coordinate units to real-world meters
+	 * @param {number} units
+	 * @param {number} [scaleMultiplier=DEFAULT_SCALE_MULTIPLIER]
+	 * @returns {number} Real meters
+	 */
+	static worldUnitsToMeters(units, scaleMultiplier = DEFAULT_SCALE_MULTIPLIER) {
+		return units / (scaleMultiplier || 1);
+	}
+
+	/**
 	 * Calculate bounding box (min/max Lat/Lon) from station coordinates
 	 * @param {Object} stationData
 	 * @returns {{ minLat: number, maxLat: number, minLon: number, maxLon: number }}

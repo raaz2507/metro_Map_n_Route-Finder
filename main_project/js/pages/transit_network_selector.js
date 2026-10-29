@@ -68,9 +68,10 @@ export class TransitNetworkSelector {
 			});
 		}
 		// Subscribe to dynamic language toggle for instant in-place re-render
-		this.#unsubscribeLang = appStateStore.subscribe("currentLang", () => {
+		this.#unsubscribeLang = appStateStore.subscribe("currentLang", async (newLang) => {
+			await this.#reloadLocale(newLang);
 			if (this.#dom.searchInput) {
-				this.#dom.searchInput.placeholder = centerClass.t("pages.networks.search.placeholder");
+				this.#dom.searchInput.placeholder = centerClass.t("pages.networks.search.placeholder") || "Search city, state or network...";
 			}
 			this.#render();
 		});
@@ -166,10 +167,7 @@ export class TransitNetworkSelector {
 			}, { signal });
 		}
 
-		// Language change subscription: Re-render cards & headings when language toggles
-		appStateStore.subscribe("currentLang", () => {
-			this.#render();
-		});
+
 	}
 
 	#updateChipsUI(wrapper, activeTarget) {
@@ -215,19 +213,77 @@ export class TransitNetworkSelector {
 				localStorage.setItem("active_country", countryMeta.code ? requestedCountry : "india");
 			} catch (e) {}
 
-			// 4. Fetch Country Specific Registry
+			// 4. Fetch Country Specific Registry + Strict Locale Dictionary
 			const registryPath = countryMeta.registryPath || `data/${requestedCountry}/${requestedCountry}_transit_registry.json`;
-			const response = await fetch(registryPath, {
-				signal: this.#abortController ? this.#abortController.signal : undefined
-			});
-			if (!response.ok) throw new Error(`Registry HTTP Error: ${response.status} for ${registryPath}`);
+			const activeLang = localStorage.getItem("app-lang") || localStorage.getItem("language") || centerClass.currentLanguage || "en";
+			const locPath = `locales/${activeLang}/${requestedCountry}/transit_registry_locale.json`;
 
-			this.#registryData = await response.json();
+			const [registryRes, locRes] = await Promise.all([
+				fetch(registryPath, { signal: this.#abortController?.signal }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
+				fetch(locPath, { signal: this.#abortController?.signal }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+			]);
+
+			this.#registryData = registryRes;
+			const regLoc = locRes?.registry?.cities || {};
+			if (locRes?.registry?.country) {
+				this.#registryData.country = locRes.registry.country;
+			}
+			if (locRes?.registry?.country) {
+				this.#registryData.country = locRes.registry.country;
+			}
+
+			if (this.#registryData.cities) {
+				for (const [cKey, cVal] of Object.entries(this.#registryData.cities)) {
+					const locCity = regLoc[cKey] || {};
+					cVal.name = locCity.name || "";
+					cVal.state = locCity.state || "";
+					if (cVal.networks) {
+						for (const [nKey, nVal] of Object.entries(cVal.networks)) {
+							const locNet = locCity.networks?.[nKey] || {};
+							nVal.name = locNet.name || "";
+							nVal.operator = locNet.operator || "";
+						}
+					}
+				}
+			}
+
 			this.#render();
 		} catch (error) {
 			if (error.name === "AbortError") return;
 			console.error("[TransitNetworkSelector] Failed to load registry:", error);
 			this.#renderErrorState(error.message);
+		}
+	}
+
+	async #reloadLocale(newLang) {
+		if (!this.#registryData) return;
+		try {
+			const urlParams = new URLSearchParams(window.location.search);
+			const requestedCountry = urlParams.get("country") || localStorage.getItem("active_country") || "india";
+			const activeLang = newLang || "en";
+			const locPath = `locales/${activeLang}/${requestedCountry}/transit_registry_locale.json`;
+			const locRes = await fetch(locPath, { signal: this.#abortController?.signal }).then(r => r.ok ? r.json() : null);
+			const regLoc = locRes?.registry?.cities || {};
+			if (locRes?.registry?.country) {
+				this.#registryData.country = locRes.registry.country;
+			}
+
+			if (this.#registryData.cities) {
+				for (const [cKey, cVal] of Object.entries(this.#registryData.cities)) {
+					const locCity = regLoc[cKey] || {};
+					cVal.name = locCity.name || "";
+					cVal.state = locCity.state || "";
+					if (cVal.networks) {
+						for (const [nKey, nVal] of Object.entries(cVal.networks)) {
+							const locNet = locCity.networks?.[nKey] || {};
+							nVal.name = locNet.name || "";
+							nVal.operator = locNet.operator || "";
+						}
+					}
+				}
+			}
+		} catch (e) {
+			console.warn("[TransitNetworkSelector] Failed to reload locale:", e);
 		}
 	}
 
@@ -284,12 +340,7 @@ export class TransitNetworkSelector {
 		return Math.abs(hash);
 	}
 	#getLocalized(val) {
-		if (!val) return "";
-		if (typeof val === "object") {
-			const currentLang = centerClass.currentLanguage || "en";
-			return val[currentLang] || val.en || Object.values(val)[0] || "";
-		}
-		return String(val);
+		return val ? String(val) : "";
 	}
 
 	// Helper: Search corpus across both Hindi & English

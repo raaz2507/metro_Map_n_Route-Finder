@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "categories": {
+    "🚇 Transit & Metro": "🚇 Transit & Metro",
+    "💥 Comics & Manga": "💥 Comics & Manga",
+    "🎬 Anime & Cinema": "🎬 Anime & Cinema",
+    "⚡ Sci-Fi & Retro": "⚡ Sci-Fi & Retro",
+    "🦇 Dark Vigilante": "🦇 Dark Vigilante",
+    "🕷️ Web-Slinger": "🕷️ Web-Slinger"
+  },
+  "themes": {
+    "classic": {
+      "name": "Classic Metro",
+      "category": "🚇 Transit & Metro",
+      "badge": "Standard Edition",
+      "description": "Modern clean DMRC subway design with light-sweep patti & tactile wheels."
+    },
+    "comic": {
+      "name": "Pop-Comic Hero",
+      "category": "💥 Comics & Manga",
+      "badge": "Graphic Novel",
+      "description": "Hand-inked comic newsprint, Ben-Day dots, speed lines & starburst badge."
+    },
+    "anime": {
+      "name": "Anime Nostalgia",
+      "category": "🎬 Anime & Cinema",
+      "badge": "Cinematic Edition",
+      "description": "Nostalgic sea-railway locomotive, antique watercolor gouache, Cinzel serif typography, and embossed brass hardware."
+    },
+    "cyberpunk": {
+      "name": "Neon Cyberpunk",
+      "category": "⚡ Sci-Fi & Retro",
+      "badge": "Night City 2077",
+      "description": "High-tech synthwave aesthetic with neon cyan/magenta HUD glow, dark carbon maglev, and cyber-grid telemetry."
+    },
+    "pixel": {
+      "name": "Retro 8-Bit Pixel",
+      "category": "⚡ Sci-Fi & Retro",
+      "badge": "Arcade & 8-Bit",
+      "description": "Authentic 8-bit retro arcade aesthetic inspired by classic consoles with Press Start 2P font, royal blue frames, and electric cyan accents."
+    },
+    "chamgadar": {
+      "name": "Chamgadar",
+      "category": "🦇 Dark Vigilante",
+      "badge": "Shadow Patrol",
+      "description": "Tactical night vigilante armor aesthetic with matte carbon fiber weave, tactical beacon gold, and stealth telemetry."
+    },
+    "makad-manav": {
+      "name": "Makad-Manav",
+      "category": "🕷️ Web-Slinger",
+      "badge": "Web Transit",
+      "description": "Kinetic superhero transit aesthetic with geometric honeycomb mesh, bold crimson web-lines, and deep cobalt blue."
+    }
+  }
+}

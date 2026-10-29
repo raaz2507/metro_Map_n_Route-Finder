@@ -6,69 +6,28 @@
 	"fareRules": {
 		"currency": "INR",
 		"networks": {
-			"lucknow_metro": {
-				"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
-				"avgSpeedMetersPerMin": 550,
-				"stationHaltMinutes": 0.5
-			},
-			"upmrc_lucknow": {
-				"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)",
-				"avgSpeedMetersPerMin": 550,
-				"stationHaltMinutes": 0.5
-			}
+			"lucknow_metro": {"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5},
+			"upmrc_lucknow": {"operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)", "avgSpeedMetersPerMin": 550, "stationHaltMinutes": 0.5}
 		},
 		"policies": {
 			"lucknow_metro_standard": {
 				"network": "lucknow_metro",
 				"effectiveFrom": "2017-09-06",
 				"fareModel": "station_count_based",
-				"calculation": {
-					"distanceUnit": "stations",
-					"rounding": "exact"
-				},
+				"calculation": {"distanceUnit": "stations", "rounding": "exact"},
 				"fareTables": {
 					"standard": [
-						{
-							"minStations": 1,
-							"maxStations": 1,
-							"fare": 10
-						},
-						{
-							"minStations": 2,
-							"maxStations": 2,
-							"fare": 15
-						},
-						{
-							"minStations": 3,
-							"maxStations": 6,
-							"fare": 20
-						},
-						{
-							"minStations": 7,
-							"maxStations": 9,
-							"fare": 30
-						},
-						{
-							"minStations": 10,
-							"maxStations": 13,
-							"fare": 40
-						},
-						{
-							"minStations": 14,
-							"maxStations": 17,
-							"fare": 50
-						},
-						{
-							"minStations": 18,
-							"maxStations": null,
-							"fare": 60
-						}
+						{"minStations": 1, "maxStations": 1, "fare": 10},
+						{"minStations": 2, "maxStations": 2, "fare": 15},
+						{"minStations": 3, "maxStations": 6, "fare": 20},
+						{"minStations": 7, "maxStations": 9, "fare": 30},
+						{"minStations": 10, "maxStations": 13, "fare": 40},
+						{"minStations": 14, "maxStations": 17, "fare": 50},
+						{"minStations": 18, "maxStations": null, "fare": 60}
 					]
 				},
 				"products": {
-					"token": {
-						"type": "base"
-					},
+					"token": {"type": "base"},
 					"smart_card": {
 						"type": "discount",
 						"baseProduct": "token",
@@ -77,29 +36,9 @@
 						"refundableDeposit": 100,
 						"rechargeUrl": ""
 					},
-					"tourist_card_1day": {
-						"type": "flat_pass",
-						"cost": 200,
-						"travelValue": 100,
-						"refundableDeposit": 100,
-						"validityDays": 1,
-						"unlimitedRides": true
-					},
-					"tourist_card_3day": {
-						"type": "flat_pass",
-						"cost": 350,
-						"travelValue": 250,
-						"refundableDeposit": 100,
-						"validityDays": 3,
-						"unlimitedRides": true
-					},
-					"qr_ticket": {
-						"type": "digital",
-						"validityMinutes": 60,
-						"whatsappUrl": "",
-						"bookingUrl": "",
-						"appUrl": ""
-					}
+					"tourist_card_1day": {"type": "flat_pass", "cost": 200, "travelValue": 100, "refundableDeposit": 100, "validityDays": 1, "unlimitedRides": true},
+					"tourist_card_3day": {"type": "flat_pass", "cost": 350, "travelValue": 250, "refundableDeposit": 100, "validityDays": 3, "unlimitedRides": true},
+					"qr_ticket": {"type": "digital", "validityMinutes": 60, "whatsappUrl": "", "bookingUrl": "", "appUrl": ""}
 				},
 				"stationStayRules": {
 					"sameStationExitFare": 10,
@@ -120,33 +59,8 @@
 			"color": "#D32F2F",
 			"color_name": "red",
 			"style": "solid",
-			"route": {
-				"from": "ccs_airport",
-				"to": "munshipulia"
-			},
-			"stations": [
-				"ccs_airport",
-				"amausi",
-				"transport_nagar",
-				"krishna_nagar",
-				"singar_nagar",
-				"alambagh",
-				"alambagh_bus_stand",
-				"mawaiya",
-				"durgapuri",
-				"charbagh",
-				"hussainganj",
-				"sachivalaya",
-				"hazratganj",
-				"kd_singh_babu_stadium",
-				"vishvavidyalaya",
-				"it_college",
-				"badshah_nagar",
-				"lekhraj_market",
-				"bhootnath_market",
-				"indira_nagar",
-				"munshipulia"
-			],
+			"route": {"from": "ccs_airport", "to": "munshipulia"},
+			"stations": ["ccs_airport", "amausi", "transport_nagar", "krishna_nagar", "singar_nagar", "alambagh", "alambagh_bus_stand", "mawaiya", "durgapuri", "charbagh", "hussainganj", "sachivalaya", "hazratganj", "kd_singh_babu_stadium", "vishvavidyalaya", "it_college", "badshah_nagar", "lekhraj_market", "bhootnath_market", "indira_nagar", "munshipulia"],
 			"farePolicy": "lucknow_metro_standard"
 		}
 	},
@@ -155,518 +69,211 @@
 		"ccs_airport": {
 			"id": "ccs_airport",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "amausi",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "amausi", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.7661533,
-					"lon": 80.8822074
-				}
+				"decimal": {"lat": 26.7661533, "lon": 80.8822074}
 			}
 		},
 		"amausi": {
 			"id": "amausi",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "ccs_airport",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "transport_nagar",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "ccs_airport", "line": "upmrc.red"}, {"station": "transport_nagar", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.771351,
-					"lon": 80.878665
-				}
+				"decimal": {"lat": 26.771351, "lon": 80.878665}
 			}
 		},
 		"transport_nagar": {
 			"id": "transport_nagar",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "amausi",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "krishna_nagar",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "amausi", "line": "upmrc.red"}, {"station": "krishna_nagar", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.7777021,
-					"lon": 80.8825343
-				}
+				"decimal": {"lat": 26.7777021, "lon": 80.8825343}
 			}
 		},
 		"krishna_nagar": {
 			"id": "krishna_nagar",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "transport_nagar",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "singar_nagar",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "transport_nagar", "line": "upmrc.red"}, {"station": "singar_nagar", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.794386,
-					"lon": 80.891721
-				}
+				"decimal": {"lat": 26.794386, "lon": 80.891721}
 			}
 		},
 		"singar_nagar": {
 			"id": "singar_nagar",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "krishna_nagar",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "alambagh",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "krishna_nagar", "line": "upmrc.red"}, {"station": "alambagh", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8030333,
-					"lon": 80.8962616
-				}
+				"decimal": {"lat": 26.8030333, "lon": 80.8962616}
 			}
 		},
 		"alambagh": {
 			"id": "alambagh",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "singar_nagar",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "alambagh_bus_stand",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "singar_nagar", "line": "upmrc.red"}, {"station": "alambagh_bus_stand", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.816237,
-					"lon": 80.904882
-				}
+				"decimal": {"lat": 26.816237, "lon": 80.904882}
 			}
 		},
 		"alambagh_bus_stand": {
 			"id": "alambagh_bus_stand",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "alambagh",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "mawaiya",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "alambagh", "line": "upmrc.red"}, {"station": "mawaiya", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8188663,
-					"lon": 80.9074153
-				}
+				"decimal": {"lat": 26.8188663, "lon": 80.9074153}
 			}
 		},
 		"mawaiya": {
 			"id": "mawaiya",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "alambagh_bus_stand",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "durgapuri",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "alambagh_bus_stand", "line": "upmrc.red"}, {"station": "durgapuri", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.825229,
-					"lon": 80.909784
-				}
+				"decimal": {"lat": 26.825229, "lon": 80.909784}
 			}
 		},
 		"durgapuri": {
 			"id": "durgapuri",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "mawaiya",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "charbagh",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "mawaiya", "line": "upmrc.red"}, {"station": "charbagh", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.83196,
-					"lon": 80.915431
-				}
+				"decimal": {"lat": 26.83196, "lon": 80.915431}
 			}
 		},
 		"charbagh": {
 			"id": "charbagh",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "durgapuri",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "hussainganj",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "durgapuri", "line": "upmrc.red"}, {"station": "hussainganj", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.832354,
-					"lon": 80.922984
-				}
+				"decimal": {"lat": 26.832354, "lon": 80.922984}
 			}
 		},
 		"hussainganj": {
 			"id": "hussainganj",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "charbagh",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "sachivalaya",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "charbagh", "line": "upmrc.red"}, {"station": "sachivalaya", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8391,
-					"lon": 80.9345
-				}
+				"decimal": {"lat": 26.8391, "lon": 80.9345}
 			}
 		},
 		"sachivalaya": {
 			"id": "sachivalaya",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "hussainganj",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "hazratganj",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "hussainganj", "line": "upmrc.red"}, {"station": "hazratganj", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.84251,
-					"lon": 80.941498
-				}
+				"decimal": {"lat": 26.84251, "lon": 80.941498}
 			}
 		},
 		"hazratganj": {
 			"id": "hazratganj",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "underground",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "sachivalaya",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "kd_singh_babu_stadium",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "underground", "status": "operational"},
+			"neighbors": [{"station": "sachivalaya", "line": "upmrc.red"}, {"station": "kd_singh_babu_stadium", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8500451,
-					"lon": 80.9415633
-				}
+				"decimal": {"lat": 26.8500451, "lon": 80.9415633}
 			}
 		},
 		"kd_singh_babu_stadium": {
 			"id": "kd_singh_babu_stadium",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "hazratganj",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "vishvavidyalaya",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "hazratganj", "line": "upmrc.red"}, {"station": "vishvavidyalaya", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.854048,
-					"lon": 80.93676
-				}
+				"decimal": {"lat": 26.854048, "lon": 80.93676}
 			}
 		},
 		"vishvavidyalaya": {
 			"id": "vishvavidyalaya",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "kd_singh_babu_stadium",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "it_college",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "kd_singh_babu_stadium", "line": "upmrc.red"}, {"station": "it_college", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.865501,
-					"lon": 80.939534
-				}
+				"decimal": {"lat": 26.865501, "lon": 80.939534}
 			}
 		},
 		"it_college": {
 			"id": "it_college",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "vishvavidyalaya",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "badshah_nagar",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "vishvavidyalaya", "line": "upmrc.red"}, {"station": "badshah_nagar", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8709805,
-					"lon": 80.9457193
-				}
+				"decimal": {"lat": 26.8709805, "lon": 80.9457193}
 			}
 		},
 		"badshah_nagar": {
 			"id": "badshah_nagar",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "it_college",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "lekhraj_market",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "it_college", "line": "upmrc.red"}, {"station": "lekhraj_market", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8706775,
-					"lon": 80.9611397
-				}
+				"decimal": {"lat": 26.8706775, "lon": 80.9611397}
 			}
 		},
 		"lekhraj_market": {
 			"id": "lekhraj_market",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "badshah_nagar",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "bhootnath_market",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "badshah_nagar", "line": "upmrc.red"}, {"station": "bhootnath_market", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8708625,
-					"lon": 80.9736025
-				}
+				"decimal": {"lat": 26.8708625, "lon": 80.9736025}
 			}
 		},
 		"bhootnath_market": {
 			"id": "bhootnath_market",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "lekhraj_market",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "indira_nagar",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "lekhraj_market", "line": "upmrc.red"}, {"station": "indira_nagar", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.872237,
-					"lon": 80.982353
-				}
+				"decimal": {"lat": 26.872237, "lon": 80.982353}
 			}
 		},
 		"indira_nagar": {
 			"id": "indira_nagar",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "bhootnath_market",
-					"line": "upmrc.red"
-				},
-				{
-					"station": "munshipulia",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "bhootnath_market", "line": "upmrc.red"}, {"station": "munshipulia", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.872733,
-					"lon": 80.990857
-				}
+				"decimal": {"lat": 26.872733, "lon": 80.990857}
 			}
 		},
 		"munshipulia": {
 			"id": "munshipulia",
 			"lines": ["upmrc.red"],
-			"properties": {
-				"layout": "elevated",
-				"status": "operational"
-			},
-			"neighbors": [
-				{
-					"station": "indira_nagar",
-					"line": "upmrc.red"
-				}
-			],
+			"properties": {"layout": "elevated", "status": "operational"},
+			"neighbors": [{"station": "indira_nagar", "line": "upmrc.red"}],
 			"platforms": {},
 			"location": {
-				"decimal": {
-					"lat": 26.8880606,
-					"lon": 80.9958332
-				}
+				"decimal": {"lat": 26.8880606, "lon": 80.9958332}
 			}
 		}
 	}

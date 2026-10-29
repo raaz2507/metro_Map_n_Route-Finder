@@ -45,7 +45,8 @@ export class ThreeGroundTerrain {
       steps: cfg.steps || 64,
       stationT: cfg.stationT !== undefined ? cfg.stationT : 0.5,
       hasStation: cfg.hasStation !== undefined ? cfg.hasStation : (cfg.stationT !== null && cfg.stationT !== undefined),
-      generateRocks: cfg.generateRocks !== undefined ? cfg.generateRocks : true
+      generateRocks: cfg.generateRocks !== undefined ? cfg.generateRocks : true,
+      groundRadius: cfg.groundRadius || 2500
     }));
 
     this.#buildTerrain();
@@ -63,6 +64,13 @@ export class ThreeGroundTerrain {
         this.#groundMesh.material.opacity = 1.0;
         this.#groundMesh.material.depthWrite = true;
       }
+      this.#groundMesh.material.needsUpdate = true;
+    }
+  }
+
+  setThemeColor(color) {
+    if (this.#groundMesh && this.#groundMesh.material && color) {
+      this.#groundMesh.material.color.set(color);
       this.#groundMesh.material.needsUpdate = true;
     }
   }
@@ -277,12 +285,18 @@ export class ThreeGroundTerrain {
     }
 
     // 2. Solid Sand Ground Plane: Discards canyon mask pixels via Stencil test at renderOrder = 1
-    const R = 600;
+    const R = Math.max(600, this.#canyonConfigs[0]?.groundRadius || 2500);
     const groundGeo = new THREE.PlaneGeometry(R * 2, R * 2);
     groundGeo.rotateX(-Math.PI / 2); // Lay flat on XZ plane at Y = 0
 
+    let groundColor = 0xe2e8f0;
+    if (typeof window !== "undefined" && document.body) {
+      const cssColor = getComputedStyle(document.body).getPropertyValue("--map-3d-ground").trim();
+      if (cssColor) groundColor = new THREE.Color(cssColor);
+    }
+
     const groundMat = new THREE.MeshStandardMaterial({
-      color: 0xdfc49c, // CoC warm sandy earthen tone
+      color: groundColor,
       roughness: 0.90,
       metalness: 0.05,
       stencilWrite: true,
@@ -351,7 +365,7 @@ export class ThreeGroundTerrain {
 
     const count = rimPoints.length;
     const instancedRocks = new THREE.InstancedMesh(rockGeo, rockMat, count);
-    instancedRocks.castShadow = true;
+    instancedRocks.castShadow = false;
     instancedRocks.receiveShadow = true;
 
     const dummy = new THREE.Object3D();

@@ -77,6 +77,38 @@ Directly derived from pixlate_degine.html:
 		--badge-border: #8a6a18;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #1535a1;
+		--map-grid-color: rgba(48, 206, 240, 0.25);
+		--map-grid-wash: rgba(42, 42, 62, 0.20);
+		--map-station-fill: #ffffff;
+		--map-station-stroke: #30cef0;
+		--map-station-underground-fill: #1a1a2e;
+		--map-station-multimodal: #e8b84d;
+		--map-station-shared: #ee4444;
+		--map-station-halo: rgba(21, 53, 161, 0.98);
+		--map-label-color: #ffffff;
+		--map-label-halo: #0a1a2e;
+		--map-label-hover: #e8b84d;
+		--map-interchange-badge: #e8b84d;
+		--map-interchange-ring: #30cef0;
+		--map-track-bed: #1b264f;
+		--map-track-shadow: rgba(0, 0, 0, 0.40);
+		--map-tunnel-conduit: rgba(48, 206, 240, 0.15);
+		--map-route-glow: rgba(48, 206, 240, 0.65);
+		--map-strata-sub-fill: rgba(48, 206, 240, 0.12);
+		--map-strata-sub-stroke: rgba(48, 206, 240, 0.70);
+		--map-strata-viaduct-fill: rgba(232, 184, 77, 0.10);
+		--map-strata-viaduct-stroke: rgba(232, 184, 77, 0.75);
+
+		/* 3D WebGL 8-Bit Arcade Console */
+		--map-3d-sky: #102573;
+		--map-3d-ground: #1535a1;
+		--map-3d-hemi-sky: #30cef0;
+		--map-3d-hemi-ground: #1a1a2e;
+		--map-3d-sunlight: #e8b84d;
+		--map-3d-ambient: #0a6a88;
 	}
 
 	/* 🌙 PIXEL NIGHT CRT (Deep Midnight Space Invader #08081a) */
@@ -114,6 +146,38 @@ Directly derived from pixlate_degine.html:
 		--badge-border: #0a6a88;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #08081a;
+		--map-grid-color: rgba(34, 184, 221, 0.22);
+		--map-grid-wash: rgba(13, 13, 26, 0.25);
+		--map-station-fill: #1a1a2e;
+		--map-station-stroke: #30cef0;
+		--map-station-underground-fill: #0d0d1a;
+		--map-station-multimodal: #e8b84d;
+		--map-station-shared: #ee4444;
+		--map-station-halo: rgba(8, 8, 26, 0.98);
+		--map-label-color: #f0f0ff;
+		--map-label-halo: #08081a;
+		--map-label-hover: #30cef0;
+		--map-interchange-badge: #e8b84d;
+		--map-interchange-ring: #30cef0;
+		--map-track-bed: #141428;
+		--map-track-shadow: rgba(0, 0, 0, 0.65);
+		--map-tunnel-conduit: rgba(48, 206, 240, 0.18);
+		--map-route-glow: rgba(48, 206, 240, 0.75);
+		--map-strata-sub-fill: rgba(48, 206, 240, 0.18);
+		--map-strata-sub-stroke: rgba(48, 206, 240, 0.75);
+		--map-strata-viaduct-fill: rgba(240, 204, 112, 0.12);
+		--map-strata-viaduct-stroke: rgba(240, 204, 112, 0.75);
+
+		/* 3D WebGL Space Invader Night CRT */
+		--map-3d-sky: #04040d;
+		--map-3d-ground: #0a0a1f;
+		--map-3d-hemi-sky: #30cef0;
+		--map-3d-hemi-ground: #1a1a2e;
+		--map-3d-sunlight: #f0cc70;
+		--map-3d-ambient: #148aaa;
 	}
 
 	/* 🕹️ ZERO-LAG SOLID 8-BIT BUTTONS & DROPDOWN CARDS */

@@ -7,12 +7,11 @@
 import { MapGeometry } from "./core/MapGeometry.js";
 import { MapEngineFactory } from "./core/MapEngineFactory.js";
 import { CanvasRenderer } from "./canvas/CanvasRenderer.js";
-import { Metro3DEngine } from "./three/Metro3DEngine.js";
 import { MapLegend } from "./ui/MapLegend.js";
 import { eventBus } from "../../core/event-bus.js";
 import { APP_CONFIG } from "../../config/app-config.js";
 
-// Ensure standard 2D, 2.5D Canvas, and 3D WebGL engines are registered in the pluggable factory
+// Ensure standard 2D and 2.5D Canvas engines are registered in the pluggable factory
 if (!MapEngineFactory.has("2d")) {
 	MapEngineFactory.register("2d", CanvasRenderer, {
 		label: "2D",
@@ -29,13 +28,21 @@ if (!MapEngineFactory.has("2.5d")) {
 		description: "Isometric 2.5D transit map with elevation"
 	});
 }
-if (!MapEngineFactory.has("3d")) {
-	MapEngineFactory.register("3d", Metro3DEngine, {
-		label: "3D",
-		icon: "🎮",
-		is3D: true,
-		description: "3D WebGL Metro Map View"
-	});
+
+/**
+ * Lazy-loads the 3D WebGL engine on-demand only when 3D mode is activated.
+ * Prevents non-map pages and 2D/2.5D view from loading heavy 3D modules.
+ */
+async function ensure3DEngineRegistered() {
+	if (!MapEngineFactory.has("3d")) {
+		const { Metro3DEngine } = await import("./three/Metro3DEngine.js");
+		MapEngineFactory.register("3d", Metro3DEngine, {
+			label: "3D",
+			icon: "🎮",
+			is3D: true,
+			description: "3D WebGL Metro Map View"
+		});
+	}
 }
 
 export class MetroMap {
@@ -110,7 +117,7 @@ export class MetroMap {
 		return Boolean(this.#canvasEngine?.is25D);
 	}
 
-	#init() {
+	async #init() {
 		if (!this.#mapContainer || !this.#metroData?.stationData) {
 			console.warn("[MetroMap] Missing map container or stationData for initialization.");
 			return;
@@ -129,6 +136,10 @@ export class MetroMap {
 		this.#currentViewMode = savedViewMode;
 		const isInitial25D = savedViewMode === "2.5d";
 
+		if (savedViewMode === "3d") {
+			await ensure3DEngineRegistered().catch(console.warn);
+		}
+
 		this.#canvasEngine = MapEngineFactory.create(savedViewMode, {
 			container: this.#mapContainer,
 			metroData: this.#metroData,
@@ -141,7 +152,15 @@ export class MetroMap {
 		this.#canvasEngine?.setMapDisplaySettings?.(this.#mapDisplaySettings);
 
 		if (typeof this.#canvasEngine.init === "function") {
-			Promise.resolve(this.#canvasEngine.init()).catch(console.warn);
+			Promise.resolve(this.#canvasEngine.init()).then(() => {
+				if (this.#canvasEngine?.canvas) {
+					this.#canvasEngine.canvas.style.opacity = "1";
+					this.#canvasEngine.canvas.style.pointerEvents = "auto";
+				}
+			}).catch(console.warn);
+		} else if (this.#canvasEngine?.canvas) {
+			this.#canvasEngine.canvas.style.opacity = "1";
+			this.#canvasEngine.canvas.style.pointerEvents = "auto";
 		}
 
 		this.#canvasEngine.onTransformChange = (data) => {
@@ -221,21 +240,31 @@ export class MetroMap {
 
 		if (btnZoomIn) {
 			btnZoomIn.onclick = () => {
-				this.#canvasEngine.setZoom(this.#canvasEngine.zoom * 1.3);
+				if (typeof this.#canvasEngine?.zoomIn === "function") {
+					this.#canvasEngine.zoomIn();
+				} else if (typeof this.#canvasEngine?.setZoom === "function") {
+					this.#canvasEngine.setZoom(this.#canvasEngine.zoom * 1.3);
+				}
 				updateZoomUI(this.#canvasEngine.zoom);
 			};
 		}
 
 		if (btnZoomOut) {
 			btnZoomOut.onclick = () => {
-				this.#canvasEngine.setZoom(this.#canvasEngine.zoom / 1.3);
+				if (typeof this.#canvasEngine?.zoomOut === "function") {
+					this.#canvasEngine.zoomOut();
+				} else if (typeof this.#canvasEngine?.setZoom === "function") {
+					this.#canvasEngine.setZoom(this.#canvasEngine.zoom / 1.3);
+				}
 				updateZoomUI(this.#canvasEngine.zoom);
 			};
 		}
 
 		if (btnResetZoom) {
 			btnResetZoom.onclick = () => {
-				this.#canvasEngine.fitToScreen(this.#canvasEngine.is25D ? 1.5 : 1.0);
+				if (typeof this.#canvasEngine?.fitToScreen === "function") {
+					this.#canvasEngine.fitToScreen(this.#canvasEngine.is25D ? 1.5 : 1.0);
+				}
 				updateZoomUI(this.#canvasEngine.zoom);
 			};
 		}
@@ -699,9 +728,13 @@ export class MetroMap {
 		this.#legend?.render(selectedLang);
 	}
 
-	set setTheme(selectedTheme) {
+	setTheme(selectedTheme) {
 		this.#settings.currentTheme = selectedTheme;
 		this.#canvasEngine?.setTheme(selectedTheme);
+	}
+
+	set setTheme(selectedTheme) {
+		this.setTheme(selectedTheme);
 	}
 
 	highlightStatus(status) {
@@ -801,7 +834,7 @@ export class MetroMap {
 		this.#canvasEngine?.clearRoutePins();
 	}
 
-	switchEngineMode(targetMode) {
+	async switchEngineMode(targetMode) {
 		const currentMode = this.#currentViewMode || "2d";
 		if (targetMode === currentMode) return;
 
@@ -813,17 +846,19 @@ export class MetroMap {
 			return;
 		}
 
-		// Full Engine Switch (e.g. Canvas 2D/2.5D <-> Three.js 3D)
-		if (this.#canvasEngine) {
-			this.#canvasEngine.destroy();
-			this.#canvasEngine = null;
+		if (targetMode === "3d") {
+			await ensure3DEngineRegistered().catch(console.warn);
 		}
+
+		// Keep previous engine alive during crossfade for a seamless visual transition!
+		const oldEngine = this.#canvasEngine;
+		const oldCanvas = oldEngine?.canvas || this.#mapContainer?.querySelector("canvas");
 
 		this.#currentViewMode = targetMode;
 		localStorage.setItem("metro_map_view_mode", targetMode);
 
 		const is25D = targetMode === "2.5d";
-		this.#canvasEngine = MapEngineFactory.create(targetMode, {
+		const newEngine = MapEngineFactory.create(targetMode, {
 			container: this.#mapContainer,
 			metroData: this.#metroData,
 			centerClass: this.#centerClass,
@@ -831,14 +866,56 @@ export class MetroMap {
 			lang: this.#settings.currentLang,
 			theme: this.#settings.currentTheme,
 		});
+		this.#canvasEngine = newEngine;
 
-		this.#canvasEngine?.setMapDisplaySettings?.(this.#mapDisplaySettings);
+		newEngine?.setMapDisplaySettings?.(this.#mapDisplaySettings);
 
-		if (typeof this.#canvasEngine.init === "function") {
-			Promise.resolve(this.#canvasEngine.init()).catch(console.warn);
+		// Synchronized crossfade execution
+		const finalizeSwitch = () => {
+			if (oldCanvas) {
+				oldCanvas.style.pointerEvents = "none";
+				oldCanvas.style.transition = "opacity 0.55s ease";
+				oldCanvas.style.opacity = "0";
+			}
+			if (newEngine.canvas) {
+				newEngine.canvas.style.pointerEvents = "auto";
+				newEngine.canvas.style.transition = "opacity 0.55s ease";
+				newEngine.canvas.style.opacity = "1";
+			}
+			setTimeout(() => {
+				if (oldEngine) {
+					try { oldEngine.destroy(); } catch (e) { console.warn(e); }
+				}
+				if (oldCanvas && oldCanvas.parentNode) {
+					try { oldCanvas.parentNode.removeChild(oldCanvas); } catch (e) {}
+				}
+				// Clean up any extra residual canvas in container to guarantee 100% clean DOM
+				if (this.#mapContainer && newEngine.canvas) {
+					const allCanvases = this.#mapContainer.querySelectorAll("canvas");
+					allCanvases.forEach(c => {
+						if (c !== newEngine.canvas && c.parentNode) {
+							c.parentNode.removeChild(c);
+						}
+					});
+				}
+			}, 600);
+		};
+
+		if (typeof newEngine.init === "function") {
+			Promise.resolve(newEngine.init()).then(() => {
+				finalizeSwitch();
+			}).catch(err => {
+				console.warn("[MetroMap] New engine init failed:", err);
+				if (oldEngine) {
+					try { oldEngine.destroy(); } catch (e) {}
+				}
+			});
+		} else {
+			newEngine?.requestRender?.();
+			finalizeSwitch();
 		}
 
-		this.#canvasEngine.onStationClick = (st) => {
+		newEngine.onStationClick = (st) => {
 			const id = st?.id || st?.stationId;
 			if (id && typeof this.onStationClick === "function") {
 				this.onStationClick({
@@ -849,13 +926,18 @@ export class MetroMap {
 			}
 		};
 
-		this.#canvasEngine.onTransformChange = (data) => {
+		newEngine.onTransformChange = (data) => {
 			const zoomLevel = this.#mapContainer?.querySelector("#zoomLevel");
 			if (zoomLevel && data.zoom != null) {
 				zoomLevel.textContent = `${Math.round(data.zoom * 100)}%`;
 			}
 			eventBus.emit("MAP_TRANSFORM_CHANGED", data);
 		};
+
+		const currentZoomLevel = this.#mapContainer?.querySelector("#zoomLevel");
+		if (currentZoomLevel && newEngine.zoom != null) {
+			currentZoomLevel.textContent = `${Math.round(newEngine.zoom * 100)}%`;
+		}
 
 		this.#updateViewModeWidgetUI(targetMode);
 	}

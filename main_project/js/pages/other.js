@@ -204,7 +204,7 @@ class MetroMapCardController {
 		}
 
 		// 2. Local computer / Live Server par: root se seedhe access kare
-		return `/transit_assets/transit_maps/${localPdfPath}`;
+		return `../transit_assets/transit_maps/${localPdfPath}`;
 	}
 
 	/**
@@ -241,7 +241,9 @@ class MetroMapCardController {
 			if (cachedResponse) {
 				const blob = await cachedResponse.blob();
 				const blobUrl = URL.createObjectURL(blob);
-				PdfViewerModalController.open(blobUrl, netName, badgeLabel);
+				// Firefox PDF.js worker throws 'Message: undefined' on iframe blob: URLs; pass real pdfUrl when reachable
+				const viewUrl = (window.location.protocol.startsWith('http') && navigator.onLine !== false) ? pdfUrl : blobUrl;
+				PdfViewerModalController.open(viewUrl, netName, badgeLabel, blobUrl);
 				return;
 			}
 
@@ -295,7 +297,9 @@ class MetroMapCardController {
 
 			// 100% download hone par hi In-App Viewer Modal kholein!
 			const blobUrl = URL.createObjectURL(finalBlob);
-			PdfViewerModalController.open(blobUrl, netName, badgeLabel);
+			// Firefox PDF.js worker throws 'Message: undefined' on iframe blob: URLs; pass real pdfUrl when reachable
+			const viewUrl = (window.location.protocol.startsWith('http') && navigator.onLine !== false) ? pdfUrl : blobUrl;
+			PdfViewerModalController.open(viewUrl, netName, badgeLabel, blobUrl);
 
 		} catch (error) {
 			console.error(`[MetroMapCard] Download failed for ${netName} (${pdfUrl}):`, error);
@@ -348,20 +352,20 @@ class PdfViewerModalController {
 		});
 	}
 
-	static open(url, networkName, badgeText) {
+	static open(url, networkName, badgeText, downloadBlobUrl = null) {
 		if (!this.#modal || !this.#frame) return;
 
 		// Clean up previous blob URL if any
 		if (this.#activeBlobUrl && this.#activeBlobUrl.startsWith('blob:')) {
 			URL.revokeObjectURL(this.#activeBlobUrl);
 		}
-		this.#activeBlobUrl = url;
+		this.#activeBlobUrl = downloadBlobUrl || (url.startsWith('blob:') ? url : null);
 
 		// Header information
 		if (this.#title) this.#title.textContent = `${networkName} Map`;
 		if (this.#badge) this.#badge.textContent = badgeText || centerClass.t('pages.other.modal.badge');
 		if (this.#downloadBtn) {
-			this.#downloadBtn.href = url;
+			this.#downloadBtn.href = downloadBlobUrl || url;
 			this.#downloadBtn.download = `${networkName.replace(/\s+/g, '_')}_Map.pdf`;
 		}
 

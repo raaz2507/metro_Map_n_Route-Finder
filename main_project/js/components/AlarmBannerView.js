@@ -6,6 +6,7 @@
 import { centerClass } from "../core/CenterClass.js";
 import { eventBus } from "../core/event-bus.js";
 import { appStateStore } from "../core/app-state-store.js";
+import { widgetBridgeService } from "../services/alarm/WidgetBridgeService.js";
 
 
 export class AlarmBannerView {
@@ -19,6 +20,7 @@ export class AlarmBannerView {
 		this.#bindEvents();
 		this.#bindStoreSubscriptions();
 		this.#syncWithCenterClass();
+		widgetBridgeService.init();
 
 		// प्रारंभिक अवस्था: यदि स्टोर में पहले से सक्रिय रूट है तो प्रदर्शित करें
 		const currentRoute = appStateStore.getState("activeRoute");
@@ -82,13 +84,17 @@ export class AlarmBannerView {
 	 * 🔄 रिएक्टिव स्टोर और रूट इवेंट्स से बाइंड करें
 	 */
 	#bindStoreSubscriptions() {
-		// A. जब भी सक्रिय रूट सेट या चेंज हो -> स्क्रीन पिल अपडेट करें
+		// A. जब भी सक्रिय रूट सेट या चेंज हो -> स्क्रीन पिल और नोटिफिकेशन अपडेट करें
 		appStateStore.subscribe("activeRoute", (activeRoute) => {
 			if (activeRoute) {
 				this.#populateTargetInfoFromRoute(activeRoute);
+				const summary = this.#extractRouteSummary(activeRoute);
+				widgetBridgeService.updateRoute(summary);
 			} else if (this.#currentAlarmState === "INACTIVE") {
 				this.#resetStationNameDisplay();
+				widgetBridgeService.clearRoute();
 			}
+			this.#syncWidgetState();
 		});
 
 		// B. भाषा बदलने पर स्टेशन का नाम नई भाषा (उदा. हिन्दी / English) में अपडेट करें
@@ -96,16 +102,21 @@ export class AlarmBannerView {
 			const activeRoute = appStateStore.getState("activeRoute");
 			if (activeRoute) {
 				this.#populateTargetInfoFromRoute(activeRoute);
+				const summary = this.#extractRouteSummary(activeRoute);
+				widgetBridgeService.updateRoute(summary);
 			} else if (this.#currentAlarmState === "INACTIVE") {
 				this.#resetStationNameDisplay();
 			}
+			this.#syncWidgetState();
 		});
 
-		// C. रूट क्लियर होने पर स्क्रीन पिल रीसेट करें (यदि अलार्म इनएक्टिव हो)
+		// C. रूट क्लियर होने पर स्क्रीन पिल रीसेट करें व नोटिफिकेशन हटाएं
 		eventBus.on("ROUTE_CLEARED", () => {
 			if (this.#currentAlarmState === "INACTIVE") {
 				this.#resetStationNameDisplay();
 			}
+			widgetBridgeService.clearRoute();
+			this.#syncWidgetState();
 		});
 	}
 
@@ -168,6 +179,7 @@ export class AlarmBannerView {
 				el.liveDistance.textContent = "---";
 			}
 		}
+		this.#syncWidgetState();
 	}
 
 	/**
@@ -342,6 +354,64 @@ export class AlarmBannerView {
 		}
 
 		el.textContent = `${Math.round(distanceMeters)} m`;
+		this.#syncWidgetState();
+	}
+
+	#extractRouteSummary(activeRoute) {
+		if (!activeRoute || !Array.isArray(activeRoute.path) || activeRoute.path.length === 0) {
+			return {
+				hasRoute: false,
+				startStation: "",
+				endStation: "",
+				timeText: "-- min",
+				distanceText: "-- km",
+				fareText: "₹--"
+			};
+		}
+
+		const lang = this.#getCurrentLang();
+		const path = activeRoute.path;
+		const startName = centerClass.getStationName(path[0], lang) || path[0];
+		const endId = activeRoute.destination?.id || path[path.length - 1];
+		const endName = centerClass.getStationName(endId, lang) || endId;
+
+		const timeMin = Math.round((activeRoute.totalTravelTimeSeconds || 0) / 60);
+		const distKm = ((activeRoute.totalDistanceMeters || 0) / 1000).toFixed(1);
+		const fare = activeRoute.fare?.totalFare || 0;
+
+		return {
+			hasRoute: true,
+			startStation: startName,
+			endStation: endName,
+			timeText: `${timeMin} min`,
+			distanceText: `${distKm} km`,
+			fareText: `₹${fare}`
+		};
+	}
+
+	#syncWidgetState() {
+		const isArmed = this.#currentAlarmState === "ARMED" || this.#currentAlarmState === "RINGING" || this.#currentAlarmState === "SNOOZED";
+		const stationName = this.#elements.stationName?.textContent?.trim() || "No Alarm Set";
+		const status = this.#elements.statusLabel?.textContent?.trim() || (isArmed ? "RUNNING" : "STANDBY");
+		const distance = this.#elements.liveDistance?.textContent?.trim() || "---";
+		const isRinging = this.#currentAlarmState === "RINGING";
+
+		const activeRoute = appStateStore.getState("activeRoute");
+		const summary = this.#extractRouteSummary(activeRoute);
+
+		widgetBridgeService.updateWidget({
+			stationName,
+			status,
+			distance,
+			isRinging,
+			isActive: isArmed,
+			hasRoute: summary.hasRoute,
+			startStation: summary.startStation,
+			endStation: summary.endStation,
+			timeText: summary.timeText,
+			distanceText: summary.distanceText,
+			fareText: summary.fareText
+		});
 	}
 
 	destroy() {

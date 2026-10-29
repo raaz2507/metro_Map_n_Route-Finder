@@ -1,0 +1,1953 @@
+{
+  "city": "kolkata",
+  "version": "1.0",
+  "total_places": 50,
+  "places": [
+    {
+      "id": "victoria_memorial",
+      "category": "monument",
+      "coordinates": [
+        22.5448,
+        88.3426
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/victoria_memorial.webp",
+      "tags": [
+        "monument",
+        "marble",
+        "indo_saracenic",
+        "queen_victoria",
+        "museum",
+        "gardens"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Victoria Memorial Hall & Gardens",
+        "description": "Magnificent white Makrana marble monument constructed between 1906 and 1921, blending British, Mughal, and Venetian architectural styles. Houses 25 royal galleries displaying rare historical paintings and artifacts.",
+        "best_time_to_visit": "Late afternoon (03:30 PM to 06:00 PM) for garden walks and the evening light-and-sound show."
+      },
+      "hi": {
+        "name": "विक्टोरिया मेमोरियल हॉल व उद्यान",
+        "description": "सफेद मकराना संगमरमर से निर्मित भव्य स्मारक, जो 1906 से 1921 के बीच ब्रिटिश, मुगल और वेनिस शैली के संगम से बना। इसके 25 राजसी दीर्घाओं में दुर्लभ ऐतिहासिक पेंटिंग्स और प्राचीन कलाकृतियाँ प्रदर्शित हैं।",
+        "best_time_to_visit": "शाम का समय (03:30 PM - 06:00 PM) जब उद्यानों में टहलने और शाम के लाइट एंड साउंड शो का आनंद मिलता है।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Victoria%20Memorial%20Hall4.jpg"
+    },
+    {
+      "id": "howrah_bridge",
+      "category": "monument",
+      "coordinates": [
+        22.5851,
+        88.3468
+      ],
+      "timings": {
+        "open": "00:00",
+        "close": "23:59",
+        "all_day": true
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/howrah_bridge.webp",
+      "tags": [
+        "cantilever_bridge",
+        "hooghly_river",
+        "engineering_marvel",
+        "rabindra_setu",
+        "iconic"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Howrah Bridge (Rabindra Setu)",
+        "description": "World-famous balanced cantilever steel bridge spanning the Hooghly River, constructed without a single nut or bolt in 1943. Connects Kolkata with Howrah and serves as the iconic symbol of the City of Joy.",
+        "best_time_to_visit": "Early morning or illuminated night view from a river ferry boat crossing between Howrah and Babu Ghat."
+      },
+      "hi": {
+        "name": "हावड़ा ब्रिज (रवींद्र सेतु)",
+        "description": "हुगली नदी पर बना विश्वप्रसिद्ध कैंटिलीवर स्टील ब्रिज, जिसे 1943 में बिना एक भी नट-बोल्ट के केवल रिवेट्स से तैयार किया गया था। यह कोलकाता और हावड़ा को जोड़ता है तथा 'सिटी ऑफ जॉय' का ऐतिहासिक प्रतीक है।",
+        "best_time_to_visit": "सुबह-सुबह या रात के समय, जब हुगली नदी की नौका (फेरी) से जगमगाते पुल का विहंगम दृश्य दिखाई देता है।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Howrah%20Railway%20Station%2001.jpg"
+    },
+    {
+      "id": "dakshineswar_kali_temple",
+      "category": "religious",
+      "coordinates": [
+        22.6548,
+        88.3575
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/dakshineswar_kali_temple.webp",
+      "tags": [
+        "kali_temple",
+        "ramakrishna_paramahamsa",
+        "rani_rashmoni",
+        "nava_ratna",
+        "ghat"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Dakshineswar Kali Temple",
+        "description": "Celebrated 19th-century Hindu temple complex founded in 1855 by Rani Rashmoni on the eastern bank of Hooghly River. Famous as the spiritual abode of mystic saint Sri Ramakrishna Paramahamsa, featuring 12 Shiva shrines.",
+        "best_time_to_visit": "Early morning (06:00 AM to 09:00 AM) or evening Sandhya Aarti on the riverbank."
+      },
+      "hi": {
+        "name": "दक्षिणेश्वर काली मंदिर",
+        "description": "1855 में रानी रासमणि द्वारा हुगली नदी के तट पर स्थापित ऐतिहासिक नवरत्न शैली का माँ भवतारिणी काली मंदिर। यह स्थान रहस्यवादी संत श्री रामकृष्ण परमहंस की प्रमुख तपोभूमि और साधना स्थल रहा है।",
+        "best_time_to_visit": "सुबह 06:00 से 09:00 बजे तक या शाम को नदी तट पर होने वाली संध्या आरती के समय।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dakshineswar%20Kali%20Temple%2C%20Dakshineswar%2C%20North%2024%20Parganas%20district%2C%20India.jpg"
+    },
+    {
+      "id": "kalighat_kali_temple",
+      "category": "religious",
+      "coordinates": [
+        22.5201,
+        88.3428
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "22:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/kalighat_kali_temple.webp",
+      "tags": [
+        "shakti_peeth",
+        "kali_temple",
+        "ancient",
+        "pilgrimage",
+        "adi_ganga"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Kalighat Kali Temple",
+        "description": "One of the 51 sacred Shakti Peethas where the right toes of Goddess Sati are believed to have fallen. Revered for centuries as the primary spiritual heart of Kolkata on the banks of the Adi Ganga.",
+        "best_time_to_visit": "06:00 AM to 08:30 AM on weekdays to avoid intense midday pilgrim queues."
+      },
+      "hi": {
+        "name": "कालीघाट काली मंदिर",
+        "description": "51 पवित्र शक्तिपीठों में से एक अत्यंत पावन तीर्थ, जहाँ माता सती के दाएं पैर की उंगलियाँ गिरी थीं। आदि गंगा के तट पर स्थित यह मंदिर सदियों से कोलकाता का आध्यात्मिक हृदय माना जाता है।",
+        "best_time_to_visit": "सप्ताह के दिनों में सुबह 06:00 से 08:30 बजे तक, ताकि दोपहर की भारी भीड़ से बचा जा सके।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kalighat%20Kali%20Temple.jpg"
+    },
+    {
+      "id": "indian_museum",
+      "category": "museum",
+      "coordinates": [
+        22.5579,
+        88.3511
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/indian_museum.webp",
+      "tags": [
+        "museum",
+        "jadu_ghar",
+        "egyptian_mummy",
+        "fossils",
+        "antiquity",
+        "oldest_museum"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Indian Museum (Jadu Ghar)",
+        "description": "Founded in 1814 by the Asiatic Society of Bengal, this is the ninth oldest regular museum in the world and the largest in India. Features 35 galleries including rare Egyptian mummies, Ashoka Pillar capitals, and dinosaur fossils.",
+        "best_time_to_visit": "10:30 AM to 02:00 PM (closed on Mondays)."
+      },
+      "hi": {
+        "name": "भारतीय संग्रहालय (जादू घर)",
+        "description": "1814 में स्थापित विश्व का 9वाँ सबसे पुराना और भारत का सबसे बड़ा बहु-विषयक संग्रहालय। यहाँ दुर्लभ मिस्र की ममी, 4000 वर्ष पुराने जीवाश्म, अशोक स्तंभ के शीर्ष और दुर्लभ कलाकृतियाँ मौजूद हैं।",
+        "best_time_to_visit": "सुबह 10:30 से दोपहर 02:00 बजे तक (सोमवार को बंद रहता है)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Indian%20Museum%20Building%20with%20Quadrangle%20-%20Inside%20North%20View%20-%20Indian%20Museum%20-%20Kolkata%202014-02-14%209248.JPG"
+    },
+    {
+      "id": "princep_ghat",
+      "category": "heritage",
+      "coordinates": [
+        22.5558,
+        88.3308
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/princep_ghat.webp",
+      "tags": [
+        "ghat",
+        "gothic_monument",
+        "hooghly_river",
+        "boating",
+        "sunset",
+        "promenade"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Princep Ghat & Riverfront Promenade",
+        "description": "Historic Palladian-style Greek monument built in 1843 in memory of Anglo-Indian scholar James Prinsep. Located right below Vidyasagar Setu, offering romantic wooden boat rides on the Hooghly River.",
+        "best_time_to_visit": "Sunset hours (05:00 PM to 07:30 PM) for cool river breezes, illuminated bridge vistas, and local street snacks."
+      },
+      "hi": {
+        "name": "प्रिंसिप घाट व रिवरफ्रंट प्रोमेनाड",
+        "description": "1843 में एंग्लो-इंडियन विद्वान जेम्स प्रिंसिप की स्मृति में पल्लडियन गोथिक शैली में निर्मित स्मारक। विद्यासागर सेतु के ठीक नीचे स्थित यह घाट हुगली नदी में नौकायन और सूर्यास्त के लिए विख्यात है।",
+        "best_time_to_visit": "सूर्यास्त का समय (05:00 PM - 07:30 PM) ठंडी नदी की हवा, नौकायन और स्ट्रीट फूड के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Princep%20Ghat%202.jpg"
+    },
+    {
+      "id": "science_city_kolkata",
+      "category": "museum",
+      "coordinates": [
+        22.5401,
+        88.3962
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "19:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 65,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/science_city_kolkata.webp",
+      "tags": [
+        "science_centre",
+        "space_theatre",
+        "dynamotion",
+        "cable_car",
+        "interactive"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Science City Kolkata",
+        "description": "The largest science center in the Indian subcontinent, featuring an immersive Space Odyssey theater, Dynamotion hall, outdoor Science Park, life-size animatronic dinosaurs, and a ropeway cable car.",
+        "best_time_to_visit": "11:00 AM to 04:00 PM for family science exploration and interactive rides."
+      },
+      "hi": {
+        "name": "साइंस सिटी कोलकाता",
+        "description": "भारतीय उपमहाद्वीप का सबसे बड़ा विज्ञान केंद्र। यहाँ स्पेस ओडिसी थिएटर, डायनामोशन हॉल, विशाल साइंस पार्क, सजीव डायनासोर के मॉडल और केबल कार (रोपवे) की सुविधा उपलब्ध है।",
+        "best_time_to_visit": "सुबह 11:00 से शाम 04:00 बजे तक परिवार और बच्चों के साथ इंटरैक्टिव विज्ञान के अनुभव के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Science%20City%20Kolkata%204643.JPG"
+    },
+    {
+      "id": "st_pauls_cathedral",
+      "category": "religious",
+      "coordinates": [
+        22.5442,
+        88.3475
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/st_pauls_cathedral.webp",
+      "tags": [
+        "cathedral",
+        "gothic_revival",
+        "stained_glass",
+        "historic",
+        "peaceful"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "St. Paul's Cathedral",
+        "description": "Majestic Anglican cathedral completed in 1847 in Indo-Gothic revival style, known as the first Episcopal Church in the eastern world. Features magnificent stained-glass Florentine frescoes and delicate stone carvings.",
+        "best_time_to_visit": "Morning hours (09:00 AM to 12:00 PM) or during Christmas celebrations."
+      },
+      "hi": {
+        "name": "सेंट पॉल्स कैथेड्रल",
+        "description": "1847 में गोथिक रिवाइवल शैली में निर्मित पूर्वी जगत का पहला एपिस्कोपल कैथेड्रल। इसकी फ्लोरेन्टाइन रंगीन कांच की खिड़कियाँ, नक्काशीदार मेहराब और शांत परिवेश अद्वितीय हैं।",
+        "best_time_to_visit": "सुबह 09:00 से दोपहर 12:00 बजे तक अथवा क्रिसमस के पावन उत्सव के समय।"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/St_Pauls_aerial_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "birla_planetarium",
+      "category": "museum",
+      "coordinates": [
+        22.5458,
+        88.3478
+      ],
+      "timings": {
+        "open": "12:00",
+        "close": "18:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 100,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/birla_planetarium.webp",
+      "tags": [
+        "planetarium",
+        "astronomy",
+        "sanchi_stupa_architecture",
+        "sky_shows"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "MP Birla Planetarium",
+        "description": "Asia's oldest and second largest planetarium established in 1963, modeled after the Buddhist Stupa at Sanchi. Equipped with high-tech optomechanical Carl Zeiss projection systems delivering cosmic sky shows.",
+        "best_time_to_visit": "Catch afternoon shows in English, Hindi, or Bengali (advance online booking recommended)."
+      },
+      "hi": {
+        "name": "एम.पी. बिड़ला तारामंडल",
+        "description": "1963 में सांची स्तूप की स्थापत्य शैली पर निर्मित एशिया का सबसे पुराना और दूसरा सबसे बड़ा तारामंडल। यहाँ अत्याधुनिक जाइस प्रोजेक्टर द्वारा खगोल विज्ञान और अंतरिक्ष के लाइव शो दिखाए जाते हैं।",
+        "best_time_to_visit": "दोपहर या शाम के हिंदी/अंग्रेजी शो के समय (ऑनलाइन अग्रिम बुकिंग अनुशंसित)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/M.P.%20Birla%20Planetarium%2C%20Kolkata.jpg"
+    },
+    {
+      "id": "marble_palace",
+      "category": "monument",
+      "coordinates": [
+        22.5828,
+        88.3602
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "16:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/marble_palace.webp",
+      "tags": [
+        "palace",
+        "neoclassical",
+        "mansion",
+        "sculptures",
+        "rubens_paintings",
+        "private_zoo"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Marble Palace Mansion",
+        "description": "Opulent 1835 neoclassical mansion built by Raja Rajendra Mullick from 126 varieties of Italian marble. Houses priceless original paintings by Sir Peter Paul Rubens, antique Victorian clocks, and a private aviary.",
+        "best_time_to_visit": "11:00 AM to 02:30 PM (entry requires prior permission pass from West Bengal Tourism)."
+      },
+      "hi": {
+        "name": "मार्बल पैलेस (संगमरमर महल)",
+        "description": "1835 में राजा राजेंद्र मल्लिक द्वारा 126 प्रकार के इतालवी संगमरमर से निर्मित भव्य नवशास्त्रीय हवेली। यहाँ पीटर पॉल रूबेन्स की दुर्लभ मूल पेंटिंग्स, विक्टोरियन घड़ियाँ और एक निजी चिड़ियाघर है।",
+        "best_time_to_visit": "सुबह 11:00 से दोपहर 02:30 बजे तक (प्रवेश के लिए पर्यटन विभाग से पास लेना आवश्यक है)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Marble-palace.jpg"
+    },
+    {
+      "id": "jorasanko_thakur_bari",
+      "category": "heritage",
+      "coordinates": [
+        22.5855,
+        88.3592
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/jorasanko_thakur_bari.webp",
+      "tags": [
+        "rabindranath_tagore",
+        "ancestral_home",
+        "museum",
+        "bengal_renaissance",
+        "culture"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Jorasanko Thakur Bari (Tagore Memorial)",
+        "description": "Ancestral home of Nobel laureate Rabindranath Tagore, where he was born and breathed his last. Today transformed into the Rabindra Bharati Museum, showcasing the history of the Bengal Renaissance.",
+        "best_time_to_visit": "11:00 AM to 03:30 PM (closed on Mondays)."
+      },
+      "hi": {
+        "name": "जोरासांको ठाकुरबाड़ी (टैगोर मेमोरियल)",
+        "description": "नोबेल पुरस्कार विजेता गुरुदेव रवींद्रनाथ टैगोर का पैतृक निवास, जहाँ उनका जन्म हुआ और उन्होंने अंतिम सांस ली। अब यह रबींद्र भारती संग्रहालय के रूप में बंगाल पुनर्जागरण का साक्षी है।",
+        "best_time_to_visit": "सुबह 11:00 से दोपहर 03:30 बजे तक (सोमवार को बंद रहता है)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jorasanko%20Thakur%20Bari%20Complex%20-%20Kolkata%202015-08-11%202085-2091.tif"
+    },
+    {
+      "id": "belur_math",
+      "category": "religious",
+      "coordinates": [
+        22.6318,
+        88.3551
+      ],
+      "timings": {
+        "open": "06:30",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/belur_math.webp",
+      "tags": [
+        "swami_vivekananda",
+        "ramakrishna_math",
+        "universal_architecture",
+        "hooghly_river"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Belur Math (Ramakrishna Mission Headquarters)",
+        "description": "Global headquarters of the Ramakrishna Math and Mission founded by Swami Vivekananda. Its sublime architecture intentionally harmonizes Hindu, Christian, and Islamic motifs as a symbol of universal faith.",
+        "best_time_to_visit": "Evening Aarti (05:30 PM to 07:00 PM) for deep spiritual peace along the riverbank."
+      },
+      "hi": {
+        "name": "बेलूर मठ (रामकृष्ण मिशन मुख्यालय)",
+        "description": "स्वामी विवेकानंद द्वारा स्थापित रामकृष्ण मठ और मिशन का विश्व मुख्यालय। इसका मंदिर हिंदू, ईसाई और इस्लामी वास्तुकला के सामंजस्य से निर्मित है, जो सर्वधर्म समभाव का प्रतीक है।",
+        "best_time_to_visit": "शाम की महाआरती (05:30 PM - 07:00 PM) के समय हुगली नदी के शांत तट पर आत्मिक शांति के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Belur%20Math%20during%20sunset%2C%20Belur%2C%20Howrah%2C%20India.jpg"
+    },
+    {
+      "id": "birla_mandir_kolkata",
+      "category": "religious",
+      "coordinates": [
+        22.5286,
+        88.3664
+      ],
+      "timings": {
+        "open": "05:30",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/birla_mandir_kolkata.webp",
+      "tags": [
+        "krishna_radha",
+        "rajasthani_architecture",
+        "white_marble",
+        "ballygunge"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Birla Mandir (Radha Krishna Temple)",
+        "description": "Stunning temple constructed entirely of pristine Rajasthani white marble by the Birla industrial family over 26 years. Displays exquisite stone carvings of Hindu epics and Bhagavad Gita shlokas.",
+        "best_time_to_visit": "Evening hours (06:00 PM to 08:00 PM) when the glowing white marble is radiantly lit up."
+      },
+      "hi": {
+        "name": "बिड़ला मंदिर (राधा कृष्ण मंदिर)",
+        "description": "बिड़ला परिवार द्वारा 26 वर्षों की कड़ी मेहनत से सफेद राजस्थानी संगमरमर से तराशा गया भव्य मंदिर। इसकी दीवारों पर श्रीमद्भगवद्गीता के श्लोक और हिंदू पौराणिक कथाओं की सुंदर नक्काशी है।",
+        "best_time_to_visit": "शाम 06:00 से रात 08:00 बजे तक जब पूरा सफेद संगमरमर रोशनी से जगमगा उठता है।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Birla%20Radha%20Krishna%20Mandir%2C%20BITS%20Pilani%20Vasco%20Goa.jpg"
+    },
+    {
+      "id": "alipore_zoo",
+      "category": "park",
+      "coordinates": [
+        22.5369,
+        88.3328
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "16:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/alipore_zoo.webp",
+      "tags": [
+        "zoo",
+        "wildlife",
+        "royal_bengal_tiger",
+        "birds",
+        "oldest_zoo_india"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Alipore Zoological Gardens",
+        "description": "India's oldest formal zoological park inaugurated in 1876, home to royal Bengal tigers, one-horned rhinoceros, Asiatic lions, giant Aldabra tortoises, and thousands of winter migratory birds.",
+        "best_time_to_visit": "Morning (09:30 AM to 01:00 PM) between October and March."
+      },
+      "hi": {
+        "name": "अलीपुर प्राणी उद्यान (कोलकाता चिड़ियाघर)",
+        "description": "1876 में स्थापित भारत का सबसे पुराना औपचारिक चिड़ियाघर। यहाँ रॉयल बंगाल टाइगर, एक सींग वाले गैंडे, एशियाई शेर, विशालकाय कछुए और शीतकालीन प्रवासी पक्षी देखने को मिलते हैं।",
+        "best_time_to_visit": "अक्टूबर से मार्च के बीच सुबह 09:30 से दोपहर 01:00 बजे तक (गुरुवार को बंद)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Alipore%20Zoological%20Garden%20-%20Kolkata%202011-05-03%202548.JPG"
+    },
+    {
+      "id": "botanical_garden_kolkata",
+      "category": "park",
+      "coordinates": [
+        22.5583,
+        88.2917
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/botanical_garden_kolkata.webp",
+      "tags": [
+        "great_banyan_tree",
+        "botanical_garden",
+        "rare_plants",
+        "nature",
+        "shibpur"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "AJC Bose Indian Botanic Garden & Great Banyan Tree",
+        "description": "Sprawling 270-acre historic garden in Shibpur founded in 1787. World-famous for the 'Great Banyan Tree'—over 250 years old with a canopy perimeter exceeding 450 meters, resembling a miniature forest.",
+        "best_time_to_visit": "Morning hours (10:00 AM to 01:00 PM) for nature walks beneath the Great Banyan."
+      },
+      "hi": {
+        "name": "आचार्य जगदीश चंद्र बोस बॉटनिकल गार्डन (द ग्रेट बनियन ट्री)",
+        "description": "1787 में स्थापित 270 एकड़ का ऐतिहासिक वनस्पति उद्यान। यहाँ 250 वर्ष पुराना 'द ग्रेट बनियन ट्री' (विशाल बरगद का पेड़) स्थित है, जिसकी छतरी 450 मीटर से अधिक क्षेत्र में एक छोटे जंगल की तरह फैली है।",
+        "best_time_to_visit": "सुबह 10:00 से दोपहर 01:00 बजे तक विशाल बरगद के पेड़ के नीचे प्राकृतिक सैर के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Banyan%20Tree%20-%20AJC%20Bose%20Indian%20Botanic%20Garden%20-%20Howrah%202018-04-01%202283.JPG"
+    },
+    {
+      "id": "eco_park_new_town",
+      "category": "park",
+      "coordinates": [
+        22.6074,
+        88.4682
+      ],
+      "timings": {
+        "open": "12:00",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/eco_park_new_town.webp",
+      "tags": [
+        "eco_park",
+        "seven_wonders",
+        "lake",
+        "boating",
+        "urban_oasis",
+        "new_town"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Eco Tourism Park (Prakriti Tirtha)",
+        "description": "Enormous 480-acre modern ecological park in New Town with a vast central lake. Features full-scale replicas of the Seven Wonders of the World, butterfly garden, musical fountain, and kayaking.",
+        "best_time_to_visit": "Late afternoon (03:30 PM to 07:30 PM) for boating and exploring the Seven Wonders."
+      },
+      "hi": {
+        "name": "ईको टूरिज्म पार्क (प्रकृति तीर्थ, न्यू टाउन)",
+        "description": "न्यू टाउन में 480 एकड़ में फैला विशाल आधुनिक ईको पार्क। यहाँ दुनिया के सात अजूबों (Seven Wonders) की सजीव प्रतिकृतियां, बटरफ्लाई पार्क, म्यूजिकल फाउंटेन और कयाकिंग बोटिंग उपलब्ध है।",
+        "best_time_to_visit": "दोपहर बाद (03:30 PM - 07:30 PM) सात अजूबों के भ्रमण और बोटिंग के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Eco%20Park%20%2825%20February%202024%29.jpg"
+    },
+    {
+      "id": "college_street",
+      "category": "market",
+      "coordinates": [
+        22.5744,
+        88.3639
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/college_street.webp",
+      "tags": [
+        "boi_para",
+        "book_market",
+        "secondhand_books",
+        "indian_coffee_house",
+        "intellectual"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "College Street Boi Para & Indian Coffee House",
+        "description": "The world's largest second-hand book market stretching for over a mile. Lined with thousands of academic and literary book stalls, crowned by the historic Indian Coffee House—epicenter of Kolkata's intellectual debates.",
+        "best_time_to_visit": "02:00 PM to 07:00 PM for browsing rare books followed by hot coffee and mutton cutlets at Coffee House."
+      },
+      "hi": {
+        "name": "कॉलेज स्ट्रीट (बोई पाड़ा) व इंडियन कॉफी हाउस",
+        "description": "किताबों का दुनिया का सबसे बड़ा सेकंड-हैंड बाज़ार जो एक मील से अधिक लंबा है। यहाँ ऐतिहासिक 'इंडियन कॉफी हाउस' स्थित है, जो दशकों से कोलकाता के बुद्धिजीवियों की बहस का अड्डा रहा है।",
+        "best_time_to_visit": "दोपहर 02:00 से शाम 07:00 बजे तक दुर्लभ किताबें खोजने और कॉफी हाउस में कटलेट व कॉफी के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/College%20Street%20-%20Kolkata%202015-02-09%202200.JPG"
+    },
+    {
+      "id": "kumartuli",
+      "category": "heritage",
+      "coordinates": [
+        22.5997,
+        88.3619
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/kumartuli.webp",
+      "tags": [
+        "potters_colony",
+        "durga_puja_idols",
+        "clay_sculpture",
+        "artisans",
+        "tradition"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Kumartuli Potter's Colony",
+        "description": "Centuries-old artisanal settlement along the Hooghly River where skilled potters sculpt breathtaking clay idols of Goddess Durga and other deities using organic alluvial clay and straw.",
+        "best_time_to_visit": "August to October (leading up to Durga Puja) to witness thousands of idols taking artistic shape."
+      },
+      "hi": {
+        "name": "कुमारतुली मूर्तिकार बस्ती",
+        "description": "हुगली नदी के किनारे स्थित सदियों पुरानी मूर्तिकारों की बस्ती। यहाँ कुशल शिल्पी गंगा की पवित्र मिट्टी और पुआल से माँ दुर्गा और अन्य देवी-देवताओं की जीवंत प्रतिमाएं गढ़ते हैं।",
+        "best_time_to_visit": "अगस्त से अक्टूबर (दुर्गा पूजा से पहले) जब मूर्तियों को अंतिम रूप देने की कला देखी जा सकती है।"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Idol_of_Maa_Durga_at_Kumortuli.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "new_market_kolkata",
+      "category": "market",
+      "coordinates": [
+        22.5606,
+        88.3533
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/new_market_kolkata.webp",
+      "tags": [
+        "hogg_market",
+        "victorian_market",
+        "apparel",
+        "jewellery",
+        "confectionery",
+        "nahoums"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "New Market (Sir Stuart Hogg Market)",
+        "description": "Historical Victorian shopping arcade built in 1874 with a red-brick clock tower. Sells everything from fine silver, leather goods, and handloom sarees to Nahoum & Sons' legendary Jewish bakery treats.",
+        "best_time_to_visit": "02:00 PM to 07:30 PM on weekdays (must try plum cake at Nahoum's)."
+      },
+      "hi": {
+        "name": "न्यू मार्केट (सर स्टुअर्ट हॉग मार्केट)",
+        "description": "1874 में बना विक्टोरियन शैली का ऐतिहासिक शॉपिंग बाज़ार, जिसके ऊपर लाल ईंटों का क्लॉक टावर है। यहाँ पारंपरिक परिधानों से लेकर नहूम्‍स (Nahoum's) बेकरी का प्रसिद्ध प्लम केक मिलता है।",
+        "best_time_to_visit": "दोपहर 02:00 से शाम 07:30 बजे तक खरीदारी और नहूम्‍स के केक के स्वाद के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Stuart%20Hogg%20Market.jpeg"
+    },
+    {
+      "id": "maidan_kolkata",
+      "category": "park",
+      "coordinates": [
+        22.5539,
+        88.3444
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/maidan_kolkata.webp",
+      "tags": [
+        "brigade_parade_ground",
+        "lungs_of_kolkata",
+        "greenery",
+        "horse_carriages",
+        "cricket"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "The Maidan (Brigade Parade Ground)",
+        "description": "Vast open green urban expanse stretching from Raj Bhavan to Victoria Memorial, famously referred to as the 'Lungs of Kolkata'. A cultural hotspot for morning cricket, horse-riding, and leisurely strolls.",
+        "best_time_to_visit": "06:00 AM to 08:30 AM for morning jogs or late afternoon for carriage rides."
+      },
+      "hi": {
+        "name": "मैदान (ब्रिगेड परेड ग्राउंड)",
+        "description": "राजभवन से लेकर विक्टोरिया मेमोरियल तक फैला विशाल हरा-भरा मैदान, जिसे 'कोलकाता का फेफड़ा' कहा जाता है। यहाँ सुबह की सैर, स्थानीय क्रिकेट मैच और विक्टोरियन बग्घी की सवारी का आनंद लिया जाता है।",
+        "best_time_to_visit": "सुबह 06:00 से 08:30 बजे तक ताज़ी हवा या शाम को घोड़े की बग्घी की सैर के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Members%20of%20Kolkata%20mounted%20police%20riding%20across%20Maidan%20or%20Brigade%20Parade%20Ground.jpg"
+    },
+    {
+      "id": "park_street_heritage",
+      "category": "heritage",
+      "coordinates": [
+        22.5531,
+        88.3536
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "23:59",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/park_street_heritage.webp",
+      "tags": [
+        "culinary_strip",
+        "flurys",
+        "peter_cat",
+        "chelo_kebab",
+        "colonial",
+        "nightlife"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Park Street Heritage Dining Strip",
+        "description": "Kolkata's most legendary culinary and nightlife avenue, lined with heritage restaurants like Peter Cat (originator of Chelo Kebab), Mocambo, Moulin Rouge, and the iconic colonial tea room Flurys (est. 1927).",
+        "best_time_to_visit": "Lunch at Peter Cat or tea and pastries at Flurys; magically illuminated during Christmas."
+      },
+      "hi": {
+        "name": "पार्क स्ट्रीट हेरिटेज डाइनिंग लेन",
+        "description": "कोलकाता का सबसे प्रसिद्ध पाक व सांस्कृतिक मार्ग, जहाँ पीटर कैट (चेलो कबाब), मोकैम्बो, और 1927 का ऐतिहासिक टी-रूम 'फ्लूरीज़' स्थित हैं। क्रिसमस पर यह पूरी गली रोशनी से दुल्हन जैसी सजती है।",
+        "best_time_to_visit": "दोपहर के भोजन या शाम को फ्लूरीज़ की पेस्ट्री और पीटर कैट के चेलो कबाब के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/UNESCO%20World%20Heritage%20Monument%20at%20Sundarban%20National%20Park%2C%20West%20Bengal%2C%20India%2008.jpg"
+    },
+    {
+      "id": "rabindra_sarobar",
+      "category": "park",
+      "coordinates": [
+        22.5122,
+        88.3594
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "19:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/rabindra_sarobar.webp",
+      "tags": [
+        "dhakuria_lake",
+        "walking_track",
+        "rowing_clubs",
+        "migratory_birds",
+        "peaceful"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Rabindra Sarobar (Dhakuria Lake)",
+        "description": "Charming 73-acre man-made lake sanctuary surrounded by ancient rain trees, pedestrian tracks, and historic rowing clubs. A peaceful urban retreat popular among joggers and bird watchers.",
+        "best_time_to_visit": "06:00 AM to 09:00 AM for sunrise walking and fresh lake breeze."
+      },
+      "hi": {
+        "name": "रवींद्र सरोवर (ढाकुरिया झील)",
+        "description": "73 एकड़ में फैली शांत कृत्रिम झील, जिसके चारों ओर प्राचीन छायादार वृक्ष और वॉकिंग ट्रैक हैं। यह प्रवासी पक्षियों और स्थानीय रोइंग क्लबों की नौकायन गतिविधियों का मुख्य केंद्र है।",
+        "best_time_to_visit": "सुबह 06:00 से 09:00 बजे तक सूर्योदय की सैर और शांत वातावरण के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Black-hooded%20Oriole%20in%20Rabindra%20Sarobar%20January%202025%20by%20Tisha%20Mukherjee%2001.jpg"
+    },
+    {
+      "id": "fort_william",
+      "category": "monument",
+      "coordinates": [
+        22.5544,
+        88.3372
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/fort_william.webp",
+      "tags": [
+        "fortress",
+        "military_headquarters",
+        "colonial_history",
+        "octagonal",
+        "hooghly"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Fort William",
+        "description": "Colonial fortress constructed in 1781 on the eastern bank of Hooghly River, named after King William III. Built in an irregular octagonal shape covering 70.9 hectares, now serving as the Eastern Command Headquarters.",
+        "best_time_to_visit": "Daytime views from the Maidan promenade (internal entry requires military permission)."
+      },
+      "hi": {
+        "name": "फोर्ट विलियम",
+        "description": "हुगली नदी के तट पर 1781 में राजा विलियम तृतीय के नाम पर बना विशाल अष्टकोणीय किला। 70.9 हेक्टेयर में फैला यह सैन्य किला वर्तमान में भारतीय सेना की पूर्वी कमान का मुख्यालय है।",
+        "best_time_to_visit": "दिन के समय मैदान की ओर से इस ऐतिहासिक किले की भव्यता को निहारने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20walls%20of%20Fort%20William%20-%20geograph.org.uk%20-%20199998.jpg"
+    },
+    {
+      "id": "writers_building",
+      "category": "heritage",
+      "coordinates": [
+        22.5731,
+        88.3508
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/writers_building.webp",
+      "tags": [
+        "secretariat",
+        "red_brick",
+        "greco_roman",
+        "bbd_bagh",
+        "historic"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Writers' Building",
+        "description": "Iconic 1777 Greco-Roman red-brick administrative edifice spanning BBD Bagh. Served as the office for junior clerks ('writers') of the East India Company and later the seat of West Bengal Government.",
+        "best_time_to_visit": "Daytime for heritage photography of BBD Bagh architectural square."
+      },
+      "hi": {
+        "name": "राइटर्स बिल्डिंग (बीबीडी बाग)",
+        "description": "1777 में ग्रीको-रोमन शैली में निर्मित लाल ईंटों की ऐतिहासिक इमारत। मूल रूप से ईस्ट इंडिया कंपनी के क्लर्कों (राइटर्स) के लिए बनी यह इमारत लंबे समय तक पश्चिम बंगाल सरकार का सचिवालय रही।",
+        "best_time_to_visit": "दिन के समय बीबीडी बाग की ऐतिहासिक वास्तुकला की फोटोग्राफी के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Writer%27s%20Building%20%2814837248184%29.jpg"
+    },
+    {
+      "id": "raj_bhavan_kolkata",
+      "category": "monument",
+      "coordinates": [
+        22.5667,
+        88.3494
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/raj_bhavan_kolkata.webp",
+      "tags": [
+        "governors_palace",
+        "government_house",
+        "georgian_architecture",
+        "kedleston_hall"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Raj Bhavan (Governor's House)",
+        "description": "Historic Georgian neoclassical palace modeled on Lord Scarsdale's Kedleston Hall in Derbyshire, built in 1803 by Lord Wellesley. Served as the residence of the Viceroy of India until 1912.",
+        "best_time_to_visit": "Daytime views from the grand surrounding gates of BBD Bagh."
+      },
+      "hi": {
+        "name": "राजभवन (गवर्नर हाउस)",
+        "description": "1803 में लॉर्ड वेलेस्ली द्वारा इंग्लैंड के केडलस्टन हॉल की तर्ज पर निर्मित भव्य नवशास्त्रीय महल। 1912 तक यह भारत के वायसराय का आधिकारिक निवास रहा, अब राज्यपाल का निवास है।",
+        "best_time_to_visit": "दिन के समय बीबीडी बाग के मुख्य द्वारों से इस राजसी महल के बाहरी दर्शन के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Entrance%20of%20Raj%20Bhavan%2C%20Pune.jpg"
+    },
+    {
+      "id": "shaheed_minar",
+      "category": "monument",
+      "coordinates": [
+        22.5647,
+        88.3517
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/shaheed_minar.webp",
+      "tags": [
+        "monument",
+        "ochterlony",
+        "egyptian_style",
+        "syrian_dome",
+        "esplanade"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Shaheed Minar (Ochterlony Monument)",
+        "description": "48-meter-high monument erected in 1828 in honour of Major-General Sir David Ochterlony, renamed Shaheed Minar in 1969 to honor freedom fighters. Features an Egyptian base, Syrian column, and Turkish dome.",
+        "best_time_to_visit": "Evening hours when the monument and surrounding Esplanade area are brightly illuminated."
+      },
+      "hi": {
+        "name": "शहीद मीनार (ऑक्टरलोनी स्मारक)",
+        "description": "1828 में निर्मित 48 मीटर ऊँची ऐतिहासिक मीनार, जिसका आधार मिस्र शैली, खंभा सीरियाई और गुंबद तुर्की शैली में बना है। 1969 में इसे भारतीय स्वतंत्रता सेनानियों के सम्मान में शहीद मीनार नाम दिया गया।",
+        "best_time_to_visit": "शाम के समय जब मीनार और एस्प्लेनेड क्षेत्र रंग-बिरंगी रोशनी से नहा उठता है।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rajshahi%20University%20Shaheed%20Minar%2C%20Rajshahi.jpg"
+    },
+    {
+      "id": "national_library",
+      "category": "heritage",
+      "coordinates": [
+        22.5336,
+        88.3333
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/national_library.webp",
+      "tags": [
+        "library",
+        "belvedere_estate",
+        "largest_library_india",
+        "rare_manuscripts",
+        "books"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "National Library of India",
+        "description": "The largest library in India by volume and public record, housed on the 30-acre Belvedere Estate—former residence of the Lieutenant-Governor of Bengal. Holds over 2.2 million books and rare historical manuscripts.",
+        "best_time_to_visit": "10:00 AM to 05:00 PM for research, quiet reading, and walking the historic grounds."
+      },
+      "hi": {
+        "name": "राष्ट्रीय पुस्तकालय (नेशनल लाइब्रेरी ऑफ इंडिया)",
+        "description": "30 एकड़ के बेलवेडियर एस्टेट में स्थित भारत का सबसे बड़ा सार्वजनिक पुस्तकालय। यहाँ 22 लाख से अधिक पुस्तकें, दुर्लभ पांडुलिपियाँ और ऐतिहासिक दस्तावेज़ सुरक्षित हैं।",
+        "best_time_to_visit": "सुबह 10:00 से शाम 05:00 बजे तक अध्ययन और ऐतिहासिक परिसर के भ्रमण के लिए।"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/La_salle_ovale_du_site_Richelieu%2C_Biblioth%C3%A8que_nationale_de_France%2C_Paris_2022.jpg/3840px-La_salle_ovale_du_site_Richelieu%2C_Biblioth%C3%A8que_nationale_de_France%2C_Paris_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "town_hall_kolkata",
+      "category": "heritage",
+      "coordinates": [
+        22.5678,
+        88.3458
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/town_hall_kolkata.webp",
+      "tags": [
+        "doric_architecture",
+        "heritage_hall",
+        "kolkata_panorama_museum",
+        "colonial"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Kolkata Town Hall",
+        "description": "Imposing Roman-Doric heritage landmark constructed in 1813 to host public meetings and grand colonial balls. Today houses the multimedia Kolkata Panorama Museum celebrating the city's socio-cultural history.",
+        "best_time_to_visit": "11:30 AM to 04:00 PM to explore the museum galleries."
+      },
+      "hi": {
+        "name": "कोलकाता टाउन हॉल",
+        "description": "1813 में रोमन-डोरिक शैली में निर्मित भव्य औपनिवेशिक इमारत। यहाँ पूर्व में ऐतिहासिक सभाएं और बॉल्स आयोजित होते थे; वर्तमान में इसमें कोलकाता पैनोरमा म्यूजियम स्थित है।",
+        "best_time_to_visit": "सुबह 11:30 से दोपहर 04:00 बजे तक कोलकाता के सामाजिक इतिहास की दीर्घाओं के दर्शन के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Town%20Hall%20-%20Kolkata%202011-12-18%200337.JPG"
+    },
+    {
+      "id": "general_post_office",
+      "category": "heritage",
+      "coordinates": [
+        22.5728,
+        88.3486
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/general_post_office.webp",
+      "tags": [
+        "gpo",
+        "corinthian_columns",
+        "clock_tower",
+        "philately_museum",
+        "black_hole_site"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "General Post Office (GPO)",
+        "description": "Iconic postal headquarters constructed in 1868 featuring an imposing dome, Corinthian columns, and a historic clock. Located on the site of the original 1756 Fort William Black Hole incident.",
+        "best_time_to_visit": "10:00 AM to 04:00 PM for philatelic museum exhibits and grand architecture."
+      },
+      "hi": {
+        "name": "जनरल पोस्ट ऑफिस (GPO कोलकाता)",
+        "description": "1868 में कोरिंथियन खंभों और विशालकाय गुंबद के साथ बनी कोलकाता की मुख्य डाक इमारत। यह 1756 की ऐतिहासिक 'ब्लैक होल' घटना के मूल स्थल पर स्थित है और इसमें डाक टिकट संग्रहालय भी है।",
+        "best_time_to_visit": "सुबह 10:00 से शाम 04:00 बजे तक वास्तुकला और डाक टिकट संग्रहालय के दर्शन के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Melbourne%20Old%20Post%20Office%20%28Shopping%20Mall%20Interior%29.jpg"
+    },
+    {
+      "id": "millennium_park",
+      "category": "park",
+      "coordinates": [
+        22.5756,
+        88.3442
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 10,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/millennium_park.webp",
+      "tags": [
+        "riverfront_park",
+        "hooghly_river",
+        "landscaped_gardens",
+        "boat_cruises",
+        "sunset"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Millennium Park & Hooghly Promenade",
+        "description": "Landscaped riverfront park stretching along Strand Road for 2.5 km. Offers manicured lawns, open-air food courts, and boarding docks for evening river cruise ferries on the Ganges.",
+        "best_time_to_visit": "04:30 PM to 07:30 PM for sunset river views and scenic boat cruises."
+      },
+      "hi": {
+        "name": "मिलेनियम पार्क (हुगली रिवरफ्रंट)",
+        "description": "स्ट्रैंड रोड के किनारे हुगली नदी के तट पर 2.5 किमी लंबा सुंदर पार्क। यहाँ सुसज्जित लॉन, ओपन-एयर फूड कियोस्क और गंगा में शाम की क्रूज नौकाओं की बोर्डिंग जेटी स्थित है।",
+        "best_time_to_visit": "शाम 04:30 से 07:30 बजे तक सूर्यास्त देखने और रिवर क्रूज की सवारी के लिए।"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Millennium_Square%2C_Chicago%2C_Illinois_%289181701264%29.jpg/3840px-Millennium_Square%2C_Chicago%2C_Illinois_%289181701264%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "subhash_sarobar",
+      "category": "park",
+      "coordinates": [
+        22.5683,
+        88.4014
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "19:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/subhash_sarobar.webp",
+      "tags": [
+        "lake",
+        "beliaghata",
+        "walking_path",
+        "greenery",
+        "serene_nature"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Subhash Sarobar Lake",
+        "description": "Picturesque 40-acre man-made freshwater lake in Beliaghata, named in honor of Netaji Subhas Chandra Bose. Surrounded by forested walking pathways and popular for angling and tranquil recreation.",
+        "best_time_to_visit": "06:30 AM to 09:30 AM for peaceful morning lakeside exercise."
+      },
+      "hi": {
+        "name": "सुभाष सरोवर (बेलियाघाटा लेक)",
+        "description": "नेताजी सुभाष चंद्र बोस के सम्मान में नामित बेलियाघाटा की 40 एकड़ की शांत मीठे पानी की झील। चारों ओर घने पेड़ों से घिरा यह पार्क स्थानीय लोगों का पसंदीदा वॉक और जॉगिंग स्थल है।",
+        "best_time_to_visit": "सुबह 06:30 से 09:30 बजे तक ताज़ी ठंडी हवा और शांत वातावरण के लिए।"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "central_park_salt_lake",
+      "category": "park",
+      "coordinates": [
+        22.5886,
+        88.4194
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/central_park_salt_lake.webp",
+      "tags": [
+        "banabitan",
+        "salt_lake",
+        "butterfly_garden",
+        "boating_lake",
+        "jogging"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Central Park (Banabitan), Salt Lake",
+        "description": "Second largest open green lung in Kolkata Metropolitan Area after the Maidan. Features a sprawling boating lake, rich rose garden, butterfly park, and lush shaded avenues.",
+        "best_time_to_visit": "07:00 AM to 10:00 AM or late afternoon for pedal boating and nature photography."
+      },
+      "hi": {
+        "name": "सेंट्रल पार्क (बनाबितान, साल्ट लेक)",
+        "description": "मैदान के बाद कोलकाता का दूसरा सबसे बड़ा हरा-भरा पार्क। यहाँ सुंदर झील, पैडल बोटिंग, गुलाब का बगीचा, तितली पार्क और घने छायादार वृक्ष स्थित हैं।",
+        "best_time_to_visit": "सुबह 07:00 से 10:00 बजे या शाम को पैडल बोटिंग और फोटोग्राफी के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Banabitan%20Northern%20Entrance%20-%20Salt%20Lake%20City%20-%20Kolkata%202016-05-24%202875.JPG"
+    },
+    {
+      "id": "bitm_museum",
+      "category": "museum",
+      "coordinates": [
+        22.5322,
+        88.3614
+      ],
+      "timings": {
+        "open": "09:30",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/bitm_museum.webp",
+      "tags": [
+        "bitm",
+        "mock_coal_mine",
+        "science_galleries",
+        "electricity",
+        "interactive"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Birla Industrial & Technological Museum (BITM)",
+        "description": "First science museum in independent India established in 1959. Famous for its authentic underground mock coal mine exhibit, television galleries, biotechnology displays, and 3D science theater.",
+        "best_time_to_visit": "10:30 AM to 03:00 PM, highly engaging for school students and inquisitive young minds."
+      },
+      "hi": {
+        "name": "बिड़ला औद्योगिक एवं तकनीकी संग्रहालय (BITM)",
+        "description": "1959 में स्थापित स्वतंत्र भारत का पहला विज्ञान संग्रहालय। इसकी कृत्रिम भूमिगत कोयला खदान (Mock Coal Mine), बिजली व रोबोटिक्स गैलरी और 3D साइंस शो अत्यंत लोकप्रिय हैं।",
+        "best_time_to_visit": "सुबह 10:30 से दोपहर 03:00 बजे तक; स्कूली छात्रों और जिज्ञासु बच्चों के लिए श्रेष्ठ।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Birla%20Industrial%20%26%20Technological%20Museum%20-%20Mathematics%20Gallery%20-%20Kolkata%202011-03-03%201860.JPG"
+    },
+    {
+      "id": "academy_of_fine_arts",
+      "category": "museum",
+      "coordinates": [
+        22.5436,
+        88.3453
+      ],
+      "timings": {
+        "open": "12:00",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/academy_of_fine_arts.webp",
+      "tags": [
+        "art_gallery",
+        "theatre",
+        "bengal_school_of_art",
+        "contemporary_exhibits"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Academy of Fine Arts",
+        "description": "Premier hub of visual and theatrical arts in Kolkata established in 1933 by Lady Ranu Mukherjee. Features multiple exhibition galleries showing contemporary Indian masters and a celebrated auditorium for Bengali theater.",
+        "best_time_to_visit": "03:00 PM to 07:30 PM to view art exhibits or attend an evening theater play."
+      },
+      "hi": {
+        "name": "एकेडमी ऑफ फाइन आर्ट्स",
+        "description": "1933 में लेडी रानू मुखर्जी द्वारा स्थापित कोलकाता का प्रमुख ललित कला और रंगमंच केंद्र। यहाँ भारतीय आधुनिक चित्रकारों की स्थायी दीर्घाएँ और प्रसिद्ध बंगाली नाटक प्रस्तुत होते हैं।",
+        "best_time_to_visit": "दोपहर 03:00 से शाम 07:30 बजे तक कला प्रदर्शनियाँ देखने या शाम का नाटक देखने के लिए।"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Bashkirtseff_-_In_the_Studio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "nandan_cultural_centre",
+      "category": "entertainment",
+      "coordinates": [
+        22.5428,
+        88.3456
+      ],
+      "timings": {
+        "open": "13:00",
+        "close": "21:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/nandan_cultural_centre.webp",
+      "tags": [
+        "cinema",
+        "satyajit_ray",
+        "film_centre",
+        "screenings",
+        "cultural_hub"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Nandan Film & Cultural Centre",
+        "description": "Iconic cinema complex inaugurated in 1985 by maestro Satyajit Ray, whose hand-drawn logo crowns the building. The undisputed focal point of Bengali parallel cinema and the Kolkata International Film Festival.",
+        "best_time_to_visit": "Evening film screenings and informal cultural discussions at the open-air courtyard."
+      },
+      "hi": {
+        "name": "नंदन फिल्म एवं सांस्कृतिक केंद्र",
+        "description": "1985 में महान फिल्मकार सत्यजीत रे द्वारा उद्घाटित प्रतिष्ठित सिनेमा कॉम्प्लेक्स, जिनका हस्तनिर्मित लोगो इमारत पर सुशोभित है। यह कोलकाता इंटरनेशनल फिल्म फेस्टिवल का मुख्य केंद्र है।",
+        "best_time_to_visit": "शाम के फिल्म शो के समय और खुले प्रांगण में सांस्कृतिक चर्चाओं के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nandan%20-%20Kolkata%202011-01-09%200153.JPG"
+    },
+    {
+      "id": "netaji_bhawan",
+      "category": "museum",
+      "coordinates": [
+        22.5367,
+        88.3475
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "16:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/netaji_bhawan.webp",
+      "tags": [
+        "subhas_chandra_bose",
+        "ancestral_house",
+        "great_escape_car",
+        "museum",
+        "freedom_struggle"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Netaji Bhawan (Subhas Chandra Bose Memorial)",
+        "description": "Ancestral residence of Netaji Subhas Chandra Bose built in 1909. Preserves Netaji's study room, original bedroom, documents, and the historic 1937 Wanderer car used in his daring 'Great Escape' in 1941.",
+        "best_time_to_visit": "11:00 AM to 03:30 PM (closed on Mondays)."
+      },
+      "hi": {
+        "name": "नेताजी भवन (सुभाष चंद्र बोस स्मारक)",
+        "description": "नेताजी सुभाष चंद्र बोस का 1909 में बना पैतृक निवास। यहाँ उनका अध्ययन कक्ष, मूल शयनकक्ष और 1941 के ऐतिहासिक 'महा-निष्क्रमण' (Great Escape) में प्रयुक्त वांडरर कार संरक्षित है।",
+        "best_time_to_visit": "सुबह 11:00 से दोपहर 03:30 बजे तक (सोमवार को बंद रहता है)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20President%2C%20Shri%20Ram%20Nath%20Kovind%20visiting%20the%20Netaji%20Bhawan%20%28Netaji%20Research%20Bureau%29%20at%20Netaji%20Bhawan%2C%20in%20Kolkata%2C%20West%20Bengal%20on%20November%2029%2C%202017.jpg"
+    },
+    {
+      "id": "pareshnath_jain_temple",
+      "category": "religious",
+      "coordinates": [
+        22.5978,
+        88.3817
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "19:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/pareshnath_jain_temple.webp",
+      "tags": [
+        "jain_temple",
+        "shitalnath_ji",
+        "glass_mosaics",
+        "ornamental_garden",
+        "mirrors"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Pareshnath Jain Temple (Shitalnath Ji)",
+        "description": "Dazzling 19th-century temple complex built by Ray Badridas Bahadur. Celebrated for ornate European mirror-mosaics, Italian marble floors, stained-glass domes, and sculpted manicured flower gardens.",
+        "best_time_to_visit": "Morning hours (07:00 AM to 11:30 AM) to admire the radiant mirror and glass artwork."
+      },
+      "hi": {
+        "name": "पारसनाथ जैन मंदिर (शीतलनाथ जी)",
+        "description": "1867 में राय बद्रीदास बहादुर द्वारा निर्मित विख्यात श्वेतांबर जैन मंदिर। यह यूरोपीय रंगीन कांच, शीशों की पच्चीकारी, इतालवी संगमरमर और सुंदर बगीचों के लिए जाना जाता है।",
+        "best_time_to_visit": "सुबह 07:00 से 11:30 बजे तक शीशे और कांच की अद्भुत कलाकारी के दर्शन के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pareshnath%20Jain%20Temple%20Under%20the%20Glistening%20Sky.jpg"
+    },
+    {
+      "id": "nakhoda_mosque",
+      "category": "religious",
+      "coordinates": [
+        22.5806,
+        88.3583
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/nakhoda_mosque.webp",
+      "tags": [
+        "grand_mosque",
+        "saracenic_architecture",
+        "chitpur",
+        "red_sandstone",
+        "prayer"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Nakhoda Mosque",
+        "description": "Principal mosque of Kolkata built in 1926 in Indo-Saracenic style using red sandstone from Agra, modeled after Akbar's tomb in Sikandra. Its prayer hall accommodates over 10,000 devotees.",
+        "best_time_to_visit": "Daytime outside prayer hours or during the evening food festival during Ramadan."
+      },
+      "hi": {
+        "name": "नखोदा मस्जिद (चितपुर)",
+        "description": "1926 में सिकंदरा स्थित अकबर के मकबरे की तर्ज पर लाल बलुआ पत्थर से निर्मित कोलकाता की मुख्य जामा मस्जिद। इसके विशाल प्रार्थना हॉल में एक साथ 10,000 श्रद्धालु नमाज़ पढ़ सकते हैं।",
+        "best_time_to_visit": "दिन के समय नमाज़ के समय के अतिरिक्त अथवा रमज़ान के दौरान शाम के फूड फेस्टिवल में।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nakhoda%20Masjid%20%2815%29.jpg"
+    },
+    {
+      "id": "st_johns_church",
+      "category": "heritage",
+      "coordinates": [
+        22.5694,
+        88.3481
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/st_johns_church.webp",
+      "tags": [
+        "anglican_church",
+        "stone_church",
+        "job_charnock_mausoleum",
+        "last_supper_painting",
+        "1787"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "St. John's Church & Charnock Mausoleum",
+        "description": "One of Kolkata's earliest public buildings constructed in 1787 out of Chunar stone. Contains the octagonal mausoleum of Kolkata's traditional founder Job Charnock and Johann Zoffany's famous Last Supper painting.",
+        "best_time_to_visit": "Morning hours (09:00 AM to 12:30 PM) for serene colonial heritage exploration."
+      },
+      "hi": {
+        "name": "सेंट जॉन्स चर्च व जॉब चार्नॉक समाधि",
+        "description": "चुनार के पत्थरों से 1787 में निर्मित कोलकाता की सबसे पुरानी पत्थर की चर्च। इसके परिसर में कोलकाता के संस्थापक जॉब चार्नॉक का अष्टकोणीय मकबरा और 'द लास्ट सपर' की मूल पेंटिंग है।",
+        "best_time_to_visit": "सुबह 09:00 से दोपहर 12:30 बजे तक शांत ऐतिहासिक धरोहर के दर्शन के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Job%20Charnock%20mausoleum%20-%20Wikimedia%20Photowalk%20Kolkata%2020111218%20IMG%204567.jpg"
+    },
+    {
+      "id": "metcalfe_hall",
+      "category": "heritage",
+      "coordinates": [
+        22.5722,
+        88.3453
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/metcalfe_hall.webp",
+      "tags": [
+        "greek_corinthian",
+        "temple_of_winds",
+        "colonial_heritage",
+        "exhibition"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Metcalfe Hall",
+        "description": "Classical heritage building erected in 1844 inspired by the Temple of the Winds in Athens, featuring 30 gigantic Corinthian pillars. Now restored by ASI as a permanent museum showcasing Kolkata's living history.",
+        "best_time_to_visit": "11:00 AM to 04:00 PM for viewing historical photo archives and architecture."
+      },
+      "hi": {
+        "name": "मेटकाफ हॉल",
+        "description": "एथेंस के 'विंड्स ऑफ टेम्पल' से प्रेरित होकर 1844 में 30 विशाल कोरिंथियन खंभों के साथ निर्मित ऐतिहासिक इमारत। अब एएसआई द्वारा इसे कोलकाता के जीवंत इतिहास संग्रहालय में बदल दिया गया है।",
+        "best_time_to_visit": "सुबह 11:00 से शाम 04:00 बजे तक ऐतिहासिक फोटो प्रदर्शनी देखने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Metcalfe%20Hall%201%2C%20Kolkata.jpg"
+    },
+    {
+      "id": "currency_building",
+      "category": "heritage",
+      "coordinates": [
+        22.5708,
+        88.3506
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/currency_building.webp",
+      "tags": [
+        "italianate_building",
+        "asi_monument",
+        "ghat_of_coins",
+        "skylight_atrium",
+        "exhibitions"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "The Currency Building",
+        "description": "Majestic Italianate three-storey heritage building built in 1833 that once housed the Reserve Bank of India and issue of currency notes. Restored by the ASI with an awe-inspiring skylit central atrium.",
+        "best_time_to_visit": "10:30 AM to 04:30 PM for curated national art and sculpture exhibitions."
+      },
+      "hi": {
+        "name": "द करेंसी बिल्डिंग (बीबीडी बाग)",
+        "description": "1833 में इतालवी शैली में बनी तीन मंजिला भव्य इमारत, जहाँ भारतीय रिजर्व बैंक का दफ्तर और करेंसी नोट जारी होते थे। इसके केंद्रीय आलिंद (Skylit Atrium) में अब राष्ट्रीय कला प्रदर्शनियां लगती हैं।",
+        "best_time_to_visit": "सुबह 10:30 से शाम 04:30 बजे तक राष्ट्रीय कला और मूर्ति प्रदर्शनियों के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Currency%20Building%202%2C%20Kolkata.jpg"
+    },
+    {
+      "id": "mothers_wax_museum",
+      "category": "entertainment",
+      "coordinates": [
+        22.6033,
+        88.4689
+      ],
+      "timings": {
+        "open": "12:00",
+        "close": "19:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 250,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/mothers_wax_museum.webp",
+      "tags": [
+        "wax_museum",
+        "celebrity_figures",
+        "madame_tussauds_style",
+        "new_town"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Mother's Wax Museum",
+        "description": "India's first full-scale wax museum located opposite Eco Park in New Town, showcasing over 50 lifelike wax statues of iconic personalities including Rabindranath Tagore, Amitabh Bachchan, and Mahatma Gandhi.",
+        "best_time_to_visit": "Afternoon to evening session combined with a visit to neighboring Eco Park."
+      },
+      "hi": {
+        "name": "मदर्स वैक्स म्यूजियम (न्यू टाउन)",
+        "description": "ईको पार्क के सामने स्थित भारत का प्रसिद्ध मोम का संग्रहालय। यहाँ रवींद्रनाथ टैगोर, अमिताभ बच्चन, सचिन तेंदुलकर और महात्मा गांधी सहित 50 से अधिक हस्तियों के सजीव मोम के पुतले हैं।",
+        "best_time_to_visit": "दोपहर से शाम के सत्र में ईको पार्क के साथ संयुक्त भ्रमण के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mother%27s%20Wax%20Museum%2C%20New%20Town.jpg"
+    },
+    {
+      "id": "smaranika_tram_museum",
+      "category": "museum",
+      "coordinates": [
+        22.5628,
+        88.3508
+      ],
+      "timings": {
+        "open": "13:00",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 10,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/smaranika_tram_museum.webp",
+      "tags": [
+        "tram_museum",
+        "vintage_wooden_tram",
+        "tram_tokens",
+        "heritage_cafe",
+        "esplanade"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Smaranika Tram Museum",
+        "description": "Charming vintage tramcar museum set inside a restored 1938 wooden tram stationed at the Esplanade loop. Displays antique tram tickets, conductor badges, equipment, and a cozy retro cafe.",
+        "best_time_to_visit": "02:00 PM to 06:30 PM for vintage tram nostalgia and afternoon tea."
+      },
+      "hi": {
+        "name": "स्मरणिका ट्राम संग्रहालय (एस्प्लेनेड)",
+        "description": "1938 की विंटेज लकड़ी की ट्राम कार के भीतर स्थापित अनूठा संग्रहालय। यहाँ पुराने ट्राम टिकट, कंडक्टर के बैज, ऐतिहासिक तस्वीरें और एक आरामदायक विंटेज कैफे स्थित है।",
+        "best_time_to_visit": "दोपहर 02:00 से शाम 06:30 बजे तक विंटेज ट्राम के इतिहास और चाय का लुत्फ़ लेने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kolkata%2022%2C%20Smaranika%20%28memorablia%29%20-%20a%20mobile%20museum%20tram%20%2824726477131%29.jpg"
+    },
+    {
+      "id": "burrabazar",
+      "category": "market",
+      "coordinates": [
+        22.5847,
+        88.3556
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/burrabazar.webp",
+      "tags": [
+        "wholesale_bazaar",
+        "textiles",
+        "spices",
+        "dry_fruits",
+        "historical_trading_post"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Burrabazar Wholesale Trading Bazaar",
+        "description": "Kolkata's most historic and expansive commercial wholesale market, originating as a village textile mart in the 17th century. A bustling labyrinth of narrow lanes brimming with fabrics, spices, and festival decorations.",
+        "best_time_to_visit": "11:00 AM to 05:00 PM for wholesale shopping and authentic north Indian street savories."
+      },
+      "hi": {
+        "name": "बड़ाबाज़ार (थोक व्यापारिक बाज़ार)",
+        "description": "कोलकाता का सबसे बड़ा और ऐतिहासिक थोक बाज़ार, जो 17वीं सदी से कपड़ा और मसालों का प्रमुख केंद्र रहा है। यहाँ की तंग गलियों में साड़ियाँ, सूखे मेवे और पारंपरिक वस्तुएँ थोक भाव में मिलती हैं।",
+        "best_time_to_visit": "सुबह 11:00 से शाम 05:00 बजे तक थोक खरीदारी और प्रामाणिक उत्तर भारतीय स्ट्रीट फूड के लिए।"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/A_view_of_Burrabazar_and_Mahatma_Gandhi_Road.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "gariahat_market",
+      "category": "market",
+      "coordinates": [
+        22.5192,
+        88.3683
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "21:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/gariahat_market.webp",
+      "tags": [
+        "bengali_sarees",
+        "handicrafts",
+        "street_shopping",
+        "street_food",
+        "kathi_rolls"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Gariahat Traditional Market",
+        "description": "South Kolkata's most vibrant commercial epicenter, renowned across Bengal for traditional handloom Jamdani and Baluchari sarees, pottery, oxidized jewelry, and legendary kathi rolls and telebhaja.",
+        "best_time_to_visit": "04:00 PM to 08:30 PM for lively street bargains and mouth-watering street delicacies."
+      },
+      "hi": {
+        "name": "गरियाहाट पारंपरिक बाज़ार",
+        "description": "दक्षिण कोलकाता का सबसे प्रसिद्ध रिटेल मार्केट, जो जामदानी व बालूचरी साड़ियों, पीतल-मिट्टी की सजावटी वस्तुओं, और विश्वप्रसिद्ध काठी रोल्स व टेलीभाजा के लिए लोकप्रिय है।",
+        "best_time_to_visit": "शाम 04:00 से रात 08:30 बजे तक स्ट्रीट शॉपिंग और स्वादिष्ट स्ट्रीट फूड के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gariahat%20Market%20-%20Kolkata%202011-09-18%2000589.jpg"
+    },
+    {
+      "id": "hatibagan_market",
+      "category": "market",
+      "coordinates": [
+        22.5986,
+        88.3711
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "21:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/hatibagan_market.webp",
+      "tags": [
+        "traditional_market",
+        "cotton_sarees",
+        "star_theatre",
+        "heritage_north_kolkata"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Hatibagan Market & Star Theatre",
+        "description": "Historic north Kolkata market area famous for traditional cotton sarees, silk apparel, and the iconic Star Theatre (est. 1883), which hosted the pioneering performances of Bengali drama maestro Girish Chandra Ghosh.",
+        "best_time_to_visit": "Afternoon to evening for traditional Bengali attire shopping."
+      },
+      "hi": {
+        "name": "हाथीबागान बाज़ार व स्टार थिएटर",
+        "description": "उत्तरी कोलकाता का ऐतिहासिक बाज़ार जो पारंपरिक सूती व रेशमी साड़ियों तथा 1883 के ऐतिहासिक 'स्टार थिएटर' के लिए प्रसिद्ध है, जहाँ गिरीश चंद्र घोष के बंगाली नाटकों का मंचन होता था।",
+        "best_time_to_visit": "दोपहर से शाम के समय पारंपरिक बंगाली परिधानों की खरीदारी के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Hatibagan%20market%20during%20lockdown%2002.jpg"
+    },
+    {
+      "id": "south_city_mall",
+      "category": "entertainment",
+      "coordinates": [
+        22.4989,
+        88.3619
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/south_city_mall.webp",
+      "tags": [
+        "shopping_mall",
+        "imax",
+        "food_court",
+        "retail",
+        "south_kolkata"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "South City Mall",
+        "description": "One of East India's largest and most frequented premier shopping complexes, housing global high-street brands, multi-cuisine restaurants, a sprawling multiplex, and lively weekend events.",
+        "best_time_to_visit": "Afternoon to late evening for relaxed shopping, cinema, and fine dining."
+      },
+      "hi": {
+        "name": "साउथ सिटी मॉल (प्रिंस अनवर शाह रोड)",
+        "description": "पूर्वी भारत के सबसे बड़े और लोकप्रिय शॉपिंग मॉल्स में से एक। यहाँ प्रमुख अंतरराष्ट्रीय फैशन ब्रांड्स, विशाल आईमैक्स मल्टीप्लेक्स और स्वादिष्ट व्यंजनों का फूड कोर्ट स्थित है।",
+        "best_time_to_visit": "दोपहर से देर शाम तक आरामदायक खरीदारी, सिनेमा और डाइनिंग के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/SC%20Mall%20%282%29.JPG"
+    },
+    {
+      "id": "city_centre_salt_lake",
+      "category": "entertainment",
+      "coordinates": [
+        22.5889,
+        88.4089
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "22:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/city_centre_salt_lake.webp",
+      "tags": [
+        "charles_correa_architecture",
+        "open_mall",
+        "kund_plaza",
+        "dining",
+        "salt_lake"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "City Centre 1 Mall, Salt Lake",
+        "description": "Award-winning non-mall architectural destination conceived by renowned architect Charles Correa. Features open-to-sky pedestrian plazas, a central amphitheater (Kund), and an energetic mix of street food and brand outlets.",
+        "best_time_to_visit": "Evening hours (05:00 PM to 09:30 PM) for the vibrant open-air plaza ambiance."
+      },
+      "hi": {
+        "name": "सिटी सेंटर 1 (साल्ट लेक)",
+        "description": "विख्यात वास्तुकार चार्ल्स कोरिया द्वारा डिजाइन किया गया ओपन-मॉल। इसका खुला एम्फीथिएटर (कुंड), चौड़े पैदल मार्ग, स्ट्रीट कैफे और ब्रांडेड शोरूम्स युवाओं का पसंदीदा हैं।",
+        "best_time_to_visit": "शाम 05:00 से रात 09:30 बजे तक खुले प्रांगण की जीवंत शाम का आनंद लेने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/City%20Centre%20Mall%20-%20Salt%20Lake%20City%20-%20Kolkata%202012-11-14%201900.JPG"
+    },
+    {
+      "id": "armenian_church",
+      "category": "heritage",
+      "coordinates": [
+        22.5786,
+        88.3517
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "16:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/armenian_church.webp",
+      "tags": [
+        "armenian_heritage",
+        "1724_church",
+        "oldest_existing_church",
+        "burrabazar"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Armenian Church of the Holy Nazareth",
+        "description": "Kolkata's oldest surviving church built in 1724, testifying to the influential Armenian mercantile community that settled in Bengal before the British. Features exquisite interior frescoes and ancient gravestones.",
+        "best_time_to_visit": "Morning hours (09:30 AM to 01:00 PM) for peaceful reflection in the historic courtyard."
+      },
+      "hi": {
+        "name": "होली नाज़रेथ का आर्मेनियन चर्च",
+        "description": "1724 में निर्मित कोलकाता का सबसे पुराना जीवित चर्च, जो ब्रिटिश काल से पहले बसे समृद्ध आर्मेनियन व्यापारी समुदाय की गवाही देता है। इसकी वास्तुकला और प्राचीन समाधियाँ दर्शनीय हैं।",
+        "best_time_to_visit": "सुबह 09:30 से दोपहर 01:00 बजे तक ऐतिहासिक परिसर के शांतिपूर्ण दर्शन के लिए।"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Armenian_Apostolic_Church_coat_of_Arms.svg/1280px-Armenian_Apostolic_Church_coat_of_Arms.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "vidyasagar_setu",
+      "category": "monument",
+      "coordinates": [
+        22.5539,
+        88.3267
+      ],
+      "timings": {
+        "open": "00:00",
+        "close": "23:59",
+        "all_day": true
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/kolkata/vidyasagar_setu.webp",
+      "tags": [
+        "cable_stayed_bridge",
+        "second_hooghly_bridge",
+        "engineering",
+        "river_panorama"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Vidyasagar Setu (Second Hooghly Bridge)",
+        "description": "India's longest cable-stayed bridge spanning 823 meters across the Hooghly River, named in honour of educator Pandit Ishwar Chandra Vidyasagar. A modern civil engineering marvel offering panoramic views of Kolkata.",
+        "best_time_to_visit": "Sunset and night when the sweeping cable pylons are gracefully illuminated."
+      },
+      "hi": {
+        "name": "विद्यासागर सेतु (दूसरा हुगली ब्रिज)",
+        "description": "हुगली नदी पर बना 823 मीटर लंबा भारत का सबसे लंबा केबल-स्टेड ब्रिज, जिसका नाम समाज सुधारक ईश्वर चंद्र विद्यासागर के नाम पर रखा गया है। यह आधुनिक इंजीनियरिंग का बेजोड़ नमूना है।",
+        "best_time_to_visit": "सूर्यास्त के समय और रात को, जब इसके विशाल केबल टावर आकर्षक रोशनी से जगमगाते हैं।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vidyasagar%20Setu%20-%20Second%20Hooghly%20Bridge.jpg"
+    }
+  ]
+}

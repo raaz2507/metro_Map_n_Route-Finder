@@ -81,16 +81,58 @@ export class DishaAiAuditor {
 			throw new Error(`Data file not found for network: ${cityKey}`);
 		}
 		const raw = JSON.parse(fs.readFileSync(filePath, "utf8"));
-		const searchEngine = new StationSearchEngine(raw);
+
+		const enPath = path.resolve(__dirname, `../../main_project/locales/en/india/${cityKey}_station_details_locale.json`);
+		const hiPath = path.resolve(__dirname, `../../main_project/locales/hi/india/${cityKey}_station_details_locale.json`);
+		const enLocale = fs.existsSync(enPath) ? JSON.parse(fs.readFileSync(enPath, "utf8")) : {};
+		const hiLocale = fs.existsSync(hiPath) ? JSON.parse(fs.readFileSync(hiPath, "utf8")) : {};
 
 		centerClass.getMetroData = () => raw;
-		centerClass.getStationSearchEngine = () => searchEngine;
 		centerClass.getStationDetails = (id) => raw.stationData?.[id] || null;
+
 		centerClass.getStationName = (id, lang = "en") => {
+			const normId = String(id).toLowerCase();
+			if (lang === "hi") {
+				const hiName = hiLocale.stations?.[id]?.name || hiLocale.stations?.[normId]?.name;
+				if (hiName) return hiName;
+			}
+			const enName = enLocale.stations?.[id]?.name || enLocale.stations?.[normId]?.name;
+			if (enName) return enName;
 			const st = raw.stationData?.[id];
 			if (!st) return id;
 			return (typeof st.name === "object" ? st.name[lang] || st.name.en : st.name) || id;
 		};
+
+		centerClass.getAllStationNames = (id) => {
+			const normId = String(id).toLowerCase();
+			const names = new Set();
+			const enName = enLocale.stations?.[id]?.name || enLocale.stations?.[normId]?.name;
+			if (enName) names.add(enName);
+			const hiName = hiLocale.stations?.[id]?.name || hiLocale.stations?.[normId]?.name;
+			if (hiName) names.add(hiName);
+			const st = raw.stationData?.[id];
+			if (st?.name) {
+				if (typeof st.name === "string") names.add(st.name);
+				else if (typeof st.name === "object") Object.values(st.name).forEach(n => { if (n) names.add(n); });
+			}
+			return Array.from(names);
+		};
+
+		centerClass.getStationAliases = (id) => {
+			const normId = String(id).toLowerCase();
+			const aliases = new Set();
+			const enA = enLocale.stations?.[id]?.aliases || enLocale.stations?.[normId]?.aliases;
+			if (Array.isArray(enA)) enA.forEach(a => aliases.add(a));
+			const hiA = hiLocale.stations?.[id]?.aliases || hiLocale.stations?.[normId]?.aliases;
+			if (Array.isArray(hiA)) hiA.forEach(a => aliases.add(a));
+			const st = raw.stationData?.[id];
+			if (Array.isArray(st?.aliases)) st.aliases.forEach(a => aliases.add(a));
+			return Array.from(aliases);
+		};
+
+		const searchEngine = new StationSearchEngine(raw);
+		centerClass.getStationSearchEngine = () => searchEngine;
+
 		centerClass.searchRoute = (src, dst, opt = {}) => {
 			if (!raw.stationData?.[src] || !raw.stationData?.[dst]) return null;
 			return {

@@ -9,17 +9,17 @@ export default {
 		"fare", "ticket", "cost", "price", "how", "much", "many",
 		"reach", "travel", "go", "going", "walk",
 		"time", "duration", "distance", "far", "when", "what", "is", "are",
-		"tell", "show", "give", "need", "want", "disha", "ye", "yeh", "bato", "batao", "mujhe", "mujhko", "jana", "jaana", "ki", "kaise", "jaun", "jau",
+		"tell", "show", "give", "need", "want", "disha", "ye", "yeh", "bato", "batao", "mujhe", "mujhko", "jana", "jaana", "ki", "kaise", "jaye", "jayen", "jayein", "jaun", "jau",
 		"help", "hello", "hi", "hey", "please", "plz", "and", "or",
-		"from", "to", "towards", "first", "last",
+		"from", "to", "towards", "first", "last", "se", "tak",
 		"timing", "timings", "gate", "platform", "entry", "exit", "number", "no", "near",
 		"for", "of", "in", "at", "on", "by", "with", "the", "a", "an",
 		"i", "me", "my", "we", "our", "you", "your", "sir", "can"
 	],
 
 	fillerPatterns: [
-		/\b(please|plz|tell me|show me|find|search|give me|can you)\b/gi,
-		/\b(how to go|how to reach|want to go|reach|travel to|going to)\b/gi
+		/\b(please|plz|tell me|show me|find|search|give me|can you|batao|dikhao)\b/gi,
+		/\b(how to go|how to reach|want to go|reach|travel to|going to|kaise jaye|kaise jayen|kaise jaun|kaise jau|jana hai|jaana hai|jaana hi)\b/gi
 	],
 
 	routeMarkers: {

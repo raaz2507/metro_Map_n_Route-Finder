@@ -55,6 +55,38 @@ Kinetic Web-Slinger: Crimson Web, Deep Cobalt Blue, Honeycomb Mesh
 		--badge-border: #1d4ed8;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #f5f3f7;
+		--map-grid-color: rgba(37, 99, 235, 0.20);
+		--map-grid-wash: rgba(254, 242, 242, 0.12);
+		--map-station-fill: #ffffff;
+		--map-station-stroke: #dc2626;
+		--map-station-underground-fill: #eff6ff;
+		--map-station-multimodal: #2563eb;
+		--map-station-shared: #dc2626;
+		--map-station-halo: rgba(245, 243, 247, 0.98);
+		--map-label-color: #0f172a;
+		--map-label-halo: #ffffff;
+		--map-label-hover: #dc2626;
+		--map-interchange-badge: #dc2626;
+		--map-interchange-ring: #2563eb;
+		--map-track-bed: #e2e8f0;
+		--map-track-shadow: rgba(220, 38, 38, 0.20);
+		--map-tunnel-conduit: rgba(37, 99, 235, 0.12);
+		--map-route-glow: rgba(220, 38, 38, 0.50);
+		--map-strata-sub-fill: rgba(37, 99, 235, 0.08);
+		--map-strata-sub-stroke: rgba(37, 99, 235, 0.65);
+		--map-strata-viaduct-fill: rgba(220, 38, 38, 0.08);
+		--map-strata-viaduct-stroke: rgba(220, 38, 38, 0.65);
+
+		/* 3D WebGL Queens Urban Horizon */
+		--map-3d-sky: #f1f5f9;
+		--map-3d-ground: #e2e8f0;
+		--map-3d-hemi-sky: #ffffff;
+		--map-3d-hemi-ground: #cbd5e1;
+		--map-3d-sunlight: #ffffff;
+		--map-3d-ambient: #94a3b8;
 	}
 
 	/* 🌙 MILES STEALTH DARK (Spider-Verse Black, Crimson & Cyan Web) */
@@ -92,6 +124,38 @@ Kinetic Web-Slinger: Crimson Web, Deep Cobalt Blue, Honeycomb Mesh
 		--badge-border: #ef4444;
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #080912;
+		--map-grid-color: rgba(239, 68, 68, 0.18);
+		--map-grid-wash: rgba(17, 20, 36, 0.22);
+		--map-station-fill: #111424;
+		--map-station-stroke: #ef4444;
+		--map-station-underground-fill: #0b0d18;
+		--map-station-multimodal: #38bdf8;
+		--map-station-shared: #ef4444;
+		--map-station-halo: rgba(8, 9, 18, 0.98);
+		--map-label-color: #f8fafc;
+		--map-label-halo: #080912;
+		--map-label-hover: #ef4444;
+		--map-interchange-badge: #1e0d13;
+		--map-interchange-ring: #ef4444;
+		--map-track-bed: #14172b;
+		--map-track-shadow: rgba(0, 0, 0, 0.70);
+		--map-tunnel-conduit: rgba(37, 99, 235, 0.18);
+		--map-route-glow: rgba(239, 68, 68, 0.75);
+		--map-strata-sub-fill: rgba(37, 99, 235, 0.15);
+		--map-strata-sub-stroke: rgba(37, 99, 235, 0.70);
+		--map-strata-viaduct-fill: rgba(239, 68, 68, 0.12);
+		--map-strata-viaduct-stroke: rgba(239, 68, 68, 0.75);
+
+		/* 3D WebGL Spider-Verse Night Skyline */
+		--map-3d-sky: #04050a;
+		--map-3d-ground: #0b0d18;
+		--map-3d-hemi-sky: #ef4444;
+		--map-3d-hemi-ground: #111424;
+		--map-3d-sunlight: #f87171;
+		--map-3d-ambient: #1e0d13;
 	}
 
 	/* 🕷️ KINETIC WEB-SLINGER OVERRIDES */

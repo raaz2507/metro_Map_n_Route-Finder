@@ -21,6 +21,7 @@ const FALLBACK_THEMES_MANIFEST = {
 export class ThemeEngine {
 	static #instance = null;
 	#manifest = null;
+	#localeManifest = null;
 	#activeThemeId = "classic";
 	#cssStyleElement = null;
 	#svgContainerElement = null;
@@ -78,6 +79,15 @@ export class ThemeEngine {
 			}
 		});
 
+		const currentLang = localStorage.getItem("app-lang") || localStorage.getItem("language") || "en";
+		await this.loadThemeLocale(currentLang);
+
+		appStateStore.subscribe("currentLang", async (newLang) => {
+			if (newLang) {
+				await this.loadThemeLocale(newLang);
+			}
+		});
+
 		await this.applyTheme(this.#activeThemeId);
 	}
 
@@ -85,8 +95,34 @@ export class ThemeEngine {
 		return this.#activeThemeId;
 	}
 
+	async loadThemeLocale(lang = "en") {
+		try {
+			const res = await fetch(`locales/${lang}/themes_manifest_locale.json`).catch(() => null);
+			if (res && res.ok) {
+				this.#localeManifest = await res.json();
+			} else {
+				this.#localeManifest = null;
+			}
+		} catch (_) {
+			this.#localeManifest = null;
+		}
+	}
+
 	getThemes() {
-		return this.#manifest?.themes || [];
+		const baseThemes = this.#manifest?.themes || [];
+		if (!this.#localeManifest) return baseThemes;
+
+		return baseThemes.map(t => {
+			const loc = this.#localeManifest?.themes?.[t.id] || {};
+			const cat = this.#localeManifest?.categories?.[t.category] || loc.category || t.category;
+			return {
+				...t,
+				name: loc.name || t.name,
+				category: cat || t.category,
+				badge: loc.badge || t.badge,
+				description: loc.description || t.description
+			};
+		});
 	}
 	/**
 	 * Create DOM mounts for injected CSS and SVG Symbols
@@ -125,6 +161,9 @@ export class ThemeEngine {
 			this.#activeThemeId = themeId;
 			document.body.setAttribute("data-theme", themeId);
 			localStorage.setItem("app-theme", themeId);
+			if (appStateStore.getState("currentTheme") !== themeId) {
+				appStateStore.setState({ currentTheme: themeId });
+			}
 
 			const basePath = `themes/bundled/${themeId}`;
 

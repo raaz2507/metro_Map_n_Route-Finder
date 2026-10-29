@@ -74,10 +74,10 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 	/* 4-Item Metric Stats Strip */
 	.about-metrics-strip {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(5, 1fr);
 		gap: var(--space-md);
 		width: 100%;
-		max-width: 860px;
+		max-width: 980px;
 		margin-top: var(--space-md);
 	}
 
@@ -1238,6 +1238,10 @@ ABOUT PAGE STYLES - MODERN BENTO GRID SHOWCASE (@layer components)
 		.about-metrics-strip {
 			grid-template-columns: repeat(2, 1fr);
 			gap: var(--space-sm);
+		}
+
+		.about-metrics-strip .metric-box:last-child:nth-child(odd) {
+			grid-column: 1 / -1;
 		}
 
 		.metric-val {

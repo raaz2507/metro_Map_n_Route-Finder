@@ -33,15 +33,6 @@
 
 	<!-- 🎯 Single CSS Entry Point Architecture -->
 	<link rel="stylesheet" href="css/pages/index.css">
-		<!-- Three.js ES6 Module Importmap -->
-	<script type="importmap">
-	{
-		"imports": {
-			"three": "./js/lib/three/three.module.js",
-			"three/addons/": "./js/lib/three/addons/"
-		}
-	}
-	</script>
 	<!-- [METADATA_END] -->
 </head>
 
@@ -111,27 +102,38 @@
 						</header>
 
 						<!-- 📁 Folder Tab Navigation Bar -->
-						<div class="settings-folder-tabs" role="tablist" aria-label="Settings Tabs">
-							<!-- Alarm Tab -->
-							<button type="button" class="folder-tab active" data-tab="alarm" role="tab" aria-selected="true" aria-controls="panel-setting-alarm">
-								<span class="tab-icon" aria-hidden="true">🔔</span>
-								<span class="tab-label" data-i18n="pages.home.settings.tabs.alarm">Alarm</span>
-							</button>
-							<!-- 🗺️ Map Tab -->
-							<button type="button" class="folder-tab" data-tab="map" role="tab" aria-selected="false" aria-controls="panel-setting-map">
-								<span class="tab-icon" aria-hidden="true">🗺️</span>
-								<span class="tab-label" data-i18n="pages.home.settings.tabs.map">Map</span>
-							</button>
-							<!-- 📦 Packs Tab (Themes & Languages) -->
-							<button type="button" class="folder-tab" data-tab="packs" role="tab" aria-selected="false" aria-controls="panel-setting-packs">
-								<span class="tab-icon" aria-hidden="true">📦</span>
-								<span class="tab-label" data-i18n="pages.home.settings.tabs.packs">Packs</span>
-							</button>
-							<!-- 💾 Backup / Restore Tab -->
-							<button type="button" class="folder-tab" data-tab="backup" role="tab" aria-selected="false" aria-controls="panel-setting-backup">
-								<span class="tab-icon" aria-hidden="true">💾</span>
-								<span class="tab-label" data-i18n="pages.home.settings.tabs.backup">Backup / Restore</span>
-							</button>
+						<div class="settings-folder-tabs" role="tablist" aria-label="Settings Tabs" data-active-tier="primary">
+							<!-- 📂 Tier 1 (Primary Group): Alarm, Map, Notification -->
+							<div class="folder-tabs-row folder-tabs-primary">
+								<!-- Alarm Tab -->
+								<button type="button" class="folder-tab active" data-tab="alarm" role="tab" aria-selected="true" aria-controls="panel-setting-alarm">
+									<span class="tab-icon" aria-hidden="true">🔔</span>
+									<span class="tab-label" data-i18n="pages.home.settings.tabs.alarm">Alarm</span>
+								</button>
+								<!-- 🗺️ Map Tab -->
+								<button type="button" class="folder-tab" data-tab="map" role="tab" aria-selected="false" aria-controls="panel-setting-map">
+									<span class="tab-icon" aria-hidden="true">🗺️</span>
+									<span class="tab-label" data-i18n="pages.home.settings.tabs.map">Map</span>
+								</button>
+								<!-- 📲 Notification Tab -->
+								<button type="button" class="folder-tab" data-tab="notification" role="tab" aria-selected="false" aria-controls="panel-setting-notification">
+									<span class="tab-icon" aria-hidden="true">📲</span>
+									<span class="tab-label" data-i18n="pages.home.settings.tabs.notification">Notification</span>
+								</button>
+							</div>
+							<!-- 📂 Tier 2 (Secondary Group): Packs, Backup -->
+							<div class="folder-tabs-row folder-tabs-secondary">
+								<!-- 📦 Packs Tab (Themes & Languages) -->
+								<button type="button" class="folder-tab" data-tab="packs" role="tab" aria-selected="false" aria-controls="panel-setting-packs">
+									<span class="tab-icon" aria-hidden="true">📦</span>
+									<span class="tab-label" data-i18n="pages.home.settings.tabs.packs">Packs</span>
+								</button>
+								<!-- 💾 Backup / Restore Tab -->
+								<button type="button" class="folder-tab" data-tab="backup" role="tab" aria-selected="false" aria-controls="panel-setting-backup">
+									<span class="tab-icon" aria-hidden="true">💾</span>
+									<span class="tab-label" data-i18n="pages.home.settings.tabs.backup">Backup / Restore</span>
+								</button>
+							</div>
 						</div>
 
 						<!-- 📂 Folder Panels Container -->
@@ -176,6 +178,8 @@
 										</label>
 									</div>
 								</fieldset>
+
+
 								<!-- 2. Audio & Volume Section -->
 								<fieldset class="settings-fieldset">
 									<legend class="settings-legend" data-i18n="pages.home.settings.alarm.audioHeading">🔊 Sound & Volume</legend>
@@ -313,6 +317,141 @@
 								</fieldset>
 							</div>
 
+							<!-- 📲 Panel 5: Notification Bar & Live Pass -->
+							<div id="panel-setting-notification" class="settings-tab-panel" data-panel="notification" role="tabpanel" aria-labelledby="tab-notification">
+								<!-- 1. General Live Pass Settings -->
+								<fieldset class="settings-fieldset">
+									<legend class="settings-legend" data-i18n="pages.home.settings.notification.persistentHeading">⚙️ Live Pass Preferences</legend>
+									
+									<div class="settings-form-row">
+										<div class="settings-label-wrapper">
+											<label for="settingPersistentNotif" class="settings-label" data-i18n="pages.home.settings.notification.persistentLabel">Persistent Live Pass</label>
+											<span class="settings-desc" data-i18n="pages.home.settings.notification.persistentDesc">Keep live metro pass in Android status bar even before searching a route.</span>
+										</div>
+										<label class="switch-toggle" for="settingPersistentNotif">
+											<input type="checkbox" id="settingPersistentNotif" checked />
+											<span class="switch-slider" aria-hidden="true"></span>
+										</label>
+									</div>
+								</fieldset>
+
+								<!-- 2. Visual UI Style Selector Cards -->
+								<fieldset class="settings-fieldset">
+									<legend class="settings-legend" data-i18n="pages.home.settings.notification.stylesHeading">🎨 Choose Notification Bar UI Style</legend>
+									<p class="settings-desc" style="margin-bottom: 12px;" data-i18n="pages.home.settings.notification.stylesDesc">Tap any card to select your preferred notification layout.</p>
+
+									<div class="notif-style-grid" role="radiogroup" aria-label="Notification UI Styles">
+										<!-- Card 1: Boarding Pass -->
+										<div class="notif-style-card active" data-style="boarding_pass" role="radio" aria-checked="true" tabindex="0">
+											<input type="radio" name="notification_style" value="boarding_pass" checked class="visually-hidden-file" />
+											<div class="notif-card-header">
+												<div class="notif-card-title-wrap">
+													<span class="notif-card-icon" aria-hidden="true">🎫</span>
+													<span class="notif-card-title" data-i18n="pages.home.settings.notification.cards.boardingPass.title">Boarding Pass</span>
+												</div>
+												<div class="notif-radio-indicator"><span class="notif-radio-dot"></span></div>
+											</div>
+											<p class="notif-card-desc" data-i18n="pages.home.settings.notification.cards.boardingPass.desc">Digital ticket with time, distance, fare chips & full station details.</p>
+											<!-- Mini Mockup -->
+											<div class="notif-mini-mockup" aria-hidden="true">
+												<div class="mockup-row">
+													<span class="mockup-station-title">Kashmere ➔ Hauz Khas</span>
+													<span class="mockup-badge">850m</span>
+												</div>
+												<div class="mockup-chips">
+													<span class="mockup-chip time">⏱ 38m</span>
+													<span class="mockup-chip dist">📏 18.4k</span>
+													<span class="mockup-chip fare">💰 ₹40</span>
+												</div>
+												<div class="mockup-buttons">
+													<span class="mockup-btn snooze">⏱ Snooze</span>
+													<span class="mockup-btn dismiss">🔕 Dismiss</span>
+												</div>
+											</div>
+										</div>
+
+										<!-- Card 2: Minimal Island -->
+										<div class="notif-style-card" data-style="minimal_pill" role="radio" aria-checked="false" tabindex="0">
+											<input type="radio" name="notification_style" value="minimal_pill" class="visually-hidden-file" />
+											<div class="notif-card-header">
+												<div class="notif-card-title-wrap">
+													<span class="notif-card-icon" aria-hidden="true">⚡</span>
+													<span class="notif-card-title" data-i18n="pages.home.settings.notification.cards.minimalPill.title">Minimal Island</span>
+												</div>
+												<div class="notif-radio-indicator"><span class="notif-radio-dot"></span></div>
+											</div>
+											<p class="notif-card-desc" data-i18n="pages.home.settings.notification.cards.minimalPill.desc">Sleek 2-line pill card with next station, live distance badge & quick buttons.</p>
+											<!-- Mini Mockup -->
+											<div class="notif-mini-mockup" aria-hidden="true">
+												<div class="mockup-row">
+													<span class="mockup-station-title">⚡ Rajiv Chowk</span>
+													<span class="mockup-badge">📍 850m</span>
+												</div>
+												<div class="mockup-buttons">
+													<span class="mockup-btn snooze">⏸ Snooze</span>
+													<span class="mockup-btn dismiss">⏹ Dismiss</span>
+												</div>
+											</div>
+										</div>
+
+										<!-- Card 3: Track Progress -->
+										<div class="notif-style-card" data-style="progress_bar" role="radio" aria-checked="false" tabindex="0">
+											<input type="radio" name="notification_style" value="progress_bar" class="visually-hidden-file" />
+											<div class="notif-card-header">
+												<div class="notif-card-title-wrap">
+													<span class="notif-card-icon" aria-hidden="true">📊</span>
+													<span class="notif-card-title" data-i18n="pages.home.settings.notification.cards.progressBar.title">Track Progress Line</span>
+												</div>
+												<div class="notif-radio-indicator"><span class="notif-radio-dot"></span></div>
+											</div>
+											<p class="notif-card-desc" data-i18n="pages.home.settings.notification.cards.progressBar.desc">Visual transit track with train position, completed and remaining stations.</p>
+											<!-- Mini Mockup -->
+											<div class="notif-mini-mockup" aria-hidden="true">
+												<div class="mockup-row">
+													<span class="mockup-station-title">📊 TRACK PROGRESS</span>
+													<span class="mockup-badge" style="color: #34d399;">⏱ 12m</span>
+												</div>
+												<div class="mockup-track-line">🟢━━🟢━━🚆━━━━⚪━━🏁</div>
+												<div class="mockup-buttons">
+													<span class="mockup-btn snooze">⏱ Snooze</span>
+													<span class="mockup-btn dismiss">🔕 Dismiss</span>
+												</div>
+											</div>
+										</div>
+
+										<!-- Card 4: 2.5D Widget Mirror -->
+										<div class="notif-style-card" data-style="widget_mirror" role="radio" aria-checked="false" tabindex="0">
+											<input type="radio" name="notification_style" value="widget_mirror" class="visually-hidden-file" />
+											<div class="notif-card-header">
+												<div class="notif-card-title-wrap">
+													<span class="notif-card-icon" aria-hidden="true">📱</span>
+													<span class="notif-card-title" data-i18n="pages.home.settings.notification.cards.widgetMirror.title">2.5D Widget Mirror</span>
+												</div>
+												<div class="notif-radio-indicator"><span class="notif-radio-dot"></span></div>
+											</div>
+											<p class="notif-card-desc" data-i18n="pages.home.settings.notification.cards.widgetMirror.desc">Matches the 2.5D beveled card style from your Android home screen widget.</p>
+											<!-- Mini Mockup -->
+											<div class="notif-mini-mockup" aria-hidden="true">
+												<div class="mockup-widget-screen">
+													🚨 Rajiv Chowk • 850m
+												</div>
+												<div class="mockup-buttons">
+													<span class="mockup-btn snooze">SNOOZE</span>
+													<span class="mockup-btn dismiss">DISMISS</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+
+								<!-- 3. Test Action -->
+								<div class="settings-action-row" style="margin-top: 14px;">
+									<button type="button" id="btnTestNotif" class="btn-settings-action" style="width: 100%; justify-content: center; padding: 10px 16px;">
+										<span class="btn-icon" aria-hidden="true">👁️</span>
+										<span data-i18n="pages.home.settings.notification.testBtn">Test Selected Style on Phone Status Bar</span>
+									</button>
+								</div>
+							</div>
 							<!-- 💾 Panel 3: Backup & Restore Settings -->
 							<div id="panel-setting-backup" class="settings-tab-panel" data-panel="backup" role="tabpanel" aria-labelledby="tab-backup">
 								<fieldset class="settings-fieldset">
@@ -769,12 +908,25 @@
 							<span class="share-opt-icon">📋</span>
 							<span data-i18n="pages.home.shareModal.copyDetails">Copy Details</span>
 						</button>
+
+						<button type="button" id="copyShareImageBtn" class="share-opt-btn copy-img-opt">
+							<span class="share-opt-icon">📸</span>
+							<span data-i18n="pages.home.shareModal.copyImage">Copy Image</span>
+						</button>
+
+						<button type="button" id="downloadShareCardBtn" class="share-opt-btn download-card-opt">
+							<span class="share-opt-icon">💾</span>
+							<span data-i18n="pages.home.shareModal.downloadCard">Download Screenshot</span>
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div id="shareToast" class="share-toast-msg" aria-live="polite"></div>
+
+		<script src="./js/lib/engine_vector_painter.js"></script>
+		<script src="./js/lib/html2canvas.min.js"></script>
+		<script type="module" src="./js/pages/home.js"></script>
 	</body>
-	<script type="module" src="./js/pages/home.js"></script>
 </html>

@@ -8,6 +8,7 @@ import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 
 import { appStateStore } from "../core/app-state-store.js";
+import { BaseSearchEngine } from "../services/search/BaseSearchEngine.js";
 
 export class StationInfoManager {
 	// Private State Fields
@@ -22,6 +23,11 @@ export class StationInfoManager {
 	#stBasicData = null;
 	#stRichData = null;
 	#unsubscribeLang = null;
+
+	// Spotlight Search Engine & In-Memory Index
+	#searchEngine = new BaseSearchEngine();
+	#searchIndex = [];
+	#spotlightInitialized = false;
 
 	// Localization
 	#lang = "en";
@@ -115,6 +121,7 @@ export class StationInfoManager {
 		this.#renderFeederBuses(this.#stRichData);
 		this.#renderStationLayouts(this.#stRichData);
 		this.#renderNearbyPlaces(this.#stRichData);
+		this.#initSpotlightSearch();
 	}
 
 	#renderPageTitle() {
@@ -971,6 +978,350 @@ export class StationInfoManager {
 			.replace(/"/g, "&quot;")
 			.replace(/'/g, "&#039;");
 	}
+
+	/**
+	 * Initializes In-Page Master Spotlight Search & Filter Engine
+	 */
+	#initSpotlightSearch() {
+		const searchInput = document.getElementById("station-spotlight-input");
+		const clearBtn = document.getElementById("spotlight-clear-btn");
+		const chipsContainer = document.getElementById("spotlight-chips-container");
+		const resetBtn = document.getElementById("spotlight-reset-btn");
+
+		if (!searchInput) return;
+
+		// 1. Update i18n placeholders and labels
+		const placeholder = this.#t("search.placeholder") || "Search gates, ATMs, lifts, platforms, feeder buses, nearby places...";
+		const ariaLabel = this.#t("search.ariaLabel") || "Filter station amenities and infrastructure";
+		const clearTitle = this.#t("search.clearBtn") || "Clear search";
+
+		searchInput.setAttribute("placeholder", placeholder);
+		searchInput.setAttribute("aria-label", ariaLabel);
+		if (clearBtn) clearBtn.setAttribute("aria-label", clearTitle);
+		if (resetBtn) resetBtn.textContent = this.#t("search.resetBtn") || "Clear Filter";
+
+		// 2. Build In-Memory Search Index from freshly rendered cards
+		this.#buildSearchIndex();
+
+		// 3. Attach event listeners only once
+		if (!this.#spotlightInitialized) {
+			this.#spotlightInitialized = true;
+
+			searchInput.addEventListener("input", (e) => {
+				this.#handleSpotlightSearch(e.target.value);
+			});
+
+			searchInput.addEventListener("keydown", (e) => {
+				if (e.key === "Escape") {
+					searchInput.value = "";
+					this.#handleSpotlightSearch("");
+				}
+			});
+
+			if (clearBtn) {
+				clearBtn.addEventListener("click", () => {
+					searchInput.value = "";
+					searchInput.focus();
+					this.#handleSpotlightSearch("");
+				});
+			}
+
+			if (resetBtn) {
+				resetBtn.addEventListener("click", () => {
+					searchInput.value = "";
+					searchInput.focus();
+					this.#handleSpotlightSearch("");
+				});
+			}
+
+			if (chipsContainer) {
+				chipsContainer.addEventListener("click", (e) => {
+					const chipBtn = e.target.closest(".spotlight-chip");
+					if (!chipBtn) return;
+					const targetSecId = chipBtn.dataset.target;
+					const targetEl = document.getElementById(targetSecId);
+					if (targetEl) {
+						targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+					}
+				});
+			}
+		}
+
+		// If query already present (e.g. after language switch), re-run search
+		if (searchInput.value.trim()) {
+			this.#handleSpotlightSearch(searchInput.value);
+		}
+	}
+
+	/**
+	 * Builds an in-memory searchable index for all amenities and features of this station
+	 */
+	#buildSearchIndex() {
+		this.#searchIndex = [];
+
+		const tokenize = (text) => {
+			if (!text) return [];
+			return text.toLowerCase().split(/[\s,./\\|#\-+()]+/).filter(w => w.length > 1);
+		};
+
+		// 1. Platforms
+		const platformCards = document.querySelectorAll("#platforms-container .platform-card");
+		platformCards.forEach(card => {
+			const badge = card.querySelector(".platform-badge")?.textContent || "";
+			const dest = card.querySelector(".platform-dest-name")?.textContent || "";
+			const line = card.querySelector(".platform-line-tag")?.textContent || "";
+			const text = `${badge} ${dest} ${line} ${card.textContent || ""}`.trim();
+			this.#searchIndex.push({
+				category: "platforms",
+				sectionId: "platforms-section",
+				title: `${badge} ${dest}`,
+				text,
+				words: tokenize(text),
+				el: card
+			});
+		});
+
+		// 2. Gates
+		const gateCards = document.querySelectorAll("#gates-container .gate-card-32");
+		gateCards.forEach(card => {
+			const num = card.querySelector(".gate-number")?.textContent || "";
+			const code = card.querySelector(".gate-code-tag")?.textContent || "";
+			const footer = card.querySelector(".gate-card-footer")?.textContent || "";
+			const text = `${num} ${code} ${footer} ${card.textContent || ""}`.trim();
+			this.#searchIndex.push({
+				category: "gates",
+				sectionId: "gates-section",
+				title: num || code,
+				text,
+				words: tokenize(text),
+				el: card
+			});
+		});
+
+		// 3. Facilities & Amenities
+		const facilityPills = document.querySelectorAll("#facilities-container .facility-pill");
+		facilityPills.forEach(pill => {
+			const catHeader = pill.closest(".facility-subcategory")?.querySelector(".facility-subcategory-title")?.textContent || "";
+			const name = pill.querySelector(".facility-name")?.textContent || "";
+			const loc = pill.querySelector(".facility-loc")?.textContent || "";
+			const text = `${name} ${catHeader} ${loc} ${pill.textContent || ""}`.trim();
+			this.#searchIndex.push({
+				category: "facilities",
+				sectionId: "facilities-section",
+				title: name,
+				text,
+				words: tokenize(text),
+				el: pill
+			});
+		});
+
+		// 4. Parking (Capacity Table Rows & Tariff Cards)
+		const parkingRows = document.querySelectorAll("#parking-container tbody tr");
+		parkingRows.forEach(row => {
+			const text = row.textContent || "";
+			this.#searchIndex.push({
+				category: "parking",
+				sectionId: "parking-section",
+				title: row.querySelector("td strong")?.textContent || "Parking",
+				text,
+				words: tokenize(text),
+				el: row
+			});
+		});
+
+		const tariffCards = document.querySelectorAll("#parking-tariffs-container .tariff-card");
+		tariffCards.forEach(card => {
+			const title = card.querySelector(".tariff-card-title")?.textContent || "Parking";
+			const text = `${title} ${card.textContent || ""}`.trim();
+			this.#searchIndex.push({
+				category: "parking",
+				sectionId: "parking-section",
+				title,
+				text,
+				words: tokenize(text),
+				el: card
+			});
+		});
+
+		// 5. Vertical Transit (Lifts & Escalators Rows)
+		const transitRows = document.querySelectorAll("#transit-container tbody tr");
+		transitRows.forEach(row => {
+			const code = row.querySelector("td strong")?.textContent || "";
+			const subcatTitle = row.closest(".facility-subcategory")?.querySelector(".facility-subcategory-title")?.textContent || "";
+			const text = `${code} ${subcatTitle} ${row.textContent || ""}`.trim();
+			this.#searchIndex.push({
+				category: "transit",
+				sectionId: "transit-section",
+				title: code,
+				text,
+				words: tokenize(text),
+				el: row
+			});
+		});
+
+		// 6. Feeder Buses
+		const feederCards = document.querySelectorAll("#feeder-bus-container .feeder-card");
+		feederCards.forEach(card => {
+			const route = card.querySelector(".feeder-route-badge")?.textContent || "";
+			const path = card.querySelector(".feeder-route-path")?.textContent || "";
+			const text = `${route} ${path} ${card.textContent || ""}`.trim();
+			this.#searchIndex.push({
+				category: "feederBus",
+				sectionId: "feeder-bus-section",
+				title: route,
+				text,
+				words: tokenize(text),
+				el: card
+			});
+		});
+
+		// 7. Nearby Places
+		const nearbyItems = document.querySelectorAll("#nearby-container .nearby-place-item");
+		nearbyItems.forEach(item => {
+			const catTitle = item.closest(".nearby-cat-card")?.querySelector(".nearby-cat-title")?.textContent || "";
+			const name = item.querySelector("span")?.textContent || "";
+			const text = `${name} ${catTitle} ${item.textContent || ""}`.trim();
+			this.#searchIndex.push({
+				category: "nearby",
+				sectionId: "nearby-section",
+				title: name,
+				text,
+				words: tokenize(text),
+				el: item
+			});
+		});
+	}
+
+	/**
+	 * Handles real-time filtering and highlighting across all sections
+	 */
+	#handleSpotlightSearch(rawQuery) {
+		const q = (rawQuery || "").trim().toLowerCase();
+		const clearBtn = document.getElementById("spotlight-clear-btn");
+		const chipsContainer = document.getElementById("spotlight-chips-container");
+		const noResults = document.getElementById("spotlight-no-results");
+		const emptyText = document.getElementById("spotlight-empty-text");
+
+		if (clearBtn) {
+			clearBtn.classList.toggle("hidden", q.length === 0);
+		}
+
+		const allSectionIds = [
+			"platforms-section",
+			"gates-section",
+			"facilities-section",
+			"parking-section",
+			"transit-section",
+			"feeder-bus-section",
+			"nearby-section"
+		];
+
+		// If query is empty, reset all sections and items
+		if (!q) {
+			allSectionIds.forEach(secId => {
+				const secEl = document.getElementById(secId);
+				if (secEl) {
+					secEl.classList.remove("spotlight-dimmed", "spotlight-has-matches");
+				}
+			});
+
+			this.#searchIndex.forEach(item => {
+				item.el.classList.remove("spotlight-match", "spotlight-dimmed-item");
+			});
+
+			if (chipsContainer) {
+				chipsContainer.innerHTML = "";
+				chipsContainer.classList.add("hidden");
+			}
+			if (noResults) {
+				noResults.classList.add("hidden");
+			}
+			return;
+		}
+
+		// Perform matching against index
+		const matchedItems = [];
+		const matchedSections = new Set();
+		const categoryCounts = {};
+		const categoryTargetMap = {};
+
+		for (const item of this.#searchIndex) {
+			const itemTextLower = item.text.toLowerCase();
+			const isSubstring = itemTextLower.includes(q);
+			const isTypo = this.#searchEngine.hasTypoMatch(q, item.title, item.words);
+			const isAcronym = this.#searchEngine.generateAcronym(item.title) === q;
+
+			if (isSubstring || isTypo || isAcronym) {
+				matchedItems.push(item);
+				matchedSections.add(item.sectionId);
+				categoryCounts[item.category] = (categoryCounts[item.category] || 0) + 1;
+				categoryTargetMap[item.category] = item.sectionId;
+			}
+		}
+
+		// Update feature-card sections
+		allSectionIds.forEach(secId => {
+			const secEl = document.getElementById(secId);
+			if (!secEl) return;
+
+			if (matchedSections.has(secId)) {
+				secEl.classList.remove("spotlight-dimmed");
+				secEl.classList.add("spotlight-has-matches");
+			} else {
+				secEl.classList.add("spotlight-dimmed");
+				secEl.classList.remove("spotlight-has-matches");
+			}
+		});
+
+		// Update individual items
+		const matchedElSet = new Set(matchedItems.map(m => m.el));
+		for (const item of this.#searchIndex) {
+			if (matchedElSet.has(item.el)) {
+				item.el.classList.add("spotlight-match");
+				item.el.classList.remove("spotlight-dimmed-item");
+			} else {
+				item.el.classList.remove("spotlight-match");
+				if (matchedSections.has(item.sectionId)) {
+					item.el.classList.add("spotlight-dimmed-item");
+				} else {
+					item.el.classList.remove("spotlight-dimmed-item");
+				}
+			}
+		}
+
+		// Jump chips and empty state feedback
+		if (matchedItems.length > 0) {
+			if (noResults) noResults.classList.add("hidden");
+
+			if (chipsContainer) {
+				let chipsHTML = "";
+				for (const [cat, count] of Object.entries(categoryCounts)) {
+					const targetSecId = categoryTargetMap[cat];
+					const catLabel = this.#t(`search.categories.${cat}`) || cat;
+					chipsHTML += `
+						<button type="button" class="spotlight-chip" data-target="${targetSecId}">
+							<span>${this.#escapeHTML(catLabel)}</span>
+							<span class="spotlight-chip-count">${count}</span>
+						</button>
+					`;
+				}
+				chipsContainer.innerHTML = chipsHTML;
+				chipsContainer.classList.remove("hidden");
+			}
+		} else {
+			if (chipsContainer) {
+				chipsContainer.innerHTML = "";
+				chipsContainer.classList.add("hidden");
+			}
+			if (noResults) {
+				if (emptyText) {
+					emptyText.textContent = this.#t("search.noResults", { query: rawQuery }) || `No amenities match "${rawQuery}"`;
+				}
+				noResults.classList.remove("hidden");
+			}
+		}
+	}
+
 }
 
 // Auto-instantiate on DOM ready

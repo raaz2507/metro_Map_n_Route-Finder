@@ -1,0 +1,372 @@
+<!doctype html>
+
+
+
+<html lang="en">
+
+
+
+<head>
+
+
+
+	<!-- [METADATA_START] -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="description" content="Explore 390+ famous tourist attractions, historical monuments, temples, museums, and shopping bazaars with nearest metro stations and walk times.">
+	<link rel="canonical" href="https://raaz2507.github.io/metro_Map_n_Route-Finder/tourist_places.html">
+
+	<!-- Open Graph / Social Sharing -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/tourist_places.html">
+	<meta property="og:title" content="Tourist Places & Metro Connectivity | YatraMarg">
+	<meta property="og:description" content="Explore 390+ famous tourist attractions, historical monuments, temples, museums, and shopping bazaars with nearest metro stations and walk times.">
+	<meta property="og:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
+
+	<!-- Twitter / X Cards -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/tourist_places.html">
+	<meta name="twitter:title" content="Tourist Places & Metro Connectivity | YatraMarg">
+	<meta name="twitter:description" content="Explore 390+ famous tourist attractions, historical monuments, temples, museums, and shopping bazaars with nearest metro stations and walk times.">
+	<meta name="twitter:image" content="https://raaz2507.github.io/metro_Map_n_Route-Finder/assets/images/share_image_com.png">
+
+	<!-- Favicon & PWA App Standards -->
+	<link rel="icon" type="image/svg+xml" href="assets/images/site_icon.svg">
+	<link rel="manifest" href="manifest.webmanifest">
+	<meta name="theme-color" content="#0f172a">
+	<meta name="color-scheme" content="light dark">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<title data-i18n="pages.tourist.meta.title" data-i18n-title-tag="pages.tourist.meta.title">Tourist Places & Metro Connectivity | YatraMarg</title>
+
+	<!-- 🎯 Single CSS Entry Point Architecture -->
+	<link rel="stylesheet" href="css/pages/tourist_places.css">
+	<!-- [METADATA_END] -->
+
+
+
+	<meta name="referrer" content="no-referrer">
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+	<!-- GLOBAL DYNAMIC HEADER -->
+
+
+
+	<div id="app-header"></div>
+
+
+
+	<!-- MAIN WORKSPACE -->
+
+
+
+	<main class="tourist-page-container">
+
+
+
+		<!-- 0. PAGE HERO TITLE & SUBTITLE -->
+
+		<header class="tourist-page-hero" id="tourist-hero-header">
+
+			<div class="hero-badge-pill">
+
+				<span class="badge-icon"><i class="tourist-icon icon-museum" aria-hidden="true"></i></span>
+
+				<span class="badge-text" id="tourist-hero-badge">Exploration Hub</span>
+
+			</div>
+
+			<h1 class="hero-title" id="tourist-hero-title">Tourist Places &amp; Metro Guide</h1>
+
+			<p class="hero-subtitle" id="tourist-hero-subtitle">Explore famous monuments, temples, museums, and bazaars with nearest metro stations and walk times.</p>
+
+		</header>
+
+
+
+		
+
+
+
+		<!-- Mobile Search & Filter Backdrop -->
+
+
+
+		<div class="spotlight-backdrop" id="tourist-spotlight-backdrop"></div>
+
+
+
+		<!-- 1. STICKY SPOTLIGHT & FILTER BAR (Transforms to Drawer on Mobile) -->
+
+
+
+		<section class="tourist-spotlight-bar" id="tourist-spotlight-section" aria-label="Tourist Search & Filters">
+
+
+
+			
+
+
+
+			<div class="spotlight-drawer-header">
+
+
+
+				<span class="drawer-title" id="tourist-drawer-title"><i class="tourist-icon icon-search" aria-hidden="true"></i> <span data-i18n="tourist.searchAndFilter">Search & Filter</span></span>
+
+
+
+				<button type="button" class="mobile-spotlight-close-btn" id="mobile-spotlight-close-btn" aria-label="Close filters">✕</button>
+
+
+
+			</div>
+
+
+
+			<!-- Search Bar -->
+
+
+
+			<div class="tourist-search-wrapper">
+
+
+
+				<span class="search-icon" aria-hidden="true"><i class="tourist-icon icon-search"></i></span>
+
+
+
+				<input 
+
+
+
+					type="search" 
+
+
+
+					id="tourist-search-input" 
+
+
+
+					class="tourist-search-input" 
+
+
+
+					placeholder="Search 350+ monuments, temples, museums, markets..." 
+
+
+
+					aria-label="Search tourist attractions"
+
+
+
+					autocomplete="off" 
+
+
+
+					spellcheck="false"
+
+
+
+				/>
+
+
+
+				<button type="button" id="tourist-clear-btn" class="tourist-clear-btn hidden" aria-label="Clear search">✕</button>
+
+
+
+			</div>
+
+
+
+			<!-- Category Filter Chips -->
+
+
+
+			<div class="tourist-categories-scroll" id="tourist-categories-container" role="tablist" aria-label="Filter by category">
+
+
+
+				<!-- Injected dynamically based on active locale -->
+
+
+
+			</div>
+
+
+
+			<!-- Sort & Metrics Bar -->
+
+
+
+			<div class="tourist-controls-strip">
+
+
+
+				<div class="results-badge-group">
+
+
+
+					<span class="badge-count" id="tourist-results-badge">395 places</span>
+
+
+
+				</div>
+
+
+
+				<div class="sort-actions-group">
+
+
+
+					<label for="tourist-sort-select" class="sort-label" id="tourist-sort-label">Sort:</label>
+
+
+
+					<select id="tourist-sort-select" class="tourist-sort-select" aria-label="Sort places">
+
+
+
+						<option value="nearest">Nearest Metro</option>
+
+
+
+						<option value="name_asc">Name (A-Z)</option>
+
+
+
+						<option value="free_first">Free Entry First</option>
+
+
+
+					</select>
+
+
+
+				</div>
+
+
+
+			</div>
+
+
+
+		</section>
+
+
+
+		<!-- 2. TOURIST PLACES 2.5D GRID (2-Column Bento on Mobile) -->
+
+
+
+		<section class="tourist-places-grid" id="tourist-places-grid" aria-label="Tourist Places Grid">
+
+
+
+			<!-- Tourist Cards will be injected dynamically by tourist_places.js -->
+
+
+
+		</section>
+
+
+
+		<!-- 3. MOBILE FLOATING SEARCH & FILTER BUTTON -->
+
+
+
+		<div class="mobile-search-fab-container">
+
+
+
+			<button type="button" class="mobile-search-fab" id="mobile-search-fab" aria-label="Open search and filters">
+
+
+
+				<span class="fab-icon"><i class="tourist-icon icon-search" aria-hidden="true"></i></span>
+
+
+
+				<span class="fab-text" id="mobile-fab-text">Search & Filter</span>
+
+
+
+				<span class="fab-badge" id="mobile-fab-count">395</span>
+
+
+
+			</button>
+
+
+
+		</div>
+
+
+
+		<!-- 3. EMPTY STATE WIDGET (Shown when search/filter has 0 matches) -->
+
+
+
+		<div id="tourist-empty-state" class="tourist-empty-state hidden">
+
+
+
+			<div class="empty-icon" aria-hidden="true"><i class="tourist-icon icon-museum"></i></div>
+
+
+
+			<h3 class="empty-title" id="tourist-empty-title">No Places Found</h3>
+
+
+
+			<p class="empty-desc" id="tourist-empty-desc">No attractions match your current search or category filter.</p>
+
+
+
+			<button type="button" id="tourist-reset-filter-btn" class="btn-25d btn-reset-filter">Clear Filter</button>
+
+
+
+		</div>
+
+
+
+	</main>
+
+
+
+	<!-- GLOBAL DYNAMIC FOOTER -->
+
+
+
+	<div id="app-footer"></div>
+
+
+
+	<!-- CONTROLLER SCRIPT -->
+
+
+
+	<script type="module" src="js/pages/tourist_places.js"></script>
+
+
+
+</body>
+
+
+
+</html>
+
+
+

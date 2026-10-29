@@ -49,14 +49,14 @@
 	/* main's direct child: sidebar wrapper (flex container for nav & aside) */
 	.sidebar-wrapper {
 		position: absolute;
-		bottom: var(--space-lg);
-		top: auto;
+		top: var(--space-lg);
+		bottom: auto;
 		right: var(--space-lg);
 		left: auto;
 		display: flex;
 		flex-direction: row-reverse;
 		gap: var(--space-md);
-		align-items: flex-end;
+		align-items: flex-start;
 		z-index: var(--z-sidebar);
 		max-height: calc(100% - var(--space-2xl));
 
@@ -128,15 +128,15 @@
 	}
 
 	@layer components {
-		/* Mobile sidebar-wrapper adjustments: Keep anchored at bottom-right just like desktop */
+		/* Mobile sidebar-wrapper adjustments: Keep anchored at top-right */
 		.sidebar-wrapper {
-			bottom: var(--space-sm);
-			top: auto;
+			top: var(--space-sm);
+			bottom: auto;
 			right: var(--space-sm);
 			left: auto;
 			gap: var(--space-xs);
 			max-height: calc(100% - var(--space-md));
-			align-items: flex-end;
+			align-items: flex-start;
 		}
 		.map-section {
 			min-height: 0;

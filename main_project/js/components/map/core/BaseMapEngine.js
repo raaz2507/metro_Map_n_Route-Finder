@@ -6,6 +6,8 @@
  * and future 4th GIS / Vector engines) must implement.
  */
 
+import { MapGeometry } from "./MapGeometry.js";
+
 export class BaseMapEngine {
 	#container = null;
 	#metroData = null;
@@ -206,5 +208,83 @@ export class BaseMapEngine {
 	 */
 	setLanguage(lang) {
 		throw new Error(`[${this.constructor.name}] Method 'setLanguage(lang)' must be implemented.`);
+	}
+
+	/**
+	 * Returns true if system or application is currently in dark mode
+	 * @returns {boolean}
+	 */
+	get isDarkMode() {
+		return (typeof document !== "undefined") && (
+			document.body.getAttribute("data-mode") === "dark" ||
+			document.body.classList.contains("dark-mode") ||
+			document.documentElement.classList.contains("dark")
+		);
+	}
+
+	// =========================================================================
+	// 5. Shared Metric Ratio & Infrastructure Classification (DRY Helpers)
+	// =========================================================================
+
+	/**
+	 * Canonical infrastructure layout classifier (elevated, underground, cut_and_cover, surface)
+	 * @param {string} layout
+	 * @returns {"elevated"|"underground"|"cut_and_cover"|"surface"}
+	 */
+	classifyLayout(layout) {
+		return MapGeometry.classifyLayout(layout);
+	}
+
+	/**
+	 * Returns real-world elevation in meters (+14m, -16m, -7m, 0m)
+	 * @param {string} layout
+	 * @returns {number}
+	 */
+	getRealElevationMeters(layout) {
+		return MapGeometry.getRealElevationMeters(layout);
+	}
+
+	/**
+	 * Converts real-world meters to SVG world coordinate units
+	 * @param {number} meters
+	 * @returns {number}
+	 */
+	metersToWorldUnits(meters) {
+		return MapGeometry.metersToWorldUnits(meters);
+	}
+
+	/**
+	 * Converts SVG world coordinate units to real-world meters
+	 * @param {number} units
+	 * @returns {number}
+	 */
+	worldUnitsToMeters(units) {
+		return MapGeometry.worldUnitsToMeters(units);
+	}
+
+	/**
+	 * Layout check helpers
+	 */
+	isUnderground(layout) {
+		const c = MapGeometry.classifyLayout(layout);
+		return c === "underground" || c === "cut_and_cover";
+	}
+
+	isElevated(layout) {
+		return MapGeometry.classifyLayout(layout) === "elevated";
+	}
+
+	isSurface(layout) {
+		return MapGeometry.classifyLayout(layout) === "surface";
+	}
+
+	/**
+	 * Computes visual elevation in engine units for a structural layout type
+	 * Subclasses (CanvasRenderer, Metro3DEngine) override this to project into screen or 3D units.
+	 * @param {string} layout
+	 * @returns {number}
+	 */
+	getLayoutElevation(layout) {
+		return 0;
 	}
 }

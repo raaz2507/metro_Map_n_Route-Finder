@@ -1,0 +1,178 @@
+{
+	"version": "1.0",
+	"registry": {
+		"country": "India",
+		"cities": {
+			"delhi_ncr": {
+				"name": "Delhi NCR",
+				"state": "Delhi, Haryana, UP",
+				"networks": {
+					"dmrc": {"name": "Delhi Metro", "operator": "Delhi Metro Rail Corporation (DMRC)"},
+					"nmrc": {"name": "Noida Metro", "operator": "Noida Metro Rail Corporation (NMRC)"},
+					"rapid_metro_gurugram": {"name": "Rapid Metro Gurugram", "operator": "Haryana Mass Rapid Transport Corp (HMRTC / DMRC)"},
+					"delhi_meerut_rrts": {"name": "Namo Bharat RRTS (Delhi-Meerut)", "operator": "National Capital Region Transport Corp (NCRTC)"},
+					"delhi_alwar_rrts": {"name": "Delhi-Alwar RRTS", "operator": "National Capital Region Transport Corp (NCRTC)"},
+					"delhi_panipat_rrts": {"name": "Delhi-Panipat RRTS", "operator": "National Capital Region Transport Corp (NCRTC)"}
+				}
+			},
+			"mumbai": {
+				"name": "Mumbai",
+				"state": "Maharashtra",
+				"networks": {
+					"mumbai_metro": {"name": "Mumbai Metro", "operator": "Mumbai Metropolitan Region Dev Authority (MMRDA / MMRC)"},
+					"mumbai_monorail": {"name": "Mumbai Monorail", "operator": "Mumbai Metropolitan Region Dev Authority (MMRDA)"},
+					"thane_metro": {"name": "Thane Metro", "operator": "Mumbai Metropolitan Region Dev Authority (MMRDA)"},
+					"navi_mumbai_metro": {"name": "Navi Mumbai Metro", "operator": "City and Industrial Development Corp (CIDCO)"}
+				}
+			},
+			"kolkata": {
+				"name": "Kolkata",
+				"state": "West Bengal",
+				"networks": {
+					"kolkata_metro": {"name": "Kolkata Metro", "operator": "Metro Railway Kolkata (KMRC / IR)"}
+				}
+			},
+			"bengaluru": {
+				"name": "Bengaluru",
+				"state": "Karnataka",
+				"networks": {
+					"namma_metro": {"name": "Namma Metro", "operator": "Bangalore Metro Rail Corporation Ltd (BMRCL)"}
+				}
+			},
+			"hyderabad": {
+				"name": "Hyderabad",
+				"state": "Telangana",
+				"networks": {
+					"hmrl": {"name": "Hyderabad Metro", "operator": "Hyderabad Metro Rail Ltd (HMRL / L&T)"}
+				}
+			},
+			"chennai": {
+				"name": "Chennai",
+				"state": "Tamil Nadu",
+				"networks": {
+					"chennai_metro": {"name": "Chennai Metro", "operator": "Chennai Metro Rail Limited (CMRL)"},
+					"chennai_light_rail": {"name": "Chennai Light Rail", "operator": "Chennai Metro Rail Limited (CMRL)"}
+				}
+			},
+			"kochi": {
+				"name": "Kochi",
+				"state": "Kerala",
+				"networks": {
+					"kochi_metro": {"name": "Kochi Metro", "operator": "Kochi Metro Rail Limited (KMRL)"}
+				}
+			},
+			"ahmedabad_gandhinagar": {
+				"name": "Ahmedabad - Gandhinagar",
+				"state": "Gujarat",
+				"networks": {
+					"ahmedabad_metro": {"name": "Ahmedabad Metro", "operator": "Gujarat Metro Rail Corporation (GMRC)"}
+				}
+			},
+			"nagpur": {
+				"name": "Nagpur",
+				"state": "Maharashtra",
+				"networks": {
+					"nagpur_metro": {"name": "Nagpur Metro", "operator": "Maharashtra Metro Rail Corporation (Maha Metro)"}
+				}
+			},
+			"pune": {
+				"name": "Pune",
+				"state": "Maharashtra",
+				"networks": {
+					"pune_metro": {"name": "Pune Metro", "operator": "Maharashtra Metro Rail Corporation (Maha Metro)"}
+				}
+			},
+			"jaipur": {
+				"name": "Jaipur",
+				"state": "Rajasthan",
+				"networks": {
+					"jaipur_metro": {"name": "Jaipur Metro", "operator": "Jaipur Metro Rail Corporation (JMRC)"}
+				}
+			},
+			"lucknow": {
+				"name": "Lucknow",
+				"state": "Uttar Pradesh",
+				"networks": {
+					"lucknow_metro": {"name": "Lucknow Metro", "operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)"}
+				}
+			},
+			"kanpur": {
+				"name": "Kanpur",
+				"state": "Uttar Pradesh",
+				"networks": {
+					"kanpur_metro": {"name": "Kanpur Metro", "operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)"}
+				}
+			},
+			"agra": {
+				"name": "Agra",
+				"state": "Uttar Pradesh",
+				"networks": {
+					"agra_metro": {"name": "Agra Metro", "operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)"}
+				}
+			},
+			"indore": {
+				"name": "Indore",
+				"state": "Madhya Pradesh",
+				"networks": {
+					"indore_metro": {"name": "Indore Metro", "operator": "Madhya Pradesh Metro Rail Corporation (MPMRCL)"}
+				}
+			},
+			"bhopal": {
+				"name": "Bhopal",
+				"state": "Madhya Pradesh",
+				"networks": {
+					"bhopal_metro": {"name": "Bhopal Metro", "operator": "Madhya Pradesh Metro Rail Corporation (MPMRCL)"}
+				}
+			},
+			"patna": {
+				"name": "Patna",
+				"state": "Bihar",
+				"networks": {
+					"patna_metro": {"name": "Patna Metro", "operator": "Patna Metro Rail Corporation (PMRC)"}
+				}
+			},
+			"surat": {
+				"name": "Surat",
+				"state": "Gujarat",
+				"networks": {
+					"surat_metro": {"name": "Surat Metro", "operator": "Gujarat Metro Rail Corporation (GMRC)"}
+				}
+			},
+			"meerut": {
+				"name": "Meerut",
+				"state": "Uttar Pradesh",
+				"networks": {
+					"meerut_metro": {"name": "Meerut Metro (Local Corridor)", "operator": "National Capital Region Transport Corp (NCRTC)"}
+				}
+			},
+			"gorakhpur": {
+				"name": "Gorakhpur",
+				"state": "Uttar Pradesh",
+				"networks": {
+					"gorakhpur_metrolite": {"name": "Gorakhpur MetroLite", "operator": "Uttar Pradesh Metro Rail Corporation (UPMRC)"}
+				}
+			},
+			"jammu": {
+				"name": "Jammu",
+				"state": "Jammu & Kashmir",
+				"networks": {
+					"jammu_metrolite": {"name": "Jammu MetroLite", "operator": "Jammu & Kashmir Metro Rail Transport Corp"}
+				}
+			},
+			"srinagar": {
+				"name": "Srinagar",
+				"state": "Jammu & Kashmir",
+				"networks": {
+					"srinagar_metrolite": {"name": "Srinagar MetroLite", "operator": "Jammu & Kashmir Metro Rail Transport Corp"}
+				}
+			},
+			"dehradun": {
+				"name": "Dehradun",
+				"state": "Uttarakhand",
+				"networks": {
+					"dehradun_metroneo": {"name": "Dehradun MetroNeo", "operator": "Uttarakhand Metro Rail Corporation (UKMRC)"}
+				}
+			}
+		}
+	}
+}

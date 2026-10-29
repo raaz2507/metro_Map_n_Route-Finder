@@ -6,7 +6,20 @@ import { HeaderComponent } from "../components/Header.js";
 import { FooterComponent } from "../components/Footer.js";
 import { appStateStore } from "../core/app-state-store.js";
 import { eventBus } from "../core/event-bus.js";
-import { centerClass } from "../core/CenterClass.js"; 
+import { centerClass } from "../core/CenterClass.js";
+
+/**
+ * 📊 Dynamic Transit System Metrics
+ * Kept strictly decoupled from i18n translations.
+ * Automated via Python data pipeline.
+ */
+export const ABOUT_METRICS = {
+	countries: "1+",
+	cities: "16+",
+	networks: "23+",
+	stations: "930+",
+	offline: "100%"
+};
 
 
 class AboutController {
@@ -24,6 +37,7 @@ class AboutController {
 
 		// 2. Cache DOM Elements
 		this.#cacheDOM();
+		this.#renderMetrics();
 
 		// 3. Bind Subtle Interactive Hover & Accessibility
 		this.#bindInteractions();
@@ -49,6 +63,11 @@ class AboutController {
 	 */
 	#cacheDOM() {
 		this.#dom = {
+			metricCountries: document.getElementById("metricCountries"),
+			metricCities: document.getElementById("metricCities"),
+			metricNetworks: document.getElementById("metricNetworks"),
+			metricStations: document.getElementById("metricStations"),
+			metricOffline: document.getElementById("metricOffline"),
 			metricBoxes: document.querySelectorAll(".metric-box"),
 			bentoCards: document.querySelectorAll(".bento-card"),
 			communityBtns: document.querySelectorAll(".community-btn"),
@@ -68,6 +87,27 @@ class AboutController {
 	/**
 	 * 🎯 Bind Micro-Interactions & Keyboard Accessibility
 	 */
+	/**
+	 * 📊 Deliver metric stats to DOM from ABOUT_METRICS
+	 */
+	#renderMetrics() {
+		if (this.#dom.metricCountries) {
+			this.#dom.metricCountries.textContent = ABOUT_METRICS.countries;
+		}
+		if (this.#dom.metricCities) {
+			this.#dom.metricCities.textContent = ABOUT_METRICS.cities;
+		}
+		if (this.#dom.metricNetworks) {
+			this.#dom.metricNetworks.textContent = ABOUT_METRICS.networks;
+		}
+		if (this.#dom.metricStations) {
+			this.#dom.metricStations.textContent = ABOUT_METRICS.stations;
+		}
+		if (this.#dom.metricOffline) {
+			this.#dom.metricOffline.textContent = ABOUT_METRICS.offline;
+		}
+	}
+
 	#bindInteractions() {
 		this.#dom.bentoCards.forEach((card) => {
 			card.setAttribute("tabindex", "0");

@@ -1,0 +1,1958 @@
+{
+  "city": "hyderabad",
+  "version": "1.0",
+  "total_places": 50,
+  "places": [
+    {
+      "id": "charminar",
+      "category": "monument",
+      "coordinates": [
+        17.3616,
+        78.4747
+      ],
+      "timings": {
+        "open": "09:30",
+        "close": "17:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/charminar.webp",
+      "tags": [
+        "monument",
+        "qutb_shahi",
+        "four_minarets",
+        "iconic",
+        "old_city",
+        "heritage"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Charminar",
+        "description": "Iconic 1591 monument and mosque built by Sultan Muhammad Quli Qutb Shah to celebrate the eradication of a plague. Boasts four grand 56-meter stucco-ornamented minarets in the heart of Old Hyderabad.",
+        "best_time_to_visit": "Late afternoon or evening (04:00 PM to 08:30 PM) when the monument and surrounding bazaars light up."
+      },
+      "hi": {
+        "name": "चारमीनार",
+        "description": "1591 में सुल्तान मुहम्मद कुली कुतुब शाह द्वारा प्लेग महामारी के खात्मे की याद में निर्मित विश्वप्रसिद्ध ऐतिहासिक स्मारक व मस्जिद। 56 मीटर ऊँची चार भव्य मीनारें पुराने हैदराबाद के बीचों-बीच शान से खड़ी हैं।",
+        "best_time_to_visit": "शाम का समय (04:00 PM - 08:30 PM) जब चारमीनार रोशनी से जगमगाती है और लाड़ बाज़ार में रौनक बढ़ जाती है।"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Charminar_Hyderabad_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "golconda_fort",
+      "category": "monument",
+      "coordinates": [
+        17.3833,
+        78.4011
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/golconda_fort.webp",
+      "tags": [
+        "fort",
+        "acoustic_marvel",
+        "koh_i_noor",
+        "qutb_shahi",
+        "sound_and_light"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Golconda Fort",
+        "description": "Legendary medieval citadel that was the capital of the Qutb Shahi kingdom. World-famous for its acoustic engineering where a hand clap at the entrance gate can be heard at the Bala Hissar hilltop pavilion 1 km away.",
+        "best_time_to_visit": "Afternoon (03:30 PM to 06:00 PM) to explore the ruins followed by the evening Sound and Light Show."
+      },
+      "hi": {
+        "name": "गोलकोंडा किला",
+        "description": "कुतुब शाही सल्तनत की ऐतिहासिक राजधानी और विश्वप्रसिद्ध किला। अपनी अद्वितीय ध्वनिकी (Acoustics) के लिए मशहूर—जहाँ प्रवेश द्वार पर बजाई गई ताली की आवाज़ 1 किमी दूर पहाड़ी के शिखर 'बाला हिसार' पर साफ़ सुनाई देती है।",
+        "best_time_to_visit": "दोपहर 03:30 से शाम 06:00 बजे तक किले का भ्रमण और उसके बाद शाम का साउंड एंड लाइट शो देखने के लिए।"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Golconda_Fort_005.jpg/3840px-Golconda_Fort_005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "qutb_shahi_tombs",
+      "category": "monument",
+      "coordinates": [
+        17.3892,
+        78.3958
+      ],
+      "timings": {
+        "open": "09:30",
+        "close": "16:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/qutb_shahi_tombs.webp",
+      "tags": [
+        "tombs",
+        "domes",
+        "ibrahim_bagh",
+        "persian_hindu_architecture",
+        "heritage"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Qutb Shahi Tombs",
+        "description": "Magnificent necropolis of the seven ruling sultans of the Qutb Shahi dynasty set in Ibrahim Bagh. Features domed mausoleums blending Persian, Pashtun, and Hindu architectural ornamentation.",
+        "best_time_to_visit": "Morning hours (09:30 AM to 12:30 PM) for tranquil heritage photography."
+      },
+      "hi": {
+        "name": "कुतुब शाही मकबरे (इब्राहिम बाग)",
+        "description": "इब्राहिम बाग के शांत उद्यानों में स्थित कुतुब शाही वंश के सातों सुल्तानों के भव्य मकबरे। यह वास्तुकला फारसी, पश्तून और हिंदू शैलियों का अनुपम संगम है।",
+        "best_time_to_visit": "सुबह 09:30 से दोपहर 12:30 बजे तक शांतिपूर्ण ऐतिहासिक फोटोग्राफी के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tomb%20of%20Hayath%20Bakshi%20Begum%2001.jpg"
+    },
+    {
+      "id": "chowmahalla_palace",
+      "category": "monument",
+      "coordinates": [
+        17.3578,
+        78.4717
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 100,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/chowmahalla_palace.webp",
+      "tags": [
+        "nizam_palace",
+        "khilwat_mubarak",
+        "belgian_chandeliers",
+        "vintage_cars",
+        "royal"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Chowmahalla Palace",
+        "description": "Opulent official seat of the Asaf Jahi Nizams, modeled after the Shah of Iran's palace in Tehran. Renowned for its Khilwat Mubarak grand durbar hall with 19 colossal Belgian crystal chandeliers.",
+        "best_time_to_visit": "11:00 AM to 03:30 PM to marvel at the royal regalia, vintage Rolls-Royce cars, and clock tower."
+      },
+      "hi": {
+        "name": "चौमहल्ला पैलेस (निज़ाम राजमहल)",
+        "description": "आसफ जाही निज़ामों का आधिकारिक राजमहल, जिसे तेहरान के शाह के महल की तर्ज पर बनाया गया था। इसके 'खिलवत मुबारक' दरबार हॉल में बेल्जियम के 19 विशाल क्रिस्टल झूमर और विंटेज रोल्स रॉयस कारें प्रदर्शित हैं।",
+        "best_time_to_visit": "सुबह 11:00 से दोपहर 03:30 बजे तक राजसी दरबार, क्लॉक टावर और विंटेज कार गैलरी के दर्शन के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chowmahalla%20Palace%2001.jpg"
+    },
+    {
+      "id": "falaknuma_palace",
+      "category": "monument",
+      "coordinates": [
+        17.3314,
+        78.4678
+      ],
+      "timings": {
+        "open": "16:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 3100,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/falaknuma_palace.webp",
+      "tags": [
+        "palace",
+        "mirror_of_sky",
+        "scorpions_shape",
+        "taj_hotel",
+        "luxury",
+        "heritage"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Taj Falaknuma Palace",
+        "description": "Stunning 1893 hilltop palace designed in the shape of a scorpion by Nawab Sir Vikar-ul-Umra. Built entirely of Italian marble, featuring a 101-seat dining table and ceiling frescoes.",
+        "best_time_to_visit": "Book an afternoon heritage high tea or guided royal palace tour."
+      },
+      "hi": {
+        "name": "ताज फलकनुमा पैलेस",
+        "description": "1893 में पहाड़ी पर बिच्छू के आकार में निर्मित अत्यंत भव्य इतालवी संगमरमर का राजमहल। इसमें 101 कुर्सियों वाला दुनिया का सबसे लंबा डाइनिंग टेबल और विख्यात छत के भित्तिचित्र (फ्रेस्को) मौजूद हैं।",
+        "best_time_to_visit": "दोपहर की हेरिटेज वॉक या हाई टी के लिए अग्रिम बुकिंग के साथ जाएँ।"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Falaknuma_Palace_01.jpg/3840px-Falaknuma_Palace_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "salar_jung_museum",
+      "category": "museum",
+      "coordinates": [
+        17.3714,
+        78.4804
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/salar_jung_museum.webp",
+      "tags": [
+        "museum",
+        "veiled_rebecca",
+        "musical_clock",
+        "one_man_collection",
+        "antiquities"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Salar Jung Museum",
+        "description": "One of the three National Museums of India, holding the colossal private art collection of Nawab Mir Yousuf Ali Khan (Salar Jung III). Highlights include the 19th-century Veiled Rebecca marble sculpture and the British musical clock.",
+        "best_time_to_visit": "10:30 AM to 02:30 PM; gather in the central foyer at every full hour to watch the famous mechanical clock show."
+      },
+      "hi": {
+        "name": "सालार जंग संग्रहालय",
+        "description": "भारत के तीन राष्ट्रीय संग्रहालयों में से एक, जिसमें नवाब मीर युसुफ अली खान (सालार जंग तृतीय) का विशाल निजी संग्रह है। यहाँ 19वीं सदी की संगमरमर की मूर्ति 'वेइल्ड रेबेका' और ब्रिटिश म्यूजिकल क्लॉक प्रसिद्ध हैं।",
+        "best_time_to_visit": "सुबह 10:30 से दोपहर 02:30 बजे तक; हर घंटे के अंत में ऐतिहासिक घड़ी से निकलने वाले खिलौने का शो अवश्य देखें।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Salar%20Jung%20Museum%2C%20the%20building%20and%20complex%20in%20Hyderabad%2021.jpg"
+    },
+    {
+      "id": "hussain_sagar_lake",
+      "category": "park",
+      "coordinates": [
+        17.4239,
+        78.4738
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "22:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/hussain_sagar_lake.webp",
+      "tags": [
+        "heart_shaped_lake",
+        "monolithic_buddha",
+        "boating",
+        "necklace_road",
+        "sunset"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Hussain Sagar Lake & Monolithic Buddha",
+        "description": "Historic 1563 heart-shaped lake built by Ibrahim Quli Qutb Shah. Dominated by the world's tallest monolithic granite statue of Gautama Buddha (18 meters tall, 450 tons) standing majestically on Gibraltar Rock.",
+        "best_time_to_visit": "05:00 PM to 08:00 PM for speed boating, sunset ferry rides to the Buddha statue, and evening walks."
+      },
+      "hi": {
+        "name": "हुसैन सागर झील व अखंड बुद्ध प्रतिमा",
+        "description": "1563 में इब्राहिम कुली कुतुब शाह द्वारा निर्मित दिल के आकार की ऐतिहासिक झील। जिब्राल्टर रॉक पर स्थित 18 मीटर ऊँची और 450 टन वजनी भगवान बुद्ध की विशाल अखंड ग्रेनाइट प्रतिमा यहाँ की पहचान है।",
+        "best_time_to_visit": "शाम 05:00 से रात 08:00 बजे तक स्पीड बोटिंग, बुद्ध प्रतिमा तक नौकायन और नेकलेस रोड की सैर के लिए।"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Aerial_view_of_Hussain_Sagar_from_Bansalipet.jpg/3840px-Aerial_view_of_Hussain_Sagar_from_Bansalipet.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "birla_mandir_hyderabad",
+      "category": "religious",
+      "coordinates": [
+        17.4062,
+        78.4691
+      ],
+      "timings": {
+        "open": "07:00",
+        "close": "21:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/birla_mandir_hyderabad.webp",
+      "tags": [
+        "white_marble",
+        "venkateswara",
+        "naubat_pahad",
+        "city_view",
+        "spiritual"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Birla Mandir (Venkateswara Swamy)",
+        "description": "Exquisite Hindu temple constructed of 2,000 tonnes of pure white Rajasthani Makrana marble atop the 280-foot Naubat Pahad hill. Offers sweeping panoramic views of Hussain Sagar Lake and the city skyline.",
+        "best_time_to_visit": "Evening hours (05:30 PM to 08:30 PM) for cool hilltop breezes and illuminated city views."
+      },
+      "hi": {
+        "name": "बिड़ला मंदिर (श्री वेंकटेश्वर स्वामी)",
+        "description": "280 फीट ऊँची नौबत पहाड़ पहाड़ी पर 2000 टन शुद्ध सफेद राजस्थानी मकराना संगमरमर से निर्मित भव्य मंदिर। यहाँ से हुसैन सागर झील और हैदराबाद शहर का विहंगम दृश्य दिखाई देता है।",
+        "best_time_to_visit": "शाम 05:30 से रात 08:30 बजे तक ठंडी पहाड़ी हवा और रोशनी से जगमगाते शहर के नज़ारे के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Birla%20Mandir%20in%20Hyderabad%2C%202015.JPG"
+    },
+    {
+      "id": "makkah_masjid",
+      "category": "religious",
+      "coordinates": [
+        17.3614,
+        78.4736
+      ],
+      "timings": {
+        "open": "04:00",
+        "close": "21:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/makkah_masjid.webp",
+      "tags": [
+        "grand_mosque",
+        "mecca_bricks",
+        "granite_arches",
+        "charminar",
+        "historic"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Makkah Masjid (Mecca Masjid)",
+        "description": "One of the largest mosques in India, commissioned by Muhammad Quli Qutb Shah with bricks fashioned using soil brought directly from Mecca. Accommodates up to 20,000 worshippers in its grand granite prayer courtyard.",
+        "best_time_to_visit": "Daytime outside prayer hours to admire the colossal 17th-century monolithic granite colonnades."
+      },
+      "hi": {
+        "name": "मक्का मस्जिद",
+        "description": "भारत की विशालतम मस्जिदों में से एक, जिसके निर्माण में मक्का से लाई गई मिट्टी की ईंटों का उपयोग किया गया था। इसके विशाल ग्रेनाइट मेहराबों वाले प्रांगण में एक साथ 20,000 श्रद्धालु नमाज़ अदा कर सकते हैं।",
+        "best_time_to_visit": "दिन के समय (नमाज़ के समय के अतिरिक्त) 17वीं सदी की विशाल ग्रेनाइट वास्तुकला को देखने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pigeons%20on%20a%20Minaret%20of%20Mecca%20Masjid%20%28September%202019%29%201.jpg"
+    },
+    {
+      "id": "nehru_zoological_park",
+      "category": "park",
+      "coordinates": [
+        17.3517,
+        78.4517
+      ],
+      "timings": {
+        "open": "08:30",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 60,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/nehru_zoological_park.webp",
+      "tags": [
+        "zoo",
+        "safari",
+        "white_tiger",
+        "mir_alam_tank",
+        "toy_train",
+        "wildlife"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Nehru Zoological Park",
+        "description": "Expansive 380-acre open zoo established in 1963 alongside Mir Alam Tank. Home to over 1,500 species of animals including white tigers, lions, Indian rhinos, a safari park, nocturnal house, and toy train.",
+        "best_time_to_visit": "Morning hours (09:00 AM to 01:00 PM) for active safari animal sightings (closed Mondays)."
+      },
+      "hi": {
+        "name": "नेहरू प्राणी उद्यान (हैदराबाद ज़ू)",
+        "description": "मीर आलम टैंक के किनारे 380 एकड़ में फैला भारत का प्रमुख खुला चिड़ियाघर। यहाँ सफेद बाघ, शेर, एशियाई गैंडे, लॉयन सफारी, रात्रिचर प्राणी घर (Nocturnal House) और टॉय ट्रेन मौजूद हैं।",
+        "best_time_to_visit": "सुबह 09:00 से दोपहर 01:00 बजे तक सफारी और वन्यजीवों को देखने के लिए (सोमवार को बंद)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nehru%20Zoological%20Park%2C%20Hyderabad%2016032012.JPG"
+    },
+    {
+      "id": "durgam_cheruvu_bridge",
+      "category": "park",
+      "coordinates": [
+        17.4358,
+        78.3878
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "22:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/durgam_cheruvu_bridge.webp",
+      "tags": [
+        "secret_lake",
+        "cable_stayed_bridge",
+        "night_lights",
+        "promenade",
+        "hitec_city"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Durgam Cheruvu & Cable-Stayed Bridge",
+        "description": "Historic freshwater reservoir nestled among granite boulders, spanned by an ultra-modern 435-meter cable-stayed bridge. Features colorful multi-theme LED illuminations, musical fountain, and lakeside food promenade.",
+        "best_time_to_visit": "06:30 PM to 10:00 PM to witness the bridge's vibrant light shows and lively waterfront dining."
+      },
+      "hi": {
+        "name": "दुर्गम चेरुवु व केबल-स्टेड ब्रिज",
+        "description": "प्राचीन ग्रेनाइट चट्टानों के बीच स्थित प्राकृतिक झील, जिसके ऊपर 435 मीटर लंबा आधुनिक केबल ब्रिज बना है। शाम को इसकी बहुरंगी एलईडी लाइट्स, म्यूजिकल फाउंटेन और लेकसाइड वॉकवे युवाओं को आकर्षित करता है।",
+        "best_time_to_visit": "शाम 06:30 से रात 10:00 बजे तक रंग-बिरंगी लाइटिंग और लेकसाइड रेस्टोरेंट्स के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20view%20of%20Durgam%20cheruvu%20and%20Hitech%20CIty.jpg"
+    },
+    {
+      "id": "shilparamam_crafts_village",
+      "category": "entertainment",
+      "coordinates": [
+        17.4519,
+        78.3775
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 60,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/shilparamam_crafts_village.webp",
+      "tags": [
+        "arts_crafts_village",
+        "handlooms",
+        "pottery",
+        "folk_dances",
+        "rural_museum"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Shilparamam Arts & Crafts Village",
+        "description": "Charming 65-acre traditional arts and cultural crafts enclave in Hitec City. Showcases authentic rural Indian life with thatched huts, traditional handlooms, brassware stalls, pottery workshops, and folk dance performances.",
+        "best_time_to_visit": "04:00 PM to 08:30 PM for open-air crafts shopping, boat rides, and cultural theater shows."
+      },
+      "hi": {
+        "name": "शिल्पारामम कला व शिल्प ग्राम",
+        "description": "हाईटेक सिटी में 65 एकड़ में फैला पारंपरिक भारतीय ग्रामीण कला व शिल्प केंद्र। यहाँ पारंपरिक हथकरघा, पीतल के बर्तन, मिट्टी की मूर्तियाँ और शाम को लोकनृत्य व संगीत कार्यक्रम आयोजित होते हैं।",
+        "best_time_to_visit": "शाम 04:00 से रात 08:30 बजे तक खुले बाज़ार में खरीदारी और सांस्कृतिक कार्यक्रमों के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shilparamam%2C%20arts%20and%20crafts%20village%20in%20hyderabad.jpg"
+    },
+    {
+      "id": "ntr_gardens",
+      "category": "park",
+      "coordinates": [
+        17.4144,
+        78.4686
+      ],
+      "timings": {
+        "open": "14:30",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/ntr_gardens.webp",
+      "tags": [
+        "memorial_garden",
+        "machan_tree",
+        "monorail",
+        "landscaped",
+        "family"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "NTR Gardens",
+        "description": "Vibrant 55-acre leisure park built along Hussain Sagar Lake in memory of former Chief Minister N.T. Rama Rao. Features a souvenir craft village, Japanese garden, cascading waterfall, and mini monorail ride.",
+        "best_time_to_visit": "Late afternoon to evening (04:00 PM to 08:00 PM) for relaxed family recreation."
+      },
+      "hi": {
+        "name": "एनटीआर गार्डन्स",
+        "description": "हुसैन सागर झील के तट पर पूर्व मुख्यमंत्री एन.टी. रामाराव की स्मृति में बना 55 एकड़ का सुंदर मनोरंजक पार्क। यहाँ माचन ट्री, टॉय मोनोरेल, जापानी गार्डन और सुंदर फव्वारे हैं।",
+        "best_time_to_visit": "दोपहर 04:00 से रात 08:00 बजे तक परिवार और बच्चों के साथ पिकनिक के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/NTR%20Memorial.jpg"
+    },
+    {
+      "id": "lumbini_park",
+      "category": "park",
+      "coordinates": [
+        17.4158,
+        78.4706
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "21:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/lumbini_park.webp",
+      "tags": [
+        "musical_fountain",
+        "laser_show",
+        "buddha_boat_jetty",
+        "lakeside",
+        "family"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Lumbini Park & Musical Fountain",
+        "description": "Picturesque waterfront urban park adjoining Hussain Sagar Lake, famous for its synchronized musical dancing water fountain and advanced 3D laser multimedia shows narrating the history of Hyderabad.",
+        "best_time_to_visit": "Evening show timings (07:15 PM and 08:30 PM for laser shows) combined with ferry rides to the Buddha statue."
+      },
+      "hi": {
+        "name": "लुंबिनी पार्क व लेज़र शो",
+        "description": "हुसैन सागर के तट पर स्थित सुरम्य पार्क, जो अपने संगीतमय डांसिंग फव्वारे और हैदराबाद के इतिहास को प्रदर्शित करने वाले 3D लेज़र मल्टीमीडिया शो के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "शाम के लेज़र शो (07:15 PM व 08:30 PM) और बुद्ध प्रतिमा की बोटिंग के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lumbini%20Park%2C%20Hyderabad.jpg"
+    },
+    {
+      "id": "kbr_national_park",
+      "category": "park",
+      "coordinates": [
+        17.4247,
+        78.4194
+      ],
+      "timings": {
+        "open": "05:30",
+        "close": "18:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 40,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/kbr_national_park.webp",
+      "tags": [
+        "urban_forest",
+        "chiran_palace",
+        "peacocks",
+        "walking_track",
+        "jubilee_hills"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "KBR National Park (Kasu Brahmananda Reddy)",
+        "description": "Sprawling 390-acre urban bio-reserve in affluent Jubilee Hills housing Chiran Palace. Home to over 600 species of tropical trees, 140 bird species, and roaming peacocks along its 4.5 km walking track.",
+        "best_time_to_visit": "06:00 AM to 09:00 AM for bird watching and morning fitness walks."
+      },
+      "hi": {
+        "name": "केबीआर राष्ट्रीय उद्यान (कासू ब्रह्मानंद रेड्डी)",
+        "description": "जुबली हिल्स के बीच 390 एकड़ का समृद्ध शहरी वन अभयारण्य। यहाँ ऐतिहासिक चिरान पैलेस, 600 प्रजातियों के वृक्ष, 140 पक्षी और खुले घूमते मोर इसके 4.5 किमी वॉकिंग ट्रैक पर मिलते हैं।",
+        "best_time_to_visit": "सुबह 06:00 से 09:00 बजे तक पक्षी दर्शन और प्रातःकालीन वॉक के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kbrpark.jpg"
+    },
+    {
+      "id": "laad_bazaar",
+      "category": "market",
+      "coordinates": [
+        17.3619,
+        78.4719
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/laad_bazaar.webp",
+      "tags": [
+        "choodi_bazaar",
+        "lac_bangles",
+        "bridal_wear",
+        "pearls",
+        "charminar_lane"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Laad Bazaar (Choodi Bazaar)",
+        "description": "Centuries-old market alley extending west from Charminar, world-renowned for traditional handmade lacquer bangles studded with glittering stones, authentic pearls, zardozi bridal fabrics, and attar perfumes.",
+        "best_time_to_visit": "04:30 PM to 09:30 PM for sparkling evening street shopping and bargaining."
+      },
+      "hi": {
+        "name": "लाड़ बाज़ार (चूड़ी बाज़ार)",
+        "description": "चारमीनार से पश्चिम की ओर जाने वाली सदियों पुरानी प्रसिद्ध सड़क, जो पत्थरों से जड़ी लाख की चमकदार चूड़ियों, असली मोतियों, ज़रदोज़ी की साड़ियों और इत्र के लिए दुनिया भर में मशहूर है।",
+        "best_time_to_visit": "शाम 04:30 से रात 09:30 बजे तक खरीदारी और जगमगाते बाज़ार की चहल-पहल के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ladh%20Bazaar%20and%20CharMinar%20N-AP-78%20Telangana.jpg"
+    },
+    {
+      "id": "birla_science_centre",
+      "category": "museum",
+      "coordinates": [
+        17.4047,
+        78.4711
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 160,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/birla_science_centre.webp",
+      "tags": [
+        "science_museum",
+        "dinosaurium",
+        "kotasaurus_fossil",
+        "interactive",
+        "space"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "B.M. Birla Science Centre & Dinosaurium",
+        "description": "Interactive science museum on Naubat Pahad featuring an authentic 160-million-year-old fossil of Kotasaurus yamanpalliensis, space exhibits, interactive physics labs, and an Antarctic biodiversity section.",
+        "best_time_to_visit": "11:00 AM to 04:00 PM, highly recommended for children and science lovers."
+      },
+      "hi": {
+        "name": "बी.एम. बिड़ला विज्ञान केंद्र व डायनासोरियम",
+        "description": "नौबत पहाड़ पर स्थित इंटरैक्टिव विज्ञान संग्रहालय, जहाँ 160 मिलियन वर्ष पुराना 'कोटासॉरस' डायनासोर का असली जीवाश्म, अंतरिक्ष गैलरी और भौतिकी के प्रायोगिक मॉडल मौजूद हैं।",
+        "best_time_to_visit": "सुबह 11:00 से शाम 04:00 बजे तक; छात्रों और बच्चों के लिए ज्ञानवर्धक अनुभव।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/RJ19%2095%20Double%20helix%20Birla%20Science%20Centre%20Pilani%20small.jpg"
+    },
+    {
+      "id": "ramoji_film_city",
+      "category": "entertainment",
+      "coordinates": [
+        17.2544,
+        78.6808
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 1350,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/ramoji_film_city.webp",
+      "tags": [
+        "film_studio",
+        "guinness_record",
+        "bahubali_set",
+        "stunt_show",
+        "amusement"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Ramoji Film City",
+        "description": "Certified by the Guinness World Records as the world's largest film studio complex sprawling across 2,000 acres. Features legendary movie sets (including Baahubali's Mahishmati Kingdom), live stunt shows, and thematic gardens.",
+        "best_time_to_visit": "Full-day excursion starting at 09:00 AM to experience the cinematic sets and amusement rides."
+      },
+      "hi": {
+        "name": "रामोजी फिल्म सिटी",
+        "description": "गिनीज वर्ल्ड रिकॉर्ड्स द्वारा प्रमाणित दुनिया का सबसे बड़ा फिल्म स्टूडियो कॉम्प्लेक्स, जो 2000 एकड़ में फैला है। यहाँ 'बाहुबली' के माहिष्मती महल का भव्य सेट, स्टंट शो और थीम पार्क हैं।",
+        "best_time_to_visit": "पूरे दिन के भ्रमण के लिए सुबह 09:00 बजे पहुँचें ताकि सभी शो और सेट्स देख सकें।"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Ramoji_Film_City.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "paigah_tombs",
+      "category": "heritage",
+      "coordinates": [
+        17.3458,
+        78.5028
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/paigah_tombs.webp",
+      "tags": [
+        "paigah_nobles",
+        "lime_mortar_jaali",
+        "inlaid_marble",
+        "asaf_jahi_dynasty"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Paigah Tombs",
+        "description": "Historic necropolis belonging to the noble Paigah family, fierce loyalists of the Nizams. Celebrated for intricate geometric lime-and-mortar filigree work, inlaid Italian marble screens, and European-Mughal hybrid architecture.",
+        "best_time_to_visit": "10:30 AM to 03:30 PM (closed Fridays) for detailed architectural appreciation."
+      },
+      "hi": {
+        "name": "पायगाह मकबरे",
+        "description": "निज़ामों के वफादार पायगाह नवाबों के 18वीं सदी के ऐतिहासिक मकबरे। चूने और गारे की बारीक जालीदार नक्काशी, इतालवी संगमरमर और मुगल-यूरोपीय मिश्रित स्थापत्य कला यहाँ की विशेषता है।",
+        "best_time_to_visit": "सुबह 10:30 से दोपहर 03:30 बजे तक (शुक्रवार को बंद) बारीक नक्काशी देखने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Paigah%20Tombs%2003.jpg"
+    },
+    {
+      "id": "taramati_baradari",
+      "category": "heritage",
+      "coordinates": [
+        17.3758,
+        78.3847
+      ],
+      "timings": {
+        "open": "09:30",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/taramati_baradari.webp",
+      "tags": [
+        "twelve_door_pavilion",
+        "ibrahim_qutb_shah",
+        "courtesan",
+        "music_hall",
+        "acoustics"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Taramati Baradari",
+        "description": "Historic 12-door Persian-style open pavilion built atop a hill by Sultan Ibrahim Qutb Shah in honour of legendary courtesan and singer Taramati. Famed for its whispering gallery acoustics that carried melody to Golconda Fort.",
+        "best_time_to_visit": "Sunset to evening for cool breezes, heritage ambiance, and occasional cultural recitals."
+      },
+      "hi": {
+        "name": "तारामाती बारादरी",
+        "description": "सुल्तान इब्राहिम कुतुब शाह द्वारा प्रसिद्ध गायिका व नृत्यांगना तारामाती के सम्मान में निर्मित पहाड़ी पर स्थित 12 दरवाजों वाला खुला मंडप। इसकी ध्वनिकी ऐसी थी कि यहाँ का गायन गोलकोंडा किले तक गूंजता था।",
+        "best_time_to_visit": "सूर्यास्त के समय ठंडी हवा, ऐतिहासिक माहौल और फोटोग्राफी के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Taramati-Baradari.jpg"
+    },
+    {
+      "id": "peddamma_gudi",
+      "category": "religious",
+      "coordinates": [
+        17.4336,
+        78.4069
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/peddamma_gudi.webp",
+      "tags": [
+        "goddess_durga",
+        "bonalu_festival",
+        "jubilee_hills",
+        "historic",
+        "shakti"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Peddamma Gudi Temple",
+        "description": "Highly revered temple in Jubilee Hills dedicated to Goddess Peddamma (the Supreme Mother). Draws hundreds of thousands of devotees, especially during the annual Bonalu festival in Ashada month.",
+        "best_time_to_visit": "Morning hours (07:00 AM to 11:00 AM) or on Sundays and Tuesdays for special pujas."
+      },
+      "hi": {
+        "name": "पेद्दम्मा गुड़ी मंदिर (जुबली हिल्स)",
+        "description": "जुबली हिल्स में स्थित अत्यंत जाग्रत माता पेद्दम्मा (सर्वोच्च माँ) का मंदिर। आषाढ़ मास में यहाँ प्रसिद्ध 'बोनालु' महोत्सव के दौरान लाखों श्रद्धालु दर्शन और पूजा के लिए आते हैं।",
+        "best_time_to_visit": "सुबह 07:00 से 11:00 बजे तक अथवा मंगलवार व रविवार को विशेष पूजा के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Peddamma%20Gudi%20Bus%20Stop.jpg"
+    },
+    {
+      "id": "chilkur_balaji_temple",
+      "category": "religious",
+      "coordinates": [
+        17.3586,
+        78.3006
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/chilkur_balaji_temple.webp",
+      "tags": [
+        "visa_balaji",
+        "108_pradakshina",
+        "zero_hundi",
+        "osman_sagar",
+        "miracle"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Chilkur Balaji Temple (Visa Balaji)",
+        "description": "Ancient temple of Lord Venkateswara on the banks of Osman Sagar Lake, famously known as 'Visa Balaji'. Operates without any commercial VIP queues or donation boxes; devotees circumambulate 108 times upon fulfillment of wishes.",
+        "best_time_to_visit": "Early morning (06:00 AM to 09:00 AM) on weekdays to perform the traditional 11 or 108 pradakshinas."
+      },
+      "hi": {
+        "name": "चिल्कुर बालाजी मंदिर (वीज़ा बालाजी)",
+        "description": "उस्मान सागर झील के किनारे भगवान वेंकटेश्वर का चमत्कारी प्राचीन मंदिर, जिसे 'वीज़ा बालाजी' कहा जाता है। यहाँ कोई दानपेटी या वीआईपी कतार नहीं है; मनोकामना पूरी होने पर 108 प्रदक्षिणा की जाती है।",
+        "best_time_to_visit": "सप्ताह के दिनों में सुबह 06:00 से 09:00 बजे तक 11 या 108 प्रदक्षिणा करने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Balaji%20temple%2C%20chilkoor.jpg"
+    },
+    {
+      "id": "jagannath_temple_hyderabad",
+      "category": "religious",
+      "coordinates": [
+        17.4206,
+        78.4389
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/jagannath_temple_hyderabad.webp",
+      "tags": [
+        "jagannath_puri_replica",
+        "red_sandstone",
+        "shikara",
+        "banjara_hills",
+        "rath_yatra"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Jagannath Temple, Banjara Hills",
+        "description": "Exquisite modern replica of the iconic Jagannath Temple at Puri, carved entirely from red sandstone brought from Odisha. Features an impressive 70-foot-tall shikara adorned with intricate divine sculptures.",
+        "best_time_to_visit": "Morning (07:00 AM to 11:00 AM) or evening Aarti (06:30 PM to 08:30 PM)."
+      },
+      "hi": {
+        "name": "जगन्नाथ मंदिर (बंजारा हिल्स)",
+        "description": "पुरी के विश्वप्रसिद्ध जगन्नाथ मंदिर की तर्ज पर ओडिशा के लाल बलुआ पत्थरों से निर्मित भव्य मंदिर। इसका 70 फीट ऊँचा शिखर और बारीक पौराणिक नक्काशी अत्यंत मनमोहक है।",
+        "best_time_to_visit": "सुबह 07:00 से 11:00 बजे या शाम की आरती (06:30 PM - 08:30 PM) के समय।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jagannath%20Temple%2C%20Banjara%20Hills%206.jpg"
+    },
+    {
+      "id": "telangana_state_museum",
+      "category": "museum",
+      "coordinates": [
+        17.3989,
+        78.4683
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/telangana_state_museum.webp",
+      "tags": [
+        "public_gardens",
+        "egyptian_mummy",
+        "bronze_sculptures",
+        "buddhist_relics",
+        "coins"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Telangana State Archaeology Museum",
+        "description": "Oldest museum in Hyderabad established in 1930 within the Public Gardens by the Seventh Nizam. Houses a rare 2,500-year-old Egyptian mummy, Buddhist sculptural relics from Amaravati, and ancient coins.",
+        "best_time_to_visit": "11:00 AM to 04:00 PM (closed on Fridays)."
+      },
+      "hi": {
+        "name": "तेलंगाना राज्य पुरातत्व संग्रहालय",
+        "description": "पब्लिक गार्डन्स में 1930 में सातवें निज़ाम द्वारा स्थापित हैदराबाद का सबसे पुराना संग्रहालय। यहाँ 2500 वर्ष पुरानी मिस्र की ममी, अमरावती की बौद्ध मूर्तियाँ और प्राचीन सिक्के प्रदर्शित हैं।",
+        "best_time_to_visit": "सुबह 11:00 से शाम 04:00 बजे तक (शुक्रवार को बंद रहता है)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Telangana%20State%20Archaeology%20Museum%20120.jpg"
+    },
+    {
+      "id": "sudha_cars_museum",
+      "category": "museum",
+      "coordinates": [
+        17.3589,
+        78.4556
+      ],
+      "timings": {
+        "open": "09:30",
+        "close": "18:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/sudha_cars_museum.webp",
+      "tags": [
+        "whacky_cars",
+        "handmade_vehicles",
+        "burger_car",
+        "shoe_car",
+        "guinness_record"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Sudha Cars Museum",
+        "description": "Unique quirky museum created by Guinness World Record holder K. Sudhakar, exhibiting dozens of handcrafted drivable cars designed as everyday objects—including high-heeled shoe cars, burger cars, and cricket bat vehicles.",
+        "best_time_to_visit": "11:00 AM to 04:00 PM for a fun-filled family photography outing."
+      },
+      "hi": {
+        "name": "सुधा कार्स म्यूजियम",
+        "description": "गिनीज रिकॉर्ड धारक के. सुधाकर द्वारा निर्मित अनोखा कार संग्रहालय। यहाँ रोजमर्रा की वस्तुओं के आकार में बनी चालू कारें प्रदर्शित हैं—जैसे बर्गर कार, हाई हील जूता कार, बैट कार और कैमरा कार।",
+        "best_time_to_visit": "सुबह 11:00 से शाम 04:00 बजे तक मजेदार और अनोखी कारों की फोटोग्राफी के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Snap%20from%20Sudha%20Cars%20Museum%20Hyderabad%203767.JPG"
+    },
+    {
+      "id": "purani_haveli",
+      "category": "monument",
+      "coordinates": [
+        17.3658,
+        78.4828
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 80,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/purani_haveli.webp",
+      "tags": [
+        "longest_wardrobe",
+        "nizams_museum",
+        "u_shaped_palace",
+        "silver_jubilee_gifts"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Purani Haveli (Nizam's Museum)",
+        "description": "Neo-classical palace complex built in 1777 that served as the residence of the Second Nizam. Features the world's longest wooden wardrobe spanning 240 feet, and the Nizam's Museum displaying diamond jubilee gifts.",
+        "best_time_to_visit": "10:30 AM to 03:30 PM (closed on Fridays)."
+      },
+      "hi": {
+        "name": "पुरानी हवेली (निज़ाम का संग्रहालय)",
+        "description": "1777 में निर्मित नवशास्त्रीय राजमहल, जो दूसरे निज़ाम का निवास था। यहाँ 240 फीट लंबा लकड़ी का दुनिया का सबसे बड़ा वॉर्डरोब (कपड़ों की अलमारी) और रजत जयंती के उपहार प्रदर्शित हैं।",
+        "best_time_to_visit": "सुबह 10:30 से दोपहर 03:30 बजे तक (शुक्रवार को बंद रहता है)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nizam%27%20s%20museum%2C%20purani%20haveli%2C%20Hyderabad.jpg"
+    },
+    {
+      "id": "sanjeevaiah_park",
+      "category": "park",
+      "coordinates": [
+        17.4339,
+        78.4828
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/sanjeevaiah_park.webp",
+      "tags": [
+        "tallest_national_flag",
+        "hussain_sagar",
+        "rock_garden",
+        "rose_garden",
+        "promenade"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Sanjeevaiah Park",
+        "description": "Scenic 99-acre park situated along the northern shore of Hussain Sagar Lake. Boasts India's second tallest national flag (108 meters high), a certified rock garden, butterfly park, and quiet pedestrian promenades.",
+        "best_time_to_visit": "06:00 AM to 09:00 AM for morning strolls or late afternoon for lake sunsets."
+      },
+      "hi": {
+        "name": "संजीवैया पार्क",
+        "description": "हुसैन सागर झील के उत्तरी किनारे पर 99 एकड़ में फैला खूबसूरत पार्क। यहाँ 108 मीटर ऊँचा भारत का दूसरा सबसे ऊँचा तिरंगा झंडा, रॉक गार्डन, गुलाब वाटिका और शांत वॉकवे हैं।",
+        "best_time_to_visit": "सुबह 06:00 से 09:00 बजे तक ताज़ी हवा और शाम को झील किनारे सूर्यास्त देखने के लिए।"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Tabebuia_aurea_in_Hyderabad_W_IMG_7091.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "moazzam_jahi_market",
+      "category": "market",
+      "coordinates": [
+        17.3867,
+        78.4744
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "23:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/moazzam_jahi_market.webp",
+      "tags": [
+        "granite_clock_tower",
+        "famous_ice_cream",
+        "heritage_market",
+        "dry_fruits",
+        "1935"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Moazzam Jahi (MJ) Market",
+        "description": "Monumental granite clock-tower market constructed in 1935 by the Seventh Nizam, named after his son Prince Moazzam Jah. Famous for vintage architecture, wholesale dry fruits, and the iconic handmade 'Famous Ice Cream'.",
+        "best_time_to_visit": "04:00 PM to 10:30 PM for evening heritage walks and scoops of seasonal fruit ice cream."
+      },
+      "hi": {
+        "name": "मोज़्ज़म जाही (एमजे) मार्केट",
+        "description": "1935 में सातवें निज़ाम द्वारा निर्मित ग्रेनाइट पत्थरों का ऐतिहासिक क्लॉक-टावर बाज़ार। यह अपनी ब्रिटिश-निज़ामी वास्तुकला, सूखे मेवों और 1951 की मशहूर 'फेमस आइसक्रीम' के लिए जाना जाता है।",
+        "best_time_to_visit": "शाम 04:00 से रात 10:30 बजे तक हेरिटेज वॉक और मौसमी फलों की ताज़ा आइसक्रीम के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/MJ%20Market%20%2CAbids.jpg"
+    },
+    {
+      "id": "begum_bazaar",
+      "category": "market",
+      "coordinates": [
+        17.3744,
+        78.4711
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "21:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/begum_bazaar.webp",
+      "tags": [
+        "wholesale_market",
+        "spices",
+        "crockery",
+        "brassware",
+        "household_goods"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Begum Bazaar",
+        "description": "The largest and oldest traditional commercial wholesale market in Hyderabad, established during the Qutb Shahi era. Renowned for spices, dry fruits, copper cookware, brass puja items, and decorative goods at wholesale prices.",
+        "best_time_to_visit": "11:30 AM to 05:30 PM on weekdays (closed on Sundays)."
+      },
+      "hi": {
+        "name": "बेगम बाज़ार",
+        "description": "कुतुब शाही काल से चला आ रहा हैदराबाद का सबसे बड़ा पारंपरिक थोक बाज़ार। यहाँ मसाले, सूखे मेवे, पीतल और तांबे के बर्तन, और घरेलू सामान सबसे सस्ते थोक भाव में मिलते हैं।",
+        "best_time_to_visit": "सप्ताह के दिनों में सुबह 11:30 से शाम 05:30 बजे तक (रविवार को बंद रहता है)।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Founder%20Of%20Begum%20Bazaar.jpg"
+    },
+    {
+      "id": "balkampet_yellamma_temple",
+      "category": "religious",
+      "coordinates": [
+        17.4528,
+        78.4489
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/balkampet_yellamma_temple.webp",
+      "tags": [
+        "renuka_yellamma",
+        "underground_deity",
+        "holy_water_well",
+        "balkampet",
+        "bonalu"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Balkampet Yellamma Temple",
+        "description": "Historical temple dedicated to Goddess Yellamma (manifestation of Renuka Devi), where the presiding deity's idol sits submerged 10 feet below ground level in natural holy spring water.",
+        "best_time_to_visit": "Tuesdays and Fridays, or during the grand annual Yellamma Kalyanotsavam."
+      },
+      "hi": {
+        "name": "बालकंपेट येल्लम्मा मंदिर",
+        "description": "माता येल्लम्मा (रेणुका देवी का स्वरूप) को समर्पित अत्यंत प्राचीन मंदिर। यहाँ माँ की पाषाण प्रतिमा भूतल से 10 फीट नीचे प्राकृतिक जल स्रोत के पवित्र जल में स्थापित है।",
+        "best_time_to_visit": "मंगलवार और शुक्रवार को अथवा वार्षिक येल्लम्मा कल्याणोत्सव के पावन पर्व पर।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Balkampet%20Yellamma%20temple.jpg"
+    },
+    {
+      "id": "karmanghat_hanuman_temple",
+      "category": "religious",
+      "coordinates": [
+        17.3489,
+        78.5328
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/karmanghat_hanuman_temple.webp",
+      "tags": [
+        "ancient_hanuman",
+        "kakatiya_dynasty",
+        "12th_century",
+        "aurangzeb_legend",
+        "peaceful"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Karmanghat Hanuman Temple",
+        "description": "Ancient 12th-century temple built during the Kakatiya dynasty. Legend states that Mughal emperor Aurangzeb attempted to demolish it but was halted by a divine voice saying 'Kar-man-ghat' (do if you have the power).",
+        "best_time_to_visit": "Tuesdays and Saturdays for special Hanuman Chalisa recitals and darshan."
+      },
+      "hi": {
+        "name": "करमनघाट हनुमान मंदिर",
+        "description": "12वीं सदी में काकतीय वंश के राजाओं द्वारा निर्मित प्राचीन मंदिर। मान्यता है कि जब औरंगज़ेब ने इसे तोड़ने की कोशिश की थी, तो उसे एक दिव्य आवाज़ 'कर-मन-घट' (हिम्मत है तो कर) सुनाई दी थी।",
+        "best_time_to_visit": "मंगलवार और शनिवार को विशेष हनुमान चालीसा पाठ और सिंदूर पूजा के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Karmanghat%20Hanuman%20Temple%2C%20Hyderabad.jpg"
+    },
+    {
+      "id": "spanish_mosque",
+      "category": "religious",
+      "coordinates": [
+        17.4417,
+        78.4708
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/spanish_mosque.webp",
+      "tags": [
+        "moorish_architecture",
+        "begumpet",
+        "paigah_heritage",
+        "cordoba_style",
+        "unique_mosque"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Spanish Mosque (Aiwan-e-Begumpet)",
+        "description": "Striking and rare mosque built in 1906 by Sir Nawab Vikar-ul-Umra in Moorish and Andalusian architectural style, closely inspired by the Great Mosque of Cordoba in Spain, featuring pointed spires instead of standard minarets.",
+        "best_time_to_visit": "Daytime outside prayer hours to marvel at its unique European-Islamic architecture."
+      },
+      "hi": {
+        "name": "स्पैनिश मस्जिद (ऐवान-ए-बेगमपेट)",
+        "description": "1906 में नवाब सर विकार-उल-उमरा द्वारा स्पेन के कॉर्डोबा की ऐतिहासिक मस्जिद से प्रेरित होकर बनाई गई मूरिश शैली की अनूठी मस्जिद। इसमें पारंपरिक मीनारों की जगह नुकीले बुर्ज बने हैं।",
+        "best_time_to_visit": "दिन के समय नमाज़ के अतिरिक्त स्पैनिश-इस्लामी वास्तुकला को देखने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/HyderabadMosque.jpg"
+    },
+    {
+      "id": "public_gardens_hyderabad",
+      "category": "park",
+      "coordinates": [
+        17.3986,
+        78.4689
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/public_gardens_hyderabad.webp",
+      "tags": [
+        "bagh_e_aam",
+        "nizam_garden",
+        "jubilee_hall",
+        "lalitha_kala_thoranam",
+        "historic"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Public Gardens (Bagh-e-Aam)",
+        "description": "Historic garden laid out in 1846 by the Nizam, recognized as Hyderabad's oldest public park. Houses major civic heritage landmarks including the State Assembly, Jubilee Hall, and Lalitha Kala Thoranam.",
+        "best_time_to_visit": "07:00 AM to 10:00 AM or late afternoon for pleasant walks amidst imperial greenery."
+      },
+      "hi": {
+        "name": "पब्लिक गार्डन्स (बाग-ए-आम)",
+        "description": "1846 में निज़ाम द्वारा स्थापित हैदराबाद का सबसे पुराना सार्वजनिक उद्यान। इस ऐतिहासिक परिसर में तेलंगाना राज्य विधानसभा, जुबली हॉल और ललित कला तोरणम स्थित हैं।",
+        "best_time_to_visit": "सुबह 07:00 से 10:00 बजे तक शांत शाही हरियाली में सैर के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bagh-e-Aam%20seal%20on%20the%20entrance%20gate%20of%20Public%20Gardens%2C%20Nampally%20dating%20from%20the%20year%201868.jpg"
+    },
+    {
+      "id": "indira_park_hyderabad",
+      "category": "park",
+      "coordinates": [
+        17.4142,
+        78.4897
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "19:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 10,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/indira_park_hyderabad.webp",
+      "tags": [
+        "rock_garden",
+        "boating",
+        "sandalwood_trees",
+        "rose_garden",
+        "walking_track"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Indira Park",
+        "description": "Centrally located 76-acre recreational park on Lower Tank Bund Road. Features ancient sandalwood trees, an authentic rock garden with balancing prehistoric boulders, rose garden, and pedal boating.",
+        "best_time_to_visit": "06:00 AM to 09:00 AM or 04:30 PM to 06:30 PM for lakeside leisure."
+      },
+      "hi": {
+        "name": "इंदिरा पार्क (लोअर टैंक बंड)",
+        "description": "लोअर टैंक बंड पर 76 एकड़ में फैला लोकप्रिय पार्क। यहाँ प्राचीन चंदन के वृक्ष, प्राकृतिक विशाल चट्टानों का रॉक गार्डन, गुलाब वाटिका और झील में पैडल बोटिंग का आनंद मिलता है।",
+        "best_time_to_visit": "सुबह 06:00 से 09:00 बजे या शाम 04:30 से 06:30 बजे तक शांत पारिवारिक पिकनिक के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Indira%20Park%20Hyderabad-Dr%20Murali%20Mohan%20Gurram%20%2813%29.jpg"
+    },
+    {
+      "id": "ujjaini_mahakali_temple",
+      "category": "religious",
+      "coordinates": [
+        17.4389,
+        78.4986
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/ujjaini_mahakali_temple.webp",
+      "tags": [
+        "secunderabad_bonalu",
+        "mahakali",
+        "historic_shrine",
+        "rangam_oracle",
+        "devotion"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Ujjaini Mahakali Temple, Secunderabad",
+        "description": "200-year-old historic temple dedicated to Goddess Mahakali in Secunderabad. Focal point of the famous annual Secunderabad Bonalu festival and the sacred 'Rangam' prophecy ritual.",
+        "best_time_to_visit": "Early morning, or during the spectacular annual Bonalu festival in July/August."
+      },
+      "hi": {
+        "name": "उज्जैनी महाकाली मंदिर (सिकंदराबाद)",
+        "description": "सिकंदराबाद में 200 वर्ष से अधिक पुराना माँ महाकाली का ऐतिहासिक मंदिर। यह ऐतिहासिक 'सिकंदराबाद बोनालु' और पावन 'रंगम' (भविष्यवाणी) अनुष्ठान का मुख्य केंद्र है।",
+        "best_time_to_visit": "सुबह के समय अथवा जुलाई-अगस्त में आयोजित होने वाले भव्य बोनालु महोत्सव के दौरान।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Golconda%20Fort%2024.JPG"
+    },
+    {
+      "id": "iskcon_hyderabad_abids",
+      "category": "religious",
+      "coordinates": [
+        17.3928,
+        78.4764
+      ],
+      "timings": {
+        "open": "04:30",
+        "close": "20:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/iskcon_hyderabad_abids.webp",
+      "tags": [
+        "krishna",
+        "abids",
+        "radha_madana_mohana",
+        "kirtan",
+        "prasadam",
+        "spiritual"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "ISKCON Temple (Abids)",
+        "description": "Major spiritual hub of the Hare Krishna movement in central Hyderabad. Features the main deities Sri Sri Radha Madana-mohana, daily congregational kirtans, and spiritual literature distributions.",
+        "best_time_to_visit": "Evening Aarti (07:00 PM to 08:30 PM) for soul-stirring kirtan and prasadam."
+      },
+      "hi": {
+        "name": "इस्कॉन मंदिर (एबिड्स)",
+        "description": "हैदराबाद के मध्य एबिड्स में स्थित हरे कृष्ण आंदोलन का प्रमुख केंद्र। यहाँ श्री श्री राधा मदन मोहन की मनोहारी प्रतिमाएं, दैनिक कीर्तन और आध्यात्मिक साहित्य उपलब्ध है।",
+        "best_time_to_visit": "शाम की महाआरती (07:00 PM - 08:30 PM) के समय संगीतमय कीर्तन और प्रसाद के लिए।"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sanghi_temple",
+      "category": "religious",
+      "coordinates": [
+        17.2689,
+        78.6811
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "19:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/sanghi_temple.webp",
+      "tags": [
+        "parmanand_giri_hill",
+        "chola_chalukya_style",
+        "venkateswara",
+        "tranquil",
+        "panoramic"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Sanghi Temple",
+        "description": "Picturesque hilltop temple complex built in classical Chola-Chalukya style atop Paramanand Giri hill. Dedicated to Lord Venkateswara, offering stunning 360-degree views of the surrounding Deccan landscape.",
+        "best_time_to_visit": "Morning (08:30 AM to 11:30 AM) or sunset hours for breathtaking panoramic views."
+      },
+      "hi": {
+        "name": "संघी मंदिर",
+        "description": "परमानंद गिरि पहाड़ी के शिखर पर चोल-चालुक्य शैली में संगमरमर से निर्मित खूबसूरत मंदिर। भगवान वेंकटेश्वर को समर्पित इस मंदिर से दक्कन के पठार का विहंगम 360-डिग्री दृश्य दिखाई देता है।",
+        "best_time_to_visit": "सुबह 08:30 से 11:30 बजे तक या सूर्यास्त के समय मनमोहक नज़ारों के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sanghi%20Temple%2C%20Hyderabad.jpg"
+    },
+    {
+      "id": "osman_sagar_lake",
+      "category": "park",
+      "coordinates": [
+        17.3939,
+        78.2986
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/osman_sagar_lake.webp",
+      "tags": [
+        "gandipet",
+        "reservoir",
+        "musi_river",
+        "sunset",
+        "picnic_spot",
+        "nizam_era"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Osman Sagar Lake (Gandipet)",
+        "description": "Expansive reservoir created in 1920 by damming the Musi River by the Seventh Nizam to prevent floods and provide drinking water. A beloved weekend getaway featuring royal guest houses and lakefront breezes.",
+        "best_time_to_visit": "04:30 PM to 06:30 PM for magnificent sunset views over the tranquil waters."
+      },
+      "hi": {
+        "name": "उस्मान सागर झील (गंडीपेट)",
+        "description": "1920 में मूसी नदी पर बांध बनाकर सातवें निज़ाम मीर उस्मान अली खान द्वारा निर्मित विशाल जलाशय। यह शहर का पसंदीदा वीकेंड पिकनिक स्पॉट और सनसेट पॉइंट है।",
+        "best_time_to_visit": "शाम 04:30 से 06:30 बजे तक शांत पानी पर ढलते सूरज का अद्भुत नज़ारा देखने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20on%20Osman%20Sagar%20lake%20%282%29.jpg"
+    },
+    {
+      "id": "himayat_sagar_lake",
+      "category": "park",
+      "coordinates": [
+        17.3236,
+        78.3589
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/himayat_sagar_lake.webp",
+      "tags": [
+        "reservoir",
+        "himayat_ali_khan",
+        "twin_lake",
+        "scenic_drive",
+        "bird_watching"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Himayat Sagar Lake",
+        "description": "Twin reservoir to Osman Sagar built in 1927, named after Himayat Ali Khan (the last Nizam's son). Known for quiet scenic drives along its embankment, migratory wetland birds, and unspoiled natural tranquility.",
+        "best_time_to_visit": "Early morning or late afternoon for birdwatching and photography."
+      },
+      "hi": {
+        "name": "हिमायत सागर झील",
+        "description": "1927 में निर्मित उस्मान सागर की जुड़वाँ झील, जिसका नाम निज़ाम के सुपुत्र हिमायत अली खान के नाम पर रखा गया। यह अपने सुंदर ड्राइववे, प्रवासी पक्षियों और प्राकृतिक शांति के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "सुबह-सुबह या देर शाम को पक्षी दर्शन और शांत झील किनारे ड्राइव के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Himayat%20Sagar%20Lake%20with%20Common%20Coots%20in%20Hyderabad%20W%20IMG%208638.jpg"
+    },
+    {
+      "id": "moula_ali_dargah",
+      "category": "religious",
+      "coordinates": [
+        17.4686,
+        78.5689
+      ],
+      "timings": {
+        "open": "05:30",
+        "close": "21:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/moula_ali_dargah.webp",
+      "tags": [
+        "hilltop_shrine",
+        "imam_ali",
+        "484_steps",
+        "qutb_shahi",
+        "panoramic_city_view"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Moula Ali Dargah",
+        "description": "Historic shrine built atop a steep 614-meter granite dome rock in Secunderabad by Asif Khan in 1578. Reached via 484 stone steps, offering an unrivaled 360-degree aerial panorama of Hyderabad and Secunderabad.",
+        "best_time_to_visit": "Early morning or sunset to comfortably climb the stone steps and enjoy the twilight vista."
+      },
+      "hi": {
+        "name": "मौली अली दरगाह",
+        "description": "सिकंदराबाद में 614 मीटर ऊँची विशाल ग्रेनाइट चट्टान के शिखर पर 1578 में निर्मित ऐतिहासिक दरगाह। 484 सीढ़ियाँ चढ़कर ऊपर पहुँचने पर दोनों जुड़वाँ शहरों का शानदार 360-डिग्री दृश्य दिखता है।",
+        "best_time_to_visit": "सुबह-सुबह या शाम को सीढ़ियाँ चढ़ने और सूर्यास्त का विहंगम दृश्य देखने के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Moula%20Ali%20Dargah.jpg"
+    },
+    {
+      "id": "st_josephs_cathedral",
+      "category": "religious",
+      "coordinates": [
+        17.3958,
+        78.4756
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "19:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/st_josephs_cathedral.webp",
+      "tags": [
+        "catholic_cathedral",
+        "gunfoundry",
+        "italian_architecture",
+        "bell_tower",
+        "1870"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "St. Joseph's Cathedral, Gunfoundry",
+        "description": "Prominent Italian-style Catholic cathedral constructed in 1870, serving as the seat of the Archdiocese of Hyderabad. Houses an impressive bell tower with bells cast in Italy and elegant curved colonnades.",
+        "best_time_to_visit": "Morning hours (08:00 AM to 12:00 PM) for quiet architectural prayer."
+      },
+      "hi": {
+        "name": "सेंट जोसेफ कैथेड्रल (गनफाउंड्री)",
+        "description": "1870 में इतालवी शैली में निर्मित हैदराबाद कैथोलिक धर्मप्रांत का मुख्य कैथेड्रल। इसके घंटाघर में इटली से मंगवाई गई विशाल घंटियाँ और सुंदर गोलाकार खंभे लगे हैं।",
+        "best_time_to_visit": "सुबह 08:00 से दोपहर 12:00 बजे तक शांत प्रार्थना और वास्तुकला के दर्शन के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/St%20Jospeh%20Cathedral%20Hyderabad%20Gunfoundry.jpg"
+    },
+    {
+      "id": "rail_museum_kachiguda",
+      "category": "museum",
+      "coordinates": [
+        17.3897,
+        78.4986
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/rail_museum_kachiguda.webp",
+      "tags": [
+        "railway_heritage",
+        "nizam_state_railway",
+        "vintage_locomotives",
+        "kachiguda_station"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Kachiguda Rail Museum",
+        "description": "Heritage railway museum situated within the 1916 Gothic-revival Kachiguda Railway Station. Chronicles the history of the Nizam's Guaranteed State Railway (NGSR) with vintage train models, signals, and lanterns.",
+        "best_time_to_visit": "10:00 AM to 04:00 PM for railway buffs and history lovers."
+      },
+      "hi": {
+        "name": "काचीगुड़ा रेल संग्रहालय",
+        "description": "1916 के गोथिक शैली के ऐतिहासिक काचीगुड़ा स्टेशन पर बना रेलवे संग्रहालय। यहाँ 'निज़ाम स्टेट रेलवे' (NGSR) के विंटेज लोकोमोटिव, सिग्नल्स और दुर्लभ तस्वीरें प्रदर्शित हैं।",
+        "best_time_to_visit": "सुबह 10:00 से शाम 04:00 बजे तक भारतीय रेल के ऐतिहासिक सफर को देखने के लिए।"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sarath_city_capital_mall",
+      "category": "entertainment",
+      "coordinates": [
+        17.4586,
+        78.3628
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/sarath_city_capital_mall.webp",
+      "tags": [
+        "largest_mall_hyderabad",
+        "multiplex",
+        "snow_kingdom",
+        "shopping",
+        "kondapur"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Sarath City Capital Mall",
+        "description": "The largest shopping mall in Hyderabad spanning 2.7 million square feet in Kondapur. Boasts over 400 national and international brands, an AMB Cinemas multiplex, and Snow Kingdom.",
+        "best_time_to_visit": "Afternoon to evening for comprehensive shopping, movies, and dining."
+      },
+      "hi": {
+        "name": "शारथ सिटी कैपिटल मॉल (कोंडापुर)",
+        "description": "कोंडापुर में 27 लाख वर्ग फीट में फैला हैदराबाद का सबसे बड़ा शॉपिंग मॉल। यहाँ 400 से अधिक राष्ट्रीय व अंतरराष्ट्रीय ब्रांड्स, एएमबी सिनेमाज और स्नो किंगडम स्थित हैं।",
+        "best_time_to_visit": "दोपहर से देर शाम तक खरीदारी, फिल्में और फूड कोर्ट में व्यंजनों के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sarath%20City%20Capital%20Mall%20%2839925%29.jpg"
+    },
+    {
+      "id": "inorbit_mall_cyberabad",
+      "category": "entertainment",
+      "coordinates": [
+        17.4339,
+        78.3867
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/inorbit_mall_cyberabad.webp",
+      "tags": [
+        "lake_facing_mall",
+        "durgam_cheruvu_view",
+        "luxury_retail",
+        "food_court",
+        "hitec_city"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Inorbit Mall Cyberabad",
+        "description": "Premier shopping and lifestyle destination in Hitec City overlooking the serene waters of Durgam Cheruvu lake. Offers open terrace cafes with lake views, luxury retail brands, and food courts.",
+        "best_time_to_visit": "Late afternoon to enjoy lakeside terrace dining and evening shopping."
+      },
+      "hi": {
+        "name": "इनऑर्बिट मॉल (साइबराबाद)",
+        "description": "हाईटेक सिटी में दुर्गम चेरुवु झील के किनारे स्थित प्रीमियम शॉपिंग और लाइफस्टाइल मॉल। इसकी खुली छत के कैफे से झील और केबल ब्रिज का सुंदर दृश्य दिखाई देता है।",
+        "best_time_to_visit": "शाम के समय झील किनारे छत पर डाइनिंग और खरीदारी के लिए।"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "gvk_one_mall",
+      "category": "entertainment",
+      "coordinates": [
+        17.4194,
+        78.4489
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/gvk_one_mall.webp",
+      "tags": [
+        "luxury_retail",
+        "aquarium",
+        "banjara_hills",
+        "fine_dining",
+        "multiplex"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "GVK One Mall, Banjara Hills",
+        "description": "Upscale luxury retail destination in prestigious Banjara Hills, famous for housing India's largest freestanding saltwater aquarium (over 25,000 liters), high-end fashion boutiques, and fine dining.",
+        "best_time_to_visit": "Afternoon or evening for luxury shopping and dining."
+      },
+      "hi": {
+        "name": "जीवीके वन मॉल (बंजारा हिल्स)",
+        "description": "प्रतिष्ठित बंजारा हिल्स में स्थित लक्जरी मॉल, जहाँ 25,000 लीटर से अधिक क्षमता वाला भारत का विशाल खारे पानी का एक्वेरियम और प्रीमियम ब्रांड्स स्थित हैं।",
+        "best_time_to_visit": "दोपहर या शाम को लक्जरी खरीदारी और फाइन डाइनिंग के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/GVK%20Mall%20Hyderabad.jpg"
+    },
+    {
+      "id": "paradise_biryani_flagship",
+      "category": "entertainment",
+      "coordinates": [
+        17.4419,
+        78.4878
+      ],
+      "timings": {
+        "open": "11:30",
+        "close": "23:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/paradise_biryani_flagship.webp",
+      "tags": [
+        "hyderabadi_biryani",
+        "paradise_circle",
+        "dum_biryani",
+        "since_1953",
+        "culinary_icon"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Paradise Biryani (Secunderabad Flagship)",
+        "description": "Legendary culinary institution established in 1953 at Paradise Circle. Globally celebrated as the definitive home of authentic Hyderabadi Dum Biryani, double ka meetha, and mirchi ka salan.",
+        "best_time_to_visit": "Lunch (12:30 PM to 03:00 PM) or dinner for a world-renowned authentic Hyderabadi feast."
+      },
+      "hi": {
+        "name": "पैराडाइज बिरयानी (सिकंदराबाद हेडक्वार्टर)",
+        "description": "1953 में पैराडाइज सर्कल पर स्थापित ऐतिहासिक फूड संस्थान। यह प्रामाणिक लजीज हैदराबादी दम बिरयानी, मिर्ची का सालन और डबल का मीठा के लिए विश्व भर में प्रसिद्ध है।",
+        "best_time_to_visit": "दोपहर 12:30 से 03:00 बजे तक अथवा रात के खाने में पारंपरिक बिरयानी के स्वाद के लिए।"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sultan_bazaar",
+      "category": "market",
+      "coordinates": [
+        17.3878,
+        78.4833
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "21:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/sultan_bazaar.webp",
+      "tags": [
+        "street_shopping",
+        "churidars",
+        "fashion",
+        "traditional_jewelry",
+        "residency_bazaar"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Sultan Bazaar (Residency Market)",
+        "description": "Historic 200-year-old commercial street near Koti, established originally as the British Residency Bazaar. Famous for traditional women's clothing, footwear, imitation jewelry, and street bargains.",
+        "best_time_to_visit": "03:30 PM to 08:30 PM for lively street shopping and budget fashion finds."
+      },
+      "hi": {
+        "name": "सुल्तान बाज़ार (रेजिडेंसी मार्केट)",
+        "description": "कोटी के पास स्थित 200 वर्ष पुराना ऐतिहासिक पारंपरिक बाज़ार। यह महिलाओं के पारंपरिक परिधानों, चूड़ीदारों, कृत्रिम आभूषणों और ट्रेंडी फुटवियर के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "दोपहर 03:30 से रात 08:30 बजे तक बजट स्ट्रीट शॉपिंग के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sultan%20Bazaar%20metro%20station%20name%20board%20on%20the%20platform%20level.jpg"
+    },
+    {
+      "id": "general_bazaar_secunderabad",
+      "category": "market",
+      "coordinates": [
+        17.4417,
+        78.4989
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "21:30",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/general_bazaar_secunderabad.webp",
+      "tags": [
+        "secunderabad_market",
+        "sarees",
+        "accessories",
+        "brassware",
+        "budget_shopping"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "General Bazaar, Secunderabad",
+        "description": "Vibrant heritage shopping artery in Secunderabad packed with hundreds of tiny shops selling traditional silk sarees, textiles, brass utensils, wedding accessories, and gold jewelry.",
+        "best_time_to_visit": "11:30 AM to 06:30 PM on weekdays for bargain shopping."
+      },
+      "hi": {
+        "name": "जनरल बाज़ार (सिकंदराबाद)",
+        "description": "सिकंदराबाद का सबसे जीवंत पारंपरिक कपड़ा बाज़ार, जहाँ सैकड़ों संकरी दुकानों में बनारसी व कांजीवरम साड़ियाँ, विवाह की वस्तुएँ और आभूषण मिलते हैं।",
+        "best_time_to_visit": "सप्ताह के दिनों में सुबह 11:30 से शाम 06:30 बजे तक (रविवार को बंद रहता है)।"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "king_kothi_palace",
+      "category": "monument",
+      "coordinates": [
+        17.3917,
+        78.4875
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/king_kothi_palace.webp",
+      "tags": [
+        "nazri_bagh",
+        "last_nizam_residence",
+        "mir_osman_ali_khan",
+        "colonial_palace"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "King Kothi Palace (Nazri Bagh)",
+        "description": "Historical palace where the Seventh Nizam, Mir Osman Ali Khan (once the world's richest man), lived and passed away in 1967. Exhibits graceful colonial-European architecture with semicircular arches.",
+        "best_time_to_visit": "Daytime exterior viewing of the heritage gates and colonial facades."
+      },
+      "hi": {
+        "name": "किंग कोठी पैलेस (नज़री बाग)",
+        "description": "ऐतिहासिक राजमहल जहाँ सातवें निज़ाम मीर उस्मान अली खान अपने अंतिम समय तक रहे और 1967 में देहावसान हुआ। यह औपनिवेशिक यूरोपीय वास्तुकला और विशाल मेहराबों से सुसज्जित है।",
+        "best_time_to_visit": "दिन के समय इस ऐतिहासिक राजसी इमारत के बाहरी दर्शन और फोटोग्राफी के लिए।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Nizam%27s%20army%20guarding%20the%20King%20Kothi%20palace.jpg"
+    },
+    {
+      "id": "mir_alam_tank",
+      "category": "park",
+      "coordinates": [
+        17.3486,
+        78.4458
+      ],
+      "timings": {
+        "open": "08:30",
+        "close": "17:00",
+        "all_day": false
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": null,
+      "image_asset": "transit_assets/tourist_places/hyderabad/mir_alam_tank.webp",
+      "tags": [
+        "multiple_arch_dam",
+        "1806_reservoir",
+        "zoo_adjacent",
+        "french_engineers",
+        "waterbody"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Mir Alam Tank",
+        "description": "Spectacular multiple-arch reservoir constructed in 1806 by French engineers for Mir Alam (Prime Minister of Hyderabad). Features 21 semi-circular masonry arches forming a unique historic dam wall.",
+        "best_time_to_visit": "Morning hours combined with a visit to the adjacent Nehru Zoological Park."
+      },
+      "hi": {
+        "name": "मीर आलम टैंक",
+        "description": "1806 में फ्रांसीसी इंजीनियरों द्वारा निर्मित ऐतिहासिक बहु-मेहराबदार (Multiple-arch) जलाशय। इसकी 21 अर्धचंद्राकार चिनाई वाली मेहराबें इंजीनियरिंग का बेजोड़ नमूना हैं।",
+        "best_time_to_visit": "सुबह के समय बगल में स्थित नेहरू चिड़ियाघर के भ्रमण के साथ।"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mir%20Alam%20tank.jpg"
+    }
+  ]
+}

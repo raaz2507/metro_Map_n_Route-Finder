@@ -159,6 +159,47 @@
     .swatch-green { background: #2ecc71; }
     .swatch-purple { background: #8e44ad; }
 
+    /* Underground Mode Radio Group */
+    .ug-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 8px 0 14px 0;
+      background: rgba(0, 0, 0, 0.28);
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .ug-radio-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #dfd4c4;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 5px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .ug-radio-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+    }
+    .ug-radio-item input[type="radio"] {
+      accent-color: #f5cf7c;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+    .ug-radio-desc {
+      font-size: 10px;
+      color: #9e9182;
+      margin-left: 23px;
+      margin-top: -3px;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+
     /* Station Design Selector Styles */
     .station-selector-grid {
       display: flex;
@@ -366,6 +407,33 @@
       <input type="checkbox" id="chk-rocks" class="chk-toggle" checked>
     </label>
 
+    <div class="panel-section-title">🚇 Underground Presentation Style</div>
+    <div class="ug-radio-group">
+      <label class="ug-radio-item">
+        <input type="radio" name="ug-mode-radio" value="canyon" checked>
+        <span>⛰️ Mode 0: Deep Canyon Trench</span>
+      </label>
+      <div class="ug-radio-desc">Deep retaining walls & stencil cutout (Current)</div>
+
+      <label class="ug-radio-item">
+        <input type="radio" name="ug-mode-radio" value="image_bed">
+        <span>🛤️ Mode 1: Wide Earth Bed (Image Style)</span>
+      </label>
+      <div class="ug-radio-desc">Wide excavated ballast roadway + strata edge (0 hole clipping)</div>
+
+      <label class="ug-radio-item">
+        <input type="radio" name="ug-mode-radio" value="tunnel_portals">
+        <span>🚇 Mode 2: Concrete Tunnel Portals</span>
+      </label>
+      <div class="ug-radio-desc">Concrete portal arches + dark subway casing</div>
+
+      <label class="ug-radio-item">
+        <input type="radio" name="ug-mode-radio" value="shallow_trench">
+        <span>⛏️ Mode 3: Shallow Cut-and-Cover</span>
+      </label>
+      <div class="ug-radio-desc">Shallow 0.35m trench with neat concrete side curbs</div>
+    </div>
+
     <div class="panel-section-title">Metro Railway</div>
     <label class="control-item">
       <span class="control-label">🔴 Metro Line Ribbon</span>
@@ -395,6 +463,12 @@
       <div class="swatch swatch-green" data-color="0x2ecc71" title="Green Line"></div>
       <div class="swatch swatch-purple" data-color="0x8e44ad" title="Purple Line"></div>
     </div>
+
+    <div class="panel-section-title">🪧 Station Signage</div>
+    <label class="control-item">
+      <span class="control-label">🪧 Unipole Station Hoardings</span>
+      <input type="checkbox" id="chk-hoardings" class="chk-toggle" checked>
+    </label>
 
     <div class="panel-section-title">🚊 Elevated Station (5 Styles)</div>
     <label class="control-item">
@@ -510,6 +584,16 @@
       engine.toggleRocks(e.target.checked);
     });
 
+    // Underground Presentation Style Selection
+    const ugRadios = document.querySelectorAll('input[name="ug-mode-radio"]');
+    ugRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          engine.setUndergroundMode(e.target.value);
+        }
+      });
+    });
+
     document.getElementById('chk-metro-line').addEventListener('change', (e) => {
       engine.toggleMetroLine(e.target.checked);
     });
@@ -524,6 +608,11 @@
 
     document.getElementById('chk-train-motion').addEventListener('change', (e) => {
       engine.toggleTrainMotion(e.target.checked);
+    });
+
+    // Station Hoardings Toggle
+    document.getElementById('chk-hoardings').addEventListener('change', (e) => {
+      engine.toggleHoardings(e.target.checked);
     });
 
     // Station Toggles & Style Selection

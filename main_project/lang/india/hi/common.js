@@ -15,7 +15,15 @@ export default {
 		"appOptions": "ऐप सेटिंग्स व रिफ्रेश",
 		"mode": {
 			"switchToDark": "डार्क मोड पर बदलें",
-			"switchToLight": "लाइट मोड पर बदलें"
+			"switchToLight": "लाइट मोड पर बदलें",
+			"appearanceMode": "दिखावट मोड",
+			"light": "लाइट",
+			"dark": "डार्क",
+			"auto": "ऑटो"
+		},
+		"theme": {
+			"btnText": "थीम",
+			"ariaLabel": "थीम और प्रदर्शन चयनकर्ता"
 		},
 		"fontScale": {
 			"btnTitle": "टेक्स्ट का आकार बदलें",
@@ -38,6 +46,7 @@ export default {
 		"networks": "नेटवर्क",
 		"home": "होम",
 		"stations": "स्टेशन",
+		"tourist": "पर्यटन स्थल",
 		"recharge": "स्मार्ट कार्ड / टोकन",
 		"passengerSupport": "यात्री सहायता",
 		"other": "अन्य",

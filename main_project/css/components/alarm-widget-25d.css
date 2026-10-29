@@ -6,11 +6,11 @@
 
 @layer components {
 
-	/* 1. Outer Wrapper (Positioned at Bottom-Right, pushed left of sidebar with gap) */
+	/* 1. Outer Wrapper (Positioned at Bottom-Right Corner) */
 	.alarm-widget-wrapper {
 		position: absolute;
 		bottom: var(--space-lg);
-		right: calc(var(--space-lg) + var(--size-sidebar-nav-w) + var(--space-md));
+		right: var(--space-lg);
 		left: auto;
 		z-index: var(--z-sidebar);
 		width: 100%;
@@ -554,7 +554,7 @@
 		}
 		.alarm-widget-wrapper {
 			bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
-			right: calc(var(--space-xs) + var(--size-sidebar-nav-w-md) + var(--space-xs));
+			right: var(--space-sm);
 			left: auto;
 			max-width: 275px; /* Realme आदि में ज़ूम विजेट से सुरक्षित दूरी */
 		}
@@ -597,8 +597,8 @@
 	/* 2. Small Screen Only (iPhone SE, 360px - केवल 380px से नीचे) */
 	@media (max-width: 380px) {
 		.alarm-widget-wrapper {
-			right: calc(var(--space-xs) + var(--size-sidebar-nav-w-sm) + var(--space-2xs));
-			bottom: var(--space-lg);
+			right: var(--space-xs);
+			bottom: var(--space-sm);
 			left: auto;
 			max-width: 250px;
 		}

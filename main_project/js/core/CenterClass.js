@@ -128,7 +128,10 @@ class CenterClass {
 				try {
 					console.log(`[CenterClass] Orchestrating language switch to: "${lang}"...`);
 					// A. Reload city locale pack in MetroDataStore
-					await metroDataStore.reloadLocale(lang);
+					await Promise.all([
+						metroDataStore.reloadLocale(lang),
+						metroDataStore.reloadRegistry(lang)
+					]);
 
 					// B. Re-index Station Search Engine with localized names
 					if (this.#stationSearchEngine) {
@@ -164,6 +167,10 @@ class CenterClass {
 	// =========================================================================
 	// 🌐 LOCALIZED TRANSIT HELPERS (Delegated directly to MetroDataStore)
 	// =========================================================================
+	getAllStationNames(stationId) {
+		return metroDataStore.getAllStationNames(stationId);
+	}
+
 	getStationName(stationId) {
 		return metroDataStore.getStationName(stationId);
 	}
@@ -184,6 +191,10 @@ class CenterClass {
 		return metroDataStore.getGateLandmark(stationId, gateId);
 	}
 
+	getStationGates(stationId) {
+		return metroDataStore.getStationGates(stationId);
+	}
+
 	getLineName(lineId) {
 		return metroDataStore.getLineName(lineId);
 	}
@@ -200,8 +211,12 @@ class CenterClass {
 		return metroDataStore.getPolicyName(policyId);
 	}
 
-	getCityDisplayName(cityKey = null) {
-		return metroDataStore.getCityDisplayName(cityKey);
+	async reloadRegistry(lang = null) {
+		return await metroDataStore.reloadRegistry(lang);
+	}
+
+	getCityDisplayName(cityKey = null, lang = null) {
+		return metroDataStore.getCityDisplayName(cityKey, lang);
 	}
 
 	// =========================================================================

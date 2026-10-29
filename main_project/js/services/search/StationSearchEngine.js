@@ -58,25 +58,48 @@ export class StationSearchEngine extends BaseSearchEngine {
 			if (!st?.id) continue;
 			const stId = st.id.toLowerCase();
 
-			// 🌐 Always resolve display name & aliases via centerClass facade
-			const primaryName = (typeof centerClass?.getStationName === "function" 
-				? centerClass.getStationName(stId) 
+			// 🌐 Resolve primary name via centerClass facade
+			const primaryName = (typeof centerClass?.getStationName === "function"
+				? centerClass.getStationName(stId)
 				: st.name?.en || st.name?.hi || stId) || stId;
+
+			// 🌐 Resolve all multilingual names (EN, HI, Regional)
+			const allNames = new Set();
+			allNames.add(primaryName);
+			if (st.name) {
+				if (typeof st.name === "string") allNames.add(st.name);
+				else if (typeof st.name === "object") {
+					Object.values(st.name).forEach(n => { if (n && typeof n === "string") allNames.add(n); });
+				}
+			}
+			if (typeof centerClass?.getAllStationNames === "function") {
+				const extraNames = centerClass.getAllStationNames(stId);
+				if (Array.isArray(extraNames)) extraNames.forEach(n => allNames.add(n));
+			}
 
 			const aliases = typeof centerClass?.getStationAliases === "function"
 				? centerClass.getStationAliases(stId)
 				: (st.aliases || []);
 
 			const nameLower = primaryName.toLowerCase().trim();
-			const words = nameLower.split(/[\s-]+/).filter(Boolean);
+			const allNamesLower = Array.from(allNames).map(n => n.toLowerCase().trim()).filter(Boolean);
+			const words = [];
+			allNamesLower.forEach(nl => {
+				nl.split(/[\s-]+/).filter(Boolean).forEach(w => words.push(w));
+			});
+			aliases.forEach(al => {
+				if (typeof al === "string") {
+					al.toLowerCase().split(/[\s-]+/).filter(Boolean).forEach(w => words.push(w));
+				}
+			});
 			const acronym = this.generateAcronym(primaryName);
 
-			metadataList.push({ station: st, nameLower, stId, words, acronym, aliases });
+			metadataList.push({ station: st, nameLower, allNamesLower, stId, words, acronym, aliases });
 
-			// 1. Primary Name Mapping
-			if (nameLower) {
-				if (!exactMap.has(nameLower)) exactMap.set(nameLower, []);
-				exactMap.get(nameLower).push(st);
+			// 1. All Multilingual Names Mapping (EN, HI, Regional)
+			for (const nl of allNamesLower) {
+				if (!exactMap.has(nl)) exactMap.set(nl, []);
+				exactMap.get(nl).push(st);
 			}
 
 			// 2. ID Mapping
@@ -96,7 +119,7 @@ export class StationSearchEngine extends BaseSearchEngine {
 				if (!acronymMap.has(acronym)) acronymMap.set(acronym, new Set());
 				acronymMap.get(acronym).add(st);
 			}
-			// Word Tokens Inverted Index
+			// Word Tokens Inverted Index across all languages
 			for (const word of words) {
 				if (!tokenMap.has(word)) tokenMap.set(word, new Set());
 				tokenMap.get(word).add(st);
@@ -148,11 +171,12 @@ export class StationSearchEngine extends BaseSearchEngine {
 				}
 			}
 		}
-		// Tier 4: Substring Match (50)
+		// Tier 4: Substring Match across all languages (50)
 		if (scoredMap.size < this.#maxResults) {
 			for (const meta of metadataList) {
 				const hasAliasMatch = Array.isArray(meta.aliases) && meta.aliases.some(a => a.toLowerCase().includes(q));
-				if (meta.nameLower?.includes(q) || meta.stId?.includes(q) || hasAliasMatch) {
+				const hasNameMatch = meta.allNamesLower?.some(nl => nl.includes(q)) || meta.nameLower?.includes(q);
+				if (hasNameMatch || meta.stId?.includes(q) || hasAliasMatch) {
 					addResult(meta.station, 50);
 				}
 			}
@@ -160,7 +184,8 @@ export class StationSearchEngine extends BaseSearchEngine {
 		// Tier 5: Levenshtein Typo Fallback (40)
 		if (scoredMap.size === 0 && q.length >= 2) {
 			for (const meta of metadataList) {
-				if (this.hasTypoMatch(q, meta.nameLower || "", meta.words || [])) {
+				const matchedAny = meta.allNamesLower?.some(nl => this.hasTypoMatch(q, nl, meta.words || []));
+				if (matchedAny || this.hasTypoMatch(q, meta.nameLower || "", meta.words || [])) {
 					addResult(meta.station, 40);
 				}
 			}

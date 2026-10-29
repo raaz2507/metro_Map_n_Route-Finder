@@ -1,0 +1,2048 @@
+{
+  "city": "bhopal",
+  "version": "1.0.0",
+  "total_places": 50,
+  "places": [
+    {
+      "id": "upper_lake_bhojtal",
+      "wiki_title": "Bhojtal",
+      "category": "nature",
+      "coordinates": [
+        23.25,
+        77.34
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2500,77.3400",
+      "image_asset": "transit_assets/tourist_places/bhopal/upper_lake_bhojtal.webp",
+      "tags": [
+        "bada_talab",
+        "bhojtal",
+        "raja_bhoj",
+        "ramsar_site",
+        "boating",
+        "sunset_point"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Upper Lake (Bhojtal / Bada Talab)",
+        "description": "Asia's largest artificial lake built by Paramara King Raja Bhoj in the 11th century; a designated Ramsar wetland famous for scenic boat rides, water sports, and stunning sunsets.",
+        "best_time_to_visit": "Late afternoon and sunset"
+      },
+      "hi": {
+        "name": "बड़ा तालाब (भोजताल)",
+        "description": "11वीं सदी में परमार राजा भोज द्वारा निर्मित एशिया की सबसे बड़ी मानव-निर्मित झील; रामसर आर्द्रभूमि स्थल जो बोटिंग, क्रूज़ सफारी और मनमोहक सूर्यास्त के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "शाम और सूर्यास्त के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Upper_Lake%2C_Bhopal%2C_M.P.jpg/3840px-Upper_Lake%2C_Bhopal%2C_M.P.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "van_vihar_national_park",
+      "wiki_title": "Van_Vihar_National_Park",
+      "category": "nature",
+      "coordinates": [
+        23.226,
+        77.371
+      ],
+      "timings": {
+        "open": "06:30",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": [
+          "Friday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2260,77.3710",
+      "image_asset": "transit_assets/tourist_places/bhopal/van_vihar_national_park.webp",
+      "tags": [
+        "national_park",
+        "safari",
+        "wildlife",
+        "upper_lake_banks",
+        "cycling"
+      ],
+      "recommended_time_min": 150,
+      "en": {
+        "name": "Van Vihar National Park",
+        "description": "Unique open-concept national park and zoological haven nestled along the southern shore of Bhojtal, where visitors can cycle through natural habitats housing tigers, leopards, and bears.",
+        "best_time_to_visit": "Early morning or late afternoon for wildlife sightings"
+      },
+      "hi": {
+        "name": "वन विहार राष्ट्रीय उद्यान",
+        "description": "बड़ा तालाब के किनारे स्थित अनूठा खुला राष्ट्रीय उद्यान और चिड़ियाघर, जहाँ बाघ, तेंदुए, भालू और हिरणों को प्राकृतिक वातावरण में साइकिल से घूमते हुए देखा जा सकता है।",
+        "best_time_to_visit": "सुबह या दोपहर बाद"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Alligator_at_Van_Vihar_National_Park.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "taj_ul_masajid",
+      "wiki_title": "Taj-ul-Masajid",
+      "category": "religious",
+      "coordinates": [
+        23.2625,
+        77.393
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2625,77.3930",
+      "image_asset": "transit_assets/tourist_places/bhopal/taj_ul_masajid.webp",
+      "tags": [
+        "crown_of_mosques",
+        "shah_jahan_begum",
+        "pink_facade",
+        "grand_domes",
+        "historic_mosque"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Taj-ul-Masajid",
+        "description": "Known as the 'Crown of Mosques', one of the largest mosques in Asia, featuring a grand pink sandstone facade, three colossal marble domes, and soaring 18-storey minarets.",
+        "best_time_to_visit": "Morning or outside prayer times"
+      },
+      "hi": {
+        "name": "ताज-उल-मसाजिद",
+        "description": "'मस्जिदों का ताज' कहलाने वाली एशिया की सबसे विशाल मस्जिदों में से एक, जिसके गुलाबी बलुआ पत्थर, तीन विशाल संगमरमरी गुंबद और 18-मंजिला ऊंचे मीनार अत्यंत भव्य हैं।",
+        "best_time_to_visit": "सुबह या नमाज़ के समय के अलावा"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Taj-ul-Masjid%2C_Bhopal%2C_India.jpg/3840px-Taj-ul-Masjid%2C_Bhopal%2C_India.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "bharat_bhavan",
+      "wiki_title": "Bharat_Bhavan",
+      "category": "culture",
+      "coordinates": [
+        23.245,
+        77.3875
+      ],
+      "timings": {
+        "open": "13:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2450,77.3875",
+      "image_asset": "transit_assets/tourist_places/bhopal/bharat_bhavan.webp",
+      "tags": [
+        "charles_correa",
+        "multi_art_complex",
+        "art_gallery",
+        "theatre",
+        "shyamala_hills"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Bharat Bhavan",
+        "description": "World-renowned multi-arts center designed by architect Charles Correa overlooking Upper Lake, housing contemporary art galleries, a tribal art museum, poetry library, and open-air amphitheatres.",
+        "best_time_to_visit": "Late afternoon during exhibitions or cultural performances"
+      },
+      "hi": {
+        "name": "भारत भवन",
+        "description": "विख्यात वास्तुकार चार्ल्स कोरिया द्वारा बड़ा तालाब के किनारे डिज़ाइन किया गया बहु-कला केंद्र, जिसमें आधुनिक कला दीर्घा, जनजातीय कला संग्रहालय, रंगमंडल और मुक्ताकाश मंच हैं।",
+        "best_time_to_visit": "दोपहर 2:00 से शाम 7:00 बजे तक"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Bharat_Bhavan_Bhopal.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "tribal_museum_bhopal",
+      "wiki_title": "Madhya_Pradesh_Tribal_Museum",
+      "category": "culture",
+      "coordinates": [
+        23.2325,
+        77.388
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "19:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2325,77.3880",
+      "image_asset": "transit_assets/tourist_places/bhopal/tribal_museum_bhopal.webp",
+      "tags": [
+        "tribal_culture",
+        "gond_art",
+        "bhil_culture",
+        "shyamala_hills",
+        "immersive_dioramas"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Madhya Pradesh Tribal Museum",
+        "description": "Acclaimed immersive museum on Shyamala Hills bringing alive the architecture, spiritual cosmos, wedding traditions, and art forms of MP's major indigenous tribes (Gond, Bhil, Baiga, Korku).",
+        "best_time_to_visit": "Afternoon for experiential walk"
+      },
+      "hi": {
+        "name": "मध्य प्रदेश जनजातीय संग्रहालय",
+        "description": "श्यामला हिल्स पर स्थित अंतरराष्ट्रीय स्तर पर प्रशंसित संग्रहालय, जो गोंड, भील, बैगा और कोरकू जनजातियों के आवास, जीवन-दर्शन, लोक कला और देवी-देवताओं को जीवंत करता है।",
+        "best_time_to_visit": "दोपहर के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tribes%20of%20Madhya%20Pradesh%20001.jpg"
+    },
+    {
+      "id": "igrms_manav_sangrahalaya",
+      "wiki_title": "Indira_Gandhi_Rashtriya_Manav_Sangrahalaya",
+      "category": "culture",
+      "coordinates": [
+        23.231,
+        77.381
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 50,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2310,77.3810",
+      "image_asset": "transit_assets/tourist_places/bhopal/igrms_manav_sangrahalaya.webp",
+      "tags": [
+        "national_museum_of_mankind",
+        "anthropology",
+        "open_air_exhibits",
+        "tribal_habitats",
+        "shyamala_hills"
+      ],
+      "recommended_time_min": 150,
+      "en": {
+        "name": "Indira Gandhi Rashtriya Manav Sangrahalaya (IGRMS)",
+        "description": "Sprawling 200-acre anthropological museum presenting the evolution of humankind with life-size traditional dwellings built by master tribal craftsmen from across all Indian states.",
+        "best_time_to_visit": "Morning or cooler winter afternoons"
+      },
+      "hi": {
+        "name": "इंदिरा गांधी राष्ट्रीय मानव संग्रहालय",
+        "description": "200 एकड़ में फैला देश का सबसे बड़ा मानव-विज्ञान संग्रहालय, जहाँ भारत भर के जनजातीय कारीगरों द्वारा बनाए गए प्रामाणिक पारंपरिक आवास और रॉक-आर्ट प्रदर्शनी स्थित हैं।",
+        "best_time_to_visit": "सुबह या दोपहर बाद"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Parol_Himalayan_Village_gate.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "state_museum_bhopal",
+      "wiki_title": "Bhopal#Museums",
+      "category": "culture",
+      "coordinates": [
+        23.234,
+        77.391
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2340,77.3910",
+      "image_asset": "transit_assets/tourist_places/bhopal/state_museum_bhopal.webp",
+      "tags": [
+        "archaeology",
+        "sculptures",
+        "numismatics",
+        "kargil_gallery",
+        "shyamala_hills"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "State Museum Bhopal",
+        "description": "State-of-the-art museum housing 17 themed galleries, including priceless Paramara stone sculptures, royal royal weaponry, miniature paintings, and historical coins.",
+        "best_time_to_visit": "Mid-morning"
+      },
+      "hi": {
+        "name": "राज्य संग्रहालय, भोपाल",
+        "description": "श्यामला हिल्स स्थित मध्य प्रदेश का प्रमुख पुरातात्विक संग्रहालय, जहाँ 17 दीर्घाओं में प्राचीन मूर्तियां, शाही अस्त्र-शस्त्र, प्राचीन सिक्के और दुर्लभ पाण्डुलिपियां प्रदर्शित हैं।",
+        "best_time_to_visit": "सुबह 11:00 बजे से दोपहर तक"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Outside%20View%20of%20State%20Museum%20Bhopal.jpg"
+    },
+    {
+      "id": "bhojpur_temple",
+      "wiki_title": "Bhojeshwar_Temple",
+      "category": "heritage",
+      "coordinates": [
+        23.1,
+        77.58
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "19:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1000,77.5800",
+      "image_asset": "transit_assets/tourist_places/bhopal/bhojpur_temple.webp",
+      "tags": [
+        "somnath_of_east",
+        "monolithic_lingam",
+        "raja_bhoj",
+        "paramara_architecture",
+        "betwa_river"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Bhojeshwar Shiva Temple, Bhojpur",
+        "description": "Known as the 'Somnath of the East', an 11th-century monumental temple dedicated to Shiva, housing a 7.5-foot monolithic Shivalinga carved out of a single rock.",
+        "best_time_to_visit": "Morning or sunset on the Betwa riverbank"
+      },
+      "hi": {
+        "name": "भोजेश्वर शिव मंदिर, भोजपुर",
+        "description": "'पूर्व का सोमनाथ' कहे जाने वाले इस 11वीं सदी के भव्य मंदिर में एक ही विशाल पाषाण से तराशा गया 7.5 फीट ऊंचा विश्व का सबसे बड़ा शिवलिंग प्रतिष्ठापित है।",
+        "best_time_to_visit": "सुबह या शाम के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Shiva_Temple%2C_Bhojpur_01.jpg/3840px-Shiva_Temple%2C_Bhojpur_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "sanchi_stupa",
+      "wiki_title": "Sanchi",
+      "category": "heritage",
+      "coordinates": [
+        23.4795,
+        77.7397
+      ],
+      "timings": {
+        "open": "06:30",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 40,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.4795,77.7397",
+      "image_asset": "transit_assets/tourist_places/bhopal/sanchi_stupa.webp",
+      "tags": [
+        "unesco_world_heritage",
+        "great_stupa",
+        "emperor_ashoka",
+        "buddhist_monuments",
+        "torana_gateways"
+      ],
+      "recommended_time_min": 180,
+      "en": {
+        "name": "Great Stupa at Sanchi",
+        "description": "UNESCO World Heritage Site and one of India's oldest stone structures, commissioned by Emperor Ashoka in the 3rd century BCE, famed for elaborately carved torana gateways.",
+        "best_time_to_visit": "Early morning or late afternoon"
+      },
+      "hi": {
+        "name": "सांची का महान स्तूप",
+        "description": "सम्राट अशोक द्वारा तीसरी शताब्दी ईसा पूर्व में निर्मित यूनेस्को विश्व धरोहर स्थल, जो बौद्ध वास्तुकला, शांति और बारीक नक्काशीदार तोरण द्वारों के लिए दुनिया भर में प्रसिद्ध है।",
+        "best_time_to_visit": "सुबह या दोपहर बाद"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "bhimbetka_rock_shelters",
+      "wiki_title": "Bhimbetka_rock_shelters",
+      "category": "heritage",
+      "coordinates": [
+        22.9372,
+        77.6125
+      ],
+      "timings": {
+        "open": "07:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=22.9372,77.6125",
+      "image_asset": "transit_assets/tourist_places/bhopal/bhimbetka_rock_shelters.webp",
+      "tags": [
+        "unesco_world_heritage",
+        "paleolithic_art",
+        "cave_paintings",
+        "stone_age",
+        "ratapani_sanctuary"
+      ],
+      "recommended_time_min": 180,
+      "en": {
+        "name": "Bhimbetka Rock Shelters",
+        "description": "UNESCO World Heritage Site showcasing over 750 rock shelters with prehistoric cave paintings dating back over 30,000 years, chronicling human life from the Paleolithic to medieval eras.",
+        "best_time_to_visit": "Morning before peak afternoon heat"
+      },
+      "hi": {
+        "name": "भीमबेटका शैलचित्र व गुफाएं",
+        "description": "30,000 वर्ष से अधिक प्राचीन पाषाणकालीन शैलचित्रों वाला यूनेस्को विश्व धरोहर स्थल, जहाँ आदिमानव द्वारा शिकार, नृत्य और जीवन शैली के दुर्लभ चित्र प्राकृतिक गुफाओं में सुरक्षित हैं।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Rock_Shelter_8%2C_Bhimbetka_02.jpg/3840px-Rock_Shelter_8%2C_Bhimbetka_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "birla_mandir_lakshmi_narayan",
+      "wiki_title": "Birla_Mandir,_Bhopal",
+      "category": "religious",
+      "coordinates": [
+        23.2335,
+        77.411
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2335,77.4110",
+      "image_asset": "transit_assets/tourist_places/bhopal/birla_mandir_lakshmi_narayan.webp",
+      "tags": [
+        "arera_hills",
+        "panoramic_city_view",
+        "lakshmi_narayan",
+        "birla_museum"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Lakshmi Narayan Temple (Birla Mandir)",
+        "description": "Grand yellow sandstone temple crowning Arera Hills dedicated to Lord Vishnu and Goddess Lakshmi, offering sweeping panoramic vistas across the twin lakes and city skyline.",
+        "best_time_to_visit": "Sunset hour for city panorama and evening aarti"
+      },
+      "hi": {
+        "name": "लक्ष्मी नारायण मंदिर (बिड़ला मंदिर)",
+        "description": "अरेरा हिल्स की चोटी पर स्थित पीले बलुआ पत्थर का भव्य मंदिर, जहाँ से दोनों झीलों और पूरे भोपाल शहर का विहंगम दृश्य दिखाई देता है।",
+        "best_time_to_visit": "सूर्यास्त के समय और संध्या आरती"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lakshmi%20Narayan%20Temple%2001.jpg"
+    },
+    {
+      "id": "gohar_mahal",
+      "wiki_title": "Gohar_Mahal",
+      "category": "heritage",
+      "coordinates": [
+        23.253,
+        77.398
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2530,77.3980",
+      "image_asset": "transit_assets/tourist_places/bhopal/gohar_mahal.webp",
+      "tags": [
+        "qudsia_begum",
+        "lakefront_palace",
+        "mughal_hindu_fusion",
+        "handloom_fairs"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Gohar Mahal",
+        "description": "Historic 1820 lakefront mansion built by Qudsia Begum (first female ruler of Bhopal), fusing Mughal and Rajput styles, often hosting lively handloom and handicraft expos.",
+        "best_time_to_visit": "Late afternoon alongside Upper Lake promenade"
+      },
+      "hi": {
+        "name": "गौहर महल",
+        "description": "भोपाल की प्रथम महिला शासिका कुदसिया बेगम (गौहर बेगम) द्वारा 1820 में बड़ा तालाब के किनारे निर्मित सुंदर महल, जो मुग़ल व राजपूत स्थापत्य का संगम है।",
+        "best_time_to_visit": "शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gohar%20Mahal%20Bhopal%20001%20%281%29.jpg"
+    },
+    {
+      "id": "shaukat_mahal_sadar_manzil",
+      "wiki_title": "Shaukat_Mahal",
+      "category": "heritage",
+      "coordinates": [
+        23.256,
+        77.4015
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2560,77.4015",
+      "image_asset": "transit_assets/tourist_places/bhopal/shaukat_mahal_sadar_manzil.webp",
+      "tags": [
+        "indo_french_gothic",
+        "sadar_manzil",
+        "chowk_area",
+        "unique_architecture"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Shaukat Mahal & Sadar Manzil",
+        "description": "Unique architectural anomaly in the heart of Old Bhopal designed by a French Bourbon descendant, blending Gothic spires, Renaissance arches, and post-Renaissance motifs.",
+        "best_time_to_visit": "Daytime for architectural photography"
+      },
+      "hi": {
+        "name": "शौकत महल एवं सदर मंज़िल",
+        "description": "चौक बाज़ार के प्रवेश द्वार पर स्थित अनोखा महल, जिसे फ्रांसीसी वास्तुकार द्वारा इंडो-गॉथिक व यूरोपीय शैली में त्रिकोणीय मेहराबों के साथ बनवाया गया था।",
+        "best_time_to_visit": "दोपहर के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Moti%20Mahal%2C%20Bhopal%20C.I.jpg"
+    },
+    {
+      "id": "moti_masjid_bhopal",
+      "wiki_title": "Moti_Masjid,_Bhopal",
+      "category": "religious",
+      "coordinates": [
+        23.2545,
+        77.403
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2545,77.4030",
+      "image_asset": "transit_assets/tourist_places/bhopal/moti_masjid_bhopal.webp",
+      "tags": [
+        "pearl_mosque",
+        "sikandar_begum",
+        "red_sandstone",
+        "golden_spires"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Moti Masjid (Pearl Mosque), Bhopal",
+        "description": "Elegantly scaled 1860 mosque built by Sikandar Jehan Begum in red sandstone with a glistening white marble facade, featuring twin dark red minarets crowned with gold spires.",
+        "best_time_to_visit": "Morning light"
+      },
+      "hi": {
+        "name": "मोती मस्जिद, भोपाल",
+        "description": "सिकंदर जहाँ बेगम द्वारा 1860 में दिल्ली की जामा मस्जिद की तर्ज पर निर्मित खूबसूरत लाल बलुआ पत्थर की मस्जिद, जिसकी संगमरमरी चमक और सुनहरी कलगी दर्शनीय है।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Bhopal%2C_Moti_Masjid_%289840931024%29.jpg/3840px-Bhopal%2C_Moti_Masjid_%289840931024%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "manuabhan_tekri",
+      "wiki_title": "Bhopal#Places_of_interest",
+      "category": "religious",
+      "coordinates": [
+        23.284,
+        77.362
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2840,77.3620",
+      "image_asset": "transit_assets/tourist_places/bhopal/manuabhan_tekri.webp",
+      "tags": [
+        "mahaveer_giri",
+        "jain_temple",
+        "ropeway",
+        "highest_viewpoint",
+        "panoramic"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Manuabhan Tekri (Mahaveer Giri)",
+        "description": "Perched on a high hillock accessible by ropeway or road, this prominent Jain temple shrine preserves footwear relics of Jain saints and affords the most expansive aerial view of Bhopal.",
+        "best_time_to_visit": "Evening for the ropeway ride and sunset panorama"
+      },
+      "hi": {
+        "name": "मनुआभान टेकरी (महावीर गिरि)",
+        "description": "भोपाल की सबसे ऊंची पहाड़ी पर स्थित प्रसिद्ध जैन तीर्थ स्थल, जहाँ रोप-वे से जाया जा सकता है; यहाँ से संपूर्ण भोपाल शहर और राजा भोज एयरपोर्ट का अद्भुत नजारा दिखता है।",
+        "best_time_to_visit": "शाम के समय (रोप-वे व सूर्यास्त)"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Birla%20Mandir%20Bhopal%20Side%20view.jpg"
+    },
+    {
+      "id": "sair_sapata",
+      "wiki_title": "Bhopal#Tourism",
+      "category": "amusement",
+      "coordinates": [
+        23.218,
+        77.382
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 30,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2180,77.3820",
+      "image_asset": "transit_assets/tourist_places/bhopal/sair_sapata.webp",
+      "tags": [
+        "suspension_bridge",
+        "entertainment_complex",
+        "toy_train",
+        "musical_fountain",
+        "bhadbhada"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Sair Sapata Tourism & Entertainment Complex",
+        "description": "Vibrant leisure tourism complex on the banks of Bhadbhada, featuring an iconic pedestrian suspension bridge, children's toy train, musical fountain, and water zorbing.",
+        "best_time_to_visit": "Evening for illuminated bridge and fountains"
+      },
+      "hi": {
+        "name": "सैर सपाटा मनोरंजन परिसर",
+        "description": "भदभदा रोड पर स्थित भोपाल का प्रमुख पर्यटन व मनोरंजन केंद्र, जहाँ शानदार सस्पेंशन ब्रिज, टॉय ट्रेन, म्यूजिकल फाउंटेन और बोटिंग का आनंद लिया जा सकता है।",
+        "best_time_to_visit": "शाम के समय रोशनी देखने के लिए"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bhopal%20famous%20turismo.jpg"
+    },
+    {
+      "id": "lower_lake_chhota_talab",
+      "wiki_title": "Bhojtal#Lower_Lake",
+      "category": "nature",
+      "coordinates": [
+        23.248,
+        77.408
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "22:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2480,77.4080",
+      "image_asset": "transit_assets/tourist_places/bhopal/lower_lake_chhota_talab.webp",
+      "tags": [
+        "chhota_talab",
+        "twin_lakes",
+        "kamla_park",
+        "pul_pukhta"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Lower Lake (Chhota Talab)",
+        "description": "Constructed in 1794 by Chhote Khan to beautify the city, forming together with Bhojtal the celebrated twin lakes of Bhopal separated by the historic Kamla Park bridge.",
+        "best_time_to_visit": "Evening walk along promenade"
+      },
+      "hi": {
+        "name": "छोटा तालाब (लोअर लेक)",
+        "description": "1794 में निर्मित भोपाल का छोटा तालाब, जो बड़े तालाब के साथ मिलकर 'झीलों की नगरी' की पहचान बनाता है; दोनों को कमला पार्क का ऐतिहासिक सेतु जोड़ता है।",
+        "best_time_to_visit": "शाम के समय सैर के लिए"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "rani_kamlapati_palace",
+      "wiki_title": "Kamlapati_Palace",
+      "category": "heritage",
+      "coordinates": [
+        23.249,
+        77.3995
+      ],
+      "timings": {
+        "open": "08:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2490,77.3995",
+      "image_asset": "transit_assets/tourist_places/bhopal/rani_kamlapati_palace.webp",
+      "tags": [
+        "gond_queen",
+        "kamla_park",
+        "bhojtal_overlook",
+        "heritage_monument"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Rani Kamlapati Palace",
+        "description": "18th-century residence of brave Gond Queen Rani Kamlapati, set on the defensive causeway between the Upper and Lower lakes within scenic Kamla Park.",
+        "best_time_to_visit": "Afternoon to evening"
+      },
+      "hi": {
+        "name": "रानी कमलापति महल",
+        "description": "गोंड साम्राज्य की वीरांगना रानी कमलापति का 18वीं सदी का ऐतिहासिक महल, जो कमला पार्क के भीतर दोनों झीलों के संगम पर स्थित है।",
+        "best_time_to_visit": "दोपहर से शाम के समय"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Kamalapati_Mahal_Bhopal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "kerwa_dam",
+      "wiki_title": "Kerwa_Dam",
+      "category": "nature",
+      "coordinates": [
+        23.16,
+        77.35
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1600,77.3500",
+      "image_asset": "transit_assets/tourist_places/bhopal/kerwa_dam.webp",
+      "tags": [
+        "ecotourism",
+        "zipline",
+        "adventure",
+        "monsoon_picnic",
+        "forest_reservoir"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Kerwa Dam & Ecotourism Area",
+        "description": "Picturesque eco-tourism retreat surrounded by forested hills on Bhopal's outskirts, renowned for South Asia's longest twin-zipline, trekking, and tranquil reservoir views.",
+        "best_time_to_visit": "Monsoon or winter weekends"
+      },
+      "hi": {
+        "name": "केरवा डैम एवं इको-टूरिज्म",
+        "description": "पहाड़ियों और घने जंगलों से घिरा भोपाल का लोकप्रिय पिकनिक स्पॉट, जो रोमांचक ज़िप-लाइन एडवेंचर, ट्रैकिंग और शांत जलाशय के नजारों के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "मानसून और सर्दियों के सप्ताहांत"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Thesanskaarvalleyschool.jpg"
+    },
+    {
+      "id": "kaliasot_dam",
+      "wiki_title": "Bhopal#Geography",
+      "category": "nature",
+      "coordinates": [
+        23.19,
+        77.405
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "19:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1900,77.4050",
+      "image_asset": "transit_assets/tourist_places/bhopal/kaliasot_dam.webp",
+      "tags": [
+        "sluice_gates",
+        "sunset_point",
+        "chunabhatti",
+        "lake_reservoir"
+      ],
+      "recommended_time_min": 75,
+      "en": {
+        "name": "Kaliasot Dam",
+        "description": "Scenic storage reservoir near Chunabhatti popular for sunset watching, birdwatching, and roaring floodgate spectacles during heavy monsoon downpours.",
+        "best_time_to_visit": "Sunset or during monsoon gate openings"
+      },
+      "hi": {
+        "name": "कलियासोत डैम",
+        "description": "चूनाभट्टी के पास स्थित सुरम्य बांध जो शाम के समय युवाओं का पसंदीदा अड्डा है; बारिश के दिनों में इसके गेट खुलने पर विहंगम दृश्य बनता है।",
+        "best_time_to_visit": "शाम 5:00 से 7:00 बजे तक"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "regional_science_centre_bhopal",
+      "wiki_title": "Regional_Science_Centre,_Bhopal",
+      "category": "culture",
+      "coordinates": [
+        23.2355,
+        77.389
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": [
+          "Diwali",
+          "Holi"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 35,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2355,77.3890",
+      "image_asset": "transit_assets/tourist_places/bhopal/regional_science_centre_bhopal.webp",
+      "tags": [
+        "planetarium",
+        "science_park",
+        "3d_shows",
+        "interactive_exhibits",
+        "shyamala_hills"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Regional Science Centre, Bhopal",
+        "description": "Dynamic science museum and interactive educational hub on Shyamala Hills featuring a digital planetarium, 3D science theater, and open-air science park.",
+        "best_time_to_visit": "Morning or early afternoon for planetarium shows"
+      },
+      "hi": {
+        "name": "क्षेत्रीय विज्ञान केंद्र, भोपाल",
+        "description": "श्यामला हिल्स पर स्थित इंटरएक्टिव विज्ञान संग्रहालय जहाँ तारामंडल (प्लेनेटेरियम), 3D साइंस शो और 5 एकड़ का खुला साइंस पार्क बच्चों और युवाओं को आकर्षित करता है।",
+        "best_time_to_visit": "सुबह 11:00 से 2:00 बजे के बीच"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/RSCB_Main.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "islamnagar_fort",
+      "wiki_title": "Islamnagar,_Bhopal",
+      "category": "heritage",
+      "coordinates": [
+        23.36,
+        77.41
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 25,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.3600,77.4100",
+      "image_asset": "transit_assets/tourist_places/bhopal/islamnagar_fort.webp",
+      "tags": [
+        "chaman_mahal",
+        "rani_mahal",
+        "dost_mohammad_khan",
+        "charbagh_garden",
+        "historic_capital"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Islamnagar Fort (Chaman Mahal & Rani Mahal)",
+        "description": "Historic 18th-century citadel established by Dost Mohammad Khan as Bhopal State's first capital, celebrated for the palatial Chaman Mahal and Charbagh gardens.",
+        "best_time_to_visit": "Morning hours"
+      },
+      "hi": {
+        "name": "इस्लामनगर किला (चमन महल व रानी महल)",
+        "description": "नवाब दोस्त मोहम्मद खान द्वारा स्थापित भोपाल रियासत की प्रथम राजधानी, जहाँ चमन महल का चारबाग़ उद्यान, शीश महल और रानी महल का स्थापत्य अत्यंत आकर्षक है।",
+        "best_time_to_visit": "सुबह 10:00 से दोपहर 1:00 बजे तक"
+      },
+      "image_source_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Chaman_mahal.jpg/3840px-Chaman_mahal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "id": "raisen_fort",
+      "wiki_title": "Raisen_Fort",
+      "category": "heritage",
+      "coordinates": [
+        23.3315,
+        77.7845
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.3315,77.7845",
+      "image_asset": "transit_assets/tourist_places/bhopal/raisen_fort.webp",
+      "tags": [
+        "hilltop_fortress",
+        "ancient_rock_fort",
+        "rainwater_harvesting",
+        "panoramic_views"
+      ],
+      "recommended_time_min": 150,
+      "en": {
+        "name": "Raisen Fort",
+        "description": "Monumental 13th-century hilltop fortress boasting nine gateways, massive ramparts, ancient rock-cut reservoirs, temples, and a medieval mosque overlooking the Malwa plains.",
+        "best_time_to_visit": "Early morning for hike and views"
+      },
+      "hi": {
+        "name": "रायसेन का किला",
+        "description": "विशाल पहाड़ी पर बना 800 वर्ष पुराना ऐतिहासिक किला, जो अपनी प्राचीन जल संचयन प्रणाली, 9 प्रवेश द्वारों और मालवा के मैदानों के विहंगम दृश्यों के लिए विख्यात है।",
+        "best_time_to_visit": "सुबह के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/INDICATION%20OF%20RAISEN%20FORT.jpg"
+    },
+    {
+      "id": "db_city_mall_bhopal",
+      "wiki_title": "DB_City_Mall",
+      "category": "shopping",
+      "coordinates": [
+        23.233,
+        77.433
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "22:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2330,77.4330",
+      "image_asset": "transit_assets/tourist_places/bhopal/db_city_mall_bhopal.webp",
+      "tags": [
+        "shopping_mall",
+        "multiplex",
+        "food_court",
+        "mp_nagar",
+        "lifestyle"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "DB City Mall, Bhopal",
+        "description": "Central India's largest premier retail and entertainment destination in MP Nagar, featuring over 180 global brands, multiplex cinema, and expansive dining concourses.",
+        "best_time_to_visit": "Afternoon or evening"
+      },
+      "hi": {
+        "name": "डीबी सिटी मॉल, भोपाल",
+        "description": "एमपी नगर में स्थित मध्य भारत का सबसे बड़ा शॉपिंग मॉल, जहाँ 180 से अधिक राष्ट्रीय-अंतरराष्ट्रीय ब्रांड्स, मल्टीप्लेक्स और विशाल फूड कोर्ट मौजूद हैं।",
+        "best_time_to_visit": "दोपहर या शाम के समय"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/DB_Mall_Bhopal_Front.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "new_market_bhopal",
+      "wiki_title": "Bhopal#Economy",
+      "category": "shopping",
+      "coordinates": [
+        23.234,
+        77.401
+      ],
+      "timings": {
+        "open": "10:30",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2340,77.4010",
+      "image_asset": "transit_assets/tourist_places/bhopal/new_market_bhopal.webp",
+      "tags": [
+        "tt_nagar",
+        "street_shopping",
+        "chanderi_sarees",
+        "bhopali_batua",
+        "bazaar"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "New Market (TT Nagar)",
+        "description": "The commercial heart of modern Bhopal in TT Nagar, renowned for handwoven Chanderi and Maheshwari sarees, Bhopali batua bags, clothing boutiques, and street food.",
+        "best_time_to_visit": "Late afternoon and evening"
+      },
+      "hi": {
+        "name": "न्यू मार्केट (टी.टी. नगर)",
+        "description": "नए भोपाल का सबसे व्यस्त और लोकप्रिय बाज़ार, जो चंदेरी व महेश्वरी साड़ियों, भोपाली बटुए, रेडीमेड कपड़ों और स्ट्रीट फूड के लिए जाना जाता है।",
+        "best_time_to_visit": "शाम के समय खरीदारी के लिए"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "chowk_bazaar_bhopal",
+      "wiki_title": "Bhopal#Economy",
+      "category": "shopping",
+      "coordinates": [
+        23.257,
+        77.402
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2570,77.4020",
+      "image_asset": "transit_assets/tourist_places/bhopal/chowk_bazaar_bhopal.webp",
+      "tags": [
+        "old_bhopal",
+        "ittar",
+        "zari_zardozi",
+        "traditional_crafts",
+        "chatori_gali"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Chowk Bazaar (Old City Bhopal)",
+        "description": "Vibrant heritage market in the walled city steeped in royal Nawabi charm, famed for traditional Ittar (perfumes), intricate Zari-Zardozi embroideries, silverware, and brassware.",
+        "best_time_to_visit": "Evening to soak in the lively old-city buzz"
+      },
+      "hi": {
+        "name": "चौक बाज़ार (पुराना भोपाल)",
+        "description": "पुराने शहर का ऐतिहासिक बाज़ार जहाँ नवाबी दौर की झलक मिलती है; यह असली इत्र, ज़री-ज़रदोज़ी के बटुए, चांदी के गहने और पारंपरिक कलाकृतियों के लिए मशहूर है।",
+        "best_time_to_visit": "शाम के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "chatori_gali_bhopal",
+      "wiki_title": "Bhopali_cuisine",
+      "category": "culture",
+      "coordinates": [
+        23.258,
+        77.4035
+      ],
+      "timings": {
+        "open": "17:00",
+        "close": "23:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2580,77.4035",
+      "image_asset": "transit_assets/tourist_places/bhopal/chatori_gali_bhopal.webp",
+      "tags": [
+        "street_food",
+        "bhopali_kebabs",
+        "sheermal",
+        "kulhad_chai",
+        "food_trail"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Chatori Gali (Food Street of Bhopal)",
+        "description": "Bhopal's most legendary culinary lane located near Chowk, celebrated for melt-in-mouth Bhopali seekh kebabs, haleem, biryani, bun muska, and rich Sulaimani tea.",
+        "best_time_to_visit": "Night (after 8:00 PM) for authentic street food feasts"
+      },
+      "hi": {
+        "name": "चटोरी गली",
+        "description": "भोपाल का सबसे मशहूर स्ट्रीट फूड ठिकाना जहाँ रात में असली भोपाली कबाब, बिरयानी, शीरमाल, रबड़ी-जलेबी और सुलेमानी चाय का ज़ायका चखने दूर-दूर से लोग आते हैं।",
+        "best_time_to_visit": "रात 8:00 बजे के बाद"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "mp_tourism_boat_club",
+      "wiki_title": "Bhojtal",
+      "category": "amusement",
+      "coordinates": [
+        23.243,
+        77.385
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2430,77.3850",
+      "image_asset": "transit_assets/tourist_places/bhopal/mp_tourism_boat_club.webp",
+      "tags": [
+        "cruise_boat",
+        "speed_boating",
+        "upper_lake",
+        "lakefront_cafe"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "MP Tourism Boat Club (Upper Lake)",
+        "description": "The epicenter of water tourism on Bhojtal offering speedboats, paddleboats, sunset cruise liners, and a waterfront promenade lined with open-air cafes.",
+        "best_time_to_visit": "Late afternoon for the sunset cruise"
+      },
+      "hi": {
+        "name": "एमपी टूरिज्म बोट क्लब (बड़ा तालाब)",
+        "description": "बड़ा तालाब का प्रमुख वाटर स्पोर्ट्स केंद्र, जहाँ मोटरबोट, पैडल बोट और शाम की लक्जरी क्रूज़ सफारी के साथ झील किनारे कैफ़े की रौनक देखते ही बनती है।",
+        "best_time_to_visit": "शाम 4:30 से 6:30 बजे (सूर्यास्त क्रूज़)"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "sheetaldas_ki_bagiya",
+      "wiki_title": "Bhojtal",
+      "category": "park",
+      "coordinates": [
+        23.2515,
+        77.394
+      ],
+      "timings": {
+        "open": "05:30",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2515,77.3940",
+      "image_asset": "transit_assets/tourist_places/bhopal/sheetaldas_ki_bagiya.webp",
+      "tags": [
+        "sunset_point",
+        "vip_road",
+        "lake_promenade",
+        "raja_bhoj_statue"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Sheetaldas Ki Bagiya (VIP Road Promenade)",
+        "description": "Picturesque tiered garden promenade along VIP Road right opposite the towering statue of Raja Bhoj in Upper Lake, renowned as Bhopal's top sunset photography spot.",
+        "best_time_to_visit": "Golden hour before dusk"
+      },
+      "hi": {
+        "name": "शीतलदास की बगिया (वीआईपी रोड)",
+        "description": "वीआईपी रोड पर स्थित सुंदर सीढ़ीनुमा बाग़, जिसके सामने बड़े तालाब में राजा भोज की भव्य प्रतिमा सुशोभित है; यह शहर का सबसे प्रसिद्ध सूर्यास्त पॉइंट है।",
+        "best_time_to_visit": "शाम को गोधूलि बेला में"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "raja_bhoj_statue",
+      "wiki_title": "Bhojtal",
+      "category": "heritage",
+      "coordinates": [
+        23.251,
+        77.3925
+      ],
+      "timings": {
+        "open": "00:00",
+        "close": "23:59",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2510,77.3925",
+      "image_asset": "transit_assets/tourist_places/bhopal/raja_bhoj_statue.webp",
+      "tags": [
+        "32_foot_statue",
+        "bronze_monument",
+        "vip_road",
+        "city_icon"
+      ],
+      "recommended_time_min": 30,
+      "en": {
+        "name": "Statue of Raja Bhoj, VIP Road",
+        "description": "Colossal 32-foot bronze statue of legendary scholar-king Raja Bhoj installed on a lake bastion in Upper Lake, standing as the defining monumental emblem of Bhopal.",
+        "best_time_to_visit": "Evening when illuminated against the dark waters"
+      },
+      "hi": {
+        "name": "राजा भोज की प्रतिमा (वीआईपी रोड)",
+        "description": "बड़ा तालाब के बीचों-बीच 32 फीट ऊंची विशाल कांस्य प्रतिमा, जो भोपाल के संस्थापक विद्वान राजा भोज के सम्मान में स्थापित नगर का प्रमुख प्रतीक चिह्न है।",
+        "best_time_to_visit": "शाम के समय रोशनी में"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "shahpura_lake_promenade",
+      "wiki_title": "Bhopal#Geography",
+      "category": "park",
+      "coordinates": [
+        23.197,
+        77.427
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "22:00",
+        "all_day": true,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1970,77.4270",
+      "image_asset": "transit_assets/tourist_places/bhopal/shahpura_lake_promenade.webp",
+      "tags": [
+        "jogging_track",
+        "urban_wetland",
+        "chinar_park_extension",
+        "evening_stroll"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Shahpura Lake Promenade",
+        "description": "Serene urban lake surrounded by manicured walking tracks, lush lawns, open gymnasiums, and sunset seating benches in south-central Bhopal.",
+        "best_time_to_visit": "Morning walk or relaxed evening sunset"
+      },
+      "hi": {
+        "name": "शाहपुरा झील एवं प्रोमेनेड",
+        "description": "दक्षिणी भोपाल में स्थित सुंदर व शांत झील जिसके चारों ओर पक्का जॉगिंग ट्रैक, खुला व्यायामशाला और शाम को सुकून से बैठने के लिए हरित लॉन बने हैं।",
+        "best_time_to_visit": "सुबह टहलने या शाम के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "ekant_park",
+      "wiki_title": "Bhopal#Parks_and_gardens",
+      "category": "park",
+      "coordinates": [
+        23.2185,
+        77.418
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2185,77.4180",
+      "image_asset": "transit_assets/tourist_places/bhopal/ekant_park.webp",
+      "tags": [
+        "urban_forest",
+        "birdwatching",
+        "walking_trails",
+        "nature_park"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Ekant Park",
+        "description": "Densely wooded 25-hectare urban biodiversity forest in Char Imli offering scenic earthen tracks, bamboo groves, and rich avian bird life.",
+        "best_time_to_visit": "Early morning for nature walks and birding"
+      },
+      "hi": {
+        "name": "एकांत पार्क",
+        "description": "चार इमली क्षेत्र में 25 हेक्टेयर में फैला शांत प्राकृतिक वन पार्क, जहाँ बांस के झुरमुट, मिट्टी की पगडंडियाँ और चहचहाते पक्षी मन को शांति प्रदान करते हैं।",
+        "best_time_to_visit": "सुबह 6:00 से 8:30 बजे तक"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "chinar_park",
+      "wiki_title": "Bhopal#Parks_and_gardens",
+      "category": "park",
+      "coordinates": [
+        23.224,
+        77.426
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2240,77.4260",
+      "image_asset": "transit_assets/tourist_places/bhopal/chinar_park.webp",
+      "tags": [
+        "city_park",
+        "sculptures",
+        "landscaped_lawns",
+        "central_bhopal"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Chinar Park",
+        "description": "Centrally located public park adorned with stone sculptures, blooming flower beds, fountains, and illuminated walking paths near MP Nagar.",
+        "best_time_to_visit": "Evening"
+      },
+      "hi": {
+        "name": "चिनार पार्क",
+        "description": "शिवाजी नगर के पास स्थित खूबसूरत सार्वजनिक पार्क, जिसमें पत्थर के आकर्षक शिल्प, सुंदर फव्वारे और हरे-भरे लॉन शाम की सैर के लिए उपयुक्त हैं।",
+        "best_time_to_visit": "शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chinar%20Park%20-%20Major%20Arterial%20Road%20-%20Kolkata%202011-09-09%204932.JPG"
+    },
+    {
+      "id": "gufa_mandir_lalghati",
+      "wiki_title": "Bhopal#Places_of_worship",
+      "category": "religious",
+      "coordinates": [
+        23.28,
+        77.375
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2800,77.3750",
+      "image_asset": "transit_assets/tourist_places/bhopal/gufa_mandir_lalghati.webp",
+      "tags": [
+        "cave_temple",
+        "shiva_temple",
+        "lalghati",
+        "swami_narayandas"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Gufa Mandir (Lalghati Cave Temple)",
+        "description": "Natural rock cave temple sanctuary founded in 1965 by Swami Narayandas Ji, dedicated to Lord Shiva, Goddess Durga, and Lord Hanuman amidst quiet hills.",
+        "best_time_to_visit": "Morning hours"
+      },
+      "hi": {
+        "name": "गुफा मंदिर (लालघाटी)",
+        "description": "लालघाटी पहाड़ी की प्राकृतिक चट्टानी गुफाओं में स्थित पौराणिक शिव धाम, जहाँ गुफा के भीतर शिवलिंग और हनुमान जी के दर्शन अत्यंत शांत वातावरण में होते हैं।",
+        "best_time_to_visit": "सुबह या महाशिवरात्रि के पर्व पर"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "halali_dam",
+      "wiki_title": "Halali_reservoir",
+      "category": "nature",
+      "coordinates": [
+        23.504,
+        77.555
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.5040,77.5550",
+      "image_asset": "transit_assets/tourist_places/bhopal/halali_dam.webp",
+      "tags": [
+        "reservoir",
+        "mp_tourism_resort",
+        "boating",
+        "weekend_getaway"
+      ],
+      "recommended_time_min": 150,
+      "en": {
+        "name": "Halali Dam & Reservoir",
+        "description": "Expansive water reservoir on the Halali River built across a 40-km stretch, featuring an MP Tourism resort, boating facilities, and scenic hill vistas.",
+        "best_time_to_visit": "Monsoon and post-monsoon (August - January)"
+      },
+      "hi": {
+        "name": "हलाली डैम व जलाशय",
+        "description": "हलाली नदी पर बना विशाल जलाशय जहाँ एमपी टूरिज्म का रिसॉर्ट और बोटिंग क्लब स्थित है; यह भोपाल के आसपास लोकप्रिय वीकेंड पिकनिक डेस्टिनेशन है।",
+        "best_time_to_visit": "अगस्त से जनवरी के मध्य"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/002%20Betwa%20river%20tributary%2C%20Udayagiri%20Caves%20hill%2C%20Madhya%20Pradesh.jpg"
+    },
+    {
+      "id": "regional_museum_of_natural_history_bhopal",
+      "wiki_title": "Regional_Museum_of_Natural_History,_Bhopal",
+      "category": "culture",
+      "coordinates": [
+        23.2085,
+        77.432
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2085,77.4320",
+      "image_asset": "transit_assets/tourist_places/bhopal/regional_museum_of_natural_history_bhopal.webp",
+      "tags": [
+        "rmnh",
+        "natural_history",
+        "dinosaurs",
+        "biodiversity",
+        "environment"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Regional Museum of Natural History (RMNH)",
+        "description": "Fascinating natural science museum near Shahpura Lake featuring life-size prehistoric dinosaur models, fossil exhibits, wildlife dioramas, and a sensory garden.",
+        "best_time_to_visit": "Morning or early afternoon"
+      },
+      "hi": {
+        "name": "क्षेत्रीय प्राकृतिक विज्ञान संग्रहालय (RMNH)",
+        "description": "पर्यावरण मंत्रालय का प्राकृतिक इतिहास संग्रहालय, जिसमें विशाल डायनासोर के मॉडल, मध्य भारत की जैव-विविधता और दृष्टिहीनों के लिए स्पर्श-उद्यान मौजूद हैं।",
+        "best_time_to_visit": "सुबह 11:00 से दोपहर 2:00 बजे तक"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Regional_Museum_Of_Natural_History_%2CBhopal_Entrance.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "golghar_museum",
+      "wiki_title": "Bhopal#Museums",
+      "category": "heritage",
+      "coordinates": [
+        23.265,
+        77.396
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 10,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2650,77.3960",
+      "image_asset": "transit_assets/tourist_places/bhopal/golghar_museum.webp",
+      "tags": [
+        "round_house",
+        "nawab_shah_jahan_begum",
+        "historic_office",
+        "ali_manzil"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Golghar Museum (The Round House)",
+        "description": "Unique circular 19th-century royal office built by Nawab Shah Jahan Begum, featuring 12 arched gateways and a high-domed rotunda preserving royal correspondence and artifacts.",
+        "best_time_to_visit": "Daytime"
+      },
+      "hi": {
+        "name": "गोलघर संग्रहालय (राउंड हाउस)",
+        "description": "नवाब शाहजहाँ बेगम द्वारा 19वीं सदी में निर्मित अद्वितीय 12 दरवाजों वाला गोलाकार शाही दफ्तर, जो अब नवाबी दौर के दुर्लभ दस्तावेजों और कलाकृतियों का संग्रहालय है।",
+        "best_time_to_visit": "दोपहर के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Golghar%2C%20Patna%2C%201888.jpg"
+    },
+    {
+      "id": "khatlapura_temple",
+      "wiki_title": "Bhopal#Places_of_worship",
+      "category": "religious",
+      "coordinates": [
+        23.245,
+        77.41
+      ],
+      "timings": {
+        "open": "05:30",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2450,77.4100",
+      "image_asset": "transit_assets/tourist_places/bhopal/khatlapura_temple.webp",
+      "tags": [
+        "ram_temple",
+        "lower_lake_ghats",
+        "khatlapura_ghat",
+        "ancient_shrine"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Khatlapura Temple & Ghat",
+        "description": "Centuries-old riverside temple dedicated to Lord Rama perched on the eastern ghats of Lower Lake, celebrated for its spiritual riverfront steps and aartis.",
+        "best_time_to_visit": "Morning or evening aarti"
+      },
+      "hi": {
+        "name": "खटलापुरा मंदिर एवं घाट",
+        "description": "छोटा तालाब के पूर्वी तट पर स्थित सदियों पुराना ऐतिहासिक श्रीराम मंदिर, जिसके पक्के घाटों पर होने वाली संध्या आरती और शांत जलधारा मन को शांति देती है।",
+        "best_time_to_visit": "सुबह या शाम आरती के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "taj_mahal_palace_bhopal",
+      "wiki_title": "Taj_Mahal_(palace)",
+      "category": "heritage",
+      "coordinates": [
+        23.266,
+        77.3915
+      ],
+      "timings": {
+        "open": "09:00",
+        "close": "17:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2660,77.3915",
+      "image_asset": "transit_assets/tourist_places/bhopal/taj_mahal_palace_bhopal.webp",
+      "tags": [
+        "shah_jahan_begum",
+        "begum_palace",
+        "120_rooms",
+        "sheesh_mahal",
+        "nawabi_heritage"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Taj Mahal Palace, Bhopal",
+        "description": "One of the largest royal palaces ever built in British India, constructed over 13 years by Sultan Shah Jahan Begum, housing 120 rooms, royal courtyards, and Sheesh Mahal.",
+        "best_time_to_visit": "Morning hours"
+      },
+      "hi": {
+        "name": "ताज महल पैलेस, भोपाल",
+        "description": "सुल्तान शाहजहाँ बेगम द्वारा 13 वर्षों में बनवाया गया 120 कमरों वाला विशाल शाही महल, जो अपने शीश महल, सावन-भादों मंडप और नवाबी भव्यता के लिए प्रसिद्ध है।",
+        "best_time_to_visit": "सुबह 10:00 से दोपहर 1:00 बजे तक"
+      },
+      "image_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Taj_Mahal%2C_Bhopal.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "id": "kamla_park",
+      "wiki_title": "Bhopal#Parks_and_gardens",
+      "category": "park",
+      "coordinates": [
+        23.2495,
+        77.399
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "21:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2495,77.3990",
+      "image_asset": "transit_assets/tourist_places/bhopal/kamla_park.webp",
+      "tags": [
+        "bridge_park",
+        "upper_lower_lakes",
+        "kamla_bridge",
+        "greenery"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Kamla Park",
+        "description": "Historic public garden bridge laid out between the Upper and Lower lakes, commanding twin waterfront panoramas and housing Rani Kamlapati's historic palace.",
+        "best_time_to_visit": "Evening breeze stroll"
+      },
+      "hi": {
+        "name": "कमला पार्क",
+        "description": "बड़े और छोटे तालाब के बीच प्राकृतिक पुल पर स्थित हरा-भरा ऐतिहासिक पार्क, जहाँ से दोनों झीलों की ठंडी हवा और खूबसूरत दृश्य एक साथ दिखाई देते हैं।",
+        "best_time_to_visit": "शाम के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mumbai%2003-2016%2029%20Kamla%20Nehru%20Park.jpg"
+    },
+    {
+      "id": "aashima_mall",
+      "wiki_title": "Bhopal#Economy",
+      "category": "shopping",
+      "coordinates": [
+        23.187,
+        77.464
+      ],
+      "timings": {
+        "open": "11:00",
+        "close": "22:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1870,77.4640",
+      "image_asset": "transit_assets/tourist_places/bhopal/aashima_mall.webp",
+      "tags": [
+        "hoshangabad_road",
+        "shopping_mall",
+        "multiplex",
+        "food_court"
+      ],
+      "recommended_time_min": 90,
+      "en": {
+        "name": "Aashima Anupama Mall",
+        "description": "Major shopping and lifestyle hub located on Hoshangabad Road featuring Cinepolis multiplex, high-street brand outlets, and indoor games zone.",
+        "best_time_to_visit": "Evening"
+      },
+      "hi": {
+        "name": "आशिमा मॉल",
+        "description": "होशंगाबाद रोड पर स्थित लोकप्रिय शॉपिंग और मनोरंजन केंद्र, जिसमें सिनेपोलिस मल्टीप्लेक्स, प्रसिद्ध ब्रांडेड शोरूम और गेमिंग ज़ोन स्थित हैं।",
+        "best_time_to_visit": "शाम के समय"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "crescent_water_park_sehore",
+      "wiki_title": "Bhopal#Tourism",
+      "category": "amusement",
+      "coordinates": [
+        23.2,
+        77.15
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 450,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2000,77.1500",
+      "image_asset": "transit_assets/tourist_places/bhopal/crescent_water_park_sehore.webp",
+      "tags": [
+        "water_park",
+        "wave_pool",
+        "amusement_park",
+        "family_fun"
+      ],
+      "recommended_time_min": 180,
+      "en": {
+        "name": "Crescent Water & Amusement Park",
+        "description": "Sprawling water theme park featuring wave pools, looping tube slides, rain dance arenas, and thrill rides on the Bhopal-Indore highway.",
+        "best_time_to_visit": "Summer day outing with family"
+      },
+      "hi": {
+        "name": "क्रेसेंट वाटर व एम्यूजमेंट पार्क",
+        "description": "भोपाल-इंदौर हाईवे पर स्थित लोकप्रिय वाटर पार्क, जहाँ वेव पूल, विशाल वाटर स्लाइड, रेन डांस और एम्यूजमेंट राइड्स का भरपूर आनंद मिलता है।",
+        "best_time_to_visit": "गर्मियों में दोपहर 11:00 से 4:00 बजे तक"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "kali_mandir_talaiya",
+      "wiki_title": "Bhopal#Places_of_worship",
+      "category": "religious",
+      "coordinates": [
+        23.2505,
+        77.406
+      ],
+      "timings": {
+        "open": "05:00",
+        "close": "22:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2505,77.4060",
+      "image_asset": "transit_assets/tourist_places/bhopal/kali_mandir_talaiya.webp",
+      "tags": [
+        "goddess_kali",
+        "ancient_temple",
+        "lower_lake",
+        "navratri_festival"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Maa Kali Mandir, Talaiya",
+        "description": "Historic and deeply venerated temple dedicated to Goddess Kali on the banks of Lower Lake, celebrated for grand Navratri celebrations and divine rituals.",
+        "best_time_to_visit": "Tuesday, Saturday, or during Navratri"
+      },
+      "hi": {
+        "name": "माँ काली मंदिर, तलैया",
+        "description": "छोटा तालाब के किनारे स्थित भोपाल का अत्यंत प्राचीन व सिद्ध काली मंदिर, जहाँ नवरात्रि के अवसर पर भव्य श्रृंगार और महाआरती का आयोजन होता है।",
+        "best_time_to_visit": "मंगलवार, शनिवार या नवरात्रि में"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "samasgarh_temple",
+      "wiki_title": "Bhopal#Tourism",
+      "category": "heritage",
+      "coordinates": [
+        23.13,
+        77.29
+      ],
+      "timings": {
+        "open": "07:00",
+        "close": "18:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1300,77.2900",
+      "image_asset": "transit_assets/tourist_places/bhopal/samasgarh_temple.webp",
+      "tags": [
+        "10th_century_ruins",
+        "forest_temple",
+        "paramara_sculptures",
+        "adventure_trek"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Samasgarh Ancient Temple Ruins",
+        "description": "Hidden 10th-century archaeological temple complex tucked inside a dense teak forest, showcasing hundreds of carved Paramara sculptures of Shiva and Jain Tirthankaras.",
+        "best_time_to_visit": "Morning daylight for nature trekking"
+      },
+      "hi": {
+        "name": "समसगढ़ प्राचीन मंदिर खंडहर",
+        "description": "घने जंगलों के बीच छिपा 10वीं सदी का ऐतिहासिक पुरातात्विक स्थल, जहाँ परमार कालीन दर्जनों नक्काशीदार मूर्तियां और प्राचीन शिव मंदिर के अवशेष बिखरे हैं।",
+        "best_time_to_visit": "सुबह के समय ट्रैकिंग के साथ"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "hathikheda_dam",
+      "wiki_title": "Bhopal#Geography",
+      "category": "nature",
+      "coordinates": [
+        23.238,
+        77.51
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "18:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2380,77.5100",
+      "image_asset": "transit_assets/tourist_places/bhopal/hathikheda_dam.webp",
+      "tags": [
+        "offbeat_dam",
+        "eastern_bhopal",
+        "peaceful_reservoir",
+        "nature_spot"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Hathikheda Dam",
+        "description": "Serene and lesser-known reservoir on the eastern periphery of Bhopal, offering quiet natural surroundings away from city crowds.",
+        "best_time_to_visit": "Morning or late afternoon"
+      },
+      "hi": {
+        "name": "हाथीखेड़ा डैम",
+        "description": "पूर्वी भोपाल में स्थित एक शांत और अप्रदूषित जलाशय, जो प्राकृतिक शांति और दोस्तों के साथ शांतिपूर्ण पिकनिक के लिए उत्तम स्थल है।",
+        "best_time_to_visit": "सुबह या दोपहर बाद"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "yaadgar_e_shahjahani_park",
+      "wiki_title": "Bhopal#Parks_and_gardens",
+      "category": "park",
+      "coordinates": [
+        23.268,
+        77.397
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2680,77.3970",
+      "image_asset": "transit_assets/tourist_places/bhopal/yaadgar_e_shahjahani_park.webp",
+      "tags": [
+        "tajul_masajid_proximity",
+        "nawab_era_park",
+        "boating_lake",
+        "old_city"
+      ],
+      "recommended_time_min": 45,
+      "en": {
+        "name": "Yaadgar-e-Shahjahani Park",
+        "description": "Sprawling historical garden located adjacent to Taj-ul-Masajid, laid out during Nawab Shah Jahan Begum's reign with walking circuits and green lawns.",
+        "best_time_to_visit": "Morning or late afternoon"
+      },
+      "hi": {
+        "name": "यादगार-ए-शाहजहानी पार्क",
+        "description": "ताज-उल-मसाजिद के निकट स्थित नवाब कालीन ऐतिहासिक बाग़, जहाँ हरे-भरे मैदान और फव्वारे पुराने शहर के बीच एक सुकून भरी जगह प्रदान करते हैं।",
+        "best_time_to_visit": "सुबह या ताज-उल-मसाजिद के दर्शन के बाद"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "mayur_park",
+      "wiki_title": "Bhopal#Parks_and_gardens",
+      "category": "park",
+      "coordinates": [
+        23.226,
+        77.41
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "20:30",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2260,77.4100",
+      "image_asset": "transit_assets/tourist_places/bhopal/mayur_park.webp",
+      "tags": [
+        "peacock_park",
+        "shaded_trees",
+        "peaceful",
+        "central_bhopal"
+      ],
+      "recommended_time_min": 40,
+      "en": {
+        "name": "Mayur Park (Peacock Park)",
+        "description": "Charming tree-shaded municipal park known for frequent sightings of dancing wild peacocks, rose beds, and paved stroll paths.",
+        "best_time_to_visit": "Early morning to spot peacocks"
+      },
+      "hi": {
+        "name": "मयूर पार्क",
+        "description": "सुंदर छायादार पेड़ों और गुलाब की क्यारियों से सजा शांत पार्क, जहाँ अक्सर सुबह के समय मोरों का नृत्य और उनकी गूंज सुनाई देती है।",
+        "best_time_to_visit": "सुबह 6:30 से 8:30 बजे तक"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Peacock%2Cmayur.jpg"
+    },
+    {
+      "id": "archaeological_museum_bhopal",
+      "wiki_title": "Bhopal#Museums",
+      "category": "culture",
+      "coordinates": [
+        23.2435,
+        77.405
+      ],
+      "timings": {
+        "open": "10:00",
+        "close": "17:00",
+        "all_day": false,
+        "closed_on": [
+          "Monday"
+        ]
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 20,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2435,77.4050",
+      "image_asset": "transit_assets/tourist_places/bhopal/archaeological_museum_bhopal.webp",
+      "tags": [
+        "sculptures",
+        "buddhist_jain_art",
+        "ancient_relics",
+        "banganga"
+      ],
+      "recommended_time_min": 60,
+      "en": {
+        "name": "Archaeological Museum, Banganga",
+        "description": "Historic museum displaying magnificent ancient stone statues of Hindu deities, Jain Tirthankaras, and Buddhist relics recovered from Madhya Pradesh archaeological sites.",
+        "best_time_to_visit": "Mid-day"
+      },
+      "hi": {
+        "name": "पुरातत्व संग्रहालय, बाणगंगा",
+        "description": "बाणगंगा मार्ग पर स्थित ऐतिहासिक संग्रहालय, जिसमें मध्य प्रदेश के विभिन्न भागों से प्राप्त 8वीं से 12वीं शताब्दी की हिंदू, जैन व बौद्ध पाषाण मूर्तियां संरक्षित हैं।",
+        "best_time_to_visit": "दोपहर के समय"
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/Special:FilePath/00512%20Inscription%20slab%20at%20Kangra%20Fort%20museum%2C%20Himachal%20Pradesh%20002.jpg"
+    },
+    {
+      "id": "kaliyasot_adventure_camp",
+      "wiki_title": "Bhopal#Tourism",
+      "category": "amusement",
+      "coordinates": [
+        23.185,
+        77.395
+      ],
+      "timings": {
+        "open": "07:00",
+        "close": "19:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": false,
+        "amount": 100,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.1850,77.3950",
+      "image_asset": "transit_assets/tourist_places/bhopal/kaliyasot_adventure_camp.webp",
+      "tags": [
+        "rock_climbing",
+        "kayaking",
+        "outdoor_camp",
+        "trekking"
+      ],
+      "recommended_time_min": 120,
+      "en": {
+        "name": "Kaliyasot Adventure & Nature Camp",
+        "description": "Outdoor recreation center nestled in the rugged hillocks around Kaliyasot reservoir, offering rock climbing, rappelling, kayaking, and camping setups.",
+        "best_time_to_visit": "Weekend morning or afternoon"
+      },
+      "hi": {
+        "name": "कलियासोत एडवेंचर कैंप",
+        "description": "कलियासोत जलाशय के किनारे पहाड़ियों में स्थित एडवेंचर केंद्र, जहाँ रॉक क्लाइम्बिंग, रैपलिंग, कयाकिंग और कैंपिंग की रोमांचक सुविधाएं उपलब्ध हैं।",
+        "best_time_to_visit": "सप्ताहांत में सुबह या शाम"
+      },
+      "image_source_url": null
+    },
+    {
+      "id": "vardhaman_park",
+      "wiki_title": "Bhopal#Parks_and_gardens",
+      "category": "park",
+      "coordinates": [
+        23.248,
+        77.393
+      ],
+      "timings": {
+        "open": "06:00",
+        "close": "21:00",
+        "all_day": false,
+        "closed_on": []
+      },
+      "entry_fee": {
+        "is_free": true,
+        "amount": 0,
+        "currency": "INR"
+      },
+      "google_maps_url": "https://maps.google.com/?q=23.2480,77.3930",
+      "image_asset": "transit_assets/tourist_places/bhopal/vardhaman_park.webp",
+      "tags": [
+        "rose_garden",
+        "upper_lake_view",
+        "vip_road_start",
+        "peaceful"
+      ],
+      "recommended_time_min": 40,
+      "en": {
+        "name": "Vardhaman Park",
+        "description": "Lush hillside garden at the starting end of VIP Road, showcasing terraced flower beds, rose gardens, and calming vistas of the Bhojtal waters.",
+        "best_time_to_visit": "Sunset hour"
+      },
+      "hi": {
+        "name": "वर्धमान पार्क",
+        "description": "वीआईपी रोड के मोड़ पर स्थित सुंदर सीढ़ीनुमा पार्क, जहाँ रंग-बिरंगे गुलाबों के पौधे और बड़े तालाब की ठंडी हवा का सुखद अनुभव होता है।",
+        "best_time_to_visit": "शाम के समय"
+      },
+      "image_source_url": null
+    }
+  ]
+}

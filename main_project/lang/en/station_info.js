@@ -198,6 +198,23 @@ export default {
 			"Others": "Other Places"
 		}
 	},
+	search: {
+		placeholder: "Search gates, ATMs, lifts, platforms, feeder buses, nearby places...",
+		ariaLabel: "Filter station amenities and infrastructure",
+		clearBtn: "Clear search",
+		resultsCount: "{count} matching items",
+		noResults: "No amenities, gates, or facilities match \"{query}\"",
+		resetBtn: "Clear Filter",
+		categories: {
+			gates: "🚪 Gates",
+			facilities: "♿ Facilities",
+			transit: "🛗 Lifts & Escalators",
+			platforms: "🚉 Platforms",
+			nearby: "📍 Nearby Places",
+			feederBus: "🚌 Feeder Buses",
+			parking: "🅿️ Parking"
+		}
+	},
 	notFound: {
 		title: "⚠️ Station Not Found",
 		message: "The requested station code/ID \"{stationId}\" was not found in our metro directory."

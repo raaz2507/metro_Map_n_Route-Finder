@@ -17,31 +17,73 @@ export const APP_CONFIG = Object.freeze({
 		SCALE_MULTIPLIER: 2.2,
 
 		/**
-		 * 🌐 3D Map Specific Settings
+		 * 🚇 Canonical Real-World Metric Dimensions (In Actual Meters)
+		 * Shared across 2D, 2.5D, and 3D visualizers for unified geometric ratios:
+		 * Real DMRC standards: Elevated viaduct rail level ~14m, Underground subway depth ~-16m.
+		 */
+		REAL_METERS: {
+			VIADUCT_HEIGHT: 14.0,       // Standard elevated metro viaduct rail level (+14m DMRC standard)
+			UNDERGROUND_DEPTH: -16.0,   // Standard underground tunnel depth (-16m DMRC standard)
+			CUT_AND_COVER_DEPTH: -7.0,  // Shallow cut-and-cover trench (-7m)
+			AT_GRADE_HEIGHT: 0.0,       // Surface / At-grade track datum (0m)
+			TRACK_WIDTH: 2.8,           // Double-track standard gauge corridor width (~2.8m)
+			STATION_LENGTH: 80.0,       // Station canopy length (80 meters)
+			STATION_WIDTH: 18.0,        // Station platform width (18 meters)
+			STATION_RADIUS_NORMAL: 12.0,// Standard station footprint radius in meters
+			STATION_RADIUS_INTER: 18.0, // Interchange junction hub radius in meters
+		},
+
+		/**
+		 * 🌐 3D Map Specific Settings (Real-World Geographic Scale)
 		 */
 		THREE_D: {
 			/**
-			 * 3D World bounding span (station-to-station distance / spread).
-			 * Default value pahle 220.0 thi.
-			 * Isko badhane par stations ke beech ki doori badhegi.
+			 * 📏 1. REAL-WORLD SCALE RATIO (पैमाना / Scale Ratio)
+			 * 1 Three.js 3D Unit = Real-World Me Kitne Meters
+			 * -------------------------------------------------------------
+			 * • 15.0 = (1:15 Ratio) => Stations ke beech sabse zyada doori (~70 units gap)
+			 * • 22.0 = (1:22 Ratio) => (Recommended) Balanced realistic scale (~50 units gap)
+			 * • 35.0 = (1:35 Ratio) => Thoda compact map (~30 units gap)
+			 * • 50.0 = (1:50 Ratio) => Dense city view (~20 units gap)
+			 * 
+			 * 💡 NOTE: Is number ko chhota karne par (e.g. 15 ya 18) stations aapas me DOOR honge.
+			 * Is number ko bada karne par (e.g. 30 ya 40) stations aapas me PAAS aayenge.
 			 */
-			TARGET_SPAN: 1050.0,
+			METERS_PER_UNIT: 22.0,
 
 			/**
-			 * 🚇 Metro Line Ribbon Width (Half-width)
-			 * Track ki chaudaai ~0.9m hai.
-			 * 0.90 rakhne par total ribbon width = 1.8m (~2x track width).
-			 * Ise aap apni zaroorat anusaar kam (e.g. 0.6) ya zyada (e.g. 1.2) kar sakte hain.
+			 * 🏔️ 2. VERTICAL HEIGHT EXAGGERATION (ऊंचाई का विज़ुअल मल्टीप्लायर)
+			 * 80km ke horizontal map me vertical flyovers aur tunnels ko
+			 * aakarshak aur saaf dikhane ke liye height multiplier:
+			 * • 1.0 = Pure 100% True Scale (Flyovers ~14m => 0.63 units)
+			 * • 9.5 = (Recommended) Cinematic Transit Look (Flyovers ~6.0 units high, tunnels ~-6.9 units deep)
 			 */
-			RIBBON_WIDTH: 0.9,
+			VERTICAL_EXAGGERATION: 9.5,
 
 			/**
-			 * 🏛️ Elevated Metro Pillar Width Scale
-			 * piller.glb ki original chaudaai 3.0m hai.
-			 * 0.42 rakhne par pillar width = 1.26m (1.8m bridge deck ke theek neeche sleek fit hota hai).
-			 * Ise aap 0.35 se 0.50 ke beech apni marzi se set kar sakte hain.
+			 * 🚇 3. REAL-WORLD ASSET DIMENSIONS (In Actual Meters)
+			 * Synchronized with canonical MAP.REAL_METERS
 			 */
-			PILLAR_SCALE: 0.42,
+			REAL_METERS: {
+				VIADUCT_HEIGHT: 14.0,       // 2-floor elevated metro rail level (+14m)
+				UNDERGROUND_DEPTH: -16.0,   // Standard underground subway depth (-16m)
+				CUT_AND_COVER_DEPTH: -7.0,  // Cut-and-cover shallow trench (-7m)
+				UNDERGROUND_DEPTH_3D: -1.60, // Half-floor visual depth in 3D scene units (subtle excavation trench)
+				CUT_AND_COVER_DEPTH_3D: -0.90, // Shallow cut-and-cover trench in 3D units
+				AT_GRADE_HEIGHT: 0.0,       // Surface / At-grade track datum (0m)
+				STATION_LENGTH: 80.0,       // Station canopy ki lambai (Meters)
+				STATION_WIDTH: 18.0,        // Station platform ki chaudaai (Meters)
+				TRACK_WIDTH: 2.8,           // Metro track / viaduct ribbon width (Meters)
+			},
+
+			/**
+			 * 🏛️ 4. PILLAR SPACING & SLIM SCALE
+			 * Do pillars ke beech ki 3D doori aur chaudaai:
+			 * • PILLAR_SPACING = 9.0 => 2 stations ke beech ~5-6 khule aur sundar pillars
+			 * • PILLAR_SCALE = 0.28 => Slim 0.84m pillar width (khula haawadaar gap)
+			 */
+			PILLAR_SPACING: 9.0,
+			PILLAR_SCALE: 0.28,
 		},
 
 		/**

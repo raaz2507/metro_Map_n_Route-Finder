@@ -337,18 +337,39 @@ export class ThreeStationBuilder {
       group.add(diag2);
     }
 
-    // 3. Corrugated Pitch Roof
-    const roofP1 = new THREE.Mesh(new THREE.BoxGeometry(spanWidth * 0.54, 0.08, length + 0.4), corrugatedMat);
+    // 3. Glazed Transparent Glass Pitch Roof with Steel Frame
+    const trussGlassMat = new THREE.MeshPhysicalMaterial({
+      color: 0x88ccff,
+      roughness: 0.08,
+      metalness: 0.05,
+      transmission: 0.85,
+      transparent: true,
+      opacity: 0.55,
+      depthWrite: false,
+      side: THREE.DoubleSide
+    });
+
+    const roofP1 = new THREE.Mesh(new THREE.BoxGeometry(spanWidth * 0.54, 0.06, length + 0.4), trussGlassMat);
     roofP1.position.set(-spanWidth * 0.25, platHeight + trussHeight + 0.35, 0);
     roofP1.rotation.z = -0.15;
     roofP1.castShadow = true;
     group.add(roofP1);
 
-    const roofP2 = new THREE.Mesh(new THREE.BoxGeometry(spanWidth * 0.54, 0.08, length + 0.4), corrugatedMat);
+    const roofP2 = new THREE.Mesh(new THREE.BoxGeometry(spanWidth * 0.54, 0.06, length + 0.4), trussGlassMat);
     roofP2.position.set(spanWidth * 0.25, platHeight + trussHeight + 0.35, 0);
     roofP2.rotation.z = 0.15;
     roofP2.castShadow = true;
     group.add(roofP2);
+
+    // Steel Edge Trims around Glass Roof Panels
+    [-spanWidth * 0.51, 0, spanWidth * 0.51].forEach((xEdge, idx) => {
+      const trimGeo = new THREE.BoxGeometry(0.08, 0.10, length + 0.5);
+      const trim = new THREE.Mesh(trimGeo, rustSteelMat);
+      const angle = idx === 0 ? -0.15 : (idx === 2 ? 0.15 : 0);
+      trim.position.set(xEdge, platHeight + trussHeight + (idx === 1 ? 0.55 : 0.2), 0);
+      trim.rotation.z = angle;
+      group.add(trim);
+    });
 
     // 4. Industrial Hanging Caged Lamps
     for (let k = 0; k < 3; k++) {
@@ -436,13 +457,27 @@ export class ThreeStationBuilder {
       group.add(crossBeam);
     }
 
-    // 3. CoC Stylized Pagoda/Terracotta Tile Roof
-    const roofGeo = new THREE.ConeGeometry(5.2, 1.8, 4);
-    roofGeo.rotateY(Math.PI / 4);
-    const roofMesh = new THREE.Mesh(new THREE.BoxGeometry(platXOffset * 2 + 2.0, 0.45, length + 0.8), tileMat);
+    // 3. CoC Stylized Transparent Glass Pagoda Canopy with Timber/Gold Beams
+    const cocGlassMat = new THREE.MeshPhysicalMaterial({
+      color: 0x90caf9,
+      roughness: 0.08,
+      metalness: 0.05,
+      transmission: 0.85,
+      transparent: true,
+      opacity: 0.55,
+      depthWrite: false,
+      side: THREE.DoubleSide
+    });
+
+    const roofMesh = new THREE.Mesh(new THREE.BoxGeometry(platXOffset * 2 + 2.0, 0.08, length + 0.8), cocGlassMat);
     roofMesh.position.set(0, platHeight + roofHeight + 0.35, 0);
     roofMesh.castShadow = true;
     group.add(roofMesh);
+
+    // Timber perimeter fascia frame around glass canopy
+    const timberTrim = new THREE.Mesh(new THREE.BoxGeometry(platXOffset * 2 + 2.15, 0.18, length + 0.95), woodMat);
+    timberTrim.position.set(0, platHeight + roofHeight + 0.35, 0);
+    group.add(timberTrim);
 
     // Ridge crest
     const ridge = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.4, length + 1.0), goldMat);
@@ -518,7 +553,20 @@ export class ThreeStationBuilder {
     const extrudeSettings = { depth: length + 1.2, bevelEnabled: true, bevelThickness: 0.1, bevelSize: 0.1 };
     const wingGeo = new THREE.ExtrudeGeometry(wingShape, extrudeSettings);
     wingGeo.center();
-    const wingMesh = new THREE.Mesh(wingGeo, whiteComposite);
+
+    // Transparent Aerodynamic Glass Wing Canopy
+    const aeroGlassMat = new THREE.MeshPhysicalMaterial({
+      color: 0x80e8ff,
+      roughness: 0.05,
+      metalness: 0.05,
+      transmission: 0.88,
+      transparent: true,
+      opacity: 0.52,
+      depthWrite: false,
+      side: THREE.DoubleSide
+    });
+
+    const wingMesh = new THREE.Mesh(wingGeo, aeroGlassMat);
     wingMesh.position.set(0, platHeight + 3.8, 0);
     wingMesh.castShadow = true;
     group.add(wingMesh);
@@ -599,6 +647,27 @@ export class ThreeStationBuilder {
       ribMesh.castShadow = true;
       group.add(ribMesh);
     }
+
+    // Transparent Glass Barrel Vault Canopy spanning the arches
+    const bunkerGlassMat = new THREE.MeshPhysicalMaterial({
+      color: 0x88ccff,
+      roughness: 0.08,
+      metalness: 0.05,
+      transmission: 0.85,
+      transparent: true,
+      opacity: 0.55,
+      depthWrite: false,
+      side: THREE.DoubleSide
+    });
+
+    const vaultCurve = new THREE.EllipseCurve(0, 0, vaultRadius + 0.06, vaultRadius * 0.78 + 0.06, 0.12 * Math.PI, 0.88 * Math.PI, false);
+    const vaultPts = vaultCurve.getPoints(20);
+    const vaultShape = new THREE.Shape(vaultPts);
+    const vaultGeo = new THREE.ExtrudeGeometry(vaultShape, { depth: length + 0.4, bevelEnabled: false });
+    vaultGeo.center();
+    const bunkerGlass = new THREE.Mesh(vaultGeo, bunkerGlassMat);
+    bunkerGlass.position.set(0, platHeight + vaultRadius * 0.38, 0);
+    group.add(bunkerGlass);
 
     // 3. Overhead Catenary Cable Gantries & Fluorescent Strip Lighting
     const gantryCount = 3;

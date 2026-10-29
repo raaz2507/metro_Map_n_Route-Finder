@@ -69,6 +69,32 @@
 
 		</div>
 
+		<!-- IN-PAGE STATION SPOTLIGHT SEARCH BAR -->
+		<section class="station-spotlight-bar" id="station-spotlight-section" aria-label="Station Search">
+			<div class="spotlight-input-wrapper">
+				<span class="spotlight-search-icon" aria-hidden="true">🔍</span>
+				<input 
+					type="search" 
+					id="station-spotlight-input" 
+					class="spotlight-input" 
+					placeholder="Search gates, ATMs, lifts, platforms, feeder buses, nearby places..." 
+					aria-label="Filter station amenities and infrastructure"
+					autocomplete="off" 
+					spellcheck="false"
+				/>
+				<button type="button" id="spotlight-clear-btn" class="spotlight-clear-btn hidden" aria-label="Clear search">✕</button>
+			</div>
+			
+			<!-- Real-time Jump Filter Chips -->
+			<div id="spotlight-chips-container" class="spotlight-chips-row hidden"></div>
+			
+			<!-- No Results Inline Feedback -->
+			<div id="spotlight-no-results" class="spotlight-empty-state hidden">
+				<p class="empty-msg" id="spotlight-empty-text"></p>
+				<button type="button" id="spotlight-reset-btn" class="btn-spotlight-reset"></button>
+			</div>
+		</section>
+
 		<!-- 1. UNIVERSAL SCHEMA: PLATFORMS & TERMINUS DIRECTIONS CARD -->
 		<section class="feature-card" id="platforms-section">
 			<h3 class="feature-card-header" data-i18n="station_info.platforms.title">🚉 Platforms &amp; Terminus Directions</h3>

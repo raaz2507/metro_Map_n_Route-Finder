@@ -231,11 +231,24 @@
 	}
 
 	.copy-text-opt {
+		justify-content: flex-start;
+	}
+
+	.copy-img-opt {
+		justify-content: flex-start;
+	}
+
+	.download-card-opt {
 		grid-column: span 2;
 		justify-content: center;
 		background: var(--btn-primary-bg);
 		color: var(--btn-primary-text);
 		border: none;
+	}
+
+	.download-card-opt:hover {
+		background: var(--btn-primary-hover);
+		color: var(--btn-primary-text);
 	}
 
 	.copy-text-opt:hover {
@@ -1051,11 +1064,25 @@
 		.station-info {
 		flex: 1;
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: var(--space-xs); /* 👈 स्टेशन नाम और दूरी के बीच सुरक्षित गैप, कभी नहीं चिपकेंगे */
+		flex-direction: column;
 		min-width: 0;
 		margin-top: 2px;
+	}
+
+	.station-row-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--space-xs);
+		width: 100%;
+	}
+
+	.station-name-wrap {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		min-width: 0;
+		flex-wrap: wrap;
 	}
 
 	.segment-header,
@@ -1105,6 +1132,23 @@
 	}
 
 	/* 🚪 शुद्ध टोकन-बेस्ड हॉरिजॉन्टल पिल (कभी 2 लाइनों में नहीं टूटेगा) */
+	.badge-gate-toggle {
+		background: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		outline: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.badge-gate-toggle:hover .badge-gate {
+		filter: brightness(1.12);
+		transform: scale(1.03);
+	}
+
 	.badge-gate {
 		background-color: rgba(var(--color-warning-rgb), var(--op-subtle));
 		color: rgb(var(--color-warning-rgb));
@@ -1119,6 +1163,96 @@
 		white-space: nowrap; /* 👈 🚪 और GATE हमेशा एक सीधी लाइन में रहेंगे */
 		flex-shrink: 0;
 		line-height: 1.4;
+		transition: transform var(--transition-fast), filter var(--transition-fast);
+	}
+
+	.badge-gate .gate-chevron {
+		display: inline-block;
+		font-size: var(--fs-3xs);
+		transition: transform var(--transition-fast);
+		margin-left: 1px;
+	}
+
+	.badge-gate-toggle[aria-expanded="false"] .gate-chevron {
+		transform: rotate(-90deg);
+	}
+
+	/* 🚪 2.5D Expandable Gates Drawer (Expanded by default) */
+	.station-gates-drawer {
+		width: 100%;
+		margin-top: var(--space-xs);
+		overflow: hidden;
+		transition: max-height var(--transition-smooth), opacity var(--transition-smooth), margin-top var(--transition-smooth);
+		max-height: 800px;
+		opacity: 1;
+	}
+
+	.station-gates-drawer.collapsed {
+		max-height: 0;
+		opacity: 0;
+		margin-top: 0;
+		pointer-events: none;
+	}
+
+	.station-gates-box {
+		background: rgba(var(--color-bg-base-rgb), 0.55);
+		border: 1px solid var(--border-color);
+		border-left: 3px solid rgb(var(--color-warning-rgb));
+		border-radius: var(--radius-sm);
+		padding: var(--space-xs) var(--space-sm);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		box-shadow: var(--shadow-xs);
+	}
+
+	.gates-box-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.gates-box-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-2xs);
+		font-weight: var(--fw-bold);
+		color: rgb(var(--color-warning-rgb));
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.gates-pill-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.gate-pill-item {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-xs);
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		line-height: 1.45;
+	}
+
+	.gate-num-badge {
+		background: rgba(var(--color-warning-rgb), 0.15);
+		color: rgb(var(--color-warning-rgb));
+		border: 1px solid rgba(var(--color-warning-rgb), 0.3);
+		font-weight: var(--fw-bold);
+		padding: 1px var(--space-xs);
+		border-radius: var(--radius-xs);
+		font-size: var(--fs-3xs);
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.gate-landmark-text {
+		color: var(--text-secondary);
+		word-break: break-word;
 	}
 
 	/* ⏱️ दूरी और समय भी हमेशा सिंगल लाइन में रहेगा */
@@ -1843,5 +1977,205 @@
 		border: 1px solid color-mix(in srgb, var(--line-c, #3b82f6) 30%, transparent);
 		vertical-align: baseline;
 	}
-}
 
+	
+	/* =========================================================================
+	   SHARE ROUTE DIGITAL PASS STYLES
+	   Strict Token Architecture • Zero !important • Zero Inline CSS
+	   ========================================================================= */
+
+	/* 1. Brand Header Bar */
+	.share-pass-brand-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: var(--space-md);
+		margin-bottom: var(--space-md);
+		border-bottom: var(--bw-thin) solid var(--border-color);
+	}
+
+	.share-pass-brand-identity {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+	}
+
+	.share-pass-brand-logo {
+		width: var(--size-sidebar-btn-w, 56px);
+		height: var(--size-sidebar-btn-h, 56px);
+		min-width: var(--size-sidebar-btn-w, 56px);
+		border-radius: var(--radius-md);
+		object-fit: contain;
+		background: var(--card-bg);
+		padding: var(--space-xs);
+		box-shadow: var(--shadow-sm);
+		border: var(--bw-thin) solid var(--border-color);
+	}
+
+	.share-pass-brand-titles {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2xs);
+	}
+
+	.share-pass-brand-title {
+		font-family: var(--font-title);
+		font-size: var(--fs-xl);
+		font-weight: var(--fw-extrabold);
+		color: var(--text-primary);
+		letter-spacing: 0.02em;
+		line-height: 1.2;
+	}
+
+	.share-pass-brand-subtitle {
+		font-family: var(--font-main);
+		font-size: var(--fs-2xs);
+		color: var(--text-secondary);
+		font-weight: var(--fw-bold);
+		letter-spacing: 0.05em;
+	}
+
+	.share-pass-badge {
+		font-family: var(--font-main);
+		font-size: var(--fs-xs);
+		color: var(--badge-text, var(--text-primary));
+		text-transform: uppercase;
+		font-weight: var(--fw-bold);
+		background: var(--btn-reset-bg);
+		border: var(--bw-thin) solid var(--border-color);
+		padding: var(--space-xs) var(--space-md);
+		border-radius: var(--radius-full);
+		letter-spacing: 0.04em;
+		white-space: nowrap;
+	}
+
+	/* 2. Cloned Journey Title & Metrics spacing */
+	.share-pass-cloned-header {
+		margin: var(--space-xs) 0 var(--space-md) 0;
+		padding: 0;
+	}
+
+	.share-pass-cloned-metrics {
+		margin: 0 0 var(--space-lg) 0;
+	}
+
+	/* 3. Centered Scannable Dynamic QR Footer Bar */
+	.share-pass-footer-bar {
+		margin-top: var(--space-xl);
+		padding-top: var(--space-lg);
+		border-top: var(--bw-thin) solid var(--border-color);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: var(--space-sm);
+		font-family: var(--font-main);
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.share-pass-qr-card {
+		background: var(--card-bg);
+		padding: var(--space-sm) var(--space-sm) var(--space-xs) var(--space-sm);
+		border-radius: var(--radius-md);
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		box-shadow: var(--shadow-sm);
+		border: var(--bw-thin) solid var(--border-color);
+	}
+
+	.share-pass-qr-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: var(--radius-xs);
+		overflow: hidden;
+		width: 135px;
+		height: 135px;
+	}
+
+	.share-pass-qr-wrapper svg {
+		width: 135px;
+		height: 135px;
+		display: block;
+	}
+
+	.share-pass-qr-img {
+		width: 135px;
+		height: 135px;
+		object-fit: contain;
+		display: block;
+	}
+
+	.share-pass-qr-label {
+		font-size: var(--fs-3xs);
+		color: var(--text-primary);
+		font-weight: var(--fw-extrabold);
+		margin-top: var(--space-xs);
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.share-pass-footer-info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-2xs);
+	}
+
+	.share-pass-footer-tagline {
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-bold);
+		color: var(--text-primary);
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+	}
+
+	.share-pass-footer-url {
+		color: var(--text-secondary);
+		font-size: var(--fs-xs);
+		font-weight: var(--fw-semibold);
+		word-break: break-all;
+	}
+
+	.share-pass-footer-desc {
+		color: var(--text-muted);
+		font-size: var(--fs-2xs);
+	}
+
+	/* 4. Animation & Overflow Reset during Screenshot Capture (Zero !important) */
+	.share-pass-capture-active * {
+		animation-duration: 0s;
+		animation-delay: 0s;
+		transition-duration: 0s;
+	}
+
+	.share-pass-capture-active .station-row,
+	.share-pass-capture-active .segment-header,
+	.share-pass-capture-active .interchange-card,
+	.share-pass-capture-active .station-info,
+	.share-pass-capture-active .station-dot-solid {
+		opacity: 1;
+		transform: none;
+		visibility: visible;
+	}
+
+	.share-pass-capture-active .sidebar-wrapper,
+	.share-pass-capture-active .sidebar,
+	.share-pass-capture-active #route-finder,
+	.share-pass-capture-active #journeyDetails,
+	.share-pass-capture-active .route-overview,
+	.share-pass-capture-active .timeline-card,
+	.share-pass-capture-active .route-timeline,
+	.share-pass-capture-active .timeline-segment {
+		overflow: visible;
+		max-height: none;
+		height: auto;
+	}
+
+	.share-pass-capture-active .timeline-segment:last-child .station-row:last-child .station-track-line {
+		display: none;
+	}
+}

@@ -5,6 +5,7 @@ CLASSIC METRO THEME PACK - MASTER GLOBAL TOKENS
 	[data-theme="classic"] {
 		--font-title: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 		--font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		--map-font: 'Montserrat', -apple-system, sans-serif;
 		--theme-bg-image: url('../../themes/bundled/classic/assets/images/background.svg');
 	}
 
@@ -35,6 +36,38 @@ CLASSIC METRO THEME PACK - MASTER GLOBAL TOKENS
 		--shadow-lg: 4px 0 24px rgba(0, 0, 0, 0.04);
 
 		--bg-filter: none;
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #f8fafc;
+		--map-grid-color: rgba(148, 163, 184, 0.22);
+		--map-grid-wash: rgba(241, 245, 249, 0.06);
+		--map-station-fill: #fdfbd4;
+		--map-station-stroke: #0f172a;
+		--map-station-underground-fill: #f0fdf4;
+		--map-station-multimodal: #9333ea;
+		--map-station-shared: #e11d48;
+		--map-station-halo: rgba(255, 255, 255, 0.95);
+		--map-label-color: #0f172a;
+		--map-label-halo: #ffffff;
+		--map-label-hover: #2563eb;
+		--map-interchange-badge: #ffffff;
+		--map-interchange-ring: #0f172a;
+		--map-track-bed: #e2e8f0;
+		--map-track-shadow: rgba(15, 23, 42, 0.12);
+		--map-tunnel-conduit: rgba(30, 41, 59, 0.08);
+		--map-route-glow: rgba(2, 132, 199, 0.45);
+		--map-strata-sub-fill: rgba(99, 102, 241, 0.04);
+		--map-strata-sub-stroke: rgba(99, 102, 241, 0.55);
+		--map-strata-viaduct-fill: rgba(14, 165, 233, 0.03);
+		--map-strata-viaduct-stroke: rgba(14, 165, 233, 0.55);
+
+		/* 3D WebGL Architectural Studio Slate */
+		--map-3d-sky: #f1f5f9;
+		--map-3d-ground: #e2e8f0;
+		--map-3d-hemi-sky: #ffffff;
+		--map-3d-hemi-ground: #cbd5e1;
+		--map-3d-sunlight: #ffffff;
+		--map-3d-ambient: #94a3b8;
 	}
 
 	/* 🌙 CLASSIC DARK (Midnight Transit) */
@@ -63,5 +96,37 @@ CLASSIC METRO THEME PACK - MASTER GLOBAL TOKENS
 		--shadow-lg: 4px 0 24px rgba(0, 0, 0, 0.4);
 
 		--bg-filter: blur(8px) brightness(0.35) contrast(1.1) saturate(0.85);
+
+		/* Map Tokens (2D, 2.5D & 3D) */
+		--map-bg: #0b0f19;
+		--map-grid-color: rgba(51, 65, 85, 0.35);
+		--map-grid-wash: rgba(15, 23, 42, 0.15);
+		--map-station-fill: #1e293b;
+		--map-station-stroke: #f8fafc;
+		--map-station-underground-fill: #064e3b;
+		--map-station-multimodal: #c084fc;
+		--map-station-shared: #f43f5e;
+		--map-station-halo: rgba(11, 15, 25, 0.95);
+		--map-label-color: #f8fafc;
+		--map-label-halo: #0f172a;
+		--map-label-hover: #60a5fa;
+		--map-interchange-badge: #1e293b;
+		--map-interchange-ring: #f8fafc;
+		--map-track-bed: #1e293b;
+		--map-track-shadow: rgba(0, 0, 0, 0.40);
+		--map-tunnel-conduit: rgba(15, 23, 42, 0.30);
+		--map-route-glow: rgba(56, 189, 248, 0.65);
+		--map-strata-sub-fill: rgba(30, 27, 75, 0.28);
+		--map-strata-sub-stroke: rgba(129, 140, 248, 0.60);
+		--map-strata-viaduct-fill: rgba(14, 165, 233, 0.09);
+		--map-strata-viaduct-stroke: rgba(56, 189, 248, 0.65);
+
+		/* 3D WebGL Environment Dark Tokens */
+		--map-3d-sky: #0a0e17;
+		--map-3d-ground: #111827;
+		--map-3d-hemi-sky: #38bdf8;
+		--map-3d-hemi-ground: #1e293b;
+		--map-3d-sunlight: #93c5fd;
+		--map-3d-ambient: #475569;
 	}
 }

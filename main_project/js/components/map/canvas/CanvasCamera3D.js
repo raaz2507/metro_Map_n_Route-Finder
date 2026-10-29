@@ -4,11 +4,14 @@
  * and sunlight / subterranean shadow projections for CanvasRenderer.
  */
 
+import { APP_CONFIG } from "../../../config/app-config.js";
+import { MapGeometry } from "../core/MapGeometry.js";
+
 export class CanvasCamera3D {
 	#pitchDeg = 45;
 	#rotateDeg = 0;
-	#viaductLift = 16;
-	#undergroundDepth = 14;
+	#viaductLift = 7.5;
+	#undergroundDepth = 6.5;
 	#enableZIndex = true;
 	#cameraDist = 650;
 	#sunAngleDeg = 135;
@@ -19,8 +22,8 @@ export class CanvasCamera3D {
 	constructor({
 		pitchDeg = 45,
 		rotateDeg = 0,
-		viaductLift = 16,
-		undergroundDepth = 14,
+		viaductLift = 7.5,
+		undergroundDepth = 6.5,
 		enableZIndex = true,
 		cameraDist = 650,
 		sunAngleDeg = 135
@@ -57,52 +60,32 @@ export class CanvasCamera3D {
 
 	/**
 	 * Computes visual 3D elevation in pixels for a structural layout type
+	 * Synchronized with canonical real-world metric ratios (+14m, -16m, -7m, 0m)
 	 * @param {string} layout
 	 * @param {boolean} [is25D=true]
 	 * @returns {number}
 	 */
 	getLayoutElevation(layout, is25D = true) {
 		if (!is25D || !this.#enableZIndex) return 0;
-		const l = (layout || "").toLowerCase().trim();
-
-		// Subterranean / Underground (-Z: below ground datum)
-		if (l.includes("underground") || l.includes("tunnel") || l.includes("subway")) {
-			return -this.#undergroundDepth;
-		}
-		if (l.includes("cut_and_cover") || l.includes("cut-and-cover") || l.includes("trench")) {
-			return -(this.#undergroundDepth * 0.45);
-		}
-
-		// Surface / At-Grade (Z = 0: exactly on ground datum)
-		if (l.includes("at-grade") || l.includes("at grade") || l.includes("surface") || l.includes("ground") || l.includes("multi_level")) {
-			return 0;
-		}
-
-		// Elevated / Aerial Viaduct (+Z: above ground datum)
-		if (l.includes("elevated") || l.includes("viaduct") || l.includes("aerial") || l.includes("bridge")) {
-			return this.#viaductLift;
-		}
-
-		// Safe fallback: standard metro viaduct lift
-		return this.#viaductLift;
+		const meters = MapGeometry.getRealElevationMeters(layout);
+		const standardViaductH = APP_CONFIG.MAP?.REAL_METERS?.VIADUCT_HEIGHT || 14.0;
+		return (meters / standardViaductH) * this.#viaductLift;
 	}
 
 	/**
-	 * Structural layout classifiers
+	 * Structural layout classifiers (delegated to canonical MapGeometry)
 	 */
 	isUnderground(layout) {
-		const l = (layout || "").toLowerCase().trim();
-		return l.includes("underground") || l.includes("tunnel") || l.includes("subway") || l.includes("cut_and_cover") || l.includes("cut-and-cover") || l.includes("trench");
+		const c = MapGeometry.classifyLayout(layout);
+		return c === "underground" || c === "cut_and_cover";
 	}
 
 	isSurface(layout) {
-		const l = (layout || "").toLowerCase().trim();
-		return l.includes("at-grade") || l.includes("at grade") || l.includes("surface") || l.includes("ground") || l.includes("multi_level");
+		return MapGeometry.classifyLayout(layout) === "surface";
 	}
 
 	isElevated(layout) {
-		const l = (layout || "").toLowerCase().trim();
-		return l.includes("elevated") || l.includes("viaduct") || l.includes("aerial") || l.includes("bridge");
+		return MapGeometry.classifyLayout(layout) === "elevated";
 	}
 
 	/**
@@ -137,9 +120,14 @@ export class CanvasCamera3D {
 		const cosP = Math.cos(pitchRad);
 		const sinP = Math.sin(pitchRad);
 
+		// Scale elevation strictly proportional to zoom so visual viaduct height matches track width at all zoom levels
+		const zoom = viewParams?.zoom || 1.0;
+		const zoomLift = Math.max(0.25, Math.min(3.5, zoom));
+		const scaledElevationZ = elevationZ * zoomLift;
+
 		const x3d = rx;
-		const y3d = ry * cosP - elevationZ * sinP;
-		const z3d = ry * sinP + elevationZ * cosP;
+		const y3d = ry * cosP - scaledElevationZ * sinP;
+		const z3d = ry * sinP + scaledElevationZ * cosP;
 
 		const groundY3d = ry * cosP;
 		const groundZ3d = ry * sinP;
@@ -185,18 +173,16 @@ export class CanvasCamera3D {
 			return pGround;
 		}
 
-		const depth = Math.abs(elevationZ);
+		const zoom = viewParams?.zoom || 1.0;
+		const zoomLift = Math.max(0.25, Math.min(3.5, zoom));
+		const scaledDepth = Math.abs(elevationZ) * zoomLift;
+		const isDark = Boolean(viewParams?.isDark);
 		const baseAngle = isInverse ? (this.#sunAngleDeg + 180) : this.#sunAngleDeg;
 		const angleRad = (baseAngle * Math.PI) / 180;
 
-		// Relative Zoom Scaling: As map zooms out (zoom < 1.0), distance smoothly contracts so shadow never detaches.
-		// As map zooms in (zoom > 1.0), distance scales out proportionally with the enlarged viaduct tracks.
-		const zoom = viewParams?.zoom || 1.0;
-		const zoomScaleFactor = Math.max(0.25, Math.min(3.5, Math.pow(zoom, 0.82)));
-
-		// Base physical projection coefficients (calibrated for delicate, natural depth)
-		const coeff = isInverse ? 0.16 : 0.24;
-		const shift = (depth * coeff) * (pGround.scale || 1) * zoomScaleFactor;
+		// Scaled depth keeps shadow distance strictly in proportion with viaduct height across all zooms
+		const coeff = isInverse ? 0.05 : (isDark ? 0.05 : 0.09);
+		const shift = (scaledDepth * coeff) * (pGround.scale || 1);
 
 		return {
 			sx: pGround.sx + Math.cos(angleRad) * shift,

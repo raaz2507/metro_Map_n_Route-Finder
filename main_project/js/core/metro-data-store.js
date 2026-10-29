@@ -13,6 +13,7 @@ class MetroDataStore {
 	#metroData = null;
 	#localeData = null;
 	#enLocaleData = null; // 🛡️ Persistent English fallback cache
+	#hiLocaleData = null; // 🌐 Persistent Hindi cache for omnilingual search
 	#stationsDetailData = null;
 	#stagingBuffer = null;
 	#currentCity = "delhi_ncr";
@@ -37,19 +38,46 @@ class MetroDataStore {
 	/**
 	 * Loads master transit registry (india_transit_registry.json)
 	 */
-	async loadRegistry() {
-		if (this.#registryData) return this.#registryData;
+	async loadRegistry(forceRefresh = false, lang = null) {
+		if (this.#registryData && !forceRefresh) return this.#registryData;
 
 		try {
 			const activeCountry = localStorage.getItem("active_country") || "india";
-			const response = await fetch(`data/${activeCountry}/${activeCountry}_transit_registry.json`);
-			if (response.ok) {
-				this.#registryData = await response.json();
+			const activeLang = lang || localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
+			const [regRes, locRes] = await Promise.all([
+				fetch(`data/${activeCountry}/${activeCountry}_transit_registry.json`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
+				fetch(`locales/${activeLang}/${activeCountry}/transit_registry_locale.json`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+			]);
+
+			this.#registryData = regRes;
+			const regLoc = locRes?.registry?.cities || {};
+
+			if (this.#registryData.cities) {
+				for (const [cKey, cVal] of Object.entries(this.#registryData.cities)) {
+					const locCity = regLoc[cKey] || {};
+					cVal.name = locCity.name || "";
+					cVal.state = locCity.state || "";
+					if (cVal.networks) {
+						for (const [nKey, nVal] of Object.entries(cVal.networks)) {
+							const locNet = locCity.networks?.[nKey] || {};
+							nVal.name = locNet.name || "";
+							nVal.operator = locNet.operator || "";
+						}
+					}
+				}
 			}
 		} catch (error) {
 			console.warn("[MetroDataStore] Failed to load transit registry:", error);
 		}
 		return this.#registryData;
+	}
+
+	/**
+	 * 🔄 Reloads transit registry with new language
+	 */
+	async reloadRegistry(lang = null) {
+		this.#registryData = null;
+		return await this.loadRegistry(true, lang);
 	}
 
 	/**
@@ -80,7 +108,9 @@ class MetroDataStore {
 
 		try {
 			console.log(`[MetroDataStore] Loading transit graph & staging buffer for: "${resolvedCity}"...`);
-			const [baseResult, bufferResult, localeResult] = await Promise.allSettled([
+			const enLocalePath = this.getCityLocalePath(resolvedCity, "en");
+			const hiLocalePath = this.getCityLocalePath(resolvedCity, "hi");
+			const [baseResult, bufferResult, localeResult, enLocaleResult, hiLocaleResult] = await Promise.allSettled([
 				fetch(dataPath, { signal }).then(res => {
 					if (!res.ok) throw new Error(`HTTP ${res.status}`);
 					return res.json();
@@ -92,7 +122,9 @@ class MetroDataStore {
 				fetch(localePath, { signal }).then(res => {
 					if (!res.ok) throw new Error(`HTTP ${res.status}`);
 					return res.json();
-				})
+				}),
+				fetch(enLocalePath, { signal }).then(res => (res.ok ? res.json() : null)),
+				fetch(hiLocalePath, { signal }).then(res => (res.ok ? res.json() : null))
 			]);
 
 			if (baseResult.status !== "fulfilled") {
@@ -103,6 +135,8 @@ class MetroDataStore {
 			const rawData = baseResult.value;
 			const activeLang = localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
 			let primaryLocale = localeResult.status === "fulfilled" ? localeResult.value : null;
+			this.#enLocaleData = enLocaleResult?.status === "fulfilled" && enLocaleResult.value ? enLocaleResult.value : (activeLang === "en" ? primaryLocale : this.#enLocaleData);
+			this.#hiLocaleData = hiLocaleResult?.status === "fulfilled" && hiLocaleResult.value ? hiLocaleResult.value : (activeLang === "hi" ? primaryLocale : this.#hiLocaleData);
 
 			// Store staging buffer in memory for both graph and station details overlays
 			this.#stagingBuffer = bufferResult.status === "fulfilled" && bufferResult.value ? bufferResult.value : null;
@@ -613,6 +647,23 @@ class MetroDataStore {
 	// =========================================================================
 	// 🌐 LOCALIZED TRANSIT RESOLVERS (Strict Single Source of Truth)
 	// =========================================================================
+	getAllStationNames(stationId) {
+		if (!stationId) return [];
+		const names = new Set();
+		const normId = String(stationId).toLowerCase();
+
+		const activeName = this.#localeData?.stations?.[stationId]?.name || this.#localeData?.stations?.[normId]?.name;
+		if (activeName && activeName.trim()) names.add(activeName.trim());
+
+		const enName = this.#enLocaleData?.stations?.[stationId]?.name || this.#enLocaleData?.stations?.[normId]?.name;
+		if (enName && enName.trim()) names.add(enName.trim());
+
+		const hiName = this.#hiLocaleData?.stations?.[stationId]?.name || this.#hiLocaleData?.stations?.[normId]?.name;
+		if (hiName && hiName.trim()) names.add(hiName.trim());
+
+		return Array.from(names);
+	}
+
 	getStationName(stationId) {
 		if (!stationId) return "";
 		const stations = this.#localeData?.stations;
@@ -634,9 +685,19 @@ class MetroDataStore {
 
 	getStationAliases(stationId) {
 		if (!stationId) return [];
-		const stations = this.#localeData?.stations;
-		if (stations?.[stationId]?.aliases) return stations[stationId].aliases;
-		return stations?.[String(stationId).toLowerCase()]?.aliases || [];
+		const aliases = new Set();
+		const normId = String(stationId).toLowerCase();
+
+		const activeAliases = this.#localeData?.stations?.[stationId]?.aliases || this.#localeData?.stations?.[normId]?.aliases;
+		if (Array.isArray(activeAliases)) activeAliases.forEach(a => { if (a && typeof a === "string") aliases.add(a.trim()); });
+
+		const enAliases = this.#enLocaleData?.stations?.[stationId]?.aliases || this.#enLocaleData?.stations?.[normId]?.aliases;
+		if (Array.isArray(enAliases)) enAliases.forEach(a => { if (a && typeof a === "string") aliases.add(a.trim()); });
+
+		const hiAliases = this.#hiLocaleData?.stations?.[stationId]?.aliases || this.#hiLocaleData?.stations?.[normId]?.aliases;
+		if (Array.isArray(hiAliases)) hiAliases.forEach(a => { if (a && typeof a === "string") aliases.add(a.trim()); });
+
+		return Array.from(aliases);
 	}
 
 	getStationDescription(stationId) {
@@ -658,6 +719,13 @@ class MetroDataStore {
 		const stations = this.#localeData?.stations;
 		const stObj = stations?.[stationId] || stations?.[String(stationId).toLowerCase()];
 		return stObj?.gates?.[gateId] || "";
+	}
+
+	getStationGates(stationId) {
+		if (!stationId) return {};
+		const stations = this.#localeData?.stations;
+		const stObj = stations?.[stationId] || stations?.[String(stationId).toLowerCase()];
+		return stObj?.gates || {};
 	}
 
 	getLineName(lineId) {
@@ -684,15 +752,46 @@ class MetroDataStore {
 	 */
 	getCityDisplayName(cityKey = null, lang = null) {
 		const key = cityKey || this.#currentCity || "delhi_ncr";
-		const activeLang = lang || localStorage.getItem("language") || localStorage.getItem("app-lang") || "en";
+		const activeLang = lang || localStorage.getItem("app-lang") || localStorage.getItem("language") || "en";
 
 		// 1. यदि रजिस्ट्री मेमोरी में है, तो आधिकारिक बहुभाषी नाम लौटाएं
 		const cityObj = this.#registryData?.cities?.[key];
 		if (cityObj?.name) {
-			return cityObj.name[activeLang] || cityObj.name.en || key;
+			if (typeof cityObj.name === "string" && cityObj.name.trim()) return cityObj.name;
+			if (typeof cityObj.name === "object") return cityObj.name[activeLang] || cityObj.name.en || key;
 		}
 
-		// 2. फ़ॉलबैक: की को सुंदर टाइटल केस में लौटाएं (e.g. delhi_ncr -> Delhi NCR)
+		// 2. यदि activeLang === "hi", तो प्रामाणिक देवनागरी नाम (SSOT)
+		if (activeLang === "hi") {
+			const hiCityNames = {
+				delhi_ncr: "दिल्ली एनसीआर",
+				mumbai: "मुंबई",
+				bengaluru: "बेंगलुरु",
+				kolkata: "कोलकाता",
+				hyderabad: "हैदराबाद",
+				chennai: "चेन्नई",
+				ahmedabad_gandhinagar: "अहमदाबाद - गांधीनगर",
+				pune: "पुणे",
+				jaipur: "जयपुर",
+				lucknow: "लखनऊ",
+				kochi: "कोच्चि",
+				nagpur: "नागपुर",
+				kanpur: "कानपुर",
+				agra: "आगरा",
+				bhopal: "भोपाल",
+				indore: "इंदौर",
+				patna: "पटना",
+				surat: "सूरत",
+				meerut: "मेरठ",
+				gorakhpur: "गोरखपुर",
+				jammu: "जम्मू",
+				srinagar: "श्रीनगर",
+				dehradun: "देहरादून"
+			};
+			if (hiCityNames[key]) return hiCityNames[key];
+		}
+
+		// 3. फ़ॉलबैक: की को सुंदर टाइटल केस में लौटाएं (e.g. chennai -> Chennai)
 		return key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
 	}
 

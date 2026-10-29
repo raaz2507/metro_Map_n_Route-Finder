@@ -12,6 +12,7 @@ import about from "./en/about.js";
 import countrySelector from "./en/country_selector.js";
 import smartCardTicket from "./en/smart_card_ticket.js";
 import other from "./en/other.js";
+import tourist from "./en/tourist.js";
 import dishaAi from "./en/disha_ai.js";
 import dishaNlu from "./en/disha_nlu.js";
 import map from "./en/map.js";
@@ -25,7 +26,8 @@ export default {
 		networks,
 		countrySelector,
 		all_stations: allStations,
-		other
+		other,
+		tourist
 	},
 	station_info: stationInfo,
 	metroTicket: metroQrTicket,
